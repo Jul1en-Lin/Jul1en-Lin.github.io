@@ -2,16 +2,16 @@
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="SpringIoC &amp; DI Spring两个核心思想：IoC和AOP\nIoC &amp; DI IoC全名为Inversion of Control，即“控制反转”，何为控制反转呢？\n控制：指的是对象的创建、初始化、销毁和生命周期的管理权\n">
-<title></title>
+<title>SpringIoC &amp; DI</title>
 
-<link rel='canonical' href='https://Jul1en-Lin.github.io/p/'>
+<link rel='canonical' href='https://Jul1en-Lin.github.io/p/springioc-di/'>
 
-<link rel="stylesheet" href="/scss/style.min.b0e76e98cdd4f7082d1fc36f7af7e0843a81201db2197c03ca426751dc923735.css"><meta property='og:title' content="">
+<link rel="stylesheet" href="/scss/style.min.b0e76e98cdd4f7082d1fc36f7af7e0843a81201db2197c03ca426751dc923735.css"><meta property='og:title' content="SpringIoC & DI">
 <meta property='og:description' content="SpringIoC &amp; DI Spring两个核心思想：IoC和AOP\nIoC &amp; DI IoC全名为Inversion of Control，即“控制反转”，何为控制反转呢？\n控制：指的是对象的创建、初始化、销毁和生命周期的管理权\n">
-<meta property='og:url' content='https://Jul1en-Lin.github.io/p/'>
+<meta property='og:url' content='https://Jul1en-Lin.github.io/p/springioc-di/'>
 <meta property='og:site_name' content='Jul1en'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' />
-<meta name="twitter:title" content="">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-12-08T17:12:08&#43;08:00'/><meta property='article:modified_time' content='2025-12-08T17:12:08&#43;08:00'/>
+<meta name="twitter:title" content="SpringIoC & DI">
 <meta name="twitter:description" content="SpringIoC &amp; DI Spring两个核心思想：IoC和AOP\nIoC &amp; DI IoC全名为Inversion of Control，即“控制反转”，何为控制反转呢？\n控制：指的是对象的创建、初始化、销毁和生命周期的管理权\n">
     </head>
     <body class="
@@ -294,7 +294,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/"></a>
+            <a href="/p/springioc-di/">SpringIoC &amp; DI</a>
         </h2>
     
         
@@ -303,6 +303,25 @@
     
     
     
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published" datetime='2025-12-08T17:12:08&#43;08:00'>2025-12-08</time>
+            </div>
+        
+
+        
+    </footer>
     
 
     
@@ -524,50 +543,70 @@
 <p>@Configuration：配置层</p>
 <p>@Component：组件层——除此以外的所有需要交给Spring管理的对象都能用此注解</p>
 <p>我们扒开源码查看，能看出他们之间的关系</p>
-<p><img src="/assets/image-20251127222523-t9dxs73.png"
-	
-	
-	
+<p><img src="/p/springioc-di/assets/image-20251127222523-t9dxs73.png"
+	width="1819"
+	height="1150"
+	srcset="/p/springioc-di/assets/image-20251127222523-t9dxs73_hu_37eefe0984e6cb2e.png 480w, /p/springioc-di/assets/image-20251127222523-t9dxs73_hu_7f8a7cd355156ca8.png 1024w"
 	loading="lazy"
 	
 		alt="image"
 	
 	
-><img src="/assets/image-20251127222617-o50irjn.png"
+		class="gallery-image" 
+		data-flex-grow="158"
+		data-flex-basis="379px"
 	
-	
-	
+><img src="/p/springioc-di/assets/image-20251127222617-o50irjn.png"
+	width="1803"
+	height="1159"
+	srcset="/p/springioc-di/assets/image-20251127222617-o50irjn_hu_730ce61a75d4d207.png 480w, /p/springioc-di/assets/image-20251127222617-o50irjn_hu_9ecbe67e974e7cba.png 1024w"
 	loading="lazy"
 	
 		alt="image"
 	
 	
-><img src="/assets/image-20251127223001-o14ggxa.png"
+		class="gallery-image" 
+		data-flex-grow="155"
+		data-flex-basis="373px"
 	
-	
-	
+><img src="/p/springioc-di/assets/image-20251127223001-o14ggxa.png"
+	width="1758"
+	height="1159"
+	srcset="/p/springioc-di/assets/image-20251127223001-o14ggxa_hu_fd08a83186ccd267.png 480w, /p/springioc-di/assets/image-20251127223001-o14ggxa_hu_60b43b308e1d5a2b.png 1024w"
 	loading="lazy"
 	
 		alt="image"
 	
 	
-><img src="/assets/image-20251127223100-iuut1hi.png"
+		class="gallery-image" 
+		data-flex-grow="151"
+		data-flex-basis="364px"
 	
-	
-	
+><img src="/p/springioc-di/assets/image-20251127223100-iuut1hi.png"
+	width="1096"
+	height="636"
+	srcset="/p/springioc-di/assets/image-20251127223100-iuut1hi_hu_84f50a0b2702a3b5.png 480w, /p/springioc-di/assets/image-20251127223100-iuut1hi_hu_88c33f2115d50d5a.png 1024w"
 	loading="lazy"
 	
 		alt="image"
 	
 	
-><img src="/assets/image-20251127222409-xqlgjpz.png"
+		class="gallery-image" 
+		data-flex-grow="172"
+		data-flex-basis="413px"
 	
-	
-	
+><img src="/p/springioc-di/assets/image-20251127222409-xqlgjpz.png"
+	width="955"
+	height="484"
+	srcset="/p/springioc-di/assets/image-20251127222409-xqlgjpz_hu_f1b8132764931a22.png 480w, /p/springioc-di/assets/image-20251127222409-xqlgjpz_hu_5568e43ac082bc37.png 1024w"
 	loading="lazy"
 	
 		alt="image"
 	
+	
+		class="gallery-image" 
+		data-flex-grow="197"
+		data-flex-basis="473px"
 	
 ></p>
 <p>其中@Controller @Service @Repository @Configuration 都实现了@Component，它们都是@Component的衍生注解</p>
@@ -697,23 +736,31 @@
 </ol>
 <h3 id="属性注入">属性注入
 </h3><p>属性注入是通过<code>@Autowired</code>​实现的。如果有多个属性需要逐行注入。<code>@Autowired</code>只对紧挨着那一行代码生效</p>
-<p><img src="/assets/image-20251202155300-ghe2dy5.png"
-	
-	
-	
+<p><img src="/p/springioc-di/assets/image-20251202155300-ghe2dy5.png"
+	width="1092"
+	height="719"
+	srcset="/p/springioc-di/assets/image-20251202155300-ghe2dy5_hu_29ae91349547bcbf.png 480w, /p/springioc-di/assets/image-20251202155300-ghe2dy5_hu_db0e3df2e34439e0.png 1024w"
 	loading="lazy"
 	
 		alt="image"
 	
 	
-><img src="/assets/image-20251202155412-brlgi99.png"
+		class="gallery-image" 
+		data-flex-grow="151"
+		data-flex-basis="364px"
 	
-	
-	
+><img src="/p/springioc-di/assets/image-20251202155412-brlgi99.png"
+	width="1123"
+	height="897"
+	srcset="/p/springioc-di/assets/image-20251202155412-brlgi99_hu_78561e3de5d7ad6c.png 480w, /p/springioc-di/assets/image-20251202155412-brlgi99_hu_5b87b1161b0ffb6a.png 1024w"
 	loading="lazy"
 	
 		alt="image"
 	
+	
+		class="gallery-image" 
+		data-flex-grow="125"
+		data-flex-basis="300px"
 	
 ></p>
 <h3 id="构造方法注入">构造方法注入
@@ -836,14 +883,18 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">bean</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><p><img src="/assets/image-20251202160844-eupkkgm.png"
-	
-	
-	
+</div><p><img src="/p/springioc-di/assets/image-20251202160844-eupkkgm.png"
+	width="1688"
+	height="493"
+	srcset="/p/springioc-di/assets/image-20251202160844-eupkkgm_hu_e11c89a3856e68ad.png 480w, /p/springioc-di/assets/image-20251202160844-eupkkgm_hu_e9a5f422add3915e.png 1024w"
 	loading="lazy"
 	
 		alt="image"
 	
+	
+		class="gallery-image" 
+		data-flex-grow="342"
+		data-flex-basis="821px"
 	
 ></p>
 <p>由于执行的是无参的构造方法， <code>print()</code>​方法拿不到<code>service</code>​和<code>repository</code>对象，故报错</p>
@@ -911,14 +962,18 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">bean</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><p><img src="/assets/image-20251202161848-yovqgn7.png"
-	
-	
-	
+</div><p><img src="/p/springioc-di/assets/image-20251202161848-yovqgn7.png"
+	width="2351"
+	height="229"
+	srcset="/p/springioc-di/assets/image-20251202161848-yovqgn7_hu_b572bece0d1f478f.png 480w, /p/springioc-di/assets/image-20251202161848-yovqgn7_hu_b8a77d5a5a7156b0.png 1024w"
 	loading="lazy"
 	
 		alt="image"
 	
+	
+		class="gallery-image" 
+		data-flex-grow="1026"
+		data-flex-basis="2463px"
 	
 ></p>
 <p>可以通过@Autowired 注解来指定构造方法，此时1. 和 2. 的情况都能解决，没有无参构造方法也不会报错，这两种情况都能运行</p>
@@ -1063,14 +1118,18 @@
 <p><strong>注入的对象不会被修改，除非有</strong>​<strong>​<code>set</code>​</strong>​<strong>方法再对对象修改，否则初始化后就定好了</strong></p>
 <p><strong>通用性好：构造方法是JDK支持的，所以更换任何框架都是使用的</strong></p>
 <p>**依赖对象在使用前一定被完全初始化，因为依赖是在类的构造方法中执行的，而构造方法是在类加载的阶段就会被执行——**​<u>从控制台也能简单看出来，先执行构造方法后再运行服务器</u></p>
-<p><img src="/assets/image-20251202164020-muiti5x.png"
-	
-	
-	
+<p><img src="/p/springioc-di/assets/image-20251202164020-muiti5x.png"
+	width="1572"
+	height="529"
+	srcset="/p/springioc-di/assets/image-20251202164020-muiti5x_hu_7dee9ae21d9ef7c9.png 480w, /p/springioc-di/assets/image-20251202164020-muiti5x_hu_fb07fc8f0ceb406d.png 1024w"
 	loading="lazy"
 	
 		alt="image"
 	
+	
+		class="gallery-image" 
+		data-flex-grow="297"
+		data-flex-basis="713px"
 	
 ></p>
 </li>
@@ -1147,14 +1206,18 @@
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><p><img src="/assets/image-20251202170930-joqvd2z.png"
-	
-	
-	
+</div><p><img src="/p/springioc-di/assets/image-20251202170930-joqvd2z.png"
+	width="2543"
+	height="360"
+	srcset="/p/springioc-di/assets/image-20251202170930-joqvd2z_hu_a5680c52415ded3e.png 480w, /p/springioc-di/assets/image-20251202170930-joqvd2z_hu_1075aa7c83728ae5.png 1024w"
 	loading="lazy"
 	
 		alt="image"
 	
+	
+		class="gallery-image" 
+		data-flex-grow="706"
+		data-flex-basis="1695px"
 	
 ></p>
 <p>能看到报错原因是，非唯一的<code>Bean</code>对象，Spring无法分辨该把哪个对象注入</p>
@@ -1228,14 +1291,18 @@
 </div></li>
 <li>
 <p>​<code>@Qualifier</code>​：指定当前<code>Bean</code>​的对象，在<code>@Qualifier</code>​的<code>value</code>​属性注入<code>Bean</code>​的名字 <strong>（默认也是value，内部只有一个String value）</strong></p>
-<p><img src="/assets/image-20251202172218-t8n53y4.png"
-	
-	
-	
+<p><img src="/p/springioc-di/assets/image-20251202172218-t8n53y4.png"
+	width="966"
+	height="475"
+	srcset="/p/springioc-di/assets/image-20251202172218-t8n53y4_hu_fd3261384081ba77.png 480w, /p/springioc-di/assets/image-20251202172218-t8n53y4_hu_2d9acc20595f1cec.png 1024w"
 	loading="lazy"
 	
 		alt="image"
 	
+	
+		class="gallery-image" 
+		data-flex-grow="203"
+		data-flex-basis="488px"
 	
 ></p>
 <p><strong>不能单独使用，需要配合</strong>​ <strong>​<code>@Autowired</code>​</strong></p>
@@ -1375,23 +1442,31 @@
 <ul>
 <li>
 <p>​<code>@Autowired</code>​ 是Spring框架提供的注解，<code>@Resource</code> 是JDK提供的注解</p>
-<p><img src="/assets/image-20251202181253-gz0x6d7.png"
-	
-	
-	
+<p><img src="/p/springioc-di/assets/image-20251202181253-gz0x6d7.png"
+	width="1329"
+	height="129"
+	srcset="/p/springioc-di/assets/image-20251202181253-gz0x6d7_hu_604fe451c7f41e26.png 480w, /p/springioc-di/assets/image-20251202181253-gz0x6d7_hu_34af34bcc607246c.png 1024w"
 	loading="lazy"
 	
 		alt="image"
 	
 	
-><img src="/assets/image-20251202181236-6yej414.png"
+		class="gallery-image" 
+		data-flex-grow="1030"
+		data-flex-basis="2472px"
 	
-	
-	
+><img src="/p/springioc-di/assets/image-20251202181236-6yej414.png"
+	width="831"
+	height="140"
+	srcset="/p/springioc-di/assets/image-20251202181236-6yej414_hu_34defd5793efae3c.png 480w, /p/springioc-di/assets/image-20251202181236-6yej414_hu_a94365481c0a85ad.png 1024w"
 	loading="lazy"
 	
 		alt="image"
 	
+	
+		class="gallery-image" 
+		data-flex-grow="593"
+		data-flex-basis="1424px"
 	
 ></p>
 </li>
@@ -1415,14 +1490,18 @@
 </li>
 </ol>
 <h2 id="autowired的装配顺序">@Autowired的装配顺序
-</h2><p><img src="/assets/image-20251202182824-baismlb.png"
-	
-	
-	
+</h2><p><img src="/p/springioc-di/assets/image-20251202182824-baismlb.png"
+	width="1781"
+	height="1515"
+	srcset="/p/springioc-di/assets/image-20251202182824-baismlb_hu_4a738917228bb015.png 480w, /p/springioc-di/assets/image-20251202182824-baismlb_hu_ba4545e9d97b7738.png 1024w"
 	loading="lazy"
 	
 		alt="image"
 	
+	
+		class="gallery-image" 
+		data-flex-grow="117"
+		data-flex-basis="282px"
 	
 ></p>
 <h2 id="springspringmvcspringboot之间的关系与区别"><span id="20251202194306-k6nc3dz" style="display: none;"></span>Spring、SpringMVC、SpringBoot之间的关系与区别
