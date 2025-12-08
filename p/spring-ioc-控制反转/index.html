@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="SpringIoC 介绍 Spring IoC 与 AOP 作为Spring两个核心思想，学好这两大知识是对掌握Spring是非常重要的。\nIoC全名为Inversion of Control，即“控制反转”，何为控制反转呢？\n">
+<title>Spring IoC 控制反转</title>
+
+<link rel='canonical' href='https://Jul1en-Lin.github.io/p/spring-ioc-%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC/'>
+
+<link rel="stylesheet" href="/scss/style.min.b0e76e98cdd4f7082d1fc36f7af7e0843a81201db2197c03ca426751dc923735.css"><meta property='og:title' content="Spring IoC 控制反转">
+<meta property='og:description' content="SpringIoC 介绍 Spring IoC 与 AOP 作为Spring两个核心思想，学好这两大知识是对掌握Spring是非常重要的。\nIoC全名为Inversion of Control，即“控制反转”，何为控制反转呢？\n">
+<meta property='og:url' content='https://Jul1en-Lin.github.io/p/spring-ioc-%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC/'>
+<meta property='og:site_name' content='Jul1en-Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-12-08T17:12:08&#43;08:00'/><meta property='article:modified_time' content='2025-12-08T23:44:31&#43;08:00'/><meta property='og:image' content='https://Jul1en-Lin.github.io/p/spring-ioc-%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC/Gemini_Image_77j.png' />
+<meta name="twitter:title" content="Spring IoC 控制反转">
+<meta name="twitter:description" content="SpringIoC 介绍 Spring IoC 与 AOP 作为Spring两个核心思想，学好这两大知识是对掌握Spring是非常重要的。\nIoC全名为Inversion of Control，即“控制反转”，何为控制反转呢？\n"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://Jul1en-Lin.github.io/p/spring-ioc-%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC/Gemini_Image_77j.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_ae27f36038e2c5f0.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🥯</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Jul1en-Blog</a></h1>
+            <h2 class="site-description">欢迎来到我的博客网站😽</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://blog.csdn.net/TwoCat_C?spm=1000.2115.3001.10640'
+                        target="_blank"
+                        title="CSDN"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1765201201519" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6401" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M200.234667 581.888c-21.205333 24.234667-58.154667 26.88-73.045334 26.88-27.648 0-48.810667-6.997333-62.890666-20.821333-13.354667-13.098667-20.394667-32.426667-20.864-57.429334-1.066667-57.941333 31.744-117.845333 88.490666-117.845333 27.093333 0 47.957333 19.413333 55.936 27.477333a14.378667 14.378667 0 0 0 12.032 4.224 16.213333 16.213333 0 0 0 10.282667-6.784c2.901333-3.712 5.76-10.112 5.888-17.109333s-2.432-14.677333-10.368-20.906667a112.725333 112.725333 0 0 0-71.168-25.216c-34.944 0-69.418667 16.042667-94.634667 44.074667-26.496 29.482667-40.661333 69.546667-39.893333 112.896 0.64 34.773333 12.032 64 32.981333 84.565333 22.528 22.101333 55.466667 33.749333 95.36 33.749334 46.805333 0 75.776-13.866667 91.904-25.472a24.917333 24.917333 0 0 0 10.24-19.456 29.952 29.952 0 0 0-8.874666-21.205334c-9.813333-10.581333-19.114667-4.309333-21.461334-1.578666z m212.053333-91.733333a318.762667 318.762667 0 0 0-29.781333-10.581334c-6.698667-2.048-13.184-3.882667-19.2-5.589333-39.338667-11.093333-43.818667-21.333333-43.392-29.013333 0.938667-15.488 21.973333-36.394667 57.685333-33.792 25.898667 1.92 43.306667 21.717333 51.413333 33.322666 6.357333 9.130667 15.829333 5.76 18.517334 4.053334a25.685333 25.685333 0 0 0 13.184-21.930667 26.709333 26.709333 0 0 0-8.917334-20.821333 113.237333 113.237333 0 0 0-142.805333-11.648c-19.456 13.781333-31.744 32.938667-32.853333 51.285333-2.730667 45.269333 43.306667 58.282667 76.928 67.754667 9.130667 2.602667 18.304 5.418667 28.458666 8.618666 48.64 15.232 50.048 30.592 46.592 54.058667-3.498667 23.722667-29.696 35.584-71.893333 32.469333-43.904-3.242667-62.464-26.026667-68.778667-38.442666-2.133333-4.181333-8.746667-10.581333-17.621333-6.656-21.930667 9.770667-20.181333 31.189333-11.093333 42.368 14.464 17.749333 49.066667 44.16 113.792 44.16 73.984 0 96.213333-37.333333 101.461333-69.973334 3.925333-24.405333-0.938667-43.861333-14.848-59.562666-10.069333-11.392-25.258667-21.12-46.976-30.122667z m289.152-92.373334c-25.514667-18.389333-59.434667-26.026667-100.693333-22.698666-30.378667 2.474667-54.357333 10.368-56.96 11.221333l-0.256 0.085333a18.645333 18.645333 0 0 0-12.672 16.170667l-20.053334 221.909333a14.378667 14.378667 0 0 0 10.538667 14.933334l3.072 0.853333 2.816 0.768 3.669333 0.896a337.664 337.664 0 0 0 69.973334 7.808c41.472 0 75.306667-9.813333 100.693333-29.184 32.597333-24.874667 48.682667-64 47.701333-116.266667-0.896-48.426667-16.981333-84.224-47.829333-106.453333z m-28.245333 190.336c-35.669333 27.264-89.173333 23.978667-114.218667 20.522667a5.461333 5.461333 0 0 1-4.650667-5.845333l16.938667-181.248a4.821333 4.821333 0 0 1 3.669333-4.266667c42.624-10.282667 75.818667-7.168 98.645334 9.301333 8.064 5.845333 14.848 14.122667 20.096 24.234667 7.509333 14.464 11.818667 32.64 12.202666 52.650667 0.725333 39.082667-10.24 67.541333-32.64 84.650666z m349.397333-143.957333a81.92 81.92 0 0 0-18.432-39.210667c-17.024-19.84-43.904-29.397333-78.848-29.397333-31.317333 0-58.538667 9.728-83.072 34.090667 0.298667-3.669333 0.810667-6.784 0.768-9.514667s-0.725333-4.949333-2.816-6.954667c-2.048-1.92-3.285333-2.858667-5.418667-3.285333-2.133333-0.426667-5.205333-0.341333-10.922666-0.256a25.045333 25.045333 0 0 0-25.130667 23.04s-13.866667 165.290667-18.261333 220.373333a13.141333 13.141333 0 0 0 3.114666 9.728 15.36 15.36 0 0 0 11.093334 5.589334h16.512a9.557333 9.557333 0 0 0 9.642666-8.746667l11.648-124.970667 0.597334-6.272a81.152 81.152 0 0 1 3.498666-17.578666c0.597333-1.92 1.28-3.925333 2.005334-5.973334 10.453333-29.610667 34.261333-73.386667 84.096-72.277333 35.84 0.768 61.824 19.413333 59.093333 47.530667-4.309333 44.117333-11.349333 132.266667-15.274667 176.64-0.810667 8.917333 7.765333 11.648 10.752 11.648h12.970667a18.858667 18.858667 0 0 0 18.944-17.237334s7.893333-90.752 12.544-143.018666l2.048-22.698667a83.584 83.584 0 0 0-1.109333-21.333333z" p-id="6402" fill="#707070"></path></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://gitee.com/Cary_C'
+                        target="_blank"
+                        title="Gitee"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1765175787209" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="12364" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M817.0496 445.44H456.5504c-11.1104 0-27.7504 16.64-27.7504 27.7504v72.0896c0 16.64 16.64 27.7504 27.7504 27.7504h227.3792c16.64 0 27.7504 16.64 27.7504 27.6992v22.2208c0 49.92-44.3904 88.7296-88.7296 88.7296H334.4896c-16.64 0-27.6992-16.64-27.6992-27.7504V389.9904c-5.5808-44.3904 38.8096-88.7808 83.2-88.7808h421.5296c11.1104 0 27.7504-16.64 27.7504-27.6992v-66.56c5.5296-11.1104-11.1104-27.7504-22.2208-27.7504H401.0496A222.5152 222.5152 0 0 0 179.2 401.0496v416c0 11.1104 16.64 27.7504 27.7504 27.7504H645.12c110.9504 0 199.68-88.7296 199.68-199.68V473.1904c0-11.1104-16.64-27.7504-27.7504-27.7504z" fill="#8B8B8B" p-id="12365"></path></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/Jul1en-Lin'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#五大注解详解">五大注解详解</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/spring-ioc-%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC/">
+                <img src="/p/spring-ioc-%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC/Gemini_Image_77j_hu_d48cc015a5073e7c.png"
+                        srcset="/p/spring-ioc-%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC/Gemini_Image_77j_hu_d48cc015a5073e7c.png 800w, /p/spring-ioc-%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC/Gemini_Image_77j_hu_dfbdd18b669c738d.png 1600w"
+                        width="800" 
+                        height="248" 
+                        loading="lazy"
+                        alt="Featured image of post Spring IoC 控制反转" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/spring/" >
+                Spring
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/spring-ioc-%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC/">Spring IoC 控制反转</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published" datetime='2025-12-08T17:12:08&#43;08:00'>2025-12-08</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="springioc-介绍">SpringIoC 介绍
+</h1><p>Spring IoC 与 AOP 作为Spring两个核心思想，学好这两大知识是对掌握Spring是非常重要的。</p>
+<p>IoC全名为Inversion of Control，即“控制反转”，何为控制反转呢？</p>
+<ul>
+<li>
+<p>控制：指的是对象的创建、初始化、销毁和生命周期的管理权</p>
+</li>
+<li>
+<p>反转：指这种管理权发生了反转：</p>
+<ul>
+<li>传统模式：一般是由程序员来手动new创建对象、并管理依赖，类似<code>UserController user = new UserController()</code></li>
+<li>IoC模式：对象的创建和依赖的注入权交给Spring来管理。程序不再由程序员主动来创建，而是被动等待Spring容器将所需的对象注入 / 提取出来</li>
+</ul>
+</li>
+</ul>
+<p>SpringIoC作为一个容器，它管理（装）的是对象（Bean），通过注解将对象交给Spring管理，有两类注解：</p>
+<ul>
+<li>类注解：@Controller @Service @Repository @Configuration @Component</li>
+<li>方法注解：@Bean</li>
+</ul>
+<p>Q：为什么需要这种模式？</p>
+<p>A：目的是为了解耦合，将对象的创建权交给Spring，各个组件之间不再强依赖，使得代码更加容易维护、管理与扩展</p>
+<p>这里有简单的代码实力，对比传统模式与IoC模式的区别：假设我们有一个<strong>用户服务 (<strong>​</strong>​<code>UserService</code>​</strong>​ <strong>)</strong> ，它需要调用<strong>数据访问层 (<strong>​</strong>​<code>UserDao</code>​</strong>​ <strong>)</strong>  来把用户信息保存到数据库</p>
+<ol>
+<li>
+<p>传统模式：在这种模式下，<code>UserService</code>​ <strong>自己负责创建</strong>它需要的依赖对象。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserService</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// ❌ 缺点：高度耦合</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// UserService 必须明确知道 UserDao 的具体实现类是哪个 (UserDaoImpl)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 如果将来想换成 UserDaoNewImpl，必须修改这里的代码</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">UserDao</span><span class="w"> </span><span class="n">userDao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UserDaoImpl</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">saveUser</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">userDao</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">name</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><strong>控制权：</strong>  在程序员手中。你必须手动写 <code>new UserDaoImpl()</code>。</li>
+<li><strong>问题：</strong>  代码“写死”了。如果你想做单元测试（Mock 一个假的 UserDao），非常困难。</li>
+</ul>
+</li>
+<li>
+<p>Spring IoC模式（依赖注入）：在这种模式下，<code>UserService</code>​ <strong>只定义它需要什么</strong>，而不关心对象是怎么来的。Spring 容器负责把对象“递”进去。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.stereotype.Service</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Service</span><span class="w"> </span><span class="c1">// 1. 告诉 Spring：这个类交给你管理，它是一个 Bean（对象）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserService</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// ✅ 优点：解耦</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// UserService 只知道它需要一个 UserDao 接口</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 具体是哪个实现类，由 Spring 容器自动注入</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Autowired</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">UserDao</span><span class="w"> </span><span class="n">userDao</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">saveUser</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">userDao</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">name</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p><strong>控制权：</strong>  在 Spring 容器手中（反转了）。</p>
+</li>
+<li>
+<p><strong>发生了什么：</strong></p>
+<ol>
+<li>Spring 扫描到 <code>@Service</code>​，创建并管理了 <code>UserService</code> 的实例。</li>
+<li>Spring 看到 <code>@Autowired</code>​，发现 <code>UserService</code>​ 需要一个 <code>UserDao</code>。</li>
+<li>Spring 在自己的容器里找到合适的 <code>UserDao</code>​ 实例，直接<strong>注入</strong>（赋值）给 <code>userDao</code> 变量。</li>
+</ol>
+</li>
+<li>
+<p>前提是<code>UserDao</code>​也需要被Spring管理，数据层一般添加<code>@Repository</code>注解管理</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.stereotype.Repository</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 1. 定义接口</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">UserDao</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 2. 实现接口，并加上 @Repository 注解</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Repository</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserDaoImpl</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">UserDao</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 模拟数据库操作</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;保存用户到数据库: &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>看到这会疑惑为什么要专门写一个<code>UserDao</code>​接口，然后专门交给<code>UserDaoImpl</code>来实现？</p>
+</li>
+<li>
+<p><strong>简短的回答是：</strong></p>
+<p>从技术上讲，完全<strong>可以不写接口</strong>，直接定义一个 <code>UserDao</code>​ 类并加上 <code>@Repository</code>，Spring 照样能工作</p>
+<p>但是使用<strong>接口+实现类</strong>的模式主要有以下优点：</p>
+<ol>
+<li>
+<p>这是面向对象设计（SOLID 原则）中的 D (Dependency Inversion Principle)思想——上层模块（Service）不应该依赖于下层模块（DAO）的具体实现，而应该依赖于<strong>抽象</strong>（接口）。</p>
+<p>​<code>UserService</code>​只需要知道有<code>UserDao</code>​接口，只需要调用<code>UserDao</code>接口内的方法就好了，但具体怎么实现的则不需要知道（是用 MySQL 写的，还是用 Oracle 写的，或者是把数据写到了 Redis 里）</p>
+<p><strong>举例：</strong>  如果有一天你需要把数据库从 MySQL 换成 MongoDB，你只需要新写一个 <code>UserDaoMongoImpl</code>​ 实现接口，而不需要修改 <code>UserService</code> 的任何一行代码。</p>
+</li>
+<li>
+<p>Spring AOP的原因</p>
+<p>AOP的底层原理是动态管理</p>
+<ul>
+<li>
+<p>JDK动态代理（标准）</p>
+<p>只能代理接口，如果Bean对象实现了接口，Spring会默认使用JDK动态代理，效率高，原生支持好</p>
+</li>
+<li>
+<p>CGLIB代理（第三方）</p>
+<p>如果Bean对象没有实现接口，只是代理了一个普通的类，Spring就必须使用第三方CGLIB库，继承你的类并重写方法来生成代理</p>
+</li>
+</ul>
+<p>虽然现在SpringBoot能很好的解决这一类问题，但使用接口配合JDK动态管理已经成为了一种惯例</p>
+</li>
+<li>
+<p>💫ORM框架的特殊需求（如MyBatis、JPA）</p>
+<p>如果使用的是MyBatis或Spring Data JPA，那就只需要写接口，连实现类都不用写</p>
+<ul>
+<li>MyBatis：你定义<code>UserMapper</code>接口，MyBatis会自动生成代理对象执行SQL</li>
+<li>JPA：你定义<code>UserRepository</code>​接口，继承<code>JpaRepository</code>，Spring Data自动帮你生成增删改查的实现</li>
+</ul>
+<p>在这种情况下，实现接口是必须的，因为实现类是由框架在运行时动态生成的，你也无法去写一个具体的类</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="五大注解详解">五大注解详解
+</h2><ul>
+<li>类注解：@Controller @Service @Repository @Configuration @Component</li>
+<li>方法注解：@Bean</li>
+</ul>
+<p>着重讲一下类注解，能发现这有五种不同的类注解，但都能交给Spring管理，那他们的区别是什么呢？</p>
+<p>不同的类注解从名字上就能看出主要应用在哪个层，最基本的项目开发都会有  <strong>“控制层—&gt;服务逻辑层—&gt;数据层”</strong>  的结构，如果更加复杂的项目开发分开的更加细致，所以不同的注解名字也能第一眼就能看出这个对象主要在哪个层在工作</p>
+<p><strong>基本关系为：</strong> 控制层调用服务层，服务层调用数据层，数据层返回结果给服务层，服务层再返回结果给控制层。</p>
+<p>@Controller：控制层——接受参数，返回响应（前后端交互的入口）</p>
+<p>@Service：业务逻辑层</p>
+<p>@Repository：数据层</p>
+<p>@Configuration：配置层</p>
+<p>@Component：组件层——除此以外的所有需要交给Spring管理的对象都能用此注解</p>
+<p>我们扒开源码查看，能看出他们之间的关系</p>
+<p><img src="/p/spring-ioc-%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC/assets/image-20251127222523-t9dxs73.png"
+	width="1819"
+	height="1150"
+	srcset="/p/spring-ioc-%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC/assets/image-20251127222523-t9dxs73_hu_37eefe0984e6cb2e.png 480w, /p/spring-ioc-%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC/assets/image-20251127222523-t9dxs73_hu_7f8a7cd355156ca8.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="158"
+		data-flex-basis="379px"
+	
+><img src="/p/spring-ioc-%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC/assets/image-20251127222617-o50irjn.png"
+	width="1803"
+	height="1159"
+	srcset="/p/spring-ioc-%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC/assets/image-20251127222617-o50irjn_hu_730ce61a75d4d207.png 480w, /p/spring-ioc-%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC/assets/image-20251127222617-o50irjn_hu_9ecbe67e974e7cba.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="155"
+		data-flex-basis="373px"
+	
+><img src="/p/spring-ioc-%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC/assets/image-20251127223001-o14ggxa.png"
+	width="1758"
+	height="1159"
+	srcset="/p/spring-ioc-%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC/assets/image-20251127223001-o14ggxa_hu_fd08a83186ccd267.png 480w, /p/spring-ioc-%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC/assets/image-20251127223001-o14ggxa_hu_60b43b308e1d5a2b.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="151"
+		data-flex-basis="364px"
+	
+><img src="/p/spring-ioc-%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC/assets/image-20251127223100-iuut1hi.png"
+	width="1096"
+	height="636"
+	srcset="/p/spring-ioc-%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC/assets/image-20251127223100-iuut1hi_hu_84f50a0b2702a3b5.png 480w, /p/spring-ioc-%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC/assets/image-20251127223100-iuut1hi_hu_88c33f2115d50d5a.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="172"
+		data-flex-basis="413px"
+	
+><img src="/p/spring-ioc-%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC/assets/image-20251127222409-xqlgjpz.png"
+	width="955"
+	height="484"
+	srcset="/p/spring-ioc-%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC/assets/image-20251127222409-xqlgjpz_hu_f1b8132764931a22.png 480w, /p/spring-ioc-%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC/assets/image-20251127222409-xqlgjpz_hu_5568e43ac082bc37.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="197"
+		data-flex-basis="473px"
+	
+></p>
+<p>其中@Controller @Service @Repository @Configuration 都实现了@Component，它们都是@Component的衍生注解</p>
+<p>在实际应用中，这五个注解的边界并没有这么清晰，但控制层必须使用@Controller，不可以和其他注解替换</p>
+<h1 id="beanname">BeanName
+</h1><p>在Spring容器中取出对象时会使用对应的BeanName，类注解与方法注解都有不同的BeanName命名方法</p>
+<ol>
+<li>
+<p>五大类注解</p>
+<p>BeanName默认为类名的小驼峰写法，如果类名前两位字母均为大写则BeanName为类名本身，举例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Controller</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserController</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;do controller&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 获取 bean 的命名方式
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 首字母需变小写
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 如果连续两个大写字母开头则直接写
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">ApplicationContext</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SpringApplication</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="n">SpringIocApplication</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">UserController</span><span class="w"> </span><span class="n">bean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">UserController</span><span class="p">)</span><span class="w"> </span><span class="n">run</span><span class="p">.</span><span class="na">getBean</span><span class="p">(</span><span class="s">&#34;userController&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">bean</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ol>
+<li>
+<p>方法注解@Bean</p>
+<p>需要搭配五大注解使用，BeanName为默认方法名，举例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Component</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">StudentComponent</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Bean</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Student</span><span class="w"> </span><span class="nf">s1</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Student</span><span class="p">(</span><span class="s">&#34;lili&#34;</span><span class="p">,</span><span class="n">9</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Bean</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Student</span><span class="w"> </span><span class="nf">s2</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Student</span><span class="p">(</span><span class="s">&#34;Jack&#34;</span><span class="p">,</span><span class="n">25</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 同时在注解中也提供了对类 / 方法进行重命名
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 包括 @Controller @Service @Configuration @Repository @Component @Bean
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 注解后对应的类名 / 方法名则无效
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 只能填重命名后的
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @Bean(&#34;aaa&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="cm">     *     public Student s2 () {
+</span></span></span><span class="line"><span class="cl"><span class="cm">     *         return new Student(&#34;Jack&#34;,25);
+</span></span></span><span class="line"><span class="cl"><span class="cm">     *     }
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 如果是run.getBean(&#34;s2&#34;) 报错：NoSuchBeanDefinitionException
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Student</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Student</span><span class="p">)</span><span class="n">run</span><span class="p">.</span><span class="na">getBean</span><span class="p">(</span><span class="s">&#34;s2&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+</li>
+</ol>
+<p>‍</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            最后更新于 Dec 08, 2025 23:44 &#43;0800
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/springdi-%E8%AF%A6%E8%A7%A3/">
+        
+        
+            <div class="article-image">
+                <img src="/p/springdi-%E8%AF%A6%E8%A7%A3/pawel-splash.c514d916917173a48a42e0114b469961_hu_12cb662251854034.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post SpringDI 详解"
+                        
+                        data-hash="md5-xRTZFpFxc6SKQuARS0aZYQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">SpringDI 详解</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2025 Example Person
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.32.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.c922af694cc257bf1ecc41c0dd7b0430f9114ec280ccf67cd2c6ad55f5316c4e.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<style>
+  @font-face {
+    font-family: '千菅书体';
+    src: url(https://Jul1en-Lin.github.io/font/Chisuga_Shotai0.2.7.ttf) format('truetype');
+  }
+
+  :root {
+    --base-font-family: '千菅书体';
+    --code-font-family: '千菅书体';
+  }
+</style>
+
+    </body>
+</html>
