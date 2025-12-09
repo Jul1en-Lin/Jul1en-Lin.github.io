@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="SpringDI详解 上一章节对DI进行了初步的介绍，接下来就对DI有一个更加深刻的认识\n与IoC匹配的就是DI，DI全名为Dependency Injection，即依赖注入，既然有IoC管理，那就会有DI从Spring容器中取出来，DI就是承担这样的角色——DI 是 IoC 的一种具体实现方式，也能理解为：容器通过注入依赖来实现控制反转，依赖注入是一个过程\n">
-<title>SpringDI 详解</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="SpringIoC &amp; DI Spring两个核心思想：IoC和AOP\nIoC &amp; DI IoC全名为Inversion of Control，即“控制反转”，何为控制反转呢？\n控制：指的是对象的创建、初始化、销毁和生命周期的管理权\n">
+<title>SpringIoC &amp; DI</title>
 
-<link rel='canonical' href='https://Jul1en-Lin.github.io/p/springdi-%E8%AF%A6%E8%A7%A3/'>
+<link rel='canonical' href='https://Jul1en-Lin.github.io/p/springioc-di/'>
 
-<link rel="stylesheet" href="/scss/style.min.b0e76e98cdd4f7082d1fc36f7af7e0843a81201db2197c03ca426751dc923735.css"><meta property='og:title' content="SpringDI 详解">
-<meta property='og:description' content="SpringDI详解 上一章节对DI进行了初步的介绍，接下来就对DI有一个更加深刻的认识\n与IoC匹配的就是DI，DI全名为Dependency Injection，即依赖注入，既然有IoC管理，那就会有DI从Spring容器中取出来，DI就是承担这样的角色——DI 是 IoC 的一种具体实现方式，也能理解为：容器通过注入依赖来实现控制反转，依赖注入是一个过程\n">
-<meta property='og:url' content='https://Jul1en-Lin.github.io/p/springdi-%E8%AF%A6%E8%A7%A3/'>
+<link rel="stylesheet" href="/scss/style.min.b0e76e98cdd4f7082d1fc36f7af7e0843a81201db2197c03ca426751dc923735.css"><meta property='og:title' content="SpringIoC & DI">
+<meta property='og:description' content="SpringIoC &amp; DI Spring两个核心思想：IoC和AOP\nIoC &amp; DI IoC全名为Inversion of Control，即“控制反转”，何为控制反转呢？\n控制：指的是对象的创建、初始化、销毁和生命周期的管理权\n">
+<meta property='og:url' content='https://Jul1en-Lin.github.io/p/springioc-di/'>
 <meta property='og:site_name' content='Jul1en-Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-12-08T17:12:08&#43;07:00'/><meta property='article:modified_time' content='2025-12-09T00:09:22&#43;08:00'/><meta property='og:image' content='https://Jul1en-Lin.github.io/p/springdi-%E8%AF%A6%E8%A7%A3/pawel-splash.jpg' />
-<meta name="twitter:title" content="SpringDI 详解">
-<meta name="twitter:description" content="SpringDI详解 上一章节对DI进行了初步的介绍，接下来就对DI有一个更加深刻的认识\n与IoC匹配的就是DI，DI全名为Dependency Injection，即依赖注入，既然有IoC管理，那就会有DI从Spring容器中取出来，DI就是承担这样的角色——DI 是 IoC 的一种具体实现方式，也能理解为：容器通过注入依赖来实现控制反转，依赖注入是一个过程\n"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://Jul1en-Lin.github.io/p/springdi-%E8%AF%A6%E8%A7%A3/pawel-splash.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-12-08T17:12:08&#43;08:00'/><meta property='article:modified_time' content='2025-12-08T17:12:08&#43;08:00'/>
+<meta name="twitter:title" content="SpringIoC & DI">
+<meta name="twitter:description" content="SpringIoC &amp; DI Spring两个核心思想：IoC和AOP\nIoC &amp; DI IoC全名为Inversion of Control，即“控制反转”，何为控制反转呢？\n控制：指的是对象的创建、初始化、销毁和生命周期的管理权\n">
     </head>
     <body class="
     article-page
@@ -274,6 +273,10 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
+    <li><a href="#五大注解详解">五大注解详解</a></li>
+  </ol>
+
+  <ol>
     <li><a href="#di分三种方式注入">DI分三种方式注入</a>
       <ol>
         <li><a href="#属性注入">属性注入</a></li>
@@ -297,35 +300,15 @@
 
 
             <main class="main full-width">
-    <article class="has-image main-article">
+    <article class="main-article">
     <header class="article-header">
-        <div class="article-image">
-            <a href="/p/springdi-%E8%AF%A6%E8%A7%A3/">
-                <img src="/p/springdi-%E8%AF%A6%E8%A7%A3/pawel-splash_hu_c86b681f3fee94ff.jpg"
-                        srcset="/p/springdi-%E8%AF%A6%E8%A7%A3/pawel-splash_hu_c86b681f3fee94ff.jpg 800w, /p/springdi-%E8%AF%A6%E8%A7%A3/pawel-splash_hu_bea442a1395058f4.jpg 1600w"
-                        width="800" 
-                        height="534" 
-                        loading="lazy"
-                        alt="Featured image of post SpringDI 详解" />
-                
-            </a>
-        </div>
-    
 
     <div class="article-details">
-    
-    <header class="article-category">
-        
-            <a href="/categories/spring/" >
-                Spring
-            </a>
-        
-    </header>
     
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/springdi-%E8%AF%A6%E8%A7%A3/">SpringDI 详解</a>
+            <a href="/p/springioc-di/">SpringIoC &amp; DI</a>
         </h2>
     
         
@@ -347,7 +330,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published" datetime='2025-12-08T17:12:08&#43;07:00'>2025-12-08</time>
+                <time class="article-time--published" datetime='2025-12-08T17:12:08&#43;08:00'>2025-12-08</time>
             </div>
         
 
@@ -363,21 +346,247 @@
     <section class="article-content">
     
     
-    <h1 id="springdi详解">SpringDI详解
-</h1><p>上一章节对DI进行了初步的介绍，接下来就对DI有一个更加深刻的认识</p>
-<p>与IoC匹配的就是DI，DI全名为Dependency Injection，即依赖注入，既然有IoC管理，那就会有DI从Spring容器中取出来，DI就是承担这样的角色——DI 是 IoC 的一种具体<strong>实现方式</strong>，也能理解为：<strong><u>容器通过注入依赖来实现控制反转，依赖注入是一个过程</u></strong></p>
-<h2 id="di分三种方式注入">DI分三种方式注入
-</h2><ol>
-<li>属性注入</li>
-<li>构造方法注入</li>
-<li>Setter注入</li>
+    <h1 id="springioc--di">SpringIoC &amp; DI
+</h1><p>Spring两个核心思想：IoC和AOP</p>
+<h1 id="ioc--di">IoC &amp; DI
+</h1><p>IoC全名为Inversion of Control，即“控制反转”，何为控制反转呢？</p>
+<ul>
+<li>
+<p>控制：指的是对象的创建、初始化、销毁和生命周期的管理权</p>
+</li>
+<li>
+<p>反转：指这种管理权发生了反转：</p>
+<ul>
+<li>传统模式：一般是由程序员来手动new创建对象、并管理依赖，类似<code>UserController user = new UserController()</code></li>
+<li>IoC模式：对象的创建和依赖的注入权交给Spring来管理。程序不再由程序员主动来创建，而是被动等待Spring容器将所需的对象注入 / 提取出来</li>
+</ul>
+</li>
+</ul>
+<p>SpringIoC作为一个容器，它管理（装）的是对象（Bean），通过注解将对象交给Spring管理，有两类注解：</p>
+<ul>
+<li>类注解：@Controller @Service @Repository @Configuration @Component</li>
+<li>方法注解：@Bean</li>
+</ul>
+<p>Q：为什么需要这种模式？</p>
+<p>A：目的是为了解耦合，将对象的创建权交给Spring，各个组件之间不再强依赖，使得代码更加容易维护、管理与扩展</p>
+<p>这里有简单的代码实力，对比传统模式与IoC模式的区别：假设我们有一个<strong>用户服务 (<strong>​</strong>​<code>UserService</code>​</strong>​ <strong>)</strong> ，它需要调用<strong>数据访问层 (<strong>​</strong>​<code>UserDao</code>​</strong>​ <strong>)</strong>  来把用户信息保存到数据库</p>
+<ol>
+<li>
+<p>传统模式：在这种模式下，<code>UserService</code>​ <strong>自己负责创建</strong>它需要的依赖对象。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserService</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// ❌ 缺点：高度耦合</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// UserService 必须明确知道 UserDao 的具体实现类是哪个 (UserDaoImpl)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 如果将来想换成 UserDaoNewImpl，必须修改这里的代码</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">UserDao</span><span class="w"> </span><span class="n">userDao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UserDaoImpl</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">saveUser</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">userDao</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">name</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><strong>控制权：</strong>  在程序员手中。你必须手动写 <code>new UserDaoImpl()</code>。</li>
+<li><strong>问题：</strong>  代码“写死”了。如果你想做单元测试（Mock 一个假的 UserDao），非常困难。</li>
+</ul>
+</li>
+<li>
+<p>Spring IoC模式（依赖注入）：在这种模式下，<code>UserService</code>​ <strong>只定义它需要什么</strong>，而不关心对象是怎么来的。Spring 容器负责把对象“递”进去。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.stereotype.Service</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Service</span><span class="w"> </span><span class="c1">// 1. 告诉 Spring：这个类交给你管理，它是一个 Bean（对象）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserService</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// ✅ 优点：解耦</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// UserService 只知道它需要一个 UserDao 接口</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 具体是哪个实现类，由 Spring 容器自动注入</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Autowired</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">UserDao</span><span class="w"> </span><span class="n">userDao</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">saveUser</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">userDao</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">name</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p><strong>控制权：</strong>  在 Spring 容器手中（反转了）。</p>
+</li>
+<li>
+<p><strong>发生了什么：</strong></p>
+<ol>
+<li>Spring 扫描到 <code>@Service</code>​，创建并管理了 <code>UserService</code> 的实例。</li>
+<li>Spring 看到 <code>@Autowired</code>​，发现 <code>UserService</code>​ 需要一个 <code>UserDao</code>。</li>
+<li>Spring 在自己的容器里找到合适的 <code>UserDao</code>​ 实例，直接<strong>注入</strong>（赋值）给 <code>userDao</code> 变量。</li>
 </ol>
-<h3 id="属性注入">属性注入
-</h3><p>属性注入是通过<code>@Autowired</code>​实现的。如果有多个属性需要逐行注入。<code>@Autowired</code>只对紧挨着那一行代码生效</p>
-<p><img src="/p/springdi-%E8%AF%A6%E8%A7%A3/assets/image-20251202155300-ghe2dy5.png"
-	width="1092"
-	height="719"
-	srcset="/p/springdi-%E8%AF%A6%E8%A7%A3/assets/image-20251202155300-ghe2dy5_hu_29ae91349547bcbf.png 480w, /p/springdi-%E8%AF%A6%E8%A7%A3/assets/image-20251202155300-ghe2dy5_hu_db0e3df2e34439e0.png 1024w"
+</li>
+<li>
+<p>前提是<code>UserDao</code>​也需要被Spring管理，数据层一般添加<code>@Repository</code>注解管理</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.stereotype.Repository</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 1. 定义接口</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">UserDao</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 2. 实现接口，并加上 @Repository 注解</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Repository</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserDaoImpl</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">UserDao</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 模拟数据库操作</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;保存用户到数据库: &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>看到这会疑惑为什么要专门写一个<code>UserDao</code>​接口，然后专门交给<code>UserDaoImpl</code>来实现？</p>
+</li>
+<li>
+<p><strong>简短的回答是：</strong></p>
+<p>从技术上讲，完全<strong>可以不写接口</strong>，直接定义一个 <code>UserDao</code>​ 类并加上 <code>@Repository</code>，Spring 照样能工作</p>
+<p>但是使用<strong>接口+实现类</strong>的模式主要有以下优点：</p>
+<ol>
+<li>
+<p>这是面向对象设计（SOLID 原则）中的 D (Dependency Inversion Principle)思想——上层模块（Service）不应该依赖于下层模块（DAO）的具体实现，而应该依赖于<strong>抽象</strong>（接口）。</p>
+<p>​<code>UserService</code>​只需要知道有<code>UserDao</code>​接口，只需要调用<code>UserDao</code>接口内的方法就好了，但具体怎么实现的则不需要知道（是用 MySQL 写的，还是用 Oracle 写的，或者是把数据写到了 Redis 里）</p>
+<p><strong>举例：</strong>  如果有一天你需要把数据库从 MySQL 换成 MongoDB，你只需要新写一个 <code>UserDaoMongoImpl</code>​ 实现接口，而不需要修改 <code>UserService</code> 的任何一行代码。</p>
+</li>
+<li>
+<p>Spring AOP的原因</p>
+<p>AOP的底层原理是动态管理</p>
+<ul>
+<li>
+<p>JDK动态代理（标准）</p>
+<p>只能代理接口，如果Bean对象实现了接口，Spring会默认使用JDK动态代理，效率高，原生支持好</p>
+</li>
+<li>
+<p>CGLIB代理（第三方）</p>
+<p>如果Bean对象没有实现接口，只是代理了一个普通的类，Spring就必须使用第三方CGLIB库，继承你的类并重写方法来生成代理</p>
+</li>
+</ul>
+<p>虽然现在SpringBoot能很好的解决这一类问题，但使用接口配合JDK动态管理已经成为了一种惯例</p>
+</li>
+<li>
+<p>💫ORM框架的特殊需求（如MyBatis、JPA）</p>
+<p>如果使用的是MyBatis或Spring Data JPA，那就只需要写接口，连实现类都不用写</p>
+<ul>
+<li>MyBatis：你定义<code>UserMapper</code>接口，MyBatis会自动生成代理对象执行SQL</li>
+<li>JPA：你定义<code>UserRepository</code>​接口，继承<code>JpaRepository</code>，Spring Data自动帮你生成增删改查的实现</li>
+</ul>
+<p>在这种情况下，实现接口是必须的，因为实现类是由框架在运行时动态生成的，你也无法去写一个具体的类</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="五大注解详解">五大注解详解
+</h2><ul>
+<li>类注解：@Controller @Service @Repository @Configuration @Component</li>
+<li>方法注解：@Bean</li>
+</ul>
+<p>着重讲一下类注解，能发现这有五种不同的类注解，但都能交给Spring管理，那他们的区别是什么呢？</p>
+<p>不同的类注解从名字上就能看出主要应用在哪个层，最基本的项目开发都会有  <strong>“控制层—&gt;服务逻辑层—&gt;数据层”</strong>  的结构，如果更加复杂的项目开发分开的更加细致，所以不同的注解名字也能第一眼就能看出这个对象主要在哪个层在工作</p>
+<p><strong>基本关系为：</strong> 控制层调用服务层，服务层调用数据层，数据层返回结果给服务层，服务层再返回结果给控制层。</p>
+<p>@Controller：控制层——接受参数，返回响应（前后端交互的入口）</p>
+<p>@Service：业务逻辑层</p>
+<p>@Repository：数据层</p>
+<p>@Configuration：配置层</p>
+<p>@Component：组件层——除此以外的所有需要交给Spring管理的对象都能用此注解</p>
+<p>我们扒开源码查看，能看出他们之间的关系</p>
+<p><img src="/p/springioc-di/assets/image-20251127222523-t9dxs73.png"
+	width="1819"
+	height="1150"
+	srcset="/p/springioc-di/assets/image-20251127222523-t9dxs73_hu_37eefe0984e6cb2e.png 480w, /p/springioc-di/assets/image-20251127222523-t9dxs73_hu_7f8a7cd355156ca8.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="158"
+		data-flex-basis="379px"
+	
+><img src="/p/springioc-di/assets/image-20251127222617-o50irjn.png"
+	width="1803"
+	height="1159"
+	srcset="/p/springioc-di/assets/image-20251127222617-o50irjn_hu_730ce61a75d4d207.png 480w, /p/springioc-di/assets/image-20251127222617-o50irjn_hu_9ecbe67e974e7cba.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="155"
+		data-flex-basis="373px"
+	
+><img src="/p/springioc-di/assets/image-20251127223001-o14ggxa.png"
+	width="1758"
+	height="1159"
+	srcset="/p/springioc-di/assets/image-20251127223001-o14ggxa_hu_fd08a83186ccd267.png 480w, /p/springioc-di/assets/image-20251127223001-o14ggxa_hu_60b43b308e1d5a2b.png 1024w"
 	loading="lazy"
 	
 		alt="image"
@@ -387,10 +596,177 @@
 		data-flex-grow="151"
 		data-flex-basis="364px"
 	
-><img src="/p/springdi-%E8%AF%A6%E8%A7%A3/assets/image-20251202155412-brlgi99.png"
+><img src="/p/springioc-di/assets/image-20251127223100-iuut1hi.png"
+	width="1096"
+	height="636"
+	srcset="/p/springioc-di/assets/image-20251127223100-iuut1hi_hu_84f50a0b2702a3b5.png 480w, /p/springioc-di/assets/image-20251127223100-iuut1hi_hu_88c33f2115d50d5a.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="172"
+		data-flex-basis="413px"
+	
+><img src="/p/springioc-di/assets/image-20251127222409-xqlgjpz.png"
+	width="955"
+	height="484"
+	srcset="/p/springioc-di/assets/image-20251127222409-xqlgjpz_hu_f1b8132764931a22.png 480w, /p/springioc-di/assets/image-20251127222409-xqlgjpz_hu_5568e43ac082bc37.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="197"
+		data-flex-basis="473px"
+	
+></p>
+<p>其中@Controller @Service @Repository @Configuration 都实现了@Component，它们都是@Component的衍生注解</p>
+<p>在实际应用中，这五个注解的边界并没有这么清晰，但控制层必须使用@Controller，不可以和其他注解替换</p>
+<h1 id="beanname">BeanName
+</h1><p>在Spring容器中取出对象时会使用对应的BeanName，类注解与方法注解都有不同的BeanName命名方法</p>
+<ol>
+<li>
+<p>五大类注解</p>
+<p>BeanName默认为类名的小驼峰写法，如果类名前两位字母均为大写则BeanName为类名本身，举例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Controller</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserController</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;do controller&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 获取 bean 的命名方式
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 首字母需变小写
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 如果连续两个大写字母开头则直接写
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">ApplicationContext</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SpringApplication</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="n">SpringIocApplication</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">UserController</span><span class="w"> </span><span class="n">bean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">UserController</span><span class="p">)</span><span class="w"> </span><span class="n">run</span><span class="p">.</span><span class="na">getBean</span><span class="p">(</span><span class="s">&#34;userController&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">bean</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ol>
+<li>
+<p>方法注解@Bean</p>
+<p>需要搭配五大注解使用，BeanName为默认方法名，举例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Component</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">StudentComponent</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Bean</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Student</span><span class="w"> </span><span class="nf">s1</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Student</span><span class="p">(</span><span class="s">&#34;lili&#34;</span><span class="p">,</span><span class="n">9</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Bean</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Student</span><span class="w"> </span><span class="nf">s2</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Student</span><span class="p">(</span><span class="s">&#34;Jack&#34;</span><span class="p">,</span><span class="n">25</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 同时在注解中也提供了对类 / 方法进行重命名
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 包括 @Controller @Service @Configuration @Repository @Component @Bean
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 注解后对应的类名 / 方法名则无效
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 只能填重命名后的
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @Bean(&#34;aaa&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="cm">     *     public Student s2 () {
+</span></span></span><span class="line"><span class="cl"><span class="cm">     *         return new Student(&#34;Jack&#34;,25);
+</span></span></span><span class="line"><span class="cl"><span class="cm">     *     }
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 如果是run.getBean(&#34;s2&#34;) 报错：NoSuchBeanDefinitionException
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Student</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Student</span><span class="p">)</span><span class="n">run</span><span class="p">.</span><span class="na">getBean</span><span class="p">(</span><span class="s">&#34;s2&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+</li>
+</ol>
+<hr>
+<h1 id="di详解">DI详解
+</h1><p>与之IoC匹配的就是DI，DI全名为Dependency Injection，即依赖注入，既然有IoC管理，那就会有DI从Spring容器中取出来，DI就是承担这样的角色——DI 是 IoC 的一种具体<strong>实现方式</strong>，也能理解为：<strong><u>容器通过注入依赖来实现控制反转，依赖注入是一个过程</u></strong></p>
+<h2 id="di分三种方式注入">DI分三种方式注入
+</h2><ol>
+<li>属性注入</li>
+<li>构造方法注入</li>
+<li>Setter注入</li>
+</ol>
+<h3 id="属性注入">属性注入
+</h3><p>属性注入是通过<code>@Autowired</code>​实现的。如果有多个属性需要逐行注入。<code>@Autowired</code>只对紧挨着那一行代码生效</p>
+<p><img src="/p/springioc-di/assets/image-20251202155300-ghe2dy5.png"
+	width="1092"
+	height="719"
+	srcset="/p/springioc-di/assets/image-20251202155300-ghe2dy5_hu_29ae91349547bcbf.png 480w, /p/springioc-di/assets/image-20251202155300-ghe2dy5_hu_db0e3df2e34439e0.png 1024w"
+	loading="lazy"
+	
+		alt="image"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="151"
+		data-flex-basis="364px"
+	
+><img src="/p/springioc-di/assets/image-20251202155412-brlgi99.png"
 	width="1123"
 	height="897"
-	srcset="/p/springdi-%E8%AF%A6%E8%A7%A3/assets/image-20251202155412-brlgi99_hu_78561e3de5d7ad6c.png 480w, /p/springdi-%E8%AF%A6%E8%A7%A3/assets/image-20251202155412-brlgi99_hu_5b87b1161b0ffb6a.png 1024w"
+	srcset="/p/springioc-di/assets/image-20251202155412-brlgi99_hu_78561e3de5d7ad6c.png 480w, /p/springioc-di/assets/image-20251202155412-brlgi99_hu_5b87b1161b0ffb6a.png 1024w"
 	loading="lazy"
 	
 		alt="image"
@@ -521,10 +897,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">bean</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><p><img src="/p/springdi-%E8%AF%A6%E8%A7%A3/assets/image-20251202160844-eupkkgm.png"
+</div><p><img src="/p/springioc-di/assets/image-20251202160844-eupkkgm.png"
 	width="1688"
 	height="493"
-	srcset="/p/springdi-%E8%AF%A6%E8%A7%A3/assets/image-20251202160844-eupkkgm_hu_e11c89a3856e68ad.png 480w, /p/springdi-%E8%AF%A6%E8%A7%A3/assets/image-20251202160844-eupkkgm_hu_e9a5f422add3915e.png 1024w"
+	srcset="/p/springioc-di/assets/image-20251202160844-eupkkgm_hu_e11c89a3856e68ad.png 480w, /p/springioc-di/assets/image-20251202160844-eupkkgm_hu_e9a5f422add3915e.png 1024w"
 	loading="lazy"
 	
 		alt="image"
@@ -600,10 +976,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">bean</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><p><img src="/p/springdi-%E8%AF%A6%E8%A7%A3/assets/image-20251202161848-yovqgn7.png"
+</div><p><img src="/p/springioc-di/assets/image-20251202161848-yovqgn7.png"
 	width="2351"
 	height="229"
-	srcset="/p/springdi-%E8%AF%A6%E8%A7%A3/assets/image-20251202161848-yovqgn7_hu_b572bece0d1f478f.png 480w, /p/springdi-%E8%AF%A6%E8%A7%A3/assets/image-20251202161848-yovqgn7_hu_b8a77d5a5a7156b0.png 1024w"
+	srcset="/p/springioc-di/assets/image-20251202161848-yovqgn7_hu_b572bece0d1f478f.png 480w, /p/springioc-di/assets/image-20251202161848-yovqgn7_hu_b8a77d5a5a7156b0.png 1024w"
 	loading="lazy"
 	
 		alt="image"
@@ -687,7 +1063,7 @@
 </ul>
 <p>​<code>@Autowired</code> 就是明确该使用哪个构造方法的</p>
 <h3 id="setter注入">Setter注入
-</h3><p>​<code>Setter</code>​ 注入和属性的<code>Setter</code>​方法实现类似，只不过在设置 <code>set</code>​ 方法的时候加上<code>@Autowired</code> 注解，如下所示</p>
+</h3><p>​<code>Setter</code>​ 注入和属性的<code>Setter </code>​方法实现类似，只不过在设置 <code>set</code>​ 方法的时候加上<code>@Autowired</code> 注解，如下所示</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -756,10 +1132,10 @@
 <p><strong>注入的对象不会被修改，除非有</strong>​<strong>​<code>set</code>​</strong>​<strong>方法再对对象修改，否则初始化后就定好了</strong></p>
 <p><strong>通用性好：构造方法是JDK支持的，所以更换任何框架都是使用的</strong></p>
 <p>**依赖对象在使用前一定被完全初始化，因为依赖是在类的构造方法中执行的，而构造方法是在类加载的阶段就会被执行——**​<u>从控制台也能简单看出来，先执行构造方法后再运行服务器</u></p>
-<p><img src="/p/springdi-%E8%AF%A6%E8%A7%A3/assets/image-20251202164020-muiti5x.png"
+<p><img src="/p/springioc-di/assets/image-20251202164020-muiti5x.png"
 	width="1572"
 	height="529"
-	srcset="/p/springdi-%E8%AF%A6%E8%A7%A3/assets/image-20251202164020-muiti5x_hu_7dee9ae21d9ef7c9.png 480w, /p/springdi-%E8%AF%A6%E8%A7%A3/assets/image-20251202164020-muiti5x_hu_fb07fc8f0ceb406d.png 1024w"
+	srcset="/p/springioc-di/assets/image-20251202164020-muiti5x_hu_7dee9ae21d9ef7c9.png 480w, /p/springioc-di/assets/image-20251202164020-muiti5x_hu_fb07fc8f0ceb406d.png 1024w"
 	loading="lazy"
 	
 		alt="image"
@@ -844,10 +1220,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><p><img src="/p/springdi-%E8%AF%A6%E8%A7%A3/assets/image-20251202170930-joqvd2z.png"
+</div><p><img src="/p/springioc-di/assets/image-20251202170930-joqvd2z.png"
 	width="2543"
 	height="360"
-	srcset="/p/springdi-%E8%AF%A6%E8%A7%A3/assets/image-20251202170930-joqvd2z_hu_a5680c52415ded3e.png 480w, /p/springdi-%E8%AF%A6%E8%A7%A3/assets/image-20251202170930-joqvd2z_hu_1075aa7c83728ae5.png 1024w"
+	srcset="/p/springioc-di/assets/image-20251202170930-joqvd2z_hu_a5680c52415ded3e.png 480w, /p/springioc-di/assets/image-20251202170930-joqvd2z_hu_1075aa7c83728ae5.png 1024w"
 	loading="lazy"
 	
 		alt="image"
@@ -929,10 +1305,10 @@
 </div></li>
 <li>
 <p>​<code>@Qualifier</code>​：指定当前<code>Bean</code>​的对象，在<code>@Qualifier</code>​的<code>value</code>​属性注入<code>Bean</code>​的名字 <strong>（默认也是value，内部只有一个String value）</strong></p>
-<p><img src="/p/springdi-%E8%AF%A6%E8%A7%A3/assets/image-20251202172218-t8n53y4.png"
+<p><img src="/p/springioc-di/assets/image-20251202172218-t8n53y4.png"
 	width="966"
 	height="475"
-	srcset="/p/springdi-%E8%AF%A6%E8%A7%A3/assets/image-20251202172218-t8n53y4_hu_fd3261384081ba77.png 480w, /p/springdi-%E8%AF%A6%E8%A7%A3/assets/image-20251202172218-t8n53y4_hu_2d9acc20595f1cec.png 1024w"
+	srcset="/p/springioc-di/assets/image-20251202172218-t8n53y4_hu_fd3261384081ba77.png 480w, /p/springioc-di/assets/image-20251202172218-t8n53y4_hu_2d9acc20595f1cec.png 1024w"
 	loading="lazy"
 	
 		alt="image"
@@ -1080,10 +1456,10 @@
 <ul>
 <li>
 <p>​<code>@Autowired</code>​ 是Spring框架提供的注解，<code>@Resource</code> 是JDK提供的注解</p>
-<p><img src="/p/springdi-%E8%AF%A6%E8%A7%A3/assets/image-20251202181253-gz0x6d7.png"
+<p><img src="/p/springioc-di/assets/image-20251202181253-gz0x6d7.png"
 	width="1329"
 	height="129"
-	srcset="/p/springdi-%E8%AF%A6%E8%A7%A3/assets/image-20251202181253-gz0x6d7_hu_604fe451c7f41e26.png 480w, /p/springdi-%E8%AF%A6%E8%A7%A3/assets/image-20251202181253-gz0x6d7_hu_34af34bcc607246c.png 1024w"
+	srcset="/p/springioc-di/assets/image-20251202181253-gz0x6d7_hu_604fe451c7f41e26.png 480w, /p/springioc-di/assets/image-20251202181253-gz0x6d7_hu_34af34bcc607246c.png 1024w"
 	loading="lazy"
 	
 		alt="image"
@@ -1093,10 +1469,10 @@
 		data-flex-grow="1030"
 		data-flex-basis="2472px"
 	
-><img src="/p/springdi-%E8%AF%A6%E8%A7%A3/assets/image-20251202181236-6yej414.png"
+><img src="/p/springioc-di/assets/image-20251202181236-6yej414.png"
 	width="831"
 	height="140"
-	srcset="/p/springdi-%E8%AF%A6%E8%A7%A3/assets/image-20251202181236-6yej414_hu_34defd5793efae3c.png 480w, /p/springdi-%E8%AF%A6%E8%A7%A3/assets/image-20251202181236-6yej414_hu_a94365481c0a85ad.png 1024w"
+	srcset="/p/springioc-di/assets/image-20251202181236-6yej414_hu_34defd5793efae3c.png 480w, /p/springioc-di/assets/image-20251202181236-6yej414_hu_a94365481c0a85ad.png 1024w"
 	loading="lazy"
 	
 		alt="image"
@@ -1128,10 +1504,10 @@
 </li>
 </ol>
 <h2 id="autowired的装配顺序">@Autowired的装配顺序
-</h2><p><img src="/p/springdi-%E8%AF%A6%E8%A7%A3/assets/image-20251202182824-baismlb.png"
+</h2><p><img src="/p/springioc-di/assets/image-20251202182824-baismlb.png"
 	width="1781"
 	height="1515"
-	srcset="/p/springdi-%E8%AF%A6%E8%A7%A3/assets/image-20251202182824-baismlb_hu_4a738917228bb015.png 480w, /p/springdi-%E8%AF%A6%E8%A7%A3/assets/image-20251202182824-baismlb_hu_ba4545e9d97b7738.png 1024w"
+	srcset="/p/springioc-di/assets/image-20251202182824-baismlb_hu_4a738917228bb015.png 480w, /p/springioc-di/assets/image-20251202182824-baismlb_hu_ba4545e9d97b7738.png 1024w"
 	loading="lazy"
 	
 		alt="image"
@@ -1218,19 +1594,7 @@
     <footer class="article-footer">
     
 
-    <section class="article-lastmod">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <polyline points="12 7 12 12 15 15" />
-</svg>
-
-
-
-        <span>
-            最后更新于 Dec 09, 2025 00:09 &#43;0800
-        </span>
-    </section></footer>
+    </footer>
 
 
     
@@ -1239,39 +1603,6 @@
     
 
     
-
-<aside class="related-content--wrapper">
-    <h2 class="section-title">相关文章</h2>
-    <div class="related-content">
-        <div class="flex article-list--tile">
-            
-                
-<article class="has-image">
-    <a href="/p/spring-ioc-%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC/">
-        
-        
-            <div class="article-image">
-                <img src="/p/spring-ioc-%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC/Gemini_Image_77j.6a9f647d92a30eb9d5153e567159cf49_hu_de592f16b08170d1.png" 
-                        width="250" 
-                        height="150" 
-                        loading="lazy"
-                        alt="Featured image of post Spring IoC 控制反转"
-                        
-                        data-hash="md5-ap9kfZKjDrnVFT5WcVnPSQ==">
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Spring IoC 控制反转</h2>
-        </div>
-    </a>
-</article>
-
-            
-        </div>
-    </div>
-</aside>
 
      
     
@@ -1390,13 +1721,13 @@
 </script>
 <style>
   @font-face {
-    font-family: '千菅书体';
+    font-family: '字体名';
     src: url(https://Jul1en-Lin.github.io/font/Chisuga_Shotai0.2.7.ttf) format('truetype');
   }
 
   :root {
-    --base-font-family: '千菅书体';
-    --code-font-family: '千菅书体';
+    --base-font-family: '字体名';
+    --code-font-family: '字体名';
   }
 </style>
 
