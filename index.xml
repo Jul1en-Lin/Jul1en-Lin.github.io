@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Jul1en-Blog</title>
+        <title>Jul1en</title>
         <link>https://Jul1en-Lin.github.io/</link>
-        <description>Recent content on Jul1en-Blog</description>
+        <description>Recent content on Jul1en</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <copyright>Example Person</copyright><atom:link href="https://Jul1en-Lin.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <copyright>Jul1en</copyright><atom:link href="https://Jul1en-Lin.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Cccccccc</title>
         <link>https://Jul1en-Lin.github.io/p/cccccccc/</link>
         <pubDate>Tue, 09 Dec 2025 13:49:00 +0800</pubDate>

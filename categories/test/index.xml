@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Test on Jul1en-Blog</title>
+        <title>Test on Jul1en</title>
         <link>https://Jul1en-Lin.github.io/categories/test/</link>
-        <description>Recent content in Test on Jul1en-Blog</description>
+        <description>Recent content in Test on Jul1en</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <copyright>Example Person</copyright><atom:link href="https://Jul1en-Lin.github.io/categories/test/index.xml" rel="self" type="application/rss+xml" />
+        <copyright>Jul1en</copyright><atom:link href="https://Jul1en-Lin.github.io/categories/test/index.xml" rel="self" type="application/rss+xml" />
     </channel>
 </rss>
