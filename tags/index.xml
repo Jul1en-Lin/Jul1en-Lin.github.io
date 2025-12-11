@@ -6,39 +6,6 @@
         <description>Recent content in Tags on Jul1en</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <copyright>Jul1en</copyright>
-        <lastBuildDate>Wed, 10 Dec 2025 22:48:32 +0800</lastBuildDate><atom:link href="https://Jul1en-Lin.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Css</title>
-        <link>https://Jul1en-Lin.github.io/tags/css/</link>
-        <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-        
-        <guid>https://Jul1en-Lin.github.io/tags/css/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Html</title>
-        <link>https://Jul1en-Lin.github.io/tags/html/</link>
-        <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-        
-        <guid>https://Jul1en-Lin.github.io/tags/html/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Markdown</title>
-        <link>https://Jul1en-Lin.github.io/tags/markdown/</link>
-        <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-        
-        <guid>https://Jul1en-Lin.github.io/tags/markdown/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Themes</title>
-        <link>https://Jul1en-Lin.github.io/tags/themes/</link>
-        <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-        
-        <guid>https://Jul1en-Lin.github.io/tags/themes/</guid>
-        <description></description>
-        </item>
-        
+        <copyright>Jul1en</copyright><atom:link href="https://Jul1en-Lin.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     </channel>
 </rss>

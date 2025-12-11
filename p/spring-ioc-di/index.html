@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="SpringIoC &amp; DI Spring两个核心思想：IoC和AOP\nIoC &amp; DI IoC全名为Inversion of Control，即“控制反转”，何为控制反转呢？\n控制：指的是对象的创建、初始化、销毁和生命周期的管理权\n">
-<title>SpringIoC &amp; DI</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Spring 两个核心思想：IoC &amp; DI 和 AOP\nIoC &amp; DI IoC全名为Inversion of Control，即“控制反转”，何为控制反转呢？\n控制：指的是对象的创建、初始化、销毁和生命周期的管理权\n">
+<title>🍀Spring IoC &amp; DI</title>
 
-<link rel='canonical' href='https://Jul1en-Lin.github.io/p/springioc-di/'>
+<link rel='canonical' href='https://Jul1en-Lin.github.io/p/spring-ioc-di/'>
 
-<link rel="stylesheet" href="/scss/style.min.0ee1803cacda94dc314a1c7a5f5b7c2f4d3090791ed7fc24f27f54f020a599a9.css"><meta property='og:title' content="SpringIoC & DI">
-<meta property='og:description' content="SpringIoC &amp; DI Spring两个核心思想：IoC和AOP\nIoC &amp; DI IoC全名为Inversion of Control，即“控制反转”，何为控制反转呢？\n控制：指的是对象的创建、初始化、销毁和生命周期的管理权\n">
-<meta property='og:url' content='https://Jul1en-Lin.github.io/p/springioc-di/'>
+<link rel="stylesheet" href="/scss/style.min.0ee1803cacda94dc314a1c7a5f5b7c2f4d3090791ed7fc24f27f54f020a599a9.css"><meta property='og:title' content="🍀Spring IoC & DI">
+<meta property='og:description' content="Spring 两个核心思想：IoC &amp; DI 和 AOP\nIoC &amp; DI IoC全名为Inversion of Control，即“控制反转”，何为控制反转呢？\n控制：指的是对象的创建、初始化、销毁和生命周期的管理权\n">
+<meta property='og:url' content='https://Jul1en-Lin.github.io/p/spring-ioc-di/'>
 <meta property='og:site_name' content='Jul1en'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-12-08T17:12:08&#43;08:00'/><meta property='article:modified_time' content='2025-12-10T22:48:32&#43;08:00'/>
-<meta name="twitter:title" content="SpringIoC & DI">
-<meta name="twitter:description" content="SpringIoC &amp; DI Spring两个核心思想：IoC和AOP\nIoC &amp; DI IoC全名为Inversion of Control，即“控制反转”，何为控制反转呢？\n控制：指的是对象的创建、初始化、销毁和生命周期的管理权\n">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-12-08T17:12:08&#43;08:00'/><meta property='article:modified_time' content='2025-12-11T18:16:10&#43;08:00'/>
+<meta name="twitter:title" content="🍀Spring IoC & DI">
+<meta name="twitter:description" content="Spring 两个核心思想：IoC &amp; DI 和 AOP\nIoC &amp; DI IoC全名为Inversion of Control，即“控制反转”，何为控制反转呢？\n控制：指的是对象的创建、初始化、销毁和生命周期的管理权\n">
     </head>
     <body class="
     article-page
@@ -275,7 +275,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/springioc-di/">SpringIoC &amp; DI</a>
+            <a href="/p/spring-ioc-di/">🍀Spring IoC &amp; DI</a>
         </h2>
 
         
@@ -313,7 +313,7 @@
   <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" />
 </svg>
 
-            <time class="article-time--updated" datetime='2025-12-10T22:48:32&#43;08:00'>2025-12-10</time>
+            <time class="article-time--updated" datetime='2025-12-11T18:16:10&#43;08:00'>2025-12-11</time>
         </div>
         
     </footer>
@@ -326,8 +326,7 @@
     <section class="article-content">
     
     
-    <h1 id="springioc--di">SpringIoC &amp; DI
-</h1><p>Spring两个核心思想：IoC和AOP</p>
+    <p>Spring 两个核心思想：IoC &amp; DI 和 AOP</p>
 <h1 id="ioc--di">IoC &amp; DI
 </h1><p>IoC全名为Inversion of Control，即“控制反转”，何为控制反转呢？</p>
 <ul>
@@ -537,10 +536,10 @@
 <p>@Configuration：配置层</p>
 <p>@Component：组件层——除此以外的所有需要交给Spring管理的对象都能用此注解</p>
 <p>我们扒开源码查看，能看出他们之间的关系</p>
-<p><img src="/p/springioc-di/assets/image-20251127222523-t9dxs73.png"
+<p><img src="/p/spring-ioc-di/assets/image-20251127222523-t9dxs73.png"
 	width="1819"
 	height="1150"
-	srcset="/p/springioc-di/assets/image-20251127222523-t9dxs73_hu_37eefe0984e6cb2e.png 480w, /p/springioc-di/assets/image-20251127222523-t9dxs73_hu_7f8a7cd355156ca8.png 1024w"
+	srcset="/p/spring-ioc-di/assets/image-20251127222523-t9dxs73_hu_37eefe0984e6cb2e.png 480w, /p/spring-ioc-di/assets/image-20251127222523-t9dxs73_hu_7f8a7cd355156ca8.png 1024w"
 	loading="lazy"
 	
 		alt="image"
@@ -550,10 +549,10 @@
 		data-flex-grow="158"
 		data-flex-basis="379px"
 	
-><img src="/p/springioc-di/assets/image-20251127222617-o50irjn.png"
+><img src="/p/spring-ioc-di/assets/image-20251127222617-o50irjn.png"
 	width="1803"
 	height="1159"
-	srcset="/p/springioc-di/assets/image-20251127222617-o50irjn_hu_730ce61a75d4d207.png 480w, /p/springioc-di/assets/image-20251127222617-o50irjn_hu_9ecbe67e974e7cba.png 1024w"
+	srcset="/p/spring-ioc-di/assets/image-20251127222617-o50irjn_hu_730ce61a75d4d207.png 480w, /p/spring-ioc-di/assets/image-20251127222617-o50irjn_hu_9ecbe67e974e7cba.png 1024w"
 	loading="lazy"
 	
 		alt="image"
@@ -563,10 +562,10 @@
 		data-flex-grow="155"
 		data-flex-basis="373px"
 	
-><img src="/p/springioc-di/assets/image-20251127223001-o14ggxa.png"
+><img src="/p/spring-ioc-di/assets/image-20251127223001-o14ggxa.png"
 	width="1758"
 	height="1159"
-	srcset="/p/springioc-di/assets/image-20251127223001-o14ggxa_hu_fd08a83186ccd267.png 480w, /p/springioc-di/assets/image-20251127223001-o14ggxa_hu_60b43b308e1d5a2b.png 1024w"
+	srcset="/p/spring-ioc-di/assets/image-20251127223001-o14ggxa_hu_fd08a83186ccd267.png 480w, /p/spring-ioc-di/assets/image-20251127223001-o14ggxa_hu_60b43b308e1d5a2b.png 1024w"
 	loading="lazy"
 	
 		alt="image"
@@ -576,10 +575,10 @@
 		data-flex-grow="151"
 		data-flex-basis="364px"
 	
-><img src="/p/springioc-di/assets/image-20251127223100-iuut1hi.png"
+><img src="/p/spring-ioc-di/assets/image-20251127223100-iuut1hi.png"
 	width="1096"
 	height="636"
-	srcset="/p/springioc-di/assets/image-20251127223100-iuut1hi_hu_84f50a0b2702a3b5.png 480w, /p/springioc-di/assets/image-20251127223100-iuut1hi_hu_88c33f2115d50d5a.png 1024w"
+	srcset="/p/spring-ioc-di/assets/image-20251127223100-iuut1hi_hu_84f50a0b2702a3b5.png 480w, /p/spring-ioc-di/assets/image-20251127223100-iuut1hi_hu_88c33f2115d50d5a.png 1024w"
 	loading="lazy"
 	
 		alt="image"
@@ -589,10 +588,10 @@
 		data-flex-grow="172"
 		data-flex-basis="413px"
 	
-><img src="/p/springioc-di/assets/image-20251127222409-xqlgjpz.png"
+><img src="/p/spring-ioc-di/assets/image-20251127222409-xqlgjpz.png"
 	width="955"
 	height="484"
-	srcset="/p/springioc-di/assets/image-20251127222409-xqlgjpz_hu_f1b8132764931a22.png 480w, /p/springioc-di/assets/image-20251127222409-xqlgjpz_hu_5568e43ac082bc37.png 1024w"
+	srcset="/p/spring-ioc-di/assets/image-20251127222409-xqlgjpz_hu_f1b8132764931a22.png 480w, /p/spring-ioc-di/assets/image-20251127222409-xqlgjpz_hu_5568e43ac082bc37.png 1024w"
 	loading="lazy"
 	
 		alt="image"
@@ -730,10 +729,10 @@
 </ol>
 <h3 id="属性注入">属性注入
 </h3><p>属性注入是通过<code>@Autowired</code>​实现的。如果有多个属性需要逐行注入。<code>@Autowired</code>只对紧挨着那一行代码生效</p>
-<p><img src="/p/springioc-di/assets/image-20251202155300-ghe2dy5.png"
+<p><img src="/p/spring-ioc-di/assets/image-20251202155300-ghe2dy5.png"
 	width="1092"
 	height="719"
-	srcset="/p/springioc-di/assets/image-20251202155300-ghe2dy5_hu_29ae91349547bcbf.png 480w, /p/springioc-di/assets/image-20251202155300-ghe2dy5_hu_db0e3df2e34439e0.png 1024w"
+	srcset="/p/spring-ioc-di/assets/image-20251202155300-ghe2dy5_hu_29ae91349547bcbf.png 480w, /p/spring-ioc-di/assets/image-20251202155300-ghe2dy5_hu_db0e3df2e34439e0.png 1024w"
 	loading="lazy"
 	
 		alt="image"
@@ -743,10 +742,10 @@
 		data-flex-grow="151"
 		data-flex-basis="364px"
 	
-><img src="/p/springioc-di/assets/image-20251202155412-brlgi99.png"
+><img src="/p/spring-ioc-di/assets/image-20251202155412-brlgi99.png"
 	width="1123"
 	height="897"
-	srcset="/p/springioc-di/assets/image-20251202155412-brlgi99_hu_78561e3de5d7ad6c.png 480w, /p/springioc-di/assets/image-20251202155412-brlgi99_hu_5b87b1161b0ffb6a.png 1024w"
+	srcset="/p/spring-ioc-di/assets/image-20251202155412-brlgi99_hu_78561e3de5d7ad6c.png 480w, /p/spring-ioc-di/assets/image-20251202155412-brlgi99_hu_5b87b1161b0ffb6a.png 1024w"
 	loading="lazy"
 	
 		alt="image"
@@ -877,10 +876,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">bean</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><p><img src="/p/springioc-di/assets/image-20251202160844-eupkkgm.png"
+</div><p><img src="/p/spring-ioc-di/assets/image-20251202160844-eupkkgm.png"
 	width="1688"
 	height="493"
-	srcset="/p/springioc-di/assets/image-20251202160844-eupkkgm_hu_e11c89a3856e68ad.png 480w, /p/springioc-di/assets/image-20251202160844-eupkkgm_hu_e9a5f422add3915e.png 1024w"
+	srcset="/p/spring-ioc-di/assets/image-20251202160844-eupkkgm_hu_e11c89a3856e68ad.png 480w, /p/spring-ioc-di/assets/image-20251202160844-eupkkgm_hu_e9a5f422add3915e.png 1024w"
 	loading="lazy"
 	
 		alt="image"
@@ -956,10 +955,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">bean</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><p><img src="/p/springioc-di/assets/image-20251202161848-yovqgn7.png"
+</div><p><img src="/p/spring-ioc-di/assets/image-20251202161848-yovqgn7.png"
 	width="2351"
 	height="229"
-	srcset="/p/springioc-di/assets/image-20251202161848-yovqgn7_hu_b572bece0d1f478f.png 480w, /p/springioc-di/assets/image-20251202161848-yovqgn7_hu_b8a77d5a5a7156b0.png 1024w"
+	srcset="/p/spring-ioc-di/assets/image-20251202161848-yovqgn7_hu_b572bece0d1f478f.png 480w, /p/spring-ioc-di/assets/image-20251202161848-yovqgn7_hu_b8a77d5a5a7156b0.png 1024w"
 	loading="lazy"
 	
 		alt="image"
@@ -1112,10 +1111,10 @@
 <p><strong>注入的对象不会被修改，除非有</strong>​<strong>​<code>set</code>​</strong>​<strong>方法再对对象修改，否则初始化后就定好了</strong></p>
 <p><strong>通用性好：构造方法是JDK支持的，所以更换任何框架都是使用的</strong></p>
 <p>**依赖对象在使用前一定被完全初始化，因为依赖是在类的构造方法中执行的，而构造方法是在类加载的阶段就会被执行——**​<u>从控制台也能简单看出来，先执行构造方法后再运行服务器</u></p>
-<p><img src="/p/springioc-di/assets/image-20251202164020-muiti5x.png"
+<p><img src="/p/spring-ioc-di/assets/image-20251202164020-muiti5x.png"
 	width="1572"
 	height="529"
-	srcset="/p/springioc-di/assets/image-20251202164020-muiti5x_hu_7dee9ae21d9ef7c9.png 480w, /p/springioc-di/assets/image-20251202164020-muiti5x_hu_fb07fc8f0ceb406d.png 1024w"
+	srcset="/p/spring-ioc-di/assets/image-20251202164020-muiti5x_hu_7dee9ae21d9ef7c9.png 480w, /p/spring-ioc-di/assets/image-20251202164020-muiti5x_hu_fb07fc8f0ceb406d.png 1024w"
 	loading="lazy"
 	
 		alt="image"
@@ -1200,10 +1199,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><p><img src="/p/springioc-di/assets/image-20251202170930-joqvd2z.png"
+</div><p><img src="/p/spring-ioc-di/assets/image-20251202170930-joqvd2z.png"
 	width="2543"
 	height="360"
-	srcset="/p/springioc-di/assets/image-20251202170930-joqvd2z_hu_a5680c52415ded3e.png 480w, /p/springioc-di/assets/image-20251202170930-joqvd2z_hu_1075aa7c83728ae5.png 1024w"
+	srcset="/p/spring-ioc-di/assets/image-20251202170930-joqvd2z_hu_a5680c52415ded3e.png 480w, /p/spring-ioc-di/assets/image-20251202170930-joqvd2z_hu_1075aa7c83728ae5.png 1024w"
 	loading="lazy"
 	
 		alt="image"
@@ -1285,10 +1284,10 @@
 </div></li>
 <li>
 <p>​<code>@Qualifier</code>​：指定当前<code>Bean</code>​的对象，在<code>@Qualifier</code>​的<code>value</code>​属性注入<code>Bean</code>​的名字 <strong>（默认也是value，内部只有一个String value）</strong></p>
-<p><img src="/p/springioc-di/assets/image-20251202172218-t8n53y4.png"
+<p><img src="/p/spring-ioc-di/assets/image-20251202172218-t8n53y4.png"
 	width="966"
 	height="475"
-	srcset="/p/springioc-di/assets/image-20251202172218-t8n53y4_hu_fd3261384081ba77.png 480w, /p/springioc-di/assets/image-20251202172218-t8n53y4_hu_2d9acc20595f1cec.png 1024w"
+	srcset="/p/spring-ioc-di/assets/image-20251202172218-t8n53y4_hu_fd3261384081ba77.png 480w, /p/spring-ioc-di/assets/image-20251202172218-t8n53y4_hu_2d9acc20595f1cec.png 1024w"
 	loading="lazy"
 	
 		alt="image"
@@ -1436,10 +1435,10 @@
 <ul>
 <li>
 <p>​<code>@Autowired</code>​ 是Spring框架提供的注解，<code>@Resource</code> 是JDK提供的注解</p>
-<p><img src="/p/springioc-di/assets/image-20251202181253-gz0x6d7.png"
+<p><img src="/p/spring-ioc-di/assets/image-20251202181253-gz0x6d7.png"
 	width="1329"
 	height="129"
-	srcset="/p/springioc-di/assets/image-20251202181253-gz0x6d7_hu_604fe451c7f41e26.png 480w, /p/springioc-di/assets/image-20251202181253-gz0x6d7_hu_34af34bcc607246c.png 1024w"
+	srcset="/p/spring-ioc-di/assets/image-20251202181253-gz0x6d7_hu_604fe451c7f41e26.png 480w, /p/spring-ioc-di/assets/image-20251202181253-gz0x6d7_hu_34af34bcc607246c.png 1024w"
 	loading="lazy"
 	
 		alt="image"
@@ -1449,10 +1448,10 @@
 		data-flex-grow="1030"
 		data-flex-basis="2472px"
 	
-><img src="/p/springioc-di/assets/image-20251202181236-6yej414.png"
+><img src="/p/spring-ioc-di/assets/image-20251202181236-6yej414.png"
 	width="831"
 	height="140"
-	srcset="/p/springioc-di/assets/image-20251202181236-6yej414_hu_34defd5793efae3c.png 480w, /p/springioc-di/assets/image-20251202181236-6yej414_hu_a94365481c0a85ad.png 1024w"
+	srcset="/p/spring-ioc-di/assets/image-20251202181236-6yej414_hu_34defd5793efae3c.png 480w, /p/spring-ioc-di/assets/image-20251202181236-6yej414_hu_a94365481c0a85ad.png 1024w"
 	loading="lazy"
 	
 		alt="image"
@@ -1484,10 +1483,10 @@
 </li>
 </ol>
 <h2 id="autowired的装配顺序">@Autowired的装配顺序
-</h2><p><img src="/p/springioc-di/assets/image-20251202182824-baismlb.png"
+</h2><p><img src="/p/spring-ioc-di/assets/image-20251202182824-baismlb.png"
 	width="1781"
 	height="1515"
-	srcset="/p/springioc-di/assets/image-20251202182824-baismlb_hu_4a738917228bb015.png 480w, /p/springioc-di/assets/image-20251202182824-baismlb_hu_ba4545e9d97b7738.png 1024w"
+	srcset="/p/spring-ioc-di/assets/image-20251202182824-baismlb_hu_4a738917228bb015.png 480w, /p/spring-ioc-di/assets/image-20251202182824-baismlb_hu_ba4545e9d97b7738.png 1024w"
 	loading="lazy"
 	
 		alt="image"
@@ -1584,7 +1583,7 @@
 
 
         <span>
-            最后更新于 2025-12-10
+            最后更新于 2025-12-11
         </span>
     </section></footer>
 
