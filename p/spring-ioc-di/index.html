@@ -15,8 +15,8 @@
 <meta name="twitter:description" content="Spring 两个核心思想：IoC &amp; DI 和 AOP\nIoC &amp; DI IoC全名为Inversion of Control，即“控制反转”，何为控制反转呢？\n控制：指的是对象的创建、初始化、销毁和生命周期的管理权\n">
     </head>
     <body class="
-    article-page
-    ">
+article-page
+">
 
 <script>
     (function () {
@@ -234,7 +234,7 @@
     </ol>
 </aside>
 
-    <aside class="sidebar right-sidebar sticky">
+<aside class="sidebar right-sidebar sticky">
         
             
                 
@@ -249,22 +249,28 @@
     <div class="widget--toc">
         <nav id="TableOfContents">
   <ol>
-    <li><a href="#五大注解详解">五大注解详解</a></li>
-  </ol>
-
-  <ol>
-    <li><a href="#di分三种方式注入">DI分三种方式注入</a>
+    <li><a href="#ioc--di">IoC &amp; DI</a>
       <ol>
-        <li><a href="#属性注入">属性注入</a></li>
-        <li><a href="#构造方法注入">构造方法注入</a></li>
-        <li><a href="#setter注入">Setter注入</a></li>
+        <li><a href="#五大注解详解">五大注解详解</a></li>
       </ol>
     </li>
-    <li><a href="#三种注入的优缺点"><span id="20251202163358-mb6mufp"></span>三种注入的优缺点</a></li>
-    <li><a href="#autowired存在的问题">@Autowired存在的问题</a></li>
-    <li><a href="#常见面试题">常见面试题</a></li>
-    <li><a href="#autowired的装配顺序">@Autowired的装配顺序</a></li>
-    <li><a href="#springspringmvcspringboot之间的关系与区别"><span id="20251202194306-k6nc3dz"></span>Spring、SpringMVC、SpringBoot之间的关系与区别</a></li>
+    <li><a href="#beanname">BeanName</a></li>
+    <li><a href="#di详解">DI详解</a>
+      <ol>
+        <li><a href="#di分三种方式注入">DI分三种方式注入</a>
+          <ol>
+            <li><a href="#属性注入">属性注入</a></li>
+            <li><a href="#构造方法注入">构造方法注入</a></li>
+            <li><a href="#setter注入">Setter注入</a></li>
+          </ol>
+        </li>
+        <li><a href="#三种注入的优缺点"><span id="20251202163358-mb6mufp"></span>三种注入的优缺点</a></li>
+        <li><a href="#autowired存在的问题">@Autowired存在的问题</a></li>
+        <li><a href="#常见面试题">常见面试题</a></li>
+        <li><a href="#autowired的装配顺序">@Autowired的装配顺序</a></li>
+        <li><a href="#springspringmvcspringboot之间的关系与区别"><span id="20251202194306-k6nc3dz"></span>Spring、SpringMVC、SpringBoot之间的关系与区别</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
     </div>
@@ -276,7 +282,7 @@
 
 
             <main class="main full-width">
-    <article class="main-article">
+<article class="main-article">
     <header class="article-header">
 
     <div class="article-details">
@@ -1608,38 +1614,16 @@
     
 </article>
 
-    
 
-    
 
-<aside class="related-content--wrapper">
-    <h2 class="section-title">相关文章</h2>
-    <div class="related-content">
-        <div class="flex article-list--tile">
-            
-                
-<article class="">
-    <a href="/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/">
-        
-        
 
-        <div class="article-details">
-            <h2 class="article-title">🧣 验证码功能</h2>
-        </div>
-    </a>
-</article>
 
-            
-        </div>
-    </div>
-</aside>
 
-     
-    
-        
-    
 
-    <footer class="site-footer">
+
+
+
+<footer class="site-footer">
     <section class="copyright">
         &copy; 
         
@@ -1653,7 +1637,7 @@
 </footer>
 
 
-    
+
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
     
