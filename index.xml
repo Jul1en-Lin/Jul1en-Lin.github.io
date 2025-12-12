@@ -7,6 +7,923 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Jul1en</copyright><atom:link href="https://Jul1en-Lin.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>🎓 Web自动化测试</title>
+        <link>https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/</link>
+        <pubDate>Fri, 12 Dec 2025 17:16:00 +0800</pubDate>
+        
+        <guid>https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/</guid>
+        <description>&lt;h1 id=&#34;自动化测试&#34;&gt;自动化测试
+&lt;/h1&gt;&lt;p&gt;自动化测试包括&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;接口自动化测试&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;UI自动化测试&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Web自动化测试&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;客户端界面自动化测试&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;这次来讲讲Web 自动化测试。&lt;/strong&gt;&lt;/p&gt;
+&lt;h1 id=&#34;什么是-web-自动化测试&#34;&gt;什么是 Web 自动化测试？
+&lt;/h1&gt;&lt;p&gt;在大厂的研发流程中，自动化测试是**CI/CD（持续集成/持续部署）**不可或缺的一环。&lt;/p&gt;
+&lt;p&gt;简单来说，Web 自动化测试就是​&lt;strong&gt;把原本需要人工在浏览器上点击、输入、验证的操作，通过代码指令让计算机自动执行&lt;/strong&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;selenium-与-webdriver&#34;&gt;Selenium 与 WebDriver
+&lt;/h2&gt;&lt;p&gt;目前业界最主流的 Web 自动化工具就是 &lt;strong&gt;Selenium&lt;/strong&gt;。虽然现在也有 Playwright 等新秀，但 Selenium 依然是很多大厂面试的基石。&lt;/p&gt;
+&lt;h3 id=&#34;selenium-是什么&#34;&gt;Selenium 是什么？
+&lt;/h3&gt;&lt;p&gt;Selenium 不是一个单一的软件，它是一个工具套件。核心组件是 ​&lt;strong&gt;Selenium WebDriver&lt;/strong&gt;。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;它提供了一套跨语言的 API（Java, Python, C#, etc.）。&lt;/li&gt;
+&lt;li&gt;它通过“原生”方式与浏览器交互，就像真实用户在操作一样。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;webdriver-的工作原理面试&#34;&gt;WebDriver 的工作原理（面试）
+&lt;/h3&gt;&lt;p&gt;这是Selenium官方文档对WebDriver的介绍&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206155052-w88qg56.png&#34;
+	width=&#34;2469&#34;
+	height=&#34;1110&#34;
+	srcset=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206155052-w88qg56_hu_adae18e67ea1837b.png 480w, https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206155052-w88qg56_hu_2ca576da4395c08d.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;222&#34;
+		data-flex-basis=&#34;533px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;理解了这个图，你就懂了为什么需要下载“驱动”。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206183121-g2bwi34.png&#34;
+	width=&#34;1024&#34;
+	height=&#34;718&#34;
+	srcset=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206183121-g2bwi34_hu_8cc1ef1be9806bc8.png 480w, https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206183121-g2bwi34_hu_d5004eb4015f43eb.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;142&#34;
+		data-flex-basis=&#34;342px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;它的运作流程是一个经典的“C/S 架构”（客户端/服务器）：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Client（你的代码）：&lt;/strong&gt;  你写的 Java 代码（发送命令，比如 &lt;code&gt;driver.get(&amp;quot;www.baidu.com&amp;quot;)&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;JSON Wire Protocol / W3C Protocol：&lt;/strong&gt;  代码将命令封装成 JSON 格式的 HTTP 请求，发送给驱动。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Server（浏览器驱动）：&lt;/strong&gt;  比如 &lt;code&gt;chromedriver.exe&lt;/code&gt;。它接收到 HTTP 请求后，解析命令，并调用浏览器的原生接口。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Browser（浏览器）：&lt;/strong&gt;  执行操作（打开网页、点击按钮），并将结果返回给驱动，驱动再返回给你的代码。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;‍&lt;/p&gt;
+&lt;h3 id=&#34;selenium与webdriver的关系面试&#34;&gt;Selenium与WebDriver的关系？（面试）
+&lt;/h3&gt;&lt;p&gt;Selenium 是一个工具集，而 WebDriver 是其中用于通过原生协议驱动浏览器的核心 API。现在我们常说的 Selenium，通常默认指的就是 Selenium WebDriver。&lt;/p&gt;
+&lt;h3 id=&#34;安装selenium库&#34;&gt;安装Selenium库
+&lt;/h3&gt;&lt;p&gt;安装Selenium在Java中只需引入Maven依赖即可&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;!--&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;https&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;//mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java --&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dependency&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;groupId&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;org&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;seleniumhq&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;selenium&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;groupId&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;artifactId&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;selenium&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;java&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;artifactId&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;37&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dependency&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// version 2025.12.6&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Selenium内置了 WebDriver 的 API，但它&lt;strong&gt;不包含浏览器驱动文件（exe），故需要手动下载 / 自动下载驱动&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;程序想打开web浏览器就需要浏览器驱动，即（WebDriver），WebDriver以本地化的方式来驱动浏览器&lt;/p&gt;
+&lt;h2 id=&#34;关于驱动-drivers&#34;&gt;关于“驱动” (Drivers)
+&lt;/h2&gt;&lt;p&gt;浏览器驱动（BrowserDriver）是你的代码和浏览器之间的&lt;strong&gt;桥梁&lt;/strong&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;为什么需要驱动&#34;&gt;为什么需要驱动？
+&lt;/h2&gt;&lt;p&gt;浏览器（Chrome, Firefox等）都是复杂的闭源或开源软件，出于安全考虑，不允许外部程序直接随意控制。浏览器厂商（Google, Mozilla）为了方便测试，自己开发了对外接口的“遥控器”，这个遥控器就是 Driver。&lt;/p&gt;
+&lt;h2 id=&#34;常见浏览器与驱动对应表&#34;&gt;常见浏览器与驱动对应表
+&lt;/h2&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;strong&gt;浏览器&lt;/strong&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;strong&gt;驱动名称&lt;/strong&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;strong&gt;下载关键词&lt;/strong&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Google Chrome&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;ChromeDriver&lt;/td&gt;
+          &lt;td&gt;​&lt;code&gt;chromedriver&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Firefox&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;GeckoDriver&lt;/td&gt;
+          &lt;td&gt;​&lt;code&gt;geckodriver&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Microsoft Edge&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;EdgeDriver&lt;/td&gt;
+          &lt;td&gt;​&lt;code&gt;msedgedriver&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;驱动版本适配管理重点&#34;&gt;驱动版本适配管理（重点）
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;版本匹配原则：这是新手最容易报错的地方。&lt;/p&gt;
+&lt;p&gt;你的 Chrome 浏览器版本 必须与 ChromeDriver 版本 严格对应。例如，浏览器是 v120，驱动也必须下载 v120 版本的。否则会报错 SessionNotCreatedException。&lt;/p&gt;
+&lt;p&gt;我们可以在浏览器内查看当前浏览器版本，安装的selenium 驱动版本，可以在本地c盘用户的&lt;code&gt;C:\Users\xxx.cache&lt;/code&gt;文件下看到selenium文件夹，里面安装着不同的内核版本&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206152510-olllnwm.png&#34;
+	width=&#34;1120&#34;
+	height=&#34;392&#34;
+	srcset=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206152510-olllnwm_hu_65b9befd7abf0e29.png 480w, https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206152510-olllnwm_hu_e01ebf3ca0c31a0e.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;285&#34;
+		data-flex-basis=&#34;685px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;常见驱动下载方式&#34;&gt;常见驱动下载方式
+&lt;/h2&gt;&lt;h3 id=&#34;1-手动下载不建议&#34;&gt;1. 手动下载（不建议）
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;（注：虽然可以有程序自动管理驱动，但了解手动匹配依然是基础)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;下载驱动的位置在Selenium官方文档中有提供，地址为&lt;/p&gt;
+&lt;p&gt;​&lt;code&gt;https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location/#download-the-driver&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;不建议手动下载，因为浏览器的更新功能是默认打开的，什么时候更新是不知道的。可能今天自动化正常执行，第二天就要重新下载最新版的驱动了，且不同的浏览器就要我们手动下载不同的驱动，非常麻烦。&lt;/p&gt;
+&lt;p&gt;这也不建议手动关闭浏览器的自动更新功能，不仅测试环境与生产环境有脱节，错过了新的自动化的功能或者改进的地方，而且可能导致Selenium库与旧的浏览器版本兼容，这种头疼砍头的操作不可取。&lt;/p&gt;
+&lt;h3 id=&#34;2-由驱动程序自动下载&#34;&gt;2. 由驱动程序自动下载
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;（注：Selenium 4.6.0 版本开始引入了 Selenium Manager，可以自动管理驱动，但了解WebDriverManager也是非常重要的基础）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;更好的做法不是禁用更新，而是采用更健壮的测试策略&lt;/p&gt;
+&lt;p&gt;需要引入WebDriverManager辅助工具库&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;用途：它可以让你不用手动去浏览器官网找对应版本的驱动下载，它会在代码运行时自动检测浏览器版本并下载对应的驱动。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;引入WebDriverManager依赖&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;!--&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;https&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;//mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager --&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dependency&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;       &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;groupId&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;io&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;github&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;bonigarcia&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;groupId&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;artifactId&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;webdrivermanager&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;artifactId&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dependency&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// version 2025.12.6&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;3-更新selenium库至-46-版本&#34;&gt;3. 更新Selenium库至 4.6+ 版本
+&lt;/h3&gt;&lt;p&gt;适用于更加新的项目，直接 new Driver()， Selenium就能给你匹配最新的驱动版本&lt;/p&gt;
+&lt;p&gt;Selenium文档中的描述&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161651-ye73fgj.png&#34;
+	width=&#34;2463&#34;
+	height=&#34;1005&#34;
+	srcset=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161651-ye73fgj_hu_ab7e9e69d08d3b62.png 480w, https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161651-ye73fgj_hu_aff109bcfa1adbfd.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;245&#34;
+		data-flex-basis=&#34;588px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;传统方案：&lt;/strong&gt;  使用 &lt;code&gt;webdrivermanager&lt;/code&gt; 第三方库。适合维护旧项目（Selenium 3.x 或 4.x 早期版本）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 传统方案&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;WebDriverManager&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;chromedriver&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;().&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;setup&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 手动呼叫后勤&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;WebDriver&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;driver&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;new&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ChromeDriver&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;现代方案：&lt;/strong&gt;  直接使用 &lt;code&gt;selenium-java&lt;/code&gt;​ (4.6+)，利用内置的 &lt;code&gt;Selenium Manager&lt;/code&gt;，实现零辅助库配置启动&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 什么都不用配，直接 new&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 底层会自动触发 Selenium Manager 去干活&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;WebDriver&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;driver&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;new&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ChromeDriver&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;总结&#34;&gt;总结
+&lt;/h2&gt;&lt;p&gt;我用Banana Pro生成了这一副插画，能更加形象的了解Web自动化测试执行的逻辑😽&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161502-kow88l3.png&#34;
+	width=&#34;1024&#34;
+	height=&#34;572&#34;
+	srcset=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161502-kow88l3_hu_7a48e10583dfe9a8.png 480w, https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161502-kow88l3_hu_463d1b969b0ad28a.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;179&#34;
+		data-flex-basis=&#34;429px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;web自动化常用函数&#34;&gt;Web自动化常用函数
+&lt;/h2&gt;&lt;p&gt;🙈与其像流水账一样罗列 API，不如&lt;strong&gt;按照“业务场景”或者“对象层级”来分类&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;浏览器级的操作driver&#34;&gt;浏览器级的操作（Driver）
+&lt;/h3&gt;&lt;p&gt;这部分方法是直接作用于&lt;code&gt;WebDriver&lt;/code&gt;​对象的，控制着浏览器的生命周期与状态，通常用于测试开始前的准备（Setup）或测试结束后的清理（Teardown），以及用于 “&lt;a class=&#34;link&#34; href=&#34;%e8%87%aa%e5%8a%a8%e5%8c%96%e6%b5%8b%e8%af%95/%e6%96%ad%e8%a8%80.md&#34; &gt;断言&lt;/a&gt;” 的前置检查。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;获取页面信息 &lt;strong&gt;（用于断言）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在自动化测试中，我们怎么知道脚本是不是跳转到了正确的页面？靠的就是这两个方法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;​&lt;strong&gt;​&lt;code&gt;driver.getTitle()&lt;/code&gt;​&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;​&lt;strong&gt;介绍&lt;/strong&gt;：获取当前浏览器窗口标签页上的标题文本。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;用途&lt;/strong&gt;：这是最常用的断言点。比如登录成功后，验证标题是否包含“个人中心”或“首页”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;注意：如果新开窗口后没有切换driver，则driver依旧作用在旧窗口，识别不了另一个窗口的信息，如有需要用到切换窗口的方法，这就引出获取当前 / 所有句柄id&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;​&lt;strong&gt;​&lt;code&gt;driver.getCurrentUrl()&lt;/code&gt;​&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;​&lt;strong&gt;介绍&lt;/strong&gt;：获取浏览器地址栏当前的 URL 字符串。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;用途&lt;/strong&gt;：验证重定向是否正确。比如支付完成后，URL 是否跳转到了 &lt;code&gt;/success&lt;/code&gt; 页面。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;​&lt;strong&gt;​&lt;code&gt;driver.getWindowHandle() / getWindowHandles()&lt;/code&gt;​&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;介绍：获取句柄（标签页）id&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;用途：一般搭配切换句柄的操作&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// getWindowHandle 获取driver当前标签页/句柄id&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;window&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;driver&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getWindowHandle&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;window: &amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;window&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// getWindowHandles 获取所有标签页/句柄id&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;driver&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;findElement&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;By&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;xpath&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;//*[@id=\&amp;#34;s-top-left\&amp;#34;]/a[6]&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)).&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;click&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Set&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;handles&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;driver&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getWindowHandles&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 切换窗口操作&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;handle&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;handles&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;!&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;window&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;equals&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;handle&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;driver&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;switchTo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;().&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;window&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;handle&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;jump_title&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;driver&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getTitle&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;jump_url&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;driver&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getCurrentUrl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;jump_title：&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;jump_title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;jump_url：&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;jump_url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 这样就能正确切换窗口且得到新窗口的title 和 url&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;浏览器窗口调整&lt;/p&gt;
+&lt;p&gt;​&lt;strong&gt;​&lt;code&gt;driver.manage().window().maximize()&lt;/code&gt;​&lt;/strong&gt; ​  &lt;strong&gt;/&lt;/strong&gt;   &lt;strong&gt;​&lt;code&gt;.setSize(里面需传入Dimension对象，手动规定尺寸)&lt;/code&gt;​&lt;/strong&gt; ：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;介绍&lt;/strong&gt;：自动化脚本启动时，默认通常是小窗口。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;​&lt;strong&gt;用途&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;​&lt;strong&gt;全屏&lt;/strong&gt;​：通常建议在 &lt;code&gt;driver&lt;/code&gt;​ 初始化后立即调用 &lt;code&gt;maximize()&lt;/code&gt;，因为很多网页在小窗口下会折叠菜单（变成汉堡按钮），导致元素不可见或定位失败。&lt;/li&gt;
+&lt;li&gt;​&lt;strong&gt;指定尺寸&lt;/strong&gt;​：在测试“响应式布局”时，通过 &lt;code&gt;setSize()&lt;/code&gt; 模拟手机或平板的分辨率。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;浏览器的关闭 &lt;strong&gt;（面试）&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;​&lt;strong&gt;​&lt;code&gt;driver.close()&lt;/code&gt;​&lt;/strong&gt; ：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;介绍&lt;/strong&gt;：仅仅关闭&lt;strong&gt;当前正在操作的那个标签页（Tab）或窗口&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;注意&lt;/strong&gt;：如果当前浏览器只有一个窗口，调用它也会导致浏览器退出，但它不会清除驱动进程。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;避坑点：&lt;/strong&gt; 当调用 &lt;code&gt;driver.close()&lt;/code&gt;​ 关闭当前标签页后，&lt;strong&gt;WebDriver 并不会自动把焦点切换回剩下的那个标签页&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;解决办法：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;在 close 前保存下当前句柄 id，然后删除后便于 driver 切换新的标签页（适用于随便去一个活着的窗口的情况）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;		&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;driver&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;https://www.baidu.com/&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 新开百度图片标签页&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;driver&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;findElement&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;By&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;xpath&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;//*[@id=\&amp;#34;s-top-left\&amp;#34;]/a[6]&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)).&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;click&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 删除当前标签页后 driver 指向空，无法对新开的百度图片标签页进行操作&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 故需要在关闭标签页后切换句柄 使driver对象指向新的句柄&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;windowHandle&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;driver&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getWindowHandle&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Set&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;windowHandles&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;driver&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getWindowHandles&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;driver&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;close&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 无法直接获得新的句柄的title 必须使driver切换句柄&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;//        System.out.println(driver.getTitle()); // error~~&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 需要切换句柄&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;handle&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;windowHandles&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;!&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;handle&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;equals&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;windowHandle&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;                &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;driver&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;switchTo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;().&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;window&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;handle&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;				&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;break&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;；&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;driver&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getTitle&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// success~~&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Parent-Child 模式（标准）&lt;/p&gt;
+&lt;p&gt;在实际业务测试中（如：在列表页点击商品 -&amp;gt; 弹出新标签页详情 -&amp;gt; 验证完关闭详情 -&amp;gt; 回到列表页继续点下一个）需要“从哪里来，回哪里去”的逻辑，&lt;strong&gt;更有目的性地跳回&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 场景：在 首页(A) 点击链接打开了 详情页(B)，处理完 B 后关闭并回到 A&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 1. 【核心】在这一刻，Driver 还在 A 页面，先保存 A 的身份证&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;originalWindowHandle&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;driver&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getWindowHandle&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 2. 执行打开新页面的操作&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;driver&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;findElement&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;By&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;id&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;open-new-tab-link&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)).&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;click&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 3. 切换到新窗口 (这里假设只要不是原窗口就是新窗口)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;handle&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;driver&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getWindowHandles&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;())&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;!&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;handle&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;equals&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;originalWindowHandle&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;driver&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;switchTo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;().&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;window&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;handle&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;break&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 切过去就不动了&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// --- 此时 Driver 已经在 B 页面了 ---&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;在新页面操作: &amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;driver&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getTitle&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 4. 业务结束，关闭当前的新页面 B&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;driver&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;close&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// ⚠️ 此时 Driver 是悬空的，指向一个不存在的 B&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 5. 【核心】显式切换回原窗口 A&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;driver&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;switchTo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;().&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;window&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;originalWindowHandle&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// --- 此时 Driver 又回到了 A 页面，复活了 ---&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;回到原页面: &amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;driver&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getTitle&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;​&lt;strong&gt;​&lt;code&gt;driver.quit()&lt;/code&gt;​&lt;/strong&gt; ：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;介绍&lt;/strong&gt;：&lt;strong&gt;彻底关闭整个浏览器，关闭所有打开的标签页，并销毁 ChromeDriver 进程&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;注意&lt;/strong&gt;：&lt;strong&gt;在自动化测试框架的&lt;/strong&gt; &lt;strong&gt;​&lt;code&gt;finally&lt;/code&gt;​&lt;/strong&gt;​ &lt;strong&gt;块或&lt;/strong&gt;  &lt;strong&gt;​&lt;code&gt;@After&lt;/code&gt;​&lt;/strong&gt;​ &lt;strong&gt;钩子中，必须使用&lt;/strong&gt; &lt;strong&gt;​&lt;code&gt;quit()&lt;/code&gt;​&lt;/strong&gt; ​ &lt;strong&gt;，否则你的服务器内存会被浏览器进程吃光。强调资源释放的重要性！&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;对元素级操作element&#34;&gt;对元素级操作（Element）
+&lt;/h3&gt;&lt;p&gt;需要先通过 &lt;code&gt;driver.findElement()&lt;/code&gt;​ 找到元素&lt;code&gt;WebElement&lt;/code&gt;后才能调用后续的方法。这是自动化测试中最繁忙的部分，简单来讲就是模拟人类的手指的各种操作&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;输入与交互&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;​&lt;strong&gt;​&lt;code&gt;element.sendKeys(&amp;quot;text&amp;quot;)&lt;/code&gt;​&lt;/strong&gt; ：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;​&lt;strong&gt;介绍&lt;/strong&gt;：模拟键盘向输入框输入指定内容。&lt;/li&gt;
+&lt;li&gt;​&lt;strong&gt;高阶用法&lt;/strong&gt;​：它不仅能输入文字，还能用于​&lt;strong&gt;文件上传&lt;/strong&gt;​（如果 input 类型是 file，直接 sendKeys 文件路径即可），或者模拟按键（如 &lt;code&gt;Keys.ENTER&lt;/code&gt;）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;​&lt;strong&gt;​&lt;code&gt;element.clear()&lt;/code&gt;​&lt;/strong&gt; ：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;介绍&lt;/strong&gt;：清空输入框中的已有文本。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;避坑&lt;/strong&gt;：在调用 &lt;code&gt;sendKeys&lt;/code&gt;​ 之前，建议先调用 &lt;code&gt;clear()&lt;/code&gt;​。因为如果输入框有默认值，&lt;code&gt;sendKeys&lt;/code&gt; 会直接追加在后面，导致数据错误。如：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 如果不进行clear操作，则会在“gpt”文本后追加“chrome”文本&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;driver&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;https://www.baidu.com/&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;driver&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;findElement&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;By&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;xpath&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;//*[@id=\&amp;#34;chat-textarea\&amp;#34;]&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)).&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;sendKeys&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;gpt&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 应该clear上一次的文本&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// driver.findElement(By.xpath(&amp;#34;//*[@id=\&amp;#34;chat-textarea\&amp;#34;]&amp;#34;)).clear();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;driver&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;findElement&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;By&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;xpath&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;//*[@id=\&amp;#34;chat-textarea\&amp;#34;]&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)).&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;sendKeys&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;chrome&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;driver&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;findElement&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;By&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;xpath&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;//*[@id=\&amp;#34;chat-submit-button\&amp;#34;]&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)).&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;click&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206175932-wxvrcza.png&#34;
+	width=&#34;598&#34;
+	height=&#34;149&#34;
+	srcset=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206175932-wxvrcza_hu_6b8045b1bb161667.png 480w, https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206175932-wxvrcza_hu_203949112ae7107e.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;401&#34;
+		data-flex-basis=&#34;963px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;​&lt;strong&gt;​&lt;code&gt;element.click()&lt;/code&gt;​&lt;/strong&gt; ：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;​&lt;strong&gt;介绍&lt;/strong&gt;：模拟鼠标左键点击。&lt;/li&gt;
+&lt;li&gt;​&lt;strong&gt;适用&lt;/strong&gt;：不仅是按钮，超链接、复选框、单选按钮，甚至普通的文本（如果有点击事件）都可以点。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;获取元素信息&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;​&lt;strong&gt;​&lt;code&gt;element.getText() / .getAttribute(&amp;quot;value&amp;quot;)&lt;/code&gt;​&lt;/strong&gt; ：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;​&lt;strong&gt;介绍&lt;/strong&gt;​：获取元素标签对之间的​&lt;strong&gt;可见文本&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;​&lt;strong&gt;用途&lt;/strong&gt;：这是验证测试结果的核心。比如下单成功后，获取页面上的提示语“支付成功”，与预期结果进行比对。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;注意&lt;/strong&gt;：如果元素在页面上被隐藏（Hidden），这个方法通常会返回空字符串。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;避坑点：&lt;/strong&gt; 如果为了获取输入框里用户输入的值，用 &lt;code&gt;getText()&lt;/code&gt;​ 是拿不到的，必须用 &lt;code&gt;getAttribute(&amp;quot;value&amp;quot;)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;比如想获取红色框的文字，定位这元素所在的位置&lt;img src=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180313-a73os2c.png&#34;
+	width=&#34;1850&#34;
+	height=&#34;465&#34;
+	srcset=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180313-a73os2c_hu_c61fe25ae018fbec.png 480w, https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180313-a73os2c_hu_399438d5c183a1fc.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;397&#34;
+		data-flex-basis=&#34;954px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180420-1t2eiii.png&#34;
+	width=&#34;1835&#34;
+	height=&#34;111&#34;
+	srcset=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180420-1t2eiii_hu_4542b2897af0a6e0.png 480w, https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180420-1t2eiii_hu_735ebd4849a15fe5.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;1653&#34;
+		data-flex-basis=&#34;3967px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;发现文字是在&lt;code&gt;placeholder&lt;/code&gt;​属性内的，必须要用&lt;code&gt;getAttribute(&amp;quot;placeholder&amp;quot;)&lt;/code&gt;才能拿到！&lt;/p&gt;
+&lt;p&gt;​&lt;code&gt;getText()&lt;/code&gt;​适合用在&amp;lt;标签&amp;gt; &lt;u&gt;&lt;strong&gt;&amp;ldquo;xxxx&amp;rdquo;&lt;/strong&gt;&lt;/u&gt; &amp;lt;标签&amp;gt;被标签内包裹的文本信息，如&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180704-zgfc7j5.png&#34;
+	width=&#34;847&#34;
+	height=&#34;41&#34;
+	srcset=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180704-zgfc7j5_hu_2b229441e78edc55.png 480w, https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180704-zgfc7j5_hu_225e30d1808ca92.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;2065&#34;
+		data-flex-basis=&#34;4958px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;窗口与句柄切换&#34;&gt;窗口与句柄切换
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;​&lt;strong&gt;​&lt;code&gt;driver.switchTo().window(handle)&lt;/code&gt;​&lt;/strong&gt; ：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;​&lt;strong&gt;核心概念——句柄 (Handle)&lt;/strong&gt; ：每个标签页都有一个唯一的身份证号，叫句柄。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;场景&lt;/strong&gt;：当点击了一个链接，浏览器打开了一个&lt;strong&gt;新的标签页&lt;/strong&gt;。此时虽然人眼看到了新页面，但 &lt;code&gt;driver&lt;/code&gt;​ 的焦点还停留在&lt;strong&gt;旧页面&lt;/strong&gt;上。如果直接操作新页面的元素，会报错：&lt;code&gt;NoSuchElementException&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;​&lt;strong&gt;操作逻辑&lt;/strong&gt;：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;获取所有窗口的句柄：&lt;code&gt;driver.getWindowHandles()&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;遍历这些句柄，排除掉当前句柄。&lt;/li&gt;
+&lt;li&gt;使用 &lt;code&gt;switchTo().window(新句柄)&lt;/code&gt; 将控制权移交到新页面。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// getWindowHandle 获取driver当前标签页/句柄id&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;window&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;driver&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getWindowHandle&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;window: &amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;window&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// getWindowHandles 获取所有标签页/句柄id&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;driver&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;findElement&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;By&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;xpath&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;//*[@id=\&amp;#34;s-top-left\&amp;#34;]/a[6]&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)).&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;click&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Set&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;handles&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;driver&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getWindowHandles&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 切换窗口操作 （随机切换式）&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;handle&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;handles&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;!&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;window&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;equals&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;handle&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;driver&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;switchTo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;().&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;window&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;handle&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;			&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;break&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 这样就能正确切换窗口&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;‍&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>开发模型与测试模型</title>
+        <link>https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/</link>
+        <pubDate>Thu, 11 Dec 2025 17:24:01 +0800</pubDate>
+        
+        <guid>https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/</guid>
+        <description>&lt;h1 id=&#34;开发模型和测试模型&#34;&gt;开发模型和测试模型
+&lt;/h1&gt;&lt;h1 id=&#34;开发模型&#34;&gt;开发模型
+&lt;/h1&gt;&lt;p&gt;学习测试，我们需要了解产品的开发流程，开发模型实际上指的就是产品的开发流程&lt;/p&gt;
+&lt;h2 id=&#34;瀑布模型&#34;&gt;瀑布模型
+&lt;/h2&gt;&lt;p&gt;瀑布模型是其他模型的基础框架，它是最基础的模型，模型如图所示&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102104910-povdkg8.png&#34;
+	width=&#34;2118&#34;
+	height=&#34;200&#34;
+	srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102104910-povdkg8_hu_4e3952a880daf642.png 480w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102104910-povdkg8_hu_86f28e38588ae3fb.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;1059&#34;
+		data-flex-basis=&#34;2541px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;特点 / 优点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;开发流程是线性的，每个阶段执行一次就结束&lt;/li&gt;
+&lt;li&gt;适合小项目的开发&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;缺点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;交付时间长，需要很久才能看到产品&lt;/li&gt;
+&lt;li&gt;测试阶段执行晚，如果一个需求引入的缺陷要到测试阶段或更晚的阶段才能看到，可能会导致前面的工作大面积的返工&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;螺旋模型&#34;&gt;螺旋模型
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102105245-1drxuts.png&#34;
+	width=&#34;1629&#34;
+	height=&#34;1310&#34;
+	srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102105245-1drxuts_hu_4e719995dec093da.png 480w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102105245-1drxuts_hu_f99a1dcb9ef06e20.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;124&#34;
+		data-flex-basis=&#34;298px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;它与瀑布模型的不同是在需求分析到编码环节都进行风险分析，评估方案后才进入下一级产品&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102110024-mvcffwc.png&#34;
+	width=&#34;2354&#34;
+	height=&#34;598&#34;
+	srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102110024-mvcffwc_hu_12ed7dcb3446f71c.png 480w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102110024-mvcffwc_hu_18813107e9240938.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;393&#34;
+		data-flex-basis=&#34;944px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;特点 / 优点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;强调开发中各个环节的质量&lt;/li&gt;
+&lt;li&gt;严格的风险管理&lt;/li&gt;
+&lt;li&gt;增加风险分析与原型&lt;/li&gt;
+&lt;li&gt;适合规模庞大、复杂度高、风险大的项目&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;缺点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;开发成本增高，人员、资金、时间的投入&lt;/li&gt;
+&lt;li&gt;项目中存在的风险性与风险管理人员的水平有直接的关系&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;增量模型--迭代模型&#34;&gt;增量模型 / 迭代模型
+&lt;/h2&gt;&lt;p&gt;它的核心思想是不要一次性把系统全部做完，而是分阶段地、分模块地逐步完善。&lt;/p&gt;
+&lt;p&gt;每一次的构建（称为 “增量“）都在上一个版本的基础上进行完善与扩展；每一次的迭代都包括&lt;strong&gt;开发 → 测试 → 反馈 → 修正&lt;/strong&gt;的完整过程。&lt;/p&gt;
+&lt;p&gt;“增量”强调的是&lt;strong&gt;量的增长（功能一点点加）；&lt;/strong&gt; “迭代”强调的是&lt;strong&gt;质的改进（版本不断优化）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;想象你在搭建一座乐高城堡。你不会一次性把所有零件拼完，而是先搭出地基，再加上城门、塔楼、装饰。每加完一部分（增量），你都会检查它是否稳固、是否和之前的部分契合（迭代）。&lt;br&gt;
+这样，当城堡最终完工时，它不仅完整，而且每一层都经过了检验。&lt;/p&gt;
+&lt;p&gt;特点 / 优点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;每个增量都要单独测试，保证它稳定、可集成&lt;/li&gt;
+&lt;li&gt;每次迭代都能提前发现风险&lt;/li&gt;
+&lt;li&gt;测试结果反过来指导下一轮开发&lt;/li&gt;
+&lt;li&gt;适用于大项目且需求不明确的情况&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;缺点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果项目的方向控制不严，就可能陷入&lt;strong&gt;反复重构、推倒重来的恶性循环，尤其在客户频繁修改需求时，团队可能永远都在“打补丁”，而不是向最终目标靠近。&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;系统整体性不易把握，后期可能会出现接口不兼容，模块耦合度过高等问题&lt;/li&gt;
+&lt;li&gt;管理和测试成本增高，每一次迭代都需要经过一次完整的开发、测试、评审、部署流程&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;增量模型&#34;&gt;增量模型
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111052-ar8at9e.png&#34;
+	width=&#34;717&#34;
+	height=&#34;942&#34;
+	srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111052-ar8at9e_hu_672baad44ffce9b1.png 480w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111052-ar8at9e_hu_c8192a0228080241.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;76&#34;
+		data-flex-basis=&#34;182px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;可能先上线一部分的功能 / 模块，后续再进行完善，上线顺序可能是 模块1 -&amp;gt; 功能1 -&amp;gt; 功能2 -&amp;gt; 功能3 -&amp;gt; 功能4 -&amp;gt; 模块2&lt;/p&gt;
+&lt;h3 id=&#34;迭代模型&#34;&gt;迭代模型
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111456-fmja664.png&#34;
+	width=&#34;1761&#34;
+	height=&#34;986&#34;
+	srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111456-fmja664_hu_45080761fa560ded.png 480w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111456-fmja664_hu_66cc3316162ba121.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;178&#34;
+		data-flex-basis=&#34;428px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;敏捷模型&#34;&gt;敏捷模型
+&lt;/h2&gt;&lt;p&gt;敏捷模型的特点是：轻文档、轻流程、重目标，重产出。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Scrum模型&lt;/strong&gt;就是敏捷模型中的一种，又称为迭代式增量软件开发模型，可以看成&lt;strong&gt;迭代模型与增量模型的结合。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;scrum的基本流程如图所示&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102114531-7hcr4dj.png&#34;
+	width=&#34;2653&#34;
+	height=&#34;1227&#34;
+	srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102114531-7hcr4dj_hu_1532310ba488a8c7.png 480w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102114531-7hcr4dj_hu_f4c5cdd8e858b96f.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;216&#34;
+		data-flex-basis=&#34;518px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;‍&lt;/p&gt;
+&lt;h1 id=&#34;软件测试&#34;&gt;软件测试
+&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;软件测试的最终目的是验证产品&lt;/strong&gt;​&lt;u&gt;==&lt;strong&gt;特性&lt;/strong&gt;==&lt;/u&gt;​&lt;strong&gt;是否满足客户需求~&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;软件测试贯穿于软件的整个生命周期~（非常重要！！！！！面试可以装杯）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;🤔延申问题：如何理解&lt;strong&gt;软件测试贯穿于软件的整个生命周期~&lt;/strong&gt; 这句话？&lt;/p&gt;
+&lt;p&gt;先来看软件的生命周期，才能更好的理解软件测试的生命周期&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115130-wpxwf40.png&#34;
+	width=&#34;1932&#34;
+	height=&#34;212&#34;
+	srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115130-wpxwf40_hu_5c8f5b4489d933c6.png 480w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115130-wpxwf40_hu_d24e72f7cec3ffc7.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;911&#34;
+		data-flex-basis=&#34;2187px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;软件的生命从需求分析就开始了，一直到上线维护&lt;/p&gt;
+&lt;p&gt;软件测试的生命周期也从需求分析开始，虽然说在软件声明周期内测试是排在编码之后，但是软件测试的内容从需求分析就开始了，故说 &lt;strong&gt;&lt;u&gt;==软件测试贯穿于整个软件的生命周期！==&lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115153-48xy6bk.png&#34;
+	width=&#34;1372&#34;
+	height=&#34;316&#34;
+	srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115153-48xy6bk_hu_e423632f1d21fad3.png 480w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115153-48xy6bk_hu_a50a2a9c17218535.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;434&#34;
+		data-flex-basis=&#34;1042px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;需求分析：从用户角度（软件需求是否合理）、技术角度（技术上是否可行）、测试角度（是否存在业务逻辑错误、冲突等问题）分析&lt;/li&gt;
+&lt;li&gt;测试计划：指定测试计划——什么时候开发测试，什么时候结束测试，耗时需要多久&lt;/li&gt;
+&lt;li&gt;测试设计、开发：参考需求文档、技术文档等，来编写测试用例；编写测试文档，明确标注用到的测试方法，测试工具，测试形式等（输出测试设计）&lt;/li&gt;
+&lt;li&gt;测试执行：充分利用测试用例与工具，尽可能的做到全方面覆盖测试&lt;/li&gt;
+&lt;li&gt;测试评估：测试是否通过，本次测试是否有遗留BUG，产出测试报告——描述清楚测试的进度、项目进度，得出测试结论：是否具备上线条件&lt;/li&gt;
+&lt;li&gt;上线：上线后，测试人员跟踪并测试线上环境，确保运行是否正常&lt;/li&gt;
+&lt;li&gt;运行维护：在运行项目时收集问题并反馈相关负责人&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;测试模型&#34;&gt;测试模型
+&lt;/h1&gt;&lt;p&gt;测试中有两个重要且标志性的测试模型：V 模型与 W 模型&lt;/p&gt;
+&lt;h2 id=&#34;v模型&#34;&gt;V模型
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102102442-x94ywwp.png&#34;
+	width=&#34;1742&#34;
+	height=&#34;869&#34;
+	srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102102442-x94ywwp_hu_6b841b4f23087d99.png 480w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102102442-x94ywwp_hu_3a90a1ce600bdbfc.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;200&#34;
+		data-flex-basis=&#34;481px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;其中测试环节中的单元测试与集成测试一般是由开发人员来测试，单元测试的单元是人为规定的，可以认为是某个接口 / api / 方法 / 类&lt;/p&gt;
+&lt;p&gt;它也是基于瀑布模型的，所以缺点也是测试后置，导致风险到后期才发现&lt;/p&gt;
+&lt;p&gt;我们希望给测试留有充足的时间，否则会把缺点直接暴露到线上&lt;/p&gt;
+&lt;h2 id=&#34;w模型&#34;&gt;W模型
+&lt;/h2&gt;&lt;p&gt;在 W 模型中，V 模型的测试后置的问题得到了解决，如图所示&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102103915-0fdhavz.png&#34;
+	width=&#34;1875&#34;
+	height=&#34;989&#34;
+	srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102103915-0fdhavz_hu_26761201c6840c57.png 480w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102103915-0fdhavz_hu_653c9a9f82ab6ea7.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;189&#34;
+		data-flex-basis=&#34;455px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;特点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;测试与开发是同步进行的，测试的对象也不仅仅是程序，需求、设计等同样需要测试，有利于能尽早发现问题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;缺点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;注重流程，无法支持敏捷开发的模式，灵活性低&lt;/li&gt;
+&lt;li&gt;无论是测试线还是开发线，都是线性的，直到上一阶段的完全结束才能开始下一阶段的工作&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;‍&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>🍀Spring IoC &amp; DI</title>
         <link>https://Jul1en-Lin.github.io/p/spring-ioc-di/</link>
         <pubDate>Mon, 08 Dec 2025 17:12:08 +0800</pubDate>
