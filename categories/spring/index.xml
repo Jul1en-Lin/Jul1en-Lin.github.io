@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Jul1en</copyright>
-        <lastBuildDate>Sat, 13 Dec 2025 01:43:44 +0800</lastBuildDate><atom:link href="https://Jul1en-Lin.github.io/categories/spring/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 13 Dec 2025 21:52:46 +0800</lastBuildDate><atom:link href="https://Jul1en-Lin.github.io/categories/spring/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>🧣 验证码功能</title>
         <link>https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/</link>
         <pubDate>Sat, 13 Dec 2025 01:02:22 +0800</pubDate>
@@ -32,20 +32,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dependency&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251206144812-e28xm5t.png&#34;
-	width=&#34;2120&#34;
-	height=&#34;563&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251206144812-e28xm5t_hu_5946e53d3020aaf6.png 480w, https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251206144812-e28xm5t_hu_5efa6466faf792e6.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;376&#34;
-		data-flex-basis=&#34;903px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251206144812-e28xm5t.png&#34; width=&#34;2120&#34;  height=&#34;563&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251206144812-e28xm5t_hu_e3f6e6f1e594a110.png 800w, https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251206144812-e28xm5t_hu_eaa99abba0a0c30b.png 1600w, https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251206144812-e28xm5t_hu_5195ca01f3bf4ac4.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;376&#34;
+	data-flex-basis=&#34;903px&#34; &gt;&lt;/p&gt;
 &lt;h1 id=&#34;实现功能&#34;&gt;实现功能
 &lt;/h1&gt;&lt;p&gt;以下是参考文档代码，以写出到浏览器（Servlet输出）为栗子&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -102,35 +90,11 @@
 &lt;/h2&gt;&lt;p&gt;学到Spring就要充分用到管理对象的功能，但是有些时候参数的注入过于繁琐，如需要构造一个图片类型的验证码，需要传入&lt;code&gt;width&lt;/code&gt;​、&lt;code&gt;height&lt;/code&gt;、验证码长度、干扰因子等等，这些固定参数通常需要放到配置文件中管理，起到解耦作用&lt;/p&gt;
 &lt;p&gt;那注入这么多参数，代码非常不美观，故又想到将配置参数转换为一个对象，从对象中去取，就更加优雅了~&lt;/p&gt;
 &lt;p&gt;举个栗子，这是构造图片验证码的代码&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003220-724pqj1.png&#34;
-	width=&#34;1820&#34;
-	height=&#34;246&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003220-724pqj1_hu_352c1554af2ce65c.png 480w, https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003220-724pqj1_hu_841e7fc4a5ae8fa6.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;739&#34;
-		data-flex-basis=&#34;1775px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003220-724pqj1.png&#34; width=&#34;1820&#34;  height=&#34;246&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003220-724pqj1_hu_a664204c4ea06a1c.png 800w, https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003220-724pqj1_hu_b60103dae09bc56b.png 1600w, https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003220-724pqj1_hu_89c1f3bcd2e650f7.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;739&#34;
+	data-flex-basis=&#34;1775px&#34; &gt;&lt;/p&gt;
 &lt;p&gt;参数放在application.yaml文件中&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003307-e5puokg.png&#34;
-	width=&#34;767&#34;
-	height=&#34;607&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003307-e5puokg_hu_aee046f254e4d95f.png 480w, https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003307-e5puokg_hu_1bc10f7c7612a62f.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;126&#34;
-		data-flex-basis=&#34;303px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003307-e5puokg.png&#34; width=&#34;767&#34;  height=&#34;607&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003307-e5puokg_hu_1a5db8d01be954f6.png 800w, https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003307-e5puokg_hu_d522408cf3c9f7c3.png 1600w, https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003307-e5puokg_hu_bc7e797caedfb927.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;126&#34;
+	data-flex-basis=&#34;303px&#34; &gt;&lt;/p&gt;
 &lt;p&gt;由于注入的时候要一个一个取，非常麻烦，类似于：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -373,7 +337,7 @@
         <pubDate>Mon, 08 Dec 2025 17:12:08 +0800</pubDate>
         
         <guid>https://Jul1en-Lin.github.io/p/spring-ioc-di/</guid>
-        <description>&lt;p&gt;Spring 两个核心思想：IoC &amp;amp; DI 和 AOP&lt;/p&gt;
+        <description>&lt;img src="https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202182824-baismlb.png" alt="Featured image of post 🍀Spring IoC &amp; DI" /&gt;&lt;p&gt;Spring 两个核心思想：IoC &amp;amp; DI 和 AOP&lt;/p&gt;
 &lt;h1 id=&#34;ioc--di&#34;&gt;IoC &amp;amp; DI
 &lt;/h1&gt;&lt;p&gt;IoC全名为Inversion of Control，即“控制反转”，何为控制反转呢？&lt;/p&gt;
 &lt;ul&gt;
@@ -583,72 +547,12 @@
 &lt;p&gt;@Configuration：配置层&lt;/p&gt;
 &lt;p&gt;@Component：组件层——除此以外的所有需要交给Spring管理的对象都能用此注解&lt;/p&gt;
 &lt;p&gt;我们扒开源码查看，能看出他们之间的关系&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251127222523-t9dxs73.png&#34;
-	width=&#34;1819&#34;
-	height=&#34;1150&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251127222523-t9dxs73_hu_37eefe0984e6cb2e.png 480w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251127222523-t9dxs73_hu_7f8a7cd355156ca8.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;158&#34;
-		data-flex-basis=&#34;379px&#34;
-	
-&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251127222617-o50irjn.png&#34;
-	width=&#34;1803&#34;
-	height=&#34;1159&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251127222617-o50irjn_hu_730ce61a75d4d207.png 480w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251127222617-o50irjn_hu_9ecbe67e974e7cba.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;155&#34;
-		data-flex-basis=&#34;373px&#34;
-	
-&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251127223001-o14ggxa.png&#34;
-	width=&#34;1758&#34;
-	height=&#34;1159&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251127223001-o14ggxa_hu_fd08a83186ccd267.png 480w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251127223001-o14ggxa_hu_60b43b308e1d5a2b.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;151&#34;
-		data-flex-basis=&#34;364px&#34;
-	
-&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251127223100-iuut1hi.png&#34;
-	width=&#34;1096&#34;
-	height=&#34;636&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251127223100-iuut1hi_hu_84f50a0b2702a3b5.png 480w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251127223100-iuut1hi_hu_88c33f2115d50d5a.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;172&#34;
-		data-flex-basis=&#34;413px&#34;
-	
-&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251127222409-xqlgjpz.png&#34;
-	width=&#34;955&#34;
-	height=&#34;484&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251127222409-xqlgjpz_hu_f1b8132764931a22.png 480w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251127222409-xqlgjpz_hu_5568e43ac082bc37.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;197&#34;
-		data-flex-basis=&#34;473px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251127222523-t9dxs73.png&#34; width=&#34;1819&#34;  height=&#34;1150&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251127222523-t9dxs73_hu_5c051b3abf872398.png 800w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251127222523-t9dxs73_hu_77c4aee316b0d33e.png 1600w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251127222523-t9dxs73_hu_8e103adfdc55d72b.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;image&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;158&#34;
+	data-flex-basis=&#34;379px&#34; &gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251127222617-o50irjn.png&#34; width=&#34;1803&#34;  height=&#34;1159&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251127222617-o50irjn_hu_c590bd6962c9665b.png 800w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251127222617-o50irjn_hu_9d1ade310baf9253.png 1600w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251127222617-o50irjn_hu_fb2dd621388a0742.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;image&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;155&#34;
+	data-flex-basis=&#34;373px&#34; &gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251127223001-o14ggxa.png&#34; width=&#34;1758&#34;  height=&#34;1159&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251127223001-o14ggxa_hu_498ed17d1feb7d74.png 800w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251127223001-o14ggxa_hu_361c3bf40e199ac7.png 1600w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251127223001-o14ggxa_hu_32fc1e430bdb4dfa.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;image&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;151&#34;
+	data-flex-basis=&#34;364px&#34; &gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251127223100-iuut1hi.png&#34; width=&#34;1096&#34;  height=&#34;636&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251127223100-iuut1hi_hu_681f1193ace7732a.png 800w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251127223100-iuut1hi_hu_fa152108fa7512a8.png 1600w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251127223100-iuut1hi_hu_47aee62ab8b50f52.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;image&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;172&#34;
+	data-flex-basis=&#34;413px&#34; &gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251127222409-xqlgjpz.png&#34; width=&#34;955&#34;  height=&#34;484&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251127222409-xqlgjpz_hu_d0c4f78946c7ff60.png 800w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251127222409-xqlgjpz_hu_d91871392cb577b6.png 1600w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251127222409-xqlgjpz_hu_c7b2fa6a135612d8.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;image&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;197&#34;
+	data-flex-basis=&#34;473px&#34; &gt;&lt;/p&gt;
 &lt;p&gt;其中@Controller @Service @Repository @Configuration 都实现了@Component，它们都是@Component的衍生注解&lt;/p&gt;
 &lt;p&gt;在实际应用中，这五个注解的边界并没有这么清晰，但控制层必须使用@Controller，不可以和其他注解替换&lt;/p&gt;
 &lt;h1 id=&#34;beanname&#34;&gt;BeanName
@@ -776,33 +680,9 @@
 &lt;/ol&gt;
 &lt;h3 id=&#34;属性注入&#34;&gt;属性注入
 &lt;/h3&gt;&lt;p&gt;属性注入是通过&lt;code&gt;@Autowired&lt;/code&gt;​实现的。如果有多个属性需要逐行注入。&lt;code&gt;@Autowired&lt;/code&gt;只对紧挨着那一行代码生效&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202155300-ghe2dy5.png&#34;
-	width=&#34;1092&#34;
-	height=&#34;719&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202155300-ghe2dy5_hu_29ae91349547bcbf.png 480w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202155300-ghe2dy5_hu_db0e3df2e34439e0.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;151&#34;
-		data-flex-basis=&#34;364px&#34;
-	
-&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202155412-brlgi99.png&#34;
-	width=&#34;1123&#34;
-	height=&#34;897&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202155412-brlgi99_hu_78561e3de5d7ad6c.png 480w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202155412-brlgi99_hu_5b87b1161b0ffb6a.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;125&#34;
-		data-flex-basis=&#34;300px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202155300-ghe2dy5.png&#34; width=&#34;1092&#34;  height=&#34;719&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202155300-ghe2dy5_hu_59c5b02ce4e01c5f.png 800w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202155300-ghe2dy5_hu_885873df15479924.png 1600w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202155300-ghe2dy5_hu_71be85c6ff357e07.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;image&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;151&#34;
+	data-flex-basis=&#34;364px&#34; &gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202155412-brlgi99.png&#34; width=&#34;1123&#34;  height=&#34;897&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202155412-brlgi99_hu_365af315d8d4a05b.png 800w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202155412-brlgi99_hu_76f7c013c2e73dcf.png 1600w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202155412-brlgi99_hu_164a07553722d11d.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;image&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;125&#34;
+	data-flex-basis=&#34;300px&#34; &gt;&lt;/p&gt;
 &lt;h3 id=&#34;构造方法注入&#34;&gt;构造方法注入
 &lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;
@@ -923,20 +803,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;bean&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202160844-eupkkgm.png&#34;
-	width=&#34;1688&#34;
-	height=&#34;493&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202160844-eupkkgm_hu_e11c89a3856e68ad.png 480w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202160844-eupkkgm_hu_e9a5f422add3915e.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;342&#34;
-		data-flex-basis=&#34;821px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202160844-eupkkgm.png&#34; width=&#34;1688&#34;  height=&#34;493&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202160844-eupkkgm_hu_4f33e6201df78af6.png 800w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202160844-eupkkgm_hu_80174b4b542c9f0d.png 1600w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202160844-eupkkgm_hu_7c67f2588e0b5a27.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;image&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;342&#34;
+	data-flex-basis=&#34;821px&#34; &gt;&lt;/p&gt;
 &lt;p&gt;由于执行的是无参的构造方法， &lt;code&gt;print()&lt;/code&gt;​方法拿不到&lt;code&gt;service&lt;/code&gt;​和&lt;code&gt;repository&lt;/code&gt;对象，故报错&lt;/p&gt;
 &lt;hr&gt;
 &lt;ol start=&#34;2&#34;&gt;
@@ -1002,20 +870,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;bean&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202161848-yovqgn7.png&#34;
-	width=&#34;2351&#34;
-	height=&#34;229&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202161848-yovqgn7_hu_b572bece0d1f478f.png 480w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202161848-yovqgn7_hu_b8a77d5a5a7156b0.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;1026&#34;
-		data-flex-basis=&#34;2463px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202161848-yovqgn7.png&#34; width=&#34;2351&#34;  height=&#34;229&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202161848-yovqgn7_hu_8456e07a0714e2d5.png 800w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202161848-yovqgn7_hu_6de595a29273f09e.png 1600w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202161848-yovqgn7_hu_8bf129ff74234b3e.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;image&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;1026&#34;
+	data-flex-basis=&#34;2463px&#34; &gt;&lt;/p&gt;
 &lt;p&gt;可以通过@Autowired 注解来指定构造方法，此时1. 和 2. 的情况都能解决，没有无参构造方法也不会报错，这两种情况都能运行&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -1158,20 +1014,8 @@
 &lt;p&gt;&lt;strong&gt;注入的对象不会被修改，除非有&lt;/strong&gt;​&lt;strong&gt;​&lt;code&gt;set&lt;/code&gt;​&lt;/strong&gt;​&lt;strong&gt;方法再对对象修改，否则初始化后就定好了&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;通用性好：构造方法是JDK支持的，所以更换任何框架都是使用的&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;**依赖对象在使用前一定被完全初始化，因为依赖是在类的构造方法中执行的，而构造方法是在类加载的阶段就会被执行——**​&lt;u&gt;从控制台也能简单看出来，先执行构造方法后再运行服务器&lt;/u&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202164020-muiti5x.png&#34;
-	width=&#34;1572&#34;
-	height=&#34;529&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202164020-muiti5x_hu_7dee9ae21d9ef7c9.png 480w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202164020-muiti5x_hu_fb07fc8f0ceb406d.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;297&#34;
-		data-flex-basis=&#34;713px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202164020-muiti5x.png&#34; width=&#34;1572&#34;  height=&#34;529&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202164020-muiti5x_hu_6f13066a09f0f4fb.png 800w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202164020-muiti5x_hu_92486267337fb831.png 1600w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202164020-muiti5x_hu_1a75d4c1004bbfd5.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;image&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;297&#34;
+	data-flex-basis=&#34;713px&#34; &gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;缺点：&lt;strong&gt;注入多个对象时，代码比较繁琐&lt;/strong&gt;&lt;/p&gt;
@@ -1246,20 +1090,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202170930-joqvd2z.png&#34;
-	width=&#34;2543&#34;
-	height=&#34;360&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202170930-joqvd2z_hu_a5680c52415ded3e.png 480w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202170930-joqvd2z_hu_1075aa7c83728ae5.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;706&#34;
-		data-flex-basis=&#34;1695px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202170930-joqvd2z.png&#34; width=&#34;2543&#34;  height=&#34;360&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202170930-joqvd2z_hu_653dd22020fc9328.png 800w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202170930-joqvd2z_hu_82bc34f96513d10b.png 1600w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202170930-joqvd2z_hu_3bb0a7eaf8d1664b.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;image&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;706&#34;
+	data-flex-basis=&#34;1695px&#34; &gt;&lt;/p&gt;
 &lt;p&gt;能看到报错原因是，非唯一的&lt;code&gt;Bean&lt;/code&gt;对象，Spring无法分辨该把哪个对象注入&lt;/p&gt;
 &lt;p&gt;如何在不删除&lt;code&gt;Bean&lt;/code&gt;对象的前提下，解决上述问题呢？Spring给了三种注解&lt;/p&gt;
 &lt;ul&gt;
@@ -1331,20 +1163,8 @@
 &lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;​&lt;code&gt;@Qualifier&lt;/code&gt;​：指定当前&lt;code&gt;Bean&lt;/code&gt;​的对象，在&lt;code&gt;@Qualifier&lt;/code&gt;​的&lt;code&gt;value&lt;/code&gt;​属性注入&lt;code&gt;Bean&lt;/code&gt;​的名字 &lt;strong&gt;（默认也是value，内部只有一个String value）&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202172218-t8n53y4.png&#34;
-	width=&#34;966&#34;
-	height=&#34;475&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202172218-t8n53y4_hu_fd3261384081ba77.png 480w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202172218-t8n53y4_hu_2d9acc20595f1cec.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;203&#34;
-		data-flex-basis=&#34;488px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202172218-t8n53y4.png&#34; width=&#34;966&#34;  height=&#34;475&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202172218-t8n53y4_hu_843b09445f76b8cd.png 800w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202172218-t8n53y4_hu_d9099e3414277d46.png 1600w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202172218-t8n53y4_hu_3b66b222105b2397.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;image&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;203&#34;
+	data-flex-basis=&#34;488px&#34; &gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;不能单独使用，需要配合&lt;/strong&gt;​ &lt;strong&gt;​&lt;code&gt;@Autowired&lt;/code&gt;​&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -1482,33 +1302,9 @@
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;​&lt;code&gt;@Autowired&lt;/code&gt;​ 是Spring框架提供的注解，&lt;code&gt;@Resource&lt;/code&gt; 是JDK提供的注解&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202181253-gz0x6d7.png&#34;
-	width=&#34;1329&#34;
-	height=&#34;129&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202181253-gz0x6d7_hu_604fe451c7f41e26.png 480w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202181253-gz0x6d7_hu_34af34bcc607246c.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;1030&#34;
-		data-flex-basis=&#34;2472px&#34;
-	
-&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202181236-6yej414.png&#34;
-	width=&#34;831&#34;
-	height=&#34;140&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202181236-6yej414_hu_34defd5793efae3c.png 480w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202181236-6yej414_hu_a94365481c0a85ad.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;593&#34;
-		data-flex-basis=&#34;1424px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202181253-gz0x6d7.png&#34; width=&#34;1329&#34;  height=&#34;129&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202181253-gz0x6d7_hu_7a9607c41ceb4c7f.png 800w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202181253-gz0x6d7_hu_8b022b83cc5a55ec.png 1600w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202181253-gz0x6d7_hu_ff8d3cff7001d97c.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;image&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;1030&#34;
+	data-flex-basis=&#34;2472px&#34; &gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202181236-6yej414.png&#34; width=&#34;831&#34;  height=&#34;140&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202181236-6yej414_hu_a772693070473d71.png 800w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202181236-6yej414_hu_f16f8b01182f14b4.png 1600w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202181236-6yej414_hu_214793923026ca1f.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;image&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;593&#34;
+	data-flex-basis=&#34;1424px&#34; &gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;​&lt;code&gt;@Autowired&lt;/code&gt;​默认是按照类型注入，&lt;code&gt;@Resource&lt;/code&gt;​除了匹配类型，默认按照名称注入。相比于&lt;code&gt;@Autowired&lt;/code&gt;​ ，&lt;code&gt;@Resource&lt;/code&gt;​ 支持更多的参数设置，例如&lt;code&gt;name&lt;/code&gt;​设置，根据名称来获取&lt;code&gt;Bean&lt;/code&gt;&lt;/p&gt;
@@ -1530,20 +1326,8 @@
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;autowired的装配顺序&#34;&gt;@Autowired的装配顺序
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202182824-baismlb.png&#34;
-	width=&#34;1781&#34;
-	height=&#34;1515&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202182824-baismlb_hu_4a738917228bb015.png 480w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202182824-baismlb_hu_ba4545e9d97b7738.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;117&#34;
-		data-flex-basis=&#34;282px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202182824-baismlb.png&#34; width=&#34;1781&#34;  height=&#34;1515&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202182824-baismlb_hu_7ea76377e40d7eea.png 800w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202182824-baismlb_hu_ba0fdcdbe07a773b.png 1600w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202182824-baismlb_hu_998521eb4eb3a75.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;117&#34;
+	data-flex-basis=&#34;282px&#34; &gt;&lt;/p&gt;
 &lt;h2 id=&#34;springspringmvcspringboot之间的关系与区别&#34;&gt;&lt;span id=&#34;20251202194306-k6nc3dz&#34; style=&#34;display: none;&#34;&gt;&lt;/span&gt;Spring、SpringMVC、SpringBoot之间的关系与区别
 &lt;/h2&gt;&lt;p&gt;Spring在不同的角度回答也不同，分Spring和SpringFramework&lt;/p&gt;
 &lt;ul&gt;

@@ -7,13 +7,13 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Jul1en</copyright>
-        <lastBuildDate>Fri, 12 Dec 2025 17:25:39 +0800</lastBuildDate><atom:link href="https://Jul1en-Lin.github.io/categories/%E6%B5%8B%E8%AF%95/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 13 Dec 2025 21:52:46 +0800</lastBuildDate><atom:link href="https://Jul1en-Lin.github.io/categories/%E6%B5%8B%E8%AF%95/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>🎓 Web自动化测试</title>
         <link>https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/</link>
         <pubDate>Fri, 12 Dec 2025 17:16:00 +0800</pubDate>
         
         <guid>https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/</guid>
-        <description>&lt;h1 id=&#34;自动化测试&#34;&gt;自动化测试
+        <description>&lt;img src="https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161502-kow88l3.png" alt="Featured image of post 🎓 Web自动化测试" /&gt;&lt;h1 id=&#34;自动化测试&#34;&gt;自动化测试
 &lt;/h1&gt;&lt;p&gt;自动化测试包括&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -45,35 +45,11 @@
 &lt;/ul&gt;
 &lt;h3 id=&#34;webdriver-的工作原理面试&#34;&gt;WebDriver 的工作原理（面试）
 &lt;/h3&gt;&lt;p&gt;这是Selenium官方文档对WebDriver的介绍&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206155052-w88qg56.png&#34;
-	width=&#34;2469&#34;
-	height=&#34;1110&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206155052-w88qg56_hu_adae18e67ea1837b.png 480w, https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206155052-w88qg56_hu_2ca576da4395c08d.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;222&#34;
-		data-flex-basis=&#34;533px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206155052-w88qg56.png&#34; width=&#34;2469&#34;  height=&#34;1110&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206155052-w88qg56_hu_4c37517454b31195.png 800w, https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206155052-w88qg56_hu_739f33e673a1aa30.png 1600w, https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206155052-w88qg56_hu_d4af901a1c325cc6.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;image&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;222&#34;
+	data-flex-basis=&#34;533px&#34; &gt;&lt;/p&gt;
 &lt;p&gt;理解了这个图，你就懂了为什么需要下载“驱动”。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206183121-g2bwi34.png&#34;
-	width=&#34;1024&#34;
-	height=&#34;718&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206183121-g2bwi34_hu_8cc1ef1be9806bc8.png 480w, https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206183121-g2bwi34_hu_d5004eb4015f43eb.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;142&#34;
-		data-flex-basis=&#34;342px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206183121-g2bwi34.png&#34; width=&#34;1024&#34;  height=&#34;718&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206183121-g2bwi34_hu_75e01756233661e7.png 800w, https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206183121-g2bwi34_hu_2d6aa7638df2fde7.png 1600w, https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206183121-g2bwi34_hu_caf09698b7b2e5fd.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;image&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;142&#34;
+	data-flex-basis=&#34;342px&#34; &gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;它的运作流程是一个经典的“C/S 架构”（客户端/服务器）：&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Client（你的代码）：&lt;/strong&gt;  你写的 Java 代码（发送命令，比如 &lt;code&gt;driver.get(&amp;quot;www.baidu.com&amp;quot;)&lt;/code&gt;）。&lt;/li&gt;
@@ -144,20 +120,8 @@
 &lt;p&gt;版本匹配原则：这是新手最容易报错的地方。&lt;/p&gt;
 &lt;p&gt;你的 Chrome 浏览器版本 必须与 ChromeDriver 版本 严格对应。例如，浏览器是 v120，驱动也必须下载 v120 版本的。否则会报错 SessionNotCreatedException。&lt;/p&gt;
 &lt;p&gt;我们可以在浏览器内查看当前浏览器版本，安装的selenium 驱动版本，可以在本地c盘用户的&lt;code&gt;C:\Users\xxx.cache&lt;/code&gt;文件下看到selenium文件夹，里面安装着不同的内核版本&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206152510-olllnwm.png&#34;
-	width=&#34;1120&#34;
-	height=&#34;392&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206152510-olllnwm_hu_65b9befd7abf0e29.png 480w, https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206152510-olllnwm_hu_e01ebf3ca0c31a0e.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;285&#34;
-		data-flex-basis=&#34;685px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206152510-olllnwm.png&#34; width=&#34;1120&#34;  height=&#34;392&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206152510-olllnwm_hu_e3c92b52a2b2609c.png 800w, https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206152510-olllnwm_hu_3eea1e837570cc29.png 1600w, https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206152510-olllnwm_hu_b37474fce2935a3d.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;285&#34;
+	data-flex-basis=&#34;685px&#34; &gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;常见驱动下载方式&#34;&gt;常见驱动下载方式
 &lt;/h2&gt;&lt;h3 id=&#34;1-手动下载不建议&#34;&gt;1. 手动下载（不建议）
@@ -197,20 +161,8 @@
 &lt;/div&gt;&lt;h3 id=&#34;3-更新selenium库至-46-版本&#34;&gt;3. 更新Selenium库至 4.6+ 版本
 &lt;/h3&gt;&lt;p&gt;适用于更加新的项目，直接 new Driver()， Selenium就能给你匹配最新的驱动版本&lt;/p&gt;
 &lt;p&gt;Selenium文档中的描述&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161651-ye73fgj.png&#34;
-	width=&#34;2463&#34;
-	height=&#34;1005&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161651-ye73fgj_hu_ab7e9e69d08d3b62.png 480w, https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161651-ye73fgj_hu_aff109bcfa1adbfd.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;245&#34;
-		data-flex-basis=&#34;588px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161651-ye73fgj.png&#34; width=&#34;2463&#34;  height=&#34;1005&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161651-ye73fgj_hu_729c5e74c789674b.png 800w, https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161651-ye73fgj_hu_5c4d89f76d13da31.png 1600w, https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161651-ye73fgj_hu_5ed649be6509ce69.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;245&#34;
+	data-flex-basis=&#34;588px&#34; &gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;传统方案：&lt;/strong&gt;  使用 &lt;code&gt;webdrivermanager&lt;/code&gt; 第三方库。适合维护旧项目（Selenium 3.x 或 4.x 早期版本）&lt;/p&gt;
@@ -245,20 +197,8 @@
 &lt;/ul&gt;
 &lt;h2 id=&#34;总结&#34;&gt;总结
 &lt;/h2&gt;&lt;p&gt;我用Banana Pro生成了这一副插画，能更加形象的了解Web自动化测试执行的逻辑😽&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161502-kow88l3.png&#34;
-	width=&#34;1024&#34;
-	height=&#34;572&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161502-kow88l3_hu_7a48e10583dfe9a8.png 480w, https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161502-kow88l3_hu_463d1b969b0ad28a.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;179&#34;
-		data-flex-basis=&#34;429px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161502-kow88l3.png&#34; width=&#34;1024&#34;  height=&#34;572&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161502-kow88l3_hu_be8d0caf49b37aa3.png 800w, https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161502-kow88l3_hu_c6e9deea0dc24a0c.png 1600w, https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161502-kow88l3_hu_475a737cc187820c.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;179&#34;
+	data-flex-basis=&#34;429px&#34; &gt;&lt;/p&gt;
 &lt;h2 id=&#34;web自动化常用函数&#34;&gt;Web自动化常用函数
 &lt;/h2&gt;&lt;p&gt;🙈与其像流水账一样罗列 API，不如&lt;strong&gt;按照“业务场景”或者“对象层级”来分类&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id=&#34;浏览器级的操作driver&#34;&gt;浏览器级的操作（Driver）
@@ -540,20 +480,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;driver&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;findElement&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;By&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;xpath&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;//*[@id=\&amp;#34;chat-submit-button\&amp;#34;]&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)).&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;click&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206175932-wxvrcza.png&#34;
-	width=&#34;598&#34;
-	height=&#34;149&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206175932-wxvrcza_hu_6b8045b1bb161667.png 480w, https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206175932-wxvrcza_hu_203949112ae7107e.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;401&#34;
-		data-flex-basis=&#34;963px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206175932-wxvrcza.png&#34; width=&#34;598&#34;  height=&#34;149&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206175932-wxvrcza_hu_9a46e00f99362c71.png 800w, https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206175932-wxvrcza_hu_b893a241eea65648.png 1600w, https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206175932-wxvrcza_hu_41782cef2368263d.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;401&#34;
+	data-flex-basis=&#34;963px&#34; &gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;​&lt;strong&gt;​&lt;code&gt;element.click()&lt;/code&gt;​&lt;/strong&gt; ：&lt;/p&gt;
@@ -575,50 +503,14 @@
 &lt;li&gt;&lt;strong&gt;注意&lt;/strong&gt;：如果元素在页面上被隐藏（Hidden），这个方法通常会返回空字符串。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;避坑点：&lt;/strong&gt; 如果为了获取输入框里用户输入的值，用 &lt;code&gt;getText()&lt;/code&gt;​ 是拿不到的，必须用 &lt;code&gt;getAttribute(&amp;quot;value&amp;quot;)&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;比如想获取红色框的文字，定位这元素所在的位置&lt;img src=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180313-a73os2c.png&#34;
-	width=&#34;1850&#34;
-	height=&#34;465&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180313-a73os2c_hu_c61fe25ae018fbec.png 480w, https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180313-a73os2c_hu_399438d5c183a1fc.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;397&#34;
-		data-flex-basis=&#34;954px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180420-1t2eiii.png&#34;
-	width=&#34;1835&#34;
-	height=&#34;111&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180420-1t2eiii_hu_4542b2897af0a6e0.png 480w, https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180420-1t2eiii_hu_735ebd4849a15fe5.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;1653&#34;
-		data-flex-basis=&#34;3967px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;比如想获取红色框的文字，定位这元素所在的位置&lt;img src=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180313-a73os2c.png&#34; width=&#34;1850&#34;  height=&#34;465&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180313-a73os2c_hu_860dc012c680a51b.png 800w, https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180313-a73os2c_hu_5c64b641ff5b5623.png 1600w, https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180313-a73os2c_hu_edba37a5769bf87a.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;image&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;397&#34;
+	data-flex-basis=&#34;954px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180420-1t2eiii.png&#34; width=&#34;1835&#34;  height=&#34;111&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180420-1t2eiii_hu_3c404b0aa268fae4.png 800w, https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180420-1t2eiii_hu_fef94b9abc00929c.png 1600w, https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180420-1t2eiii_hu_8930770b2712516a.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;1653&#34;
+	data-flex-basis=&#34;3967px&#34; &gt;&lt;/p&gt;
 &lt;p&gt;发现文字是在&lt;code&gt;placeholder&lt;/code&gt;​属性内的，必须要用&lt;code&gt;getAttribute(&amp;quot;placeholder&amp;quot;)&lt;/code&gt;才能拿到！&lt;/p&gt;
 &lt;p&gt;​&lt;code&gt;getText()&lt;/code&gt;​适合用在&amp;lt;标签&amp;gt; &lt;u&gt;&lt;strong&gt;&amp;ldquo;xxxx&amp;rdquo;&lt;/strong&gt;&lt;/u&gt; &amp;lt;标签&amp;gt;被标签内包裹的文本信息，如&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180704-zgfc7j5.png&#34;
-	width=&#34;847&#34;
-	height=&#34;41&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180704-zgfc7j5_hu_2b229441e78edc55.png 480w, https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180704-zgfc7j5_hu_225e30d1808ca92.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;2065&#34;
-		data-flex-basis=&#34;4958px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180704-zgfc7j5.png&#34; width=&#34;847&#34;  height=&#34;41&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180704-zgfc7j5_hu_aab446c9a03a3e8b.png 800w, https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180704-zgfc7j5_hu_8446d6f572682a5.png 1600w, https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180704-zgfc7j5_hu_b3828d1e09d9ca57.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;2065&#34;
+	data-flex-basis=&#34;4958px&#34; &gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -687,30 +579,18 @@
 </description>
         </item>
         <item>
-        <title>开发模型与测试模型</title>
+        <title>🌵 开发模型与测试模型</title>
         <link>https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/</link>
         <pubDate>Thu, 11 Dec 2025 17:24:01 +0800</pubDate>
         
         <guid>https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/</guid>
-        <description>&lt;h1 id=&#34;开发模型和测试模型&#34;&gt;开发模型和测试模型
+        <description>&lt;img src="https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111456-fmja664.png" alt="Featured image of post 🌵 开发模型与测试模型" /&gt;&lt;h1 id=&#34;开发模型和测试模型&#34;&gt;开发模型和测试模型
 &lt;/h1&gt;&lt;h1 id=&#34;开发模型&#34;&gt;开发模型
 &lt;/h1&gt;&lt;p&gt;学习测试，我们需要了解产品的开发流程，开发模型实际上指的就是产品的开发流程&lt;/p&gt;
 &lt;h2 id=&#34;瀑布模型&#34;&gt;瀑布模型
 &lt;/h2&gt;&lt;p&gt;瀑布模型是其他模型的基础框架，它是最基础的模型，模型如图所示&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102104910-povdkg8.png&#34;
-	width=&#34;2118&#34;
-	height=&#34;200&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102104910-povdkg8_hu_4e3952a880daf642.png 480w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102104910-povdkg8_hu_86f28e38588ae3fb.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;1059&#34;
-		data-flex-basis=&#34;2541px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102104910-povdkg8.png&#34; width=&#34;2118&#34;  height=&#34;200&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102104910-povdkg8_hu_91a9d28189679049.png 800w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102104910-povdkg8_hu_d1b38276e6a6b407.png 1600w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102104910-povdkg8_hu_2b1f6c15599aacd5.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;瀑布模型&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;1059&#34;
+	data-flex-basis=&#34;2541px&#34; &gt;&lt;/p&gt;
 &lt;p&gt;特点 / 优点：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;开发流程是线性的，每个阶段执行一次就结束&lt;/li&gt;
@@ -722,35 +602,11 @@
 &lt;li&gt;测试阶段执行晚，如果一个需求引入的缺陷要到测试阶段或更晚的阶段才能看到，可能会导致前面的工作大面积的返工&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;螺旋模型&#34;&gt;螺旋模型
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102105245-1drxuts.png&#34;
-	width=&#34;1629&#34;
-	height=&#34;1310&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102105245-1drxuts_hu_4e719995dec093da.png 480w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102105245-1drxuts_hu_f99a1dcb9ef06e20.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;124&#34;
-		data-flex-basis=&#34;298px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102105245-1drxuts.png&#34; width=&#34;1629&#34;  height=&#34;1310&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102105245-1drxuts_hu_c139400b04c871c5.png 800w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102105245-1drxuts_hu_d10b54bd07b7c460.png 1600w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102105245-1drxuts_hu_175af0a3e143a20.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;螺旋模型&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;124&#34;
+	data-flex-basis=&#34;298px&#34; &gt;&lt;/p&gt;
 &lt;p&gt;它与瀑布模型的不同是在需求分析到编码环节都进行风险分析，评估方案后才进入下一级产品&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102110024-mvcffwc.png&#34;
-	width=&#34;2354&#34;
-	height=&#34;598&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102110024-mvcffwc_hu_12ed7dcb3446f71c.png 480w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102110024-mvcffwc_hu_18813107e9240938.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;393&#34;
-		data-flex-basis=&#34;944px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102110024-mvcffwc.png&#34; width=&#34;2354&#34;  height=&#34;598&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102110024-mvcffwc_hu_a614c33681eb4f83.png 800w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102110024-mvcffwc_hu_e15e48484481a758.png 1600w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102110024-mvcffwc_hu_f5e6a2875d164a6d.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;螺旋模型&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;393&#34;
+	data-flex-basis=&#34;944px&#34; &gt;&lt;/p&gt;
 &lt;p&gt;特点 / 优点：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;强调开发中各个环节的质量&lt;/li&gt;
@@ -783,90 +639,30 @@
 &lt;li&gt;管理和测试成本增高，每一次迭代都需要经过一次完整的开发、测试、评审、部署流程&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;增量模型&#34;&gt;增量模型
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111052-ar8at9e.png&#34;
-	width=&#34;717&#34;
-	height=&#34;942&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111052-ar8at9e_hu_672baad44ffce9b1.png 480w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111052-ar8at9e_hu_c8192a0228080241.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;76&#34;
-		data-flex-basis=&#34;182px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111052-ar8at9e.png&#34; width=&#34;717&#34;  height=&#34;942&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111052-ar8at9e_hu_92b12d5b021b974d.png 800w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111052-ar8at9e_hu_e15483f381f4ff2c.png 1600w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111052-ar8at9e_hu_2f1341f3f9ed485f.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;增量模型&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;76&#34;
+	data-flex-basis=&#34;182px&#34; &gt;&lt;/p&gt;
 &lt;p&gt;可能先上线一部分的功能 / 模块，后续再进行完善，上线顺序可能是 模块1 -&amp;gt; 功能1 -&amp;gt; 功能2 -&amp;gt; 功能3 -&amp;gt; 功能4 -&amp;gt; 模块2&lt;/p&gt;
 &lt;h3 id=&#34;迭代模型&#34;&gt;迭代模型
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111456-fmja664.png&#34;
-	width=&#34;1761&#34;
-	height=&#34;986&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111456-fmja664_hu_45080761fa560ded.png 480w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111456-fmja664_hu_66cc3316162ba121.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;178&#34;
-		data-flex-basis=&#34;428px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111456-fmja664.png&#34; width=&#34;1761&#34;  height=&#34;986&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111456-fmja664_hu_f47e4965b311857d.png 800w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111456-fmja664_hu_3c01ad4583c74757.png 1600w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111456-fmja664_hu_d861bb893dbd5b1b.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;迭代模型&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;178&#34;
+	data-flex-basis=&#34;428px&#34; &gt;&lt;/p&gt;
 &lt;h2 id=&#34;敏捷模型&#34;&gt;敏捷模型
 &lt;/h2&gt;&lt;p&gt;敏捷模型的特点是：轻文档、轻流程、重目标，重产出。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Scrum模型&lt;/strong&gt;就是敏捷模型中的一种，又称为迭代式增量软件开发模型，可以看成&lt;strong&gt;迭代模型与增量模型的结合。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;scrum的基本流程如图所示&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102114531-7hcr4dj.png&#34;
-	width=&#34;2653&#34;
-	height=&#34;1227&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102114531-7hcr4dj_hu_1532310ba488a8c7.png 480w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102114531-7hcr4dj_hu_f4c5cdd8e858b96f.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;216&#34;
-		data-flex-basis=&#34;518px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102114531-7hcr4dj.png&#34; width=&#34;2653&#34;  height=&#34;1227&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102114531-7hcr4dj_hu_fc34c1a713435015.png 800w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102114531-7hcr4dj_hu_f5e060d2ad057f84.png 1600w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102114531-7hcr4dj_hu_42513eed419eba46.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;216&#34;
+	data-flex-basis=&#34;518px&#34; &gt;&lt;/p&gt;
 &lt;p&gt;‍&lt;/p&gt;
 &lt;h1 id=&#34;软件测试&#34;&gt;软件测试
 &lt;/h1&gt;&lt;p&gt;&lt;strong&gt;软件测试的最终目的是验证产品&lt;/strong&gt;​&lt;u&gt;==&lt;strong&gt;特性&lt;/strong&gt;==&lt;/u&gt;​&lt;strong&gt;是否满足客户需求~&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;软件测试贯穿于软件的整个生命周期~（非常重要！！！！！面试可以装杯）&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;🤔延申问题：如何理解&lt;strong&gt;软件测试贯穿于软件的整个生命周期~&lt;/strong&gt; 这句话？&lt;/p&gt;
 &lt;p&gt;先来看软件的生命周期，才能更好的理解软件测试的生命周期&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115130-wpxwf40.png&#34;
-	width=&#34;1932&#34;
-	height=&#34;212&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115130-wpxwf40_hu_5c8f5b4489d933c6.png 480w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115130-wpxwf40_hu_d24e72f7cec3ffc7.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;911&#34;
-		data-flex-basis=&#34;2187px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115130-wpxwf40.png&#34; width=&#34;1932&#34;  height=&#34;212&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115130-wpxwf40_hu_7d5d70f9a436e16e.png 800w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115130-wpxwf40_hu_db24d84539a879a6.png 1600w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115130-wpxwf40_hu_99d442a1f181fa95.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;软件生命周期&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;911&#34;
+	data-flex-basis=&#34;2187px&#34; &gt;&lt;/p&gt;
 &lt;p&gt;软件的生命从需求分析就开始了，一直到上线维护&lt;/p&gt;
 &lt;p&gt;软件测试的生命周期也从需求分析开始，虽然说在软件声明周期内测试是排在编码之后，但是软件测试的内容从需求分析就开始了，故说 &lt;strong&gt;&lt;u&gt;==软件测试贯穿于整个软件的生命周期！==&lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115153-48xy6bk.png&#34;
-	width=&#34;1372&#34;
-	height=&#34;316&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115153-48xy6bk_hu_e423632f1d21fad3.png 480w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115153-48xy6bk_hu_a50a2a9c17218535.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;434&#34;
-		data-flex-basis=&#34;1042px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115153-48xy6bk.png&#34; width=&#34;1372&#34;  height=&#34;316&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115153-48xy6bk_hu_ec93965232ada2b0.png 800w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115153-48xy6bk_hu_ee3294e3128243ba.png 1600w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115153-48xy6bk_hu_25e21f44aa772fdf.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;生命周期&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;434&#34;
+	data-flex-basis=&#34;1042px&#34; &gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;需求分析：从用户角度（软件需求是否合理）、技术角度（技术上是否可行）、测试角度（是否存在业务逻辑错误、冲突等问题）分析&lt;/li&gt;
 &lt;li&gt;测试计划：指定测试计划——什么时候开发测试，什么时候结束测试，耗时需要多久&lt;/li&gt;
@@ -879,39 +675,15 @@
 &lt;h1 id=&#34;测试模型&#34;&gt;测试模型
 &lt;/h1&gt;&lt;p&gt;测试中有两个重要且标志性的测试模型：V 模型与 W 模型&lt;/p&gt;
 &lt;h2 id=&#34;v模型&#34;&gt;V模型
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102102442-x94ywwp.png&#34;
-	width=&#34;1742&#34;
-	height=&#34;869&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102102442-x94ywwp_hu_6b841b4f23087d99.png 480w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102102442-x94ywwp_hu_3a90a1ce600bdbfc.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;200&#34;
-		data-flex-basis=&#34;481px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102102442-x94ywwp.png&#34; width=&#34;1742&#34;  height=&#34;869&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102102442-x94ywwp_hu_f9f7d0cb312c6c86.png 800w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102102442-x94ywwp_hu_376cd15c6461dd04.png 1600w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102102442-x94ywwp_hu_17c0b722c4b0aab0.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;200&#34;
+	data-flex-basis=&#34;481px&#34; &gt;&lt;/p&gt;
 &lt;p&gt;其中测试环节中的单元测试与集成测试一般是由开发人员来测试，单元测试的单元是人为规定的，可以认为是某个接口 / api / 方法 / 类&lt;/p&gt;
 &lt;p&gt;它也是基于瀑布模型的，所以缺点也是测试后置，导致风险到后期才发现&lt;/p&gt;
 &lt;p&gt;我们希望给测试留有充足的时间，否则会把缺点直接暴露到线上&lt;/p&gt;
 &lt;h2 id=&#34;w模型&#34;&gt;W模型
 &lt;/h2&gt;&lt;p&gt;在 W 模型中，V 模型的测试后置的问题得到了解决，如图所示&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102103915-0fdhavz.png&#34;
-	width=&#34;1875&#34;
-	height=&#34;989&#34;
-	srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102103915-0fdhavz_hu_26761201c6840c57.png 480w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102103915-0fdhavz_hu_653c9a9f82ab6ea7.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;189&#34;
-		data-flex-basis=&#34;455px&#34;
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102103915-0fdhavz.png&#34; width=&#34;1875&#34;  height=&#34;989&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102103915-0fdhavz_hu_9e786b9dd7b57323.png 800w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102103915-0fdhavz_hu_c4194312a3b90c5c.png 1600w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102103915-0fdhavz_hu_a9062920ad9d241f.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;189&#34;
+	data-flex-basis=&#34;455px&#34; &gt;&lt;/p&gt;
 &lt;p&gt;特点：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;测试与开发是同步进行的，测试的对象也不仅仅是程序，需求、设计等同样需要测试，有利于能尽早发现问题&lt;/li&gt;

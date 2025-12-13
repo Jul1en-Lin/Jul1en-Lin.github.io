@@ -6,11 +6,11 @@
 
 <link rel='canonical' href='https://Jul1en-Lin.github.io/page/'>
 
-<link rel="stylesheet" href="/scss/style.min.0ee1803cacda94dc314a1c7a5f5b7c2f4d3090791ed7fc24f27f54f020a599a9.css"><meta property='og:title' content="Pages">
+<link rel="stylesheet" href="/scss/style.min.2fde22d8fe6a610c67af9e94fede700024b975a49c9376877082fe9ad2698313.css"><meta property='og:title' content="Pages">
 <meta property='og:description' content="学会等候 期待有天🎏">
 <meta property='og:url' content='https://Jul1en-Lin.github.io/page/'>
 <meta property='og:site_name' content='Jul1en'>
-<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2025-12-13T01:43:44&#43;08:00 '/>
+<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2025-12-13T21:52:46&#43;08:00 '/>
 <meta name="twitter:title" content="Pages">
 <meta name="twitter:description" content="学会等候 期待有天🎏"><link rel="alternate" type="application/rss&#43;xml" href="https://Jul1en-Lin.github.io/page/index.xml">
     </head>
@@ -410,15 +410,19 @@
     z-index: 999;
 
      
-    right: 18%;
-    bottom: 100px;
+    left: 50px;
+     
+    top: auto;
+     
+    bottom: auto;
+     
 
      
-    width: 50px;
-    height: 50px;
+    width: 24px;
+    height: 24px;
 
      
-    border-radius: 50%;
+    border-radius: 20%;
 
      
     background: rgba(252, 249, 244, 0.85);
@@ -502,44 +506,18 @@
 
    
    
-   
-
-   
-  @media (min-width: 1280px) {
-    .back-to-top-btn {
-      bottom: 120px;
-    }
-  }
-
-   
-  @media (min-width: 1536px) {
-    .back-to-top-btn {
-      bottom: 150px;
-    }
-  }
-
-   
-  @media (max-width: 1279px) and (min-width: 769px) {
-    .back-to-top-btn {
-      bottom: 80px;
-    }
-  }
 
    
   @media (max-width: 768px) {
     .back-to-top-btn {
        
-      bottom: 80px;
-      right: 20px;
-
-       
-      width: 45px;
-      height: 45px;
+      width: 18px;
+      height: 18px;
     }
 
     .back-to-top-btn svg {
-      width: 20px;
-      height: 20px;
+      width: 16px;
+      height: 16px;
     }
   }
 </style>
@@ -597,23 +575,35 @@
     
     function positionButton() {
       
-      const archivesWidget = document.querySelector('.widget.archives');
+      const mainMenu = document.getElementById('main-menu');
+      const bottomSection = document.querySelector('.menu-bottom-section');
 
-      if (!archivesWidget) {
+      if (!mainMenu || !bottomSection) {
         
         return;
       }
 
       
-      const widgetRect = archivesWidget.getBoundingClientRect();
-      const widgetCenter = widgetRect.left + (widgetRect.width / 2);
+      const menuRect = mainMenu.getBoundingClientRect();
+      const menuCenter = menuRect.left + (menuRect.width / 2);
 
       
-      const buttonWidth = 50; 
-      const buttonLeft = widgetCenter - (buttonWidth / 2);
+      const bottomRect = bottomSection.getBoundingClientRect();
+      const bottomTop = bottomRect.top;
+
+      
+      const buttonWidth = 24; 
+      const buttonHeight = 24; 
+      const buttonLeft = menuCenter - (buttonWidth / 2);
+
+      
+      const spacing = 15; 
+      const buttonTop = bottomTop - buttonHeight - spacing;
 
       
       backToTopBtn.style.left = buttonLeft + 'px';
+      backToTopBtn.style.top = buttonTop + 'px';
+      backToTopBtn.style.bottom = 'auto'; 
       backToTopBtn.style.right = 'auto'; 
     }
 
