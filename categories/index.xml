@@ -7,6 +7,14 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Jul1en</copyright><atom:link href="https://Jul1en-Lin.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Git</title>
+        <link>https://Jul1en-Lin.github.io/categories/git/</link>
+        <pubDate>Mon, 15 Dec 2025 00:47:22 +0800</pubDate>
+        
+        <guid>https://Jul1en-Lin.github.io/categories/git/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Spring</title>
         <link>https://Jul1en-Lin.github.io/categories/spring/</link>
         <pubDate>Sat, 13 Dec 2025 01:02:22 +0800</pubDate>

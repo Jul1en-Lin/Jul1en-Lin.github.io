@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Git on Jul1en</title>
+        <link>https://Jul1en-Lin.github.io/categories/git/</link>
+        <description>Recent content in Git on Jul1en</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>Jul1en</copyright>
+        <lastBuildDate>Mon, 15 Dec 2025 01:09:08 +0800</lastBuildDate><atom:link href="https://Jul1en-Lin.github.io/categories/git/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>🪶 Git命令大全</title>
+        <link>https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/</link>
+        <pubDate>Mon, 15 Dec 2025 00:47:22 +0800</pubDate>
+        
+        <guid>https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/</guid>
+        <description>&lt;h1 id=&#34;git命令大全&#34;&gt;Git命令大全
+&lt;/h1&gt;&lt;p&gt;前提介绍&lt;/p&gt;
+&lt;p&gt;git是一个分布式版本控制系统，相当于一个时光机，拿来保管代码，一旦出错，可以随时回滚到任何一个历史节点&lt;/p&gt;
+&lt;p&gt;其核心架构分为三个区域：&lt;strong&gt;工作区（写代码的地方）、暂存区（临时存放的地方）和版本库（安全存档的地方）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/Gemini123.png&#34; width=&#34;2528&#34;  height=&#34;1696&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/Gemini123_hu_71b4444d67039a3b.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/Gemini123_hu_6de40a3e8d122f60.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/Gemini123_hu_cef8695127995ae5.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;Git仓库结构&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;149&#34;
+	data-flex-basis=&#34;357px&#34; &gt;&lt;/p&gt;
+&lt;h1 id=&#34;添加文件&#34;&gt;添加文件
+&lt;/h1&gt;&lt;p&gt;​&lt;code&gt;git add .&lt;/code&gt;表示添加所有在工作区的文件至暂存区&lt;/p&gt;
+&lt;p&gt;​&lt;code&gt;git add &amp;lt;fileName&amp;gt; &amp;lt;fileName&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;eg：&lt;code&gt;git add file1 file2&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id=&#34;提交&#34;&gt;提交
+&lt;/h1&gt;&lt;p&gt;提交暂存区的文件至版本库中&lt;/p&gt;
+&lt;p&gt;​&lt;code&gt;git commit -m &amp;quot;&amp;lt;填写你要备注的内容&amp;gt;&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;eg：&lt;code&gt;git commit -m &amp;quot;no message commit&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id=&#34;查看日志&#34;&gt;查看日志
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;查看最近日志：&lt;code&gt;git log&lt;/code&gt;​ / &lt;code&gt;git log --pretty=oneline&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;记录本地每一次提交的命令 &lt;code&gt;git reflog&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;得到每一次的id，此id可用于版本回退功能&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119212943-wvcvc93.png&#34; width=&#34;1333&#34;  height=&#34;1026&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119212943-wvcvc93_hu_4be5cc65512dd7d9.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119212943-wvcvc93_hu_e572ab4df91e3a07.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119212943-wvcvc93_hu_d57eea2a8225507c.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;129&#34;
+	data-flex-basis=&#34;311px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;高亮部分就是每次提交的id，用&lt;code&gt;git reflog&lt;/code&gt;命令也能得到，且id更加简洁&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119215310-0affl22.png&#34; width=&#34;1578&#34;  height=&#34;358&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119215310-0affl22_hu_39fc2920a3c66c70.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119215310-0affl22_hu_b13756488a6970c9.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119215310-0affl22_hu_704ad62bbead40ee.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;440&#34;
+	data-flex-basis=&#34;1057px&#34; &gt;&lt;/p&gt;
+&lt;h1 id=&#34;版本回退&#34;&gt;版本回退
+&lt;/h1&gt;&lt;p&gt;它有三个版本&lt;/p&gt;
+&lt;p&gt;​&lt;code&gt;git reset [--soft / --mixed / --hard] &amp;lt;HEAD&amp;gt;&lt;/code&gt;，区别如图所示&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251105003923-cmv4tgy.png&#34; width=&#34;1758&#34;  height=&#34;778&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251105003923-cmv4tgy_hu_2ae1f5ca83ab75df.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251105003923-cmv4tgy_hu_f77f0803af2d4d94.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251105003923-cmv4tgy_hu_4d2619f752328710.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;225&#34;
+	data-flex-basis=&#34;542px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;​&lt;code&gt;git reset &amp;lt;使用 git log / git reflog 后查看的对应版本的提交id&amp;gt;&lt;/code&gt;，版本id在&amp;lt;查看日志&amp;gt;部分可得到&lt;/p&gt;
+&lt;p&gt;eg：&lt;code&gt;git reset --mixed 3f50f68&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id=&#34;查看当前仓库状态&#34;&gt;查看当前仓库状态
+&lt;/h1&gt;&lt;p&gt;查看与上一次提交之后到现在是否对文件进行修改（工作区）&lt;/p&gt;
+&lt;p&gt;​&lt;code&gt;git status&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;查看是哪个文件被修改了之后，用下面介绍的&lt;code&gt;diff&lt;/code&gt;命令即可查看修改的具体内容&lt;/p&gt;
+&lt;h1 id=&#34;查看差异&#34;&gt;查看差异
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;查看暂存区与工作区之间的差异：&lt;code&gt;git diff &amp;lt;fileName&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;eg：&lt;code&gt;git diff ReadMe&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;‍&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查看版本库和工作区文件的区别：&lt;code&gt;git diff HEAD --&amp;lt;fileName&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;eg：&lt;code&gt;git diff HEAD -- ReadMe&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;撤销修改&#34;&gt;撤销修改
+&lt;/h1&gt;&lt;p&gt;如果你在工作区中写了好多天的代码，但是效果还不如初次的，此时你想要退回到未修改的状态，就需要撤销修改操作&lt;/p&gt;
+&lt;p&gt;撤销修改虽然可以手动把你自己写的代码删掉，但如果写的太多了，手动删除会有隐患且耗费时间精力&lt;/p&gt;
+&lt;p&gt;撤销的目的，就是为了不影响远程仓库，所以撤销修改的前提是代码没有push到远程仓库&lt;/p&gt;
+&lt;p&gt;以下是撤销修改的命令，分三种情况&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251109015150-ieem3qz.png&#34; width=&#34;2524&#34;  height=&#34;1016&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251109015150-ieem3qz_hu_8dba733fe60fe7f0.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251109015150-ieem3qz_hu_16a97ee5789f97c9.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251109015150-ieem3qz_hu_e9d8f28d75e89320.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;248&#34;
+	data-flex-basis=&#34;596px&#34; &gt;&lt;/p&gt;
+&lt;h1 id=&#34;删除文件&#34;&gt;删除文件
+&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;终端命令使用&lt;code&gt;rm &amp;lt;fileName&amp;gt;&lt;/code&gt;​，这时会将工作区的文件删除，如果想提交修改的话后续使用&lt;code&gt;add 、commit&lt;/code&gt;操作，分为三步&lt;/li&gt;
+&lt;li&gt;git 也提供了这个命令，将这个流程简化为了两布：&lt;code&gt;git rm &amp;lt;fileName&amp;gt;&lt;/code&gt;​，这是将工作区与暂存区的文件同时删除，此时git已经自动将删除后的文件提交到暂存区中，只需要&lt;code&gt;commit&lt;/code&gt;操作即可&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;‍&lt;/p&gt;
+&lt;h1 id=&#34;分支&#34;&gt;分支
+&lt;/h1&gt;&lt;h2 id=&#34;查看本地仓库分支情况&#34;&gt;查看本地仓库分支情况
+&lt;/h2&gt;&lt;p&gt;​&lt;code&gt;git branch&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;创建分支&#34;&gt;创建分支
+&lt;/h2&gt;&lt;p&gt;在&lt;code&gt;git branch&lt;/code&gt;后加上想要添加分支的名字即可&lt;/p&gt;
+&lt;p&gt;​&lt;code&gt;git branch &amp;lt;branchName&amp;gt;&lt;/code&gt;​，如：&lt;code&gt;git branch dev&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;切换分支&#34;&gt;切换分支
+&lt;/h2&gt;&lt;p&gt;跟撤销修改的命令有点相似，只是少了&lt;code&gt;--&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;code&gt;git checkout &amp;lt;已有的分支&amp;gt;&lt;/code&gt;​，如：&lt;code&gt;git checkout dev&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;还能使用切换并创建一个未创建的分支，使用&lt;code&gt;git checkout -b &amp;lt;branchName&amp;gt;&lt;/code&gt;​，相当于&lt;code&gt;git branch &amp;lt;branchName&amp;gt; + git checkout &amp;lt;branchName&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;合并分支&#34;&gt;合并分支
+&lt;/h2&gt;&lt;p&gt;合并分支的前提下是在选定某一个分支内对另一分支进行合并，不能合并现在所选的分支上&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;​&lt;code&gt;git merge &amp;lt;branchName&amp;gt;&lt;/code&gt;（Fast-forward模式）&lt;/p&gt;
+&lt;p&gt;例如有两个分支：&lt;code&gt;master 和 dev&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;如果想要合并dev分支，那需要讲选中的分支切换到master上，用&lt;code&gt;git branch&lt;/code&gt;来查看现在所处的分支，前面带 * 号的就是所在分支&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118000559-ea8sdim.png&#34; width=&#34;122&#34;  height=&#34;50&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118000559-ea8sdim_hu_cd399b8e4c83d53f.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118000559-ea8sdim_hu_f04d5bc44885926e.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118000559-ea8sdim_hu_830676dfa7658a49.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;244&#34;
+	data-flex-basis=&#34;585px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;像这样，所在是分支dev，就使用&lt;code&gt;git checkout master&lt;/code&gt;转回master分支&lt;/p&gt;
+&lt;p&gt;然后就能进行合并操作了，使用&lt;code&gt;git merge dev&lt;/code&gt;，这时master就指向了dev的最新一次提交&lt;/p&gt;
+&lt;p&gt;此时的分支情况为&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118003722-spucr2i.png&#34; width=&#34;1919&#34;  height=&#34;924&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118003722-spucr2i_hu_5e6143fb5b24899.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118003722-spucr2i_hu_3e50a4a3a3de32a.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118003722-spucr2i_hu_ec36946c595917a.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;207&#34;
+	data-flex-basis=&#34;498px&#34; &gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;在这种Fast-forward模式下，删除分支历史时，会丢掉分支的信息，看不出来最新的提交是merge进来的还是master分支上正常提交的，为了更好的溯源以及留痕，日后便于发现是哪个分支提交出了问题，在合并的时候会使用no-ff模式，即No-Fast-forward&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;​&lt;code&gt;git merge --no-ff -m &amp;quot;新提交的信息&amp;quot; &amp;lt;branchName&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;其中&lt;code&gt;-m &amp;quot;新提交的信息&amp;quot;&lt;/code&gt;表示在使用no-ff的模式下，表示merge之后还带有一个提交，说明no-ff模式下，master必须要指向一个新的提交&lt;/p&gt;
+&lt;p&gt;例如：有分支&lt;code&gt;dev、master&lt;/code&gt;​，在选中master分支的前提下使用&lt;code&gt;git merge --no-ff -m &amp;quot;merge dev&amp;quot; dev&lt;/code&gt;，此时分支的情况为&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118004848-3eh6v98.png&#34; width=&#34;2311&#34;  height=&#34;953&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118004848-3eh6v98_hu_d5880426054af6e.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118004848-3eh6v98_hu_6f94f5428977af2c.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118004848-3eh6v98_hu_83bcd9972d59b321.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;242&#34;
+	data-flex-basis=&#34;581px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;==在平时使用中，更加建议使用no-ff模式，能进行更好的区别与溯源==&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;合并冲突&#34;&gt;合并冲突
+&lt;/h2&gt;&lt;p&gt;如果出现merge冲突，需要手动解决，&lt;strong&gt;并进行一次《添加 + 提交》操作！！！如果不提交，是不属于成功的merge&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118002835-0l81g4z.png&#34; width=&#34;1877&#34;  height=&#34;1352&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118002835-0l81g4z_hu_47c794abb4f4e55e.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118002835-0l81g4z_hu_cc69e76fd72de740.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118002835-0l81g4z_hu_7184a8cfdb819816.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;138&#34;
+	data-flex-basis=&#34;333px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;此时的分支情况&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118003231-8009p5k.png&#34; width=&#34;1949&#34;  height=&#34;1004&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118003231-8009p5k_hu_cf731d090b4c4341.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118003231-8009p5k_hu_8aebec48036a19b0.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118003231-8009p5k_hu_7ac9d9d36e711a25.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;194&#34;
+	data-flex-basis=&#34;465px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;在git中也支持提交线的可视化图标，使用&lt;code&gt;git log --graph --abbrev-commit&lt;/code&gt;，如图所示&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118003527-w7w7uap.png&#34; width=&#34;909&#34;  height=&#34;885&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118003527-w7w7uap_hu_6b59db8075b22b32.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118003527-w7w7uap_hu_f99d003dbf4c235d.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118003527-w7w7uap_hu_61953eb0ec2332fd.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;102&#34;
+	data-flex-basis=&#34;246px&#34; &gt;&lt;/p&gt;
+&lt;h2 id=&#34;删除分支&#34;&gt;删除分支
+&lt;/h2&gt;&lt;p&gt;删除分支也是只能在其他的分支上删除分支，比如在dev分支上就不能删除dev，必须要切到master分支上才可以&lt;/p&gt;
+&lt;p&gt;使用&lt;code&gt;git branch -d &amp;lt;branchName&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;因为创建、合并和删除分支非常快，所以鼓励你使用分支完成某个任务，合并后再删掉分支，这和直接在master分支上工作效果是一样的，但过程更加的安全&lt;/p&gt;
+&lt;h2 id=&#34;删除分支2&#34;&gt;删除分支2
+&lt;/h2&gt;&lt;p&gt;开发过程中，可能&lt;code&gt;dev&lt;/code&gt;​分支在中途被废弃了，不需要合并到&lt;code&gt;master&lt;/code&gt;​中，直接删除&lt;code&gt;dev&lt;/code&gt;​分支，此时强制删除分支用命令&lt;code&gt;git branch -D &amp;lt;branchName&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在终端命令中也会提醒你，这个分支未被完全合并到master分支上，如果确定你要删除，使用&lt;code&gt;git branch -D &amp;lt;branchName&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119212250-66ug4cp.png&#34; width=&#34;1449&#34;  height=&#34;326&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119212250-66ug4cp_hu_f29408022031adb1.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119212250-66ug4cp_hu_b883857453b58624.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119212250-66ug4cp_hu_ef8db1d3c185c9a9.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;444&#34;
+	data-flex-basis=&#34;1066px&#34; &gt;&lt;/p&gt;
+&lt;h2 id=&#34;分支策略&#34;&gt;分支策略
+&lt;/h2&gt;&lt;p&gt;在实际开发中，git给我们的分支管理能力是非常重要的，这能帮我们进行多人协同开发&lt;/p&gt;
+&lt;p&gt;在git管理中，需要遵守的几个重要约定&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;master分支应该是非常稳定的，仅用来发布新版本，平时不能在上面修改操作&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;干活修改的内容都应该在dev分支上，等到某个时候迎来版本更新，再把dev分支合并到master上，在master分支上发布新版本&lt;/p&gt;
+&lt;p&gt;这样每个人都能在基于master上创建dev分支进行协同开发，每个人都有自己的分支，时不时往dev分支上合并即可&lt;/p&gt;
+&lt;p&gt;故团队协同开发的分支belike：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118011057-v5s8oxu.png&#34; width=&#34;2466&#34;  height=&#34;1379&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118011057-v5s8oxu_hu_c4b5287a10a402e8.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118011057-v5s8oxu_hu_f719a10b3678729d.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118011057-v5s8oxu_hu_a767f12a13932af5.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;178&#34;
+	data-flex-basis=&#34;429px&#34; &gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;bug分支&#34;&gt;Bug分支
+&lt;/h2&gt;&lt;p&gt;在平时开发过程中，master分支一般是稳定的版本，其他分支都是基于master分支进行完善开发，但master也有可能有bug，此时如果没能及时发现小bug，其他分支在有bug的master上基础上进行开发，这就需要我们建立bug分支对master进行bug修复&lt;/p&gt;
+&lt;p&gt;假如已经建立了分支dev，但是发现了master上有bug，那是不建议在dev分支上进行bug修复的，因为这违背了分支dev的任务，可能dev的任务是对某个模块进行更新，且已经修改了部分文件，所以我们需要再创建分支专门对master分支进行修复bug&lt;/p&gt;
+&lt;p&gt;这时候我们切回master分支后其实能看到分支dev修改的代码，虽然这只是在工作区的修改，还未提交到暂存区，但这也影响了对master的创建bug分支的步骤&lt;/p&gt;
+&lt;p&gt;比如在dev上修改了readme文件&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119214443-mtmd3j9.png&#34; width=&#34;1696&#34;  height=&#34;496&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119214443-mtmd3j9_hu_d22b80d88bd3bea2.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119214443-mtmd3j9_hu_21b4982fcf897d6e.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119214443-mtmd3j9_hu_2c89d4a3472cc8b2.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;341&#34;
+	data-flex-basis=&#34;820px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;在master分支上也能看到dev修改的内容&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119202832-z3gjr98.png&#34; width=&#34;1205&#34;  height=&#34;406&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119202832-z3gjr98_hu_23a2ee34028c0463.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119202832-z3gjr98_hu_dfab6a6873a6e1f2.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119202832-z3gjr98_hu_e72b133bcb1eb07a.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;296&#34;
+	data-flex-basis=&#34;712px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;原因是master工作区中的代码有变动的&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119131537-kxueqbn.png&#34; width=&#34;1211&#34;  height=&#34;575&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119131537-kxueqbn_hu_79d30a8d2476bb84.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119131537-kxueqbn_hu_feda310d6fae2f.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119131537-kxueqbn_hu_adab7f2dcf5a85cd.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;210&#34;
+	data-flex-basis=&#34;505px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;虽然代码只存在工作区中，但我们还是不想在master上看到dev修改的代码，且在dev分支上不影响master，可在dev分支上用&lt;code&gt;git stash&lt;/code&gt;，将工作区中的内容进行储存。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119214215-559d67r.png&#34; width=&#34;1226&#34;  height=&#34;105&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119214215-559d67r_hu_6f46f4c43b3b5c45.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119214215-559d67r_hu_d98574274183e84d.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119214215-559d67r_hu_dd55d2a8bbd489fe.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;1167&#34;
+	data-flex-basis=&#34;2802px&#34; &gt;​此时的&lt;code&gt;tree .git&lt;/code&gt;​仓库一下就能看到&lt;code&gt;stash&lt;/code&gt;分区保存在refs上&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119132237-33kmjue.png&#34; width=&#34;613&#34;  height=&#34;392&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119132237-33kmjue_hu_6d5c21cbd7e85989.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119132237-33kmjue_hu_7355973bd0f948c8.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119132237-33kmjue_hu_c092d0e2ca6da6db.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;156&#34;
+	data-flex-basis=&#34;375px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;此时再返回到&lt;code&gt;master&lt;/code&gt;​分支上，就已经看不到&lt;code&gt;dev&lt;/code&gt;修改的代码了&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119132318-pabl3t4.png&#34; width=&#34;1386&#34;  height=&#34;233&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119132318-pabl3t4_hu_4ff8df14695032eb.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119132318-pabl3t4_hu_156c0153f399c767.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119132318-pabl3t4_hu_26d39cf97a1c9da2.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;594&#34;
+	data-flex-basis=&#34;1427px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;此时就能对&lt;code&gt;master&lt;/code&gt;​进行bug修复了，先切回&lt;code&gt;master&lt;/code&gt;​分支。然后在&lt;code&gt;master&lt;/code&gt;​上新建fix_bug分支并切换到fix_bug，可用&lt;code&gt;git checkout -b fix_bug&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119132854-0p9u42o.png&#34; width=&#34;1462&#34;  height=&#34;313&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119132854-0p9u42o_hu_c84f3ee370263a46.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119132854-0p9u42o_hu_17f5e4d7c31108bc.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119132854-0p9u42o_hu_e051b696b735b4ac.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;467&#34;
+	data-flex-basis=&#34;1121px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;在fix_bug上修改代码后，更新提交后就可以提交到&lt;code&gt;master&lt;/code&gt;​上了，可合并后直接提交，这里用no-ff方式提交，命令为&lt;code&gt;git merge --no-ff -m &amp;quot;&amp;lt;commit message&amp;gt;&amp;quot; &amp;lt;devName&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203044-yneddim.png&#34; width=&#34;1402&#34;  height=&#34;403&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203044-yneddim_hu_73cadb27f0d226af.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203044-yneddim_hu_d7070b5df24b8084.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203044-yneddim_hu_c97bf8963e9620f9.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;347&#34;
+	data-flex-basis=&#34;834px&#34; &gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203530-9xzrr9z.png&#34; width=&#34;1608&#34;  height=&#34;416&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203530-9xzrr9z_hu_2b20e6e135d44e33.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203530-9xzrr9z_hu_915bf99ff5d801f1.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203530-9xzrr9z_hu_99a976b6dc49a796.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;image&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;386&#34;
+	data-flex-basis=&#34;927px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;此时的&lt;code&gt;master&lt;/code&gt;分支上就是已经修复好的bug了&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203601-j5yioad.png&#34; width=&#34;1211&#34;  height=&#34;255&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203601-j5yioad_hu_75e9e08c10514597.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203601-j5yioad_hu_ba2788312d73f650.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203601-j5yioad_hu_dd6f78b76fdf4476.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;474&#34;
+	data-flex-basis=&#34;1139px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;但&lt;code&gt;dev&lt;/code&gt;​分支上我们还是以有bug的&lt;code&gt;master&lt;/code&gt;​基础上开发的，那怎么办呢？&lt;code&gt;dev&lt;/code&gt;​分支的修改信息还存在&lt;code&gt;stash&lt;/code&gt;上，我们需要把暂存在stash区的代码给拉回来，这是没拉回来的readme文件&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203743-j5v93qi.png&#34; width=&#34;1335&#34;  height=&#34;357&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203743-j5v93qi_hu_5fb12a22ff0119d9.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203743-j5v93qi_hu_59a1ce61ecbb5428.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203743-j5v93qi_hu_4e5696a23a6f7224.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;373&#34;
+	data-flex-basis=&#34;897px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;在上面提到，&lt;code&gt;dev&lt;/code&gt;​已经修改了readme的内容，那这些内容都存在了&lt;code&gt;stash&lt;/code&gt;​区，且dev本地是没在的。可以用&lt;code&gt;git stash list&lt;/code&gt;查看stash区的状态&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119204025-72pwhka.png&#34; width=&#34;1304&#34;  height=&#34;206&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119204025-72pwhka_hu_a92e99ce76168ad1.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119204025-72pwhka_hu_b210f262dd52904e.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119204025-72pwhka_hu_413edf66a1d1f635.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;633&#34;
+	data-flex-basis=&#34;1519px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;现在拉回来的dev分支上的readme文件就显示正常了，用到命令&lt;code&gt;git stash pop&lt;/code&gt;，这时readme文件就正常显示了&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119204154-25ds3ni.png&#34; width=&#34;1361&#34;  height=&#34;812&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119204154-25ds3ni_hu_1495f5c25dc81aab.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119204154-25ds3ni_hu_ee4656d036b34576.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119204154-25ds3ni_hu_236e53460a2e086b.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;167&#34;
+	data-flex-basis=&#34;402px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;假设dev分支上已经完成开发，且已经更新最新一次提交。（add + commit）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119204552-9gswvnm.png&#34; width=&#34;1555&#34;  height=&#34;619&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119204552-9gswvnm_hu_e61586f3d37ffea1.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119204552-9gswvnm_hu_a46315d560915ee4.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119204552-9gswvnm_hu_f9748e4f7c805085.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;251&#34;
+	data-flex-basis=&#34;602px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;现在要提交到master上，那怎么办呢？它还存有&lt;code&gt;master&lt;/code&gt;​原来的bug代码，&lt;strong&gt;==如果直接合并到==****==​&lt;code&gt;master&lt;/code&gt;​==&lt;strong&gt;​&lt;/strong&gt;==分支上，那会出现合并冲突，需要我们手动解决，手动解决是非常危险的，处理不当可能会污染master分支，变得更加不稳定。==&lt;/strong&gt; 情况如图所示，会更加直观。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119205319-8qfuplj.png&#34; width=&#34;1985&#34;  height=&#34;928&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119205319-8qfuplj_hu_f39afca22207b266.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119205319-8qfuplj_hu_9f40722348d05de7.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119205319-8qfuplj_hu_13f6c26ea1a9c48d.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;213&#34;
+	data-flex-basis=&#34;513px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;解决这个问题的一个好的建议是：最好在自己的分支上合并下&lt;code&gt;master&lt;/code&gt;​，再让&lt;code&gt;master&lt;/code&gt;​去合并&lt;code&gt;dev&lt;/code&gt;​，这样做的目的是有冲突可以在本地分支解决并进行测试，而不影响&lt;code&gt;master&lt;/code&gt;，这样做此时的状态为：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119210205-6stwel5.png&#34; width=&#34;2379&#34;  height=&#34;1151&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119210205-6stwel5_hu_880e3efa8365fe26.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119210205-6stwel5_hu_8a8d326e9cfac208.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119210205-6stwel5_hu_4468ab9256568126.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;206&#34;
+	data-flex-basis=&#34;496px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119210308-2c4655f.png&#34; width=&#34;2710&#34;  height=&#34;1054&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119210308-2c4655f_hu_e719dafb822dd03b.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119210308-2c4655f_hu_2957caf8d8766fea.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119210308-2c4655f_hu_f21b4a34ffec79ec.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;257&#34;
+	data-flex-basis=&#34;617px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;具体操作如下，在第一步中不出意外遇到了冲突&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119210545-wdaw7ch.png&#34; width=&#34;1603&#34;  height=&#34;266&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119210545-wdaw7ch_hu_da64356b7473c2a3.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119210545-wdaw7ch_hu_be510c7c6cb5c5e1.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119210545-wdaw7ch_hu_771b77dee1c0dcd.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;602&#34;
+	data-flex-basis=&#34;1446px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;手动修改后别忘了提交，然后切回到&lt;code&gt;master&lt;/code&gt;​分支上，再合并&lt;code&gt;dev&lt;/code&gt;​，此时&lt;code&gt;master&lt;/code&gt;​上就既有修改后的代码，也有&lt;code&gt;dev&lt;/code&gt;上提交的新代码且不冲突了&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119211401-fm7zl8x.png&#34; width=&#34;1608&#34;  height=&#34;618&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119211401-fm7zl8x_hu_674f5c76ecb11c91.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119211401-fm7zl8x_hu_912f9907f4da811d.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119211401-fm7zl8x_hu_bf4d9cd0dcd49f71.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;260&#34;
+	data-flex-basis=&#34;624px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;完成后记得删分支，这是个好习惯😁&lt;/p&gt;
+&lt;p&gt;​&lt;code&gt;git branch -d dev&lt;/code&gt;​、&lt;code&gt;git branch -d fix_bug&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id=&#34;推送&#34;&gt;推送
+&lt;/h1&gt;&lt;p&gt;​&lt;code&gt;git push origin &amp;lt;远程主机名&amp;gt; &amp;lt;本地分支名&amp;gt;:&amp;lt;远程分支名&amp;gt;&lt;/code&gt;​，比如&lt;code&gt;git push origin test-branch:remote-test-branch&lt;/code&gt;，远程仓库就会出现&lt;/p&gt;
+&lt;p&gt;​&lt;code&gt;remote-test-branch&lt;/code&gt; 的新分支&lt;/p&gt;
+&lt;h1 id=&#34;拉取&#34;&gt;拉取
+&lt;/h1&gt;&lt;p&gt;Pull其实是有拉取 + 合并的操作，拉取过程中自动帮你合并了，且默认的是fast-forward模式&lt;/p&gt;
+&lt;p&gt;​&lt;code&gt;git pull origin &amp;lt;远程branchName&amp;gt;:&amp;lt;要拉取到的本地branchName&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124165733-gfaiycq.png&#34; width=&#34;1266&#34;  height=&#34;396&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124165733-gfaiycq_hu_9384be788f023292.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124165733-gfaiycq_hu_f027d1052ed577c9.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124165733-gfaiycq_hu_9c3ed38cd695845f.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;319&#34;
+	data-flex-basis=&#34;767px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;如果远端的master与本地的分支名字一样，即是拉取到本地master分支，则可以省略&lt;code&gt;:master&lt;/code&gt;​，即&lt;code&gt;git pull origin master&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id=&#34;忽略特殊文件&#34;&gt;忽略特殊文件
+&lt;/h1&gt;&lt;p&gt;在开发中，有时候有些文件不应该被提交到远端仓库，比如重要的数据库密码等配置文件，那怎么才能让git知道并自动忽略呢？&lt;/p&gt;
+&lt;p&gt;在git的工作区根目录上创建一个特殊的&lt;code&gt;.gitignore&lt;/code&gt;文件，然后把忽略的文件名填进去，git就会自动忽略这些文件了&lt;/p&gt;
+&lt;p&gt;可以手动创建，如：&lt;code&gt;touch .gitignore&lt;/code&gt;，也可以在创建远程仓库的时候选择&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124172126-rwiu879.png&#34; width=&#34;2196&#34;  height=&#34;389&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124172126-rwiu879_hu_14c1c05e2b3c8245.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124172126-rwiu879_hu_14cb03b4f646e14c.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124172126-rwiu879_hu_cd2a55de8eff7b03.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;564&#34;
+	data-flex-basis=&#34;1354px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;然后修改在&lt;code&gt;.gitignore&lt;/code&gt;​上写上要忽略的文件类型 / 文件后缀名，修改命令为&lt;code&gt;vim&lt;/code&gt;​，如&lt;code&gt;vim .gitignore&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124173342-9h0v7bn.png&#34; width=&#34;842&#34;  height=&#34;527&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124173342-9h0v7bn_hu_a04f4d3886722c46.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124173342-9h0v7bn_hu_ac3ca6b0641642a0.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124173342-9h0v7bn_hu_8046aa09a655d761.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;159&#34;
+	data-flex-basis=&#34;383px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;此处我在工作区中新建了&lt;code&gt;file.txt&lt;/code&gt;​、&lt;code&gt;a.io&lt;/code&gt;​、&lt;code&gt;c.io&lt;/code&gt;​、&lt;code&gt;picture.png&lt;/code&gt;文件&lt;/p&gt;
+&lt;p&gt;查看git状态的时发现，&lt;code&gt;picture.png&lt;/code&gt;​没有被忽略，&lt;code&gt;file.txt&lt;/code&gt;​、&lt;code&gt;a.io&lt;/code&gt;​和单独指定的&lt;code&gt;c.io&lt;/code&gt;文件被忽略了，没有被git追踪管理，这个结果是理想的&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124174325-f4r8qgh.png&#34; width=&#34;1473&#34;  height=&#34;692&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124174325-f4r8qgh_hu_58934be7ad1ccdf8.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124174325-f4r8qgh_hu_9d75a5d74ed72210.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124174325-f4r8qgh_hu_3d74f950c2a4890c.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;212&#34;
+	data-flex-basis=&#34;510px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;有时候&lt;code&gt;.gitignore&lt;/code&gt;​文件太大了，记不清具体忽略了哪些文件，但是又不小心建立了被忽略的文件，手动在ignore文件内查看太费劲了，可以使用命令&lt;code&gt;git check-ignore -v &amp;lt;被忽略的文件名&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124174841-iqiqhgg.png&#34; width=&#34;890&#34;  height=&#34;154&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124174841-iqiqhgg_hu_679beacf4201955.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124174841-iqiqhgg_hu_78319c3d66369946.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124174841-iqiqhgg_hu_81e44762c3b36caf.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;577&#34;
+	data-flex-basis=&#34;1387px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;这就能看到具体的被忽略的文件的具体位置&lt;/p&gt;
+&lt;h1 id=&#34;标签管理&#34;&gt;标签管理
+&lt;/h1&gt;&lt;p&gt;标签&lt;code&gt;tag&lt;/code&gt;​，可以简单理解为对某次&lt;code&gt;commit&lt;/code&gt; 的一次标识，相当于起了个别名。&lt;/p&gt;
+&lt;p&gt;相较于难以记住的&lt;code&gt;commit id&lt;/code&gt;​，&lt;code&gt;tag&lt;/code&gt;​可以很好的解决这个问题，当我们需要回退某个重要的版本时，直接使用标签就能很快的定位到对应的&lt;code&gt;commit&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;这里引用hutool 工具包的GitHub仓库，能看到不同版本的tag&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251205012941-z67yes7.png&#34; width=&#34;1531&#34;  height=&#34;1093&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251205012941-z67yes7_hu_3bbf254a540a4ce6.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251205012941-z67yes7_hu_931f15863149e393.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251205012941-z67yes7_hu_74296fccd33f49a1.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;140&#34;
+	data-flex-basis=&#34;336px&#34; &gt;&lt;/p&gt;
+&lt;h2 id=&#34;创建标签&#34;&gt;创建标签
+&lt;/h2&gt;&lt;p&gt;在Git中打标签非常简单，首先切换到需要打标签的分支上，直接&lt;code&gt;git tag &amp;lt;name&amp;gt;&lt;/code&gt;​就可以打一个新的标签，&lt;strong&gt;这样的标签默认指向最新的一次提交&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;当然也可以&lt;strong&gt;指定某个提交打&lt;/strong&gt;​&lt;code&gt;tag&lt;/code&gt;​，只需在后面加上提交的id，如：&lt;code&gt;git tag v0.9 f7340fd&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;描述标签&#34;&gt;描述标签
+&lt;/h2&gt;&lt;p&gt;新建&lt;code&gt;tag&lt;/code&gt;​​​的同时还能对标签进行一些描述，使用&lt;code&gt;git tag -a v0.8 -m &amp;quot;XXX&amp;quot; &amp;lt;需要指定的哪次提交id，如果没有默认指向最新的一次&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;查看标签&#34;&gt;查看标签
+&lt;/h2&gt;&lt;p&gt;使用&lt;code&gt;git tag&lt;/code&gt;就能看到当前目录下有多少个标签，&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251126130810-3tkybqm.png&#34; width=&#34;1151&#34;  height=&#34;208&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251126130810-3tkybqm_hu_83751f5621ad2441.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251126130810-3tkybqm_hu_676ce0c4cd503909.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251126130810-3tkybqm_hu_d27c1904b1d8212b.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;553&#34;
+	data-flex-basis=&#34;1328px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;如果需要看具体某一次的&lt;code&gt;tag&lt;/code&gt;​的详细描述，则需要命令&lt;code&gt;git show &amp;lt;某一次的tag&amp;gt;&lt;/code&gt;​，如：&lt;code&gt;git show v0.8&lt;/code&gt;​ / &lt;code&gt;git show v1.0&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251126131019-78ja9tl.png&#34; width=&#34;1614&#34;  height=&#34;744&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251126131019-78ja9tl_hu_7ae54f08cae88ee4.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251126131019-78ja9tl_hu_5eacd57a28f81764.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251126131019-78ja9tl_hu_69fddb860e1afb78.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;216&#34;
+	data-flex-basis=&#34;520px&#34; &gt;&lt;/p&gt;
+&lt;h2 id=&#34;删除标签&#34;&gt;删除标签
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;本地删除：&lt;/strong&gt; 删除标签与删除分支的操作类似：&lt;code&gt;git tag -d &amp;lt;tagName&amp;gt;&lt;/code&gt;​，如&lt;code&gt;git tag -d v0.8&lt;/code&gt;​，可见已经删除了&lt;code&gt;tag&lt;/code&gt;v0.8&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251126131203-8qe7jxs.png&#34; width=&#34;1317&#34;  height=&#34;267&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251126131203-8qe7jxs_hu_aaa1aec537e06136.png 800w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251126131203-8qe7jxs_hu_2eb1bf83e05e2918.png 1600w, https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251126131203-8qe7jxs_hu_1dac379597991b6.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;493&#34;
+	data-flex-basis=&#34;1183px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;删除远程仓库标签：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;直接在远程仓库删除&lt;/li&gt;
+&lt;li&gt;在本地执行&lt;code&gt;git push origin :&amp;lt;你要删除的标签&amp;gt;&lt;/code&gt;​，注意这个标签需要先在本地进行删除，才有变更，变更之后才能&lt;code&gt;push&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;推送标签&#34;&gt;推送标签
+&lt;/h2&gt;&lt;p&gt;将标签推送同步至远程仓库&lt;/p&gt;
+&lt;p&gt;**推送单一标签：**​&lt;code&gt;git push origin &amp;lt;标签名&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;**一次性推送所有标签：**​&lt;code&gt;git push origin --tags&lt;/code&gt;，就能把本地所有的标签都推送到远程仓库&lt;/p&gt;
+&lt;p&gt;‍&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
