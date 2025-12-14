@@ -7,7 +7,7 @@
 
 <link rel='canonical' href='https://Jul1en-Lin.github.io/'>
 
-<link rel="stylesheet" href="/scss/style.min.e8a150a681124a9024275aa9dccba86e04a30ee97af2e97ff74e484b772785de.css"><meta property='og:title' content="Jul1en">
+<link rel="stylesheet" href="/scss/style.min.e7bedd6f590c3b02985692413cca6943b10494509ebf8c5ef7beddb8a63b9e4d.css"><meta property='og:title' content="Jul1en">
 <meta property='og:description' content="学会等候 期待有天🎏">
 <meta property='og:url' content='https://Jul1en-Lin.github.io/'>
 <meta property='og:site_name' content='Jul1en'>
@@ -646,6 +646,13 @@
     border-top-right-radius: 8px;
     padding-top: 6px;
     cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .code-more-btn:hover {
+    background: #e0e0e8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
 
   .code-more-img {
@@ -654,6 +661,76 @@
     margin: auto;
     width: 22px;
     height: 16px;
+  }
+
+   
+  .code-less-box {
+    width: 100%;
+    padding-top: 78px;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(#fff));
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    margin-top: 10px;
+  }
+
+   
+  .code-less-btn {
+    display: block;
+    margin: auto;
+    width: 44px;
+    height: 22px;
+    background: #f0f0f5;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    padding-top: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .code-less-btn:hover {
+    background: #e0e0e8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .code-less-img {
+    cursor: pointer !important;
+    display: block;
+    margin: auto;
+    width: 22px;
+    height: 16px;
+  }
+
+   
+  :root[data-scheme="dark"] .code-more-box {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(30, 30, 35, 0)), to(rgba(30, 30, 35, 1)));
+  }
+
+  :root[data-scheme="dark"] .code-more-btn {
+    background: rgba(50, 50, 55, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  :root[data-scheme="dark"] .code-more-btn:hover {
+    background: rgba(60, 60, 65, 0.9);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  :root[data-scheme="dark"] .code-less-box {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(30, 30, 35, 0)), to(rgba(30, 30, 35, 1)));
+  }
+
+  :root[data-scheme="dark"] .code-less-btn {
+    background: rgba(50, 50, 55, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  :root[data-scheme="dark"] .code-less-btn:hover {
+    background: rgba(60, 60, 65, 0.9);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   }
 </style>
 <script src="/js/particles.js"></script>
@@ -675,20 +752,55 @@
       
       let codeMoreBtn = document.createElement('span');
       codeMoreBtn.classList.add('code-more-btn');
-      codeMoreBtn.addEventListener('click', () => {
-        codeBlock.classList.add('code-show');
-        codeMoreBox.style.display = 'none';
-        
-        window.dispatchEvent(new Event('resize'))
-      })
+      codeMoreBtn.title = '展开代码';
+
       
-      let img = document.createElement('img');
-      img.classList.add('code-more-img');
-      img.src = "https://Jul1en-Lin.github.io/icons/codeMore.png"
+      let codeLessBox = document.createElement('div');
+      codeLessBox.classList.add('code-less-box');
+      codeLessBox.style.display = 'none'; 
+
+      let codeLessBtn = document.createElement('span');
+      codeLessBtn.classList.add('code-less-btn');
+      codeLessBtn.title = '收起代码';
+
+      
+      let upArrow = document.createElement('img');
+      upArrow.classList.add('code-less-img');
+      upArrow.src = "https://Jul1en-Lin.github.io/icons/codeMore.png"
+  upArrow.style.transform = 'rotate(180deg)'; 
+
+  
+  codeMoreBtn.addEventListener('click', () => {
+    codeBlock.classList.add('code-show');
+    codeMoreBox.style.display = 'none';
+    codeLessBox.style.display = 'block'; 
+    
+    window.dispatchEvent(new Event('resize'));
+  });
+
+  
+  codeLessBtn.addEventListener('click', () => {
+    codeBlock.classList.remove('code-show');
+    codeMoreBox.style.display = 'block';
+    codeLessBox.style.display = 'none';
+    
+    codeBlock.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    
+    window.dispatchEvent(new Event('resize'));
+  });
+
+  
+  let img = document.createElement('img');
+  img.classList.add('code-more-img');
+  img.src = "https://Jul1en-Lin.github.io/icons/codeMore.png"
+
   
   codeMoreBtn.appendChild(img);
   codeMoreBox.appendChild(codeMoreBtn);
-  codeBlock.appendChild(codeMoreBox)
+  codeLessBtn.appendChild(upArrow);
+  codeLessBox.appendChild(codeLessBtn);
+  codeBlock.appendChild(codeMoreBox);
+  codeBlock.appendChild(codeLessBox);
     })
   }
 
