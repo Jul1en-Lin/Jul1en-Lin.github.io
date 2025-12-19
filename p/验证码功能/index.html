@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-cn" dir="ltr">
+<html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="验证码功能 引入Hutool工具包 Hutool工具是一个开源的Java工具依赖库，封装了许多功能，访问https://hutool.cn，按图中引入依赖即可使用，具体功能可查看官方文档~\n">
 <title>🧣 验证码功能</title>
@@ -357,7 +357,7 @@ article-page
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">cn</span><span class="p">.</span><span class="na">hutool</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">hutool</span><span class="o">-</span><span class="n">all</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">5</span><span class="p">.</span><span class="na">8</span><span class="p">.</span><span class="na">42</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><p><img src="/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251206144812-e28xm5t.png" width="2120"  height="563"  srcset="/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251206144812-e28xm5t_hu_e3f6e6f1e594a110.png 800w, /p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251206144812-e28xm5t_hu_eaa99abba0a0c30b.png 1600w, /p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251206144812-e28xm5t_hu_5195ca01f3bf4ac4.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="376"
@@ -372,8 +372,8 @@ article-page
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">ICaptcha</span><span class="w"> </span><span class="n">captcha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">captcha</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="na">getOutputStream</span><span class="p">());</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">//Servlet的OutputStream记得自行关闭哦！</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">captcha</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="na">getOutputStream</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">//Servlet的OutputStream记得自行关闭哦！</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><h1 id="执行流程">执行流程
@@ -440,16 +440,16 @@ article-page
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Value</span><span class="p">(</span><span class="s">&#34;${captcha.width}&#34;</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">width</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">width</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Value</span><span class="p">(</span><span class="s">&#34;${captcha.height}&#34;</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">height</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nd">@Value</span><span class="p">(</span><span class="s">&#34;${captcha.height}&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">height</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Value</span><span class="p">(</span><span class="s">&#34;${captcha.codeCount}&#34;</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">codeCount</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nd">@Value</span><span class="p">(</span><span class="s">&#34;${captcha.codeCount}&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">codeCount</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Value</span><span class="p">(</span><span class="s">&#34;${captcha.lineCount}&#34;</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">lineCount</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nd">@Value</span><span class="p">(</span><span class="s">&#34;${captcha.lineCount}&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">lineCount</span><span class="p">;</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>创建<code>CaptchaProperties</code>类来对配置对象进行管理</p>
@@ -467,14 +467,14 @@ article-page
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Component</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Data</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@ConfigurationProperties</span><span class="p">(</span><span class="n">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;captcha&#34;</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CaptchaProperties</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nd">@Data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nd">@ConfigurationProperties</span><span class="p">(</span><span class="n">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;captcha&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CaptchaProperties</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">width</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">height</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">codeCount</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">lineCount</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>在<code>CaptchaController</code>​层面中，构造对象的时候只需注入<code>CaptchaProperties</code>对象，通过取对象中的成员得到值</p>
@@ -489,10 +489,10 @@ article-page
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Autowired</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">private</span><span class="w"> </span><span class="n">CaptchaProperties</span><span class="w"> </span><span class="n">properties</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">private</span><span class="w"> </span><span class="n">CaptchaProperties</span><span class="w"> </span><span class="n">properties</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 定义图形验证码的长和宽</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">LineCaptcha</span><span class="w"> </span><span class="n">captcha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CaptchaUtil</span><span class="p">.</span><span class="na">createLineCaptcha</span><span class="p">(</span><span class="n">properties</span><span class="p">.</span><span class="na">getWidth</span><span class="p">(),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 定义图形验证码的长和宽</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">LineCaptcha</span><span class="w"> </span><span class="n">captcha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CaptchaUtil</span><span class="p">.</span><span class="na">createLineCaptcha</span><span class="p">(</span><span class="n">properties</span><span class="p">.</span><span class="na">getWidth</span><span class="p">(),</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">properties</span><span class="p">.</span><span class="na">getHeight</span><span class="p">(),</span><span class="w"> </span><span class="n">properties</span><span class="p">.</span><span class="na">getCodeCount</span><span class="p">(),</span><span class="w"> </span><span class="n">properties</span><span class="p">.</span><span class="na">getLineCount</span><span class="p">());</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
@@ -554,8 +554,8 @@ article-page
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@RestController</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&#34;/captcha&#34;</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CaptchaController</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&#34;/captcha&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CaptchaController</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Autowired</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">CaptchaProperties</span><span class="w"> </span><span class="n">properties</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 生成验证码</span><span class="w">
@@ -601,7 +601,7 @@ article-page
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">currentTimeMillis</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">captchaTime</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">CAPTCHA_TIME_OUT</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">captcha</span><span class="p">.</span><span class="na">equalsIgnoreCase</span><span class="p">(</span><span class="n">code</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>实例层（ConfigurationProperties、Session）</p>
@@ -626,21 +626,21 @@ article-page
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Component</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Data</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@ConfigurationProperties</span><span class="p">(</span><span class="n">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;captcha&#34;</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CaptchaProperties</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nd">@Data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nd">@ConfigurationProperties</span><span class="p">(</span><span class="n">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;captcha&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CaptchaProperties</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Session</span><span class="w"> </span><span class="n">session</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">width</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">height</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">codeCount</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">lineCount</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Data</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Session</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nd">@Data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Session</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">date</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>常量层</p>
@@ -653,7 +653,7 @@ article-page
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Constant</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">CAPTCHA_TIME_OUT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">5</span><span class="o">*</span><span class="n">60</span><span class="o">*</span><span class="n">1000</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>‍</p>
