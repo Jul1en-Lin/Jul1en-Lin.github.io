@@ -65,7 +65,7 @@ article-page
                     
                     
                         
-                        <img src="/img/avatar_hu_ae27f36038e2c5f0.png" width="300"
+                        <img src="/img/avatar_hu_9e65b760f1937291.png" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -360,7 +360,7 @@ article-page
 </span></span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><p><img src="/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251206144812-e28xm5t.png" width="2120"  height="563"  srcset="/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251206144812-e28xm5t_hu_e3f6e6f1e594a110.png 800w, /p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251206144812-e28xm5t_hu_eaa99abba0a0c30b.png 1600w, /p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251206144812-e28xm5t_hu_5195ca01f3bf4ac4.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="376"
+</div><p><img src="/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251206144812-e28xm5t.png" width="2120"  height="563"  srcset="/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251206144812-e28xm5t_hu_8cc080db5f5769da.png 800w, /p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251206144812-e28xm5t_hu_11f4bc04e4ef653b.png 1600w, /p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251206144812-e28xm5t_hu_4773c2504b51490f.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="376"
 	data-flex-basis="903px" ></p>
 <h1 id="实现功能">实现功能
 </h1><p>以下是参考文档代码，以写出到浏览器（Servlet输出）为栗子</p>
@@ -418,10 +418,10 @@ article-page
 </h2><p>学到Spring就要充分用到管理对象的功能，但是有些时候参数的注入过于繁琐，如需要构造一个图片类型的验证码，需要传入<code>width</code>​、<code>height</code>、验证码长度、干扰因子等等，这些固定参数通常需要放到配置文件中管理，起到解耦作用</p>
 <p>那注入这么多参数，代码非常不美观，故又想到将配置参数转换为一个对象，从对象中去取，就更加优雅了~</p>
 <p>举个栗子，这是构造图片验证码的代码</p>
-<p><img src="/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003220-724pqj1.png" width="1820"  height="246"  srcset="/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003220-724pqj1_hu_a664204c4ea06a1c.png 800w, /p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003220-724pqj1_hu_b60103dae09bc56b.png 1600w, /p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003220-724pqj1_hu_89c1f3bcd2e650f7.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="739"
+<p><img src="/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003220-724pqj1.png" width="1820"  height="246"  srcset="/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003220-724pqj1_hu_ebef474e8ca41942.png 800w, /p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003220-724pqj1_hu_8aa42d4ddd8dcee8.png 1600w, /p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003220-724pqj1_hu_ced37a8a08389ec0.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="739"
 	data-flex-basis="1775px" ></p>
 <p>参数放在application.yaml文件中</p>
-<p><img src="/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003307-e5puokg.png" width="767"  height="607"  srcset="/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003307-e5puokg_hu_1a5db8d01be954f6.png 800w, /p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003307-e5puokg_hu_d522408cf3c9f7c3.png 1600w, /p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003307-e5puokg_hu_bc7e797caedfb927.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="126"
+<p><img src="/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003307-e5puokg.png" width="767"  height="607"  srcset="/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003307-e5puokg_hu_7c34e4c00b8cc11f.png 800w, /p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003307-e5puokg_hu_f41a2495676a094c.png 1600w, /p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003307-e5puokg_hu_615d0b273db3b476.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="126"
 	data-flex-basis="303px" ></p>
 <p>由于注入的时候要一个一个取，非常麻烦，类似于：</p>
 <div class="highlight"><div class="chroma">

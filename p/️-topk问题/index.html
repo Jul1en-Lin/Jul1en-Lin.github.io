@@ -65,7 +65,7 @@ article-page
                     
                     
                         
-                        <img src="/img/avatar_hu_ae27f36038e2c5f0.png" width="300"
+                        <img src="/img/avatar_hu_9e65b760f1937291.png" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -390,7 +390,7 @@ article-page
 <li>快速排序</li>
 </ol>
 <h1 id="堆排序-vs-快速排序">堆排序 vs 快速排序
-</h1><p><img src="/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206232507-v0oy9si.png" width="1465"  height="402"  srcset="/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206232507-v0oy9si_hu_482e80b38fd8aefd.png 800w, /p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206232507-v0oy9si_hu_81c768a44b6879ca.png 1600w, /p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206232507-v0oy9si_hu_7dad0da3e675234e.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="364"
+</h1><p><img src="/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206232507-v0oy9si.png" width="1465"  height="402"  srcset="/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206232507-v0oy9si_hu_f023f668363155d0.png 800w, /p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206232507-v0oy9si_hu_85ae4bf794f8fd41.png 1600w, /p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206232507-v0oy9si_hu_d964d29f1e90357d.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="364"
 	data-flex-basis="874px" ></p>
 <h1 id="面试">面试
 </h1><p>如果在面试中遇到这种场景，<strong>立刻切换到堆排序思路</strong>：</p>
@@ -399,7 +399,7 @@ article-page
 </blockquote>
 <p>这时候你不能用 QuickSelect，因为你没办法把 10 亿个数字一次性加载到数组里进行 Partition。但你可以建一个只有 100 个格子的<strong>小顶堆</strong>，让这 10 亿个数字一个个流过去进行“守门员PK”，内存占用极小</p>
 <h1 id="第k个最大">第K个最大
-</h1><p><img src="/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206231549-35nxm98.png" width="1224"  height="966"  srcset="/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206231549-35nxm98_hu_b6482381f2fdefcf.png 800w, /p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206231549-35nxm98_hu_e5325935f3583674.png 1600w, /p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206231549-35nxm98_hu_270b5d7bd2ebf822.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="126"
+</h1><p><img src="/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206231549-35nxm98.png" width="1224"  height="966"  srcset="/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206231549-35nxm98_hu_c8293c4e8987f5b6.png 800w, /p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206231549-35nxm98_hu_eac07d085f452be1.png 1600w, /p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206231549-35nxm98_hu_1980eadcbf8c81f9.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="126"
 	data-flex-basis="304px" ></p>
 <h2 id="堆排序">堆排序
 </h2><p><strong>这是最反直觉的地方</strong>： 题目要找  <strong>“第 K 个最大的元素”</strong> （或者前 K 大），我们通常使用 <strong>小顶堆</strong>，且这个堆的大小固定为 <strong>K</strong></p>
@@ -429,7 +429,7 @@ article-page
 <ul>
 <li><strong>俱乐部</strong> = 堆（Heap）</li>
 <li><strong>屋里最穷的人</strong> = <strong>堆顶（Root）</strong></li>
-<li>因为我们要随时能找到“最穷”的那个人来做比较标准，所以我们需要 <strong>小顶堆</strong>（堆顶最小）。<img src="/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206232218-45asxn2.png" width="301"  height="259"  srcset="/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206232218-45asxn2_hu_4c7898e840e58540.png 800w, /p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206232218-45asxn2_hu_af9681b649a060ee.png 1600w, /p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206232218-45asxn2_hu_dfb6a63acadd504b.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="116"
+<li>因为我们要随时能找到“最穷”的那个人来做比较标准，所以我们需要 <strong>小顶堆</strong>（堆顶最小）。<img src="/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206232218-45asxn2.png" width="301"  height="259"  srcset="/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206232218-45asxn2_hu_faca46d92abff7f8.png 800w, /p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206232218-45asxn2_hu_dd95789d798912a6.png 1600w, /p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206232218-45asxn2_hu_46c2ab621cff7699.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="116"
 	data-flex-basis="278px" ></li>
 </ul>
 <p>假设我们要从数组 <code>[3, 2, 1, 5, 6, 4]</code>​ 中找 <strong>第 2 大</strong> 的元素 (<code>k=2</code>​)。 我们需要维护一个 <strong>Size</strong>  <strong>=</strong>  <strong>2</strong> 的小顶堆。</p>
@@ -547,7 +547,7 @@ article-page
 <p><strong>归位</strong>：做完这一步，两边的元素可能还是乱的（虽然每个区之间还没有排好序，但是已经限制了分区，再怎么排都是在那个区间内动——&lt;Pivort、=Pivort、&gt;Pivort），这个元素的位置就<strong>固定</strong>了。接下来就是它左右分区的继续再执行 <u><strong>选基准 —&gt; 分区</strong></u> 的递归操作，直到整个数组都排好~</p>
 </li>
 </ol>
-<p><img src="/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206235937-cgb3rgz.png" width="1461"  height="834"  srcset="/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206235937-cgb3rgz_hu_36d03d8f848d56a.png 800w, /p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206235937-cgb3rgz_hu_18f3ea36e23441c.png 1600w, /p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206235937-cgb3rgz_hu_83b82e649a70217f.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="175"
+<p><img src="/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206235937-cgb3rgz.png" width="1461"  height="834"  srcset="/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206235937-cgb3rgz_hu_b2eba1c64350dfb6.png 800w, /p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206235937-cgb3rgz_hu_aefad4596140a849.png 1600w, /p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206235937-cgb3rgz_hu_20dd7876d17154ce.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="175"
 	data-flex-basis="420px" ></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -685,7 +685,7 @@ article-page
 <p>其中上述代码中的分类讨论部分的就是<code>quickSelect</code>，像是是指挥官，故判断是否符合条件也是在这里判断</p>
 <p>​<code>partition</code>则是干累活的，负责根据基准元素，使数组分三区的</p>
 <h1 id="最小k个数">最小K个数
-</h1><p><img src="/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251217003530-1xu1jke.png" width="1068"  height="735"  srcset="/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251217003530-1xu1jke_hu_448472f70f267320.png 800w, /p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251217003530-1xu1jke_hu_9cc0fe4648651849.png 1600w, /p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251217003530-1xu1jke_hu_7dcaca5c60793e9a.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="145"
+</h1><p><img src="/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251217003530-1xu1jke.png" width="1068"  height="735"  srcset="/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251217003530-1xu1jke_hu_10fff386ecc22539.png 800w, /p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251217003530-1xu1jke_hu_d98ca2d6b62cd9bc.png 1600w, /p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251217003530-1xu1jke_hu_b3cf34a0c687186c.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="145"
 	data-flex-basis="348px" ></p>
 <p><strong>这题有三种解法</strong></p>
 <h2 id="排序">排序
@@ -794,7 +794,7 @@ article-page
 </div>
 </div><h2 id="快排-1">快排
 </h2><p>时间复杂度：o(N)</p>
-<p><img src="/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251217005347-t0c1i4f.png" width="1950"  height="1246"  srcset="/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251217005347-t0c1i4f_hu_66da03f486468fad.png 800w, /p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251217005347-t0c1i4f_hu_83019e3e83fc07b1.png 1600w, /p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251217005347-t0c1i4f_hu_553a4a90ac28569.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="156"
+<p><img src="/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251217005347-t0c1i4f.png" width="1950"  height="1246"  srcset="/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251217005347-t0c1i4f_hu_1389635718315a7e.png 800w, /p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251217005347-t0c1i4f_hu_1daacf772ec6462c.png 1600w, /p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251217005347-t0c1i4f_hu_b7aeb917619820e3.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="156"
 	data-flex-basis="375px" ></p>
 <h3 id="细节问题-1">细节问题
 </h3><p>做题时经常能遇到取随机数下标的时候的元素定位错误，原因总结可能有</p>
