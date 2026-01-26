@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="自动化测试 自动化测试包括\n接口自动化测试\nUI自动化测试\nWeb自动化测试\n客户端界面自动化测试\n这次来讲讲Web 自动化测试。\n什么是 Web 自动化测试？ 在大厂的研发流程中，自动化测试是**CI/CD（持续集成/持续部署）**不可或缺的一环。\n">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="自动化测试 自动化测试包括\n接口自动化测试\nUI自动化测试\nWeb自动化测试\n客户端界面自动化测试\n这次来讲讲Web 自动化测试。\nWeb 自动化测试 在大厂的研发流程中，自动化测试是&quot;CI/CD（持续集成/持续部署）&ldquo;不可或缺的一环。\n">
 <title>🎓 Web自动化测试</title>
 
 <link rel='canonical' href='https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/'>
 
 <link rel="stylesheet" href="/scss/style.min.e7bedd6f590c3b02985692413cca6943b10494509ebf8c5ef7beddb8a63b9e4d.css"><meta property='og:title' content="🎓 Web自动化测试">
-<meta property='og:description' content="自动化测试 自动化测试包括\n接口自动化测试\nUI自动化测试\nWeb自动化测试\n客户端界面自动化测试\n这次来讲讲Web 自动化测试。\n什么是 Web 自动化测试？ 在大厂的研发流程中，自动化测试是**CI/CD（持续集成/持续部署）**不可或缺的一环。\n">
+<meta property='og:description' content="自动化测试 自动化测试包括\n接口自动化测试\nUI自动化测试\nWeb自动化测试\n客户端界面自动化测试\n这次来讲讲Web 自动化测试。\nWeb 自动化测试 在大厂的研发流程中，自动化测试是&quot;CI/CD（持续集成/持续部署）&ldquo;不可或缺的一环。\n">
 <meta property='og:url' content='https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/'>
 <meta property='og:site_name' content='Jul1en'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-12-12T17:16:00&#43;08:00'/><meta property='article:modified_time' content='2025-12-13T21:52:46&#43;08:00'/><meta property='og:image' content='https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161502-kow88l3.png' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-12-12T17:16:00&#43;08:00'/><meta property='article:modified_time' content='2026-01-27T01:14:29&#43;08:00'/><meta property='og:image' content='https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161502-kow88l3.png' />
 <meta name="twitter:title" content="🎓 Web自动化测试">
-<meta name="twitter:description" content="自动化测试 自动化测试包括\n接口自动化测试\nUI自动化测试\nWeb自动化测试\n客户端界面自动化测试\n这次来讲讲Web 自动化测试。\n什么是 Web 自动化测试？ 在大厂的研发流程中，自动化测试是**CI/CD（持续集成/持续部署）**不可或缺的一环。\n"><meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="自动化测试 自动化测试包括\n接口自动化测试\nUI自动化测试\nWeb自动化测试\n客户端界面自动化测试\n这次来讲讲Web 自动化测试。\nWeb 自动化测试 在大厂的研发流程中，自动化测试是&quot;CI/CD（持续集成/持续部署）&ldquo;不可或缺的一环。\n"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161502-kow88l3.png' />
     </head>
     <body class="
@@ -251,35 +251,65 @@ article-page
         <nav id="TableOfContents">
   <ol>
     <li><a href="#自动化测试">自动化测试</a></li>
-    <li><a href="#什么是-web-自动化测试">什么是 Web 自动化测试？</a>
+    <li><a href="#web-自动化测试">Web 自动化测试</a></li>
+    <li><a href="#selenium-与-webdriver">Selenium 与 WebDriver</a>
       <ol>
-        <li><a href="#selenium-与-webdriver">Selenium 与 WebDriver</a>
-          <ol>
-            <li><a href="#selenium-是什么">Selenium 是什么？</a></li>
-            <li><a href="#webdriver-的工作原理面试">WebDriver 的工作原理（面试）</a></li>
-            <li><a href="#selenium与webdriver的关系面试">Selenium与WebDriver的关系？（面试）</a></li>
-            <li><a href="#安装selenium库">安装Selenium库</a></li>
-          </ol>
-        </li>
-        <li><a href="#关于驱动-drivers">关于“驱动” (Drivers)</a></li>
+        <li><a href="#selenium-是什么">Selenium 是什么？</a></li>
+        <li><a href="#webdriver-的工作原理面试">WebDriver 的工作原理（面试）</a></li>
+        <li><a href="#selenium与webdriver的关系面试">Selenium与WebDriver的关系？（面试）</a></li>
+        <li><a href="#安装selenium库">安装Selenium库</a></li>
+      </ol>
+    </li>
+    <li><a href="#关于驱动">关于“驱动”</a>
+      <ol>
         <li><a href="#为什么需要驱动">为什么需要驱动？</a></li>
-        <li><a href="#常见浏览器与驱动对应表">常见浏览器与驱动对应表</a></li>
-        <li><a href="#驱动版本适配管理重点">驱动版本适配管理（重点）</a></li>
-        <li><a href="#常见驱动下载方式">常见驱动下载方式</a>
+      </ol>
+    </li>
+    <li><a href="#常见浏览器与驱动对应表">常见浏览器与驱动对应表</a></li>
+    <li><a href="#常见驱动下载方式">常见驱动下载方式</a>
+      <ol>
+        <li><a href="#手动下载不建议">手动下载（不建议）</a></li>
+        <li><a href="#由驱动程序自动下载">由驱动程序自动下载</a></li>
+        <li><a href="#更新selenium库至-46-版本">更新Selenium库至 4.6+ 版本</a></li>
+      </ol>
+    </li>
+    <li><a href="#配置断言">配置断言</a></li>
+    <li><a href="#总结">总结</a></li>
+    <li><a href="#web自动化常用函数">Web自动化常用函数</a>
+      <ol>
+        <li><a href="#浏览器级的操作driver">浏览器级的操作（Driver）</a>
           <ol>
-            <li><a href="#1-手动下载不建议">1. 手动下载（不建议）</a></li>
-            <li><a href="#2-由驱动程序自动下载">2. 由驱动程序自动下载</a></li>
-            <li><a href="#3-更新selenium库至-46-版本">3. 更新Selenium库至 4.6+ 版本</a></li>
+            <li><a href="#获取页面信息-用于断言">获取页面信息 <strong>（用于断言）</strong></a></li>
+            <li><a href="#浏览器窗口调整">浏览器窗口调整</a></li>
+            <li><a href="#浏览器的关闭-面试">浏览器的关闭 <strong>（面试）</strong></a></li>
+            <li><a href="#浏览器导航">浏览器导航</a></li>
+            <li><a href="#屏幕截图">屏幕截图</a></li>
+            <li><a href="#浏览器参数设置">浏览器参数设置</a></li>
           </ol>
         </li>
-        <li><a href="#总结">总结</a></li>
-        <li><a href="#web自动化常用函数">Web自动化常用函数</a>
+        <li><a href="#元素级操作element">元素级操作（Element）</a>
           <ol>
-            <li><a href="#浏览器级的操作driver">浏览器级的操作（Driver）</a></li>
-            <li><a href="#对元素级操作element">对元素级操作（Element）</a></li>
+            <li><a href="#输入与交互">输入与交互</a></li>
+            <li><a href="#获取元素信息">获取元素信息</a></li>
+            <li><a href="#文件上传">文件上传</a></li>
             <li><a href="#窗口与句柄切换">窗口与句柄切换</a></li>
           </ol>
         </li>
+      </ol>
+    </li>
+    <li><a href="#特殊交互处理">特殊交互处理</a></li>
+    <li><a href="#等待机制与dom">等待机制与DOM</a>
+      <ol>
+        <li><a href="#dom">DOM</a></li>
+        <li><a href="#等待机制">等待机制</a></li>
+        <li><a href="#等待使用方式">等待使用方式</a></li>
+      </ol>
+    </li>
+    <li><a href="#actions类">Actions类</a>
+      <ol>
+        <li><a href="#执行">执行</a></li>
+        <li><a href="#鼠标级操作">鼠标级操作</a></li>
+        <li><a href="#键盘级操作">键盘级操作</a></li>
       </ol>
     </li>
   </ol>
@@ -359,7 +389,7 @@ article-page
   <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" />
 </svg>
 
-            <time class="article-time--updated" datetime='2025-12-13T21:52:46&#43;08:00'>2025-12-13</time>
+            <time class="article-time--updated" datetime='2026-01-27T01:14:29&#43;08:00'>2026-01-27</time>
         </div>
         
     </footer>
@@ -391,23 +421,23 @@ article-page
 </li>
 </ol>
 <p><strong>这次来讲讲Web 自动化测试。</strong></p>
-<h1 id="什么是-web-自动化测试">什么是 Web 自动化测试？
-</h1><p>在大厂的研发流程中，自动化测试是**CI/CD（持续集成/持续部署）**不可或缺的一环。</p>
+<h1 id="web-自动化测试">Web 自动化测试
+</h1><p>在大厂的研发流程中，自动化测试是&quot;CI/CD（持续集成/持续部署）&ldquo;不可或缺的一环。</p>
 <p>简单来说，Web 自动化测试就是​<strong>把原本需要人工在浏览器上点击、输入、验证的操作，通过代码指令让计算机自动执行</strong>。</p>
-<h2 id="selenium-与-webdriver">Selenium 与 WebDriver
-</h2><p>目前业界最主流的 Web 自动化工具就是 <strong>Selenium</strong>。虽然现在也有 Playwright 等新秀，但 Selenium 依然是很多大厂面试的基石。</p>
-<h3 id="selenium-是什么">Selenium 是什么？
-</h3><p>Selenium 不是一个单一的软件，它是一个工具套件。核心组件是 ​<strong>Selenium WebDriver</strong>。</p>
+<h1 id="selenium-与-webdriver">Selenium 与 WebDriver
+</h1><p>目前业界最主流的 Web 自动化工具就是 <strong>Selenium</strong>。虽然现在也有 Playwright 等新秀，但 Selenium 依然是很多大厂面试的基石。</p>
+<h2 id="selenium-是什么">Selenium 是什么？
+</h2><p>Selenium 不是一个单一的软件，它是一个工具套件。核心组件是 ​<strong>Selenium WebDriver</strong>。</p>
 <ul>
 <li>它提供了一套跨语言的 API（Java, Python, C#, etc.）。</li>
 <li>它通过“原生”方式与浏览器交互，就像真实用户在操作一样。</li>
 </ul>
-<h3 id="webdriver-的工作原理面试">WebDriver 的工作原理（面试）
-</h3><p>这是Selenium官方文档对WebDriver的介绍</p>
-<p><img src="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206155052-w88qg56.png" width="2469"  height="1110"  srcset="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206155052-w88qg56_hu_eaf587e7f528a287.png 800w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206155052-w88qg56_hu_c3630f952bcb36e7.png 1600w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206155052-w88qg56_hu_6496ab8872ae0a9f.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="222"
+<h2 id="webdriver-的工作原理面试">WebDriver 的工作原理（面试）
+</h2><p>这是Selenium官方文档对WebDriver的介绍</p>
+<p><img src="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206155052-w88qg56.png" width="2469"  height="1110"  srcset="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206155052-w88qg56_hu_eaf587e7f528a287.png 800w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206155052-w88qg56_hu_c3630f952bcb36e7.png 1600w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206155052-w88qg56_hu_6496ab8872ae0a9f.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="222"
 	data-flex-basis="533px" ></p>
 <p>理解了这个图，你就懂了为什么需要下载“驱动”。</p>
-<p><img src="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206183121-g2bwi34.png" width="1024"  height="718"  srcset="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206183121-g2bwi34_hu_fed24ddbbbe067b0.png 800w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206183121-g2bwi34_hu_87dbb53f2492ae46.png 1600w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206183121-g2bwi34_hu_598927ee83c777b9.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="142"
+<p><img src="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206183121-g2bwi34.png" width="1024"  height="718"  srcset="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206183121-g2bwi34_hu_fed24ddbbbe067b0.png 800w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206183121-g2bwi34_hu_87dbb53f2492ae46.png 1600w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206183121-g2bwi34_hu_598927ee83c777b9.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="142"
 	data-flex-basis="342px" ></p>
 <p><strong>它的运作流程是一个经典的“C/S 架构”（客户端/服务器）：</strong></p>
 <ol>
@@ -417,10 +447,10 @@ article-page
 <li><strong>Browser（浏览器）：</strong>  执行操作（打开网页、点击按钮），并将结果返回给驱动，驱动再返回给你的代码。</li>
 </ol>
 <p>‍</p>
-<h3 id="selenium与webdriver的关系面试">Selenium与WebDriver的关系？（面试）
-</h3><p>Selenium 是一个工具集，而 WebDriver 是其中用于通过原生协议驱动浏览器的核心 API。现在我们常说的 Selenium，通常默认指的就是 Selenium WebDriver。</p>
-<h3 id="安装selenium库">安装Selenium库
-</h3><p>安装Selenium在Java中只需引入Maven依赖即可</p>
+<h2 id="selenium与webdriver的关系面试">Selenium与WebDriver的关系？（面试）
+</h2><p>Selenium 是一个工具集，而 WebDriver 是其中用于通过原生协议驱动浏览器的核心 API。现在我们常说的 Selenium，通常默认指的就是 Selenium WebDriver。</p>
+<h2 id="安装selenium库">安装Selenium库
+</h2><p>安装Selenium在Java中只需引入Maven依赖即可</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -443,12 +473,12 @@ article-page
 </div>
 </div><p>Selenium内置了 WebDriver 的 API，但它<strong>不包含浏览器驱动文件（exe），故需要手动下载 / 自动下载驱动</strong></p>
 <p>程序想打开web浏览器就需要浏览器驱动，即（WebDriver），WebDriver以本地化的方式来驱动浏览器</p>
-<h2 id="关于驱动-drivers">关于“驱动” (Drivers)
-</h2><p>浏览器驱动（BrowserDriver）是你的代码和浏览器之间的<strong>桥梁</strong>。</p>
+<h1 id="关于驱动">关于“驱动”
+</h1><p>浏览器驱动（BrowserDriver）是你的代码和浏览器之间的<strong>桥梁</strong>。</p>
 <h2 id="为什么需要驱动">为什么需要驱动？
 </h2><p>浏览器（Chrome, Firefox等）都是复杂的闭源或开源软件，出于安全考虑，不允许外部程序直接随意控制。浏览器厂商（Google, Mozilla）为了方便测试，自己开发了对外接口的“遥控器”，这个遥控器就是 Driver。</p>
-<h2 id="常见浏览器与驱动对应表">常见浏览器与驱动对应表
-</h2><div class="table-wrapper"><table>
+<h1 id="常见浏览器与驱动对应表">常见浏览器与驱动对应表
+</h1><div class="table-wrapper"><table>
   <thead>
       <tr>
           <th><strong>浏览器</strong></th>
@@ -474,23 +504,23 @@ article-page
       </tr>
   </tbody>
 </table></div>
-<h2 id="驱动版本适配管理重点">驱动版本适配管理（重点）
-</h2><blockquote>
+<p>驱动版本适配管理（重点）</p>
+<blockquote>
 <p>版本匹配原则：这是新手最容易报错的地方。</p>
 <p>你的 Chrome 浏览器版本 必须与 ChromeDriver 版本 严格对应。例如，浏览器是 v120，驱动也必须下载 v120 版本的。否则会报错 SessionNotCreatedException。</p>
 <p>我们可以在浏览器内查看当前浏览器版本，安装的selenium 驱动版本，可以在本地c盘用户的<code>C:\Users\xxx.cache</code>文件下看到selenium文件夹，里面安装着不同的内核版本</p>
 <p><img src="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206152510-olllnwm.png" width="1120"  height="392"  srcset="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206152510-olllnwm_hu_f758b8d518313d26.png 800w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206152510-olllnwm_hu_daf7994c2e45e094.png 1600w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206152510-olllnwm_hu_c793579cca953b09.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="285"
 	data-flex-basis="685px" ></p>
 </blockquote>
-<h2 id="常见驱动下载方式">常见驱动下载方式
-</h2><h3 id="1-手动下载不建议">1. 手动下载（不建议）
-</h3><p><strong>（注：虽然可以有程序自动管理驱动，但了解手动匹配依然是基础)</strong></p>
+<h1 id="常见驱动下载方式">常见驱动下载方式
+</h1><h2 id="手动下载不建议">手动下载（不建议）
+</h2><p><strong>（注：虽然可以有程序自动管理驱动，但了解手动匹配依然是基础)</strong></p>
 <p>下载驱动的位置在Selenium官方文档中有提供，地址为</p>
 <p>​<code>https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location/#download-the-driver</code></p>
 <p>不建议手动下载，因为浏览器的更新功能是默认打开的，什么时候更新是不知道的。可能今天自动化正常执行，第二天就要重新下载最新版的驱动了，且不同的浏览器就要我们手动下载不同的驱动，非常麻烦。</p>
 <p>这也不建议手动关闭浏览器的自动更新功能，不仅测试环境与生产环境有脱节，错过了新的自动化的功能或者改进的地方，而且可能导致Selenium库与旧的浏览器版本兼容，这种头疼砍头的操作不可取。</p>
-<h3 id="2-由驱动程序自动下载">2. 由驱动程序自动下载
-</h3><p><strong>（注：Selenium 4.6.0 版本开始引入了 Selenium Manager，可以自动管理驱动，但了解WebDriverManager也是非常重要的基础）</strong></p>
+<h2 id="由驱动程序自动下载">由驱动程序自动下载
+</h2><p><strong>（注：Selenium 4.6.0 版本开始引入了 Selenium Manager，可以自动管理驱动，但了解WebDriverManager也是非常重要的基础）</strong></p>
 <p>更好的做法不是禁用更新，而是采用更健壮的测试策略</p>
 <p>需要引入WebDriverManager辅助工具库</p>
 <ul>
@@ -517,8 +547,8 @@ article-page
 </span></span></span><span class="line"><span class="cl"><span class="c1">// version 2025.12.6</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="3-更新selenium库至-46-版本">3. 更新Selenium库至 4.6+ 版本
-</h3><p>适用于更加新的项目，直接 new Driver()， Selenium就能给你匹配最新的驱动版本</p>
+</div><h2 id="更新selenium库至-46-版本">更新Selenium库至 4.6+ 版本
+</h2><p>适用于更加新的项目，直接 new Driver()， Selenium就能给你匹配最新的驱动版本</p>
 <p>Selenium文档中的描述</p>
 <p><img src="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161651-ye73fgj.png" width="2463"  height="1005"  srcset="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161651-ye73fgj_hu_44c08572ca0bc78.png 800w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161651-ye73fgj_hu_b43dc0640d289bf4.png 1600w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161651-ye73fgj_hu_a7dfa0953b7e0367.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="245"
 	data-flex-basis="588px" ></p>
@@ -554,18 +584,26 @@ article-page
 </div>
 </div></li>
 </ul>
-<h2 id="总结">总结
-</h2><p>我用Banana Pro生成了这一副插画，能更加形象的了解Web自动化测试执行的逻辑😽</p>
-<p><img src="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161502-kow88l3.png" width="1024"  height="572"  srcset="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161502-kow88l3_hu_d86fda1b8e9c7e85.png 800w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161502-kow88l3_hu_2c340e7176baabc2.png 1600w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161502-kow88l3_hu_1a132edf9dfb166.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="179"
+<h1 id="配置断言">配置断言
+</h1><p>配置断言需要在IDE上手动配置</p>
+<p>assert</p>
+<p>如：assert txt.equals(&ldquo;登录&rdquo;)</p>
+<p><strong><u>idea中开启断言的方法</u></strong></p>
+<p><img src="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251218214939-7otlvyn.png" width="841"  height="372"  srcset="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251218214939-7otlvyn_hu_edbc340332004e65.png 800w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251218214939-7otlvyn_hu_aaa3ee4b11f851f3.png 1600w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251218214939-7otlvyn_hu_802cddc62a9f87c3.png 2400w"  loading="lazy"  alt="第一步"   class="gallery-image" data-flex-grow="226"
+	data-flex-basis="542px" ><img src="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251218215041-povypas.png" width="1331"  height="1216"  srcset="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251218215041-povypas_hu_bf8d269cc41e3128.png 800w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251218215041-povypas_hu_35c5af977d90b6af.png 1600w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251218215041-povypas_hu_341fa8a8a56d9f11.png 2400w"  loading="lazy"  alt="第二步"   class="gallery-image" data-flex-grow="109"
+	data-flex-basis="262px" ></p>
+<h1 id="总结">总结
+</h1><p>我用Banana Pro生成了这一副插画，能更加形象的了解Web自动化测试执行的逻辑😽</p>
+<p><img src="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161502-kow88l3.png" width="1024"  height="572"  srcset="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161502-kow88l3_hu_d86fda1b8e9c7e85.png 800w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161502-kow88l3_hu_2c340e7176baabc2.png 1600w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161502-kow88l3_hu_1a132edf9dfb166.png 2400w"  loading="lazy"  alt="总结图"   class="gallery-image" data-flex-grow="179"
 	data-flex-basis="429px" ></p>
-<h2 id="web自动化常用函数">Web自动化常用函数
-</h2><p>🙈与其像流水账一样罗列 API，不如<strong>按照“业务场景”或者“对象层级”来分类</strong></p>
-<h3 id="浏览器级的操作driver">浏览器级的操作（Driver）
-</h3><p>这部分方法是直接作用于<code>WebDriver</code>​对象的，控制着浏览器的生命周期与状态，通常用于测试开始前的准备（Setup）或测试结束后的清理（Teardown），以及用于 “<a class="link" href="%e8%87%aa%e5%8a%a8%e5%8c%96%e6%b5%8b%e8%af%95/%e6%96%ad%e8%a8%80.md" >断言</a>” 的前置检查。</p>
+<h1 id="web自动化常用函数">Web自动化常用函数
+</h1><p>🙈与其像流水账一样罗列 API，不如<strong>按照“业务场景”或者“对象层级”来分类</strong></p>
+<h2 id="浏览器级的操作driver">浏览器级的操作（Driver）
+</h2><p>这部分方法是直接作用于<code>WebDriver</code>​对象的，控制着浏览器的生命周期与状态，通常用于测试开始前的准备（Setup）或测试结束后的清理（Teardown），以及用于 “<a class="link" href="%e8%87%aa%e5%8a%a8%e5%8c%96%e6%b5%8b%e8%af%95/%e6%96%ad%e8%a8%80.md" >断言</a>” 的前置检查。</p>
 <ol>
 <li>
-<p>获取页面信息 <strong>（用于断言）</strong></p>
-<p>在自动化测试中，我们怎么知道脚本是不是跳转到了正确的页面？靠的就是这两个方法：</p>
+<h3 id="获取页面信息-用于断言">获取页面信息 <strong>（用于断言）</strong>
+</h3><p>在自动化测试中，我们怎么知道脚本是不是跳转到了正确的页面？靠的就是这两个方法：</p>
 <ul>
 <li>
 <p>​<strong>​<code>driver.getTitle()</code>​</strong></p>
@@ -642,8 +680,8 @@ article-page
 </ul>
 </li>
 <li>
-<p>浏览器窗口调整</p>
-<p>​<strong>​<code>driver.manage().window().maximize()</code>​</strong> ​  <strong>/</strong>   <strong>​<code>.setSize(里面需传入Dimension对象，手动规定尺寸)</code>​</strong> ：</p>
+<h3 id="浏览器窗口调整">浏览器窗口调整
+</h3><p>​<strong>​<code>driver.manage().window().maximize()</code>​</strong> ​  <strong>/</strong>   <strong>​<code>.setSize(里面需传入Dimension对象，手动规定尺寸)</code>​</strong> ：</p>
 <ul>
 <li>
 <p><strong>介绍</strong>：自动化脚本启动时，默认通常是小窗口。</p>
@@ -658,8 +696,8 @@ article-page
 </ul>
 </li>
 <li>
-<p>浏览器的关闭 <strong>（面试）</strong></p>
-<ul>
+<h3 id="浏览器的关闭-面试">浏览器的关闭 <strong>（面试）</strong>
+</h3><ul>
 <li>
 <p>​<strong>​<code>driver.close()</code>​</strong> ：</p>
 <ul>
@@ -698,7 +736,7 @@ article-page
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">		</span><span class="n">driver</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&#34;https://www.baidu.com/&#34;</span><span class="p">);</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">        </span><span class="n">driver</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&#34;https://www.baidu.com/&#34;</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 新开百度图片标签页</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">driver</span><span class="p">.</span><span class="na">findElement</span><span class="p">(</span><span class="n">By</span><span class="p">.</span><span class="na">xpath</span><span class="p">(</span><span class="s">&#34;//*[@id=\&#34;s-top-left\&#34;]/a[6]&#34;</span><span class="p">)).</span><span class="na">click</span><span class="p">();</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 删除当前标签页后 driver 指向空，无法对新开的百度图片标签页进行操作</span><span class="w">
@@ -715,7 +753,7 @@ article-page
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">handle</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">windowHandles</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">handle</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">windowHandle</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">driver</span><span class="p">.</span><span class="na">switchTo</span><span class="p">().</span><span class="na">window</span><span class="p">(</span><span class="n">handle</span><span class="p">);</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">				</span><span class="k">break</span><span class="err">；</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">break</span><span class="err">；</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">driver</span><span class="p">.</span><span class="na">getTitle</span><span class="p">());</span><span class="w"> </span><span class="c1">// success~~</span><span class="w">
@@ -794,18 +832,49 @@ article-page
 <p>​<strong>​<code>driver.quit()</code>​</strong> ：</p>
 <ul>
 <li><strong>介绍</strong>：<strong>彻底关闭整个浏览器，关闭所有打开的标签页，并销毁 ChromeDriver 进程</strong>。</li>
-<li><strong>注意</strong>：<strong>在自动化测试框架的</strong> <strong>​<code>finally</code>​</strong>​ <strong>块或</strong>  <strong>​<code>@After</code>​</strong>​ <strong>钩子中，必须使用</strong> <strong>​<code>quit()</code>​</strong> ​ <strong>，否则你的服务器内存会被浏览器进程吃光。强调资源释放的重要性！</strong></li>
+<li><strong>注意</strong>：<strong>在自动化测试框架的</strong> <strong>​<code>finally</code>​</strong>​ <strong>块或</strong>  <strong>​<code>@After</code>​</strong>​ <strong>钩子中，<strong>​</strong><u>必须使用</u></strong> <strong><u>​<code>quit()</code>​</u></strong> ​ <strong>，否则你的服务器内存会被浏览器进程吃光。强调资源释放的重要性！</strong></li>
 </ul>
 </li>
+</ul>
+</li>
+<li>
+<h3 id="浏览器导航">浏览器导航
+</h3><p>控制页面的前进、后退与刷新：</p>
+<ul>
+<li>​<strong>​<code>driver.navigate().back()</code>​</strong> ：模拟点击浏览器“后退”按钮</li>
+<li>​<strong>​<code>driver.navigate().forward()</code>​</strong> ：模拟点击浏览器“前进”按钮</li>
+<li>​<strong>​<code>driver.navigate().refresh()</code>​</strong> ：强制刷新当前页面</li>
+</ul>
+</li>
+<li>
+<h3 id="屏幕截图">屏幕截图
+</h3><p>一般用于记录错误现场 / 检验是否达到预期效果</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">File</span><span class="w"> </span><span class="n">srcFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">((</span><span class="n">TakesScreenshot</span><span class="p">)</span><span class="n">driver</span><span class="p">).</span><span class="na">getScreenshotAs</span><span class="p">(</span><span class="n">OutputType</span><span class="p">.</span><span class="na">FILE</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">FileUtils</span><span class="p">.</span><span class="na">copyFile</span><span class="p">(</span><span class="n">srcFile</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&#34;error.png&#34;</span><span class="p">));</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<h3 id="浏览器参数设置">浏览器参数设置
+</h3><p>在初始化 <code>driver</code>​ 前通过 <code>Options</code> 类配置：</p>
+<ul>
+<li><strong>无头模式</strong>：<code>options.addArguments(&quot;--headless&quot;)</code>（不打开界面运行，速度快，但难以看到进行到哪一步）</li>
+<li><strong>隐身模式</strong>：<code>options.addArguments(&quot;--incognito&quot;)</code></li>
 </ul>
 </li>
 </ol>
-<h3 id="对元素级操作element">对元素级操作（Element）
-</h3><p>需要先通过 <code>driver.findElement()</code>​ 找到元素<code>WebElement</code>后才能调用后续的方法。这是自动化测试中最繁忙的部分，简单来讲就是模拟人类的手指的各种操作</p>
+<h2 id="元素级操作element">元素级操作（Element）
+</h2><p>需要先通过 <code>driver.findElement()</code>​ 找到元素<code>WebElement</code>后才能调用后续的方法。这是自动化测试中最繁忙的部分，简单来讲就是模拟人类的手指的各种操作</p>
 <ol>
 <li>
-<p>输入与交互</p>
-<ul>
+<h3 id="输入与交互">输入与交互
+</h3><ul>
 <li>
 <p>​<strong>​<code>element.sendKeys(&quot;text&quot;)</code>​</strong> ：</p>
 <ul>
@@ -852,8 +921,8 @@ article-page
 </ul>
 </li>
 <li>
-<p>获取元素信息</p>
-<ul>
+<h3 id="获取元素信息">获取元素信息
+</h3><ul>
 <li>
 <p>​<strong>​<code>element.getText() / .getAttribute(&quot;value&quot;)</code>​</strong> ：</p>
 <ul>
@@ -862,22 +931,25 @@ article-page
 <li><strong>注意</strong>：如果元素在页面上被隐藏（Hidden），这个方法通常会返回空字符串。</li>
 </ul>
 <p><strong>避坑点：</strong> 如果为了获取输入框里用户输入的值，用 <code>getText()</code>​ 是拿不到的，必须用 <code>getAttribute(&quot;value&quot;)</code></p>
-<p>比如想获取红色框的文字，定位这元素所在的位置<img src="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180313-a73os2c.png" width="1850"  height="465"  srcset="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180313-a73os2c_hu_b10b1dd44724d985.png 800w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180313-a73os2c_hu_fd2ddbcc90c04aa8.png 1600w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180313-a73os2c_hu_1aae22a1ed691d37.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="397"
+<p>比如想获取红色框的文字，定位这元素所在的位置<img src="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180313-a73os2c.png" width="1850"  height="465"  srcset="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180313-a73os2c_hu_b10b1dd44724d985.png 800w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180313-a73os2c_hu_fd2ddbcc90c04aa8.png 1600w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180313-a73os2c_hu_1aae22a1ed691d37.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="397"
 	data-flex-basis="954px" ></p>
-<p><img src="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180420-1t2eiii.png" width="1835"  height="111"  srcset="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180420-1t2eiii_hu_96b424f6ba9c903a.png 800w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180420-1t2eiii_hu_b814532e2d37c931.png 1600w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180420-1t2eiii_hu_6d8ed9ec9e219c97.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="1653"
+<p><img src="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180420-1t2eiii.png" width="1835"  height="111"  srcset="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180420-1t2eiii_hu_96b424f6ba9c903a.png 800w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180420-1t2eiii_hu_b814532e2d37c931.png 1600w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180420-1t2eiii_hu_6d8ed9ec9e219c97.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="1653"
 	data-flex-basis="3967px" ></p>
 <p>发现文字是在<code>placeholder</code>​属性内的，必须要用<code>getAttribute(&quot;placeholder&quot;)</code>才能拿到！</p>
 <p>​<code>getText()</code>​适合用在&lt;标签&gt; <u><strong>&ldquo;xxxx&rdquo;</strong></u> &lt;标签&gt;被标签内包裹的文本信息，如</p>
-<p><img src="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180704-zgfc7j5.png" width="847"  height="41"  srcset="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180704-zgfc7j5_hu_1c57666391485d52.png 800w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180704-zgfc7j5_hu_a3eb9278fbd76230.png 1600w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180704-zgfc7j5_hu_12e61b935d7c45b9.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="2065"
+<p><img src="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180704-zgfc7j5.png" width="847"  height="41"  srcset="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180704-zgfc7j5_hu_1c57666391485d52.png 800w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180704-zgfc7j5_hu_a3eb9278fbd76230.png 1600w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206180704-zgfc7j5_hu_12e61b935d7c45b9.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="2065"
 	data-flex-basis="4958px" ></p>
 </li>
 </ul>
 </li>
-</ol>
-<h3 id="窗口与句柄切换">窗口与句柄切换
-</h3><ol>
 <li>
-<p>​<strong>​<code>driver.switchTo().window(handle)</code>​</strong> ：</p>
+<h3 id="文件上传">文件上传
+</h3><p><strong><u>文件上传不同于我们普通的鼠标点击页面选择文件上传，Selenium是无法控制系统窗口来选择文件的</u></strong></p>
+<p><strong>操作</strong>：无需点击“上传”按钮弹出系统窗口，直接对 <code>type='file'</code>​ 的 <code>&lt;input&gt;</code>​ 标签使用 <code>sendKeys(&quot;文件绝对路径&quot;)</code></p>
+</li>
+<li>
+<h3 id="窗口与句柄切换">窗口与句柄切换
+</h3><p>​<strong>​<code>driver.switchTo().window(handle)</code>​</strong> ：</p>
 <ul>
 <li>
 <p>​<strong>核心概念——句柄 (Handle)</strong> ：每个标签页都有一个唯一的身份证号，叫句柄。</p>
@@ -926,7 +998,7 @@ article-page
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">handle</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">handles</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">window</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">handle</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">driver</span><span class="p">.</span><span class="na">switchTo</span><span class="p">().</span><span class="na">window</span><span class="p">(</span><span class="n">handle</span><span class="p">);</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">break</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="c1">// 这样就能正确切换窗口</span><span class="w">
@@ -934,7 +1006,194 @@ article-page
 </div>
 </div></li>
 </ol>
-<p>‍</p>
+<h1 id="特殊交互处理">特殊交互处理
+</h1><ol>
+<li>
+<p>JS弹窗</p>
+<p>这类弹窗不是 HTML 元素，需使用 <code>driver.switchTo().alert()</code> 切换焦点，三种弹窗都能切换。弹窗一般有这三种</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th><strong>弹窗类型</strong></th>
+          <th><strong>描述</strong></th>
+          <th><strong>操作方法</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>警告弹窗</strong></td>
+          <td>只有“确定”按钮</td>
+          <td>​<code>alert.accept()</code></td>
+      </tr>
+      <tr>
+          <td><strong>确认弹窗</strong></td>
+          <td>有“确定”和“取消”</td>
+          <td>​<code>accept() / dismiss()</code></td>
+      </tr>
+      <tr>
+          <td><strong>提示弹窗</strong></td>
+          <td>可以输入文本</td>
+          <td>​<code>sendKeys(&quot;文本&quot;)</code>​后<code>accept() / dismiss()</code></td>
+      </tr>
+  </tbody>
+</table></div>
+<p><img src="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20260127003858-a6la2kv.png" width="522"  height="195"  srcset="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20260127003858-a6la2kv_hu_3d537bd8d5e9db9b.png 800w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20260127003858-a6la2kv_hu_2a270c01e2fb3c45.png 1600w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20260127003858-a6la2kv_hu_7a6d88836a915ed3.png 2400w"  loading="lazy"  alt="警告弹窗"   class="gallery-image" data-flex-grow="267"
+	data-flex-basis="642px" ><img src="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20260127004008-qkpgkcb.png" width="522"  height="195"  srcset="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20260127004008-qkpgkcb_hu_eec7499b4bac4d60.png 800w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20260127004008-qkpgkcb_hu_d300892da981e329.png 1600w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20260127004008-qkpgkcb_hu_ae25b27c6e941442.png 2400w"  loading="lazy"  alt="确认弹窗"   class="gallery-image" data-flex-grow="267"
+	data-flex-basis="642px" ><img src="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20260127003930-42saop6.png" width="522"  height="273"  srcset="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20260127003930-42saop6_hu_99e722b52b3ae14d.png 800w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20260127003930-42saop6_hu_d95b96640e717839.png 1600w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20260127003930-42saop6_hu_ee2bf6f098e3550f.png 2400w"  loading="lazy"  alt="提示弹窗"   class="gallery-image" data-flex-grow="191"
+	data-flex-basis="458px" ></p>
+<p>Selenium的Alert类源码</p>
+<p><img src="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20260127004522-r2jv4l5.png" width="874"  height="642"  srcset="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20260127004522-r2jv4l5_hu_df9be62728178471.png 800w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20260127004522-r2jv4l5_hu_f0cf741c6e7afc75.png 1600w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20260127004522-r2jv4l5_hu_fc38390093390ed6.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="136"
+	data-flex-basis="326px" ></p>
+</li>
+</ol>
+<h1 id="等待机制与dom">等待机制与DOM
+</h1><h2 id="dom">DOM
+</h2><p><strong>DOM (Document Object Model)</strong>  是浏览器将 HTML 代码解析后生成的一棵“树”。</p>
+<ul>
+<li>每一个 HTML 标签（如 <code>&lt;div&gt;</code>​, <code>&lt;a&gt;</code>​, <code>&lt;button&gt;</code>​）都是这棵树上的一个<strong>节点（Node）</strong></li>
+<li><strong>存在于 DOM 中：</strong>  意味着这棵树上已经长出了这个节点</li>
+</ul>
+<p><strong><u>理解等待的前提是分清元素在 HTML 里的状态</u></strong>，我们可以把网页比作一栋正在盖的房子，那么里面的家具就是元素：</p>
+<ol>
+<li>存在于 DOM  <strong>：</strong>  相当于房子的<strong>地基和框架</strong>已经打好了。虽然你还没看到窗户（元素被遮盖了，你在网页上看不到），但窗户的位置已经在建筑图纸里确定了（click-false）</li>
+<li>可见  <strong>：</strong>  相当于装修完成且灯光照亮。你不仅知道窗户在哪，还能伸手摸到它（click-success）</li>
+</ol>
+<h2 id="等待机制">等待机制
+</h2><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th><strong>类型</strong></th>
+          <th><strong>机制</strong></th>
+          <th><strong>作用范围</strong></th>
+          <th><strong>核心特点</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>强制等待 (<strong>​</strong>​<code>Thread.sleep</code>​</strong>​ <strong>)</strong></td>
+          <td>强行暂停线程</td>
+          <td>局部</td>
+          <td><strong>最死板</strong>。无论加载多快都要等够时间，浪费效率</td>
+      </tr>
+      <tr>
+          <td><strong>隐式等待 (<strong>​</strong>​<code>implicitlyWait</code>​</strong>​ <strong>)</strong></td>
+          <td>轮询 DOM 查找元素</td>
+          <td><strong>全局</strong></td>
+          <td><strong>只管“存在”</strong> 。只要 DOM 里有标签就停止等待，不管元素是否可见</td>
+      </tr>
+      <tr>
+          <td><strong>显式等待 (<strong>​</strong>​<code>WebDriverWait</code>​</strong>​ <strong>)</strong></td>
+          <td>指定条件触发</td>
+          <td>局部</td>
+          <td><strong>（最优先💫) 最灵活</strong>。可等待“可见”、“可点击”等多种状态，满足即止</td>
+      </tr>
+  </tbody>
+</table></div>
+<h2 id="等待使用方式">等待使用方式
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 强制等待</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="n">1000</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 隐式等待 作用域所有Element元素 直至页面资源完全加载出来</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">driver</span><span class="p">.</span><span class="na">manage</span><span class="p">().</span><span class="na">timeouts</span><span class="p">().</span><span class="na">implicitlyWait</span><span class="p">(</span><span class="n">Duration</span><span class="p">.</span><span class="na">ofSeconds</span><span class="p">(</span><span class="n">2</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">driver</span><span class="p">.</span><span class="na">findElement</span><span class="p">(</span><span class="n">By</span><span class="p">.</span><span class="na">cssSelector</span><span class="p">(</span><span class="s">&#34;#s_tab_inner &gt; a.s-ta&#34;</span><span class="w"> </span><span class="o">+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="s">&#34;b-item.s-tab-item_1CwH-.s-tab-more &gt; span&#34;</span><span class="p">)).</span><span class="na">click</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 后续不需要再写等待 隐式等待同时作用于这里</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">driver</span><span class="p">.</span><span class="na">findElement</span><span class="p">(</span><span class="n">By</span><span class="p">.</span><span class="na">cssSelector</span><span class="p">(</span><span class="s">&#34;#content &gt; div:nth-child(6) &gt; div:nth-child(2) &gt; a&#34;</span><span class="p">)).</span><span class="na">click</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 显示等待</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">WebDriverWait</span><span class="w"> </span><span class="n">wait</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">WebDriverWait</span><span class="p">(</span><span class="n">driver</span><span class="p">,</span><span class="w"> </span><span class="n">Duration</span><span class="p">.</span><span class="na">ofSeconds</span><span class="p">(</span><span class="n">2</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 显示等待结束的满足条件：urlContains/visibilityOfElementLocated/....</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">wait</span><span class="p">.</span><span class="na">until</span><span class="p">(</span><span class="n">ExpectedConditions</span><span class="p">.</span><span class="na">urlContains</span><span class="p">(</span><span class="s">&#34;https://www.baidu.com/more/&#34;</span><span class="p">));</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="actions类">Actions类
+</h1><p>Selenium提供了Actions类，用来模拟在键盘 / 鼠标的操作，更有利于**==复杂式的交互动作==**</p>
+<h2 id="执行">执行
+</h2><p>每次执行一个操作链路，后面都要以<code>.perfrom()</code>结尾，否则动作不会真正执行</p>
+<h2 id="鼠标级操作">鼠标级操作
+</h2><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th><strong>方法</strong></th>
+          <th><strong>说明</strong></th>
+          <th><strong>业务场景</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>​<strong>​<code>moveToElement(ele)</code>​</strong></td>
+          <td>鼠标悬停（Hover）</td>
+          <td>触发二级下拉菜单显示</td>
+      </tr>
+      <tr>
+          <td>​<strong>​<code>contextClick(ele)</code>​</strong></td>
+          <td>鼠标右键点击</td>
+          <td>打开自定义右键菜单</td>
+      </tr>
+      <tr>
+          <td>​<strong>​<code>doubleClick(ele)</code>​</strong></td>
+          <td>鼠标双击</td>
+          <td>选中文字或触发特定双击事件</td>
+      </tr>
+      <tr>
+          <td>​<strong>​<code>dragAndDrop(source, target)</code>​</strong></td>
+          <td>拖拽 A 到 B</td>
+          <td>滑块验证码、排序列表、拖拽文件</td>
+      </tr>
+      <tr>
+          <td>​<strong>​<code>clickAndHold()</code>​</strong></td>
+          <td>按住不放</td>
+          <td>模拟长按效果</td>
+      </tr>
+  </tbody>
+</table></div>
+<h2 id="键盘级操作">键盘级操作
+</h2><p>通常配合 <code>Keys</code> 枚举类使用，适合处理快捷键组合。Keys类枚举了许多键盘的按键，列举几个常用的</p>
+<p><img src="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20260127010245-zj8a9dn.png" width="1080"  height="707"  srcset="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20260127010245-zj8a9dn_hu_34638cef73dfa98c.png 800w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20260127010245-zj8a9dn_hu_382b607031b0f3d1.png 1600w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20260127010245-zj8a9dn_hu_cc0a39624fa54c7.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="152"
+	data-flex-basis="366px" ></p>
+<ul>
+<li>​<strong>​<code>keyDown(Keys.SHIFT)</code>​</strong> ：按下某个键不松开</li>
+<li>​<strong>​<code>keyUp(Keys.SHIFT)</code>​</strong> ：释放按下的键</li>
+<li>​<strong>​<code>sendKeys(Keys.ENTER)</code>​</strong> ​：回车键（比元素级的 <code>sendKeys</code> 更通用）</li>
+</ul>
+<p><strong>场景示例（全选并删除）</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">new</span><span class="w"> </span><span class="n">Actions</span><span class="p">(</span><span class="n">driver</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">keyDown</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">CONTROL</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">sendKeys</span><span class="p">(</span><span class="s">&#34;a&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">keyUp</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">CONTROL</span><span class="p">)</span><span class="w">        </span><span class="c1">// Ctrl + A 全选</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">sendKeys</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">BACK_SPACE</span><span class="p">)</span><span class="w">  </span><span class="c1">// 退格删除</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">perform</span><span class="p">();</span><span class="w">                 </span><span class="c1">// 以perform结尾</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>‍</p>
 
 </section>
 
@@ -952,7 +1211,7 @@ article-page
 
 
         <span>
-            最后更新于 2025-12-13
+            最后更新于 2026-01-27
         </span>
     </section></footer>
 
@@ -973,7 +1232,9 @@ article-page
     <section class="copyright">
         &copy; 
         
-        2025 Jul1en
+            2025 - 
+        
+        2026 Jul1en
     </section>
     
     <section class="powerby">
