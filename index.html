@@ -756,10 +756,53 @@
      
     max-height: 400px;
     overflow: hidden;
+     
+    transition: max-height 0.3s ease-out;
   }
 
   .code-show {
     max-height: none !important;
+     
+  }
+
+   
+  @keyframes codeExpandPop {
+    0% {
+      transform: scale(0.98);
+      opacity: 0.8;
+    }
+
+    50% {
+      transform: scale(1.01);
+    }
+
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+   
+  @keyframes codeCollapsePop {
+    0% {
+      transform: scale(1);
+    }
+
+    50% {
+      transform: scale(0.99);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .code-expanding {
+    animation: codeExpandPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .code-collapsing {
+    animation: codeCollapsePop 0.3s ease-out;
   }
 
   .code-more-box {
@@ -803,9 +846,9 @@
    
   .code-less-box {
     width: 100%;
-    padding-top: 20px;
+    padding-top: 10px;
     padding-bottom: 10px;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(#fff));
+    background: transparent;
     position: relative;
     z-index: 1;
     margin-top: 0;
@@ -855,7 +898,7 @@
   }
 
   :root[data-scheme="dark"] .code-less-box {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(30, 30, 35, 0)), to(rgba(30, 30, 35, 1)));
+    background: transparent;
   }
 
   :root[data-scheme="dark"] .code-less-btn {
@@ -906,22 +949,70 @@
 
   
   codeMoreBtn.addEventListener('click', () => {
+    
     codeBlock.classList.add('code-show');
+    const targetHeight = codeBlock.scrollHeight;
+    codeBlock.classList.remove('code-show');
+
+    
+    codeBlock.style.maxHeight = '400px';
+    codeBlock.offsetHeight;
+
+    
+    codeBlock.classList.add('code-expanding');
+    codeBlock.classList.add('code-show');
+
+    
+    codeBlock.style.maxHeight = targetHeight + 'px';
+
     codeMoreBox.style.display = 'none';
-    codeLessBox.style.display = 'block'; 
+    codeLessBox.style.display = 'block';
+
     
     window.dispatchEvent(new Event('resize'));
+
+    
+    setTimeout(() => {
+      codeBlock.classList.remove('code-expanding');
+      codeBlock.style.maxHeight = ''; 
+    }, 300);
   });
 
   
   codeLessBtn.addEventListener('click', () => {
-    codeBlock.classList.remove('code-show');
-    codeMoreBox.style.display = 'block';
-    codeLessBox.style.display = 'none';
     
-    codeBlock.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const codeBlockTop = codeBlock.getBoundingClientRect().top + window.pageYOffset;
+    const currentHeight = codeBlock.scrollHeight;
+
+    
+    codeLessBox.style.display = 'none';
+    codeMoreBox.style.display = 'block';
+
+    
+    codeBlock.style.maxHeight = currentHeight + 'px';
+    codeBlock.offsetHeight;
+
+    
+    codeBlock.classList.add('code-collapsing');
+    codeBlock.classList.remove('code-show');
+
+    
+    codeBlock.style.maxHeight = '400px';
+
+    
+    window.scrollTo({
+      top: Math.max(0, codeBlockTop - 20),
+      behavior: 'smooth'
+    });
+
     
     window.dispatchEvent(new Event('resize'));
+
+    
+    setTimeout(() => {
+      codeBlock.classList.remove('code-collapsing');
+      codeBlock.style.maxHeight = '';
+    }, 300);
   });
 
   
