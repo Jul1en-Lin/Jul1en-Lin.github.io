@@ -7,7 +7,47 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>Jul1en</copyright>
-        <lastBuildDate>Tue, 27 Jan 2026 01:14:29 +0800</lastBuildDate><atom:link href="https://Jul1en-Lin.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 04 Feb 2026 14:39:15 +0800</lastBuildDate><atom:link href="https://Jul1en-Lin.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>🎁 Jmeter 安装配置</title>
+        <link>https://Jul1en-Lin.github.io/p/jmeter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</link>
+        <pubDate>Wed, 04 Feb 2026 14:36:41 +0800</pubDate>
+        
+        <guid>https://Jul1en-Lin.github.io/p/jmeter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</guid>
+        <description>&lt;h1 id=&#34;性能测试&#34;&gt;性能测试
+&lt;/h1&gt;&lt;p&gt;掌握性能测试工具是自动化测试中必备的技能，有助于提高效率&lt;/p&gt;
+&lt;h1 id=&#34;jmeter配置&#34;&gt;JMeter配置
+&lt;/h1&gt;&lt;h2 id=&#34;下载安装&#34;&gt;下载安装
+&lt;/h2&gt;&lt;p&gt;JMeter官网&lt;a class=&#34;link&#34; href=&#34;https://jmeter.apache.org/download_jmeter.cgi&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;jmeter.apache.org/download_jmeter.cgi&lt;/a&gt;，点击Binary一栏，注意要求JDK为8及以上，选择任意解压包，下载后解压&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/jmeter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/assets/image-20260204124924-cfyn0vs.png&#34; width=&#34;2003&#34;  height=&#34;1158&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/jmeter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/assets/image-20260204124924-cfyn0vs_hu_12eb99b0a31f0e3.png 800w, https://Jul1en-Lin.github.io/p/jmeter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/assets/image-20260204124924-cfyn0vs_hu_fa8f8e1ee0db4c87.png 1600w, https://Jul1en-Lin.github.io/p/jmeter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/assets/image-20260204124924-cfyn0vs_hu_d3d1d4465ac9b88d.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;172&#34;
+	data-flex-basis=&#34;415px&#34; &gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;cd到你解压后的文件位置，访问bin文件找到jmeter.bat双击即可打开&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/jmeter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/assets/image-20260204125102-7ukbnvj.png&#34; width=&#34;1073&#34;  height=&#34;621&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/jmeter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/assets/image-20260204125102-7ukbnvj_hu_430dd63fdc26ef1e.png 800w, https://Jul1en-Lin.github.io/p/jmeter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/assets/image-20260204125102-7ukbnvj_hu_13efadb2bb7b2a63.png 1600w, https://Jul1en-Lin.github.io/p/jmeter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/assets/image-20260204125102-7ukbnvj_hu_d4d67e0162fc26af.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;172&#34;
+	data-flex-basis=&#34;414px&#34; &gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/jmeter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/assets/image-20260204125119-rou54ry.png&#34; width=&#34;1055&#34;  height=&#34;246&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/jmeter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/assets/image-20260204125119-rou54ry_hu_f331812b48e76ca8.png 800w, https://Jul1en-Lin.github.io/p/jmeter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/assets/image-20260204125119-rou54ry_hu_30e0c7b2de437d66.png 1600w, https://Jul1en-Lin.github.io/p/jmeter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/assets/image-20260204125119-rou54ry_hu_318197dd5b22f1a0.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;428&#34;
+	data-flex-basis=&#34;1029px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;每次打开JMeter工具都需要找到文件夹非常麻烦，我们可以配置到环境变量中，这样每次启动只需要在控制台输入jmeter即可快速打开~&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;环境配置&#34;&gt;环境配置
+&lt;/h2&gt;&lt;p&gt;搜索“环境变量”，在Path中新增你的JMeter所在的文件夹的bin文件路径&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/jmeter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/assets/image-20260204125452-lupsp8s.png&#34; width=&#34;1723&#34;  height=&#34;1109&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/jmeter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/assets/image-20260204125452-lupsp8s_hu_bf5e4f9cebcc3876.png 800w, https://Jul1en-Lin.github.io/p/jmeter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/assets/image-20260204125452-lupsp8s_hu_f55f4af5a2adbf1d.png 1600w, https://Jul1en-Lin.github.io/p/jmeter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/assets/image-20260204125452-lupsp8s_hu_eabaed757a7c0f16.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;155&#34;
+	data-flex-basis=&#34;372px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;以我的放在D盘的JMeter文件夹为例&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/jmeter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/assets/image-20260204125623-3ojib44.png&#34; width=&#34;525&#34;  height=&#34;31&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/jmeter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/assets/image-20260204125623-3ojib44_hu_a7b4ce01077571c7.png 800w, https://Jul1en-Lin.github.io/p/jmeter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/assets/image-20260204125623-3ojib44_hu_5d3d0f9883b65407.png 1600w, https://Jul1en-Lin.github.io/p/jmeter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/assets/image-20260204125623-3ojib44_hu_54892f41d98d9c5f.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;1693&#34;
+	data-flex-basis=&#34;4064px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;在终端输入关键词&lt;code&gt;jmeter&lt;/code&gt;即可快速打开&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/jmeter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/assets/image-20260204125722-ns2wtpx.png&#34; width=&#34;935&#34;  height=&#34;253&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/jmeter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/assets/image-20260204125722-ns2wtpx_hu_da7b01934942d5dc.png 800w, https://Jul1en-Lin.github.io/p/jmeter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/assets/image-20260204125722-ns2wtpx_hu_765427c1da4c1faa.png 1600w, https://Jul1en-Lin.github.io/p/jmeter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/assets/image-20260204125722-ns2wtpx_hu_dc14eb30d7cf5aea.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;369&#34;
+	data-flex-basis=&#34;886px&#34; &gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;中文配置&#34;&gt;中文配置
+&lt;/h2&gt;&lt;p&gt;首次打开JMeter工具界面默认为英文，我们需要在JMeter的bin目录下，修改它的配置文件&lt;code&gt;properties&lt;/code&gt;​，找到&lt;code&gt;language&lt;/code&gt;​一栏，修改为&lt;code&gt;zh_CN&lt;/code&gt;​，&lt;u&gt;&lt;strong&gt;如果有注释 # 需要把它去掉，后面不要留有空格！&lt;/strong&gt;&lt;/u&gt; 修改后 ctrl + s 保存，重启JMeter即可&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/jmeter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/assets/image-20260204130808-iz0tb3b.png&#34; width=&#34;1052&#34;  height=&#34;503&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/jmeter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/assets/image-20260204130808-iz0tb3b_hu_a30bd055b9bc8d8c.png 800w, https://Jul1en-Lin.github.io/p/jmeter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/assets/image-20260204130808-iz0tb3b_hu_25ced5ed637e42f1.png 1600w, https://Jul1en-Lin.github.io/p/jmeter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/assets/image-20260204130808-iz0tb3b_hu_a886b240513d1048.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;209&#34;
+	data-flex-basis=&#34;501px&#34; &gt;​​&lt;img src=&#34;https://Jul1en-Lin.github.io/p/jmeter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/assets/image-20260204130402-bs8rtzh.png&#34; width=&#34;1958&#34;  height=&#34;1071&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/jmeter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/assets/image-20260204130402-bs8rtzh_hu_49e72e02a31487be.png 800w, https://Jul1en-Lin.github.io/p/jmeter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/assets/image-20260204130402-bs8rtzh_hu_f71288336715fbd0.png 1600w, https://Jul1en-Lin.github.io/p/jmeter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/assets/image-20260204130402-bs8rtzh_hu_2cd7bba5c976d3a8.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;182&#34;
+	data-flex-basis=&#34;438px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;‍&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>🛹 位运算类题目</title>
         <link>https://Jul1en-Lin.github.io/p/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%B1%BB%E9%A2%98%E7%9B%AE/</link>
         <pubDate>Wed, 24 Dec 2025 23:35:35 +0800</pubDate>
