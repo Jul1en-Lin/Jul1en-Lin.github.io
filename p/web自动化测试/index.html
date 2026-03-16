@@ -7,7 +7,7 @@
 
 <link rel='canonical' href='https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/'>
 
-<link rel="stylesheet" href="/scss/style.min.67112592a0fd046875a81ea88b09d915fc1fc704dbaa12f1227e3653baaf1bd6.css"><meta property='og:title' content="🎓 Web自动化测试">
+<link rel="stylesheet" href="/scss/style.min.05ca10cfb81e732416cf71a492feb098027fe953b51a129cbf87f4fc6fdab02b.css"><meta property='og:title' content="🎓 Web自动化测试">
 <meta property='og:description' content="自动化测试 自动化测试包括\n接口自动化测试\nUI自动化测试\nWeb自动化测试\n客户端界面自动化测试\n这次来讲讲Web 自动化测试。\nWeb 自动化测试 在大厂的研发流程中，自动化测试是&quot;CI/CD（持续集成/持续部署）&ldquo;不可或缺的一环。\n">
 <meta property='og:url' content='https://Jul1en-Lin.github.io/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/'>
 <meta property='og:site_name' content='Jul1en'>
@@ -49,9 +49,7 @@
 </script>
 </head>
 
-<body class="
-article-page
-">
+<body class="article-page editorial-layout">
 
     <div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
     <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
@@ -239,174 +237,49 @@ article-page
     </ol>
 </aside>
 
-<aside class="sidebar right-sidebar sticky">
-        
-            
-                
-<section class="widget archives">
-    <div class="widget-icon">
-        <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1765377688367" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4670" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
-  <path d="M106.666667 192a21.333333 21.333333 0 1 0 0 42.666667h85.333333a21.333333 21.333333 0 0 0 0-42.666667H106.666667z m0 298.666667a21.333333 21.333333 0 0 0 0 42.666666h85.333333a21.333333 21.333333 0 0 0 0-42.666666H106.666667z m0 298.666666a21.333333 21.333333 0 0 0 0 42.666667h85.333333a21.333333 21.333333 0 0 0 0-42.666667H106.666667zM320 192a21.333333 21.333333 0 0 0 0 42.666667h597.333333a21.333333 21.333333 0 0 0 0-42.666667H320z m0 298.666667a21.333333 21.333333 0 0 0 0 42.666666h597.333333a21.333333 21.333333 0 0 0 0-42.666666H320z m0 298.666666a21.333333 21.333333 0 0 0 0 42.666667h597.333333a21.333333 21.333333 0 0 0 0-42.666667H320z" fill="currentColor" p-id="4671"></path>
-</svg>
-    </div>
-    <h2 class="widget-title section-title">目录</h2>
-
-    <div class="widget--toc">
-        <nav id="TableOfContents">
-  <ol>
-    <li><a href="#自动化测试">自动化测试</a></li>
-    <li><a href="#web-自动化测试">Web 自动化测试</a></li>
-    <li><a href="#selenium-与-webdriver">Selenium 与 WebDriver</a>
-      <ol>
-        <li><a href="#selenium-是什么">Selenium 是什么？</a></li>
-        <li><a href="#webdriver-的工作原理面试">WebDriver 的工作原理（面试）</a></li>
-        <li><a href="#selenium与webdriver的关系面试">Selenium与WebDriver的关系？（面试）</a></li>
-        <li><a href="#安装selenium库">安装Selenium库</a></li>
-      </ol>
-    </li>
-    <li><a href="#关于驱动">关于“驱动”</a>
-      <ol>
-        <li><a href="#为什么需要驱动">为什么需要驱动？</a></li>
-      </ol>
-    </li>
-    <li><a href="#常见浏览器与驱动对应表">常见浏览器与驱动对应表</a></li>
-    <li><a href="#常见驱动下载方式">常见驱动下载方式</a>
-      <ol>
-        <li><a href="#手动下载不建议">手动下载（不建议）</a></li>
-        <li><a href="#由驱动程序自动下载">由驱动程序自动下载</a></li>
-        <li><a href="#更新selenium库至-46-版本">更新Selenium库至 4.6+ 版本</a></li>
-      </ol>
-    </li>
-    <li><a href="#配置断言">配置断言</a></li>
-    <li><a href="#总结">总结</a></li>
-    <li><a href="#web自动化常用函数">Web自动化常用函数</a>
-      <ol>
-        <li><a href="#浏览器级的操作driver">浏览器级的操作（Driver）</a>
-          <ol>
-            <li><a href="#获取页面信息-用于断言">获取页面信息 <strong>（用于断言）</strong></a></li>
-            <li><a href="#浏览器窗口调整">浏览器窗口调整</a></li>
-            <li><a href="#浏览器的关闭-面试">浏览器的关闭 <strong>（面试）</strong></a></li>
-            <li><a href="#浏览器导航">浏览器导航</a></li>
-            <li><a href="#屏幕截图">屏幕截图</a></li>
-            <li><a href="#浏览器参数设置">浏览器参数设置</a></li>
-          </ol>
-        </li>
-        <li><a href="#元素级操作element">元素级操作（Element）</a>
-          <ol>
-            <li><a href="#输入与交互">输入与交互</a></li>
-            <li><a href="#获取元素信息">获取元素信息</a></li>
-            <li><a href="#文件上传">文件上传</a></li>
-            <li><a href="#窗口与句柄切换">窗口与句柄切换</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li><a href="#特殊交互处理">特殊交互处理</a></li>
-    <li><a href="#等待机制与dom">等待机制与DOM</a>
-      <ol>
-        <li><a href="#dom">DOM</a></li>
-        <li><a href="#等待机制">等待机制</a></li>
-        <li><a href="#等待使用方式">等待使用方式</a></li>
-      </ol>
-    </li>
-    <li><a href="#actions类">Actions类</a>
-      <ol>
-        <li><a href="#执行">执行</a></li>
-        <li><a href="#鼠标级操作">鼠标级操作</a></li>
-        <li><a href="#键盘级操作">键盘级操作</a></li>
-      </ol>
-    </li>
-  </ol>
-</nav>
-    </div>
-</section>
-
-            
-        
-    </aside>
-
-
         <main class="main full-width">
-<article class="has-image main-article">
-    <header class="article-header">
-        <div class="article-image">
-            <a href="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/">
-                <img src="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161502-kow88l3_hu_d86fda1b8e9c7e85.png"
-                        srcset="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161502-kow88l3_hu_d86fda1b8e9c7e85.png 800w, /p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161502-kow88l3_hu_2c340e7176baabc2.png 1600w"
-                        width="800" 
-                        height="447" 
-                        loading="lazy"
-                        alt="Featured image of post 🎓 Web自动化测试" />
+
+<article class="editorial-article">
+    <div class="editorial-grid">
+        
+        <aside class="editorial-title-column">
+            
+            
+            <div class="editorial-category">
                 
-            </a>
-        </div>
-    
+                <a href="/categories/%E6%B5%8B%E8%AF%95/" >
+                    测试
+                </a>
+                
+            </div>
+            
 
-    <div class="article-details">
-    
-    <header class="article-category">
-        
-        <a href="/categories/%E6%B5%8B%E8%AF%95/" >
-            测试
-        </a>
-        
-    </header>
-    
+            
+            <h1 class="editorial-title">🎓 Web自动化测试</h1>
 
-    <div class="article-title-wrapper">
-        <h2 class="article-title">
-            <a href="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/">🎓 Web自动化测试</a>
-        </h2>
+            
+            
 
-        
-    </div>
+            
+            <div class="editorial-meta">
+                
+                <time datetime='2025-12-12T17:16:00&#43;08:00'>
+                    2025-12-12
+                </time>
+                <span class="editorial-meta-sep">·</span>
+                <span class="editorial-lastmod">
+                    更新于 2026-01-27
+                </span></div>
 
-    
-    
-    
-    
-    
-    <footer class="article-time">
-        
-        <div>
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
-  <circle cx="18" cy="18" r="4" />
-  <path d="M15 3v4" />
-  <path d="M7 3v4" />
-  <path d="M3 11h16" />
-  <path d="M18 16.496v1.504l1 1" />
-</svg>
-            <time class="article-time--published" datetime='2025-12-12T17:16:00&#43;08:00'>2025-12-12</time>
-        </div>
-        
+            
+            
+        </aside>
 
         
-
-        
-        
-        <div class="article-time--lastmod">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-refresh" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4" />
-  <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" />
-</svg>
-
-            <time class="article-time--updated" datetime='2026-01-27T01:14:29&#43;08:00'>2026-01-27</time>
-        </div>
-        
-    </footer>
-    
-
-    
-</div>
-</header>
-
-    <section class="article-content">
-    
-    
-    <h1 id="自动化测试">自动化测试
+        <div class="editorial-content-column">
+            <section class="article-content">
+                
+                <h1 id="自动化测试">自动化测试
 </h1><p>自动化测试包括</p>
 <ol>
 <li>
@@ -1199,31 +1072,10 @@ article-page
 </div>
 </div><p>‍</p>
 
-</section>
-
-
-    <footer class="article-footer">
-    
-
-    <section class="article-lastmod">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <polyline points="12 7 12 12 15 15" />
-</svg>
-
-
-
-        <span>
-            最后更新于 2026-01-27
-        </span>
-    </section></footer>
-
-
-    
+            </section>
+        </div>
+    </div>
 </article>
-
-
 
 
 
@@ -1246,7 +1098,6 @@ article-page
         主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.32.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
 </footer>
-
 
 
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
