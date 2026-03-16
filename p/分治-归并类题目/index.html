@@ -7,7 +7,7 @@
 
 <link rel='canonical' href='https://Jul1en-Lin.github.io/p/%E5%88%86%E6%B2%BB-%E5%BD%92%E5%B9%B6%E7%B1%BB%E9%A2%98%E7%9B%AE/'>
 
-<link rel="stylesheet" href="/scss/style.min.05ca10cfb81e732416cf71a492feb098027fe953b51a129cbf87f4fc6fdab02b.css"><meta property='og:title' content="🪭 分治-归并类题目">
+<link rel="stylesheet" href="/scss/style.min.8acdd5b57f01786c4a0058fc2512b463467c80316ab8967c36a5b80930ad1940.css"><meta property='og:title' content="🪭 分治-归并类题目">
 <meta property='og:description' content="归并数组 类似于分治快排，归并是从底下往上递归排序，快排是先解决当前部分再往下排，两个的顺序是反的~\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 class Solution { int[] tmp; // 辅助数组 public int[] sortArray(int[] nums) { // 分治归并 if (nums == null || nums.length == 0) return null; tmp = new int[nums.length]; mergeSort(nums, 0, nums.length - 1); return nums; } public void mergeSort(int[] nums, int left, int right) { // 中止条件 if (left &gt;= right) return; // 1. 选取中间点 int mid = (right + left) / 2; // 2. 递归左右区间排序 mergeSort(nums, left, mid); mergeSort(nums, mid + 1, right); // 3. 排序(双指针) // int[] tmp = new int[right - left + 1];// tmp每次都要new 消耗资源 故放到全局变量中 int cur1 = left, cur2 = mid + 1, i = 0; while (cur1 &lt;= mid &amp;&amp; cur2 &lt;= right) tmp[i++] = nums[cur1] &lt;= nums[cur2] ? nums[cur1++] : nums[cur2++]; // 细节问题：cur1 或者 cur2 可能没有走到最后 // 虽然是两个while 但也只会执行其中一个 while (cur1 &lt;= mid) tmp[i++] = nums[cur1++]; while (cur2 &lt;= right) tmp[i++] = nums[cur2++]; // 4. 归并合到一起 for (int j = left; j &lt;= right; j++) nums[j] = tmp[j - left]; // tmp 要从0开始取 } } 数组中的逆序对 ">
 <meta property='og:url' content='https://Jul1en-Lin.github.io/p/%E5%88%86%E6%B2%BB-%E5%BD%92%E5%B9%B6%E7%B1%BB%E9%A2%98%E7%9B%AE/'>
 <meta property='og:site_name' content='Jul1en'>
@@ -135,26 +135,6 @@
             
         </ol><ol class="menu" id="main-menu">
         
-        
-        
-        <li >
-            <a href='/' >
-                
-                
-                
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <polyline points="5 12 3 12 12 3 21 12 19 12" />
-  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
-  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
-</svg>
-
-
-
-                
-                <span>主页</span>
-            </a>
-        </li>
         
         
         <li >
@@ -835,7 +815,8 @@
   .code-more-box {
     width: 100%;
     padding-top: 78px;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(#fff));
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(224, 219, 206, 0)), to(#e0dbce));
+    background: linear-gradient(to bottom, rgba(224, 219, 206, 0) 0%, #e0dbce 100%);
     position: absolute;
     left: 0;
     right: 0;
