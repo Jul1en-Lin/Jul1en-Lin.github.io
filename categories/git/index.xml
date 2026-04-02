@@ -7,7 +7,108 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>Jul1en</copyright>
-        <lastBuildDate>Mon, 15 Dec 2025 01:09:08 +0800</lastBuildDate><atom:link href="https://Jul1en-Lin.github.io/categories/git/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 03 Apr 2026 02:18:31 +0800</lastBuildDate><atom:link href="https://Jul1en-Lin.github.io/categories/git/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Git LFS 突破大文件上传限制</title>
+        <link>https://Jul1en-Lin.github.io/p/git-lfs-%E7%AA%81%E7%A0%B4%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E9%99%90%E5%88%B6/</link>
+        <pubDate>Fri, 03 Apr 2026 00:18:50 +0800</pubDate>
+        
+        <guid>https://Jul1en-Lin.github.io/p/git-lfs-%E7%AA%81%E7%A0%B4%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E9%99%90%E5%88%B6/</guid>
+        <description>&lt;h1 id=&#34;git-lfs&#34;&gt;Git LFS
+&lt;/h1&gt;&lt;h1 id=&#34;接触此技术背景&#34;&gt;接触此技术背景
+&lt;/h1&gt;&lt;p&gt;本人一直有将笔记备份的习惯，虽然已经有云同步，但是异地存档能再加多层保险&lt;/p&gt;
+&lt;p&gt;随时间推移，笔记内容也越来越多，我的笔记快照的体积越来越大，最近一次直接超出了 Git 单次推送的最大体积限制（100MB），在查询解决方法时，发现 Git 有一种叫 LFS 的技术（Large File Storage），他能很好的解决此问题。&lt;/p&gt;
+&lt;h1 id=&#34;技术介绍&#34;&gt;技术介绍
+&lt;/h1&gt;&lt;p&gt;Git LFS 是 Git 的一个开源扩展，旨在解决 Git 在处理大尺寸二进制文件（如视频、数据集、压缩包）时的性能瓶颈。&lt;/p&gt;
+&lt;p&gt;因为 Git 的设计初衷是管理文本文件，它会完整记录文件的每一个版本。对于像我这样提交这么大我体积的的 ZIP 包，如果修改一次再提交，仓库体积会立刻翻倍。&lt;/p&gt;
+&lt;h1 id=&#34;底层原理&#34;&gt;底层原理
+&lt;/h1&gt;&lt;p&gt;那么它的思路就是把大文件给“拆开”。&lt;/p&gt;
+&lt;p&gt;LFS 的解决方法是：当你将文件放入 LFS 管理时，Git 仓库中存储的不再是那个 180MB 的实体，而是一个几百字节的&lt;strong&gt;指针文件&lt;/strong&gt;。真实的二进制数据被存储在 GitHub 的 LFS 专用服务器上。&lt;/p&gt;
+&lt;p&gt;当执行 &lt;code&gt;git checkout&lt;/code&gt;​ 时，LFS 会根据指针里的哈希值，自动从服务器下载对应的真实文件覆盖到你的工作区。这样本地的 &lt;code&gt;.git&lt;/code&gt; 目录（版本库历史）依然保持精简，这个设计非常巧妙。&lt;/p&gt;
+&lt;h1 id=&#34;技术实现&#34;&gt;技术实现
+&lt;/h1&gt;&lt;p&gt;我的最近一次提交是错误的，虽然提交了但是 push 失败了，故必须通过重置索引并应用 LFS 规则来修复。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;首先要安装 LFS 扩展&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 在你本地的git工作区&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git lfs install
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;标记你的大文件由 LFS 来管理，以我的笔记快照为例，它的文件格式就是 &lt;code&gt;.ZIP&lt;/code&gt;，那么命令就是&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git lfs track &lt;span class=&#34;s2&#34;&gt;&amp;#34;*.zip&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;注意：这会生成或更新 &lt;code&gt;.gitattributes&lt;/code&gt; 文件，必须将其一同提交&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;重新添加并提交&lt;/p&gt;
+&lt;p&gt;由于你之前的 Commit 已经包含了这个超限文件，需要先撤销上一次失败的提交，重新打包提交&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 撤销上一次 commit，但保留文件变动&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git reset --soft HEAD~1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 重新添加属性文件和大文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git add .
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git commit -m &lt;span class=&#34;s2&#34;&gt;&amp;#34;commit message&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git push origin master
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;执行到这一步，就已经能正确 push 上去了&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/git-lfs-%E7%AA%81%E7%A0%B4%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E9%99%90%E5%88%B6/assets/image-20260403000015-ovy4iw0.png&#34; width=&#34;1682&#34;  height=&#34;378&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/git-lfs-%E7%AA%81%E7%A0%B4%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E9%99%90%E5%88%B6/assets/image-20260403000015-ovy4iw0_hu_9a661f4bf7c35e91.png 800w, https://Jul1en-Lin.github.io/p/git-lfs-%E7%AA%81%E7%A0%B4%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E9%99%90%E5%88%B6/assets/image-20260403000015-ovy4iw0_hu_86d5871dd421369d.png 1600w, https://Jul1en-Lin.github.io/p/git-lfs-%E7%AA%81%E7%A0%B4%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E9%99%90%E5%88%B6/assets/image-20260403000015-ovy4iw0_hu_186e812f12ce3bf0.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;image&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;444&#34;
+	data-flex-basis=&#34;1067px&#34; &gt;&lt;/p&gt;
+&lt;h1 id=&#34;后续维护&#34;&gt;后续维护
+&lt;/h1&gt;&lt;p&gt;看到这会有疑惑：那么这次能提交成功了，后续该如何维护呢？&lt;/p&gt;
+&lt;p&gt;维护 LFS 需要关注  &lt;strong&gt;​&lt;code&gt;.gitattributes&lt;/code&gt;​&lt;/strong&gt; 文件、本地存储占用以及云端配额三个维度&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;追踪管理&lt;/p&gt;
+&lt;p&gt;你需要明确告诉 Git 哪些文件属于大文件。使用命令 &lt;code&gt;git lfs track &amp;quot;你的文件&amp;quot;&lt;/code&gt;​。 这会更新 &lt;code&gt;.gitattributes&lt;/code&gt;​ 文件。&lt;strong&gt;&lt;u&gt;每次更新必须提交这个属性文件&lt;/u&gt;&lt;/strong&gt;，否则协作成员拉取代码时，Git 会将其当作普通大文件处理，再次导致推送失败&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;监控状态&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用 &lt;code&gt;git lfs ls-files&lt;/code&gt;：查看当前索引中哪些文件正受 LFS 管理&lt;/li&gt;
+&lt;li&gt;使用 &lt;code&gt;git lfs status&lt;/code&gt;：检查当前暂存区的对象状态&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;本地存储清理&lt;/p&gt;
+&lt;p&gt;长期频繁更新大文件会导致本地 &lt;code&gt;.git/lfs&lt;/code&gt;​ 目录体积激增。使用 &lt;code&gt;git lfs prune&lt;/code&gt; 可以安全删除本地不再被当前分支引用的旧版二进制块。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;配额管理&lt;/p&gt;
+&lt;p&gt;GitHub 免费账户提供 1GB 存储和 1GB 每月下行流量，这要注意它的限制，如果配额耗尽，别人拉下来的包都是指针文本，不会真正下载内容&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;希望对你有帮助，祝您身体健康。&lt;/p&gt;
+&lt;p&gt;‍&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>🪶 Git命令大全</title>
         <link>https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/</link>
         <pubDate>Mon, 15 Dec 2025 00:47:22 +0800</pubDate>
