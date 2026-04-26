@@ -11,7 +11,7 @@
 <meta property='og:description' content="概念 Hooks 概念 学习概念最好的方法就是参考官方文档：code.claude.com/docs/en/hooks\nHooks 是用户定义的 shell 命令、HTTP 端点或 LLM 提示，它们在 Claude Code 的生命周期中的特定点自动执行。用于参考查找事件模式、配置选项、JSON 输入/输出格式以及异步 hooks、HTTP hooks 和 MCP 工具 hooks 等高级功能。\n">
 <meta property='og:url' content='https://Jul1en-Lin.github.io/p/%E6%A6%82%E5%BF%B5/'>
 <meta property='og:site_name' content='Jul1en'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-04-12T06:07:14&#43;00:00'/><meta property='article:modified_time' content='2026-04-27T00:39:19&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-04-12T06:07:14&#43;00:00'/><meta property='article:modified_time' content='2026-04-27T01:00:48&#43;08:00'/>
 <meta name="twitter:title" content="概念">
 <meta name="twitter:description" content="概念 Hooks 概念 学习概念最好的方法就是参考官方文档：code.claude.com/docs/en/hooks\nHooks 是用户定义的 shell 命令、HTTP 端点或 LLM 提示，它们在 Claude Code 的生命周期中的特定点自动执行。用于参考查找事件模式、配置选项、JSON 输入/输出格式以及异步 hooks、HTTP hooks 和 MCP 工具 hooks 等高级功能。\n">
 
@@ -264,7 +264,8 @@
 </ul>
 <p>然后你的处理器可以检查输入、采取行动，并可选择返回一个决策。</p>
 <p>事件分为三种节奏：每次会话一次（ SessionStart ， SessionEnd ）、每次回合一次（ UserPromptSubmit ， Stop ， StopFailure ），以及在每个工具调用中（在代理循环内）（ PreToolUse ， PostToolUse ），如图：</p>
-<p><img src="/assets/hook%20%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f-20260412151719-aje3e8z.png"    loading="lazy"  alt="hook 生命周期"  ></p>
+<p><img src="/p/%E6%A6%82%E5%BF%B5/assets/hooklife2-20260427005958-h2xbhdu.png" width="1170"  height="1805"  srcset="/p/%E6%A6%82%E5%BF%B5/assets/hooklife2-20260427005958-h2xbhdu_hu_d3e3af168619bfe8.png 800w, /p/%E6%A6%82%E5%BF%B5/assets/hooklife2-20260427005958-h2xbhdu_hu_ec04307f3aced955.png 1600w, /p/%E6%A6%82%E5%BF%B5/assets/hooklife2-20260427005958-h2xbhdu_hu_797cd902b34a0013.png 2400w"  loading="lazy"  alt="hooklife2"   class="gallery-image" data-flex-grow="64"
+	data-flex-basis="155px" ></p>
 <h2 id="执行时间">执行时间
 </h2><p>下表总结了每个事件触发的时间。Hooks 事件部分记录了每个事件的完整输入模式和决策控制选项。</p>
 <div class="table-wrapper"><table>
@@ -459,7 +460,8 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>现在假设 Claude Code 决定运行 Bash &ldquo;rm -rf /tmp/build&rdquo; 。以下是解析流程图</p>
-<p><img src="/assets/hook1-20260412160333-j25ewf2.png"    loading="lazy"  alt="hook1"  ></p>
+<p><img src="/p/%E6%A6%82%E5%BF%B5/assets/hook1-20260412160333-j25ewf2.png" width="3153"  height="916"  srcset="/p/%E6%A6%82%E5%BF%B5/assets/hook1-20260412160333-j25ewf2_hu_94b11e425b7afd.png 800w, /p/%E6%A6%82%E5%BF%B5/assets/hook1-20260412160333-j25ewf2_hu_70d9229a3a1170de.png 1600w, /p/%E6%A6%82%E5%BF%B5/assets/hook1-20260412160333-j25ewf2_hu_332905b2183684d2.png 2400w"  loading="lazy"  alt="hook1"   class="gallery-image" data-flex-grow="344"
+	data-flex-basis="826px" ></p>
 <h2 id="如何配置">如何配置
 </h2><p>Hooks 在 JSON 配置文件中定义。配置具有三个级别的嵌套：</p>
 <ol>
@@ -513,7 +515,8 @@
 <h3 id="更新外部数据"><strong>更新外部数据</strong>
 </h3><p>下一个问题可能是——如果外部数据过时了怎么办？ 要维护当前信息以供检索，可以**<u>异步更新文档并更新文档的嵌入表示形式</u>**，通过自动化实时流程或定期批处理来执行此操作。</p>
 <p>具体的流程图所示：</p>
-<p><img src="/assets/image-20260413172823-8cl4uqi.png"    loading="lazy"  alt="image"  ></p>
+<p><img src="/p/%E6%A6%82%E5%BF%B5/assets/image-20260413172823-8cl4uqi.png" width="1896"  height="904"  srcset="/p/%E6%A6%82%E5%BF%B5/assets/image-20260413172823-8cl4uqi_hu_15b5f48cf21ef944.png 800w, /p/%E6%A6%82%E5%BF%B5/assets/image-20260413172823-8cl4uqi_hu_d28506addc4ed880.png 1600w, /p/%E6%A6%82%E5%BF%B5/assets/image-20260413172823-8cl4uqi_hu_9ea877c57cfede2b.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="209"
+	data-flex-basis="503px" ></p>
 <h2 id="检索增强生成与语义搜索有什么区别">检索增强生成与语义搜索有什么区别？
 </h2><ul>
 <li>
@@ -527,7 +530,8 @@
 </li>
 </ul>
 <p>我的搜索引擎项目不是 RAG，是用到了语义搜索模块，RAG项目讲结果作为上下文重新再交给LLM生成，我的是直接返回结果。</p>
-<p><img src="/assets/image-20260413171738-z84fuyc.png"    loading="lazy"  alt="image"  ></p>
+<p><img src="/p/%E6%A6%82%E5%BF%B5/assets/image-20260413171738-z84fuyc.png" width="3047"  height="1175"  srcset="/p/%E6%A6%82%E5%BF%B5/assets/image-20260413171738-z84fuyc_hu_bc3cc9d2652d8fa8.png 800w, /p/%E6%A6%82%E5%BF%B5/assets/image-20260413171738-z84fuyc_hu_905cd3e03a33cc66.png 1600w, /p/%E6%A6%82%E5%BF%B5/assets/image-20260413171738-z84fuyc_hu_9227fad84bb17145.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="259"
+	data-flex-basis="622px" ></p>
 <h1 id="skill">Skill
 </h1><p>它是模块化、可复用、按需加载的结构化能力封装标准。</p>
 <p>什么是skills：Skill不是写得更好的prompt，而是可安装、可复用、带执行能力的能力包；它既不是纯文本提示，也不是静态知识库，而是让AI主动识别任务、调用工具、执行动作的标准化单元。一个文件夹即一个Skill，最小仅需一个 skill.md 即可运行；包含三核心组件——YAML元数据+Markdown指令层+可执行脚本（Python/Shell/JS）+按需加载的参考资料。</p>
@@ -535,7 +539,8 @@
 </h2><p>Prompt是反应式、一次性、高开销：用户提问才响应，对话结束即失效，越长越贵，无法跨会话复用，上下文占用大。<br>
 Skill是主动式、持久化、低消耗：安装一次长期生效，AI自主判断调用时机；按需加载资源，支持多Skill组合成流水线；包含prompt但远超prompt——它是结构化、可执行、可迭代的能力工程产物。</p>
 <h2 id="内部四层结构">内部四层结构
-</h2><p><img src="/assets/image-20260425012645-7t9bsw3.png"    loading="lazy"  alt="image"  ></p>
+</h2><p><img src="/p/%E6%A6%82%E5%BF%B5/assets/image-20260425012645-7t9bsw3.png" width="1732"  height="539"  srcset="/p/%E6%A6%82%E5%BF%B5/assets/image-20260425012645-7t9bsw3_hu_94425d368c1093b7.png 800w, /p/%E6%A6%82%E5%BF%B5/assets/image-20260425012645-7t9bsw3_hu_a2bcad78164d4b24.png 1600w, /p/%E6%A6%82%E5%BF%B5/assets/image-20260425012645-7t9bsw3_hu_f32230f8e8b8d6e6.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="321"
+	data-flex-basis="771px" ></p>
 <p>Skill内部四层结构解析</p>
 <p>YAML Front Matter（元数据层）： name 和 description 为必填项，其中description是AI路由决策的核心依据，决定能否被精准触发。<br>
 Markdown正文（指令层）：定义角色、核心任务、输出格式、约束条件等，相当于AI执行任务的“操作手册”。<br>
