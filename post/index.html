@@ -7,11 +7,11 @@
 
 <link rel='canonical' href='https://Jul1en-Lin.github.io/post/'>
 
-<link rel="stylesheet" href="/scss/style.min.40f4a0c72436f5579412c9dbcb99716ea999cafc9540aef6739750cf2f24c84e.css"><meta property='og:title' content="Posts">
+<link rel="stylesheet" href="/scss/style.min.ee113dd6fb431ff4a55ce3dbff07568f8b563c0a2dbef1902f1ba3a6e1aa06b6.css"><meta property='og:title' content="Posts">
 <meta property='og:description' content="学会等候 期待有天🎏">
 <meta property='og:url' content='https://Jul1en-Lin.github.io/post/'>
 <meta property='og:site_name' content='Jul1en'>
-<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2026-04-27T01:20:39&#43;08:00 '/>
+<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2026-04-27T02:06:46&#43;08:00 '/>
 <meta name="twitter:title" content="Posts">
 <meta name="twitter:description" content="学会等候 期待有天🎏"><link rel="alternate" type="application/rss&#43;xml" href="https://Jul1en-Lin.github.io/post/index.xml">
 
@@ -352,288 +352,75 @@
     }());
 </script>
 <style>
-  .highlight {
-     
-    max-height: 400px;
-    overflow: hidden;
-     
-    transition: max-height 0.3s ease-out;
-  }
-
-  .code-show {
+   
+  .article-content .highlight,
+  .editorial-content-column .article-content .highlight,
+  .article-content pre,
+  .editorial-content-column .article-content pre {
     max-height: none !important;
-     
+    overflow-y: visible !important;
+    overflow-x: auto !important;
+    scrollbar-width: auto;
+    scrollbar-color: #3c3d3e transparent;
   }
 
-   
-  @keyframes codeExpandPop {
-    0% {
-      transform: scale(0.98);
-      opacity: 0.8;
-    }
-
-    50% {
-      transform: scale(1.01);
-    }
-
-    100% {
-      transform: scale(1);
-      opacity: 1;
-    }
+  .article-content .highlight pre,
+  .editorial-content-column .article-content .highlight pre {
+    overflow: visible !important;
   }
 
-   
-  @keyframes codeCollapsePop {
-    0% {
-      transform: scale(1);
-    }
-
-    50% {
-      transform: scale(0.99);
-    }
-
-    100% {
-      transform: scale(1);
-    }
+  .article-content .highlight::-webkit-scrollbar,
+  .editorial-content-column .article-content .highlight::-webkit-scrollbar,
+  .article-content pre::-webkit-scrollbar,
+  .editorial-content-column .article-content pre::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
   }
 
-  .code-expanding {
-    animation: codeExpandPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-
-  .code-collapsing {
-    animation: codeCollapsePop 0.3s ease-out;
-  }
-
-  .code-more-box {
-    width: 100%;
-    padding-top: 78px;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(248, 249, 252, 0)), to(#f8f9fc));
-    background: linear-gradient(to bottom, rgba(248, 249, 252, 0) 0%, #f8f9fc 100%);
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
-  }
-
-  .code-more-btn {
-    display: block;
-    margin: auto;
-    width: 44px;
-    height: 22px;
-    background: #f0f0f5;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    padding-top: 6px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  .code-more-btn:hover {
-    background: #e0e0e8;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  }
-
-  .code-more-img {
-    cursor: pointer !important;
-    display: block;
-    margin: auto;
-    width: 22px;
-    height: 16px;
-  }
-
-   
-  .code-less-box {
-    width: 100%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background: transparent;
-    position: relative;
-    z-index: 1;
-    margin-top: 0;
-  }
-
-   
-  .code-less-btn {
-    display: block;
-    margin: auto;
-    width: 44px;
-    height: 22px;
-    background: #f0f0f5;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    padding-top: 6px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  .code-less-btn:hover {
-    background: #e0e0e8;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  }
-
-  .code-less-img {
-    cursor: pointer !important;
-    display: block;
-    margin: auto;
-    width: 22px;
-    height: 16px;
-  }
-
-   
-  :root[data-scheme="dark"] .code-more-box {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(248, 249, 252, 0)), to(#f8f9fc));
-    background: linear-gradient(to bottom, rgba(248, 249, 252, 0) 0%, #f8f9fc 100%);
-  }
-
-  :root[data-scheme="dark"] .code-more-btn {
-    background: rgba(50, 50, 55, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  :root[data-scheme="dark"] .code-more-btn:hover {
-    background: rgba(60, 60, 65, 0.9);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  }
-
-  :root[data-scheme="dark"] .code-less-box {
+  .article-content .highlight::-webkit-scrollbar-track,
+  .editorial-content-column .article-content .highlight::-webkit-scrollbar-track,
+  .article-content pre::-webkit-scrollbar-track,
+  .editorial-content-column .article-content pre::-webkit-scrollbar-track {
     background: transparent;
   }
 
-  :root[data-scheme="dark"] .code-less-btn {
-    background: rgba(50, 50, 55, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+  .article-content .highlight::-webkit-scrollbar-thumb,
+  .editorial-content-column .article-content .highlight::-webkit-scrollbar-thumb,
+  .article-content pre::-webkit-scrollbar-thumb,
+  .editorial-content-column .article-content pre::-webkit-scrollbar-thumb {
+    background: #3c3d3e;
+    border-radius: 999px;
   }
 
-  :root[data-scheme="dark"] .code-less-btn:hover {
-    background: rgba(60, 60, 65, 0.9);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  .article-content .highlight::-webkit-scrollbar-thumb:hover,
+  .editorial-content-column .article-content .highlight::-webkit-scrollbar-thumb:hover,
+  .article-content pre::-webkit-scrollbar-thumb:hover,
+  .editorial-content-column .article-content pre::-webkit-scrollbar-thumb:hover {
+    background: #48494a;
+  }
+
+  :root[data-scheme="dark"] .article-content .highlight,
+  :root[data-scheme="dark"] .editorial-content-column .article-content .highlight,
+  :root[data-scheme="dark"] .article-content pre,
+  :root[data-scheme="dark"] .editorial-content-column .article-content pre {
+    scrollbar-color: #3c3d3e transparent;
+  }
+
+  :root[data-scheme="dark"] .article-content .highlight::-webkit-scrollbar-thumb,
+  :root[data-scheme="dark"] .editorial-content-column .article-content .highlight::-webkit-scrollbar-thumb,
+  :root[data-scheme="dark"] .article-content pre::-webkit-scrollbar-thumb,
+  :root[data-scheme="dark"] .editorial-content-column .article-content pre::-webkit-scrollbar-thumb {
+    background: #3c3d3e;
+  }
+
+  :root[data-scheme="dark"] .article-content .highlight::-webkit-scrollbar-thumb:hover,
+  :root[data-scheme="dark"] .editorial-content-column .article-content .highlight::-webkit-scrollbar-thumb:hover,
+  :root[data-scheme="dark"] .article-content pre::-webkit-scrollbar-thumb:hover,
+  :root[data-scheme="dark"] .editorial-content-column .article-content pre::-webkit-scrollbar-thumb:hover {
+    background: #48494a;
   }
 </style>
 <script src="/js/particles.js"></script>
-<script>
-  function initCodeMoreBox() {
-    let codeBlocks = document.querySelectorAll(".highlight");
-    if (!codeBlocks) {
-      return;
-    }
-    codeBlocks.forEach(codeBlock => {
-      
-      if (codeBlock.scrollHeight <= codeBlock.clientHeight) {
-        return;
-      }
-      
-      
-      let codeMoreBox = document.createElement('div');
-      codeMoreBox.classList.add('code-more-box');
-      
-      let codeMoreBtn = document.createElement('span');
-      codeMoreBtn.classList.add('code-more-btn');
-      codeMoreBtn.title = '展开代码';
-
-      
-      let codeLessBox = document.createElement('div');
-      codeLessBox.classList.add('code-less-box');
-      codeLessBox.style.display = 'none'; 
-
-      let codeLessBtn = document.createElement('span');
-      codeLessBtn.classList.add('code-less-btn');
-      codeLessBtn.title = '收起代码';
-
-      
-      let upArrow = document.createElement('img');
-      upArrow.classList.add('code-less-img');
-      upArrow.src = "https://Jul1en-Lin.github.io/icons/codeMore.png"
-  upArrow.style.transform = 'rotate(180deg)'; 
-
-  
-  codeMoreBtn.addEventListener('click', () => {
-    
-    codeBlock.classList.add('code-show');
-    const targetHeight = codeBlock.scrollHeight;
-    codeBlock.classList.remove('code-show');
-
-    
-    codeBlock.style.maxHeight = '400px';
-    codeBlock.offsetHeight;
-
-    
-    codeBlock.classList.add('code-expanding');
-    codeBlock.classList.add('code-show');
-
-    
-    codeBlock.style.maxHeight = targetHeight + 'px';
-
-    codeMoreBox.style.display = 'none';
-    codeLessBox.style.display = 'block';
-
-    
-    window.dispatchEvent(new Event('resize'));
-
-    
-    setTimeout(() => {
-      codeBlock.classList.remove('code-expanding');
-      codeBlock.style.maxHeight = ''; 
-    }, 300);
-  });
-
-  
-  codeLessBtn.addEventListener('click', () => {
-    
-    const codeBlockTop = codeBlock.getBoundingClientRect().top + window.pageYOffset;
-    const currentHeight = codeBlock.scrollHeight;
-
-    
-    codeLessBox.style.display = 'none';
-    codeMoreBox.style.display = 'block';
-
-    
-    codeBlock.style.maxHeight = currentHeight + 'px';
-    codeBlock.offsetHeight;
-
-    
-    codeBlock.classList.add('code-collapsing');
-    codeBlock.classList.remove('code-show');
-
-    
-    codeBlock.style.maxHeight = '400px';
-
-    
-    window.scrollTo({
-      top: Math.max(0, codeBlockTop - 20),
-      behavior: 'smooth'
-    });
-
-    
-    window.dispatchEvent(new Event('resize'));
-
-    
-    setTimeout(() => {
-      codeBlock.classList.remove('code-collapsing');
-      codeBlock.style.maxHeight = '';
-    }, 300);
-  });
-
-  
-  let img = document.createElement('img');
-  img.classList.add('code-more-img');
-  img.src = "https://Jul1en-Lin.github.io/icons/codeMore.png"
-
-  
-  codeMoreBtn.appendChild(img);
-  codeMoreBox.appendChild(codeMoreBtn);
-  codeLessBtn.appendChild(upArrow);
-  codeLessBox.appendChild(codeLessBtn);
-  codeBlock.appendChild(codeMoreBox);
-  codeBlock.appendChild(codeLessBox);
-    })
-  }
-
-  initCodeMoreBox();
-</script>
 
 
 
