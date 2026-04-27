@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" data-scheme="dark">
+
+<head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="MyBatis／plus MyBatis 是一款半自动对象关系映射持久层框架，其核心通过 XML 或注解实现原生 SQL 与 Java 对象的解耦映射，在消除冗余 JDBC 代码的同时，保留了对 SQL 执行逻辑的控制\n接下来先讲传统Mybatis的配置\n">
+<title>MyBatis／plus</title>
+
+<link rel='canonical' href='https://Jul1en-Lin.github.io/p/mybatisplus/'>
+
+<link rel="stylesheet" href="/scss/style.min.ee113dd6fb431ff4a55ce3dbff07568f8b563c0a2dbef1902f1ba3a6e1aa06b6.css"><meta property='og:title' content="MyBatis／plus">
+<meta property='og:description' content="MyBatis／plus MyBatis 是一款半自动对象关系映射持久层框架，其核心通过 XML 或注解实现原生 SQL 与 Java 对象的解耦映射，在消除冗余 JDBC 代码的同时，保留了对 SQL 执行逻辑的控制\n接下来先讲传统Mybatis的配置\n">
+<meta property='og:url' content='https://Jul1en-Lin.github.io/p/mybatisplus/'>
+<meta property='og:site_name' content='Jul1en'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-12-12T16:47:26&#43;00:00'/><meta property='article:modified_time' content='2026-04-27T23:44:02&#43;08:00'/>
+<meta name="twitter:title" content="MyBatis／plus">
+<meta name="twitter:description" content="MyBatis／plus MyBatis 是一款半自动对象关系映射持久层框架，其核心通过 XML 或注解实现原生 SQL 与 Java 对象的解耦映射，在消除冗余 JDBC 代码的同时，保留了对 SQL 执行逻辑的控制\n接下来先讲传统Mybatis的配置\n">
+
+<script>
+    (function () {
+        const colorSchemeKey = 'StackColorScheme';
+        if (!localStorage.getItem(colorSchemeKey)) {
+            
+            const now = new Date();
+            const utcHour = now.getUTCHours();
+            const beijingHour = (utcHour + 8) % 24;
+
+            
+            
+            const isDarkTime = beijingHour >= 21 || beijingHour < 8;
+            const scheme = isDarkTime ? 'dark' : 'light';
+            localStorage.setItem(colorSchemeKey, scheme);
+        }
+    })();
+</script><script>
+    (function () {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+</head>
+
+<body class="article-page editorial-layout">
+
+    <div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_9c28e5b7b386072e.png" width="300"
+                            height="341" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🥯</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Jul1en</a></h1>
+            <h2 class="site-description">学会等候 期待有天🎏</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://blog.csdn.net/TwoCat_C?type=blog'
+                        target="_blank"
+                        title="CSDN"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1765201201519" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6401" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M200.234667 581.888c-21.205333 24.234667-58.154667 26.88-73.045334 26.88-27.648 0-48.810667-6.997333-62.890666-20.821333-13.354667-13.098667-20.394667-32.426667-20.864-57.429334-1.066667-57.941333 31.744-117.845333 88.490666-117.845333 27.093333 0 47.957333 19.413333 55.936 27.477333a14.378667 14.378667 0 0 0 12.032 4.224 16.213333 16.213333 0 0 0 10.282667-6.784c2.901333-3.712 5.76-10.112 5.888-17.109333s-2.432-14.677333-10.368-20.906667a112.725333 112.725333 0 0 0-71.168-25.216c-34.944 0-69.418667 16.042667-94.634667 44.074667-26.496 29.482667-40.661333 69.546667-39.893333 112.896 0.64 34.773333 12.032 64 32.981333 84.565333 22.528 22.101333 55.466667 33.749333 95.36 33.749334 46.805333 0 75.776-13.866667 91.904-25.472a24.917333 24.917333 0 0 0 10.24-19.456 29.952 29.952 0 0 0-8.874666-21.205334c-9.813333-10.581333-19.114667-4.309333-21.461334-1.578666z m212.053333-91.733333a318.762667 318.762667 0 0 0-29.781333-10.581334c-6.698667-2.048-13.184-3.882667-19.2-5.589333-39.338667-11.093333-43.818667-21.333333-43.392-29.013333 0.938667-15.488 21.973333-36.394667 57.685333-33.792 25.898667 1.92 43.306667 21.717333 51.413333 33.322666 6.357333 9.130667 15.829333 5.76 18.517334 4.053334a25.685333 25.685333 0 0 0 13.184-21.930667 26.709333 26.709333 0 0 0-8.917334-20.821333 113.237333 113.237333 0 0 0-142.805333-11.648c-19.456 13.781333-31.744 32.938667-32.853333 51.285333-2.730667 45.269333 43.306667 58.282667 76.928 67.754667 9.130667 2.602667 18.304 5.418667 28.458666 8.618666 48.64 15.232 50.048 30.592 46.592 54.058667-3.498667 23.722667-29.696 35.584-71.893333 32.469333-43.904-3.242667-62.464-26.026667-68.778667-38.442666-2.133333-4.181333-8.746667-10.581333-17.621333-6.656-21.930667 9.770667-20.181333 31.189333-11.093333 42.368 14.464 17.749333 49.066667 44.16 113.792 44.16 73.984 0 96.213333-37.333333 101.461333-69.973334 3.925333-24.405333-0.938667-43.861333-14.848-59.562666-10.069333-11.392-25.258667-21.12-46.976-30.122667z m289.152-92.373334c-25.514667-18.389333-59.434667-26.026667-100.693333-22.698666-30.378667 2.474667-54.357333 10.368-56.96 11.221333l-0.256 0.085333a18.645333 18.645333 0 0 0-12.672 16.170667l-20.053334 221.909333a14.378667 14.378667 0 0 0 10.538667 14.933334l3.072 0.853333 2.816 0.768 3.669333 0.896a337.664 337.664 0 0 0 69.973334 7.808c41.472 0 75.306667-9.813333 100.693333-29.184 32.597333-24.874667 48.682667-64 47.701333-116.266667-0.896-48.426667-16.981333-84.224-47.829333-106.453333z m-28.245333 190.336c-35.669333 27.264-89.173333 23.978667-114.218667 20.522667a5.461333 5.461333 0 0 1-4.650667-5.845333l16.938667-181.248a4.821333 4.821333 0 0 1 3.669333-4.266667c42.624-10.282667 75.818667-7.168 98.645334 9.301333 8.064 5.845333 14.848 14.122667 20.096 24.234667 7.509333 14.464 11.818667 32.64 12.202666 52.650667 0.725333 39.082667-10.24 67.541333-32.64 84.650666z m349.397333-143.957333a81.92 81.92 0 0 0-18.432-39.210667c-17.024-19.84-43.904-29.397333-78.848-29.397333-31.317333 0-58.538667 9.728-83.072 34.090667 0.298667-3.669333 0.810667-6.784 0.768-9.514667s-0.725333-4.949333-2.816-6.954667c-2.048-1.92-3.285333-2.858667-5.418667-3.285333-2.133333-0.426667-5.205333-0.341333-10.922666-0.256a25.045333 25.045333 0 0 0-25.130667 23.04s-13.866667 165.290667-18.261333 220.373333a13.141333 13.141333 0 0 0 3.114666 9.728 15.36 15.36 0 0 0 11.093334 5.589334h16.512a9.557333 9.557333 0 0 0 9.642666-8.746667l11.648-124.970667 0.597334-6.272a81.152 81.152 0 0 1 3.498666-17.578666c0.597333-1.92 1.28-3.925333 2.005334-5.973334 10.453333-29.610667 34.261333-73.386667 84.096-72.277333 35.84 0.768 61.824 19.413333 59.093333 47.530667-4.309333 44.117333-11.349333 132.266667-15.274667 176.64-0.810667 8.917333 7.765333 11.648 10.752 11.648h12.970667a18.858667 18.858667 0 0 0 18.944-17.237334s7.893333-90.752 12.544-143.018666l2.048-22.698667a83.584 83.584 0 0 0-1.109333-21.333333z" p-id="6402" fill="#707070"></path></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://gitee.com/Cary_C'
+                        target="_blank"
+                        title="Gitee"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1765175787209" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="12364" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M817.0496 445.44H456.5504c-11.1104 0-27.7504 16.64-27.7504 27.7504v72.0896c0 16.64 16.64 27.7504 27.7504 27.7504h227.3792c16.64 0 27.7504 16.64 27.7504 27.6992v22.2208c0 49.92-44.3904 88.7296-88.7296 88.7296H334.4896c-16.64 0-27.6992-16.64-27.6992-27.7504V389.9904c-5.5808-44.3904 38.8096-88.7808 83.2-88.7808h421.5296c11.1104 0 27.7504-16.64 27.7504-27.6992v-66.56c5.5296-11.1104-11.1104-27.7504-22.2208-27.7504H401.0496A222.5152 222.5152 0 0 0 179.2 401.0496v416c0 11.1104 16.64 27.7504 27.7504 27.7504H645.12c110.9504 0 199.68-88.7296 199.68-199.68V473.1904c0-11.1104-16.64-27.7504-27.7504-27.7504z" fill="#8B8B8B" p-id="12365"></path></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/Jul1en-Lin'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>合集</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/categories/' >
+                
+                
+                
+                    <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1765359277966" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11523" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M575.68 736a160.32 160.32 0 1 0 160.32-160.32H599.893333c-13.461333 0-24.192 10.752-24.192 24.192V736zM736 533.333333A202.666667 202.666667 0 1 1 533.333333 736V599.893333A66.432 66.432 0 0 1 599.872 533.333333H736zM490.666667 736a202.666667 202.666667 0 1 1-202.666667-202.666667h136.128A66.432 66.432 0 0 1 490.666667 599.872V736z m-202.666667-160.32a160.32 160.32 0 1 0 160.32 160.32V599.893333c0-13.44-10.730667-24.192-24.192-24.192H288zM533.333333 287.978667A202.666667 202.666667 0 1 1 736 490.666667H599.893333A66.432 66.432 0 0 1 533.333333 424.128V288z m202.666667 160.341333a160.32 160.32 0 1 0-160.32-160.32v136.128c0 13.44 10.730667 24.192 24.192 24.192H736zM448.32 288a160.32 160.32 0 1 0-160.32 160.32h136.128c13.461333 0 24.192-10.752 24.192-24.192V288zM288 490.666667A202.666667 202.666667 0 1 1 490.666667 288v136.128A66.432 66.432 0 0 1 424.128 490.666667H288z" fill="currentColor" p-id="11524"></path></svg>
+                
+                <span>分类</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+        <main class="main full-width">
+
+<article class="editorial-article">
+    <div class="editorial-grid">
+        
+        <aside class="editorial-title-column">
+            
+            
+            <div class="editorial-category">
+                
+                <a href="/categories/javaee%E8%BF%9B%E9%98%B6/" >
+                    JavaEE进阶
+                </a>
+                
+            </div>
+            
+
+            
+            <h1 class="editorial-title">MyBatis／plus</h1>
+
+            
+            
+
+            
+            <div class="editorial-meta">
+                
+                <time datetime='2025-12-12T16:47:26Z'>
+                    2025-12-12
+                </time>
+                <span class="editorial-meta-sep">·</span>
+                <span class="editorial-lastmod">
+                    更新于 2026-04-27
+                </span></div>
+
+            
+            
+        </aside>
+
+        
+        <div class="editorial-content-column">
+            <section class="article-content">
+                
+                <h1 id="mybatisplus">MyBatis／plus
+</h1><p>MyBatis 是一款半自动对象关系映射持久层框架，其核心通过 XML 或注解实现原生 SQL 与 Java 对象的解耦映射，在消除冗余 JDBC 代码的同时，保留了对 SQL 执行逻辑的控制</p>
+<p>接下来先讲传统Mybatis的配置</p>
+<h1 id="mybatis配置">MyBatis配置
+</h1><p>mybatis是IDE和数据库的桥梁，便于在后端也能执行SQL，故配置必须需要连接数据库~</p>
+<p>💫<code>application.yml</code>配置💫必备</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">#</span><span class="w"> </span><span class="n">数据库连接配置</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nl">spring</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">datasource</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">url</span><span class="p">:</span><span class="w"> </span><span class="n">jdbc</span><span class="p">:</span><span class="n">mysql</span><span class="p">:</span><span class="c1">//127.0.0.1:3306/book_test?characterEncoding=utf8&amp;useSSL=false&amp;allowPublicKeyRetrieval=true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">username</span><span class="p">:</span><span class="w"> </span><span class="n">root</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">password</span><span class="p">:</span><span class="w"> </span><span class="n">root</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">driver</span><span class="o">-</span><span class="kd">class</span><span class="err">-</span><span class="nc">name</span><span class="p">:</span><span class="w"> </span><span class="n">com</span><span class="p">.</span><span class="na">mysql</span><span class="p">.</span><span class="na">cj</span><span class="p">.</span><span class="na">jdbc</span><span class="p">.</span><span class="na">Driver</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nl">mybatis</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">configuration</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">map</span><span class="o">-</span><span class="n">underscore</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">camel</span><span class="o">-</span><span class="k">case</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="err">#</span><span class="n">配置驼峰自动转换</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">log</span><span class="o">-</span><span class="n">impl</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="p">.</span><span class="na">apache</span><span class="p">.</span><span class="na">ibatis</span><span class="p">.</span><span class="na">logging</span><span class="p">.</span><span class="na">stdout</span><span class="p">.</span><span class="na">StdOutImpl</span><span class="w"> </span><span class="err">#</span><span class="n">打印sql语句</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="err">#</span><span class="w"> </span><span class="n">设置日志文件的文件名</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nl">logging</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">file</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="n">spring</span><span class="o">-</span><span class="n">book</span><span class="p">.</span><span class="na">log</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mybatis">MyBatis
+</h2><h3 id="yml配置">yml配置
+</h3><p>在<code>application.yml</code>中可以增加mybatis的相关配置，如配置驼峰自动转换</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nl">mybatis</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">configuration</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">map</span><span class="o">-</span><span class="n">underscore</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">camel</span><span class="o">-</span><span class="k">case</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="err">#</span><span class="n">配置驼峰自动转换</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">log</span><span class="o">-</span><span class="n">impl</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="p">.</span><span class="na">apache</span><span class="p">.</span><span class="na">ibatis</span><span class="p">.</span><span class="na">logging</span><span class="p">.</span><span class="na">stdout</span><span class="p">.</span><span class="na">StdOutImpl</span><span class="w"> </span><span class="err">#</span><span class="n">打印sql语句</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="添加依赖">添加依赖
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">		</span><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="p">.</span><span class="na">mybatis</span><span class="p">.</span><span class="na">spring</span><span class="p">.</span><span class="na">boot</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">mybatis</span><span class="o">-</span><span class="n">spring</span><span class="o">-</span><span class="n">boot</span><span class="o">-</span><span class="n">starter</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">3</span><span class="p">.</span><span class="na">0</span><span class="p">.</span><span class="na">5</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">com</span><span class="p">.</span><span class="na">mysql</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">j</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">&lt;</span><span class="n">scope</span><span class="o">&gt;</span><span class="n">runtime</span><span class="o">&lt;/</span><span class="n">scope</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="xml配置动态sql">xml配置（动态SQL）
+</h3><p>xml一般是在写SQL中，简单的SQL已经无法满足业务需求，需要动态SQL时，需要的mybatis的配置，动态SQL就在xml文件里写。</p>
+<p>一般放在resources.mapper包下，命名规范为<code>xxxMapper.xml</code>，对应某个类。效果和注解Spring的@Select、@Update注解作用一致</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">&lt;!--</span><span class="n">将以下放到xml文件头</span><span class="o">--&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="n">xml</span><span class="w"> </span><span class="n">version</span><span class="o">=</span><span class="s">&#34;1.0&#34;</span><span class="w"> </span><span class="n">encoding</span><span class="o">=</span><span class="s">&#34;UTF-8&#34;</span><span class="o">?&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="o">&lt;!</span><span class="n">DOCTYPE</span><span class="w"> </span><span class="n">mapper</span><span class="w"> </span><span class="n">PUBLIC</span><span class="w"> </span><span class="s">&#34;-//mybatis.org//DTD Mapper 3.0//EN&#34;</span><span class="w"> </span><span class="s">&#34;http://mybatis.org/dtd/mybatis-3-mapper.dtd&#34;</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">mapper</span><span class="w"> </span><span class="n">namespace</span><span class="o">=</span><span class="s">&#34;com.bite.com.book.mapper.BookMapper&#34;</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="o">&lt;!--</span><span class="n">namespace为对应mapper包的某个类所在位置</span><span class="err">，</span><span class="n">位置可修改</span><span class="err">，</span><span class="n">如下</span><span class="o">--&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">mapper</span><span class="o">&gt;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/p/mybatisplus/assets/image-20260204152524-evegbm4.png" width="2362"  height="1297"  srcset="/p/mybatisplus/assets/image-20260204152524-evegbm4_hu_206d453964375eb0.png 800w, /p/mybatisplus/assets/image-20260204152524-evegbm4_hu_3b497edec6d90f7b.png 1600w, /p/mybatisplus/assets/image-20260204152524-evegbm4_hu_cb45520cc3529d7a.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="182"
+	data-flex-basis="437px" ></p>
+<p><img src="/p/mybatisplus/assets/image-20260204152931-uekqeap.png" width="2324"  height="1042"  srcset="/p/mybatisplus/assets/image-20260204152931-uekqeap_hu_3c33cfb4033ff2e5.png 800w, /p/mybatisplus/assets/image-20260204152931-uekqeap_hu_d45594aa35d23e54.png 1600w, /p/mybatisplus/assets/image-20260204152931-uekqeap_hu_30c7197865b10abf.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="223"
+	data-flex-basis="535px" ></p>
+<h2 id="mybatisx">MyBatisX
+</h2><p>是一款plugin，支持xml的快速跳转和生成代码，非常好用~</p>
+<p><img src="/p/mybatisplus/assets/image-20260204213706-byzmjek.png" width="1426"  height="630"  srcset="/p/mybatisplus/assets/image-20260204213706-byzmjek_hu_71b4cabad7e750c1.png 800w, /p/mybatisplus/assets/image-20260204213706-byzmjek_hu_1a867b32b4a24115.png 1600w, /p/mybatisplus/assets/image-20260204213706-byzmjek_hu_a9eab1359cc61ae3.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="226"
+	data-flex-basis="543px" ></p>
+<h2 id="mybatis-generator插件">MyBatis-Generator插件
+</h2><p>这个插件使用也是非常的广泛</p>
+<p>手写mapper还是太麻烦了，有一些插件能够帮我们自动生成一些sql，提高效率，同时需要generator文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">plugin</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="p">.</span><span class="na">mybatis</span><span class="p">.</span><span class="na">generator</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">mybatis</span><span class="o">-</span><span class="n">generator</span><span class="o">-</span><span class="n">maven</span><span class="o">-</span><span class="n">plugin</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">1</span><span class="p">.</span><span class="na">3</span><span class="p">.</span><span class="na">6</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="o">&lt;</span><span class="n">executions</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="o">&lt;</span><span class="n">execution</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="o">&lt;</span><span class="n">id</span><span class="o">&gt;</span><span class="n">Generate</span><span class="w"> </span><span class="n">MyBatis</span><span class="w"> </span><span class="n">Artifacts</span><span class="o">&lt;/</span><span class="n">id</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="o">&lt;</span><span class="n">phase</span><span class="o">&gt;</span><span class="n">deploy</span><span class="o">&lt;/</span><span class="n">phase</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="o">&lt;</span><span class="n">goals</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">				</span><span class="o">&lt;</span><span class="n">goal</span><span class="o">&gt;</span><span class="n">generate</span><span class="o">&lt;/</span><span class="n">goal</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="o">&lt;/</span><span class="n">goals</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="o">&lt;/</span><span class="n">execution</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="o">&lt;/</span><span class="n">executions</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="o">&lt;</span><span class="n">configuration</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="o">&lt;!--</span><span class="n">generator</span><span class="p">.</span><span class="na">xml配置文件所在位置</span><span class="err">，</span><span class="n">位置可修改</span><span class="o">--&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="o">&lt;</span><span class="n">configurationFile</span><span class="o">&gt;</span><span class="n">src</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">resources</span><span class="o">/</span><span class="n">generate</span><span class="o">/</span><span class="n">generator</span><span class="p">.</span><span class="na">xml</span><span class="o">&lt;/</span><span class="n">configurationFile</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="o">&lt;!--</span><span class="w"> </span><span class="n">允许覆盖生成的文件</span><span class="p">,</span><span class="w"> </span><span class="n">mapxml不会覆盖</span><span class="p">,</span><span class="w"> </span><span class="n">采用追加的方式</span><span class="o">--&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="o">&lt;</span><span class="n">overwrite</span><span class="o">&gt;</span><span class="kc">true</span><span class="o">&lt;/</span><span class="n">overwrite</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="o">&lt;</span><span class="n">verbose</span><span class="o">&gt;</span><span class="kc">true</span><span class="o">&lt;/</span><span class="n">verbose</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="o">&lt;!--</span><span class="n">将当前pom的依赖项添加到生成器的类路径中</span><span class="o">--&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="o">&lt;</span><span class="n">includeCompileDependencies</span><span class="o">&gt;</span><span class="kc">true</span><span class="o">&lt;/</span><span class="n">includeCompileDependencies</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="o">&lt;/</span><span class="n">configuration</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="o">&lt;</span><span class="n">dependencies</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">mysql</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">java</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">8</span><span class="p">.</span><span class="na">0</span><span class="p">.</span><span class="na">33</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="o">&lt;/</span><span class="n">dependencies</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">plugin</span><span class="o">&gt;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>上述插件提到的文件<a class="link" href="assets/generator-20260204145109-vh72myh.xml" >generator.xml</a>，需放所提到的<code>&lt;configurationFile&gt;</code>对应的位置，<strong>位置可修改</strong></p>
+<p><img src="/p/mybatisplus/assets/image-20260204153629-4tl8z7h.png" width="1227"  height="331"  srcset="/p/mybatisplus/assets/image-20260204153629-4tl8z7h_hu_6caf2b157914e771.png 800w, /p/mybatisplus/assets/image-20260204153629-4tl8z7h_hu_91d1cd0e387b6539.png 1600w, /p/mybatisplus/assets/image-20260204153629-4tl8z7h_hu_bb66bb08e0bfd80.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="370"
+	data-flex-basis="889px" ></p>
+<p><img src="/p/mybatisplus/assets/image-20260204153439-kb50mlp.png" width="646"  height="314"  srcset="/p/mybatisplus/assets/image-20260204153439-kb50mlp_hu_e4dd21f04db6a2cb.png 800w, /p/mybatisplus/assets/image-20260204153439-kb50mlp_hu_c4cafcc5092a0ebe.png 1600w, /p/mybatisplus/assets/image-20260204153439-kb50mlp_hu_6af3c26e87f91849.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="205"
+	data-flex-basis="493px" ></p>
+<p><code>generator.xml</code>文件内容如下，一些配置项需要修改，如数据库连接信息</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="n">xml</span><span class="w"> </span><span class="n">version</span><span class="o">=</span><span class="s">&#34;1.0&#34;</span><span class="w"> </span><span class="n">encoding</span><span class="o">=</span><span class="s">&#34;UTF-8&#34;</span><span class="o">?&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="o">&lt;!</span><span class="n">DOCTYPE</span><span class="w"> </span><span class="n">generatorConfiguration</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">PUBLIC</span><span class="w"> </span><span class="s">&#34;-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="s">&#34;http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd&#34;</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="o">&lt;!--</span><span class="w"> </span><span class="n">配置生成器</span><span class="w"> </span><span class="o">--&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">generatorConfiguration</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;!--</span><span class="w"> </span><span class="n">一个数据库一个context</span><span class="w"> </span><span class="o">--&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="o">&lt;!--</span><span class="w"> </span><span class="n">targetRuntime中可修改为MyBatis3</span><span class="err">，</span><span class="n">MyBatis3simple生成简单的SQL</span><span class="err">，</span><span class="n">选择MyBatis3</span><span class="err">，</span><span class="n">SQL更全面</span><span class="w"> </span><span class="o">--&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;</span><span class="n">context</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="s">&#34;MysqlTables&#34;</span><span class="w"> </span><span class="n">targetRuntime</span><span class="o">=</span><span class="s">&#34;MyBatis3Simple&#34;</span><span class="w"> </span><span class="n">defaultModelType</span><span class="o">=</span><span class="s">&#34;flat&#34;</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">&lt;!--</span><span class="n">去除注释</span><span class="o">--&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">&lt;</span><span class="n">commentGenerator</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">&lt;</span><span class="n">property</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="s">&#34;suppressDate&#34;</span><span class="w"> </span><span class="n">value</span><span class="o">=</span><span class="s">&#34;true&#34;</span><span class="o">/&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">&lt;</span><span class="n">property</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="s">&#34;suppressAllComments&#34;</span><span class="w"> </span><span class="n">value</span><span class="o">=</span><span class="s">&#34;true&#34;</span><span class="w"> </span><span class="o">/&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">&lt;/</span><span class="n">commentGenerator</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">&lt;!--</span><span class="n">数据库链接信息</span><span class="err">，</span><span class="n">URL需要配置</span><span class="err">，</span><span class="n">如端口号</span><span class="err">，</span><span class="n">ip</span><span class="err">，</span><span class="n">数据表名</span><span class="err">，</span><span class="n">要求与application</span><span class="p">.</span><span class="na">yml的spring数据库保持一致</span><span class="o">--&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">&lt;</span><span class="n">jdbcConnection</span><span class="w"> </span><span class="n">driverClass</span><span class="o">=</span><span class="s">&#34;com.mysql.jdbc.Driver&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">connectionURL</span><span class="o">=</span><span class="s">&#34;jdbc:mysql://127.0.0.1:3306/java_blog_spring?serverTimezone=Asia/Shanghai&amp;amp;nullCatalogMeansCurrent=true&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">userId</span><span class="o">=</span><span class="s">&#34;root&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">password</span><span class="o">=</span><span class="s">&#34;root&#34;</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">&lt;/</span><span class="n">jdbcConnection</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="o">&lt;!--</span><span class="w"> </span><span class="n">以下实体类都可手动指定生成文件位置</span><span class="err">，</span><span class="n">位置为targetPackage</span><span class="o">--&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">&lt;!--</span><span class="w"> </span><span class="n">生成实体类</span><span class="w"> </span><span class="o">--&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">&lt;</span><span class="n">javaModelGenerator</span><span class="w"> </span><span class="n">targetPackage</span><span class="o">=</span><span class="s">&#34;generator.entity&#34;</span><span class="w"> </span><span class="n">targetProject</span><span class="o">=</span><span class="s">&#34;src/main/java&#34;</span><span class="w"> </span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">&lt;</span><span class="n">property</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="s">&#34;enableSubPackages&#34;</span><span class="w"> </span><span class="n">value</span><span class="o">=</span><span class="s">&#34;false&#34;</span><span class="o">/&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">&lt;</span><span class="n">property</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="s">&#34;trimStrings&#34;</span><span class="w"> </span><span class="n">value</span><span class="o">=</span><span class="s">&#34;true&#34;</span><span class="o">/&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">&lt;/</span><span class="n">javaModelGenerator</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">&lt;!--</span><span class="w"> </span><span class="n">生成mapxml文件</span><span class="w"> </span><span class="o">--&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">&lt;</span><span class="n">sqlMapGenerator</span><span class="w"> </span><span class="n">targetPackage</span><span class="o">=</span><span class="s">&#34;mybatisGenerator&#34;</span><span class="w"> </span><span class="n">targetProject</span><span class="o">=</span><span class="s">&#34;src/main/resources&#34;</span><span class="w"> </span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">&lt;</span><span class="n">property</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="s">&#34;enableSubPackages&#34;</span><span class="w"> </span><span class="n">value</span><span class="o">=</span><span class="s">&#34;false&#34;</span><span class="w"> </span><span class="o">/&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">&lt;/</span><span class="n">sqlMapGenerator</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">&lt;!--</span><span class="w"> </span><span class="n">生成mapxml对应client</span><span class="err">，</span><span class="n">也就是接口dao</span><span class="w"> </span><span class="o">--&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">&lt;</span><span class="n">javaClientGenerator</span><span class="w"> </span><span class="n">targetPackage</span><span class="o">=</span><span class="s">&#34;generator.mapper&#34;</span><span class="w"> </span><span class="n">targetProject</span><span class="o">=</span><span class="s">&#34;src/main/java&#34;</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="s">&#34;XMLMAPPER&#34;</span><span class="w"> </span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">&lt;</span><span class="n">property</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="s">&#34;enableSubPackages&#34;</span><span class="w"> </span><span class="n">value</span><span class="o">=</span><span class="s">&#34;false&#34;</span><span class="w"> </span><span class="o">/&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">&lt;/</span><span class="n">javaClientGenerator</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">&lt;!--</span><span class="w"> </span><span class="n">table可以有多个</span><span class="p">,</span><span class="n">每个数据库中的表都可以写一个table</span><span class="err">，</span><span class="n">tableName表示要匹配的数据库表</span><span class="p">,</span><span class="n">也可以在tableName属性中通过使用</span><span class="o">%</span><span class="n">通配符来匹配所有数据库表</span><span class="p">,</span><span class="n">只有匹配的表才会自动生成文件</span><span class="w"> </span><span class="o">--&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">&lt;</span><span class="n">table</span><span class="w"> </span><span class="n">tableName</span><span class="o">=</span><span class="s">&#34;user_info&#34;</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">&lt;</span><span class="n">property</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="s">&#34;useActualColumnNames&#34;</span><span class="w"> </span><span class="n">value</span><span class="o">=</span><span class="s">&#34;false&#34;</span><span class="w"> </span><span class="o">/&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">&lt;!--</span><span class="w"> </span><span class="n">对应数据库表的主键</span><span class="w"> </span><span class="o">--&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">&lt;</span><span class="n">generatedKey</span><span class="w"> </span><span class="n">column</span><span class="o">=</span><span class="s">&#34;id&#34;</span><span class="w"> </span><span class="n">sqlStatement</span><span class="o">=</span><span class="s">&#34;Mysql&#34;</span><span class="w"> </span><span class="n">identity</span><span class="o">=</span><span class="s">&#34;true&#34;</span><span class="w"> </span><span class="o">/&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">&lt;/</span><span class="n">table</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;/</span><span class="n">context</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">generatorConfiguration</span><span class="o">&gt;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>配置完成，<strong>双击运行插件即可，配置文件</strong>**<code>generator.xml</code>**就会生成对应的实体类与xml文件</p>
+<p><img src="/p/mybatisplus/assets/image-20260204151811-zkc66ob.png" width="2560"  height="1528"  srcset="/p/mybatisplus/assets/image-20260204151811-zkc66ob_hu_6834020407aabd28.png 800w, /p/mybatisplus/assets/image-20260204151811-zkc66ob_hu_9f8b17bcbdf75c24.png 1600w, /p/mybatisplus/assets/image-20260204151811-zkc66ob_hu_ee1c70bd64f0d085.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="167"
+	data-flex-basis="402px" ></p>
+<h3 id="注意">注意
+</h3><p><code>generator.xml</code>文件头放到IDE上会出现报错，无需更改</p>
+<p><img src="/p/mybatisplus/assets/image-20260204153843-3oxr5g3.png" width="1780"  height="432"  srcset="/p/mybatisplus/assets/image-20260204153843-3oxr5g3_hu_6c6e0e984945b865.png 800w, /p/mybatisplus/assets/image-20260204153843-3oxr5g3_hu_d720eb214432e945.png 1600w, /p/mybatisplus/assets/image-20260204153843-3oxr5g3_hu_ad6af1dc35633caa.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="412"
+	data-flex-basis="988px" ></p>
+<hr>
+<h1 id="mybatis-plus">🚩MyBatis-plus
+</h1><p>是一个MyBatis的增强工具，简化开发，提高效率，类似于Hutool工具包，使用时仅需导入依赖即可</p>
+<p>它封装了许多SQL语句，使用时仅需让mapper类<code>extends BaseMapper&lt;&gt;</code>父类接口，执行时则可以直接调用他的一系列函数，无需手写</p>
+<h2 id="配置">配置
+</h2><h3 id="引入依赖">引入依赖
+</h3><p>参考官方文档<a class="link" href="https://baomidou.com/getting-started/"  target="_blank" rel="noopener"
+    >https://baomidou.com/getting-started</a></p>
+<p><img src="/p/mybatisplus/assets/image-20260204160525-zmsvdkf.png" width="1236"  height="1012"  srcset="/p/mybatisplus/assets/image-20260204160525-zmsvdkf_hu_29b02143ac6ff768.png 800w, /p/mybatisplus/assets/image-20260204160525-zmsvdkf_hu_77f5dd108c918a82.png 1600w, /p/mybatisplus/assets/image-20260204160525-zmsvdkf_hu_7b21e8198e5878cb.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="122"
+	data-flex-basis="293px" ></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">&lt;!--</span><span class="n">Spring</span><span class="w"> </span><span class="n">Boot3</span><span class="o">--&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">com</span><span class="p">.</span><span class="na">baomidou</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">mybatis</span><span class="o">-</span><span class="n">plus</span><span class="o">-</span><span class="n">spring</span><span class="o">-</span><span class="n">boot3</span><span class="o">-</span><span class="n">starter</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">3</span><span class="p">.</span><span class="na">5</span><span class="p">.</span><span class="na">15</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="o">&lt;!--</span><span class="n">Spring</span><span class="w"> </span><span class="n">Boot4</span><span class="o">--&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">com</span><span class="p">.</span><span class="na">baomidou</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">mybatis</span><span class="o">-</span><span class="n">plus</span><span class="o">-</span><span class="n">spring</span><span class="o">-</span><span class="n">boot4</span><span class="o">-</span><span class="n">starter</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">3</span><span class="p">.</span><span class="na">5</span><span class="p">.</span><span class="na">15</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>根据你现使用的SpringBoot版本选择对应的依赖~</p>
+<h3 id="编码">编码
+</h3><ol>
+<li>编写对应实体类</li>
+<li>编写 Mapper 接口并拓展<code>BaseMapper&lt;T&gt;</code>接口</li>
+</ol>
+<p>完成简单两步即可实现内部丰富的函数</p>
+<p><img src="/p/mybatisplus/assets/image-20260205000254-rmhcd7i.png" width="1480"  height="250"  srcset="/p/mybatisplus/assets/image-20260205000254-rmhcd7i_hu_4b0144dba2b6cb87.png 800w, /p/mybatisplus/assets/image-20260205000254-rmhcd7i_hu_bb39c5779342ede9.png 1600w, /p/mybatisplus/assets/image-20260205000254-rmhcd7i_hu_74a3c5519b77c874.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="592"
+	data-flex-basis="1420px" ></p>
+<p><img src="/p/mybatisplus/assets/image-20260205000225-jyr3ehi.png" width="2010"  height="1289"  srcset="/p/mybatisplus/assets/image-20260205000225-jyr3ehi_hu_b71cc5b62dcba55e.png 800w, /p/mybatisplus/assets/image-20260205000225-jyr3ehi_hu_ddbcbaa74608c77a.png 1600w, /p/mybatisplus/assets/image-20260205000225-jyr3ehi_hu_fc32a0f4cb3d3019.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="155"
+	data-flex-basis="374px" ></p>
+<h3 id="打印执行sql日志">打印执行SQL日志
+</h3><p>与mybatis的配置文件类似，只需把名字改为mybatis-plus</p>
+<p><code>application.yml</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">mybatis</span><span class="o">-</span><span class="n">plus</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">configuration</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">map</span><span class="o">-</span><span class="n">underscore</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">camel</span><span class="o">-</span><span class="k">case</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="err">#</span><span class="n">配置驼峰自动转换</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">log</span><span class="o">-</span><span class="n">impl</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="p">.</span><span class="na">apache</span><span class="p">.</span><span class="na">ibatis</span><span class="p">.</span><span class="na">logging</span><span class="p">.</span><span class="na">stdout</span><span class="p">.</span><span class="na">StdOutImpl</span><span class="w"> </span><span class="err">#</span><span class="n">打印sql语句</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="识别原理">识别原理
+</h2><p>刚才只是配置了<code>application.yml</code>中的数据库连接信息，拓展了<code>BaseMapper&lt;&gt;</code>接口与实现了一个实体类<code>UserInfo</code>，就能够查询数据库中的<code>user_info</code>这张表并且成功执行SQL了，它是如何识别出来的呢？</p>
+<ol>
+<li>表名</li>
+</ol>
+<p>是根据实体类名推断的，如果不一致，使用<code>@TableName</code>注解映射实体类对应的表名是哪个</p>
+<p><img src="/p/mybatisplus/assets/image-20260205002900-eab5jcp.png" width="1192"  height="329"  srcset="/p/mybatisplus/assets/image-20260205002900-eab5jcp_hu_846474f3c05e0453.png 800w, /p/mybatisplus/assets/image-20260205002900-eab5jcp_hu_246cfb2f0bbbb9d8.png 1600w, /p/mybatisplus/assets/image-20260205002900-eab5jcp_hu_b159148e73d85614.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="362"
+	data-flex-basis="869px" ></p>
+<p><img src="/p/mybatisplus/assets/image-20260205003148-f4yeyad.png" width="2012"  height="1260"  srcset="/p/mybatisplus/assets/image-20260205003148-f4yeyad_hu_9e1b6cee24e802e9.png 800w, /p/mybatisplus/assets/image-20260205003148-f4yeyad_hu_cc9630ee7481b333.png 1600w, /p/mybatisplus/assets/image-20260205003148-f4yeyad_hu_245041e78699cea0.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="159"
+	data-flex-basis="383px" ></p>
+<ol start="2">
+<li>id 是否有自增</li>
+</ol>
+<p><img src="/p/mybatisplus/assets/image-20260205004446-uuyjzj4.png" width="1213"  height="432"  srcset="/p/mybatisplus/assets/image-20260205004446-uuyjzj4_hu_e848991dec088827.png 800w, /p/mybatisplus/assets/image-20260205004446-uuyjzj4_hu_433fef518cfe09b1.png 1600w, /p/mybatisplus/assets/image-20260205004446-uuyjzj4_hu_26c78522f0df6799.png 2400w"  loading="lazy"  alt="测试用例"   class="gallery-image" data-flex-grow="280"
+	data-flex-basis="673px" ></p>
+<p>执行<strong>insert</strong>操作时，表的id是自增主键，理想情况下ID应自增为3。但是ID一栏mybatis生成了随机数字，扰乱了原本的自增主键</p>
+<p>这是由于mybatis不能自动识别表中是否有自增，哪一个是自增主键，用到注释<code>@TableId</code>映射，它定义主键及其主键的性质（自增、输入，无性质）</p>
+<p><img src="/p/mybatisplus/assets/image-20260205004606-5a4izsh.png" width="904"  height="279"  srcset="/p/mybatisplus/assets/image-20260205004606-5a4izsh_hu_15732a723b57b994.png 800w, /p/mybatisplus/assets/image-20260205004606-5a4izsh_hu_28f2a18d05c8868f.png 1600w, /p/mybatisplus/assets/image-20260205004606-5a4izsh_hu_67b3dc5348513f19.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="324"
+	data-flex-basis="777px" ></p>
+<p>使用注解标识后就能很好的解决这个问题了</p>
+<p><img src="/p/mybatisplus/assets/image-20260205005131-0twfgrj.png" width="1054"  height="726"  srcset="/p/mybatisplus/assets/image-20260205005131-0twfgrj_hu_553d0192c91a5d60.png 800w, /p/mybatisplus/assets/image-20260205005131-0twfgrj_hu_6fcb0667e0cea090.png 1600w, /p/mybatisplus/assets/image-20260205005131-0twfgrj_hu_67234fe8352b02bc.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="145"
+	data-flex-basis="348px" ></p>
+<p>查看源码，主键性质分为如下几类</p>
+<p><img src="/p/mybatisplus/assets/image-20260205012002-jyqxvd3.png" width="1294"  height="631"  srcset="/p/mybatisplus/assets/image-20260205012002-jyqxvd3_hu_88f24ee3cb6babd5.png 800w, /p/mybatisplus/assets/image-20260205012002-jyqxvd3_hu_3366d91754775aa3.png 1600w, /p/mybatisplus/assets/image-20260205012002-jyqxvd3_hu_c291c61e8054a1a.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="205"
+	data-flex-basis="492px" ></p>
+<ol start="3">
+<li>字段与属性的映射关系</li>
+</ol>
+<p>他的推断规律与推断表名是一样的，如果不一致则用<code>@TableField</code>映射</p>
+<p><img src="/p/mybatisplus/assets/image-20260205011841-3q1kzhd.png" width="860"  height="664"  srcset="/p/mybatisplus/assets/image-20260205011841-3q1kzhd_hu_2417eaf29fd991c9.png 800w, /p/mybatisplus/assets/image-20260205011841-3q1kzhd_hu_4c8494a27a59d7e4.png 1600w, /p/mybatisplus/assets/image-20260205011841-3q1kzhd_hu_f0e86c55a8fd3c5d.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="129"
+	data-flex-basis="310px" ></p>
+<h2 id="条件构造器wrapper">条件构造器Wrapper
+</h2><p>MyBatis-Plus 提供了一套强大的条件构造器（Wrapper），用于构建复杂的数据库查询条件。Wrapper 类允许开发者以链式调用的方式构造查询条件，无需编写繁琐的 SQL 语句，从而提高开发效率并减少 SQL 注入的风险</p>
+<p>它是构建复杂查询和更新条件的关键工具。<strong>它允许开发者以链式调用的方式构造 SQL 的 WHERE 子句，提供了极大的灵活性和便利性</strong></p>
+<p>MyBatis-Plus 关于构造器的官方参考文档：<a class="link" href="https://baomidou.com/guides/wrapper"  target="_blank" rel="noopener"
+    >https://baomidou.com/guides/wrapper</a></p>
+<ul>
+<li>
+<p><strong>AbstractWrapper</strong>：这是一个抽象基类，提供了所有 Wrapper  类共有的方法和属性。它定义了条件构造的基本逻辑，包括字段（column）、值（value）、操作符（condition）等。<u><strong>所有的  QueryWrapper、UpdateWrapper、LambdaQueryWrapper 和 LambdaUpdateWrapper 都继承自 AbstractWrapper</strong></u></p>
+</li>
+<li>
+<p><strong>QueryWrapper</strong>：专门用于构造查询条件，支持基本的等于、不等于、大于、小于等各种常见操作。它允许你以链式调用的方式添加多个查询条件，并且可以组合使用 <code>and</code> 和 <code>or</code> 逻辑</p>
+</li>
+<li>
+<p><strong>UpdateWrapper</strong>：用于构造更新条件，可以在更新数据时指定条件。与 QueryWrapper 类似，它也支持链式调用和逻辑组合。使用 UpdateWrapper 可以在不创建实体对象的情况下，直接设置更新字段和条件</p>
+</li>
+<li>
+<p><strong>LambdaQueryWrapper +</strong>  <strong>LambdaUpdateWrapper</strong></p>
+<p>LambdaWrapper类：<u><strong>这是一个基于 Lambda 表达式的查询条件构造器，它通过 Lambda 表达式来引用实体类的属性，从而避免了硬编码字段名。提高了代码的可读性和可维护性，尤其是在字段名可能发生变化的情况下</strong></u></p>
+</li>
+</ul>
+<p>Wrapper类提供了许多SQL关键词，允许你以链式调用的方式添加多个查询条件，对此分类讨论</p>
+<ol>
+<li>
+<p>基础比较算子</p>
+<ul>
+<li><strong>eq</strong>：等于（<code>=</code>）</li>
+<li><strong>ne</strong>：不等于（<code>&lt;&gt;</code>）</li>
+<li><strong>gt / ge</strong>：大于（<code>&gt;</code>） / 大于等于（<code>&gt;=</code>）</li>
+<li><strong>lt / le</strong>：小于（<code>&lt;</code>） / 小于等于（<code>&lt;=</code>）</li>
+<li><strong>allEq</strong>：全等于，通常接收 <code>Map</code> 进行多字段精确匹配</li>
+</ul>
+</li>
+<li>
+<p><strong>区间与集合筛选</strong></p>
+<ul>
+<li><strong>between / notBetween</strong>：值在指定范围内（<code>BETWEEN ... AND ...</code>）</li>
+<li><strong>in / notIn</strong>：值在指定的集合、数组或子查询结果中（<code>IN (...)</code>）</li>
+<li><strong>inSql / notInSql</strong>：通过原生的 SQL 子查询实现集合筛选</li>
+</ul>
+</li>
+<li>
+<p><strong>文本模式处理</strong></p>
+<ul>
+<li><strong>like / notLike</strong>：模糊匹配，生成的 SQL 默认为 <code>%值%</code></li>
+<li><strong>likeLeft / likeRight</strong>：左模糊（<code>%值</code>）与右模糊（<code>值%</code>）。注意：在 B+ 树索引中，<code>likeRight</code> 可能维持索引有效，而 <code>likeLeft</code> 会导致全表扫描</li>
+</ul>
+</li>
+<li>
+<p>空值与逻辑判定</p>
+<ul>
+<li><strong>isNull / isNotNull</strong>：字段是否为 <code>NULL</code></li>
+<li><strong>exists / notExists</strong>：拼接 <code>EXISTS (subquery)</code> 逻辑</li>
+<li><strong>and / or</strong>：逻辑连接符，MyBatis-Plus 默认以 <code>AND</code> 拼接。若要实现 <code>(A OR B)</code> 这种嵌套逻辑，需在方法中传入 Lambda 表达式</li>
+</ul>
+</li>
+<li>
+<p>排序、分组与结果控制</p>
+<ul>
+<li><strong>select</strong>：指定投影查询的字段，实现按需取数</li>
+<li><strong>groupBy / having</strong>：对应 SQL 的分组聚合逻辑</li>
+<li><strong>orderByAsc / orderByDesc</strong>：指定升序或降序排列</li>
+<li><strong>last</strong>：直接在 SQL 末尾追加字符串（如 <code>LIMIT</code> 或 <code>FOR UPDATE</code>），无视所有规则且存在注入风险</li>
+</ul>
+</li>
+<li>
+<p>动态 SQL 与高级拼接</p>
+<ul>
+<li><strong>apply</strong>：用于拼接原生的 SQL 片段，支持通过 <code>{index}</code> 方式进行预编译参数绑定，防止 SQL 注入</li>
+<li><strong>nested</strong>：不带 <code>AND</code> 或 <code>OR</code> 的原生嵌套括号</li>
+</ul>
+</li>
+</ol>
+<h3 id="代码示例">代码示例
+</h3><p>以id为自增主键的用户表名举例</p>
+<p>用户实体类</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nd">@TableName</span><span class="p">(</span><span class="s">&#34;user_info&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserInfo</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@TableId</span><span class="p">(</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IdType</span><span class="p">.</span><span class="na">AUTO</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@TableField</span><span class="p">(</span><span class="s">&#34;user_name&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">userName</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">password</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">deleteFlag</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Date</span><span class="w"> </span><span class="n">createTime</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Date</span><span class="w"> </span><span class="n">updateTime</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Mapper类</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Mapper</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">UserInfoMapper</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">BaseMapper</span><span class="o">&lt;</span><span class="n">UserInfo</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 注解构造SQL</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Select</span><span class="p">(</span><span class="s">&#34;select id,username,password,age FROM userinfo WHERE username = #{userName}&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">UserInfo</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">queryUserInfoList</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">userName</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// Wrapper对象传参构造SQL</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Select</span><span class="p">(</span><span class="s">&#34;select id,username,password,age FROM userinfo ${ew.customSqlSegment}&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">UserInfo</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">queryUserInfoList2</span><span class="p">(</span><span class="nd">@Param</span><span class="p">(</span><span class="n">Constants</span><span class="p">.</span><span class="na">WRAPPER</span><span class="p">)</span><span class="w"> </span><span class="n">QueryWrapper</span><span class="w"> </span><span class="n">wrapper</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// xml + Wrapper 构造SQL</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="c1">// xml内容：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//	&lt;select id=&#34;queryUserInfoList3&#34;&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//    select id,username,password,age FROM userinfo ${ew.customSqlSegment}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//	&lt;/select&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">UserInfo</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">queryUserInfoList3</span><span class="p">(</span><span class="nd">@Param</span><span class="p">(</span><span class="n">Constants</span><span class="p">.</span><span class="na">WRAPPER</span><span class="p">)</span><span class="w"> </span><span class="n">QueryWrapper</span><span class="w"> </span><span class="n">wrapper</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 参数 + Wrapper 构造SQL</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Update</span><span class="p">(</span><span class="s">&#34;update userinfo set age = age+ #{addAge} ${ew.customSqlSegment}&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Integer</span><span class="w"> </span><span class="nf">updateUserInfoByCustomSql</span><span class="p">(</span><span class="nd">@Param</span><span class="p">(</span><span class="s">&#34;addAge&#34;</span><span class="p">)</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">addAge</span><span class="p">,</span><span class="w"> </span><span class="nd">@Param</span><span class="p">(</span><span class="n">Constants</span><span class="p">.</span><span class="na">WRAPPER</span><span class="p">)</span><span class="w"> </span><span class="n">QueryWrapper</span><span class="w"> </span><span class="n">wrapper</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Wrapper类（示例）</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@SpringBootTest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserInfoMapperTest</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Autowired</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">UserInfoMapper</span><span class="w"> </span><span class="n">userInfoMapper</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * select id,username,password,age FROM userinfo where userName like %min%
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Test</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">queryUserInfoList2</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">UserInfo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">queryWrapper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QueryWrapper</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">queryWrapper</span><span class="p">.</span><span class="na">like</span><span class="p">(</span><span class="s">&#34;userName&#34;</span><span class="p">,</span><span class="s">&#34;min&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">UserInfo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">userInfos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userInfoMapper</span><span class="p">.</span><span class="na">queryUserInfoList2</span><span class="p">(</span><span class="n">queryWrapper</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">userInfos</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Test</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">queryUserInfoList3</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">UserInfo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">queryWrapper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QueryWrapper</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">queryWrapper</span><span class="p">.</span><span class="na">like</span><span class="p">(</span><span class="s">&#34;userName&#34;</span><span class="p">,</span><span class="s">&#34;min&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">UserInfo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">userInfos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userInfoMapper</span><span class="p">.</span><span class="na">queryUserInfoList3</span><span class="p">(</span><span class="n">queryWrapper</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">userInfos</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * update userinfo set age = age+ 10 where id in (1, 2, 3))
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Test</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">updateUserInfoByCustomSql</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">UserInfo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">queryWrapper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QueryWrapper</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">queryWrapper</span><span class="p">.</span><span class="na">in</span><span class="p">(</span><span class="s">&#34;id&#34;</span><span class="p">,</span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">1</span><span class="p">,</span><span class="n">2</span><span class="p">,</span><span class="n">3</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">userInfoMapper</span><span class="p">.</span><span class="na">updateUserInfoByCustomSql</span><span class="p">(</span><span class="n">10</span><span class="p">,</span><span class="n">queryWrapper</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * select id,username,password from user_info where age = 18 and username like %min%
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * userInfoMapper 调用BaseMapper的selectList方法
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Test</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">testQueryWrapper</span><span class="p">(){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">UserInfo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">queryWrapper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QueryWrapper</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">queryWrapper</span><span class="p">.</span><span class="na">select</span><span class="p">(</span><span class="s">&#34;id&#34;</span><span class="p">,</span><span class="s">&#34;username&#34;</span><span class="p">,</span><span class="s">&#34;password&#34;</span><span class="p">).</span><span class="na">eq</span><span class="p">(</span><span class="s">&#34;age&#34;</span><span class="p">,</span><span class="n">18</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">.</span><span class="na">like</span><span class="p">(</span><span class="s">&#34;username&#34;</span><span class="p">,</span><span class="s">&#34;min&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">UserInfo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">userInfos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userInfoMapper</span><span class="p">.</span><span class="na">selectList</span><span class="p">(</span><span class="n">queryWrapper</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">userInfos</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * delete from user_info where age = 18
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Test</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">testQueryWrapper2</span><span class="p">(){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">UserInfo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">userInfoQueryWrapper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QueryWrapper</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">userInfoQueryWrapper</span><span class="p">.</span><span class="na">eq</span><span class="p">(</span><span class="s">&#34;age&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">18</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userInfoMapper</span><span class="p">.</span><span class="na">delete</span><span class="p">(</span><span class="n">userInfoQueryWrapper</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">num</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * QueryWrapper
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * update user_info set delete_flag = 1 where age &lt; 20
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Test</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">testQueryWrapper3</span><span class="p">(){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">UserInfo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">queryWrapper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QueryWrapper</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">queryWrapper</span><span class="p">.</span><span class="na">lt</span><span class="p">(</span><span class="s">&#34;age&#34;</span><span class="p">,</span><span class="n">20</span><span class="p">);</span><span class="w"> </span><span class="c1">// where age &lt; 20</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 更新对象</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">UserInfo</span><span class="w"> </span><span class="n">userInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UserInfo</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">userInfo</span><span class="p">.</span><span class="na">setDeleteFlag</span><span class="p">(</span><span class="n">1</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">update</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userInfoMapper</span><span class="p">.</span><span class="na">update</span><span class="p">(</span><span class="n">userInfo</span><span class="p">,</span><span class="w"> </span><span class="n">queryWrapper</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">update</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * UpdateWrapper
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * update user_info set delete_flag = 0 where age &lt; 20
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Test</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">testUpdateWrapper</span><span class="p">(){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">UpdateWrapper</span><span class="o">&lt;</span><span class="n">UserInfo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">updateWrapper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UpdateWrapper</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">updateWrapper</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">&#34;delete_flag&#34;</span><span class="p">,</span><span class="n">0</span><span class="p">).</span><span class="na">lt</span><span class="p">(</span><span class="s">&#34;age&#34;</span><span class="p">,</span><span class="n">20</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">update</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userInfoMapper</span><span class="p">.</span><span class="na">update</span><span class="p">(</span><span class="n">updateWrapper</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">update</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * update user_info set delete_flag = 1,age = 5 where id in (2,3,5,6)
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Test</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">testUpdateWrapper2</span><span class="p">(){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">UpdateWrapper</span><span class="o">&lt;</span><span class="n">UserInfo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">updateWrapper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UpdateWrapper</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">updateWrapper</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">&#34;delete_flag&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">1</span><span class="p">).</span><span class="na">set</span><span class="p">(</span><span class="s">&#34;age&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">5</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">.</span><span class="na">in</span><span class="p">(</span><span class="s">&#34;id&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">2</span><span class="p">,</span><span class="w"> </span><span class="n">3</span><span class="p">,</span><span class="w"> </span><span class="n">5</span><span class="p">,</span><span class="w"> </span><span class="n">6</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userInfoMapper</span><span class="p">.</span><span class="na">update</span><span class="p">(</span><span class="n">updateWrapper</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">num</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * update user_info set age = age + 10 where id in (2,3,5,6)
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Test</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">testUpdateWrapper3</span><span class="p">(){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">UpdateWrapper</span><span class="o">&lt;</span><span class="n">UserInfo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">updateWrapper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UpdateWrapper</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">updateWrapper</span><span class="p">.</span><span class="na">setSql</span><span class="p">(</span><span class="s">&#34;age = age +10&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">.</span><span class="na">in</span><span class="p">(</span><span class="s">&#34;id&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">2</span><span class="p">,</span><span class="w"> </span><span class="n">3</span><span class="p">,</span><span class="w"> </span><span class="n">5</span><span class="p">,</span><span class="w"> </span><span class="n">6</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userInfoMapper</span><span class="p">.</span><span class="na">update</span><span class="p">(</span><span class="n">updateWrapper</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">num</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * LambdaQueryWrapper
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * select id,username,password from user_info where id = 10 and username like %min%
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Test</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">testLambdaQueryWrapper</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="cm">/* 对照组
+</span></span></span><span class="line"><span class="cl"><span class="cm">        QueryWrapper&lt;UserInfo&gt; userInfoQueryWrapper = new QueryWrapper&lt;&gt;();
+</span></span></span><span class="line"><span class="cl"><span class="cm">        userInfoQueryWrapper.select(&#34;id&#34;, &#34;username&#34;, &#34;password&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="cm">                like(&#34;username&#34;,&#34;min&#34;);
+</span></span></span><span class="line"><span class="cl"><span class="cm">        List&lt;UserInfo&gt; userInfos = userInfoMapper.selectList(userInfoQueryWrapper);
+</span></span></span><span class="line"><span class="cl"><span class="cm">        System.out.println(userInfos);
+</span></span></span><span class="line"><span class="cl"><span class="cm">        */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// lambda 1: 使用LambdaWrapper类</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">LambdaQueryWrapper</span><span class="o">&lt;</span><span class="n">UserInfo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lambdaMapper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LambdaQueryWrapper</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">lambdaMapper</span><span class="p">.</span><span class="na">select</span><span class="p">(</span><span class="n">UserInfo</span><span class="p">::</span><span class="n">getId</span><span class="p">,</span><span class="n">UserInfo</span><span class="p">::</span><span class="n">getUserName</span><span class="p">,</span><span class="w"> </span><span class="n">UserInfo</span><span class="p">::</span><span class="n">getPassword</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">.</span><span class="na">eq</span><span class="p">(</span><span class="n">UserInfo</span><span class="p">::</span><span class="n">getId</span><span class="p">,</span><span class="n">10</span><span class="p">).</span><span class="na">like</span><span class="p">(</span><span class="n">UserInfo</span><span class="p">::</span><span class="n">getUserName</span><span class="p">,</span><span class="s">&#34;min&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">UserInfo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">userInfos1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userInfoMapper</span><span class="p">.</span><span class="na">selectList</span><span class="p">(</span><span class="n">lambdaMapper</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">userInfos1</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// lambda 2: 使用Wrapper类的lambda方法</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">UserInfo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">queryWrapper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QueryWrapper</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">queryWrapper</span><span class="p">.</span><span class="na">lambda</span><span class="p">().</span><span class="na">select</span><span class="p">(</span><span class="n">UserInfo</span><span class="p">::</span><span class="n">getId</span><span class="p">,</span><span class="n">UserInfo</span><span class="p">::</span><span class="n">getUserName</span><span class="p">,</span><span class="w"> </span><span class="n">UserInfo</span><span class="p">::</span><span class="n">getPassword</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">.</span><span class="na">eq</span><span class="p">(</span><span class="n">UserInfo</span><span class="p">::</span><span class="n">getId</span><span class="p">,</span><span class="n">10</span><span class="p">).</span><span class="na">like</span><span class="p">(</span><span class="n">UserInfo</span><span class="p">::</span><span class="n">getUserName</span><span class="p">,</span><span class="s">&#34;min&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">UserInfo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">userInfos2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userInfoMapper</span><span class="p">.</span><span class="na">selectList</span><span class="p">(</span><span class="n">queryWrapper</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">userInfos2</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * LambdaUpdateWrapper
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * update user_info set delete_flag = 0 where id &lt; 20
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Test</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">testLambdaUpdateWrapper</span><span class="p">(){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">UpdateWrapper</span><span class="o">&lt;</span><span class="n">UserInfo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">updateWrapper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UpdateWrapper</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">updateWrapper</span><span class="p">.</span><span class="na">lambda</span><span class="p">().</span><span class="na">set</span><span class="p">(</span><span class="n">UserInfo</span><span class="p">::</span><span class="n">getDeleteFlag</span><span class="p">,</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">.</span><span class="na">lt</span><span class="p">(</span><span class="n">UserInfo</span><span class="p">::</span><span class="n">getId</span><span class="p">,</span><span class="w"> </span><span class="n">20</span><span class="p">);</span><span class="w">  </span><span class="c1">// where id &lt; 20</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userInfoMapper</span><span class="p">.</span><span class="na">update</span><span class="p">(</span><span class="n">updateWrapper</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">num</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>‍</p>
+
+            </section>
+        </div>
+    </div>
+</article>
+
+
+<button id="dark-mode-toggle" class="editorial-dark-mode-toggle" type="button" aria-label="暗色模式" title="暗色模式">
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+    <span>暗色模式</span>
+</button>
+
+
+
+
+
+
+
+
+
+<footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2025 - 
+        
+        2026 Jul1en
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.32.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+        </main>
+    </div>
+    <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.836efe327773ba454adac61ee8b35272b6f512bd594ed9ea0f926fca8386433b.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<style>
+   
+  .article-content .highlight,
+  .editorial-content-column .article-content .highlight,
+  .article-content pre,
+  .editorial-content-column .article-content pre {
+    max-height: none !important;
+    overflow-y: visible !important;
+    overflow-x: auto !important;
+    scrollbar-width: auto;
+    scrollbar-color: #3c3d3e transparent;
+  }
+
+  .article-content .highlight pre,
+  .editorial-content-column .article-content .highlight pre {
+    overflow: visible !important;
+  }
+
+  .article-content .highlight::-webkit-scrollbar,
+  .editorial-content-column .article-content .highlight::-webkit-scrollbar,
+  .article-content pre::-webkit-scrollbar,
+  .editorial-content-column .article-content pre::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+
+  .article-content .highlight::-webkit-scrollbar-track,
+  .editorial-content-column .article-content .highlight::-webkit-scrollbar-track,
+  .article-content pre::-webkit-scrollbar-track,
+  .editorial-content-column .article-content pre::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .article-content .highlight::-webkit-scrollbar-thumb,
+  .editorial-content-column .article-content .highlight::-webkit-scrollbar-thumb,
+  .article-content pre::-webkit-scrollbar-thumb,
+  .editorial-content-column .article-content pre::-webkit-scrollbar-thumb {
+    background: #3c3d3e;
+    border-radius: 999px;
+  }
+
+  .article-content .highlight::-webkit-scrollbar-thumb:hover,
+  .editorial-content-column .article-content .highlight::-webkit-scrollbar-thumb:hover,
+  .article-content pre::-webkit-scrollbar-thumb:hover,
+  .editorial-content-column .article-content pre::-webkit-scrollbar-thumb:hover {
+    background: #48494a;
+  }
+
+  :root[data-scheme="dark"] .article-content .highlight,
+  :root[data-scheme="dark"] .editorial-content-column .article-content .highlight,
+  :root[data-scheme="dark"] .article-content pre,
+  :root[data-scheme="dark"] .editorial-content-column .article-content pre {
+    scrollbar-color: #3c3d3e transparent;
+  }
+
+  :root[data-scheme="dark"] .article-content .highlight::-webkit-scrollbar-thumb,
+  :root[data-scheme="dark"] .editorial-content-column .article-content .highlight::-webkit-scrollbar-thumb,
+  :root[data-scheme="dark"] .article-content pre::-webkit-scrollbar-thumb,
+  :root[data-scheme="dark"] .editorial-content-column .article-content pre::-webkit-scrollbar-thumb {
+    background: #3c3d3e;
+  }
+
+  :root[data-scheme="dark"] .article-content .highlight::-webkit-scrollbar-thumb:hover,
+  :root[data-scheme="dark"] .editorial-content-column .article-content .highlight::-webkit-scrollbar-thumb:hover,
+  :root[data-scheme="dark"] .article-content pre::-webkit-scrollbar-thumb:hover,
+  :root[data-scheme="dark"] .editorial-content-column .article-content pre::-webkit-scrollbar-thumb:hover {
+    background: #48494a;
+  }
+</style>
+<script src="/js/particles.js"></script>
+
+
+
+<script src="/js/fireworks.js"></script>
+
+
+<script src="/js/avatar-colors.js"></script>
+
+
+
+
+<button id="back-to-top" class="back-to-top-btn" aria-label="回到顶部" title="回到顶部">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="18 15 12 9 6 15"></polyline>
+  </svg>
+</button>
+
+
+<style>
+   
+  .back-to-top-btn {
+     
+    position: fixed;
+    z-index: 999;
+
+     
+    left: 50px;
+     
+    top: auto;
+     
+    bottom: auto;
+     
+
+     
+    width: 24px;
+    height: 24px;
+
+     
+    border-radius: 20%;
+
+     
+    background: rgba(252, 249, 244, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+
+     
+    box-shadow: 0 4px 16px rgba(180, 170, 160, 0.2);
+
+     
+    cursor: pointer;
+
+     
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+     
+    color: #555555;
+
+     
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+
+     
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+     
+    outline: none;
+  }
+
+   
+  .back-to-top-btn.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+   
+  .back-to-top-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    background: rgba(252, 249, 244, 0.95);
+    box-shadow: 0 8px 24px rgba(180, 170, 160, 0.3);
+    border-color: rgba(0, 0, 0, 0.12);
+    color: #333333;
+  }
+
+   
+  .back-to-top-btn:active {
+    transform: translateY(-2px) scale(0.98);
+  }
+
+   
+  .back-to-top-btn svg {
+    width: 24px;
+    height: 24px;
+    stroke-width: 2.5;
+  }
+
+   
+  :root[data-scheme="dark"] .back-to-top-btn {
+     
+    background: rgba(40, 40, 40, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+
+     
+    color: #e0e0e0;
+  }
+
+  :root[data-scheme="dark"] .back-to-top-btn:hover {
+    background: rgba(50, 50, 50, 0.9);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+  }
+
+   
+   
+
+   
+  @media (max-width: 768px) {
+    .back-to-top-btn {
+       
+      width: 18px;
+      height: 18px;
+    }
+
+    .back-to-top-btn svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+</style>
+
+
+<script>
+  (function () {
+    'use strict';
+
+    
+    const backToTopBtn = document.getElementById('back-to-top');
+
+    if (!backToTopBtn) return;
+
+    
+    const SCROLL_THRESHOLD = 300;
+
+    
+    function throttle(func, delay) {
+      let lastCall = 0;
+      return function (...args) {
+        const now = Date.now();
+        if (now - lastCall >= delay) {
+          lastCall = now;
+          func.apply(this, args);
+        }
+      };
+    }
+
+    
+    function checkScroll() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (scrollTop > SCROLL_THRESHOLD) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    }
+
+    
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    
+    window.addEventListener('scroll', throttle(checkScroll, 100));
+
+    
+    backToTopBtn.addEventListener('click', scrollToTop);
+
+    
+    function positionButton() {
+      
+      const mainMenu = document.getElementById('main-menu');
+      const bottomSection = document.querySelector('.menu-bottom-section');
+
+      if (!mainMenu || !bottomSection) {
+        
+        return;
+      }
+
+      
+      const menuRect = mainMenu.getBoundingClientRect();
+      const menuCenter = menuRect.left + (menuRect.width / 2);
+
+      
+      const bottomRect = bottomSection.getBoundingClientRect();
+      const bottomTop = bottomRect.top;
+
+      
+      const buttonWidth = 24; 
+      const buttonHeight = 24; 
+      const buttonLeft = menuCenter - (buttonWidth / 2);
+
+      
+      const spacing = 15; 
+      const buttonTop = bottomTop - buttonHeight - spacing;
+
+      
+      backToTopBtn.style.left = buttonLeft + 'px';
+      backToTopBtn.style.top = buttonTop + 'px';
+      backToTopBtn.style.bottom = 'auto'; 
+      backToTopBtn.style.right = 'auto'; 
+    }
+
+    
+    positionButton();
+
+    
+    checkScroll();
+
+    
+    window.addEventListener('resize', throttle(positionButton, 200));
+
+    
+    window.addEventListener('load', positionButton);
+  })();
+
+</script>
+</body>
+
+</html>
