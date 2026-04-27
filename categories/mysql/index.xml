@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Agent on Jul1en</title>
-        <link>https://Jul1en-Lin.github.io/categories/agent/</link>
-        <description>Recent content in Agent on Jul1en</description>
+        <title>MySQL on Jul1en</title>
+        <link>https://Jul1en-Lin.github.io/categories/mysql/</link>
+        <description>Recent content in MySQL on Jul1en</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>Jul1en</copyright>
-        <lastBuildDate>Mon, 27 Apr 2026 02:06:46 +0800</lastBuildDate><atom:link href="https://Jul1en-Lin.github.io/categories/agent/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 27 Apr 2026 21:52:57 +0800</lastBuildDate><atom:link href="https://Jul1en-Lin.github.io/categories/mysql/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>概念</title>
         <link>https://Jul1en-Lin.github.io/p/%E6%A6%82%E5%BF%B5/</link>
         <pubDate>Sun, 12 Apr 2026 06:07:14 +0000</pubDate>
