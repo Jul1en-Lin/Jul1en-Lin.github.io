@@ -2,18 +2,18 @@
 <html lang="en-us" dir="ltr" data-scheme="dark">
 
 <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="学会等候 期待有天🎏">
-<title>Category: 数据结构 - Jul1en</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="博客系统项目 技术栈：SpringBoot + MyBatisPlus\n\u200d\n遇到的问题以及处理细节点：\n在处理返回博客信息的时候，通常不需要返回整个博客的信息BlogInfo类，只需要提供部分有用的信息返回给前端，故新建一个BlogInfoResponse类，也有利于数据安全\n">
+<title>博客系统项目</title>
 
-<link rel='canonical' href='https://Jul1en-Lin.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/'>
+<link rel='canonical' href='https://Jul1en-Lin.github.io/p/%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE/'>
 
-<link rel="stylesheet" href="/scss/style.min.ee113dd6fb431ff4a55ce3dbff07568f8b563c0a2dbef1902f1ba3a6e1aa06b6.css"><meta property='og:title' content="Category: 数据结构 - Jul1en">
-<meta property='og:description' content="学会等候 期待有天🎏">
-<meta property='og:url' content='https://Jul1en-Lin.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/'>
+<link rel="stylesheet" href="/scss/style.min.ee113dd6fb431ff4a55ce3dbff07568f8b563c0a2dbef1902f1ba3a6e1aa06b6.css"><meta property='og:title' content="博客系统项目">
+<meta property='og:description' content="博客系统项目 技术栈：SpringBoot + MyBatisPlus\n\u200d\n遇到的问题以及处理细节点：\n在处理返回博客信息的时候，通常不需要返回整个博客的信息BlogInfo类，只需要提供部分有用的信息返回给前端，故新建一个BlogInfoResponse类，也有利于数据安全\n">
+<meta property='og:url' content='https://Jul1en-Lin.github.io/p/%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE/'>
 <meta property='og:site_name' content='Jul1en'>
-<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2026-04-28T13:34:19&#43;08:00 '/>
-<meta name="twitter:title" content="Category: 数据结构 - Jul1en">
-<meta name="twitter:description" content="学会等候 期待有天🎏"><link rel="alternate" type="application/rss&#43;xml" href="https://Jul1en-Lin.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.xml">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-02-11T08:14:24&#43;00:00'/><meta property='article:modified_time' content='2026-04-28T13:34:19&#43;08:00'/>
+<meta name="twitter:title" content="博客系统项目">
+<meta name="twitter:description" content="博客系统项目 技术栈：SpringBoot + MyBatisPlus\n\u200d\n遇到的问题以及处理细节点：\n在处理返回博客信息的时候，通常不需要返回整个博客的信息BlogInfo类，只需要提供部分有用的信息返回给前端，故新建一个BlogInfoResponse类，也有利于数据安全\n">
 
 <script>
     (function () {
@@ -48,7 +48,7 @@
 </script>
 </head>
 
-<body class="">
+<body class="article-page editorial-layout">
 
     <div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
     <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
@@ -216,66 +216,207 @@
     </ol>
 </aside>
 
-    
-
         <main class="main full-width">
-    <header>
-        <h3 class="section-title">
+
+<article class="editorial-article">
+    <div class="editorial-grid">
+        
+        <aside class="editorial-title-column">
             
-                分类
             
-        </h3>
+            <div class="editorial-category">
+                
+                <a href="/categories/javaee%E8%BF%9B%E9%98%B6/" >
+                    JavaEE进阶
+                </a>
+                
+            </div>
+            
+
+            
+            <h1 class="editorial-title">博客系统项目</h1>
+
+            
+            
+
+            
+            <div class="editorial-meta">
+                
+                <time datetime='2026-02-11T08:14:24Z'>
+                    2026-02-11
+                </time>
+                <span class="editorial-meta-sep">·</span>
+                <span class="editorial-lastmod">
+                    更新于 2026-04-28
+                </span></div>
+
+            
+            
+        </aside>
+
+        
+        <div class="editorial-content-column">
+            <section class="article-content">
+                
+                <h1 id="博客系统项目">博客系统项目
+</h1><p>技术栈：SpringBoot + MyBatisPlus</p>
+<p>‍</p>
+<p><strong>遇到的问题以及处理细节点：</strong></p>
+<ol>
+<li>
+<p>在处理返回博客信息的时候，通常不需要返回整个博客的信息<code>BlogInfo</code>类，只需要提供部分有用的信息返回给前端，故新建一个<code>BlogInfoResponse</code>类，也有利于数据安全</p>
+<ul>
+<li>
+<p>在<code>BlogInfo</code>转换成<code>BlogInfoResponse</code>类时，用到对象的<code>.stream()</code>流，用<code>.map()</code>方法匹配，再将stream流转换为列表</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// 获取博客信息 将BlogInfo转换成BlogInfoResponse 提取部分博客的信息显示返回前端</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">Stream</span><span class="o">&lt;</span><span class="n">BlogInfoResponse</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">blogInfos</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">map</span><span class="p">(</span><span class="n">blogInfo</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">BlogInfoResponse</span><span class="w"> </span><span class="n">blogInfoResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BlogInfoResponse</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">BeanUtils</span><span class="p">.</span><span class="na">copyProperties</span><span class="p">(</span><span class="n">blogInfos</span><span class="p">,</span><span class="w"> </span><span class="n">blogInfoResponse</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="n">blogInfoResponse</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">});</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 再把流转换成List</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">// return stream.collect(Collectors.toList()); 返回的列表可修改</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">return</span><span class="w"> </span><span class="n">stream</span><span class="p">.</span><span class="na">toList</span><span class="p">();</span><span class="w"> </span><span class="c1">// 返回的列表不可修改，安全性更高</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>上课时候，老师对转换为列表的处理是<code>stream.collect(Collectors.toList())</code>，它返回的是一个可修改的列表，大多数实现返回 <code>ArrayList</code>，官方文档指出：<u><strong>它不保证</strong></u><u>返回 List 的类型、可变性、可序列化性或线程安全性</u>。如果下游代码修改了这个集合（如 <code>list.add()</code>），不会报错，这在多线程或需保持数据纯净的场景下可能是隐患</p>
+<p><code>stream.toList()</code>：返回是不可变的列表，如果尝试调用如<code>list.add()</code>，则会直接抛出异常。在不需要后续修改列表的场景下，优先选择 <code>stream.toList()</code>。它不仅语法简洁，而且提供了更强的内存效率和数据安全性！</p>
+</li>
+<li>
+<p>执行流程：</p>
+<p><img src="/p/%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE/assets/image-20260211193838-hqhjj10.png" width="1258"  height="478"  srcset="/p/%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE/assets/image-20260211193838-hqhjj10_hu_9a7b252329d85555.png 800w, /p/%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE/assets/image-20260211193838-hqhjj10_hu_f61338255eb38404.png 1600w, /p/%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE/assets/image-20260211193838-hqhjj10_hu_f99c07fa4e3b61a7.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="263"
+	data-flex-basis="631px" ></p>
+</li>
+</ul>
+</li>
+<li>
+<p>实现登录的两种模式</p>
+<ol>
+<li>
+<p>使用Session：Session持久化——[Spring Session 持久化.pdf](assets/Spring Session 持久化-20260213215737-de188oj.pdf)</p>
+<ul>
+<li>存储到MySQL</li>
+<li>存储到Redis</li>
+</ul>
+</li>
+<li>
+<p>不使用Session：JWT令牌</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">io</span><span class="p">.</span><span class="na">jsonwebtoken</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">jjwt</span><span class="o">-</span><span class="n">api</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">0</span><span class="p">.</span><span class="na">11</span><span class="p">.</span><span class="na">5</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="o">&lt;!--</span><span class="w"> </span><span class="n">https</span><span class="p">:</span><span class="c1">//mvnrepository.com/artifact/io.jsonwebtoken/jjwt-impl --&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">io</span><span class="p">.</span><span class="na">jsonwebtoken</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">jjwt</span><span class="o">-</span><span class="n">impl</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">0</span><span class="p">.</span><span class="na">11</span><span class="p">.</span><span class="na">5</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="o">&lt;</span><span class="n">scope</span><span class="o">&gt;</span><span class="n">runtime</span><span class="o">&lt;/</span><span class="n">scope</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">io</span><span class="p">.</span><span class="na">jsonwebtoken</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">jjwt</span><span class="o">-</span><span class="n">jackson</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;!--</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">jjwt</span><span class="o">-</span><span class="n">gson</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">Gson</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">preferred</span><span class="w"> </span><span class="o">--&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">0</span><span class="p">.</span><span class="na">11</span><span class="p">.</span><span class="na">5</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="o">&lt;</span><span class="n">scope</span><span class="o">&gt;</span><span class="n">runtime</span><span class="o">&lt;/</span><span class="n">scope</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+</li>
+<li>
+<p>参数校验工具——Jakarta Validation：支持声明式、基于注释的数据验证</p>
+<p>引入依赖：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="p">.</span><span class="na">springframework</span><span class="p">.</span><span class="na">boot</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">spring</span><span class="o">-</span><span class="n">boot</span><span class="o">-</span><span class="n">starter</span><span class="o">-</span><span class="n">validation</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>加密（MD5）</p>
+</li>
+</ol>
+<p>‍</p>
+
+            </section>
+        </div>
+    </div>
+</article>
 
 
-    </header>
-    
-    <section class="article-list--compact">
-        
-            <article>
-    <a href="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/">
-        <div class="article-details">
-            <h2 class="article-title">开发模型和测试模型</h2>
-            <footer class="article-time">
-                <time datetime='2025-10-31T05:31:52Z'>2025-10-31</time>
-            </footer>
-        </div>
-    </a>
-</article>
-        
-            <article>
-    <a href="/p/%E5%89%8D%E8%A8%80/">
-        <div class="article-details">
-            <h2 class="article-title">前言</h2>
-            <footer class="article-time">
-                <time datetime='2025-05-27T08:30:48Z'>2025-05-27</time>
-            </footer>
-        </div>
-    </a>
-</article>
-        
-            <article>
-    <a href="/p/map--set/">
-        <div class="article-details">
-            <h2 class="article-title">Map &amp; Set</h2>
-            <footer class="article-time">
-                <time datetime='2025-05-19T13:26:18Z'>2025-05-19</time>
-            </footer>
-        </div>
-    </a>
-</article>
-        
-            <article>
-    <a href="/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/">
-        <div class="article-details">
-            <h2 class="article-title">数据结构——排序</h2>
-            <footer class="article-time">
-                <time datetime='2025-05-19T02:43:08Z'>2025-05-19</time>
-            </footer>
-        </div>
-    </a>
-</article>
-        
-    </section>
+<button id="dark-mode-toggle" class="editorial-dark-mode-toggle" type="button" aria-label="暗色模式" title="暗色模式">
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+    <span>暗色模式</span>
+</button>
+
+
+
+
+
+
+
+
+
 <footer class="site-footer">
     <section class="copyright">
         &copy; 
@@ -291,6 +432,83 @@
     </section>
 </footer>
 
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
 
         </main>
     </div>
