@@ -7,15 +7,14 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>Jul1en</copyright>
-        <lastBuildDate>Tue, 28 Apr 2026 13:43:12 +0800</lastBuildDate><atom:link href="https://Jul1en-Lin.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>概念</title>
-        <link>https://Jul1en-Lin.github.io/p/%E6%A6%82%E5%BF%B5/</link>
+        <lastBuildDate>Tue, 28 Apr 2026 14:13:47 +0800</lastBuildDate><atom:link href="https://Jul1en-Lin.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Agent 概念</title>
+        <link>https://Jul1en-Lin.github.io/p/agent-%E6%A6%82%E5%BF%B5/</link>
         <pubDate>Sun, 12 Apr 2026 06:07:14 +0000</pubDate>
         
-        <guid>https://Jul1en-Lin.github.io/p/%E6%A6%82%E5%BF%B5/</guid>
-        <description>&lt;h1 id=&#34;概念&#34;&gt;概念
-&lt;/h1&gt;&lt;h1 id=&#34;hooks&#34;&gt;Hooks
-&lt;/h1&gt;&lt;h2 id=&#34;概念-1&#34;&gt;概念
+        <guid>https://Jul1en-Lin.github.io/p/agent-%E6%A6%82%E5%BF%B5/</guid>
+        <description>&lt;h1 id=&#34;hooks&#34;&gt;Hooks
+&lt;/h1&gt;&lt;h2 id=&#34;概念&#34;&gt;概念
 &lt;/h2&gt;&lt;p&gt;学习概念最好的方法就是参考官方文档：&lt;a class=&#34;link&#34; href=&#34;https://code.claude.com/docs/en/hooks&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;code.claude.com/docs/en/hooks&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Hooks 是用户定义的 shell 命令、HTTP 端点或 LLM 提示，它们在 Claude Code 的生命周期中的特定点自动执行。用于参考查找事件模式、配置选项、JSON 输入/输出格式以及异步 hooks、HTTP hooks 和 MCP 工具 hooks 等高级功能。&lt;/p&gt;
@@ -27,7 +26,7 @@
 &lt;/ul&gt;
 &lt;p&gt;然后你的处理器可以检查输入、采取行动，并可选择返回一个决策。&lt;/p&gt;
 &lt;p&gt;事件分为三种节奏：每次会话一次（ SessionStart ， SessionEnd ）、每次回合一次（ UserPromptSubmit ， Stop ， StopFailure ），以及在每个工具调用中（在代理循环内）（ PreToolUse ， PostToolUse ），如图：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E6%A6%82%E5%BF%B5/assets/hooklife2-20260427005958-h2xbhdu.png&#34; width=&#34;1170&#34;  height=&#34;1805&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/%E6%A6%82%E5%BF%B5/assets/hooklife2-20260427005958-h2xbhdu_hu_d3e3af168619bfe8.png 800w, https://Jul1en-Lin.github.io/p/%E6%A6%82%E5%BF%B5/assets/hooklife2-20260427005958-h2xbhdu_hu_ec04307f3aced955.png 1600w, https://Jul1en-Lin.github.io/p/%E6%A6%82%E5%BF%B5/assets/hooklife2-20260427005958-h2xbhdu_hu_797cd902b34a0013.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;hooklife2&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;64&#34;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/agent-%E6%A6%82%E5%BF%B5/assets/hooklife2-20260427005958-h2xbhdu.png&#34; width=&#34;1170&#34;  height=&#34;1805&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/agent-%E6%A6%82%E5%BF%B5/assets/hooklife2-20260427005958-h2xbhdu_hu_d3e3af168619bfe8.png 800w, https://Jul1en-Lin.github.io/p/agent-%E6%A6%82%E5%BF%B5/assets/hooklife2-20260427005958-h2xbhdu_hu_ec04307f3aced955.png 1600w, https://Jul1en-Lin.github.io/p/agent-%E6%A6%82%E5%BF%B5/assets/hooklife2-20260427005958-h2xbhdu_hu_797cd902b34a0013.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;hooklife2&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;64&#34;
 	data-flex-basis=&#34;155px&#34; &gt;&lt;/p&gt;
 &lt;h2 id=&#34;执行时间&#34;&gt;执行时间
 &lt;/h2&gt;&lt;p&gt;下表总结了每个事件触发的时间。Hooks 事件部分记录了每个事件的完整输入模式和决策控制选项。&lt;/p&gt;
@@ -223,7 +222,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;现在假设 Claude Code 决定运行 Bash &amp;ldquo;rm -rf /tmp/build&amp;rdquo; 。以下是解析流程图&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E6%A6%82%E5%BF%B5/assets/hook1-20260412160333-j25ewf2.png&#34; width=&#34;3153&#34;  height=&#34;916&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/%E6%A6%82%E5%BF%B5/assets/hook1-20260412160333-j25ewf2_hu_94b11e425b7afd.png 800w, https://Jul1en-Lin.github.io/p/%E6%A6%82%E5%BF%B5/assets/hook1-20260412160333-j25ewf2_hu_70d9229a3a1170de.png 1600w, https://Jul1en-Lin.github.io/p/%E6%A6%82%E5%BF%B5/assets/hook1-20260412160333-j25ewf2_hu_332905b2183684d2.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;hook1&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;344&#34;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/agent-%E6%A6%82%E5%BF%B5/assets/hook1-20260412160333-j25ewf2.png&#34; width=&#34;3153&#34;  height=&#34;916&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/agent-%E6%A6%82%E5%BF%B5/assets/hook1-20260412160333-j25ewf2_hu_94b11e425b7afd.png 800w, https://Jul1en-Lin.github.io/p/agent-%E6%A6%82%E5%BF%B5/assets/hook1-20260412160333-j25ewf2_hu_70d9229a3a1170de.png 1600w, https://Jul1en-Lin.github.io/p/agent-%E6%A6%82%E5%BF%B5/assets/hook1-20260412160333-j25ewf2_hu_332905b2183684d2.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;hook1&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;344&#34;
 	data-flex-basis=&#34;826px&#34; &gt;&lt;/p&gt;
 &lt;h2 id=&#34;如何配置&#34;&gt;如何配置
 &lt;/h2&gt;&lt;p&gt;Hooks 在 JSON 配置文件中定义。配置具有三个级别的嵌套：&lt;/p&gt;
@@ -243,7 +242,7 @@
 &lt;p&gt;如果不知道如何手动配置，那就把网站丢给他让它给你配置就好了~！&lt;/p&gt;
 &lt;h1 id=&#34;rag&#34;&gt;RAG
 &lt;/h1&gt;&lt;p&gt;中文语义就是检索增强生成，是一种&lt;strong&gt;技术理念&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;概念-2&#34;&gt;概念
+&lt;h2 id=&#34;概念-1&#34;&gt;概念
 &lt;/h2&gt;&lt;p&gt;RAG 是指对&lt;u&gt;&lt;strong&gt;大语言模型输出进行优化，使其能够在生成响应之前引用训练数据来源之外的权威知识库。&lt;/strong&gt;&lt;/u&gt; LLM用海量数据进行训练，使用数十亿个参数为回答问题、翻译语言和完成句子等任务生成原始输出。&lt;/p&gt;
 &lt;p&gt;在 LLM 本就强大的功能基础上，&lt;u&gt;&lt;strong&gt;RAG 将其扩展为能访问特定领域或组织的内部知识库，所有这些都无需重新训练模型。&lt;/strong&gt;&lt;/u&gt; 这是一种经济高效地改进 LLM  输出的方法，让它在各种情境下都能保持相关性、准确性和实用性。&lt;/p&gt;
 &lt;h2 id=&#34;为什么rag很重要&#34;&gt;为什么RAG很重要？
@@ -278,7 +277,7 @@
 &lt;h3 id=&#34;更新外部数据&#34;&gt;&lt;strong&gt;更新外部数据&lt;/strong&gt;
 &lt;/h3&gt;&lt;p&gt;下一个问题可能是——如果外部数据过时了怎么办？ 要维护当前信息以供检索，可以&lt;u&gt;&lt;strong&gt;异步更新文档并更新文档的嵌入表示形式&lt;/strong&gt;&lt;/u&gt;，通过自动化实时流程或定期批处理来执行此操作。&lt;/p&gt;
 &lt;p&gt;具体的流程图所示：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E6%A6%82%E5%BF%B5/assets/image-20260413172823-8cl4uqi.png&#34; width=&#34;1896&#34;  height=&#34;904&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/%E6%A6%82%E5%BF%B5/assets/image-20260413172823-8cl4uqi_hu_15b5f48cf21ef944.png 800w, https://Jul1en-Lin.github.io/p/%E6%A6%82%E5%BF%B5/assets/image-20260413172823-8cl4uqi_hu_d28506addc4ed880.png 1600w, https://Jul1en-Lin.github.io/p/%E6%A6%82%E5%BF%B5/assets/image-20260413172823-8cl4uqi_hu_9ea877c57cfede2b.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;image&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;209&#34;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/agent-%E6%A6%82%E5%BF%B5/assets/image-20260413172823-8cl4uqi.png&#34; width=&#34;1896&#34;  height=&#34;904&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/agent-%E6%A6%82%E5%BF%B5/assets/image-20260413172823-8cl4uqi_hu_15b5f48cf21ef944.png 800w, https://Jul1en-Lin.github.io/p/agent-%E6%A6%82%E5%BF%B5/assets/image-20260413172823-8cl4uqi_hu_d28506addc4ed880.png 1600w, https://Jul1en-Lin.github.io/p/agent-%E6%A6%82%E5%BF%B5/assets/image-20260413172823-8cl4uqi_hu_9ea877c57cfede2b.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;image&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;209&#34;
 	data-flex-basis=&#34;503px&#34; &gt;&lt;/p&gt;
 &lt;h2 id=&#34;检索增强生成与语义搜索有什么区别&#34;&gt;检索增强生成与语义搜索有什么区别？
 &lt;/h2&gt;&lt;ul&gt;
@@ -293,7 +292,7 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;我的搜索引擎项目不是 RAG，是用到了语义搜索模块，RAG项目讲结果作为上下文重新再交给LLM生成，我的是直接返回结果。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E6%A6%82%E5%BF%B5/assets/image-20260413171738-z84fuyc.png&#34; width=&#34;3047&#34;  height=&#34;1175&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/%E6%A6%82%E5%BF%B5/assets/image-20260413171738-z84fuyc_hu_bc3cc9d2652d8fa8.png 800w, https://Jul1en-Lin.github.io/p/%E6%A6%82%E5%BF%B5/assets/image-20260413171738-z84fuyc_hu_905cd3e03a33cc66.png 1600w, https://Jul1en-Lin.github.io/p/%E6%A6%82%E5%BF%B5/assets/image-20260413171738-z84fuyc_hu_9227fad84bb17145.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;image&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;259&#34;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/agent-%E6%A6%82%E5%BF%B5/assets/image-20260413171738-z84fuyc.png&#34; width=&#34;3047&#34;  height=&#34;1175&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/agent-%E6%A6%82%E5%BF%B5/assets/image-20260413171738-z84fuyc_hu_bc3cc9d2652d8fa8.png 800w, https://Jul1en-Lin.github.io/p/agent-%E6%A6%82%E5%BF%B5/assets/image-20260413171738-z84fuyc_hu_905cd3e03a33cc66.png 1600w, https://Jul1en-Lin.github.io/p/agent-%E6%A6%82%E5%BF%B5/assets/image-20260413171738-z84fuyc_hu_9227fad84bb17145.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;image&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;259&#34;
 	data-flex-basis=&#34;622px&#34; &gt;&lt;/p&gt;
 &lt;h1 id=&#34;skill&#34;&gt;Skill
 &lt;/h1&gt;&lt;p&gt;它是模块化、可复用、按需加载的结构化能力封装标准。&lt;/p&gt;
@@ -302,7 +301,7 @@
 &lt;/h2&gt;&lt;p&gt;Prompt是反应式、一次性、高开销：用户提问才响应，对话结束即失效，越长越贵，无法跨会话复用，上下文占用大。&lt;br&gt;
 Skill是主动式、持久化、低消耗：安装一次长期生效，AI自主判断调用时机；按需加载资源，支持多Skill组合成流水线；包含prompt但远超prompt——它是结构化、可执行、可迭代的能力工程产物。&lt;/p&gt;
 &lt;h2 id=&#34;内部四层结构&#34;&gt;内部四层结构
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E6%A6%82%E5%BF%B5/assets/image-20260425012645-7t9bsw3.png&#34; width=&#34;1732&#34;  height=&#34;539&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/%E6%A6%82%E5%BF%B5/assets/image-20260425012645-7t9bsw3_hu_94425d368c1093b7.png 800w, https://Jul1en-Lin.github.io/p/%E6%A6%82%E5%BF%B5/assets/image-20260425012645-7t9bsw3_hu_a2bcad78164d4b24.png 1600w, https://Jul1en-Lin.github.io/p/%E6%A6%82%E5%BF%B5/assets/image-20260425012645-7t9bsw3_hu_f32230f8e8b8d6e6.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;image&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;321&#34;
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/agent-%E6%A6%82%E5%BF%B5/assets/image-20260425012645-7t9bsw3.png&#34; width=&#34;1732&#34;  height=&#34;539&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/agent-%E6%A6%82%E5%BF%B5/assets/image-20260425012645-7t9bsw3_hu_94425d368c1093b7.png 800w, https://Jul1en-Lin.github.io/p/agent-%E6%A6%82%E5%BF%B5/assets/image-20260425012645-7t9bsw3_hu_a2bcad78164d4b24.png 1600w, https://Jul1en-Lin.github.io/p/agent-%E6%A6%82%E5%BF%B5/assets/image-20260425012645-7t9bsw3_hu_f32230f8e8b8d6e6.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;image&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;321&#34;
 	data-flex-basis=&#34;771px&#34; &gt;&lt;/p&gt;
 &lt;p&gt;Skill内部四层结构解析&lt;/p&gt;
 &lt;p&gt;YAML Front Matter（元数据层）： name 和 description 为必填项，其中description是AI路由决策的核心依据，决定能否被精准触发。&lt;br&gt;
@@ -1132,17 +1131,6 @@ Resources目录（资源层）：存放合规手册、知识文档等参考资�
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;最终通过添加 &lt;code&gt;RedisConfig&lt;/code&gt;​ 配置类，使用 &lt;code&gt;GenericJackson2JsonRedisSerializer&lt;/code&gt; 让 RedisTemplate 自身处理 JSON 序列化，从根本上解决了问题，同时也大幅简化了业务代码。&lt;/p&gt;
 &lt;hr&gt;
-</description>
-        </item>
-        <item>
-        <title>Spring</title>
-        <link>https://Jul1en-Lin.github.io/p/spring/</link>
-        <pubDate>Fri, 13 Feb 2026 13:53:23 +0000</pubDate>
-        
-        <guid>https://Jul1en-Lin.github.io/p/spring/</guid>
-        <description>&lt;h1 id=&#34;spring&#34;&gt;Spring
-&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;assets/JavaEE%e8%bf%9b%e9%98%b6-%e5%8a%a0%e9%a4%90%e8%b5%84%e6%96%99-20260213215357-pdmb63h.pdf&#34; &gt;JavaEE进阶-加餐资料.pdf&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;‍&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -5495,124 +5483,6 @@ Resources目录（资源层）：存放合规手册、知识文档等参考资�
 </description>
         </item>
         <item>
-        <title>🌵 开发模型与测试模型</title>
-        <link>https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/</link>
-        <pubDate>Thu, 11 Dec 2025 17:24:01 +0800</pubDate>
-        
-        <guid>https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/</guid>
-        <description>&lt;img src="https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111456-fmja664.png" alt="Featured image of post 🌵 开发模型与测试模型" /&gt;&lt;h1 id=&#34;开发模型和测试模型&#34;&gt;开发模型和测试模型
-&lt;/h1&gt;&lt;h1 id=&#34;开发模型&#34;&gt;开发模型
-&lt;/h1&gt;&lt;p&gt;学习测试，我们需要了解产品的开发流程，开发模型实际上指的就是产品的开发流程&lt;/p&gt;
-&lt;h2 id=&#34;瀑布模型&#34;&gt;瀑布模型
-&lt;/h2&gt;&lt;p&gt;瀑布模型是其他模型的基础框架，它是最基础的模型，模型如图所示&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102104910-povdkg8.png&#34; width=&#34;2118&#34;  height=&#34;200&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102104910-povdkg8_hu_cd0d136484f96bd3.png 800w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102104910-povdkg8_hu_a331ee362b961097.png 1600w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102104910-povdkg8_hu_781c713828f3ff98.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;瀑布模型&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;1059&#34;
-	data-flex-basis=&#34;2541px&#34; &gt;&lt;/p&gt;
-&lt;p&gt;特点 / 优点：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;开发流程是线性的，每个阶段执行一次就结束&lt;/li&gt;
-&lt;li&gt;适合小项目的开发&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;缺点：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;交付时间长，需要很久才能看到产品&lt;/li&gt;
-&lt;li&gt;测试阶段执行晚，如果一个需求引入的缺陷要到测试阶段或更晚的阶段才能看到，可能会导致前面的工作大面积的返工&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;螺旋模型&#34;&gt;螺旋模型
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102105245-1drxuts.png&#34; width=&#34;1629&#34;  height=&#34;1310&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102105245-1drxuts_hu_fa1b4001511c5bcd.png 800w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102105245-1drxuts_hu_23cfe387b5c712fa.png 1600w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102105245-1drxuts_hu_2c48f7c60184dbd0.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;螺旋模型&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;124&#34;
-	data-flex-basis=&#34;298px&#34; &gt;&lt;/p&gt;
-&lt;p&gt;它与瀑布模型的不同是在需求分析到编码环节都进行风险分析，评估方案后才进入下一级产品&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102110024-mvcffwc.png&#34; width=&#34;2354&#34;  height=&#34;598&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102110024-mvcffwc_hu_6dc3c724869c2675.png 800w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102110024-mvcffwc_hu_2744ec73412dc56c.png 1600w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102110024-mvcffwc_hu_dcd8afcbb7d073ac.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;螺旋模型&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;393&#34;
-	data-flex-basis=&#34;944px&#34; &gt;&lt;/p&gt;
-&lt;p&gt;特点 / 优点：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;强调开发中各个环节的质量&lt;/li&gt;
-&lt;li&gt;严格的风险管理&lt;/li&gt;
-&lt;li&gt;增加风险分析与原型&lt;/li&gt;
-&lt;li&gt;适合规模庞大、复杂度高、风险大的项目&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;缺点：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;开发成本增高，人员、资金、时间的投入&lt;/li&gt;
-&lt;li&gt;项目中存在的风险性与风险管理人员的水平有直接的关系&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;增量模型--迭代模型&#34;&gt;增量模型 / 迭代模型
-&lt;/h2&gt;&lt;p&gt;它的核心思想是不要一次性把系统全部做完，而是分阶段地、分模块地逐步完善。&lt;/p&gt;
-&lt;p&gt;每一次的构建（称为 “增量“）都在上一个版本的基础上进行完善与扩展；每一次的迭代都包括&lt;strong&gt;开发 → 测试 → 反馈 → 修正&lt;/strong&gt;的完整过程。&lt;/p&gt;
-&lt;p&gt;“增量”强调的是&lt;strong&gt;量的增长（功能一点点加）；&lt;/strong&gt; “迭代”强调的是&lt;strong&gt;质的改进（版本不断优化）&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;想象你在搭建一座乐高城堡。你不会一次性把所有零件拼完，而是先搭出地基，再加上城门、塔楼、装饰。每加完一部分（增量），你都会检查它是否稳固、是否和之前的部分契合（迭代）。&lt;br&gt;
-这样，当城堡最终完工时，它不仅完整，而且每一层都经过了检验。&lt;/p&gt;
-&lt;p&gt;特点 / 优点：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;每个增量都要单独测试，保证它稳定、可集成&lt;/li&gt;
-&lt;li&gt;每次迭代都能提前发现风险&lt;/li&gt;
-&lt;li&gt;测试结果反过来指导下一轮开发&lt;/li&gt;
-&lt;li&gt;适用于大项目且需求不明确的情况&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;缺点：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;如果项目的方向控制不严，就可能陷入&lt;strong&gt;反复重构、推倒重来的恶性循环，尤其在客户频繁修改需求时，团队可能永远都在“打补丁”，而不是向最终目标靠近。&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;系统整体性不易把握，后期可能会出现接口不兼容，模块耦合度过高等问题&lt;/li&gt;
-&lt;li&gt;管理和测试成本增高，每一次迭代都需要经过一次完整的开发、测试、评审、部署流程&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;增量模型&#34;&gt;增量模型
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111052-ar8at9e.png&#34; width=&#34;717&#34;  height=&#34;942&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111052-ar8at9e_hu_a376f80bbe5823dd.png 800w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111052-ar8at9e_hu_68329852910bb2f3.png 1600w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111052-ar8at9e_hu_979cdab20a5306c0.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;增量模型&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;76&#34;
-	data-flex-basis=&#34;182px&#34; &gt;&lt;/p&gt;
-&lt;p&gt;可能先上线一部分的功能 / 模块，后续再进行完善，上线顺序可能是 模块1 -&amp;gt; 功能1 -&amp;gt; 功能2 -&amp;gt; 功能3 -&amp;gt; 功能4 -&amp;gt; 模块2&lt;/p&gt;
-&lt;h3 id=&#34;迭代模型&#34;&gt;迭代模型
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111456-fmja664.png&#34; width=&#34;1761&#34;  height=&#34;986&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111456-fmja664_hu_3ffa1d49808b078b.png 800w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111456-fmja664_hu_c043530a2103bb94.png 1600w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111456-fmja664_hu_69a7492eee6aa043.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;迭代模型&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;178&#34;
-	data-flex-basis=&#34;428px&#34; &gt;&lt;/p&gt;
-&lt;h2 id=&#34;敏捷模型&#34;&gt;敏捷模型
-&lt;/h2&gt;&lt;p&gt;敏捷模型的特点是：轻文档、轻流程、重目标，重产出。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Scrum模型&lt;/strong&gt;就是敏捷模型中的一种，又称为迭代式增量软件开发模型，可以看成&lt;strong&gt;迭代模型与增量模型的结合。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;scrum的基本流程如图所示&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102114531-7hcr4dj.png&#34; width=&#34;2653&#34;  height=&#34;1227&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102114531-7hcr4dj_hu_a6b02a353e24cbe3.png 800w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102114531-7hcr4dj_hu_f25f83b219a8e5af.png 1600w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102114531-7hcr4dj_hu_23f2114d4f7f0b2c.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;216&#34;
-	data-flex-basis=&#34;518px&#34; &gt;&lt;/p&gt;
-&lt;p&gt;‍&lt;/p&gt;
-&lt;h1 id=&#34;软件测试&#34;&gt;软件测试
-&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;软件测试的最终目的是验证产品&lt;/strong&gt;​&lt;u&gt;==&lt;strong&gt;特性&lt;/strong&gt;==&lt;/u&gt;​&lt;strong&gt;是否满足客户需求~&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;软件测试贯穿于软件的整个生命周期~（非常重要！！！！！面试可以装杯）&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;🤔延申问题：如何理解&lt;strong&gt;软件测试贯穿于软件的整个生命周期~&lt;/strong&gt; 这句话？&lt;/p&gt;
-&lt;p&gt;先来看软件的生命周期，才能更好的理解软件测试的生命周期&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115130-wpxwf40.png&#34; width=&#34;1932&#34;  height=&#34;212&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115130-wpxwf40_hu_147f1d6d6cf446e2.png 800w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115130-wpxwf40_hu_7eabcd3b136f707b.png 1600w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115130-wpxwf40_hu_5280329f8b258992.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;软件生命周期&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;911&#34;
-	data-flex-basis=&#34;2187px&#34; &gt;&lt;/p&gt;
-&lt;p&gt;软件的生命从需求分析就开始了，一直到上线维护&lt;/p&gt;
-&lt;p&gt;软件测试的生命周期也从需求分析开始，虽然说在软件声明周期内测试是排在编码之后，但是软件测试的内容从需求分析就开始了，故说 &lt;strong&gt;&lt;u&gt;==软件测试贯穿于整个软件的生命周期！==&lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115153-48xy6bk.png&#34; width=&#34;1372&#34;  height=&#34;316&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115153-48xy6bk_hu_5752da1a1c90a7e3.png 800w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115153-48xy6bk_hu_4ea5e3e0517db4c1.png 1600w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115153-48xy6bk_hu_bce597ea67798aef.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;生命周期&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;434&#34;
-	data-flex-basis=&#34;1042px&#34; &gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;需求分析：从用户角度（软件需求是否合理）、技术角度（技术上是否可行）、测试角度（是否存在业务逻辑错误、冲突等问题）分析&lt;/li&gt;
-&lt;li&gt;测试计划：指定测试计划——什么时候开发测试，什么时候结束测试，耗时需要多久&lt;/li&gt;
-&lt;li&gt;测试设计、开发：参考需求文档、技术文档等，来编写测试用例；编写测试文档，明确标注用到的测试方法，测试工具，测试形式等（输出测试设计）&lt;/li&gt;
-&lt;li&gt;测试执行：充分利用测试用例与工具，尽可能的做到全方面覆盖测试&lt;/li&gt;
-&lt;li&gt;测试评估：测试是否通过，本次测试是否有遗留BUG，产出测试报告——描述清楚测试的进度、项目进度，得出测试结论：是否具备上线条件&lt;/li&gt;
-&lt;li&gt;上线：上线后，测试人员跟踪并测试线上环境，确保运行是否正常&lt;/li&gt;
-&lt;li&gt;运行维护：在运行项目时收集问题并反馈相关负责人&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id=&#34;测试模型&#34;&gt;测试模型
-&lt;/h1&gt;&lt;p&gt;测试中有两个重要且标志性的测试模型：V 模型与 W 模型&lt;/p&gt;
-&lt;h2 id=&#34;v模型&#34;&gt;V模型
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102102442-x94ywwp.png&#34; width=&#34;1742&#34;  height=&#34;869&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102102442-x94ywwp_hu_66f7fa4fd51ca005.png 800w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102102442-x94ywwp_hu_d7bbd57925f4269d.png 1600w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102102442-x94ywwp_hu_a4a2bd2af80cb79d.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;200&#34;
-	data-flex-basis=&#34;481px&#34; &gt;&lt;/p&gt;
-&lt;p&gt;其中测试环节中的单元测试与集成测试一般是由开发人员来测试，单元测试的单元是人为规定的，可以认为是某个接口 / api / 方法 / 类&lt;/p&gt;
-&lt;p&gt;它也是基于瀑布模型的，所以缺点也是测试后置，导致风险到后期才发现&lt;/p&gt;
-&lt;p&gt;我们希望给测试留有充足的时间，否则会把缺点直接暴露到线上&lt;/p&gt;
-&lt;h2 id=&#34;w模型&#34;&gt;W模型
-&lt;/h2&gt;&lt;p&gt;在 W 模型中，V 模型的测试后置的问题得到了解决，如图所示&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102103915-0fdhavz.png&#34; width=&#34;1875&#34;  height=&#34;989&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102103915-0fdhavz_hu_d601d066d8356e0.png 800w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102103915-0fdhavz_hu_ed9e74a6b45469d9.png 1600w, https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102103915-0fdhavz_hu_14135f0b155172f6.png 2400w&#34;  loading=&#34;lazy&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;189&#34;
-	data-flex-basis=&#34;455px&#34; &gt;&lt;/p&gt;
-&lt;p&gt;特点：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;测试与开发是同步进行的，测试的对象也不仅仅是程序，需求、设计等同样需要测试，有利于能尽早发现问题&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;缺点：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;注重流程，无法支持敏捷开发的模式，灵活性低&lt;/li&gt;
-&lt;li&gt;无论是测试线还是开发线，都是线性的，直到上一阶段的完全结束才能开始下一阶段的工作&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;‍&lt;/p&gt;
-</description>
-        </item>
-        <item>
         <title>🍀Spring IoC &amp; DI</title>
         <link>https://Jul1en-Lin.github.io/p/spring-ioc-di/</link>
         <pubDate>Mon, 08 Dec 2025 17:12:08 +0800</pubDate>
@@ -6681,7 +6551,7 @@ Resources目录（资源层）：存放合规手册、知识文档等参考资�
 </description>
         </item>
         <item>
-        <title>开发模型和测试模型</title>
+        <title>🌵 开发模型和测试模型</title>
         <link>https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/</link>
         <pubDate>Fri, 31 Oct 2025 05:31:52 +0000</pubDate>
         

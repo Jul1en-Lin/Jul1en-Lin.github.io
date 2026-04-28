@@ -7,7 +7,7 @@
 
 <link rel='canonical' href='https://Jul1en-Lin.github.io/p/git-lfs-%E7%AA%81%E7%A0%B4%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E9%99%90%E5%88%B6/'>
 
-<link rel="stylesheet" href="/scss/style.min.ee113dd6fb431ff4a55ce3dbff07568f8b563c0a2dbef1902f1ba3a6e1aa06b6.css"><meta property='og:title' content="Git LFS 突破大文件上传限制">
+<link rel="stylesheet" href="/scss/style.min.55127234130cec295012e81d6afc01aba76ea01840c73f030910c95221c90b14.css"><meta property='og:title' content="Git LFS 突破大文件上传限制">
 <meta property='og:description' content="Git LFS 接触此技术背景 本人一直有将笔记备份的习惯，虽然已经有云同步，但是异地存档能再加多层保险\n随时间推移，笔记内容也越来越多，我的笔记快照的体积越来越大，最近一次直接超出了 Git 单次推送的最大体积限制（100MB），在查询解决方法时，发现 Git 有一种叫 LFS 的技术（Large File Storage），他能很好的解决此问题。\n">
 <meta property='og:url' content='https://Jul1en-Lin.github.io/p/git-lfs-%E7%AA%81%E7%A0%B4%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E9%99%90%E5%88%B6/'>
 <meta property='og:site_name' content='Jul1en'>
@@ -511,7 +511,9 @@
   }
 
   .article-content .highlight pre,
-  .editorial-content-column .article-content .highlight pre {
+  .editorial-content-column .article-content .highlight pre,
+  .article-content .highlight .chroma,
+  .editorial-content-column .article-content .highlight .chroma {
     overflow: visible !important;
   }
 
@@ -564,6 +566,53 @@
   :root[data-scheme="dark"] .article-content pre::-webkit-scrollbar-thumb:hover,
   :root[data-scheme="dark"] .editorial-content-column .article-content pre::-webkit-scrollbar-thumb:hover {
     background: #48494a;
+  }
+
+   
+  :root[data-scheme="light"] .article-content .highlight,
+  :root[data-scheme="light"] .editorial-content-column .article-content .highlight,
+  :root[data-scheme="light"] .article-content pre,
+  :root[data-scheme="light"] .editorial-content-column .article-content pre {
+    scrollbar-color: #3c3d3e transparent;
+    scrollbar-width: thin;
+  }
+
+  :root[data-scheme="light"] .article-content .highlight::-webkit-scrollbar,
+  :root[data-scheme="light"] .editorial-content-column .article-content .highlight::-webkit-scrollbar,
+  :root[data-scheme="light"] .article-content pre::-webkit-scrollbar,
+  :root[data-scheme="light"] .editorial-content-column .article-content pre::-webkit-scrollbar {
+    width: 14px;
+    height: 14px;
+  }
+
+  :root[data-scheme="light"] .article-content .highlight::-webkit-scrollbar-track,
+  :root[data-scheme="light"] .editorial-content-column .article-content .highlight::-webkit-scrollbar-track,
+  :root[data-scheme="light"] .article-content pre::-webkit-scrollbar-track,
+  :root[data-scheme="light"] .editorial-content-column .article-content pre::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  :root[data-scheme="light"] .article-content .highlight::-webkit-scrollbar-thumb,
+  :root[data-scheme="light"] .editorial-content-column .article-content .highlight::-webkit-scrollbar-thumb,
+  :root[data-scheme="light"] .article-content pre::-webkit-scrollbar-thumb,
+  :root[data-scheme="light"] .editorial-content-column .article-content pre::-webkit-scrollbar-thumb {
+    background: #3c3d3e;
+    border-radius: 999px;
+  }
+
+  :root[data-scheme="light"] .article-content .highlight::-webkit-scrollbar-thumb:hover,
+  :root[data-scheme="light"] .editorial-content-column .article-content .highlight::-webkit-scrollbar-thumb:hover,
+  :root[data-scheme="light"] .article-content pre::-webkit-scrollbar-thumb:hover,
+  :root[data-scheme="light"] .editorial-content-column .article-content pre::-webkit-scrollbar-thumb:hover {
+    background: #48494a;
+  }
+
+   
+  .article-content .highlight::-webkit-scrollbar-button,
+  .editorial-content-column .article-content .highlight::-webkit-scrollbar-button,
+  .article-content pre::-webkit-scrollbar-button,
+  .editorial-content-column .article-content pre::-webkit-scrollbar-button {
+    display: none;
   }
 </style>
 <script src="/js/particles.js"></script>
