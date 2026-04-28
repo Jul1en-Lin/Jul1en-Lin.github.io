@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>Jul1en</copyright>
-        <lastBuildDate>Tue, 28 Apr 2026 13:34:19 +0800</lastBuildDate><atom:link href="https://Jul1en-Lin.github.io/categories/javaee%E8%BF%9B%E9%98%B6/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 28 Apr 2026 13:42:32 +0800</lastBuildDate><atom:link href="https://Jul1en-Lin.github.io/categories/javaee%E8%BF%9B%E9%98%B6/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>博客系统项目</title>
         <link>https://Jul1en-Lin.github.io/p/%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE/</link>
         <pubDate>Wed, 11 Feb 2026 08:14:24 +0000</pubDate>
@@ -61,7 +61,7 @@
 &lt;p&gt;实现登录的两种模式&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;使用Session：Session持久化——[Spring Session 持久化.pdf](assets/Spring Session 持久化-20260213215737-de188oj.pdf)&lt;/p&gt;
+&lt;p&gt;使用Session：Session持久化——&lt;a class=&#34;link&#34; href=&#34;assets/Spring%20Session%20%e6%8c%81%e4%b9%85%e5%8c%96-20260213215737-de188oj.pdf&#34; &gt;Spring Session 持久化.pdf&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;存储到MySQL&lt;/li&gt;
 &lt;li&gt;存储到Redis&lt;/li&gt;
