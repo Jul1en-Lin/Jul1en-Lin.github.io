@@ -2,18 +2,18 @@
 <html lang="en-us" dir="ltr" data-scheme="dark">
 
 <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="学会等候 期待有天🎏">
-<title>Category: JavaEE进阶 - Jul1en</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Redis 进阶 持久化 Redis 的持久化有两个策略\nRDB -&gt; Redis DataBase AOF -&gt; Append Only File RDB RDB 的触发时机有两种，一种是手动存储，一种是定时存储。将数据备份到数据库中，通常存在一个后缀名为 .rdb的文件\n">
+<title>Redis 进阶</title>
 
-<link rel='canonical' href='https://Jul1en-Lin.github.io/categories/javaee%E8%BF%9B%E9%98%B6/'>
+<link rel='canonical' href='https://Jul1en-Lin.github.io/p/redis-%E8%BF%9B%E9%98%B6/'>
 
-<link rel="stylesheet" href="/scss/style.min.502a380229eacc0e12af50d218c823259247c480ba28a71cc1a8f31e36902a3e.css"><meta property='og:title' content="Category: JavaEE进阶 - Jul1en">
-<meta property='og:description' content="学会等候 期待有天🎏">
-<meta property='og:url' content='https://Jul1en-Lin.github.io/categories/javaee%E8%BF%9B%E9%98%B6/'>
+<link rel="stylesheet" href="/scss/style.min.502a380229eacc0e12af50d218c823259247c480ba28a71cc1a8f31e36902a3e.css"><meta property='og:title' content="Redis 进阶">
+<meta property='og:description' content="Redis 进阶 持久化 Redis 的持久化有两个策略\nRDB -&gt; Redis DataBase AOF -&gt; Append Only File RDB RDB 的触发时机有两种，一种是手动存储，一种是定时存储。将数据备份到数据库中，通常存在一个后缀名为 .rdb的文件\n">
+<meta property='og:url' content='https://Jul1en-Lin.github.io/p/redis-%E8%BF%9B%E9%98%B6/'>
 <meta property='og:site_name' content='Jul1en'>
-<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2026-05-01T17:51:54&#43;08:00 '/>
-<meta name="twitter:title" content="Category: JavaEE进阶 - Jul1en">
-<meta name="twitter:description" content="学会等候 期待有天🎏"><link rel="alternate" type="application/rss&#43;xml" href="https://Jul1en-Lin.github.io/categories/javaee%E8%BF%9B%E9%98%B6/index.xml">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-04-21T09:38:54&#43;00:00'/><meta property='article:modified_time' content='2026-05-01T17:51:54&#43;08:00'/>
+<meta name="twitter:title" content="Redis 进阶">
+<meta name="twitter:description" content="Redis 进阶 持久化 Redis 的持久化有两个策略\nRDB -&gt; Redis DataBase AOF -&gt; Append Only File RDB RDB 的触发时机有两种，一种是手动存储，一种是定时存储。将数据备份到数据库中，通常存在一个后缀名为 .rdb的文件\n">
 
 <script>
     (function () {
@@ -48,7 +48,7 @@
 </script>
 </head>
 
-<body class="">
+<body class="article-page editorial-layout">
 
     <div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
     <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
@@ -216,59 +216,231 @@
     </ol>
 </aside>
 
-    
-
         <main class="main full-width">
-    <header>
-        <h3 class="section-title">
+
+<article class="editorial-article">
+    <div class="editorial-grid">
+        
+        <aside class="editorial-title-column">
             
-                分类
             
-        </h3>
+            <div class="editorial-category">
+                
+                <a href="/categories/redis/" >
+                    Redis
+                </a>
+                
+            </div>
+            
 
+            
+            <h1 class="editorial-title">Redis 进阶</h1>
 
-    </header>
-    
-    <section class="article-list--compact">
+            
+            
+
+            
+            <div class="editorial-meta">
+                
+                <time datetime='2026-04-21T09:38:54Z'>
+                    2026-04-21
+                </time>
+                <span class="editorial-meta-sep">·</span>
+                <span class="editorial-lastmod">
+                    更新于 2026-05-01
+                </span></div>
+
+            
+            
+        </aside>
+
         
-            <article>
-    <a href="/p/%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE/">
-        <div class="article-details">
-            <h2 class="article-title">博客系统项目</h2>
-            <footer class="article-time">
-                <time datetime='2026-02-11T08:14:24Z'>2026-02-11</time>
-            </footer>
+        <div class="editorial-content-column">
+            <section class="article-content">
+                
+                <h1 id="redis-进阶">Redis 进阶
+</h1><h1 id="持久化">持久化
+</h1><p>Redis 的持久化有两个策略</p>
+<ul>
+<li>RDB -&gt; Redis DataBase</li>
+<li>AOF -&gt; Append Only File</li>
+</ul>
+<h2 id="rdb">RDB
+</h2><p>RDB 的触发时机有两种，一种是手动存储，一种是定时存储。将数据备份到数据库中，通常存在一个后缀名为 .rdb的文件</p>
+<p>定时存储通过配置文件修改</p>
+<p>主要讲手动存储，它有两个命令，<code>save</code> 和 <code>bgsave</code></p>
+<ol>
+<li>
+<p>save：执行<code>save</code>操作，Redis 会全力以赴的进行快照<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>生成的工作，此时就会阻塞 Redis 客户端的其他命令，达到类似 <code>keys *</code> 的效果</p>
+</li>
+<li>
+<p>bgsave：bgsave 就是background save，在后台生成一个<u><strong>新的进程</strong></u>，来进行并发的编程。新的进程会 fork 一份父进程的完整数据（包括 pcb，内存中的虚拟地址，文件描述符表等&hellip;..），将完整数据存入到 .rdb 文件中，当bgsave执行过程中，若有其他的数据插入，则可能会有迟滞性，因为新的数据不同步到子进程。</p>
+<p>注意：由于子进程有着跟父类一样的文件描述符表，故子进程也可以对文件进行读写操作。</p>
+<p>执行逻辑为：判定是否存在其他的子进程，若存在则将当前的bgsave返回，否则新建一个子进程。</p>
+<p>此处的 fork 拷贝操作是“写时拷贝”的机制实现的——即如果父进程与子进程里的数据是一模一样的，父进程与子进程会共用同一份内存空间，当对内存数据做出修改后，才会触发真正的物理内存的拷贝。新的数据会插入到父进程中，子进程数据保持原有的数据不更新。</p>
+<p><img src="/p/redis-%E8%BF%9B%E9%98%B6/assets/image-20260421181344-uy0eg7i.png" width="1510"  height="1126"  srcset="/p/redis-%E8%BF%9B%E9%98%B6/assets/image-20260421181344-uy0eg7i_hu_d06043d40593dd9e.png 800w, /p/redis-%E8%BF%9B%E9%98%B6/assets/image-20260421181344-uy0eg7i_hu_b9385b6648930992.png 1600w, /p/redis-%E8%BF%9B%E9%98%B6/assets/image-20260421181344-uy0eg7i_hu_bcfb8dd27b33a494.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="134"
+	data-flex-basis="321px" ></p>
+<p>RDB 这个二进制文件默认通过二进制的方式将内存中的数据以压缩的形式保存</p>
+<p>后续 Redis 重启，会重新加载这个 RDB 文件，若 RDB 损坏则可能启动失败。针对 RDB 损坏的问题，自带了一个 RDB 的检查工具<code>redis-check-rdb*</code></p>
+<p>RDB 的持久化操作是可以重复执行的，此时会生成一个 RDB 镜像文件，将快照数据先保存至一个临时的文件中，当快照生成完毕后，将旧的 RDB 文件删除，将临时的文件夹改名为<code>dump.rdb</code>（默认文件名）</p>
+</li>
+</ol>
+<p><strong>RDB 的优缺点：</strong></p>
+<ul>
+<li>RDB 是紧凑压缩过的二进制文件，代表了 Redis 中某个时间点上的数据快照，非常适用于备份</li>
+<li>Redis 加载 RDB 恢复数据远远快于 AOP</li>
+<li>RDB 的这种方式存储就决定了它的数据备份无法达到数据的实时持久化，因为每次的 bgsave 操作都要 fork 一个子进程出来，这是一个重量级的操作</li>
+<li>RDB 使用的是特定的二进制格式保存，且随着时间迁移，Redis 会有多个 RDB 版本，可能会有兼容性问题</li>
+</ul>
+<h2 id="aof">AOF
+</h2><p>AOF 以日志形式记录 Redis 的<strong>写操作命令</strong>，重启时重新执行这些命令恢复数据，默认是后缀为 .aof的文件。</p>
+<p>写入策略通过配置文件设置，有三种模式：</p>
+<ol>
+<li><code>always</code>：每次写命令都立即刷盘，数据最安全，但性能开销最大</li>
+<li><code>everysec</code>：每秒刷盘一次（默认），最多丢失 1 秒数据，兼顾性能与安全</li>
+<li><code>no</code>：由操作系统决定刷盘时机，性能最高，但数据安全性最低</li>
+</ol>
+<p><strong>AOF 重写</strong></p>
+<p>随着写操作增多，AOF 文件会持续膨胀。Redis 提供重写机制压缩文件体积，命令为 <code>bgrewriteaof</code></p>
+<p><img src="/p/redis-%E8%BF%9B%E9%98%B6/assets/image-20260501173736-zvzy0py.png" width="1321"  height="916"  srcset="/p/redis-%E8%BF%9B%E9%98%B6/assets/image-20260501173736-zvzy0py_hu_65cf07ac1fc83723.png 800w, /p/redis-%E8%BF%9B%E9%98%B6/assets/image-20260501173736-zvzy0py_hu_4ce27473f7077342.png 1600w, /p/redis-%E8%BF%9B%E9%98%B6/assets/image-20260501173736-zvzy0py_hu_e69a41f930493c37.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="144"
+	data-flex-basis="346px" ></p>
+<ul>
+<li>类似 <code>bgsave</code>，fork 出一个子进程，基于<strong>当前内存数据</strong>生成最新且最精简的命令集</li>
+<li>重写期间的新写入命令会同时写入旧的 AOF 文件和 AOF 重写缓冲区</li>
+<li>子进程完成重写后，将缓冲区的增量命令追加到新文件，最后用新文件替换旧文件</li>
+<li>同样利用&quot;写时拷贝&quot;机制，避免全量内存复制</li>
+</ul>
+<p>AOF 文件以<strong>文本协议</strong>存储，具备可读性，但体积通常比 RDB 大。若文件损坏，可使用自带的 <code>redis-check-aof</code> 工具修复。</p>
+<p>Redis 重启时若同时存在 AOF 和 RDB，<strong>默认优先加载 AOF。</strong></p>
+<p><strong>AOF 的优缺点：</strong></p>
+<ul>
+<li>数据安全性更高，通过合理的 <code>appendfsync</code> 策略可实现近实时持久化</li>
+<li>文件为文本格式，易读且兼容性好，没有 RDB 的版本兼容问题</li>
+<li>文件体积通常大于 RDB，恢复速度比 RDB 慢（需逐条重放命令）</li>
+<li>在高并发写入场景下，<code>always</code> 策略会显著影响性能；<code>everysec</code> 模式下若发生故障仍可能丢失 1 秒数据</li>
+</ul>
+<p>‍</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<h1 id="快照">快照
+</h1><p>快照（Snapshot）是指系统在某一特定时刻的完整逻辑状态记录。它类似于对运行中的数据进行“拍照”，保留该瞬间的所有信息，即便后续原始数据发生变化，快照内容依然停留在抓拍的那一刻。&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+            </section>
         </div>
-    </a>
+    </div>
 </article>
-        
-            <article>
-    <a href="/p/%E6%89%93%E5%8D%B0%E6%97%A5%E5%BF%97/">
-        <div class="article-details">
-            <h2 class="article-title">打印日志</h2>
-            <footer class="article-time">
-                <time datetime='2026-02-04T07:47:28Z'>2026-02-04</time>
-            </footer>
-        </div>
-    </a>
-</article>
-        
-    </section>
-<footer class="site-footer">
-    <section class="copyright">
-        &copy; 
-        
-            2025 - 
-        
-        2026 Jul1en
-    </section>
-    
-    <section class="powerby">
-        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
-        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.32.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
-    </section>
-</footer>
 
+
+
+
+
+
+
+
+
+<button id="dark-mode-toggle" class="editorial-dark-mode-toggle" type="button" aria-label="暗色模式" title="暗色模式">
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+    <span>暗色模式</span>
+</button>
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
 
         </main>
     </div>

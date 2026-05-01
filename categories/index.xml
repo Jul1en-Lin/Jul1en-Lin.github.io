@@ -7,6 +7,14 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>Jul1en</copyright><atom:link href="https://Jul1en-Lin.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Redis</title>
+        <link>https://Jul1en-Lin.github.io/categories/redis/</link>
+        <pubDate>Tue, 21 Apr 2026 09:38:54 +0000</pubDate>
+        
+        <guid>https://Jul1en-Lin.github.io/categories/redis/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Git</title>
         <link>https://Jul1en-Lin.github.io/categories/git/</link>
         <pubDate>Fri, 03 Apr 2026 00:18:50 +0800</pubDate>

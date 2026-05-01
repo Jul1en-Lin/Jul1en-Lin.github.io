@@ -7,7 +7,86 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>Jul1en</copyright>
-        <lastBuildDate>Tue, 28 Apr 2026 14:13:47 +0800</lastBuildDate><atom:link href="https://Jul1en-Lin.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 01 May 2026 17:51:54 +0800</lastBuildDate><atom:link href="https://Jul1en-Lin.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Redis 进阶</title>
+        <link>https://Jul1en-Lin.github.io/p/redis-%E8%BF%9B%E9%98%B6/</link>
+        <pubDate>Tue, 21 Apr 2026 09:38:54 +0000</pubDate>
+        
+        <guid>https://Jul1en-Lin.github.io/p/redis-%E8%BF%9B%E9%98%B6/</guid>
+        <description>&lt;h1 id=&#34;redis-进阶&#34;&gt;Redis 进阶
+&lt;/h1&gt;&lt;h1 id=&#34;持久化&#34;&gt;持久化
+&lt;/h1&gt;&lt;p&gt;Redis 的持久化有两个策略&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;RDB -&amp;gt; Redis DataBase&lt;/li&gt;
+&lt;li&gt;AOF -&amp;gt; Append Only File&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;rdb&#34;&gt;RDB
+&lt;/h2&gt;&lt;p&gt;RDB 的触发时机有两种，一种是手动存储，一种是定时存储。将数据备份到数据库中，通常存在一个后缀名为 .rdb的文件&lt;/p&gt;
+&lt;p&gt;定时存储通过配置文件修改&lt;/p&gt;
+&lt;p&gt;主要讲手动存储，它有两个命令，&lt;code&gt;save&lt;/code&gt; 和 &lt;code&gt;bgsave&lt;/code&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;save：执行&lt;code&gt;save&lt;/code&gt;操作，Redis 会全力以赴的进行快照&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;生成的工作，此时就会阻塞 Redis 客户端的其他命令，达到类似 &lt;code&gt;keys *&lt;/code&gt; 的效果&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;bgsave：bgsave 就是background save，在后台生成一个&lt;u&gt;&lt;strong&gt;新的进程&lt;/strong&gt;&lt;/u&gt;，来进行并发的编程。新的进程会 fork 一份父进程的完整数据（包括 pcb，内存中的虚拟地址，文件描述符表等&amp;hellip;..），将完整数据存入到 .rdb 文件中，当bgsave执行过程中，若有其他的数据插入，则可能会有迟滞性，因为新的数据不同步到子进程。&lt;/p&gt;
+&lt;p&gt;注意：由于子进程有着跟父类一样的文件描述符表，故子进程也可以对文件进行读写操作。&lt;/p&gt;
+&lt;p&gt;执行逻辑为：判定是否存在其他的子进程，若存在则将当前的bgsave返回，否则新建一个子进程。&lt;/p&gt;
+&lt;p&gt;此处的 fork 拷贝操作是“写时拷贝”的机制实现的——即如果父进程与子进程里的数据是一模一样的，父进程与子进程会共用同一份内存空间，当对内存数据做出修改后，才会触发真正的物理内存的拷贝。新的数据会插入到父进程中，子进程数据保持原有的数据不更新。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/redis-%E8%BF%9B%E9%98%B6/assets/image-20260421181344-uy0eg7i.png&#34; width=&#34;1510&#34;  height=&#34;1126&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/redis-%E8%BF%9B%E9%98%B6/assets/image-20260421181344-uy0eg7i_hu_d06043d40593dd9e.png 800w, https://Jul1en-Lin.github.io/p/redis-%E8%BF%9B%E9%98%B6/assets/image-20260421181344-uy0eg7i_hu_b9385b6648930992.png 1600w, https://Jul1en-Lin.github.io/p/redis-%E8%BF%9B%E9%98%B6/assets/image-20260421181344-uy0eg7i_hu_bcfb8dd27b33a494.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;image&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;134&#34;
+	data-flex-basis=&#34;321px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;RDB 这个二进制文件默认通过二进制的方式将内存中的数据以压缩的形式保存&lt;/p&gt;
+&lt;p&gt;后续 Redis 重启，会重新加载这个 RDB 文件，若 RDB 损坏则可能启动失败。针对 RDB 损坏的问题，自带了一个 RDB 的检查工具&lt;code&gt;redis-check-rdb*&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;RDB 的持久化操作是可以重复执行的，此时会生成一个 RDB 镜像文件，将快照数据先保存至一个临时的文件中，当快照生成完毕后，将旧的 RDB 文件删除，将临时的文件夹改名为&lt;code&gt;dump.rdb&lt;/code&gt;（默认文件名）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;RDB 的优缺点：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;RDB 是紧凑压缩过的二进制文件，代表了 Redis 中某个时间点上的数据快照，非常适用于备份&lt;/li&gt;
+&lt;li&gt;Redis 加载 RDB 恢复数据远远快于 AOP&lt;/li&gt;
+&lt;li&gt;RDB 的这种方式存储就决定了它的数据备份无法达到数据的实时持久化，因为每次的 bgsave 操作都要 fork 一个子进程出来，这是一个重量级的操作&lt;/li&gt;
+&lt;li&gt;RDB 使用的是特定的二进制格式保存，且随着时间迁移，Redis 会有多个 RDB 版本，可能会有兼容性问题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;aof&#34;&gt;AOF
+&lt;/h2&gt;&lt;p&gt;AOF 以日志形式记录 Redis 的&lt;strong&gt;写操作命令&lt;/strong&gt;，重启时重新执行这些命令恢复数据，默认是后缀为 .aof的文件。&lt;/p&gt;
+&lt;p&gt;写入策略通过配置文件设置，有三种模式：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;always&lt;/code&gt;：每次写命令都立即刷盘，数据最安全，但性能开销最大&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;everysec&lt;/code&gt;：每秒刷盘一次（默认），最多丢失 1 秒数据，兼顾性能与安全&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;no&lt;/code&gt;：由操作系统决定刷盘时机，性能最高，但数据安全性最低&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;AOF 重写&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;随着写操作增多，AOF 文件会持续膨胀。Redis 提供重写机制压缩文件体积，命令为 &lt;code&gt;bgrewriteaof&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/redis-%E8%BF%9B%E9%98%B6/assets/image-20260501173736-zvzy0py.png&#34; width=&#34;1321&#34;  height=&#34;916&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/redis-%E8%BF%9B%E9%98%B6/assets/image-20260501173736-zvzy0py_hu_65cf07ac1fc83723.png 800w, https://Jul1en-Lin.github.io/p/redis-%E8%BF%9B%E9%98%B6/assets/image-20260501173736-zvzy0py_hu_4ce27473f7077342.png 1600w, https://Jul1en-Lin.github.io/p/redis-%E8%BF%9B%E9%98%B6/assets/image-20260501173736-zvzy0py_hu_e69a41f930493c37.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;image&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;144&#34;
+	data-flex-basis=&#34;346px&#34; &gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;类似 &lt;code&gt;bgsave&lt;/code&gt;，fork 出一个子进程，基于&lt;strong&gt;当前内存数据&lt;/strong&gt;生成最新且最精简的命令集&lt;/li&gt;
+&lt;li&gt;重写期间的新写入命令会同时写入旧的 AOF 文件和 AOF 重写缓冲区&lt;/li&gt;
+&lt;li&gt;子进程完成重写后，将缓冲区的增量命令追加到新文件，最后用新文件替换旧文件&lt;/li&gt;
+&lt;li&gt;同样利用&amp;quot;写时拷贝&amp;quot;机制，避免全量内存复制&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;AOF 文件以&lt;strong&gt;文本协议&lt;/strong&gt;存储，具备可读性，但体积通常比 RDB 大。若文件损坏，可使用自带的 &lt;code&gt;redis-check-aof&lt;/code&gt; 工具修复。&lt;/p&gt;
+&lt;p&gt;Redis 重启时若同时存在 AOF 和 RDB，&lt;strong&gt;默认优先加载 AOF。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;AOF 的优缺点：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数据安全性更高，通过合理的 &lt;code&gt;appendfsync&lt;/code&gt; 策略可实现近实时持久化&lt;/li&gt;
+&lt;li&gt;文件为文本格式，易读且兼容性好，没有 RDB 的版本兼容问题&lt;/li&gt;
+&lt;li&gt;文件体积通常大于 RDB，恢复速度比 RDB 慢（需逐条重放命令）&lt;/li&gt;
+&lt;li&gt;在高并发写入场景下，&lt;code&gt;always&lt;/code&gt; 策略会显著影响性能；&lt;code&gt;everysec&lt;/code&gt; 模式下若发生故障仍可能丢失 1 秒数据&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;‍&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;h1 id=&#34;快照&#34;&gt;快照
+&lt;/h1&gt;&lt;p&gt;快照（Snapshot）是指系统在某一特定时刻的完整逻辑状态记录。它类似于对运行中的数据进行“拍照”，保留该瞬间的所有信息，即便后续原始数据发生变化，快照内容依然停留在抓拍的那一刻。&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        <item>
         <title>Agent 概念</title>
         <link>https://Jul1en-Lin.github.io/p/agent-%E6%A6%82%E5%BF%B5/</link>
         <pubDate>Sun, 12 Apr 2026 06:07:14 +0000</pubDate>
