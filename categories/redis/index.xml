@@ -7,7 +7,270 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>Jul1en</copyright>
-        <lastBuildDate>Fri, 01 May 2026 17:51:54 +0800</lastBuildDate><atom:link href="https://Jul1en-Lin.github.io/categories/redis/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 12 May 2026 23:48:26 +0800</lastBuildDate><atom:link href="https://Jul1en-Lin.github.io/categories/redis/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Reids 事务</title>
+        <link>https://Jul1en-Lin.github.io/p/reids-%E4%BA%8B%E5%8A%A1/</link>
+        <pubDate>Tue, 12 May 2026 07:48:34 +0000</pubDate>
+        
+        <guid>https://Jul1en-Lin.github.io/p/reids-%E4%BA%8B%E5%8A%A1/</guid>
+        <description>&lt;h1 id=&#34;reids-事务&#34;&gt;Reids 事务
+&lt;/h1&gt;&lt;h2 id=&#34;核心意义&#34;&gt;核心意义
+&lt;/h2&gt;&lt;p&gt;Redis 事务的主要作用，是把多条命令“打包”为一组，然后按照顺序执行。它解决的核心问题不是像 MySQL 那样提供完整的强事务能力，而是在执行这一组命令时，尽量避免其他客户端的命令插入到这组操作中间。&lt;/p&gt;
+&lt;p&gt;可以先用一个生活例子理解。&lt;/p&gt;
+&lt;p&gt;你和朋友约好晚上去吃烧烤。你先到了烧烤店，点了牛肉串、羊肉串、五花肉等，但是你告诉服务员：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“我人还没齐，你先把单子记下来，先别急着烤。”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;过了一会儿，朋友到了，又加了一些主菜和烤腰子。最后你说：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“好了，开始烤吧。”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这个过程里，前面点的和后面追加的菜，会被当成同一组订单一起处理。重点是：这组订单中间不会被别人插队。&lt;/p&gt;
+&lt;p&gt;对应到 Redis 事务里也是类似的：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;MULTI        开启事务
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;命令1         进入队列
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;命令2         进入队列
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;命令3         进入队列
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;EXEC         执行事务
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在 &lt;code&gt;MULTI&lt;/code&gt; 之后、&lt;code&gt;EXEC&lt;/code&gt; 之前，客户端发送的命令不会立刻执行，而是先进入事务队列。只有当 Redis 收到 &lt;code&gt;EXEC&lt;/code&gt; 命令时，才会把队列里的命令按顺序执行。&lt;/p&gt;
+&lt;p&gt;对应图片：&lt;br&gt;
+&lt;img src=&#34;https://Jul1en-Lin.github.io/p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512224943-2vftui1_hu_ccdec4a13c02d68c.webp&#34; width=&#34;1600&#34; height=&#34;1133&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512224943-2vftui1_hu_19a5d7e9d45aa479.webp 800w, https://Jul1en-Lin.github.io/p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512224943-2vftui1_hu_ccdec4a13c02d68c.webp 1600w, https://Jul1en-Lin.github.io/p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512224943-2vftui1_hu_b05763630f54b252.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;141&#34; data-flex-basis=&#34;338px&#34;&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;执行机制&#34;&gt;执行机制
+&lt;/h2&gt;&lt;p&gt;再说说它的执行机制，Redis 事务的基本流程是：&lt;/p&gt;
+&lt;p&gt;客户端发送 MULTI -&amp;gt; Redis 开启事务状态 -&amp;gt; 后续命令进入队列，返回 QUEUED -&amp;gt; 客户端发送 EXEC -&amp;gt; Redis 按顺序执行队列中的命令 -&amp;gt; 返回执行结果&lt;/p&gt;
+&lt;p&gt;执行过程可以理解为：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;MULTI：告诉 Redis，我要开始打包命令了
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;SET name lin：先别执行，放进队列
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;INCR count：先别执行，放进队列
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;EXPIRE name 60：先别执行，放进队列
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;EXEC：现在开始按顺序执行队列里的命令
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在事务执行期间，Redis 会连续执行这组命令，中间不会穿插其他客户端的命令。这个特性和 Redis 的单线程命令执行模型有关。但是要注意，Redis 事务不是 MySQL 那种完整强事务。它更像是：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;命令队列 + 顺序提交。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;对应图片：&lt;br&gt;
+&lt;img src=&#34;https://Jul1en-Lin.github.io/p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512225249-y395qsd_hu_bdf8c84484dce3bf.webp&#34; width=&#34;1600&#34; height=&#34;1137&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512225249-y395qsd_hu_d8986a76ed043dce.webp 800w, https://Jul1en-Lin.github.io/p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512225249-y395qsd_hu_bdf8c84484dce3bf.webp 1600w, https://Jul1en-Lin.github.io/p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512225249-y395qsd_hu_f312b6cb743ec9bd.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;140&#34; data-flex-basis=&#34;337px&#34;&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;常用命令&#34;&gt;常用命令
+&lt;/h2&gt;&lt;p&gt;Redis 事务相关的核心命令主要有 5 个&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;命令&lt;/th&gt;
+          &lt;th&gt;作用&lt;/th&gt;
+          &lt;th&gt;理解&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;MULTI&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;开启事务&lt;/td&gt;
+          &lt;td&gt;后续命令不立即执行，而是进入队列&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;EXEC&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;执行事务&lt;/td&gt;
+          &lt;td&gt;按顺序执行队列里的所有命令&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;DISCARD&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;取消事务&lt;/td&gt;
+          &lt;td&gt;清空事务队列，不执行&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;WATCH&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;监视 key&lt;/td&gt;
+          &lt;td&gt;用于实现乐观锁&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;UNWATCH&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;取消监视&lt;/td&gt;
+          &lt;td&gt;取消对 key 的监控&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;MULTI：开启事务&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;表示开启一个事务。&lt;/p&gt;
+&lt;p&gt;执行 &lt;code&gt;MULTI&lt;/code&gt; 后，客户端再发送的命令会进入事务队列，而不是立刻执行。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;MULTI
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;SET k1 v1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;SET k2 v2
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这时候 Redis 通常会返回：QUEUED，表示命令已经入队啦！没等到 &lt;code&gt;EXEC&lt;/code&gt; 我是不会执行的！&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;EXEC：提交并执行事务&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;表示提交事务。&lt;/p&gt;
+&lt;p&gt;执行 &lt;code&gt;EXEC&lt;/code&gt; 后，Redis 会把事务队列中的命令按照进入队列的顺序依次执行。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;MULTI
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;SET name tom
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;INCR count
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;EXEC
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;真正修改数据的时间点不是 &lt;code&gt;SET&lt;/code&gt; 和 &lt;code&gt;INCR&lt;/code&gt; 发出时，而是 &lt;code&gt;EXEC&lt;/code&gt; 发出之后。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;DISCARD：取消事务&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;表示取消当前事务，并清空事务队列。&lt;/p&gt;
+&lt;p&gt;例如：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;MULTI
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;SET name tom
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;INCR count
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;DISCARD
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;执行 &lt;code&gt;DISCARD&lt;/code&gt; 后，前面入队的 &lt;code&gt;SET name tom&lt;/code&gt; 和 &lt;code&gt;INCR count&lt;/code&gt; 都不会执行。同时要注意，如果开启事务后，服务器突然挂了，重新启动事务就不存在咯，也相当于discard的效果！&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;WATCH：监视 key&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;用于监视一个或多个 key，常用来实现乐观锁。&lt;/p&gt;
+&lt;p&gt;基本思想是：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我先看一下这个 key 的值，然后准备修改它。如果在我提交事务之前，这个 key 被别人改过了，那我的事务就提交失败。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;具体如何使用呢？在开启事务前watch一下key即可~&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;WATCH stock
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;GET stock
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;MULTI
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;DECR stock
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;EXEC
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果在 &lt;code&gt;WATCH stock&lt;/code&gt; 之后、&lt;code&gt;EXEC&lt;/code&gt; 之前，有其他客户端修改了 &lt;code&gt;stock&lt;/code&gt;，那么当前客户端的 &lt;code&gt;EXEC&lt;/code&gt; 会失败。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;UNWATCH：取消监视&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;用于取消对 key 的监视。通常当你不想继续执行当前事务逻辑时，可以使用它取消监控。&lt;/p&gt;
+&lt;h2 id=&#34;与-mysql-事务的区别&#34;&gt;与 MySQL 事务的区别
+&lt;/h2&gt;&lt;p&gt;它们不是一个级别的东西，Redis 事务更轻量、更简单；MySQL 事务更完整、更严格。&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;对比项&lt;/th&gt;
+          &lt;th&gt;Redis 事务&lt;/th&gt;
+          &lt;th&gt;MySQL 事务&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;定位&lt;/td&gt;
+          &lt;td&gt;命令打包 + 顺序执行&lt;/td&gt;
+          &lt;td&gt;完整数据库事务&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;原子性&lt;/td&gt;
+          &lt;td&gt;更像“整体提交，不被插队”，只强调全部执行&lt;/td&gt;
+          &lt;td&gt;强调真正的 all-or-nothing，确保全部都可以正确执行&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;回滚&lt;/td&gt;
+          &lt;td&gt;不支持 MySQL 那样的自动回滚&lt;/td&gt;
+          &lt;td&gt;支持回滚&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;隔离性&lt;/td&gt;
+          &lt;td&gt;依赖 Redis 单线程顺序执行，只是事务执行期间不被插队&lt;/td&gt;
+          &lt;td&gt;有完整隔离级别，如读已提交、可重复读等&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;一致性&lt;/td&gt;
+          &lt;td&gt;通常不作为强一致事务理解&lt;/td&gt;
+          &lt;td&gt;ACID 语义更完整&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;适用场景&lt;/td&gt;
+          &lt;td&gt;缓存、计数器、轻量批量更新&lt;/td&gt;
+          &lt;td&gt;订单、支付、转账等强事务业务&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;对应图片：&lt;br&gt;
+&lt;img src=&#34;https://Jul1en-Lin.github.io/p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512230310-1ozjs43_hu_f7d4d4911c0a6908.webp&#34; width=&#34;1600&#34; height=&#34;1126&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512230310-1ozjs43_hu_bcf4b9b1b6adefc6.webp 800w, https://Jul1en-Lin.github.io/p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512230310-1ozjs43_hu_f7d4d4911c0a6908.webp 1600w, https://Jul1en-Lin.github.io/p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512230310-1ozjs43_hu_7ebc8fbe9cb06259.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;142&#34; data-flex-basis=&#34;340px&#34;&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;原子性&#34;&gt;原子性
+&lt;/h2&gt;&lt;p&gt;这个地方很容易混乱，也是课堂板书里重点强调的地方。&lt;/p&gt;
+&lt;h3 id=&#34;单条-redis-命令通常具有原子性&#34;&gt;单条 Redis 命令通常具有原子性
+&lt;/h3&gt;&lt;p&gt;Redis 本身是单线程执行命令的，同一时刻只会处理一个命令。&lt;/p&gt;
+&lt;p&gt;所以像下面这种单条命令：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;INCR count
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;它本身通常可以理解为原子操作。不会出现加到一半被其他命令插进来的情况。&lt;/p&gt;
+&lt;h3 id=&#34;redis-事务的原子性比较弱&#34;&gt;Redis 事务的“原子性”比较弱
+&lt;/h3&gt;&lt;p&gt;Redis 事务的原子性，不能完全按照 MySQL 的事务原子性理解。&lt;/p&gt;
+&lt;p&gt;Redis 事务可以做到一组命令按顺序执行，执行过程中不会被其他客户端命令插队&lt;/p&gt;
+&lt;p&gt;但是它做不到 MySQL 那种要么全部成功、要么失败后全部回滚，它只确认命令能全部执行，但不保证完全对~&lt;/p&gt;
+&lt;p&gt;这就是 Redis 事务和 MySQL 事务非常大的区别。&lt;/p&gt;
+&lt;h3 id=&#34;53-mysql-的原子性更严格&#34;&gt;5.3 MySQL 的原子性更严格
+&lt;/h3&gt;&lt;p&gt;MySQL 事务强调的是要么全部成功、要么全部失败，而且支持失败后可以回滚的功能&lt;/p&gt;
+&lt;p&gt;Redis 并没有实现这种功能，虽然这种功能强大，但也是需要一定的性能开销，所以 Redis 没有实现这种功能开发者可能也有一定的考虑~&lt;/p&gt;
+&lt;h2 id=&#34;6-watch-实现思想乐观锁&#34;&gt;6. WATCH 实现思想：乐观锁
+&lt;/h2&gt;&lt;p&gt;详细来说，Redis 的 watch 是基于版本号&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;这样的机制实现了乐观锁&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;版本号这个概念在 CAS&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt; 中的 ABA 问题&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;也涉及过，其思想方法和实现方式上是十分相似的~&lt;/p&gt;
+&lt;p&gt;虽然说我之前的博客也有对乐观锁、CAS 和 ABA 问题有详细的讲解，但不影响阅读体验，就在这简略介绍下&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512234646-cgzlkhb_hu_7a587c5d83239bab.webp&#34; width=&#34;1600&#34; height=&#34;1116&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512234646-cgzlkhb_hu_f56b93dbc40a235d.webp 800w, https://Jul1en-Lin.github.io/p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512234646-cgzlkhb_hu_7a587c5d83239bab.webp 1600w, https://Jul1en-Lin.github.io/p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512234646-cgzlkhb_hu_b96e33dc4a4e5a92.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;143&#34; data-flex-basis=&#34;344px&#34;&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;什么是乐观锁&#34;&gt;什么是乐观锁？
+&lt;/h3&gt;&lt;p&gt;乐观锁的想法是：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我先假设冲突不会发生，所以不提前把资源锁死；等真正提交时，再检查有没有被别人改过。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;悲观锁是：我觉得一定会有人抢，所以我先加锁。别人想操作，必须等我释放锁。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;乐观锁是：我觉得大概率不会冲突，所以大家都可以先操作，提交时再检查有没有冲突，如果冲突了，我就失败重试。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;WATCH&lt;/code&gt; 更接近乐观锁，不会像传统互斥锁那样阻塞所有人&lt;/p&gt;
+&lt;h3 id=&#34;版本号&#34;&gt;版本号
+&lt;/h3&gt;&lt;p&gt;当执行 &lt;code&gt;watch key&lt;/code&gt;时，这时就会给 key 分配一个版本号，此处的版本号可以理解为“一个整数”，key 在每次修改后，版本号就会+1，此处假设 watch 之后 key 的版本号默认为1。&lt;/p&gt;
+&lt;p&gt;然后有两个客户端，客户端1执行了watch key，然后开启了事务，客户端2对key进行了更新操作，此时版本号+1。客户端1在队列中也安排了key的更新操作，然后客户端1 执行 exec，（exec 执行时间在客户端2对 key 更新操作之后）。此时 exec 在执行事务命令之后就会做出判定，判定watch时候的版本号与现在的版本号是否一致：如果一致，说明当前key在事务开启到最终执行的这个过程中都没有别的客户端进行修改，就能正常执行；反之，如果不一致，说明 key 在其他客户端就改过了，因此就丢弃了这个事务的操作，返回 nil ~&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512234621-c3hytfo_hu_d515ece130abd106.webp&#34; width=&#34;1600&#34; height=&#34;1125&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512234621-c3hytfo_hu_dbb9cc4ae0fefc76.webp 800w, https://Jul1en-Lin.github.io/p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512234621-c3hytfo_hu_d515ece130abd106.webp 1600w, https://Jul1en-Lin.github.io/p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512234621-c3hytfo_hu_ceb34395ea1b760c.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;142&#34; data-flex-basis=&#34;341px&#34;&gt;
+&lt;/p&gt;
+&lt;p&gt;所以 &lt;code&gt;watch&lt;/code&gt; 本质上不是给 key 上了一层字面意义上的 “锁”，而是观察 key 是否被改过！&lt;/p&gt;
+&lt;p&gt;它能解决一部分问题，但不能自动解决所有问题。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;MULTI/EXEC&lt;/code&gt; 能保证：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;多条命令作为一组提交
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;按照顺序执行
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;执行过程中不被其他客户端命令插队
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;但是库存问题的关键通常不是简单地“几条命令一起执行”，而是：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;先判断库存是否足够
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;再决定要不要扣减
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;而 Redis 事务有一个限制：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;事务中的命令是先入队，EXEC 时才执行。客户端不能在事务执行过程中，根据上一条命令的结果临时决定下一条命令是否执行。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;也就是说，下面这种思路在 Redis 事务里不够自然：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;MULTI
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;GET stock
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;如果 stock &amp;gt; 0:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    DECR stock
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;EXEC
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;因为 &lt;code&gt;GET stock&lt;/code&gt; 在 &lt;code&gt;EXEC&lt;/code&gt; 前只是进入队列，并没有真正返回可用于客户端判断的结果。&lt;/p&gt;
+&lt;p&gt;所以，单靠 &lt;code&gt;MULTI/EXEC&lt;/code&gt; 不适合处理复杂的“先读结果，再根据结果决定是否写”的业务。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512232618-w3cyzvl_hu_7d05acef560f9a08.webp&#34; width=&#34;1600&#34; height=&#34;1127&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512232618-w3cyzvl_hu_128924a2d90dfd70.webp 800w, https://Jul1en-Lin.github.io/p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512232618-w3cyzvl_hu_7d05acef560f9a08.webp 1600w, https://Jul1en-Lin.github.io/p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512232618-w3cyzvl_hu_c7ddcb632d61a3d6.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;142&#34; data-flex-basis=&#34;340px&#34;&gt;
+&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;ABA的核心是：&lt;br&gt;
+在通过A的值相同判定是否有插队，由于次数的修改有加也有减，就可能会出现ABA的问题，那么有一些解决方案：限制此处的操作（只能加或者只能减）、或者引入“版本号”概念，每次修改都让“版本号”+1，再次使用判定的时候就不是用值来判定了，而是看版本号&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;h1 id=&#34;乐观锁--悲观锁&#34;&gt;乐观锁 &amp;amp; 悲观锁
+&lt;/h1&gt;&lt;p&gt;加锁的时候预测这个锁出现竞争性的可能性大还是小？&lt;/p&gt;
+&lt;p&gt;预测这个锁出现竞争可能性小 —— 乐观锁&lt;/p&gt;
+&lt;p&gt;预测这个锁出现竞争可能性大 —— 悲观锁&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;
+&lt;p&gt;CAS是什么？&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34;&gt;
+&lt;p&gt;CAS的ABA问题是怎么样的&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        <item>
         <title>Redis 进阶</title>
         <link>https://Jul1en-Lin.github.io/p/redis-%E8%BF%9B%E9%98%B6/</link>
         <pubDate>Tue, 21 Apr 2026 09:38:54 +0000</pubDate>
@@ -33,8 +296,8 @@
 &lt;p&gt;注意：由于子进程有着跟父类一样的文件描述符表，故子进程也可以对文件进行读写操作。&lt;/p&gt;
 &lt;p&gt;执行逻辑为：判定是否存在其他的子进程，若存在则将当前的bgsave返回，否则新建一个子进程。&lt;/p&gt;
 &lt;p&gt;此处的 fork 拷贝操作是“写时拷贝”的机制实现的——即如果父进程与子进程里的数据是一模一样的，父进程与子进程会共用同一份内存空间，当对内存数据做出修改后，才会触发真正的物理内存的拷贝。新的数据会插入到父进程中，子进程数据保持原有的数据不更新。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/redis-%E8%BF%9B%E9%98%B6/assets/image-20260421181344-uy0eg7i.png&#34; width=&#34;1510&#34;  height=&#34;1126&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/redis-%E8%BF%9B%E9%98%B6/assets/image-20260421181344-uy0eg7i_hu_d06043d40593dd9e.png 800w, https://Jul1en-Lin.github.io/p/redis-%E8%BF%9B%E9%98%B6/assets/image-20260421181344-uy0eg7i_hu_b9385b6648930992.png 1600w, https://Jul1en-Lin.github.io/p/redis-%E8%BF%9B%E9%98%B6/assets/image-20260421181344-uy0eg7i_hu_bcfb8dd27b33a494.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;image&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;134&#34;
-	data-flex-basis=&#34;321px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/redis-%E8%BF%9B%E9%98%B6/assets/image-20260421181344-uy0eg7i_hu_eb9540132bba30b6.webp&#34; width=&#34;1600&#34; height=&#34;1193&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/redis-%E8%BF%9B%E9%98%B6/assets/image-20260421181344-uy0eg7i_hu_782708db10f96272.webp 800w, https://Jul1en-Lin.github.io/p/redis-%E8%BF%9B%E9%98%B6/assets/image-20260421181344-uy0eg7i_hu_eb9540132bba30b6.webp 1600w, https://Jul1en-Lin.github.io/p/redis-%E8%BF%9B%E9%98%B6/assets/image-20260421181344-uy0eg7i_hu_fac2cd78bee8f5df.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;134&#34; data-flex-basis=&#34;321px&#34;&gt;
+&lt;/p&gt;
 &lt;p&gt;RDB 这个二进制文件默认通过二进制的方式将内存中的数据以压缩的形式保存&lt;/p&gt;
 &lt;p&gt;后续 Redis 重启，会重新加载这个 RDB 文件，若 RDB 损坏则可能启动失败。针对 RDB 损坏的问题，自带了一个 RDB 的检查工具&lt;code&gt;redis-check-rdb*&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;RDB 的持久化操作是可以重复执行的，此时会生成一个 RDB 镜像文件，将快照数据先保存至一个临时的文件中，当快照生成完毕后，将旧的 RDB 文件删除，将临时的文件夹改名为&lt;code&gt;dump.rdb&lt;/code&gt;（默认文件名）&lt;/p&gt;
@@ -57,8 +320,8 @@
 &lt;/ol&gt;
 &lt;p&gt;&lt;strong&gt;AOF 重写&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;随着写操作增多，AOF 文件会持续膨胀。Redis 提供重写机制压缩文件体积，命令为 &lt;code&gt;bgrewriteaof&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/redis-%E8%BF%9B%E9%98%B6/assets/image-20260501173736-zvzy0py.png&#34; width=&#34;1321&#34;  height=&#34;916&#34;  srcset=&#34;https://Jul1en-Lin.github.io/p/redis-%E8%BF%9B%E9%98%B6/assets/image-20260501173736-zvzy0py_hu_65cf07ac1fc83723.png 800w, https://Jul1en-Lin.github.io/p/redis-%E8%BF%9B%E9%98%B6/assets/image-20260501173736-zvzy0py_hu_4ce27473f7077342.png 1600w, https://Jul1en-Lin.github.io/p/redis-%E8%BF%9B%E9%98%B6/assets/image-20260501173736-zvzy0py_hu_e69a41f930493c37.png 2400w&#34;  loading=&#34;lazy&#34;  alt=&#34;image&#34;   class=&#34;gallery-image&#34; data-flex-grow=&#34;144&#34;
-	data-flex-basis=&#34;346px&#34; &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/redis-%E8%BF%9B%E9%98%B6/assets/image-20260501173736-zvzy0py_hu_53f1568812e10966.webp&#34; width=&#34;1600&#34; height=&#34;1109&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/redis-%E8%BF%9B%E9%98%B6/assets/image-20260501173736-zvzy0py_hu_451fcfd967d32230.webp 800w, https://Jul1en-Lin.github.io/p/redis-%E8%BF%9B%E9%98%B6/assets/image-20260501173736-zvzy0py_hu_53f1568812e10966.webp 1600w, https://Jul1en-Lin.github.io/p/redis-%E8%BF%9B%E9%98%B6/assets/image-20260501173736-zvzy0py_hu_a6269818dfb7ed41.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;144&#34; data-flex-basis=&#34;346px&#34;&gt;
+&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;类似 &lt;code&gt;bgsave&lt;/code&gt;，fork 出一个子进程，基于&lt;strong&gt;当前内存数据&lt;/strong&gt;生成最新且最精简的命令集&lt;/li&gt;
 &lt;li&gt;重写期间的新写入命令会同时写入旧的 AOF 文件和 AOF 重写缓冲区&lt;/li&gt;

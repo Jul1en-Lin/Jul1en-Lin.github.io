@@ -1,289 +1,220 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr" data-scheme="dark">
+<html lang="en-us" dir="ltr">
 
 <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="MyBatis MyBatis 是一款半自动对象关系映射持久层框架，其核心通过 XML 或注解实现原生 SQL 与 Java 对象的解耦映射，在消除冗余 JDBC 代码的同时，保留了对 SQL 执行逻辑的控制\n接下来先讲传统Mybatis的配置\n">
-<title>🥓 MyBatis/plus 及配置</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="MyBatis MyBatis 是一款半自动对象关系映射持久层框架，其核心通过 XML 或注解实现原生 SQL 与 Java 对象的解耦映射，在消除冗余 JDBC 代码的同时，保留了对 SQL 执行逻辑的控制 接下来先讲传统Mybatis的配置">
+<title>🥓 MyBatis/plus 及配置 | Jul1en</title>
 
 <link rel='canonical' href='https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/'>
 
-<link rel="stylesheet" href="/scss/style.min.502a380229eacc0e12af50d218c823259247c480ba28a71cc1a8f31e36902a3e.css"><meta property='og:title' content="🥓 MyBatis/plus 及配置">
-<meta property='og:description' content="MyBatis MyBatis 是一款半自动对象关系映射持久层框架，其核心通过 XML 或注解实现原生 SQL 与 Java 对象的解耦映射，在消除冗余 JDBC 代码的同时，保留了对 SQL 执行逻辑的控制\n接下来先讲传统Mybatis的配置\n">
+<link rel="stylesheet" href="/scss/style.min.35e176eae627f0ca2a1fbda52d9af8ddef4f4a6604a605260cd42cf3d00b683a.css"><meta property='og:title' content="🥓 MyBatis/plus 及配置 | Jul1en">
+<meta property='og:description' content="MyBatis MyBatis 是一款半自动对象关系映射持久层框架，其核心通过 XML 或注解实现原生 SQL 与 Java 对象的解耦映射，在消除冗余 JDBC 代码的同时，保留了对 SQL 执行逻辑的控制 接下来先讲传统Mybatis的配置">
 <meta property='og:url' content='https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/'>
 <meta property='og:site_name' content='Jul1en'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-02-05T22:48:02&#43;08:00'/><meta property='article:modified_time' content='2026-02-05T22:57:23&#43;08:00'/>
-<meta name="twitter:title" content="🥓 MyBatis/plus 及配置">
-<meta name="twitter:description" content="MyBatis MyBatis 是一款半自动对象关系映射持久层框架，其核心通过 XML 或注解实现原生 SQL 与 Java 对象的解耦映射，在消除冗余 JDBC 代码的同时，保留了对 SQL 执行逻辑的控制\n接下来先讲传统Mybatis的配置\n">
-
-<script>
+<meta name="twitter:title" content="🥓 MyBatis/plus 及配置 | Jul1en">
+<meta name="twitter:description" content="MyBatis MyBatis 是一款半自动对象关系映射持久层框架，其核心通过 XML 或注解实现原生 SQL 与 Java 对象的解耦映射，在消除冗余 JDBC 代码的同时，保留了对 SQL 执行逻辑的控制 接下来先讲传统Mybatis的配置"><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<meta name="author" content="Jul1en">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)"><script src="/js/custom.77669e75e8d67de70fbaba61f97bc81baa9b5f9fc7e3afee3da166b02cceae50.js" integrity="sha256-d2aedejWfecPurph&#43;XvIG6qbX5/H46/uPaFmsCzOrlA=" defer></script><script>
     (function () {
         const colorSchemeKey = 'StackColorScheme';
-        if (!localStorage.getItem(colorSchemeKey)) {
-            
-            const now = new Date();
-            const utcHour = now.getUTCHours();
-            const beijingHour = (utcHour + 8) % 24;
-
-            
-            
-            const isDarkTime = beijingHour >= 21 || beijingHour < 8;
-            const scheme = isDarkTime ? 'dark' : 'light';
-            localStorage.setItem(colorSchemeKey, scheme);
-        }
-    })();
-</script><script>
-    (function () {
-        const colorSchemeKey = 'StackColorScheme';
-        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const savedScheme = localStorage.getItem(colorSchemeKey);
+        const defaultScheme = "light";
         const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+        const scheme = savedScheme || defaultScheme;
 
-        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
-            
-
+        if (scheme === 'dark' || (scheme === 'auto' && supportDarkMode)) {
             document.documentElement.dataset.scheme = 'dark';
         } else {
             document.documentElement.dataset.scheme = 'light';
         }
     })();
 </script>
+
 </head>
 
-<body class="article-page editorial-layout">
+<body class="melody-shell template-article-detail article-page">
+    <a class="skip-link" href="#main-content">Skip to content</a><header class="site-header" role="banner">
+    <div class="site-header__inner">
+        <a class="site-brand" href="/" aria-label="Jul1en home">
+            <span class="site-brand__text">Jul1en</span>
+        </a>
 
-    <div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
-    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
-        <span class="hamburger-box">
-            <span class="hamburger-inner"></span>
-        </span>
+        <div class="site-header__right">
+            <nav id="primary-navigation" class="site-nav" aria-label="Primary navigation">
+                <ul class="site-nav__list"><li class="site-nav__item">
+                            <a class="site-nav__link is-active" href="/post/" aria-current="page">
+                                Blog
+                            </a>
+                        </li><li class="site-nav__item">
+                            <a class="site-nav__link" href="/journal/">
+                                Journal
+                            </a>
+                        </li><li class="site-nav__item">
+                            <a class="site-nav__link" href="/music/">
+                                Music
+                            </a>
+                        </li></ul>
+            </nav>
+
+            <div class="site-actions" role="group" aria-label="Social links and theme"><a class="site-action-link" href="https://github.com/Jul1en-Lin" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+                        <span class="site-action-link__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+  <path fill="currentColor" d="M12 2.2c-5.5 0-9.9 4.5-9.9 9.9 0 4.4 2.8 8.1 6.8 9.4.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.2-3.4-1.2-.5-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 0 1.6 1.1 1.6 1.1.9 1.5 2.4 1.1 2.9.8.1-.7.4-1.1.7-1.4-2.2-.3-4.5-1.1-4.5-4.9 0-1.1.4-2 1.1-2.7-.1-.3-.5-1.3.1-2.7 0 0 .9-.3 2.8 1.1.8-.2 1.7-.3 2.5-.3s1.7.1 2.5.3c1.9-1.3 2.8-1.1 2.8-1.1.6 1.4.2 2.4.1 2.7.7.8 1.1 1.7 1.1 2.7 0 3.8-2.3 4.6-4.5 4.9.4.3.7.9.7 1.9V21c0 .3.2.6.7.5 4-1.3 6.8-5 6.8-9.4 0-5.4-4.4-9.9-9.9-9.9Z" />
+</svg>
+</span>
+                    </a><a class="site-action-link" href="https://www.instagram.com/jul1en_lin" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+                        <span class="site-action-link__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+  <path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M7.5 3.5h9A4 4 0 0 1 20.5 7.5v9a4 4 0 0 1-4 4h-9a4 4 0 0 1-4-4v-9a4 4 0 0 1 4-4Z" />
+  <path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M8.8 12a3.2 3.2 0 1 0 6.4 0 3.2 3.2 0 0 0-6.4 0Z" />
+  <path fill="currentColor" d="M17.2 7.2a.9.9 0 1 1-1.8 0 .9.9 0 0 1 1.8 0Z" />
+</svg>
+</span>
+                    </a><button id="dark-mode-toggle" class="theme-toggle" type="button" aria-label="暗色模式" title="暗色模式">
+                    <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="4.2" />
+    <path d="M12 2.8v2.2M12 19v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.8 12h2.2M19 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" />
+</svg>
+</span>
+                    <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M19.7 14.6c-1.3 2.9-4.6 4.8-8.1 4.2-4.3-.7-7.2-4.8-6.5-9.1.5-3.2 2.8-5.7 5.7-6.5-.9 2.1-.5 4.7 1.2 6.6 1.9 2.2 4.9 3 7.7 2.2-.1.9-.1 1.7 0 2.6z" />
+</svg>
+</span>
+                </button></div>
+
+            <button class="site-menu-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false">
+                <span class="site-menu-toggle__bar" aria-hidden="true"></span>
+                <span class="site-menu-toggle__bar" aria-hidden="true"></span>
+                <span class="site-menu-toggle__bar" aria-hidden="true"></span>
+                <span class="sr-only">Menu</span>
+            </button>
+        </div>
+    </div>
+</header>
+<div class="music-staff-bg" aria-hidden="true">
+    <svg viewBox="0 0 1440 360" preserveAspectRatio="none" focusable="false">
+        <path class="music-staff-bg__curve" d="M-80 210 C 180 110, 360 310, 620 190 S 1040 80, 1520 170" />
+        <g class="music-staff-bg__lines">
+            <path d="M-80 128 C 240 98, 520 158, 820 128 S 1220 98, 1520 128" />
+            <path d="M-80 146 C 240 116, 520 176, 820 146 S 1220 116, 1520 146" />
+            <path d="M-80 164 C 240 134, 520 194, 820 164 S 1220 134, 1520 164" />
+            <path d="M-80 182 C 240 152, 520 212, 820 182 S 1220 152, 1520 182" />
+            <path d="M-80 200 C 240 170, 520 230, 820 200 S 1220 170, 1520 200" />
+        </g>
+    </svg>
+</div>
+<div class="music-note-decor" aria-hidden="true">
+    <span class="music-note-decor__note music-note-decor__note--one">♪</span>
+    <span class="music-note-decor__note music-note-decor__note--two">♩</span>
+    <span class="music-note-decor__note music-note-decor__note--three">♬</span>
+</div>
+<main id="main-content" class="main main-content full-width" tabindex="-1"><article class="article-detail">
+    <aside class="article-detail__toc-rail" aria-label="文章目录" data-article-toc>
+    <a class="article-detail__toc-brand" href="/" aria-label="Jul1en home">
+        <span class="article-detail__toc-brand-text">Jul1en</span>
+        <span class="article-detail__toc-brand-note" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M14 4v11.4" />
+  <path d="M14 4l5 1.4v3.4L14 7.4" />
+  <path d="M9.2 17.6c0 1.3-1.4 2.4-3.1 2.4S3 18.9 3 17.6s1.4-2.4 3.1-2.4 3.1 1.1 3.1 2.4Z" />
+  <path d="M14 15.4c0 1.3-1.4 2.4-3.1 2.4-.7 0-1.4-.2-1.9-.5" />
+</svg>
+</span>
+    </a>
+
+    <span class="article-detail__toc-brand-rule" aria-hidden="true"></span>
+
+    <button class="article-detail__toc-toggle" type="button" aria-label="显示文章目录" aria-controls="TableOfContents" aria-expanded="false" data-article-toc-toggle>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
     </button>
 
-    <header>
-        
-            
-            <figure class="site-avatar">
-                <a href="/">
-                
-                    
-                    
-                    
-                        
-                        <img src="/img/avatar_hu_9c28e5b7b386072e.png" width="300"
-                            height="341" class="site-logo" loading="lazy" alt="Avatar">
-                    
-                
-                </a>
-                
-                    <span class="emoji">🥯</span>
-                
-            </figure>
-            
-        
-        
-        <div class="site-meta">
-            <h1 class="site-name"><a href="/">Jul1en</a></h1>
-            <h2 class="site-description">学会等候 期待有天🎏</h2>
+    <div class="article-detail__toc-panel">
+        <div class="article-detail__toc-nav">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#mybatis">MyBatis</a></li>
+    <li><a href="#mybatis配置">MyBatis配置</a>
+      <ol>
+        <li><a href="#mybatis-1">MyBatis</a>
+          <ol>
+            <li><a href="#yml配置">yml配置</a></li>
+            <li><a href="#添加依赖">添加依赖</a></li>
+            <li><a href="#xml配置动态sql">xml配置（动态SQL）</a></li>
+          </ol>
+        </li>
+        <li><a href="#mybatisx">MyBatisX</a></li>
+        <li><a href="#mybatis-generator插件">MyBatis-Generator插件</a>
+          <ol>
+            <li><a href="#注意">注意</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#mybatis-plus">🚩MyBatis-plus</a>
+      <ol>
+        <li><a href="#配置">配置</a>
+          <ol>
+            <li><a href="#引入依赖">引入依赖</a></li>
+            <li><a href="#编码">编码</a></li>
+            <li><a href="#打印执行sql日志">打印执行SQL日志</a></li>
+          </ol>
+        </li>
+        <li><a href="#识别原理">识别原理</a></li>
+        <li><a href="#条件构造器wrapper">条件构造器Wrapper</a>
+          <ol>
+            <li><a href="#代码示例">代码示例</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
         </div>
-    </header><ol class="menu-social">
-            
-                <li>
-                    <a 
-                        href='https://blog.csdn.net/TwoCat_C?type=blog'
-                        target="_blank"
-                        title="CSDN"
-                        rel="me"
-                    >
-                        
-                        
-                            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1765201201519" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6401" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M200.234667 581.888c-21.205333 24.234667-58.154667 26.88-73.045334 26.88-27.648 0-48.810667-6.997333-62.890666-20.821333-13.354667-13.098667-20.394667-32.426667-20.864-57.429334-1.066667-57.941333 31.744-117.845333 88.490666-117.845333 27.093333 0 47.957333 19.413333 55.936 27.477333a14.378667 14.378667 0 0 0 12.032 4.224 16.213333 16.213333 0 0 0 10.282667-6.784c2.901333-3.712 5.76-10.112 5.888-17.109333s-2.432-14.677333-10.368-20.906667a112.725333 112.725333 0 0 0-71.168-25.216c-34.944 0-69.418667 16.042667-94.634667 44.074667-26.496 29.482667-40.661333 69.546667-39.893333 112.896 0.64 34.773333 12.032 64 32.981333 84.565333 22.528 22.101333 55.466667 33.749333 95.36 33.749334 46.805333 0 75.776-13.866667 91.904-25.472a24.917333 24.917333 0 0 0 10.24-19.456 29.952 29.952 0 0 0-8.874666-21.205334c-9.813333-10.581333-19.114667-4.309333-21.461334-1.578666z m212.053333-91.733333a318.762667 318.762667 0 0 0-29.781333-10.581334c-6.698667-2.048-13.184-3.882667-19.2-5.589333-39.338667-11.093333-43.818667-21.333333-43.392-29.013333 0.938667-15.488 21.973333-36.394667 57.685333-33.792 25.898667 1.92 43.306667 21.717333 51.413333 33.322666 6.357333 9.130667 15.829333 5.76 18.517334 4.053334a25.685333 25.685333 0 0 0 13.184-21.930667 26.709333 26.709333 0 0 0-8.917334-20.821333 113.237333 113.237333 0 0 0-142.805333-11.648c-19.456 13.781333-31.744 32.938667-32.853333 51.285333-2.730667 45.269333 43.306667 58.282667 76.928 67.754667 9.130667 2.602667 18.304 5.418667 28.458666 8.618666 48.64 15.232 50.048 30.592 46.592 54.058667-3.498667 23.722667-29.696 35.584-71.893333 32.469333-43.904-3.242667-62.464-26.026667-68.778667-38.442666-2.133333-4.181333-8.746667-10.581333-17.621333-6.656-21.930667 9.770667-20.181333 31.189333-11.093333 42.368 14.464 17.749333 49.066667 44.16 113.792 44.16 73.984 0 96.213333-37.333333 101.461333-69.973334 3.925333-24.405333-0.938667-43.861333-14.848-59.562666-10.069333-11.392-25.258667-21.12-46.976-30.122667z m289.152-92.373334c-25.514667-18.389333-59.434667-26.026667-100.693333-22.698666-30.378667 2.474667-54.357333 10.368-56.96 11.221333l-0.256 0.085333a18.645333 18.645333 0 0 0-12.672 16.170667l-20.053334 221.909333a14.378667 14.378667 0 0 0 10.538667 14.933334l3.072 0.853333 2.816 0.768 3.669333 0.896a337.664 337.664 0 0 0 69.973334 7.808c41.472 0 75.306667-9.813333 100.693333-29.184 32.597333-24.874667 48.682667-64 47.701333-116.266667-0.896-48.426667-16.981333-84.224-47.829333-106.453333z m-28.245333 190.336c-35.669333 27.264-89.173333 23.978667-114.218667 20.522667a5.461333 5.461333 0 0 1-4.650667-5.845333l16.938667-181.248a4.821333 4.821333 0 0 1 3.669333-4.266667c42.624-10.282667 75.818667-7.168 98.645334 9.301333 8.064 5.845333 14.848 14.122667 20.096 24.234667 7.509333 14.464 11.818667 32.64 12.202666 52.650667 0.725333 39.082667-10.24 67.541333-32.64 84.650666z m349.397333-143.957333a81.92 81.92 0 0 0-18.432-39.210667c-17.024-19.84-43.904-29.397333-78.848-29.397333-31.317333 0-58.538667 9.728-83.072 34.090667 0.298667-3.669333 0.810667-6.784 0.768-9.514667s-0.725333-4.949333-2.816-6.954667c-2.048-1.92-3.285333-2.858667-5.418667-3.285333-2.133333-0.426667-5.205333-0.341333-10.922666-0.256a25.045333 25.045333 0 0 0-25.130667 23.04s-13.866667 165.290667-18.261333 220.373333a13.141333 13.141333 0 0 0 3.114666 9.728 15.36 15.36 0 0 0 11.093334 5.589334h16.512a9.557333 9.557333 0 0 0 9.642666-8.746667l11.648-124.970667 0.597334-6.272a81.152 81.152 0 0 1 3.498666-17.578666c0.597333-1.92 1.28-3.925333 2.005334-5.973334 10.453333-29.610667 34.261333-73.386667 84.096-72.277333 35.84 0.768 61.824 19.413333 59.093333 47.530667-4.309333 44.117333-11.349333 132.266667-15.274667 176.64-0.810667 8.917333 7.765333 11.648 10.752 11.648h12.970667a18.858667 18.858667 0 0 0 18.944-17.237334s7.893333-90.752 12.544-143.018666l2.048-22.698667a83.584 83.584 0 0 0-1.109333-21.333333z" p-id="6402" fill="#707070"></path></svg>
-                        
-                    </a>
-                </li>
-            
-                <li>
-                    <a 
-                        href='https://gitee.com/Cary_C'
-                        target="_blank"
-                        title="Gitee"
-                        rel="me"
-                    >
-                        
-                        
-                            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1765175787209" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="12364" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M817.0496 445.44H456.5504c-11.1104 0-27.7504 16.64-27.7504 27.7504v72.0896c0 16.64 16.64 27.7504 27.7504 27.7504h227.3792c16.64 0 27.7504 16.64 27.7504 27.6992v22.2208c0 49.92-44.3904 88.7296-88.7296 88.7296H334.4896c-16.64 0-27.6992-16.64-27.6992-27.7504V389.9904c-5.5808-44.3904 38.8096-88.7808 83.2-88.7808h421.5296c11.1104 0 27.7504-16.64 27.7504-27.6992v-66.56c5.5296-11.1104-11.1104-27.7504-22.2208-27.7504H401.0496A222.5152 222.5152 0 0 0 179.2 401.0496v416c0 11.1104 16.64 27.7504 27.7504 27.7504H645.12c110.9504 0 199.68-88.7296 199.68-199.68V473.1904c0-11.1104-16.64-27.7504-27.7504-27.7504z" fill="#8B8B8B" p-id="12365"></path></svg>
-                        
-                    </a>
-                </li>
-            
-                <li>
-                    <a 
-                        href='https://github.com/Jul1en-Lin'
-                        target="_blank"
-                        title="GitHub"
-                        rel="me"
-                    >
-                        
-                        
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
-</svg>
+    </div>
 
-
-
-                        
-                    </a>
-                </li>
-            
-        </ol><ol class="menu" id="main-menu">
-        
-        
-        
-        <li >
-            <a href='/archives/' >
-                
-                
-                
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <rect x="3" y="4" width="18" height="4" rx="2" />
-  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
-  <line x1="10" y1="12" x2="14" y2="12" />
-</svg>
-
-
-
-                
-                <span>合集</span>
-            </a>
-        </li>
-        
-        
-        <li >
-            <a href='/categories/' >
-                
-                
-                
-                    <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1765359277966" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11523" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M575.68 736a160.32 160.32 0 1 0 160.32-160.32H599.893333c-13.461333 0-24.192 10.752-24.192 24.192V736zM736 533.333333A202.666667 202.666667 0 1 1 533.333333 736V599.893333A66.432 66.432 0 0 1 599.872 533.333333H736zM490.666667 736a202.666667 202.666667 0 1 1-202.666667-202.666667h136.128A66.432 66.432 0 0 1 490.666667 599.872V736z m-202.666667-160.32a160.32 160.32 0 1 0 160.32 160.32V599.893333c0-13.44-10.730667-24.192-24.192-24.192H288zM533.333333 287.978667A202.666667 202.666667 0 1 1 736 490.666667H599.893333A66.432 66.432 0 0 1 533.333333 424.128V288z m202.666667 160.341333a160.32 160.32 0 1 0-160.32-160.32v136.128c0 13.44 10.730667 24.192 24.192 24.192H736zM448.32 288a160.32 160.32 0 1 0-160.32 160.32h136.128c13.461333 0 24.192-10.752 24.192-24.192V288zM288 490.666667A202.666667 202.666667 0 1 1 490.666667 288v136.128A66.432 66.432 0 0 1 424.128 490.666667H288z" fill="currentColor" p-id="11524"></path></svg>
-                
-                <span>分类</span>
-            </a>
-        </li>
-        
-        
-        <li >
-            <a href='/search/' >
-                
-                
-                
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="10" cy="10" r="7" />
-  <line x1="21" y1="21" x2="15" y2="15" />
-</svg>
-
-
-
-                
-                <span>搜索</span>
-            </a>
-        </li>
-        
-        <li class="menu-bottom-section">
-            <ol class="menu">
-
-                
-                    <li id="dark-mode-toggle">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="8" cy="12" r="2" />
-  <rect x="2" y="6" width="20" height="12" rx="6" />
-</svg>
-
-
-
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="16" cy="12" r="2" />
-  <rect x="2" y="6" width="20" height="12" rx="6" />
-</svg>
-
-
-
-                        <span>暗色模式</span>
-                    </li>
-                
-            </ol>
-        </li>
-    </ol>
+    <div class="article-detail__toc-staff" aria-hidden="true">
+        <svg viewBox="0 0 320 110" preserveAspectRatio="none" focusable="false">
+            <g>
+                <path d="M-18 58 C 52 25, 106 82, 176 52 S 270 42, 338 66" />
+                <path d="M-18 69 C 52 36, 106 93, 176 63 S 270 53, 338 77" />
+                <path d="M-18 80 C 52 47, 106 104, 176 74 S 270 64, 338 88" />
+                <path d="M-18 91 C 52 58, 106 115, 176 85 S 270 75, 338 99" />
+                <path d="M-18 102 C 52 69, 106 126, 176 96 S 270 86, 338 110" />
+            </g>
+            <text x="72" y="83">♪</text>
+            <text x="176" y="63">♩</text>
+        </svg>
+    </div>
 </aside>
 
-        <main class="main full-width">
+    <div class="article-detail__layout">
+        <div class="article-detail__main">
+            <header class="article-detail__header">
+                <div class="article-detail__meta"><time datetime="2026-02-05T22:48:02&#43;08:00">2026-02-05</time><span aria-hidden="true">•</span>
+                        <a href="/categories/mybatis/">MyBatis</a></div>
 
-<article class="editorial-article">
-    <div class="editorial-grid">
-        
-        <aside class="editorial-title-column">
-            
-            
-            <div class="editorial-category">
-                
-                <a href="/categories/mybatis/" >
-                    MyBatis
-                </a>
-                
-            </div>
-            
+                <h1 class="article-detail__title">
+                    <span>🥓 MyBatis/plus 及配置</span>
+                    <span class="article-detail__title-note" aria-hidden="true">♪</span>
+                </h1><p class="article-detail__summary">MyBatis MyBatis 是一款半自动对象关系映射持久层框架，其核心通过 XML 或注解实现原生 SQL 与 Java 对象的解耦映射，在消除冗余 JDBC 代码的同时， …</p><div class="article-detail__header-quote">
+                    <aside class="quote-block quote-block--article">
+    <p class="quote-block__text">Document the path while the idea is still warm.</p>
+    <p class="quote-block__signature">Jul1en</p>
+</aside>
 
-            
-            <h1 class="editorial-title">🥓 MyBatis/plus 及配置</h1>
+                </div><figure class="article-detail__cover"><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204151811-zkc66ob_hu_c3533be8320764ab.webp" width="1120" height="520" alt="🥓 MyBatis/plus 及配置" loading="eager" decoding="async" fetchpriority="high"></figure></header>
 
-            
-            
-
-            
-            <div class="editorial-meta">
-                
-                <time datetime='2026-02-05T22:48:02&#43;08:00'>
-                    2026-02-05
-                </time>
-                <span class="editorial-meta-sep">·</span>
-                <span class="editorial-lastmod">
-                    更新于 2026-02-05
-                </span></div>
-
-            
-            
-        </aside>
-
-        
-        <div class="editorial-content-column">
-            <section class="article-content">
-                
-                <h1 id="mybatis">MyBatis
-</h1><p>MyBatis 是一款半自动对象关系映射持久层框架，其核心通过 XML 或注解实现原生 SQL 与 Java 对象的解耦映射，在消除冗余 JDBC 代码的同时，保留了对 SQL 执行逻辑的控制</p>
+            <section class="article-content article-detail__content">
+                <h2 id="mybatis">MyBatis
+</h2><p>MyBatis 是一款半自动对象关系映射持久层框架，其核心通过 XML 或注解实现原生 SQL 与 Java 对象的解耦映射，在消除冗余 JDBC 代码的同时，保留了对 SQL 执行逻辑的控制</p>
 <p>接下来先讲传统Mybatis的配置</p>
-<h1 id="mybatis配置">MyBatis配置
-</h1><p>mybatis是IDE和数据库的桥梁，便于在后端也能执行SQL，故配置必须需要连接数据库~</p>
+<h2 id="mybatis配置">MyBatis配置
+</h2><p>mybatis是IDE和数据库的桥梁，便于在后端也能执行SQL，故配置必须需要连接数据库~</p>
 <p>💫<code>application.yml</code>配置💫必备</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">#</span><span class="w"> </span><span class="n">数据库连接配置</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">#</span><span class="w"> </span><span class="n">数据库连接配置</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nl">spring</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">datasource</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">url</span><span class="p">:</span><span class="w"> </span><span class="n">jdbc</span><span class="p">:</span><span class="n">mysql</span><span class="p">:</span><span class="c1">//127.0.0.1:3306/book_test?characterEncoding=utf8&amp;useSSL=false&amp;allowPublicKeyRetrieval=true</span><span class="w">
@@ -298,41 +229,15 @@
 </span></span></span><span class="line"><span class="cl"><span class="nl">logging</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">file</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="n">spring</span><span class="o">-</span><span class="n">book</span><span class="p">.</span><span class="na">log</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="mybatis-1">MyBatis
+</span></span></span></code></pre></div><h2 id="mybatis-1">MyBatis
 </h2><h3 id="yml配置">yml配置
 </h3><p>在<code>application.yml</code>中可以增加mybatis的相关配置，如配置驼峰自动转换</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nl">mybatis</span><span class="p">:</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nl">mybatis</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">configuration</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">map</span><span class="o">-</span><span class="n">underscore</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">camel</span><span class="o">-</span><span class="k">case</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="err">#</span><span class="n">配置驼峰自动转换</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">log</span><span class="o">-</span><span class="n">impl</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="p">.</span><span class="na">apache</span><span class="p">.</span><span class="na">ibatis</span><span class="p">.</span><span class="na">logging</span><span class="p">.</span><span class="na">stdout</span><span class="p">.</span><span class="na">StdOutImpl</span><span class="w"> </span><span class="err">#</span><span class="n">打印sql语句</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="添加依赖">添加依赖
-</h3><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">		</span><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span></code></pre></div><h3 id="添加依赖">添加依赖
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">		</span><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="p">.</span><span class="na">mybatis</span><span class="p">.</span><span class="na">spring</span><span class="p">.</span><span class="na">boot</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">mybatis</span><span class="o">-</span><span class="n">spring</span><span class="o">-</span><span class="n">boot</span><span class="o">-</span><span class="n">starter</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">3</span><span class="p">.</span><span class="na">0</span><span class="p">.</span><span class="na">5</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span><span class="w">
@@ -342,77 +247,28 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">j</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">&lt;</span><span class="n">scope</span><span class="o">&gt;</span><span class="n">runtime</span><span class="o">&lt;/</span><span class="n">scope</span><span class="o">&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="xml配置动态sql">xml配置（动态SQL）
+</span></span></span></code></pre></div><h3 id="xml配置动态sql">xml配置（动态SQL）
 </h3><p>xml一般是在写SQL中，简单的SQL已经无法满足业务需求，需要动态SQL时，需要的mybatis的配置，动态SQL就在xml文件里写。</p>
 <p>一般放在resources.mapper包下，命名规范为<code>xxxMapper.xml</code>，对应某个类。效果和注解Spring的@Select、@Update注解作用一致</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">&lt;!--</span><span class="n">将以下放到xml文件头</span><span class="o">--&gt;</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">&lt;!--</span><span class="n">将以下放到xml文件头</span><span class="o">--&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="n">xml</span><span class="w"> </span><span class="n">version</span><span class="o">=</span><span class="s">&#34;1.0&#34;</span><span class="w"> </span><span class="n">encoding</span><span class="o">=</span><span class="s">&#34;UTF-8&#34;</span><span class="o">?&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="o">&lt;!</span><span class="n">DOCTYPE</span><span class="w"> </span><span class="n">mapper</span><span class="w"> </span><span class="n">PUBLIC</span><span class="w"> </span><span class="s">&#34;-//mybatis.org//DTD Mapper 3.0//EN&#34;</span><span class="w"> </span><span class="s">&#34;http://mybatis.org/dtd/mybatis-3-mapper.dtd&#34;</span><span class="o">&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">mapper</span><span class="w"> </span><span class="n">namespace</span><span class="o">=</span><span class="s">&#34;com.bite.com.book.mapper.BookMapper&#34;</span><span class="o">&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="o">&lt;!--</span><span class="n">namespace为对应mapper包的某个类所在位置</span><span class="err">，</span><span class="n">位置可修改</span><span class="err">，</span><span class="n">如下</span><span class="o">--&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">mapper</span><span class="o">&gt;</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204152524-evegbm4.png" width="2362"  height="1297"  srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204152524-evegbm4_hu_206d453964375eb0.png 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204152524-evegbm4_hu_3b497edec6d90f7b.png 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204152524-evegbm4_hu_cb45520cc3529d7a.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="182"
-	data-flex-basis="437px" ></p>
-<p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204152931-uekqeap.png" width="2324"  height="1042"  srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204152931-uekqeap_hu_3c33cfb4033ff2e5.png 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204152931-uekqeap_hu_d45594aa35d23e54.png 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204152931-uekqeap_hu_30c7197865b10abf.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="223"
-	data-flex-basis="535px" ></p>
+</span></span></span></code></pre></div><p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204152524-evegbm4_hu_576a6defdb779298.webp" width="1600" height="879" srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204152524-evegbm4_hu_45724c384ab38668.webp 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204152524-evegbm4_hu_576a6defdb779298.webp 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204152524-evegbm4_hu_75cab6325dae47ee.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="182" data-flex-basis="437px">
+</p>
+<p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204152931-uekqeap_hu_9f9637ededf31b75.webp" width="1600" height="717" srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204152931-uekqeap_hu_2e2000326266c701.webp 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204152931-uekqeap_hu_9f9637ededf31b75.webp 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204152931-uekqeap_hu_8ab71c9e64e9e7d2.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="223" data-flex-basis="535px">
+</p>
 <h2 id="mybatisx">MyBatisX
 </h2><p>是一款plugin，支持xml的快速跳转和生成代码，非常好用~</p>
-<p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204213706-byzmjek.png" width="1426"  height="630"  srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204213706-byzmjek_hu_71b4cabad7e750c1.png 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204213706-byzmjek_hu_1a867b32b4a24115.png 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204213706-byzmjek_hu_a9eab1359cc61ae3.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="226"
-	data-flex-basis="543px" ></p>
+<p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204213706-byzmjek_hu_c28cf6e57dc7d26f.webp" width="1600" height="707" srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204213706-byzmjek_hu_cae6aab3e8dc9d10.webp 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204213706-byzmjek_hu_c28cf6e57dc7d26f.webp 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204213706-byzmjek_hu_356bf46251504f3e.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="226" data-flex-basis="543px">
+</p>
 <h2 id="mybatis-generator插件">MyBatis-Generator插件
 </h2><p>这个插件使用也是非常的广泛</p>
 <p>手写mapper还是太麻烦了，有一些插件能够帮我们自动生成一些sql，提高效率，同时需要generator文件</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">plugin</span><span class="o">&gt;</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">plugin</span><span class="o">&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="p">.</span><span class="na">mybatis</span><span class="p">.</span><span class="na">generator</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">mybatis</span><span class="o">-</span><span class="n">generator</span><span class="o">-</span><span class="n">maven</span><span class="o">-</span><span class="n">plugin</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">1</span><span class="p">.</span><span class="na">3</span><span class="p">.</span><span class="na">6</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span><span class="w">
@@ -442,64 +298,13 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="o">&lt;/</span><span class="n">dependencies</span><span class="o">&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">plugin</span><span class="o">&gt;</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>上述插件提到的文件<a class="link" href="assets/generator-20260204145109-vh72myh.xml" >generator.xml</a>，需放所提到的<code>&lt;configurationFile&gt;</code>​对应的位置，<strong>位置可修改</strong></p>
-<p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153629-4tl8z7h.png" width="1227"  height="331"  srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153629-4tl8z7h_hu_6caf2b157914e771.png 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153629-4tl8z7h_hu_91d1cd0e387b6539.png 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153629-4tl8z7h_hu_bb66bb08e0bfd80.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="370"
-	data-flex-basis="889px" ></p>
-<p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153439-kb50mlp.png" width="646"  height="314"  srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153439-kb50mlp_hu_e4dd21f04db6a2cb.png 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153439-kb50mlp_hu_c4cafcc5092a0ebe.png 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153439-kb50mlp_hu_6af3c26e87f91849.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="205"
-	data-flex-basis="493px" ></p>
+</span></span></span></code></pre></div><p>上述插件提到的文件<a class="link" href="assets/generator-20260204145109-vh72myh.xml" >generator.xml</a>，需放所提到的<code>&lt;configurationFile&gt;</code>​对应的位置，<strong>位置可修改</strong></p>
+<p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153629-4tl8z7h_hu_d3ad58f89184a866.webp" width="1600" height="432" srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153629-4tl8z7h_hu_6bbda1e2fa0e82a6.webp 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153629-4tl8z7h_hu_d3ad58f89184a866.webp 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153629-4tl8z7h_hu_d468e317ee03174b.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="370" data-flex-basis="889px">
+</p>
+<p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153439-kb50mlp_hu_55e722bb23c9ff00.webp" width="1600" height="778" srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153439-kb50mlp_hu_36d017ffd4d18a63.webp 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153439-kb50mlp_hu_55e722bb23c9ff00.webp 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153439-kb50mlp_hu_5a5d58a9df4c103b.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="205" data-flex-basis="493px">
+</p>
 <p>​<code>generator.xml</code>文件内容如下，一些配置项需要修改，如数据库连接信息</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="n">xml</span><span class="w"> </span><span class="n">version</span><span class="o">=</span><span class="s">&#34;1.0&#34;</span><span class="w"> </span><span class="n">encoding</span><span class="o">=</span><span class="s">&#34;UTF-8&#34;</span><span class="o">?&gt;</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="n">xml</span><span class="w"> </span><span class="n">version</span><span class="o">=</span><span class="s">&#34;1.0&#34;</span><span class="w"> </span><span class="n">encoding</span><span class="o">=</span><span class="s">&#34;UTF-8&#34;</span><span class="o">?&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="o">&lt;!</span><span class="n">DOCTYPE</span><span class="w"> </span><span class="n">generatorConfiguration</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">PUBLIC</span><span class="w"> </span><span class="s">&#34;-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="s">&#34;http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd&#34;</span><span class="o">&gt;</span><span class="w">
@@ -544,43 +349,24 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">&lt;/</span><span class="n">table</span><span class="o">&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;/</span><span class="n">context</span><span class="o">&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">generatorConfiguration</span><span class="o">&gt;</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>配置完成，<strong>双击运行插件即可，配置文件</strong>​<strong>​<code>generator.xml</code>​</strong>就会生成对应的实体类与xml文件</p>
-<p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204151811-zkc66ob.png" width="2560"  height="1528"  srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204151811-zkc66ob_hu_6834020407aabd28.png 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204151811-zkc66ob_hu_9f8b17bcbdf75c24.png 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204151811-zkc66ob_hu_ee1c70bd64f0d085.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="167"
-	data-flex-basis="402px" ></p>
+</span></span></span></code></pre></div><p>配置完成，<strong>双击运行插件即可，配置文件</strong>​<strong>​<code>generator.xml</code>​</strong>就会生成对应的实体类与xml文件</p>
+<p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204151811-zkc66ob_hu_2da318c2fd1e6515.webp" width="1600" height="955" srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204151811-zkc66ob_hu_1554190990f34f14.webp 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204151811-zkc66ob_hu_2da318c2fd1e6515.webp 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204151811-zkc66ob_hu_7235a70cea0ad268.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="167" data-flex-basis="402px">
+</p>
 <h3 id="注意">注意
 </h3><p>​<code>generator.xml</code>文件头放到IDE上会出现报错，无需更改</p>
-<p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153843-3oxr5g3.png" width="1780"  height="432"  srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153843-3oxr5g3_hu_6c6e0e984945b865.png 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153843-3oxr5g3_hu_d720eb214432e945.png 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153843-3oxr5g3_hu_ad6af1dc35633caa.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="412"
-	data-flex-basis="988px" ></p>
+<p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153843-3oxr5g3_hu_713a1080cb40ea59.webp" width="1600" height="388" srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153843-3oxr5g3_hu_59f27b296b0cebb5.webp 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153843-3oxr5g3_hu_713a1080cb40ea59.webp 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153843-3oxr5g3_hu_73e772a22d59f51a.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="412" data-flex-basis="988px">
+</p>
 <hr>
-<h1 id="mybatis-plus">🚩MyBatis-plus
-</h1><p>是一个MyBatis的增强工具，简化开发，提高效率，类似于Hutool工具包，使用时仅需导入依赖即可</p>
+<h2 id="mybatis-plus">🚩MyBatis-plus
+</h2><p>是一个MyBatis的增强工具，简化开发，提高效率，类似于Hutool工具包，使用时仅需导入依赖即可</p>
 <p>它封装了许多SQL语句，使用时仅需让mapper类<code>extends BaseMapper&lt;&gt;</code>父类接口，执行时则可以直接调用他的一系列函数，无需手写</p>
 <h2 id="配置">配置
 </h2><h3 id="引入依赖">引入依赖
 </h3><p>参考官方文档<a class="link" href="https://baomidou.com/getting-started/"  target="_blank" rel="noopener"
     >https://baomidou.com/getting-started</a></p>
-<p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204160525-zmsvdkf.png" width="1236"  height="1012"  srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204160525-zmsvdkf_hu_29b02143ac6ff768.png 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204160525-zmsvdkf_hu_77f5dd108c918a82.png 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204160525-zmsvdkf_hu_7b21e8198e5878cb.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="122"
-	data-flex-basis="293px" ></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">&lt;!--</span><span class="n">Spring</span><span class="w"> </span><span class="n">Boot3</span><span class="o">--&gt;</span><span class="w">
+<p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204160525-zmsvdkf_hu_c771123f738cfae2.webp" width="1600" height="1310" srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204160525-zmsvdkf_hu_e39de97f462376c1.webp 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204160525-zmsvdkf_hu_c771123f738cfae2.webp 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204160525-zmsvdkf_hu_406c57d49e97b135.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="122" data-flex-basis="293px">
+</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">&lt;!--</span><span class="n">Spring</span><span class="w"> </span><span class="n">Boot3</span><span class="o">--&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">com</span><span class="p">.</span><span class="na">baomidou</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">mybatis</span><span class="o">-</span><span class="n">plus</span><span class="o">-</span><span class="n">spring</span><span class="o">-</span><span class="n">boot3</span><span class="o">-</span><span class="n">starter</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="w">
@@ -593,69 +379,57 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">mybatis</span><span class="o">-</span><span class="n">plus</span><span class="o">-</span><span class="n">spring</span><span class="o">-</span><span class="n">boot4</span><span class="o">-</span><span class="n">starter</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">3</span><span class="p">.</span><span class="na">5</span><span class="p">.</span><span class="na">15</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>根据你现使用的SpringBoot版本选择对应的依赖~</p>
-<p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204160833-7pkg4gj.png" width="1623"  height="665"  srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204160833-7pkg4gj_hu_e9e4d7f551cc1593.png 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204160833-7pkg4gj_hu_612b2e00d9824227.png 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204160833-7pkg4gj_hu_8afb97d1fb98a763.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="244"
-	data-flex-basis="585px" ></p>
+</span></span></span></code></pre></div><p>根据你现使用的SpringBoot版本选择对应的依赖~</p>
+<p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204160833-7pkg4gj_hu_88ce74a56a2d8847.webp" width="1600" height="656" srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204160833-7pkg4gj_hu_c677b7e25b1cbba2.webp 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204160833-7pkg4gj_hu_88ce74a56a2d8847.webp 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204160833-7pkg4gj_hu_9ed85305802c965.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="244" data-flex-basis="585px">
+</p>
 <h3 id="编码">编码
 </h3><ol>
 <li>编写对应实体类</li>
 <li>编写 Mapper 接口并拓展<code>BaseMapper&lt;T&gt;</code>接口</li>
 </ol>
 <p>完成简单两步即可实现内部丰富的函数</p>
-<p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205000254-rmhcd7i.png" width="1480"  height="250"  srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205000254-rmhcd7i_hu_4b0144dba2b6cb87.png 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205000254-rmhcd7i_hu_bb39c5779342ede9.png 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205000254-rmhcd7i_hu_74a3c5519b77c874.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="592"
-	data-flex-basis="1420px" ></p>
-<p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205000225-jyr3ehi.png" width="2010"  height="1289"  srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205000225-jyr3ehi_hu_b71cc5b62dcba55e.png 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205000225-jyr3ehi_hu_ddbcbaa74608c77a.png 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205000225-jyr3ehi_hu_fc32a0f4cb3d3019.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="155"
-	data-flex-basis="374px" ></p>
+<p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205000254-rmhcd7i_hu_90922b00e4871760.webp" width="1600" height="270" srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205000254-rmhcd7i_hu_9aaea452d5464389.webp 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205000254-rmhcd7i_hu_90922b00e4871760.webp 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205000254-rmhcd7i_hu_bb1dd9d1192b3b14.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="592" data-flex-basis="1420px">
+</p>
+<p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205000225-jyr3ehi_hu_a31cf16a98370dc4.webp" width="1600" height="1026" srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205000225-jyr3ehi_hu_e80a97aef9e6eb5a.webp 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205000225-jyr3ehi_hu_a31cf16a98370dc4.webp 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205000225-jyr3ehi_hu_70f7caa2cbdba862.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="155" data-flex-basis="374px">
+</p>
 <h3 id="打印执行sql日志">打印执行SQL日志
 </h3><p>与mybatis的配置文件类似，只需把名字改为mybatis-plus</p>
 <p>​<code>application.yml</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">mybatis</span><span class="o">-</span><span class="n">plus</span><span class="p">:</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">mybatis</span><span class="o">-</span><span class="n">plus</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">configuration</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">map</span><span class="o">-</span><span class="n">underscore</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">camel</span><span class="o">-</span><span class="k">case</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="err">#</span><span class="n">配置驼峰自动转换</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">log</span><span class="o">-</span><span class="n">impl</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="p">.</span><span class="na">apache</span><span class="p">.</span><span class="na">ibatis</span><span class="p">.</span><span class="na">logging</span><span class="p">.</span><span class="na">stdout</span><span class="p">.</span><span class="na">StdOutImpl</span><span class="w"> </span><span class="err">#</span><span class="n">打印sql语句</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="识别原理">识别原理
+</span></span></span></code></pre></div><h2 id="识别原理">识别原理
 </h2><p>刚才只是配置了<code>application.yml</code>​中的数据库连接信息，拓展了<code>BaseMapper&lt;&gt;</code>​接口与实现了一个实体类<code>UserInfo</code>​，就能够查询数据库中的<code>user_info</code>这张表并且成功执行SQL了，它是如何识别出来的呢？</p>
 <ol>
 <li>表名</li>
 </ol>
 <p>是根据实体类名推断的，如果不一致，使用<code>@TableName</code>注解映射实体类对应的表名是哪个</p>
-<p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205002900-eab5jcp.png" width="1192"  height="329"  srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205002900-eab5jcp_hu_846474f3c05e0453.png 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205002900-eab5jcp_hu_246cfb2f0bbbb9d8.png 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205002900-eab5jcp_hu_b159148e73d85614.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="362"
-	data-flex-basis="869px" ></p>
-<p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205003148-f4yeyad.png" width="2012"  height="1260"  srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205003148-f4yeyad_hu_9e1b6cee24e802e9.png 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205003148-f4yeyad_hu_cc9630ee7481b333.png 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205003148-f4yeyad_hu_245041e78699cea0.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="159"
-	data-flex-basis="383px" ></p>
+<p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205002900-eab5jcp_hu_b85f1a893c320554.webp" width="1600" height="442" srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205002900-eab5jcp_hu_ca56605fdfd1214a.webp 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205002900-eab5jcp_hu_b85f1a893c320554.webp 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205002900-eab5jcp_hu_469bb728f2c3e468.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="362" data-flex-basis="869px">
+</p>
+<p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205003148-f4yeyad_hu_4018a4f75065bf58.webp" width="1600" height="1002" srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205003148-f4yeyad_hu_bd8af8fa74eace0f.webp 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205003148-f4yeyad_hu_4018a4f75065bf58.webp 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205003148-f4yeyad_hu_8aa4298e8f019d63.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="159" data-flex-basis="383px">
+</p>
 <ol start="2">
 <li>id 是否有自增</li>
 </ol>
-<p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205004446-uuyjzj4.png" width="1213"  height="432"  srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205004446-uuyjzj4_hu_e848991dec088827.png 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205004446-uuyjzj4_hu_433fef518cfe09b1.png 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205004446-uuyjzj4_hu_26c78522f0df6799.png 2400w"  loading="lazy"  alt="测试用例"   class="gallery-image" data-flex-grow="280"
-	data-flex-basis="673px" ></p>
+<p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205004446-uuyjzj4_hu_21b77f0a289bd4ef.webp" width="1600" height="570" srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205004446-uuyjzj4_hu_ac4ab05f6b4b4038.webp 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205004446-uuyjzj4_hu_21b77f0a289bd4ef.webp 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205004446-uuyjzj4_hu_376e10a04c23207b.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="测试用例" class="gallery-image" data-flex-grow="280" data-flex-basis="673px">
+</p>
 <p>执行<strong>insert</strong>操作时，表的id是自增主键，理想情况下ID应自增为3。但是ID一栏mybatis生成了随机数字，扰乱了原本的自增主键</p>
 <p>这是由于mybatis不能自动识别表中是否有自增，哪一个是自增主键，用到注释<code>@TableId</code>映射，它定义主键及其主键的性质（自增、输入，无性质）</p>
-<p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205004606-5a4izsh.png" width="904"  height="279"  srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205004606-5a4izsh_hu_15732a723b57b994.png 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205004606-5a4izsh_hu_28f2a18d05c8868f.png 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205004606-5a4izsh_hu_67b3dc5348513f19.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="324"
-	data-flex-basis="777px" ></p>
+<p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205004606-5a4izsh_hu_394f402b3b150ab2.webp" width="1600" height="494" srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205004606-5a4izsh_hu_9eeafc93a66e3238.webp 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205004606-5a4izsh_hu_394f402b3b150ab2.webp 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205004606-5a4izsh_hu_dcf27481afbf6e3f.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="324" data-flex-basis="777px">
+</p>
 <p>使用注解标识后就能很好的解决这个问题了</p>
-<p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205005131-0twfgrj.png" width="1054"  height="726"  srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205005131-0twfgrj_hu_553d0192c91a5d60.png 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205005131-0twfgrj_hu_6fcb0667e0cea090.png 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205005131-0twfgrj_hu_67234fe8352b02bc.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="145"
-	data-flex-basis="348px" ></p>
+<p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205005131-0twfgrj_hu_9f975a318693be53.webp" width="1600" height="1102" srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205005131-0twfgrj_hu_5ffaad12ba1b0f6b.webp 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205005131-0twfgrj_hu_9f975a318693be53.webp 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205005131-0twfgrj_hu_8743a57eac30b7d7.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="145" data-flex-basis="348px">
+</p>
 <p>查看源码，主键性质分为如下几类</p>
-<p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205012002-jyqxvd3.png" width="1294"  height="631"  srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205012002-jyqxvd3_hu_88f24ee3cb6babd5.png 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205012002-jyqxvd3_hu_3366d91754775aa3.png 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205012002-jyqxvd3_hu_c291c61e8054a1a.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="205"
-	data-flex-basis="492px" ></p>
+<p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205012002-jyqxvd3_hu_8e179a25858d2aaf.webp" width="1600" height="780" srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205012002-jyqxvd3_hu_62bea747c8094c28.webp 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205012002-jyqxvd3_hu_8e179a25858d2aaf.webp 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205012002-jyqxvd3_hu_add75955cc10b6cd.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="205" data-flex-basis="492px">
+</p>
 <ol start="3">
 <li>字段与属性的映射关系</li>
 </ol>
 <p>他的推断规律与推断表名是一样的，如果不一致则用<code>@TableField</code>映射</p>
-<p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205011841-3q1kzhd.png" width="860"  height="664"  srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205011841-3q1kzhd_hu_2417eaf29fd991c9.png 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205011841-3q1kzhd_hu_4c8494a27a59d7e4.png 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205011841-3q1kzhd_hu_f0e86c55a8fd3c5d.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="129"
-	data-flex-basis="310px" ></p>
+<p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205011841-3q1kzhd_hu_116ca9e3c6bec93c.webp" width="1600" height="1235" srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205011841-3q1kzhd_hu_f670cd069532ad0a.webp 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205011841-3q1kzhd_hu_116ca9e3c6bec93c.webp 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205011841-3q1kzhd_hu_954b694e628662a8.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="129" data-flex-basis="310px">
+</p>
 <h2 id="条件构造器wrapper">条件构造器Wrapper
 </h2><p>MyBatis-Plus 提供了一套强大的条件构造器（Wrapper），用于构建复杂的数据库查询条件。Wrapper 类允许开发者以链式调用的方式构造查询条件，无需编写繁琐的 SQL 语句，从而提高开发效率并减少 SQL 注入的风险</p>
 <p>它是构建复杂查询和更新条件的关键工具。<strong>它允许开发者以链式调用的方式构造 SQL 的 WHERE 子句，提供了极大的灵活性和便利性</strong></p>
@@ -731,23 +505,7 @@
 <h3 id="代码示例">代码示例
 </h3><p>以id为自增主键的用户表名举例</p>
 <p>用户实体类</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Data</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Data</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nd">@TableName</span><span class="p">(</span><span class="s">&#34;user_info&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserInfo</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@TableId</span><span class="p">(</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IdType</span><span class="p">.</span><span class="na">AUTO</span><span class="p">)</span><span class="w">
@@ -759,36 +517,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Date</span><span class="w"> </span><span class="n">createTime</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Date</span><span class="w"> </span><span class="n">updateTime</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>Mapper类</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Mapper</span><span class="w">
+</span></span></span></code></pre></div><p>Mapper类</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Mapper</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">UserInfoMapper</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">BaseMapper</span><span class="o">&lt;</span><span class="n">UserInfo</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 注解构造SQL</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Select</span><span class="p">(</span><span class="s">&#34;select id,username,password,age FROM userinfo WHERE username = #{userName}&#34;</span><span class="p">)</span><span class="w">
@@ -810,177 +540,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Integer</span><span class="w"> </span><span class="nf">updateUserInfoByCustomSql</span><span class="p">(</span><span class="nd">@Param</span><span class="p">(</span><span class="s">&#34;addAge&#34;</span><span class="p">)</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">addAge</span><span class="p">,</span><span class="w"> </span><span class="nd">@Param</span><span class="p">(</span><span class="n">Constants</span><span class="p">.</span><span class="na">WRAPPER</span><span class="p">)</span><span class="w"> </span><span class="n">QueryWrapper</span><span class="w"> </span><span class="n">wrapper</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p><strong>Wrapper类（示例）</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">  1
-</span><span class="lnt">  2
-</span><span class="lnt">  3
-</span><span class="lnt">  4
-</span><span class="lnt">  5
-</span><span class="lnt">  6
-</span><span class="lnt">  7
-</span><span class="lnt">  8
-</span><span class="lnt">  9
-</span><span class="lnt"> 10
-</span><span class="lnt"> 11
-</span><span class="lnt"> 12
-</span><span class="lnt"> 13
-</span><span class="lnt"> 14
-</span><span class="lnt"> 15
-</span><span class="lnt"> 16
-</span><span class="lnt"> 17
-</span><span class="lnt"> 18
-</span><span class="lnt"> 19
-</span><span class="lnt"> 20
-</span><span class="lnt"> 21
-</span><span class="lnt"> 22
-</span><span class="lnt"> 23
-</span><span class="lnt"> 24
-</span><span class="lnt"> 25
-</span><span class="lnt"> 26
-</span><span class="lnt"> 27
-</span><span class="lnt"> 28
-</span><span class="lnt"> 29
-</span><span class="lnt"> 30
-</span><span class="lnt"> 31
-</span><span class="lnt"> 32
-</span><span class="lnt"> 33
-</span><span class="lnt"> 34
-</span><span class="lnt"> 35
-</span><span class="lnt"> 36
-</span><span class="lnt"> 37
-</span><span class="lnt"> 38
-</span><span class="lnt"> 39
-</span><span class="lnt"> 40
-</span><span class="lnt"> 41
-</span><span class="lnt"> 42
-</span><span class="lnt"> 43
-</span><span class="lnt"> 44
-</span><span class="lnt"> 45
-</span><span class="lnt"> 46
-</span><span class="lnt"> 47
-</span><span class="lnt"> 48
-</span><span class="lnt"> 49
-</span><span class="lnt"> 50
-</span><span class="lnt"> 51
-</span><span class="lnt"> 52
-</span><span class="lnt"> 53
-</span><span class="lnt"> 54
-</span><span class="lnt"> 55
-</span><span class="lnt"> 56
-</span><span class="lnt"> 57
-</span><span class="lnt"> 58
-</span><span class="lnt"> 59
-</span><span class="lnt"> 60
-</span><span class="lnt"> 61
-</span><span class="lnt"> 62
-</span><span class="lnt"> 63
-</span><span class="lnt"> 64
-</span><span class="lnt"> 65
-</span><span class="lnt"> 66
-</span><span class="lnt"> 67
-</span><span class="lnt"> 68
-</span><span class="lnt"> 69
-</span><span class="lnt"> 70
-</span><span class="lnt"> 71
-</span><span class="lnt"> 72
-</span><span class="lnt"> 73
-</span><span class="lnt"> 74
-</span><span class="lnt"> 75
-</span><span class="lnt"> 76
-</span><span class="lnt"> 77
-</span><span class="lnt"> 78
-</span><span class="lnt"> 79
-</span><span class="lnt"> 80
-</span><span class="lnt"> 81
-</span><span class="lnt"> 82
-</span><span class="lnt"> 83
-</span><span class="lnt"> 84
-</span><span class="lnt"> 85
-</span><span class="lnt"> 86
-</span><span class="lnt"> 87
-</span><span class="lnt"> 88
-</span><span class="lnt"> 89
-</span><span class="lnt"> 90
-</span><span class="lnt"> 91
-</span><span class="lnt"> 92
-</span><span class="lnt"> 93
-</span><span class="lnt"> 94
-</span><span class="lnt"> 95
-</span><span class="lnt"> 96
-</span><span class="lnt"> 97
-</span><span class="lnt"> 98
-</span><span class="lnt"> 99
-</span><span class="lnt">100
-</span><span class="lnt">101
-</span><span class="lnt">102
-</span><span class="lnt">103
-</span><span class="lnt">104
-</span><span class="lnt">105
-</span><span class="lnt">106
-</span><span class="lnt">107
-</span><span class="lnt">108
-</span><span class="lnt">109
-</span><span class="lnt">110
-</span><span class="lnt">111
-</span><span class="lnt">112
-</span><span class="lnt">113
-</span><span class="lnt">114
-</span><span class="lnt">115
-</span><span class="lnt">116
-</span><span class="lnt">117
-</span><span class="lnt">118
-</span><span class="lnt">119
-</span><span class="lnt">120
-</span><span class="lnt">121
-</span><span class="lnt">122
-</span><span class="lnt">123
-</span><span class="lnt">124
-</span><span class="lnt">125
-</span><span class="lnt">126
-</span><span class="lnt">127
-</span><span class="lnt">128
-</span><span class="lnt">129
-</span><span class="lnt">130
-</span><span class="lnt">131
-</span><span class="lnt">132
-</span><span class="lnt">133
-</span><span class="lnt">134
-</span><span class="lnt">135
-</span><span class="lnt">136
-</span><span class="lnt">137
-</span><span class="lnt">138
-</span><span class="lnt">139
-</span><span class="lnt">140
-</span><span class="lnt">141
-</span><span class="lnt">142
-</span><span class="lnt">143
-</span><span class="lnt">144
-</span><span class="lnt">145
-</span><span class="lnt">146
-</span><span class="lnt">147
-</span><span class="lnt">148
-</span><span class="lnt">149
-</span><span class="lnt">150
-</span><span class="lnt">151
-</span><span class="lnt">152
-</span><span class="lnt">153
-</span><span class="lnt">154
-</span><span class="lnt">155
-</span><span class="lnt">156
-</span><span class="lnt">157
-</span><span class="lnt">158
-</span><span class="lnt">159
-</span><span class="lnt">160
-</span><span class="lnt">161
-</span><span class="lnt">162
-</span><span class="lnt">163
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@SpringBootTest</span><span class="w">
+</span></span></span></code></pre></div><p><strong>Wrapper类（示例）</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@SpringBootTest</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserInfoMapperTest</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Autowired</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">UserInfoMapper</span><span class="w"> </span><span class="n">userInfoMapper</span><span class="p">;</span><span class="w">
@@ -1143,11 +704,26 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">num</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>‍</p>
+</span></span></span></code></pre></div><p>‍</p>
 
             </section>
+
+            <footer class="article-detail__footer">
+                <div class="article-closing" aria-label="Article closing">
+    <ul class="article-closing__links">
+        <li>
+            <span class="article-closing__chevron" aria-hidden="true">›</span>
+            <span>written by <span class="article-closing__author">@Jul1en</span></span>
+        </li>
+        <li>
+            <span class="article-closing__chevron" aria-hidden="true">›</span>
+            <a href="/post/">cd ..</a>
+        </li>
+    </ul>
+
+</div>
+
+            </footer>
         </div>
     </div>
 </article>
@@ -1156,29 +732,6 @@
 
 
 
-
-
-
-
-<button id="dark-mode-toggle" class="editorial-dark-mode-toggle" type="button" aria-label="暗色模式" title="暗色模式">
-    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="8" cy="12" r="2" />
-  <rect x="2" y="6" width="20" height="12" rx="6" />
-</svg>
-
-
-
-    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="16" cy="12" r="2" />
-  <rect x="2" y="6" width="20" height="12" rx="6" />
-</svg>
-
-
-
-    <span>暗色模式</span>
-</button>
 
 
 
@@ -1259,382 +812,229 @@
                 href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
             >
 
-        </main>
-    </div>
+    </main>
+
     <script 
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.836efe327773ba454adac61ee8b35272b6f512bd594ed9ea0f926fca8386433b.js" defer></script>
-<script>
-    (function () {
-        const customFont = document.createElement('link');
-        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
-
-        customFont.type = "text/css";
-        customFont.rel = "stylesheet";
-
-        document.head.appendChild(customFont);
-    }());
-</script>
-<style>
-   
-  .article-content .highlight,
-  .editorial-content-column .article-content .highlight,
-  .article-content pre,
-  .editorial-content-column .article-content pre {
-    max-height: none !important;
-    overflow-y: visible !important;
-    overflow-x: auto !important;
-    scrollbar-width: auto;
-    scrollbar-color: #3c3d3e transparent;
-  }
-
-  .article-content .highlight pre,
-  .editorial-content-column .article-content .highlight pre,
-  .article-content .highlight .chroma,
-  .editorial-content-column .article-content .highlight .chroma {
-    overflow: visible !important;
-  }
-
-  .article-content .highlight::-webkit-scrollbar,
-  .editorial-content-column .article-content .highlight::-webkit-scrollbar,
-  .article-content pre::-webkit-scrollbar,
-  .editorial-content-column .article-content pre::-webkit-scrollbar {
-    width: 12px;
-    height: 12px;
-  }
-
-  .article-content .highlight::-webkit-scrollbar-track,
-  .editorial-content-column .article-content .highlight::-webkit-scrollbar-track,
-  .article-content pre::-webkit-scrollbar-track,
-  .editorial-content-column .article-content pre::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  .article-content .highlight::-webkit-scrollbar-thumb,
-  .editorial-content-column .article-content .highlight::-webkit-scrollbar-thumb,
-  .article-content pre::-webkit-scrollbar-thumb,
-  .editorial-content-column .article-content pre::-webkit-scrollbar-thumb {
-    background: #3c3d3e;
-    border-radius: 999px;
-  }
-
-  .article-content .highlight::-webkit-scrollbar-thumb:hover,
-  .editorial-content-column .article-content .highlight::-webkit-scrollbar-thumb:hover,
-  .article-content pre::-webkit-scrollbar-thumb:hover,
-  .editorial-content-column .article-content pre::-webkit-scrollbar-thumb:hover {
-    background: #48494a;
-  }
-
-  :root[data-scheme="dark"] .article-content .highlight,
-  :root[data-scheme="dark"] .editorial-content-column .article-content .highlight,
-  :root[data-scheme="dark"] .article-content pre,
-  :root[data-scheme="dark"] .editorial-content-column .article-content pre {
-    scrollbar-color: #3c3d3e transparent;
-  }
-
-  :root[data-scheme="dark"] .article-content .highlight::-webkit-scrollbar-thumb,
-  :root[data-scheme="dark"] .editorial-content-column .article-content .highlight::-webkit-scrollbar-thumb,
-  :root[data-scheme="dark"] .article-content pre::-webkit-scrollbar-thumb,
-  :root[data-scheme="dark"] .editorial-content-column .article-content pre::-webkit-scrollbar-thumb {
-    background: #3c3d3e;
-  }
-
-  :root[data-scheme="dark"] .article-content .highlight::-webkit-scrollbar-thumb:hover,
-  :root[data-scheme="dark"] .editorial-content-column .article-content .highlight::-webkit-scrollbar-thumb:hover,
-  :root[data-scheme="dark"] .article-content pre::-webkit-scrollbar-thumb:hover,
-  :root[data-scheme="dark"] .editorial-content-column .article-content pre::-webkit-scrollbar-thumb:hover {
-    background: #48494a;
-  }
-
-   
-  :root[data-scheme="light"] .article-content .highlight,
-  :root[data-scheme="light"] .editorial-content-column .article-content .highlight,
-  :root[data-scheme="light"] .article-content pre,
-  :root[data-scheme="light"] .editorial-content-column .article-content pre {
-    scrollbar-color: #3c3d3e transparent;
-    scrollbar-width: thin;
-  }
-
-  :root[data-scheme="light"] .article-content .highlight::-webkit-scrollbar,
-  :root[data-scheme="light"] .editorial-content-column .article-content .highlight::-webkit-scrollbar,
-  :root[data-scheme="light"] .article-content pre::-webkit-scrollbar,
-  :root[data-scheme="light"] .editorial-content-column .article-content pre::-webkit-scrollbar {
-    width: 14px;
-    height: 14px;
-  }
-
-  :root[data-scheme="light"] .article-content .highlight::-webkit-scrollbar-track,
-  :root[data-scheme="light"] .editorial-content-column .article-content .highlight::-webkit-scrollbar-track,
-  :root[data-scheme="light"] .article-content pre::-webkit-scrollbar-track,
-  :root[data-scheme="light"] .editorial-content-column .article-content pre::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  :root[data-scheme="light"] .article-content .highlight::-webkit-scrollbar-thumb,
-  :root[data-scheme="light"] .editorial-content-column .article-content .highlight::-webkit-scrollbar-thumb,
-  :root[data-scheme="light"] .article-content pre::-webkit-scrollbar-thumb,
-  :root[data-scheme="light"] .editorial-content-column .article-content pre::-webkit-scrollbar-thumb {
-    background: #3c3d3e;
-    border-radius: 999px;
-  }
-
-  :root[data-scheme="light"] .article-content .highlight::-webkit-scrollbar-thumb:hover,
-  :root[data-scheme="light"] .editorial-content-column .article-content .highlight::-webkit-scrollbar-thumb:hover,
-  :root[data-scheme="light"] .article-content pre::-webkit-scrollbar-thumb:hover,
-  :root[data-scheme="light"] .editorial-content-column .article-content pre::-webkit-scrollbar-thumb:hover {
-    background: #48494a;
-  }
-
-   
-  .article-content .highlight::-webkit-scrollbar-button,
-  .editorial-content-column .article-content .highlight::-webkit-scrollbar-button,
-  .article-content pre::-webkit-scrollbar-button,
-  .editorial-content-column .article-content pre::-webkit-scrollbar-button {
-    display: none;
-  }
-</style>
-<script src="/js/particles.js"></script>
+            </script><script type="text/javascript" src="/ts/main.836efe327773ba454adac61ee8b35272b6f512bd594ed9ea0f926fca8386433b.js" defer></script><script type="text/javascript" src="/ts/custom.77669e75e8d67de70fbaba61f97bc81baa9b5f9fc7e3afee3da166b02cceae50.js" defer></script>
 
 
-
-<script src="/js/fireworks.js"></script>
-
-
-<script src="/js/avatar-colors.js"></script>
-
-
-
-
-<button id="back-to-top" class="back-to-top-btn" aria-label="回到顶部" title="回到顶部">
-  
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="18 15 12 9 6 15"></polyline>
-  </svg>
+<button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M6 14.5 12 8l6 6.5" />
+    </svg>
 </button>
 
-
-<style>
-   
-  .back-to-top-btn {
-     
-    position: fixed;
-    z-index: 999;
-
-     
-    left: 50px;
-     
-    top: auto;
-     
-    bottom: auto;
-     
-
-     
-    width: 24px;
-    height: 24px;
-
-     
-    border-radius: 20%;
-
-     
-    background: rgba(252, 249, 244, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-
-     
-    box-shadow: 0 4px 16px rgba(180, 170, 160, 0.2);
-
-     
-    cursor: pointer;
-
-     
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-     
-    color: #555555;
-
-     
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-
-     
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-     
-    outline: none;
-  }
-
-   
-  .back-to-top-btn.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-
-   
-  .back-to-top-btn:hover {
-    transform: translateY(-4px) scale(1.05);
-    background: rgba(252, 249, 244, 0.95);
-    box-shadow: 0 8px 24px rgba(180, 170, 160, 0.3);
-    border-color: rgba(0, 0, 0, 0.12);
-    color: #333333;
-  }
-
-   
-  .back-to-top-btn:active {
-    transform: translateY(-2px) scale(0.98);
-  }
-
-   
-  .back-to-top-btn svg {
-    width: 24px;
-    height: 24px;
-    stroke-width: 2.5;
-  }
-
-   
-  :root[data-scheme="dark"] .back-to-top-btn {
-     
-    background: rgba(40, 40, 40, 0.8);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-
-     
-    color: #e0e0e0;
-  }
-
-  :root[data-scheme="dark"] .back-to-top-btn:hover {
-    background: rgba(50, 50, 50, 0.9);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
-    border-color: rgba(255, 255, 255, 0.2);
-    color: #ffffff;
-  }
-
-   
-   
-
-   
-  @media (max-width: 768px) {
-    .back-to-top-btn {
-       
-      width: 18px;
-      height: 18px;
-    }
-
-    .back-to-top-btn svg {
-      width: 16px;
-      height: 16px;
-    }
-  }
-</style>
-
-
 <script>
-  (function () {
-    'use strict';
+    (function () {
+        'use strict';
 
-    
-    const backToTopBtn = document.getElementById('back-to-top');
+        const menuToggle = document.querySelector('.site-menu-toggle');
+        const nav = document.getElementById('primary-navigation');
+        const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-    if (!backToTopBtn) return;
-
-    
-    const SCROLL_THRESHOLD = 300;
-
-    
-    function throttle(func, delay) {
-      let lastCall = 0;
-      return function (...args) {
-        const now = Date.now();
-        if (now - lastCall >= delay) {
-          lastCall = now;
-          func.apply(this, args);
+        function setMenuOpen(open) {
+            if (!menuToggle || !nav) return;
+            menuToggle.classList.toggle('is-open', open);
+            nav.classList.toggle('is-open', open);
+            document.body.classList.toggle('site-nav-open', open);
+            menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
         }
-      };
-    }
 
-    
-    function checkScroll() {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (menuToggle && nav) {
+            menuToggle.addEventListener('click', function (event) {
+                event.stopPropagation();
+                setMenuOpen(!nav.classList.contains('is-open'));
+            });
 
-      if (scrollTop > SCROLL_THRESHOLD) {
-        backToTopBtn.classList.add('show');
-      } else {
-        backToTopBtn.classList.remove('show');
-      }
-    }
+            nav.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    setMenuOpen(false);
+                });
+            });
 
-    
-    function scrollToTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    }
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape') setMenuOpen(false);
+            });
 
-    
-    window.addEventListener('scroll', throttle(checkScroll, 100));
+            document.addEventListener('click', function (event) {
+                if (!document.body.classList.contains('site-nav-open')) return;
+                if (nav.contains(event.target) || menuToggle.contains(event.target)) return;
+                setMenuOpen(false);
+            });
 
-    
-    backToTopBtn.addEventListener('click', scrollToTop);
+            const desktopQuery = window.matchMedia('(min-width: 921px)');
+            const closeMenuOnDesktop = function (event) {
+                if (event.matches) setMenuOpen(false);
+            };
 
-    
-    function positionButton() {
-      
-      const mainMenu = document.getElementById('main-menu');
-      const bottomSection = document.querySelector('.menu-bottom-section');
+            if (desktopQuery.addEventListener) {
+                desktopQuery.addEventListener('change', closeMenuOnDesktop);
+            } else if (desktopQuery.addListener) {
+                desktopQuery.addListener(closeMenuOnDesktop);
+            }
+        }
 
-      if (!mainMenu || !bottomSection) {
-        
-        return;
-      }
+        const backToTop = document.getElementById('back-to-top');
 
-      
-      const menuRect = mainMenu.getBoundingClientRect();
-      const menuCenter = menuRect.left + (menuRect.width / 2);
+        if (backToTop) {
+            function updateBackToTop() {
+                backToTop.classList.toggle('is-visible', window.scrollY > 420);
+            }
 
-      
-      const bottomRect = bottomSection.getBoundingClientRect();
-      const bottomTop = bottomRect.top;
+            backToTop.addEventListener('click', function () {
+                window.scrollTo({ top: 0, behavior: reduceMotionQuery.matches ? 'auto' : 'smooth' });
+            });
 
-      
-      const buttonWidth = 24; 
-      const buttonHeight = 24; 
-      const buttonLeft = menuCenter - (buttonWidth / 2);
+            window.addEventListener('scroll', updateBackToTop, { passive: true });
+            updateBackToTop();
+        }
 
-      
-      const spacing = 15; 
-      const buttonTop = bottomTop - buttonHeight - spacing;
+        function initStaffParallax() {
+            const staff = document.querySelector('.music-staff-bg');
+            if (!staff || reduceMotionQuery.matches) return;
 
-      
-      backToTopBtn.style.left = buttonLeft + 'px';
-      backToTopBtn.style.top = buttonTop + 'px';
-      backToTopBtn.style.bottom = 'auto'; 
-      backToTopBtn.style.right = 'auto'; 
-    }
+            let ticking = false;
 
-    
-    positionButton();
+            function updateStaffPosition() {
+                const shift = Math.max(-5, Math.min(5, window.scrollY * -0.012));
+                staff.style.transform = 'translate3d(0, ' + shift.toFixed(2) + 'px, 0)';
+                ticking = false;
+            }
 
-    
-    checkScroll();
+            function requestStaffUpdate() {
+                if (ticking) return;
+                ticking = true;
+                window.requestAnimationFrame(updateStaffPosition);
+            }
 
-    
-    window.addEventListener('resize', throttle(positionButton, 200));
+            staff.classList.add('is-parallax-ready');
+            window.addEventListener('scroll', requestStaffUpdate, { passive: true });
+            updateStaffPosition();
+        }
 
-    
-    window.addEventListener('load', positionButton);
-  })();
+        function initArticleTocHover() {
+            const toc = document.querySelector('[data-article-toc]');
+            const articleMain = document.querySelector('.article-detail__main');
+            if (!toc || !articleMain) return;
 
+            const toggle = toc.querySelector('[data-article-toc-toggle]');
+            let lockedOpen = false;
+
+            function setVisible(visible) {
+                document.body.classList.toggle('is-article-toc-visible', visible);
+                if (toggle) {
+                    toggle.setAttribute('aria-expanded', visible ? 'true' : 'false');
+                    toggle.setAttribute('aria-label', visible ? '隐藏文章目录' : '显示文章目录');
+                }
+            }
+
+            function getLeftRevealZone() {
+                return Math.min(380, Math.max(280, window.innerWidth * 0.22));
+            }
+
+            function isInsideReadingColumn(x, y) {
+                const rect = articleMain.getBoundingClientRect();
+                const top = Math.min(rect.top, 0) - 48;
+                const bottom = Math.max(rect.bottom, window.innerHeight) + 48;
+
+                return x >= rect.left - 72 && x <= rect.right + 32 && y >= top && y <= bottom;
+            }
+
+            document.addEventListener('pointermove', function (event) {
+                if (lockedOpen) return;
+                setVisible(event.clientX <= getLeftRevealZone() || isInsideReadingColumn(event.clientX, event.clientY));
+            }, { passive: true });
+
+            document.addEventListener('pointerleave', function () {
+                if (!lockedOpen) setVisible(false);
+            });
+
+            toc.addEventListener('focusin', function () {
+                setVisible(true);
+            });
+
+            toc.addEventListener('focusout', function (event) {
+                if (lockedOpen || toc.contains(event.relatedTarget)) return;
+                setVisible(false);
+            });
+
+            if (toggle) {
+                toggle.addEventListener('click', function () {
+                    const isVisible = document.body.classList.contains('is-article-toc-visible');
+                    if (lockedOpen && isVisible) {
+                        lockedOpen = false;
+                        setVisible(false);
+                        return;
+                    }
+
+                    lockedOpen = true;
+                    setVisible(true);
+                });
+            }
+
+            document.addEventListener('click', function (event) {
+                if (!lockedOpen) return;
+                if (toc.contains(event.target) || articleMain.contains(event.target)) return;
+                lockedOpen = false;
+                setVisible(false);
+            });
+
+            document.addEventListener('keydown', function (event) {
+                if (event.key !== 'Escape') return;
+                lockedOpen = false;
+                setVisible(false);
+            });
+        }
+
+        function initRevealOnScroll() {
+            if (reduceMotionQuery.matches || !('IntersectionObserver' in window)) return;
+
+            const revealSelectors = [
+                '.section-band',
+                '.featured-section',
+                '.blog-card',
+                '.post-tools',
+                '.article-detail__content > *',
+                '.article-detail__footer',
+                '.journal-entry',
+                '.music-panel',
+                '.curated-inspirations'
+            ];
+
+            const targets = Array.prototype.slice.call(document.querySelectorAll(revealSelectors.join(',')));
+            if (!targets.length) return;
+
+            const observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                });
+            }, {
+                rootMargin: '0px 0px -8% 0px',
+                threshold: 0.12
+            });
+
+            targets.forEach(function (target, index) {
+                target.classList.add('reveal-on-scroll');
+                target.style.setProperty('--reveal-delay', Math.min(index % 5, 4) * 45 + 'ms');
+                observer.observe(target);
+            });
+        }
+
+        initStaffParallax();
+        initArticleTocHover();
+        initRevealOnScroll();
+
+        window.requestAnimationFrame(function () {
+            document.body.classList.add('is-loaded');
+        });
+    })();
 </script>
+
 </body>
 
 </html>

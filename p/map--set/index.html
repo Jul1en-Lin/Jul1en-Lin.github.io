@@ -1,313 +1,252 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr" data-scheme="dark">
+<html lang="en-us" dir="ltr">
 
 <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Map &amp; Set #搜索树# 概念 二叉搜索树/二叉排序树，满足以下性质\n若左树不为空，则左树上所有节点的值都小于父节点的值 若右树不为空，则右树上所有节点的值都大于父节点的值 它的左右子树也满足以上性质 ">
-<title>Map &amp; Set</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Map &amp;amp; Set #搜索树# 概念 二叉搜索树/二叉排序树，满足以下性质 若左树不为空，则左树上所有节点的值都小于父节点的值 若右树不为空，则右树上所有节点的值都大于父节点的值 它的左右子树也满足以上性质">
+<title>Map &amp; Set | Jul1en</title>
 
 <link rel='canonical' href='https://Jul1en-Lin.github.io/p/map--set/'>
 
-<link rel="stylesheet" href="/scss/style.min.502a380229eacc0e12af50d218c823259247c480ba28a71cc1a8f31e36902a3e.css"><meta property='og:title' content="Map & Set">
-<meta property='og:description' content="Map &amp; Set #搜索树# 概念 二叉搜索树/二叉排序树，满足以下性质\n若左树不为空，则左树上所有节点的值都小于父节点的值 若右树不为空，则右树上所有节点的值都大于父节点的值 它的左右子树也满足以上性质 ">
+<link rel="stylesheet" href="/scss/style.min.35e176eae627f0ca2a1fbda52d9af8ddef4f4a6604a605260cd42cf3d00b683a.css"><meta property='og:title' content="Map & Set | Jul1en">
+<meta property='og:description' content="Map &amp;amp; Set #搜索树# 概念 二叉搜索树/二叉排序树，满足以下性质 若左树不为空，则左树上所有节点的值都小于父节点的值 若右树不为空，则右树上所有节点的值都大于父节点的值 它的左右子树也满足以上性质">
 <meta property='og:url' content='https://Jul1en-Lin.github.io/p/map--set/'>
 <meta property='og:site_name' content='Jul1en'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-05-19T13:26:18&#43;00:00'/><meta property='article:modified_time' content='2026-04-27T22:00:12&#43;08:00'/>
-<meta name="twitter:title" content="Map & Set">
-<meta name="twitter:description" content="Map &amp; Set #搜索树# 概念 二叉搜索树/二叉排序树，满足以下性质\n若左树不为空，则左树上所有节点的值都小于父节点的值 若右树不为空，则右树上所有节点的值都大于父节点的值 它的左右子树也满足以上性质 ">
-
-<script>
+<meta name="twitter:title" content="Map & Set | Jul1en">
+<meta name="twitter:description" content="Map &amp;amp; Set #搜索树# 概念 二叉搜索树/二叉排序树，满足以下性质 若左树不为空，则左树上所有节点的值都小于父节点的值 若右树不为空，则右树上所有节点的值都大于父节点的值 它的左右子树也满足以上性质"><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<meta name="author" content="Jul1en">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)"><script src="/js/custom.77669e75e8d67de70fbaba61f97bc81baa9b5f9fc7e3afee3da166b02cceae50.js" integrity="sha256-d2aedejWfecPurph&#43;XvIG6qbX5/H46/uPaFmsCzOrlA=" defer></script><script>
     (function () {
         const colorSchemeKey = 'StackColorScheme';
-        if (!localStorage.getItem(colorSchemeKey)) {
-            
-            const now = new Date();
-            const utcHour = now.getUTCHours();
-            const beijingHour = (utcHour + 8) % 24;
-
-            
-            
-            const isDarkTime = beijingHour >= 21 || beijingHour < 8;
-            const scheme = isDarkTime ? 'dark' : 'light';
-            localStorage.setItem(colorSchemeKey, scheme);
-        }
-    })();
-</script><script>
-    (function () {
-        const colorSchemeKey = 'StackColorScheme';
-        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const savedScheme = localStorage.getItem(colorSchemeKey);
+        const defaultScheme = "light";
         const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+        const scheme = savedScheme || defaultScheme;
 
-        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
-            
-
+        if (scheme === 'dark' || (scheme === 'auto' && supportDarkMode)) {
             document.documentElement.dataset.scheme = 'dark';
         } else {
             document.documentElement.dataset.scheme = 'light';
         }
     })();
 </script>
+
 </head>
 
-<body class="article-page editorial-layout">
+<body class="melody-shell template-article-detail article-page">
+    <a class="skip-link" href="#main-content">Skip to content</a><header class="site-header" role="banner">
+    <div class="site-header__inner">
+        <a class="site-brand" href="/" aria-label="Jul1en home">
+            <span class="site-brand__text">Jul1en</span>
+        </a>
 
-    <div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
-    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
-        <span class="hamburger-box">
-            <span class="hamburger-inner"></span>
-        </span>
+        <div class="site-header__right">
+            <nav id="primary-navigation" class="site-nav" aria-label="Primary navigation">
+                <ul class="site-nav__list"><li class="site-nav__item">
+                            <a class="site-nav__link is-active" href="/post/" aria-current="page">
+                                Blog
+                            </a>
+                        </li><li class="site-nav__item">
+                            <a class="site-nav__link" href="/journal/">
+                                Journal
+                            </a>
+                        </li><li class="site-nav__item">
+                            <a class="site-nav__link" href="/music/">
+                                Music
+                            </a>
+                        </li></ul>
+            </nav>
+
+            <div class="site-actions" role="group" aria-label="Social links and theme"><a class="site-action-link" href="https://github.com/Jul1en-Lin" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+                        <span class="site-action-link__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+  <path fill="currentColor" d="M12 2.2c-5.5 0-9.9 4.5-9.9 9.9 0 4.4 2.8 8.1 6.8 9.4.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.2-3.4-1.2-.5-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 0 1.6 1.1 1.6 1.1.9 1.5 2.4 1.1 2.9.8.1-.7.4-1.1.7-1.4-2.2-.3-4.5-1.1-4.5-4.9 0-1.1.4-2 1.1-2.7-.1-.3-.5-1.3.1-2.7 0 0 .9-.3 2.8 1.1.8-.2 1.7-.3 2.5-.3s1.7.1 2.5.3c1.9-1.3 2.8-1.1 2.8-1.1.6 1.4.2 2.4.1 2.7.7.8 1.1 1.7 1.1 2.7 0 3.8-2.3 4.6-4.5 4.9.4.3.7.9.7 1.9V21c0 .3.2.6.7.5 4-1.3 6.8-5 6.8-9.4 0-5.4-4.4-9.9-9.9-9.9Z" />
+</svg>
+</span>
+                    </a><a class="site-action-link" href="https://www.instagram.com/jul1en_lin" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+                        <span class="site-action-link__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+  <path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M7.5 3.5h9A4 4 0 0 1 20.5 7.5v9a4 4 0 0 1-4 4h-9a4 4 0 0 1-4-4v-9a4 4 0 0 1 4-4Z" />
+  <path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M8.8 12a3.2 3.2 0 1 0 6.4 0 3.2 3.2 0 0 0-6.4 0Z" />
+  <path fill="currentColor" d="M17.2 7.2a.9.9 0 1 1-1.8 0 .9.9 0 0 1 1.8 0Z" />
+</svg>
+</span>
+                    </a><button id="dark-mode-toggle" class="theme-toggle" type="button" aria-label="暗色模式" title="暗色模式">
+                    <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="4.2" />
+    <path d="M12 2.8v2.2M12 19v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.8 12h2.2M19 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" />
+</svg>
+</span>
+                    <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M19.7 14.6c-1.3 2.9-4.6 4.8-8.1 4.2-4.3-.7-7.2-4.8-6.5-9.1.5-3.2 2.8-5.7 5.7-6.5-.9 2.1-.5 4.7 1.2 6.6 1.9 2.2 4.9 3 7.7 2.2-.1.9-.1 1.7 0 2.6z" />
+</svg>
+</span>
+                </button></div>
+
+            <button class="site-menu-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false">
+                <span class="site-menu-toggle__bar" aria-hidden="true"></span>
+                <span class="site-menu-toggle__bar" aria-hidden="true"></span>
+                <span class="site-menu-toggle__bar" aria-hidden="true"></span>
+                <span class="sr-only">Menu</span>
+            </button>
+        </div>
+    </div>
+</header>
+<div class="music-staff-bg" aria-hidden="true">
+    <svg viewBox="0 0 1440 360" preserveAspectRatio="none" focusable="false">
+        <path class="music-staff-bg__curve" d="M-80 210 C 180 110, 360 310, 620 190 S 1040 80, 1520 170" />
+        <g class="music-staff-bg__lines">
+            <path d="M-80 128 C 240 98, 520 158, 820 128 S 1220 98, 1520 128" />
+            <path d="M-80 146 C 240 116, 520 176, 820 146 S 1220 116, 1520 146" />
+            <path d="M-80 164 C 240 134, 520 194, 820 164 S 1220 134, 1520 164" />
+            <path d="M-80 182 C 240 152, 520 212, 820 182 S 1220 152, 1520 182" />
+            <path d="M-80 200 C 240 170, 520 230, 820 200 S 1220 170, 1520 200" />
+        </g>
+    </svg>
+</div>
+<div class="music-note-decor" aria-hidden="true">
+    <span class="music-note-decor__note music-note-decor__note--one">♪</span>
+    <span class="music-note-decor__note music-note-decor__note--two">♩</span>
+    <span class="music-note-decor__note music-note-decor__note--three">♬</span>
+</div>
+<main id="main-content" class="main main-content full-width" tabindex="-1"><article class="article-detail">
+    <aside class="article-detail__toc-rail" aria-label="文章目录" data-article-toc>
+    <a class="article-detail__toc-brand" href="/" aria-label="Jul1en home">
+        <span class="article-detail__toc-brand-text">Jul1en</span>
+        <span class="article-detail__toc-brand-note" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M14 4v11.4" />
+  <path d="M14 4l5 1.4v3.4L14 7.4" />
+  <path d="M9.2 17.6c0 1.3-1.4 2.4-3.1 2.4S3 18.9 3 17.6s1.4-2.4 3.1-2.4 3.1 1.1 3.1 2.4Z" />
+  <path d="M14 15.4c0 1.3-1.4 2.4-3.1 2.4-.7 0-1.4-.2-1.9-.5" />
+</svg>
+</span>
+    </a>
+
+    <span class="article-detail__toc-brand-rule" aria-hidden="true"></span>
+
+    <button class="article-detail__toc-toggle" type="button" aria-label="显示文章目录" aria-controls="TableOfContents" aria-expanded="false" data-article-toc-toggle>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
     </button>
 
-    <header>
-        
-            
-            <figure class="site-avatar">
-                <a href="/">
-                
-                    
-                    
-                    
-                        
-                        <img src="/img/avatar_hu_9c28e5b7b386072e.png" width="300"
-                            height="341" class="site-logo" loading="lazy" alt="Avatar">
-                    
-                
-                </a>
-                
-                    <span class="emoji">🥯</span>
-                
-            </figure>
-            
-        
-        
-        <div class="site-meta">
-            <h1 class="site-name"><a href="/">Jul1en</a></h1>
-            <h2 class="site-description">学会等候 期待有天🎏</h2>
+    <div class="article-detail__toc-panel">
+        <div class="article-detail__toc-nav">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#map--set">Map &amp; Set</a></li>
+    <li><a href="#搜索树">#搜索树#</a>
+      <ol>
+        <li><a href="#概念">概念</a></li>
+        <li><a href="#搜索树操作">搜索树操作</a>
+          <ol>
+            <li><a href="#插入insert">插入<code>Insert</code></a></li>
+            <li><a href="#查找remove">查找<code>Remove</code></a></li>
+            <li><a href="#删除">删除</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#搜索">搜索</a>
+      <ol>
+        <li><a href="#模型">模型</a></li>
+      </ol>
+    </li>
+    <li><a href="#map">Map</a>
+      <ol>
+        <li><a href="#treemap和hashmap的区别">TreeMap和HashMap的区别</a></li>
+        <li><a href="#常用方法">常用方法</a></li>
+        <li><a href="#总结">总结</a></li>
+      </ol>
+    </li>
+    <li><a href="#set">Set</a>
+      <ol>
+        <li><a href="#treeset和hashset区别">TreeSet和HashSet区别</a></li>
+        <li><a href="#常见方法">常见方法</a></li>
+        <li><a href="#总结-1">总结</a></li>
+      </ol>
+    </li>
+    <li><a href="#map和set的关系">Map和Set的关系</a></li>
+    <li><a href="#哈希表散列表">哈希表/散列表</a>
+      <ol>
+        <li><a href="#概念-1">概念</a></li>
+        <li><a href="#哈希冲突">哈希冲突</a>
+          <ol>
+            <li><a href="#负载因子">负载因子</a></li>
+          </ol>
+        </li>
+        <li><a href="#避免哈希冲突">避免哈希冲突</a>
+          <ol>
+            <li><a href="#解决哈希冲突">解决哈希冲突</a></li>
+            <li><a href="#注意要区分清楚哈希冲突的处理方法和哈希函数">注意要区分清楚：哈希冲突的处理方法和哈希函数</a></li>
+            <li><a href="#闭散列">闭散列</a></li>
+            <li><a href="#开散列重点">💫开散列（重点）</a></li>
+          </ol>
+        </li>
+        <li><a href="#与java类集合的关系">💫与Java类集合的关系</a></li>
+        <li><a href="#平均查找长度">#平均查找长度#</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
         </div>
-    </header><ol class="menu-social">
-            
-                <li>
-                    <a 
-                        href='https://blog.csdn.net/TwoCat_C?type=blog'
-                        target="_blank"
-                        title="CSDN"
-                        rel="me"
-                    >
-                        
-                        
-                            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1765201201519" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6401" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M200.234667 581.888c-21.205333 24.234667-58.154667 26.88-73.045334 26.88-27.648 0-48.810667-6.997333-62.890666-20.821333-13.354667-13.098667-20.394667-32.426667-20.864-57.429334-1.066667-57.941333 31.744-117.845333 88.490666-117.845333 27.093333 0 47.957333 19.413333 55.936 27.477333a14.378667 14.378667 0 0 0 12.032 4.224 16.213333 16.213333 0 0 0 10.282667-6.784c2.901333-3.712 5.76-10.112 5.888-17.109333s-2.432-14.677333-10.368-20.906667a112.725333 112.725333 0 0 0-71.168-25.216c-34.944 0-69.418667 16.042667-94.634667 44.074667-26.496 29.482667-40.661333 69.546667-39.893333 112.896 0.64 34.773333 12.032 64 32.981333 84.565333 22.528 22.101333 55.466667 33.749333 95.36 33.749334 46.805333 0 75.776-13.866667 91.904-25.472a24.917333 24.917333 0 0 0 10.24-19.456 29.952 29.952 0 0 0-8.874666-21.205334c-9.813333-10.581333-19.114667-4.309333-21.461334-1.578666z m212.053333-91.733333a318.762667 318.762667 0 0 0-29.781333-10.581334c-6.698667-2.048-13.184-3.882667-19.2-5.589333-39.338667-11.093333-43.818667-21.333333-43.392-29.013333 0.938667-15.488 21.973333-36.394667 57.685333-33.792 25.898667 1.92 43.306667 21.717333 51.413333 33.322666 6.357333 9.130667 15.829333 5.76 18.517334 4.053334a25.685333 25.685333 0 0 0 13.184-21.930667 26.709333 26.709333 0 0 0-8.917334-20.821333 113.237333 113.237333 0 0 0-142.805333-11.648c-19.456 13.781333-31.744 32.938667-32.853333 51.285333-2.730667 45.269333 43.306667 58.282667 76.928 67.754667 9.130667 2.602667 18.304 5.418667 28.458666 8.618666 48.64 15.232 50.048 30.592 46.592 54.058667-3.498667 23.722667-29.696 35.584-71.893333 32.469333-43.904-3.242667-62.464-26.026667-68.778667-38.442666-2.133333-4.181333-8.746667-10.581333-17.621333-6.656-21.930667 9.770667-20.181333 31.189333-11.093333 42.368 14.464 17.749333 49.066667 44.16 113.792 44.16 73.984 0 96.213333-37.333333 101.461333-69.973334 3.925333-24.405333-0.938667-43.861333-14.848-59.562666-10.069333-11.392-25.258667-21.12-46.976-30.122667z m289.152-92.373334c-25.514667-18.389333-59.434667-26.026667-100.693333-22.698666-30.378667 2.474667-54.357333 10.368-56.96 11.221333l-0.256 0.085333a18.645333 18.645333 0 0 0-12.672 16.170667l-20.053334 221.909333a14.378667 14.378667 0 0 0 10.538667 14.933334l3.072 0.853333 2.816 0.768 3.669333 0.896a337.664 337.664 0 0 0 69.973334 7.808c41.472 0 75.306667-9.813333 100.693333-29.184 32.597333-24.874667 48.682667-64 47.701333-116.266667-0.896-48.426667-16.981333-84.224-47.829333-106.453333z m-28.245333 190.336c-35.669333 27.264-89.173333 23.978667-114.218667 20.522667a5.461333 5.461333 0 0 1-4.650667-5.845333l16.938667-181.248a4.821333 4.821333 0 0 1 3.669333-4.266667c42.624-10.282667 75.818667-7.168 98.645334 9.301333 8.064 5.845333 14.848 14.122667 20.096 24.234667 7.509333 14.464 11.818667 32.64 12.202666 52.650667 0.725333 39.082667-10.24 67.541333-32.64 84.650666z m349.397333-143.957333a81.92 81.92 0 0 0-18.432-39.210667c-17.024-19.84-43.904-29.397333-78.848-29.397333-31.317333 0-58.538667 9.728-83.072 34.090667 0.298667-3.669333 0.810667-6.784 0.768-9.514667s-0.725333-4.949333-2.816-6.954667c-2.048-1.92-3.285333-2.858667-5.418667-3.285333-2.133333-0.426667-5.205333-0.341333-10.922666-0.256a25.045333 25.045333 0 0 0-25.130667 23.04s-13.866667 165.290667-18.261333 220.373333a13.141333 13.141333 0 0 0 3.114666 9.728 15.36 15.36 0 0 0 11.093334 5.589334h16.512a9.557333 9.557333 0 0 0 9.642666-8.746667l11.648-124.970667 0.597334-6.272a81.152 81.152 0 0 1 3.498666-17.578666c0.597333-1.92 1.28-3.925333 2.005334-5.973334 10.453333-29.610667 34.261333-73.386667 84.096-72.277333 35.84 0.768 61.824 19.413333 59.093333 47.530667-4.309333 44.117333-11.349333 132.266667-15.274667 176.64-0.810667 8.917333 7.765333 11.648 10.752 11.648h12.970667a18.858667 18.858667 0 0 0 18.944-17.237334s7.893333-90.752 12.544-143.018666l2.048-22.698667a83.584 83.584 0 0 0-1.109333-21.333333z" p-id="6402" fill="#707070"></path></svg>
-                        
-                    </a>
-                </li>
-            
-                <li>
-                    <a 
-                        href='https://gitee.com/Cary_C'
-                        target="_blank"
-                        title="Gitee"
-                        rel="me"
-                    >
-                        
-                        
-                            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1765175787209" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="12364" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M817.0496 445.44H456.5504c-11.1104 0-27.7504 16.64-27.7504 27.7504v72.0896c0 16.64 16.64 27.7504 27.7504 27.7504h227.3792c16.64 0 27.7504 16.64 27.7504 27.6992v22.2208c0 49.92-44.3904 88.7296-88.7296 88.7296H334.4896c-16.64 0-27.6992-16.64-27.6992-27.7504V389.9904c-5.5808-44.3904 38.8096-88.7808 83.2-88.7808h421.5296c11.1104 0 27.7504-16.64 27.7504-27.6992v-66.56c5.5296-11.1104-11.1104-27.7504-22.2208-27.7504H401.0496A222.5152 222.5152 0 0 0 179.2 401.0496v416c0 11.1104 16.64 27.7504 27.7504 27.7504H645.12c110.9504 0 199.68-88.7296 199.68-199.68V473.1904c0-11.1104-16.64-27.7504-27.7504-27.7504z" fill="#8B8B8B" p-id="12365"></path></svg>
-                        
-                    </a>
-                </li>
-            
-                <li>
-                    <a 
-                        href='https://github.com/Jul1en-Lin'
-                        target="_blank"
-                        title="GitHub"
-                        rel="me"
-                    >
-                        
-                        
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
-</svg>
+    </div>
 
-
-
-                        
-                    </a>
-                </li>
-            
-        </ol><ol class="menu" id="main-menu">
-        
-        
-        
-        <li >
-            <a href='/archives/' >
-                
-                
-                
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <rect x="3" y="4" width="18" height="4" rx="2" />
-  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
-  <line x1="10" y1="12" x2="14" y2="12" />
-</svg>
-
-
-
-                
-                <span>合集</span>
-            </a>
-        </li>
-        
-        
-        <li >
-            <a href='/categories/' >
-                
-                
-                
-                    <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1765359277966" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11523" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M575.68 736a160.32 160.32 0 1 0 160.32-160.32H599.893333c-13.461333 0-24.192 10.752-24.192 24.192V736zM736 533.333333A202.666667 202.666667 0 1 1 533.333333 736V599.893333A66.432 66.432 0 0 1 599.872 533.333333H736zM490.666667 736a202.666667 202.666667 0 1 1-202.666667-202.666667h136.128A66.432 66.432 0 0 1 490.666667 599.872V736z m-202.666667-160.32a160.32 160.32 0 1 0 160.32 160.32V599.893333c0-13.44-10.730667-24.192-24.192-24.192H288zM533.333333 287.978667A202.666667 202.666667 0 1 1 736 490.666667H599.893333A66.432 66.432 0 0 1 533.333333 424.128V288z m202.666667 160.341333a160.32 160.32 0 1 0-160.32-160.32v136.128c0 13.44 10.730667 24.192 24.192 24.192H736zM448.32 288a160.32 160.32 0 1 0-160.32 160.32h136.128c13.461333 0 24.192-10.752 24.192-24.192V288zM288 490.666667A202.666667 202.666667 0 1 1 490.666667 288v136.128A66.432 66.432 0 0 1 424.128 490.666667H288z" fill="currentColor" p-id="11524"></path></svg>
-                
-                <span>分类</span>
-            </a>
-        </li>
-        
-        
-        <li >
-            <a href='/search/' >
-                
-                
-                
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="10" cy="10" r="7" />
-  <line x1="21" y1="21" x2="15" y2="15" />
-</svg>
-
-
-
-                
-                <span>搜索</span>
-            </a>
-        </li>
-        
-        <li class="menu-bottom-section">
-            <ol class="menu">
-
-                
-                    <li id="dark-mode-toggle">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="8" cy="12" r="2" />
-  <rect x="2" y="6" width="20" height="12" rx="6" />
-</svg>
-
-
-
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="16" cy="12" r="2" />
-  <rect x="2" y="6" width="20" height="12" rx="6" />
-</svg>
-
-
-
-                        <span>暗色模式</span>
-                    </li>
-                
-            </ol>
-        </li>
-    </ol>
+    <div class="article-detail__toc-staff" aria-hidden="true">
+        <svg viewBox="0 0 320 110" preserveAspectRatio="none" focusable="false">
+            <g>
+                <path d="M-18 58 C 52 25, 106 82, 176 52 S 270 42, 338 66" />
+                <path d="M-18 69 C 52 36, 106 93, 176 63 S 270 53, 338 77" />
+                <path d="M-18 80 C 52 47, 106 104, 176 74 S 270 64, 338 88" />
+                <path d="M-18 91 C 52 58, 106 115, 176 85 S 270 75, 338 99" />
+                <path d="M-18 102 C 52 69, 106 126, 176 96 S 270 86, 338 110" />
+            </g>
+            <text x="72" y="83">♪</text>
+            <text x="176" y="63">♩</text>
+        </svg>
+    </div>
 </aside>
 
-        <main class="main full-width">
+    <div class="article-detail__layout">
+        <div class="article-detail__main">
+            <header class="article-detail__header">
+                <div class="article-detail__meta"><time datetime="2025-05-19T13:26:18Z">2025-05-19</time><span aria-hidden="true">•</span>
+                        <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></div>
 
-<article class="editorial-article">
-    <div class="editorial-grid">
-        
-        <aside class="editorial-title-column">
-            
-            
-            <div class="editorial-category">
-                
-                <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" >
-                    数据结构
-                </a>
-                
-            </div>
-            
+                <h1 class="article-detail__title">
+                    <span>Map &amp; Set</span>
+                    <span class="article-detail__title-note" aria-hidden="true">♪</span>
+                </h1><p class="article-detail__summary">Map &amp;amp; Set #搜索树# 概念 二叉搜索树/二叉排序树，满足以下性质
+若左树不为空，则左树上所有节点的值都小于父节点的值 若右树不为空，则右树上所有节点的值都大于 …</p><div class="article-detail__header-quote">
+                    <aside class="quote-block quote-block--article">
+    <p class="quote-block__text">Document the path while the idea is still warm.</p>
+    <p class="quote-block__signature">Jul1en</p>
+</aside>
 
-            
-            <h1 class="editorial-title">Map &amp; Set</h1>
+                </div><figure class="article-detail__cover"><img src="/p/map--set/assets/image-20250519213833-8wgchrb_hu_521649de973b1951.webp" width="1120" height="520" alt="Map &amp; Set" loading="eager" decoding="async" fetchpriority="high"></figure></header>
 
-            
-            
-
-            
-            <div class="editorial-meta">
-                
-                <time datetime='2025-05-19T13:26:18Z'>
-                    2025-05-19
-                </time>
-                <span class="editorial-meta-sep">·</span>
-                <span class="editorial-lastmod">
-                    更新于 2026-04-27
-                </span></div>
-
-            
-            
-        </aside>
-
-        
-        <div class="editorial-content-column">
-            <section class="article-content">
-                
-                <h1 id="map--set">Map &amp; Set
-</h1><p><img src="/p/map--set/assets/image-20250519213833-8wgchrb.png" width="1280"  height="764"  srcset="/p/map--set/assets/image-20250519213833-8wgchrb_hu_97269f369ea56f2a.png 800w, /p/map--set/assets/image-20250519213833-8wgchrb_hu_555e488467c58e3d.png 1600w, /p/map--set/assets/image-20250519213833-8wgchrb_hu_f418a9f7c7c162d.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="167"
-	data-flex-basis="402px" ></p>
-<h1 id="搜索树">#搜索树#
-</h1><h2 id="概念">概念
+            <section class="article-content article-detail__content">
+                <h2 id="map--set">Map &amp; Set
+</h2><p><img src="/p/map--set/assets/image-20250519213833-8wgchrb_hu_54327138a38fcad2.webp" width="1600" height="955" srcset="/p/map--set/assets/image-20250519213833-8wgchrb_hu_993cb16fffa468f5.webp 800w, /p/map--set/assets/image-20250519213833-8wgchrb_hu_54327138a38fcad2.webp 1600w, /p/map--set/assets/image-20250519213833-8wgchrb_hu_b7278e3df7b999eb.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="167" data-flex-basis="402px">
+</p>
+<h2 id="搜索树">#搜索树#
+</h2><h2 id="概念">概念
 </h2><p>二叉搜索树/二叉排序树，满足以下性质</p>
 <ul>
 <li>若左树不为空，则左树上所有节点的值都小于父节点的值</li>
 <li>若右树不为空，则右树上所有节点的值都大于父节点的值</li>
 <li>它的左右子树也满足以上性质</li>
 </ul>
-<p><img src="/p/map--set/assets/image-20250519235913-im1keaw.png" width="696"  height="453"  srcset="/p/map--set/assets/image-20250519235913-im1keaw_hu_7e0f64b9fe5f9062.png 800w, /p/map--set/assets/image-20250519235913-im1keaw_hu_149d158536ff7468.png 1600w, /p/map--set/assets/image-20250519235913-im1keaw_hu_d98db13f91db0ba8.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="153"
-	data-flex-basis="368px" ></p>
+<p><img src="/p/map--set/assets/image-20250519235913-im1keaw_hu_a192399c62eb1fa2.webp" width="1600" height="1041" srcset="/p/map--set/assets/image-20250519235913-im1keaw_hu_e1c5a41ab8b393cc.webp 800w, /p/map--set/assets/image-20250519235913-im1keaw_hu_a192399c62eb1fa2.webp 1600w, /p/map--set/assets/image-20250519235913-im1keaw_hu_20311bf10d049be2.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="153" data-flex-basis="368px">
+</p>
 <p>二叉搜索树的中序遍历是有序的：{0，1，2，3，4，5，6，7，8，9}</p>
 <hr>
 <h2 id="搜索树操作">搜索树操作
 </h2><h3 id="插入insert">插入<code>Insert</code>
 </h3><p>搜索树的插入也要满足本身性质，若插入元素在原本的搜索树中已经拥有，则插入失败</p>
 <p>思路：定义Cur走到null位置，同时Parent做Cur的根节点，记录Cur之前走过的位置，避免cur定位丢失</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="n">key</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">
@@ -333,32 +272,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><hr>
+</span></span></span></code></pre></div><hr>
 <h3 id="查找remove">查找<code>Remove</code>
 </h3><p>定义Cur遍历搜索树，在对比左右子树.val 与Key的大小关系时，注意Cur的遍历方向</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="n">TreeNode</span><span class="w"> </span><span class="nf">searchTree</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="n">TreeNode</span><span class="w"> </span><span class="nf">searchTree</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
@@ -374,34 +291,32 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><hr>
+</span></span></span></code></pre></div><hr>
 <h3 id="删除">删除
 </h3><p>删除节点时，要注意不要破坏二叉搜索树的性质</p>
 <p>思路：定义Cur并定位到待删除节点，待删除节点的父节点为Parent，找到Cur后分三种情况</p>
-<p><img src="/p/map--set/assets/image-20250520134205-cz4iiyd.png" width="851"  height="487"  srcset="/p/map--set/assets/image-20250520134205-cz4iiyd_hu_d38b23ef55b4257e.png 800w, /p/map--set/assets/image-20250520134205-cz4iiyd_hu_822db22540dc3d7e.png 1600w, /p/map--set/assets/image-20250520134205-cz4iiyd_hu_92cafef4665f5092.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="174"
-	data-flex-basis="419px" ></p>
+<p><img src="/p/map--set/assets/image-20250520134205-cz4iiyd_hu_f535c172d371530.webp" width="1600" height="916" srcset="/p/map--set/assets/image-20250520134205-cz4iiyd_hu_a6482d8b983f7ee1.webp 800w, /p/map--set/assets/image-20250520134205-cz4iiyd_hu_f535c172d371530.webp 1600w, /p/map--set/assets/image-20250520134205-cz4iiyd_hu_71fca367b1cfafba.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="174" data-flex-basis="419px">
+</p>
 <ol>
 <li>
 <p>cur.left == null 三种情况</p>
-<p><img src="/p/map--set/assets/image-20250520134333-rom4dd8.png" width="593"  height="396"  srcset="/p/map--set/assets/image-20250520134333-rom4dd8_hu_a61cb3879af03b5f.png 800w, /p/map--set/assets/image-20250520134333-rom4dd8_hu_3455bfd34274773d.png 1600w, /p/map--set/assets/image-20250520134333-rom4dd8_hu_c60a6be8944b4c8b.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="149"
-	data-flex-basis="359px" ><img src="/p/map--set/assets/image-20250520134410-len99wk.png" width="696"  height="440"  srcset="/p/map--set/assets/image-20250520134410-len99wk_hu_de7aae4b00bfb330.png 800w, /p/map--set/assets/image-20250520134410-len99wk_hu_be2f377750bbaad8.png 1600w, /p/map--set/assets/image-20250520134410-len99wk_hu_854375228ced16c1.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="158"
-	data-flex-basis="379px" ><img src="/p/map--set/assets/image-20250520134425-xuxq0yv.png" width="744"  height="417"  srcset="/p/map--set/assets/image-20250520134425-xuxq0yv_hu_e3e1f58f81d25be9.png 800w, /p/map--set/assets/image-20250520134425-xuxq0yv_hu_b31d53ce76991b22.png 1600w, /p/map--set/assets/image-20250520134425-xuxq0yv_hu_57f2bacf1c00224a.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="178"
-	data-flex-basis="428px" ></p>
+<p><img src="/p/map--set/assets/image-20250520134333-rom4dd8_hu_efa879ebde9a530d.webp" width="1600" height="1068" srcset="/p/map--set/assets/image-20250520134333-rom4dd8_hu_692837f35827e7b0.webp 800w, /p/map--set/assets/image-20250520134333-rom4dd8_hu_efa879ebde9a530d.webp 1600w, /p/map--set/assets/image-20250520134333-rom4dd8_hu_2f214166a7b84b0d.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="149" data-flex-basis="359px">
+<img src="/p/map--set/assets/image-20250520134410-len99wk_hu_485f70a8c8619810.webp" width="1600" height="1011" srcset="/p/map--set/assets/image-20250520134410-len99wk_hu_156a5e4c25a756eb.webp 800w, /p/map--set/assets/image-20250520134410-len99wk_hu_485f70a8c8619810.webp 1600w, /p/map--set/assets/image-20250520134410-len99wk_hu_f7110524531f1039.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="158" data-flex-basis="379px">
+<img src="/p/map--set/assets/image-20250520134425-xuxq0yv_hu_2d2abd42fd46c3cc.webp" width="1600" height="897" srcset="/p/map--set/assets/image-20250520134425-xuxq0yv_hu_b1551f1d17f155f9.webp 800w, /p/map--set/assets/image-20250520134425-xuxq0yv_hu_2d2abd42fd46c3cc.webp 1600w, /p/map--set/assets/image-20250520134425-xuxq0yv_hu_bcaeb4603b98ddaa.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="178" data-flex-basis="428px">
+</p>
 </li>
 <li>
 <p>cur.right == null 三种情况</p>
-<p><img src="/p/map--set/assets/image-20250520134540-78xfhmz.png" width="566"  height="413"  srcset="/p/map--set/assets/image-20250520134540-78xfhmz_hu_80c98e55260e13f7.png 800w, /p/map--set/assets/image-20250520134540-78xfhmz_hu_2acb149f0617f957.png 1600w, /p/map--set/assets/image-20250520134540-78xfhmz_hu_e72c841916696f2a.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="137"
-	data-flex-basis="328px" ><img src="/p/map--set/assets/image-20250520134558-y8u0jm4.png" width="752"  height="431"  srcset="/p/map--set/assets/image-20250520134558-y8u0jm4_hu_6476e3718bb3e259.png 800w, /p/map--set/assets/image-20250520134558-y8u0jm4_hu_1074441ec9e1236f.png 1600w, /p/map--set/assets/image-20250520134558-y8u0jm4_hu_ef611fe28b136041.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="174"
-	data-flex-basis="418px" ><img src="/p/map--set/assets/image-20250520134615-s23oukc.png" width="706"  height="443"  srcset="/p/map--set/assets/image-20250520134615-s23oukc_hu_f8401bfaa059446d.png 800w, /p/map--set/assets/image-20250520134615-s23oukc_hu_3c743b0c447df4a2.png 1600w, /p/map--set/assets/image-20250520134615-s23oukc_hu_354cf03e58f7370e.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="159"
-	data-flex-basis="382px" ></p>
+<p><img src="/p/map--set/assets/image-20250520134540-78xfhmz_hu_213edb93dc8ecc98.webp" width="1600" height="1167" srcset="/p/map--set/assets/image-20250520134540-78xfhmz_hu_c5f117063f7624e7.webp 800w, /p/map--set/assets/image-20250520134540-78xfhmz_hu_213edb93dc8ecc98.webp 1600w, /p/map--set/assets/image-20250520134540-78xfhmz_hu_76d8acf264435725.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="137" data-flex-basis="328px">
+<img src="/p/map--set/assets/image-20250520134558-y8u0jm4_hu_7953acbcaf49519d.webp" width="1600" height="917" srcset="/p/map--set/assets/image-20250520134558-y8u0jm4_hu_9cb9c901ff09cc0.webp 800w, /p/map--set/assets/image-20250520134558-y8u0jm4_hu_7953acbcaf49519d.webp 1600w, /p/map--set/assets/image-20250520134558-y8u0jm4_hu_2626daca25e410ac.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="174" data-flex-basis="418px">
+<img src="/p/map--set/assets/image-20250520134615-s23oukc_hu_2a28736cb345a9b0.webp" width="1600" height="1004" srcset="/p/map--set/assets/image-20250520134615-s23oukc_hu_96e4be9ee7d85e74.webp 800w, /p/map--set/assets/image-20250520134615-s23oukc_hu_2a28736cb345a9b0.webp 1600w, /p/map--set/assets/image-20250520134615-s23oukc_hu_4ec7bbf2ebf32f2d.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="159" data-flex-basis="382px">
+</p>
 </li>
 <li>
 <p>cur两边都不为空的情况</p>
 <p>此时需要<u>替换法</u>进行删除，找到右子树中的最小节点（即最左节点），用它的值来填补到被删除节点中，覆盖Cur节点，再处理节点的指向问题</p>
-<p><img src="/p/map--set/assets/image-20250520141411-2z160yv.png" width="2271"  height="557"  srcset="/p/map--set/assets/image-20250520141411-2z160yv_hu_ce3dd69c43c5f3ce.png 800w, /p/map--set/assets/image-20250520141411-2z160yv_hu_f1be07bef86b2689.png 1600w, /p/map--set/assets/image-20250520141411-2z160yv_hu_49a1dc33e97d6b7c.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="407"
-	data-flex-basis="978px" ></p>
+<p><img src="/p/map--set/assets/image-20250520141411-2z160yv_hu_dd775403ed500dfd.webp" width="1600" height="392" srcset="/p/map--set/assets/image-20250520141411-2z160yv_hu_23f0fbf16f836ebd.webp 800w, /p/map--set/assets/image-20250520141411-2z160yv_hu_dd775403ed500dfd.webp 1600w, /p/map--set/assets/image-20250520141411-2z160yv_hu_aac116ea3d6c5d6d.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="407" data-flex-basis="978px">
+</p>
 <p>Q&amp;A</p>
 <ul>
 <li><input checked="" disabled="" type="checkbox"> 为什么不直取一层左子节点？—— 我验证过了用while确实没问题，用if仅检查一层，是无法找到真正的最小节点</li>
@@ -409,31 +324,7 @@
 </li>
 </ol>
 <p>主框架：删除的准备工作</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">remove</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">remove</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;树为空&#34;</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="p">;</span><span class="w">
@@ -453,48 +344,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>删除的实际操作在<code>removeNode</code>方法中</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">removeNode</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="n">parent</span><span class="p">,</span><span class="w"> </span><span class="n">TreeNode</span><span class="w"> </span><span class="n">cur</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span></code></pre></div><p>删除的实际操作在<code>removeNode</code>方法中</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">removeNode</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="n">parent</span><span class="p">,</span><span class="w"> </span><span class="n">TreeNode</span><span class="w"> </span><span class="n">cur</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="p">.</span><span class="na">right</span><span class="p">;</span><span class="w">
@@ -528,12 +379,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h1 id="搜索">搜索
-</h1><p>Map和Set是专门搜索的数据结构，但他们的搜索效率与其他们具体实例化的子类有关——两者都是接口</p>
-<p><img src="/p/map--set/assets/image-20250527131611-1dre62t.png" width="2236"  height="759"  srcset="/p/map--set/assets/image-20250527131611-1dre62t_hu_2fb104cc9ce1bbe7.png 800w, /p/map--set/assets/image-20250527131611-1dre62t_hu_629354330fa4cf46.png 1600w, /p/map--set/assets/image-20250527131611-1dre62t_hu_56ed129003168f84.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="294"
-	data-flex-basis="707px" ></p>
+</span></span></span></code></pre></div><h2 id="搜索">搜索
+</h2><p>Map和Set是专门搜索的数据结构，但他们的搜索效率与其他们具体实例化的子类有关——两者都是接口</p>
+<p><img src="/p/map--set/assets/image-20250527131611-1dre62t_hu_638891215002935f.webp" width="1600" height="543" srcset="/p/map--set/assets/image-20250527131611-1dre62t_hu_2ca745ffd52f1dd9.webp 800w, /p/map--set/assets/image-20250527131611-1dre62t_hu_638891215002935f.webp 1600w, /p/map--set/assets/image-20250527131611-1dre62t_hu_ef98dbaae285077a.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="294" data-flex-basis="707px">
+</p>
 <p>以前的搜索方式有遍历搜索，二分查找，但都是适用于静态查找。当涉及到插删查改的操作时，我们需要效率更高的查找方式，即动态查找，此时引出查找工具——Map和Set——适合动态查找的集合容器</p>
 <h2 id="模型">模型
 </h2><p>我们一般把要搜索的数据叫做关键字，而关键字中可能或带有对应的“值”，我们叫键值对Key-Value</p>
@@ -544,14 +393,14 @@
 </ol>
 <p>Set中只存储Key模型，而Map存储Key-Value模型</p>
 <hr>
-<h1 id="map">Map
-</h1><p>Map是一个接口，存储的是&lt;Key , Value&gt;键值对，并且k是唯一的</p>
+<h2 id="map">Map
+</h2><p>Map是一个接口，存储的是&lt;Key , Value&gt;键值对，并且k是唯一的</p>
 <p>实例化对象需要实现类#TreeMap#或#HashMap#，还有个#LinkedHashMap#，基于HashMap维护了一个双向链表记录来记录元素的插入次序</p>
-<p><img src="/p/map--set/assets/image-20250527160845-fghgr1w.png" width="546"  height="417"  srcset="/p/map--set/assets/image-20250527160845-fghgr1w_hu_ed175323059fba88.png 800w, /p/map--set/assets/image-20250527160845-fghgr1w_hu_f1f17ca48e7a21b3.png 1600w, /p/map--set/assets/image-20250527160845-fghgr1w_hu_4fbd5c2e5490e5d6.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="130"
-	data-flex-basis="314px" ></p>
+<p><img src="/p/map--set/assets/image-20250527160845-fghgr1w_hu_78631aa7178aa478.webp" width="1600" height="1222" srcset="/p/map--set/assets/image-20250527160845-fghgr1w_hu_b0de953d02bbc349.webp 800w, /p/map--set/assets/image-20250527160845-fghgr1w_hu_78631aa7178aa478.webp 1600w, /p/map--set/assets/image-20250527160845-fghgr1w_hu_309c7a46cd2d5b2.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="130" data-flex-basis="314px">
+</p>
 <h2 id="treemap和hashmap的区别">TreeMap和HashMap的区别
-</h2><p><img src="/p/map--set/assets/image-20250527160038-mt2jd6e.png" width="2163"  height="747"  srcset="/p/map--set/assets/image-20250527160038-mt2jd6e_hu_9683847f99c9a91d.png 800w, /p/map--set/assets/image-20250527160038-mt2jd6e_hu_cd3f334783b746d.png 1600w, /p/map--set/assets/image-20250527160038-mt2jd6e_hu_afac9ae292c5596a.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="289"
-	data-flex-basis="694px" ></p>
+</h2><p><img src="/p/map--set/assets/image-20250527160038-mt2jd6e_hu_d0af52b327a42665.webp" width="1600" height="553" srcset="/p/map--set/assets/image-20250527160038-mt2jd6e_hu_86bffdd3cc2ef4ac.webp 800w, /p/map--set/assets/image-20250527160038-mt2jd6e_hu_d0af52b327a42665.webp 1600w, /p/map--set/assets/image-20250527160038-mt2jd6e_hu_b824ed60f6cd4b0f.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="289" data-flex-basis="694px">
+</p>
 <ul>
 <li>TreeMap的Key不能传null</li>
 </ul>
@@ -564,35 +413,18 @@
 <li><strong>调用 key 的</strong> <strong><code>hashCode()</code></strong>  <strong>方法</strong></li>
 <li><strong>扰动函数处理</strong>（JDK 1.8 引入，提升 hash 分布质量）</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">hash</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">hash</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">h</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">key</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">0</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">key</span><span class="p">.</span><span class="na">hashCode</span><span class="p">())</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="p">(</span><span class="n">h</span><span class="w"> </span><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">16</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><blockquote>
+</span></span></span></code></pre></div><blockquote>
 <p>小技巧：<code>h ^ (h &gt;&gt;&gt; 16)</code> 这一步是为了让高位参与运算，因为哈希表大小是 2 的幂，只看低位的话容易冲突。</p>
 </blockquote>
 <ol start="3">
 <li><strong>根据数组长度计算 index</strong></li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">1</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">hash</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>⚠️ 这里是一个位与操作，比取模 <code>%</code> 快得多（因为 n 是 2 的幂）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">1</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">hash</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p>⚠️ 这里是一个位与操作，比取模 <code>%</code> 快得多（因为 n 是 2 的幂）</p>
 <ol start="4">
 <li>
 <p><strong>判断桶是否为空：</strong></p>
@@ -646,8 +478,8 @@
 <p>boolean <u>containsValue</u></p>
 </li>
 </ul>
-<p><img src="/p/map--set/assets/image-20250527162146-z95bnli.png" width="1630"  height="796"  srcset="/p/map--set/assets/image-20250527162146-z95bnli_hu_603e9e5def08776b.png 800w, /p/map--set/assets/image-20250527162146-z95bnli_hu_bbb4a21831deced7.png 1600w, /p/map--set/assets/image-20250527162146-z95bnli_hu_50102620fabf75c5.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="204"
-	data-flex-basis="491px" ></p>
+<p><img src="/p/map--set/assets/image-20250527162146-z95bnli_hu_24b2d1af644f3a53.webp" width="1600" height="781" srcset="/p/map--set/assets/image-20250527162146-z95bnli_hu_c93fcaface1e0c7e.webp 800w, /p/map--set/assets/image-20250527162146-z95bnli_hu_24b2d1af644f3a53.webp 1600w, /p/map--set/assets/image-20250527162146-z95bnli_hu_58567cf10ed49182.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="204" data-flex-basis="491px">
+</p>
 <h2 id="总结">总结
 </h2><ol>
 <li>
@@ -673,15 +505,15 @@
 </li>
 </ol>
 <hr>
-<h1 id="set">Set
-</h1><p>Set也是一个接口，他没有具体的对象，继承自Collection接口类，只能存储Key模型，而且Key也是唯一的，可以把它看成一个塑料袋（集合），里面装着杂乱无序的不重复的数据。</p>
-<p><img src="/p/map--set/assets/image-20250527133258-k15e9e1.png" width="548"  height="339"  srcset="/p/map--set/assets/image-20250527133258-k15e9e1_hu_c6152eedb39cad9b.png 800w, /p/map--set/assets/image-20250527133258-k15e9e1_hu_2ef7579799093ded.png 1600w, /p/map--set/assets/image-20250527133258-k15e9e1_hu_a07f220ea84103ee.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="161"
-	data-flex-basis="387px" ><img src="/p/map--set/assets/image-20250527135138-vkuxg6d.png" width="1011"  height="592"  srcset="/p/map--set/assets/image-20250527135138-vkuxg6d_hu_6ec21761ad650fa4.png 800w, /p/map--set/assets/image-20250527135138-vkuxg6d_hu_d2180690f79b37c4.png 1600w, /p/map--set/assets/image-20250527135138-vkuxg6d_hu_25d7a5baf948c511.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="170"
-	data-flex-basis="409px" ></p>
+<h2 id="set">Set
+</h2><p>Set也是一个接口，他没有具体的对象，继承自Collection接口类，只能存储Key模型，而且Key也是唯一的，可以把它看成一个塑料袋（集合），里面装着杂乱无序的不重复的数据。</p>
+<p><img src="/p/map--set/assets/image-20250527133258-k15e9e1_hu_b7def71c390b0733.webp" width="1600" height="990" srcset="/p/map--set/assets/image-20250527133258-k15e9e1_hu_89c6e3bd9b5a3bb1.webp 800w, /p/map--set/assets/image-20250527133258-k15e9e1_hu_b7def71c390b0733.webp 1600w, /p/map--set/assets/image-20250527133258-k15e9e1_hu_d0ef9e407ff162fa.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="161" data-flex-basis="387px">
+<img src="/p/map--set/assets/image-20250527135138-vkuxg6d_hu_ccb47fcd98997ca.webp" width="1600" height="937" srcset="/p/map--set/assets/image-20250527135138-vkuxg6d_hu_70ad9f441a6d742d.webp 800w, /p/map--set/assets/image-20250527135138-vkuxg6d_hu_ccb47fcd98997ca.webp 1600w, /p/map--set/assets/image-20250527135138-vkuxg6d_hu_b5f4e6da44b234a1.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="170" data-flex-basis="409px">
+</p>
 <p>实现Set接口要实现类#TreeSet#和#HashSet#，还有个#LinkedHashSet#，是在HashSet的基础上维护了一个双向链表来记录元素的插入次序</p>
 <h2 id="treeset和hashset区别">TreeSet和HashSet区别
-</h2><p><img src="/p/map--set/assets/image-20250527165148-hubv3ot.png" width="1882"  height="705"  srcset="/p/map--set/assets/image-20250527165148-hubv3ot_hu_23d19cf15cfa56d3.png 800w, /p/map--set/assets/image-20250527165148-hubv3ot_hu_a7a694bbe4cf2c5d.png 1600w, /p/map--set/assets/image-20250527165148-hubv3ot_hu_19e5cb4bd00ecd0b.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="266"
-	data-flex-basis="640px" ></p>
+</h2><p><img src="/p/map--set/assets/image-20250527165148-hubv3ot_hu_5efc87520e8f226c.webp" width="1600" height="599" srcset="/p/map--set/assets/image-20250527165148-hubv3ot_hu_f441eb0fd2a45ad6.webp 800w, /p/map--set/assets/image-20250527165148-hubv3ot_hu_5efc87520e8f226c.webp 1600w, /p/map--set/assets/image-20250527165148-hubv3ot_hu_74f6c47353cc113d.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="266" data-flex-basis="640px">
+</p>
 <ul>
 <li>TreeSet插入的Key不能是null——会空指针异常，但HashSet可以</li>
 </ul>
@@ -704,8 +536,8 @@
 <p>注意Map没有本身继承迭代器接口，如果需要迭代器遍历，需要强转为Set/List/Queue接口或者通过 <code>keySet()</code>、<code>entrySet()</code>、<code>values()</code> 来获取集合视图并迭代</p>
 </li>
 </ol>
-<p><img src="/p/map--set/assets/image-20250527162206-aslkprn.png" width="1422"  height="920"  srcset="/p/map--set/assets/image-20250527162206-aslkprn_hu_94013091911102a4.png 800w, /p/map--set/assets/image-20250527162206-aslkprn_hu_3d34bb75639061.png 1600w, /p/map--set/assets/image-20250527162206-aslkprn_hu_ab3132b11ccb9901.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="154"
-	data-flex-basis="370px" ></p>
+<p><img src="/p/map--set/assets/image-20250527162206-aslkprn_hu_205ac26a7e5b9ea0.webp" width="1600" height="1035" srcset="/p/map--set/assets/image-20250527162206-aslkprn_hu_6bf26112f7b7db26.webp 800w, /p/map--set/assets/image-20250527162206-aslkprn_hu_205ac26a7e5b9ea0.webp 1600w, /p/map--set/assets/image-20250527162206-aslkprn_hu_6a3224f3128caec7.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="154" data-flex-basis="370px">
+</p>
 <h2 id="总结-1">总结
 </h2><ol>
 <li>
@@ -734,8 +566,8 @@
 </li>
 </ol>
 <hr>
-<h1 id="map和set的关系">Map和Set的关系
-</h1><ul>
+<h2 id="map和set的关系">Map和Set的关系
+</h2><ul>
 <li>TreeSet的底层是用Map实现的，其使用的Key与Object的一个默认的对象（Value）组成键值插入到Map中</li>
 <li>TreeMap和TreeSet的复杂度都是log<sub>2</sub>N，它们的 K 都是要能比较大小的。</li>
 <li>HashMap和HashSet的复杂度都是O（1），</li>
@@ -743,55 +575,37 @@
 </ul>
 <p>‍</p>
 <p>前面提到了HashMap，HashSet，LinkedHashMap，LinkedHashSet，那Hash到底是什么呢？为什么他们的效率这么高？这就引入哈希表的概念</p>
-<h1 id="哈希表散列表">哈希表/散列表
-</h1><h2 id="概念-1">概念
+<h2 id="哈希表散列表">哈希表/散列表
+</h2><h2 id="概念-1">概念
 </h2><p>理想的搜索方法：不经过任何的比较，一次直接从表中得到想要的元素。如果构造一种存储结构，能够通过某种函数使得元素与它的关键字/码之间建立某种联系，那么在查找的时候就很容易得到这些元素</p>
 <p>该方式就叫哈希方法，哈希方法中使用的函数就叫做<u>==哈希函数/散列函数==</u>，构造出来的结构就为==<u>哈希表/散列表</u>==</p>
 <p>‍</p>
 <p>每一种数据结构它的哈希函数都不一致，但是哈希表本质上是一个数组，不过数组不是放的单一数据，而是存放的键值对，所以哈希表是数组的一种拓展，这是哈希表的表现形式</p>
-<p><img src="/p/map--set/assets/image-20250527205317-17t62gz.png" width="1194"  height="940"  srcset="/p/map--set/assets/image-20250527205317-17t62gz_hu_37a8cf7ec9f4135c.png 800w, /p/map--set/assets/image-20250527205317-17t62gz_hu_71d423b9bed9a089.png 1600w, /p/map--set/assets/image-20250527205317-17t62gz_hu_51aa4b663124669e.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="127"
-	data-flex-basis="304px" ></p>
+<p><img src="/p/map--set/assets/image-20250527205317-17t62gz_hu_677353e5e6996073.webp" width="1600" height="1260" srcset="/p/map--set/assets/image-20250527205317-17t62gz_hu_e45282e8320ae941.webp 800w, /p/map--set/assets/image-20250527205317-17t62gz_hu_677353e5e6996073.webp 1600w, /p/map--set/assets/image-20250527205317-17t62gz_hu_e0b6a0f9aeb4ac89.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="127" data-flex-basis="304px">
+</p>
 <p>我们将学生信息包括名字和岁数（Key—Value），我们先通过哈希函数让Key进行计算，得出Index，确定键值对entry存放的位置，但是有一个问题，如果数据多了，别的key通过哈希函数可能也会得到相同的下标Index，像这样具有不同关键码但具有相同哈希地址的数据元素称为“同义词”，这个问题我们称之<u>==哈希冲突，==</u>哈希是一种用来进行高效查找的<u>==数据结构==</u></p>
 <hr>
 <h2 id="哈希冲突">哈希冲突
 </h2><p>那么有哈希冲突就会有解决哈希冲突问题的办法</p>
 <p>‍</p>
 <p>哈希冲突是必然的，我们做的应该是降低冲突率，引起冲突的一个原因可能是哈希函数设计不合理，但是我们一般都不会涉及到设计哈希函数，但常用的哈希函数我们需要了解</p>
-<p><img src="/p/map--set/assets/image-20250527210400-0irc0gl.png" width="1429"  height="487"  srcset="/p/map--set/assets/image-20250527210400-0irc0gl_hu_b62836aaec31c33d.png 800w, /p/map--set/assets/image-20250527210400-0irc0gl_hu_a4f62d9db6ae8a11.png 1600w, /p/map--set/assets/image-20250527210400-0irc0gl_hu_f50b949948ecbc74.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="293"
-	data-flex-basis="704px" ></p>
+<p><img src="/p/map--set/assets/image-20250527210400-0irc0gl_hu_c1f3e209b6ff6a90.webp" width="1600" height="545" srcset="/p/map--set/assets/image-20250527210400-0irc0gl_hu_1da7c99b3f50e82f.webp 800w, /p/map--set/assets/image-20250527210400-0irc0gl_hu_c1f3e209b6ff6a90.webp 1600w, /p/map--set/assets/image-20250527210400-0irc0gl_hu_ae30845e5438bade.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="293" data-flex-basis="704px">
+</p>
 <p>哈希函数设计的越精妙，产生哈希冲突的可能性就越低，但是无法避免哈希冲突</p>
 <p>那反应哈希冲突率的一个数据叫负载因子</p>
 <hr>
 <h3 id="负载因子">负载因子
 </h3><p>哈希列表的负载因子定义为 α = 填入表中的元素 / 哈希表的长度</p>
-<p><img src="/p/map--set/assets/image-20250527210847-upqe8p5.png" width="746"  height="708"  srcset="/p/map--set/assets/image-20250527210847-upqe8p5_hu_612d3aa08b7c93df.png 800w, /p/map--set/assets/image-20250527210847-upqe8p5_hu_c6dd430d1c1fb85.png 1600w, /p/map--set/assets/image-20250527210847-upqe8p5_hu_488106482efdc892.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="105"
-	data-flex-basis="252px" ></p>
-<p><img src="/p/map--set/assets/image-20250527210505-i5bp6zq.png" width="1479"  height="1781"  srcset="/p/map--set/assets/image-20250527210505-i5bp6zq_hu_ffc6c080bebff234.png 800w, /p/map--set/assets/image-20250527210505-i5bp6zq_hu_a02960eb5c521f2a.png 1600w, /p/map--set/assets/image-20250527210505-i5bp6zq_hu_78549b763595f84b.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="83"
-	data-flex-basis="199px" ></p>
+<p><img src="/p/map--set/assets/image-20250527210847-upqe8p5_hu_2505ccbfb1fb43b5.webp" width="1600" height="1518" srcset="/p/map--set/assets/image-20250527210847-upqe8p5_hu_12d17dbc40c39e93.webp 800w, /p/map--set/assets/image-20250527210847-upqe8p5_hu_2505ccbfb1fb43b5.webp 1600w, /p/map--set/assets/image-20250527210847-upqe8p5_hu_8d648a7c1173853d.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="105" data-flex-basis="252px">
+</p>
+<p><img src="/p/map--set/assets/image-20250527210505-i5bp6zq_hu_8914f2ca2a80aa57.webp" width="1600" height="1927" srcset="/p/map--set/assets/image-20250527210505-i5bp6zq_hu_82166455d87c5cb.webp 800w, /p/map--set/assets/image-20250527210505-i5bp6zq_hu_8914f2ca2a80aa57.webp 1600w, /p/map--set/assets/image-20250527210505-i5bp6zq_hu_b5acf088c0b9ad21.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="83" data-flex-basis="199px">
+</p>
 <h2 id="避免哈希冲突">避免哈希冲突
 </h2><p>两个方法 : 优化哈希函数、<span data-type="text" style="color: var(--b3-font-color12); background-color: var(--b3-font-background11);">降低负载因子✨</span></p>
 <ul>
 <li>
 <p>💯<span data-type="text" style="color: var(--b3-font-color12);">降低负载因子即需要对数组进行扩容，扩容之后需要对原来的数组的元素进行重新哈希分配——即重新哈希</span></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">resize</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">resize</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">Node</span><span class="o">[]</span><span class="w"> </span><span class="n">newArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Node</span><span class="o">[</span><span class="n">array</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">2</span><span class="o">]</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">array</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">Node</span><span class="w"> </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span><span class="w">
@@ -805,9 +619,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newArray</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div></li>
+</span></span></span></code></pre></div></li>
 </ul>
 <h3 id="解决哈希冲突">解决哈希冲突
 </h3><p>两种常见方法：#闭散列#和#开散列#</p>
@@ -831,12 +643,12 @@
 <h3 id="开散列重点">💫开散列（重点）
 </h3><p>开散列，又叫#链地址法#（#拉链法#），首先对关键码集合用哈希函数计算哈希地址，具有相同地址的关键码归于同一子集合，每一个子集合称为一个桶，各个桶中的元素通过一个单链表链接起来，各链表的头结点存储在哈希表中。</p>
 <p>与闭散列不同，这种将链表的头地址存储在哈希表的方式，不会影响与自己哈希地址不同的元素的增删查改的效率</p>
-<p><img src="/p/map--set/assets/image-20250527221754-gualx2i.png" width="1000"  height="947"  srcset="/p/map--set/assets/image-20250527221754-gualx2i_hu_da76a2fe119a0476.png 800w, /p/map--set/assets/image-20250527221754-gualx2i_hu_5f96cebfdb9324a6.png 1600w, /p/map--set/assets/image-20250527221754-gualx2i_hu_51c7e639ed4fde14.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="105"
-	data-flex-basis="253px" ></p>
+<p><img src="/p/map--set/assets/image-20250527221754-gualx2i_hu_356cfc58d758a38b.webp" width="1600" height="1515" srcset="/p/map--set/assets/image-20250527221754-gualx2i_hu_53c8915abc0c2e70.webp 800w, /p/map--set/assets/image-20250527221754-gualx2i_hu_356cfc58d758a38b.webp 1600w, /p/map--set/assets/image-20250527221754-gualx2i_hu_e139578ef303222a.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="105" data-flex-basis="253px">
+</p>
 <p>放入的entry可以用头插也可以用尾插法，与链表的操作相似，由此可见，开散列的每个桶当中都放的哈希冲突的元素，</p>
 <p>但如果出现极端情况，即所有元素都产生了冲突，都放到了同一个桶之中，那哈希表的增删查改的效率就退化为O（N），此时我们可以把这个桶转化为红黑树 TreeMap or TreeSet，效率就为O（log<sub>2</sub>N）</p>
-<p><img src="/p/map--set/assets/image-20250527222504-2pis9si.png" width="892"  height="683"  srcset="/p/map--set/assets/image-20250527222504-2pis9si_hu_5e1362521e375b79.png 800w, /p/map--set/assets/image-20250527222504-2pis9si_hu_de8aac4a917fc79d.png 1600w, /p/map--set/assets/image-20250527222504-2pis9si_hu_7943cb037adbaf57.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="130"
-	data-flex-basis="313px" ></p>
+<p><img src="/p/map--set/assets/image-20250527222504-2pis9si_hu_50c866c83c4d8ee2.webp" width="1600" height="1225" srcset="/p/map--set/assets/image-20250527222504-2pis9si_hu_2291c840efb04351.webp 800w, /p/map--set/assets/image-20250527222504-2pis9si_hu_50c866c83c4d8ee2.webp 1600w, /p/map--set/assets/image-20250527222504-2pis9si_hu_5530c7ba8cea7d38.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="130" data-flex-basis="313px">
+</p>
 <p>树化条件 ：<span data-type="text" style="color: var(--b3-font-color12);">链表的长度 &gt;= 8 &amp;&amp; 数组长度 &gt;= 64 </span>如果红黑树删除后不满足条件或没必要再用红黑树时可以变回为哈希桶的结构</p>
 <p><strong>开散列可以认为是把大集合中的搜索问题转化为了小集合中做搜索了</strong></p>
 <hr>
@@ -853,18 +665,35 @@
 </li>
 <li>
 <p>✨Java计算的哈希值实际上是调用类的<u>hashCode</u>方法，进行Key的对比时是调用<u>equals</u>方法。所以如果要调用自定义类作为HashMap或HashSet的值，必须覆写hashCode和equals方法，而且做到equals相等的对象，其hashCode一定是相等的，反之则不一定——hashCode相等equals未必相等（哈希冲突）</p>
-<p><img src="/p/map--set/assets/image-20250601222008-5gcya1c.png" width="1871"  height="1172"  srcset="/p/map--set/assets/image-20250601222008-5gcya1c_hu_cd8674eb5bebeb52.png 800w, /p/map--set/assets/image-20250601222008-5gcya1c_hu_3538a96638dd934a.png 1600w, /p/map--set/assets/image-20250601222008-5gcya1c_hu_b53f309790e6d2c.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="159"
-	data-flex-basis="383px" >自定义类重写<code>hashCode（）</code>和<code>equals（）</code>接口</p>
+<p><img src="/p/map--set/assets/image-20250601222008-5gcya1c_hu_8b126b306ad5c7dc.webp" width="1600" height="1002" srcset="/p/map--set/assets/image-20250601222008-5gcya1c_hu_f03fe92ff0dcc4c6.webp 800w, /p/map--set/assets/image-20250601222008-5gcya1c_hu_8b126b306ad5c7dc.webp 1600w, /p/map--set/assets/image-20250601222008-5gcya1c_hu_1016582d941f49d6.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="159" data-flex-basis="383px">
+自定义类重写<code>hashCode（）</code>和<code>equals（）</code>接口</p>
 </li>
 </ol>
 <h2 id="平均查找长度">#平均查找长度#
 </h2><p>len = 总的比较次数 / 元素个数</p>
-<p><img src="/p/map--set/assets/image-20250529223254-6fb77y1.png" width="1252"  height="168"  srcset="/p/map--set/assets/image-20250529223254-6fb77y1_hu_c0c18cad43de4bf7.png 800w, /p/map--set/assets/image-20250529223254-6fb77y1_hu_266306325191000b.png 1600w, /p/map--set/assets/image-20250529223254-6fb77y1_hu_d1c8d3f40a566de6.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="745"
-	data-flex-basis="1788px" ><img src="/p/map--set/assets/image-20250529223307-vfyt3u6.png" width="783"  height="370"  srcset="/p/map--set/assets/image-20250529223307-vfyt3u6_hu_b576b4a26512ddef.png 800w, /p/map--set/assets/image-20250529223307-vfyt3u6_hu_29d79f93ee961a38.png 1600w, /p/map--set/assets/image-20250529223307-vfyt3u6_hu_614b88322f1412e7.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="211"
-	data-flex-basis="507px" ></p>
+<p><img src="/p/map--set/assets/image-20250529223254-6fb77y1_hu_eb0131aca0e3aed.webp" width="1600" height="215" srcset="/p/map--set/assets/image-20250529223254-6fb77y1_hu_23f4966493453943.webp 800w, /p/map--set/assets/image-20250529223254-6fb77y1_hu_eb0131aca0e3aed.webp 1600w, /p/map--set/assets/image-20250529223254-6fb77y1_hu_6a43ec4894caa8e0.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="745" data-flex-basis="1788px">
+<img src="/p/map--set/assets/image-20250529223307-vfyt3u6_hu_9f69efcbb55d2d27.webp" width="1600" height="756" srcset="/p/map--set/assets/image-20250529223307-vfyt3u6_hu_571d1808b68b5c04.webp 800w, /p/map--set/assets/image-20250529223307-vfyt3u6_hu_9f69efcbb55d2d27.webp 1600w, /p/map--set/assets/image-20250529223307-vfyt3u6_hu_e35078263d344ffc.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="211" data-flex-basis="507px">
+</p>
 <p>‍</p>
 
             </section>
+
+            <footer class="article-detail__footer">
+                <div class="article-closing" aria-label="Article closing">
+    <ul class="article-closing__links">
+        <li>
+            <span class="article-closing__chevron" aria-hidden="true">›</span>
+            <span>written by <span class="article-closing__author">@Jul1en</span></span>
+        </li>
+        <li>
+            <span class="article-closing__chevron" aria-hidden="true">›</span>
+            <a href="/post/">cd ..</a>
+        </li>
+    </ul>
+
+</div>
+
+            </footer>
         </div>
     </div>
 </article>
@@ -873,29 +702,6 @@
 
 
 
-
-
-
-
-<button id="dark-mode-toggle" class="editorial-dark-mode-toggle" type="button" aria-label="暗色模式" title="暗色模式">
-    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="8" cy="12" r="2" />
-  <rect x="2" y="6" width="20" height="12" rx="6" />
-</svg>
-
-
-
-    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="16" cy="12" r="2" />
-  <rect x="2" y="6" width="20" height="12" rx="6" />
-</svg>
-
-
-
-    <span>暗色模式</span>
-</button>
 
 
 
@@ -976,382 +782,229 @@
                 href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
             >
 
-        </main>
-    </div>
+    </main>
+
     <script 
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.836efe327773ba454adac61ee8b35272b6f512bd594ed9ea0f926fca8386433b.js" defer></script>
-<script>
-    (function () {
-        const customFont = document.createElement('link');
-        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
-
-        customFont.type = "text/css";
-        customFont.rel = "stylesheet";
-
-        document.head.appendChild(customFont);
-    }());
-</script>
-<style>
-   
-  .article-content .highlight,
-  .editorial-content-column .article-content .highlight,
-  .article-content pre,
-  .editorial-content-column .article-content pre {
-    max-height: none !important;
-    overflow-y: visible !important;
-    overflow-x: auto !important;
-    scrollbar-width: auto;
-    scrollbar-color: #3c3d3e transparent;
-  }
-
-  .article-content .highlight pre,
-  .editorial-content-column .article-content .highlight pre,
-  .article-content .highlight .chroma,
-  .editorial-content-column .article-content .highlight .chroma {
-    overflow: visible !important;
-  }
-
-  .article-content .highlight::-webkit-scrollbar,
-  .editorial-content-column .article-content .highlight::-webkit-scrollbar,
-  .article-content pre::-webkit-scrollbar,
-  .editorial-content-column .article-content pre::-webkit-scrollbar {
-    width: 12px;
-    height: 12px;
-  }
-
-  .article-content .highlight::-webkit-scrollbar-track,
-  .editorial-content-column .article-content .highlight::-webkit-scrollbar-track,
-  .article-content pre::-webkit-scrollbar-track,
-  .editorial-content-column .article-content pre::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  .article-content .highlight::-webkit-scrollbar-thumb,
-  .editorial-content-column .article-content .highlight::-webkit-scrollbar-thumb,
-  .article-content pre::-webkit-scrollbar-thumb,
-  .editorial-content-column .article-content pre::-webkit-scrollbar-thumb {
-    background: #3c3d3e;
-    border-radius: 999px;
-  }
-
-  .article-content .highlight::-webkit-scrollbar-thumb:hover,
-  .editorial-content-column .article-content .highlight::-webkit-scrollbar-thumb:hover,
-  .article-content pre::-webkit-scrollbar-thumb:hover,
-  .editorial-content-column .article-content pre::-webkit-scrollbar-thumb:hover {
-    background: #48494a;
-  }
-
-  :root[data-scheme="dark"] .article-content .highlight,
-  :root[data-scheme="dark"] .editorial-content-column .article-content .highlight,
-  :root[data-scheme="dark"] .article-content pre,
-  :root[data-scheme="dark"] .editorial-content-column .article-content pre {
-    scrollbar-color: #3c3d3e transparent;
-  }
-
-  :root[data-scheme="dark"] .article-content .highlight::-webkit-scrollbar-thumb,
-  :root[data-scheme="dark"] .editorial-content-column .article-content .highlight::-webkit-scrollbar-thumb,
-  :root[data-scheme="dark"] .article-content pre::-webkit-scrollbar-thumb,
-  :root[data-scheme="dark"] .editorial-content-column .article-content pre::-webkit-scrollbar-thumb {
-    background: #3c3d3e;
-  }
-
-  :root[data-scheme="dark"] .article-content .highlight::-webkit-scrollbar-thumb:hover,
-  :root[data-scheme="dark"] .editorial-content-column .article-content .highlight::-webkit-scrollbar-thumb:hover,
-  :root[data-scheme="dark"] .article-content pre::-webkit-scrollbar-thumb:hover,
-  :root[data-scheme="dark"] .editorial-content-column .article-content pre::-webkit-scrollbar-thumb:hover {
-    background: #48494a;
-  }
-
-   
-  :root[data-scheme="light"] .article-content .highlight,
-  :root[data-scheme="light"] .editorial-content-column .article-content .highlight,
-  :root[data-scheme="light"] .article-content pre,
-  :root[data-scheme="light"] .editorial-content-column .article-content pre {
-    scrollbar-color: #3c3d3e transparent;
-    scrollbar-width: thin;
-  }
-
-  :root[data-scheme="light"] .article-content .highlight::-webkit-scrollbar,
-  :root[data-scheme="light"] .editorial-content-column .article-content .highlight::-webkit-scrollbar,
-  :root[data-scheme="light"] .article-content pre::-webkit-scrollbar,
-  :root[data-scheme="light"] .editorial-content-column .article-content pre::-webkit-scrollbar {
-    width: 14px;
-    height: 14px;
-  }
-
-  :root[data-scheme="light"] .article-content .highlight::-webkit-scrollbar-track,
-  :root[data-scheme="light"] .editorial-content-column .article-content .highlight::-webkit-scrollbar-track,
-  :root[data-scheme="light"] .article-content pre::-webkit-scrollbar-track,
-  :root[data-scheme="light"] .editorial-content-column .article-content pre::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  :root[data-scheme="light"] .article-content .highlight::-webkit-scrollbar-thumb,
-  :root[data-scheme="light"] .editorial-content-column .article-content .highlight::-webkit-scrollbar-thumb,
-  :root[data-scheme="light"] .article-content pre::-webkit-scrollbar-thumb,
-  :root[data-scheme="light"] .editorial-content-column .article-content pre::-webkit-scrollbar-thumb {
-    background: #3c3d3e;
-    border-radius: 999px;
-  }
-
-  :root[data-scheme="light"] .article-content .highlight::-webkit-scrollbar-thumb:hover,
-  :root[data-scheme="light"] .editorial-content-column .article-content .highlight::-webkit-scrollbar-thumb:hover,
-  :root[data-scheme="light"] .article-content pre::-webkit-scrollbar-thumb:hover,
-  :root[data-scheme="light"] .editorial-content-column .article-content pre::-webkit-scrollbar-thumb:hover {
-    background: #48494a;
-  }
-
-   
-  .article-content .highlight::-webkit-scrollbar-button,
-  .editorial-content-column .article-content .highlight::-webkit-scrollbar-button,
-  .article-content pre::-webkit-scrollbar-button,
-  .editorial-content-column .article-content pre::-webkit-scrollbar-button {
-    display: none;
-  }
-</style>
-<script src="/js/particles.js"></script>
+            </script><script type="text/javascript" src="/ts/main.836efe327773ba454adac61ee8b35272b6f512bd594ed9ea0f926fca8386433b.js" defer></script><script type="text/javascript" src="/ts/custom.77669e75e8d67de70fbaba61f97bc81baa9b5f9fc7e3afee3da166b02cceae50.js" defer></script>
 
 
-
-<script src="/js/fireworks.js"></script>
-
-
-<script src="/js/avatar-colors.js"></script>
-
-
-
-
-<button id="back-to-top" class="back-to-top-btn" aria-label="回到顶部" title="回到顶部">
-  
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="18 15 12 9 6 15"></polyline>
-  </svg>
+<button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M6 14.5 12 8l6 6.5" />
+    </svg>
 </button>
 
-
-<style>
-   
-  .back-to-top-btn {
-     
-    position: fixed;
-    z-index: 999;
-
-     
-    left: 50px;
-     
-    top: auto;
-     
-    bottom: auto;
-     
-
-     
-    width: 24px;
-    height: 24px;
-
-     
-    border-radius: 20%;
-
-     
-    background: rgba(252, 249, 244, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-
-     
-    box-shadow: 0 4px 16px rgba(180, 170, 160, 0.2);
-
-     
-    cursor: pointer;
-
-     
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-     
-    color: #555555;
-
-     
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-
-     
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-     
-    outline: none;
-  }
-
-   
-  .back-to-top-btn.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-
-   
-  .back-to-top-btn:hover {
-    transform: translateY(-4px) scale(1.05);
-    background: rgba(252, 249, 244, 0.95);
-    box-shadow: 0 8px 24px rgba(180, 170, 160, 0.3);
-    border-color: rgba(0, 0, 0, 0.12);
-    color: #333333;
-  }
-
-   
-  .back-to-top-btn:active {
-    transform: translateY(-2px) scale(0.98);
-  }
-
-   
-  .back-to-top-btn svg {
-    width: 24px;
-    height: 24px;
-    stroke-width: 2.5;
-  }
-
-   
-  :root[data-scheme="dark"] .back-to-top-btn {
-     
-    background: rgba(40, 40, 40, 0.8);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-
-     
-    color: #e0e0e0;
-  }
-
-  :root[data-scheme="dark"] .back-to-top-btn:hover {
-    background: rgba(50, 50, 50, 0.9);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
-    border-color: rgba(255, 255, 255, 0.2);
-    color: #ffffff;
-  }
-
-   
-   
-
-   
-  @media (max-width: 768px) {
-    .back-to-top-btn {
-       
-      width: 18px;
-      height: 18px;
-    }
-
-    .back-to-top-btn svg {
-      width: 16px;
-      height: 16px;
-    }
-  }
-</style>
-
-
 <script>
-  (function () {
-    'use strict';
+    (function () {
+        'use strict';
 
-    
-    const backToTopBtn = document.getElementById('back-to-top');
+        const menuToggle = document.querySelector('.site-menu-toggle');
+        const nav = document.getElementById('primary-navigation');
+        const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-    if (!backToTopBtn) return;
-
-    
-    const SCROLL_THRESHOLD = 300;
-
-    
-    function throttle(func, delay) {
-      let lastCall = 0;
-      return function (...args) {
-        const now = Date.now();
-        if (now - lastCall >= delay) {
-          lastCall = now;
-          func.apply(this, args);
+        function setMenuOpen(open) {
+            if (!menuToggle || !nav) return;
+            menuToggle.classList.toggle('is-open', open);
+            nav.classList.toggle('is-open', open);
+            document.body.classList.toggle('site-nav-open', open);
+            menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
         }
-      };
-    }
 
-    
-    function checkScroll() {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (menuToggle && nav) {
+            menuToggle.addEventListener('click', function (event) {
+                event.stopPropagation();
+                setMenuOpen(!nav.classList.contains('is-open'));
+            });
 
-      if (scrollTop > SCROLL_THRESHOLD) {
-        backToTopBtn.classList.add('show');
-      } else {
-        backToTopBtn.classList.remove('show');
-      }
-    }
+            nav.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    setMenuOpen(false);
+                });
+            });
 
-    
-    function scrollToTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    }
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape') setMenuOpen(false);
+            });
 
-    
-    window.addEventListener('scroll', throttle(checkScroll, 100));
+            document.addEventListener('click', function (event) {
+                if (!document.body.classList.contains('site-nav-open')) return;
+                if (nav.contains(event.target) || menuToggle.contains(event.target)) return;
+                setMenuOpen(false);
+            });
 
-    
-    backToTopBtn.addEventListener('click', scrollToTop);
+            const desktopQuery = window.matchMedia('(min-width: 921px)');
+            const closeMenuOnDesktop = function (event) {
+                if (event.matches) setMenuOpen(false);
+            };
 
-    
-    function positionButton() {
-      
-      const mainMenu = document.getElementById('main-menu');
-      const bottomSection = document.querySelector('.menu-bottom-section');
+            if (desktopQuery.addEventListener) {
+                desktopQuery.addEventListener('change', closeMenuOnDesktop);
+            } else if (desktopQuery.addListener) {
+                desktopQuery.addListener(closeMenuOnDesktop);
+            }
+        }
 
-      if (!mainMenu || !bottomSection) {
-        
-        return;
-      }
+        const backToTop = document.getElementById('back-to-top');
 
-      
-      const menuRect = mainMenu.getBoundingClientRect();
-      const menuCenter = menuRect.left + (menuRect.width / 2);
+        if (backToTop) {
+            function updateBackToTop() {
+                backToTop.classList.toggle('is-visible', window.scrollY > 420);
+            }
 
-      
-      const bottomRect = bottomSection.getBoundingClientRect();
-      const bottomTop = bottomRect.top;
+            backToTop.addEventListener('click', function () {
+                window.scrollTo({ top: 0, behavior: reduceMotionQuery.matches ? 'auto' : 'smooth' });
+            });
 
-      
-      const buttonWidth = 24; 
-      const buttonHeight = 24; 
-      const buttonLeft = menuCenter - (buttonWidth / 2);
+            window.addEventListener('scroll', updateBackToTop, { passive: true });
+            updateBackToTop();
+        }
 
-      
-      const spacing = 15; 
-      const buttonTop = bottomTop - buttonHeight - spacing;
+        function initStaffParallax() {
+            const staff = document.querySelector('.music-staff-bg');
+            if (!staff || reduceMotionQuery.matches) return;
 
-      
-      backToTopBtn.style.left = buttonLeft + 'px';
-      backToTopBtn.style.top = buttonTop + 'px';
-      backToTopBtn.style.bottom = 'auto'; 
-      backToTopBtn.style.right = 'auto'; 
-    }
+            let ticking = false;
 
-    
-    positionButton();
+            function updateStaffPosition() {
+                const shift = Math.max(-5, Math.min(5, window.scrollY * -0.012));
+                staff.style.transform = 'translate3d(0, ' + shift.toFixed(2) + 'px, 0)';
+                ticking = false;
+            }
 
-    
-    checkScroll();
+            function requestStaffUpdate() {
+                if (ticking) return;
+                ticking = true;
+                window.requestAnimationFrame(updateStaffPosition);
+            }
 
-    
-    window.addEventListener('resize', throttle(positionButton, 200));
+            staff.classList.add('is-parallax-ready');
+            window.addEventListener('scroll', requestStaffUpdate, { passive: true });
+            updateStaffPosition();
+        }
 
-    
-    window.addEventListener('load', positionButton);
-  })();
+        function initArticleTocHover() {
+            const toc = document.querySelector('[data-article-toc]');
+            const articleMain = document.querySelector('.article-detail__main');
+            if (!toc || !articleMain) return;
 
+            const toggle = toc.querySelector('[data-article-toc-toggle]');
+            let lockedOpen = false;
+
+            function setVisible(visible) {
+                document.body.classList.toggle('is-article-toc-visible', visible);
+                if (toggle) {
+                    toggle.setAttribute('aria-expanded', visible ? 'true' : 'false');
+                    toggle.setAttribute('aria-label', visible ? '隐藏文章目录' : '显示文章目录');
+                }
+            }
+
+            function getLeftRevealZone() {
+                return Math.min(380, Math.max(280, window.innerWidth * 0.22));
+            }
+
+            function isInsideReadingColumn(x, y) {
+                const rect = articleMain.getBoundingClientRect();
+                const top = Math.min(rect.top, 0) - 48;
+                const bottom = Math.max(rect.bottom, window.innerHeight) + 48;
+
+                return x >= rect.left - 72 && x <= rect.right + 32 && y >= top && y <= bottom;
+            }
+
+            document.addEventListener('pointermove', function (event) {
+                if (lockedOpen) return;
+                setVisible(event.clientX <= getLeftRevealZone() || isInsideReadingColumn(event.clientX, event.clientY));
+            }, { passive: true });
+
+            document.addEventListener('pointerleave', function () {
+                if (!lockedOpen) setVisible(false);
+            });
+
+            toc.addEventListener('focusin', function () {
+                setVisible(true);
+            });
+
+            toc.addEventListener('focusout', function (event) {
+                if (lockedOpen || toc.contains(event.relatedTarget)) return;
+                setVisible(false);
+            });
+
+            if (toggle) {
+                toggle.addEventListener('click', function () {
+                    const isVisible = document.body.classList.contains('is-article-toc-visible');
+                    if (lockedOpen && isVisible) {
+                        lockedOpen = false;
+                        setVisible(false);
+                        return;
+                    }
+
+                    lockedOpen = true;
+                    setVisible(true);
+                });
+            }
+
+            document.addEventListener('click', function (event) {
+                if (!lockedOpen) return;
+                if (toc.contains(event.target) || articleMain.contains(event.target)) return;
+                lockedOpen = false;
+                setVisible(false);
+            });
+
+            document.addEventListener('keydown', function (event) {
+                if (event.key !== 'Escape') return;
+                lockedOpen = false;
+                setVisible(false);
+            });
+        }
+
+        function initRevealOnScroll() {
+            if (reduceMotionQuery.matches || !('IntersectionObserver' in window)) return;
+
+            const revealSelectors = [
+                '.section-band',
+                '.featured-section',
+                '.blog-card',
+                '.post-tools',
+                '.article-detail__content > *',
+                '.article-detail__footer',
+                '.journal-entry',
+                '.music-panel',
+                '.curated-inspirations'
+            ];
+
+            const targets = Array.prototype.slice.call(document.querySelectorAll(revealSelectors.join(',')));
+            if (!targets.length) return;
+
+            const observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                });
+            }, {
+                rootMargin: '0px 0px -8% 0px',
+                threshold: 0.12
+            });
+
+            targets.forEach(function (target, index) {
+                target.classList.add('reveal-on-scroll');
+                target.style.setProperty('--reveal-delay', Math.min(index % 5, 4) * 45 + 'ms');
+                observer.observe(target);
+            });
+        }
+
+        initStaffParallax();
+        initArticleTocHover();
+        initRevealOnScroll();
+
+        window.requestAnimationFrame(function () {
+            document.body.classList.add('is-loaded');
+        });
+    })();
 </script>
+
 </body>
 
 </html>

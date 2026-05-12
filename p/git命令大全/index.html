@@ -1,279 +1,230 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr" data-scheme="dark">
+<html lang="en-us" dir="ltr">
 
 <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Git命令大全 前提介绍\ngit是一个分布式版本控制系统，相当于一个时光机，拿来保管代码，一旦出错，可以随时回滚到任何一个历史节点\n其核心架构分为三个区域：工作区（写代码的地方）、暂存区（临时存放的地方）和版本库（安全存档的地方）\n">
-<title>🪶 Git命令大全</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Git命令大全 前提介绍 git是一个分布式版本控制系统，相当于一个时光机，拿来保管代码，一旦出错，可以随时回滚到任何一个历史节点 其核心架构分为三个区域：工作区（写代码的地方）、暂存区（临时存放的地方）和版本库（安全存档的地方）">
+<title>🪶 Git命令大全 | Jul1en</title>
 
 <link rel='canonical' href='https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/'>
 
-<link rel="stylesheet" href="/scss/style.min.502a380229eacc0e12af50d218c823259247c480ba28a71cc1a8f31e36902a3e.css"><meta property='og:title' content="🪶 Git命令大全">
-<meta property='og:description' content="Git命令大全 前提介绍\ngit是一个分布式版本控制系统，相当于一个时光机，拿来保管代码，一旦出错，可以随时回滚到任何一个历史节点\n其核心架构分为三个区域：工作区（写代码的地方）、暂存区（临时存放的地方）和版本库（安全存档的地方）\n">
+<link rel="stylesheet" href="/scss/style.min.35e176eae627f0ca2a1fbda52d9af8ddef4f4a6604a605260cd42cf3d00b683a.css"><meta property='og:title' content="🪶 Git命令大全 | Jul1en">
+<meta property='og:description' content="Git命令大全 前提介绍 git是一个分布式版本控制系统，相当于一个时光机，拿来保管代码，一旦出错，可以随时回滚到任何一个历史节点 其核心架构分为三个区域：工作区（写代码的地方）、暂存区（临时存放的地方）和版本库（安全存档的地方）">
 <meta property='og:url' content='https://Jul1en-Lin.github.io/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/'>
 <meta property='og:site_name' content='Jul1en'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-12-15T00:47:22&#43;08:00'/><meta property='article:modified_time' content='2025-12-15T01:09:08&#43;08:00'/>
-<meta name="twitter:title" content="🪶 Git命令大全">
-<meta name="twitter:description" content="Git命令大全 前提介绍\ngit是一个分布式版本控制系统，相当于一个时光机，拿来保管代码，一旦出错，可以随时回滚到任何一个历史节点\n其核心架构分为三个区域：工作区（写代码的地方）、暂存区（临时存放的地方）和版本库（安全存档的地方）\n">
-
-<script>
+<meta name="twitter:title" content="🪶 Git命令大全 | Jul1en">
+<meta name="twitter:description" content="Git命令大全 前提介绍 git是一个分布式版本控制系统，相当于一个时光机，拿来保管代码，一旦出错，可以随时回滚到任何一个历史节点 其核心架构分为三个区域：工作区（写代码的地方）、暂存区（临时存放的地方）和版本库（安全存档的地方）"><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<meta name="author" content="Jul1en">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)"><script src="/js/custom.77669e75e8d67de70fbaba61f97bc81baa9b5f9fc7e3afee3da166b02cceae50.js" integrity="sha256-d2aedejWfecPurph&#43;XvIG6qbX5/H46/uPaFmsCzOrlA=" defer></script><script>
     (function () {
         const colorSchemeKey = 'StackColorScheme';
-        if (!localStorage.getItem(colorSchemeKey)) {
-            
-            const now = new Date();
-            const utcHour = now.getUTCHours();
-            const beijingHour = (utcHour + 8) % 24;
-
-            
-            
-            const isDarkTime = beijingHour >= 21 || beijingHour < 8;
-            const scheme = isDarkTime ? 'dark' : 'light';
-            localStorage.setItem(colorSchemeKey, scheme);
-        }
-    })();
-</script><script>
-    (function () {
-        const colorSchemeKey = 'StackColorScheme';
-        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const savedScheme = localStorage.getItem(colorSchemeKey);
+        const defaultScheme = "light";
         const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+        const scheme = savedScheme || defaultScheme;
 
-        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
-            
-
+        if (scheme === 'dark' || (scheme === 'auto' && supportDarkMode)) {
             document.documentElement.dataset.scheme = 'dark';
         } else {
             document.documentElement.dataset.scheme = 'light';
         }
     })();
 </script>
+
 </head>
 
-<body class="article-page editorial-layout">
+<body class="melody-shell template-article-detail article-page">
+    <a class="skip-link" href="#main-content">Skip to content</a><header class="site-header" role="banner">
+    <div class="site-header__inner">
+        <a class="site-brand" href="/" aria-label="Jul1en home">
+            <span class="site-brand__text">Jul1en</span>
+        </a>
 
-    <div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
-    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
-        <span class="hamburger-box">
-            <span class="hamburger-inner"></span>
-        </span>
+        <div class="site-header__right">
+            <nav id="primary-navigation" class="site-nav" aria-label="Primary navigation">
+                <ul class="site-nav__list"><li class="site-nav__item">
+                            <a class="site-nav__link is-active" href="/post/" aria-current="page">
+                                Blog
+                            </a>
+                        </li><li class="site-nav__item">
+                            <a class="site-nav__link" href="/journal/">
+                                Journal
+                            </a>
+                        </li><li class="site-nav__item">
+                            <a class="site-nav__link" href="/music/">
+                                Music
+                            </a>
+                        </li></ul>
+            </nav>
+
+            <div class="site-actions" role="group" aria-label="Social links and theme"><a class="site-action-link" href="https://github.com/Jul1en-Lin" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+                        <span class="site-action-link__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+  <path fill="currentColor" d="M12 2.2c-5.5 0-9.9 4.5-9.9 9.9 0 4.4 2.8 8.1 6.8 9.4.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.2-3.4-1.2-.5-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 0 1.6 1.1 1.6 1.1.9 1.5 2.4 1.1 2.9.8.1-.7.4-1.1.7-1.4-2.2-.3-4.5-1.1-4.5-4.9 0-1.1.4-2 1.1-2.7-.1-.3-.5-1.3.1-2.7 0 0 .9-.3 2.8 1.1.8-.2 1.7-.3 2.5-.3s1.7.1 2.5.3c1.9-1.3 2.8-1.1 2.8-1.1.6 1.4.2 2.4.1 2.7.7.8 1.1 1.7 1.1 2.7 0 3.8-2.3 4.6-4.5 4.9.4.3.7.9.7 1.9V21c0 .3.2.6.7.5 4-1.3 6.8-5 6.8-9.4 0-5.4-4.4-9.9-9.9-9.9Z" />
+</svg>
+</span>
+                    </a><a class="site-action-link" href="https://www.instagram.com/jul1en_lin" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+                        <span class="site-action-link__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+  <path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M7.5 3.5h9A4 4 0 0 1 20.5 7.5v9a4 4 0 0 1-4 4h-9a4 4 0 0 1-4-4v-9a4 4 0 0 1 4-4Z" />
+  <path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M8.8 12a3.2 3.2 0 1 0 6.4 0 3.2 3.2 0 0 0-6.4 0Z" />
+  <path fill="currentColor" d="M17.2 7.2a.9.9 0 1 1-1.8 0 .9.9 0 0 1 1.8 0Z" />
+</svg>
+</span>
+                    </a><button id="dark-mode-toggle" class="theme-toggle" type="button" aria-label="暗色模式" title="暗色模式">
+                    <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="4.2" />
+    <path d="M12 2.8v2.2M12 19v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.8 12h2.2M19 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" />
+</svg>
+</span>
+                    <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M19.7 14.6c-1.3 2.9-4.6 4.8-8.1 4.2-4.3-.7-7.2-4.8-6.5-9.1.5-3.2 2.8-5.7 5.7-6.5-.9 2.1-.5 4.7 1.2 6.6 1.9 2.2 4.9 3 7.7 2.2-.1.9-.1 1.7 0 2.6z" />
+</svg>
+</span>
+                </button></div>
+
+            <button class="site-menu-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false">
+                <span class="site-menu-toggle__bar" aria-hidden="true"></span>
+                <span class="site-menu-toggle__bar" aria-hidden="true"></span>
+                <span class="site-menu-toggle__bar" aria-hidden="true"></span>
+                <span class="sr-only">Menu</span>
+            </button>
+        </div>
+    </div>
+</header>
+<div class="music-staff-bg" aria-hidden="true">
+    <svg viewBox="0 0 1440 360" preserveAspectRatio="none" focusable="false">
+        <path class="music-staff-bg__curve" d="M-80 210 C 180 110, 360 310, 620 190 S 1040 80, 1520 170" />
+        <g class="music-staff-bg__lines">
+            <path d="M-80 128 C 240 98, 520 158, 820 128 S 1220 98, 1520 128" />
+            <path d="M-80 146 C 240 116, 520 176, 820 146 S 1220 116, 1520 146" />
+            <path d="M-80 164 C 240 134, 520 194, 820 164 S 1220 134, 1520 164" />
+            <path d="M-80 182 C 240 152, 520 212, 820 182 S 1220 152, 1520 182" />
+            <path d="M-80 200 C 240 170, 520 230, 820 200 S 1220 170, 1520 200" />
+        </g>
+    </svg>
+</div>
+<div class="music-note-decor" aria-hidden="true">
+    <span class="music-note-decor__note music-note-decor__note--one">♪</span>
+    <span class="music-note-decor__note music-note-decor__note--two">♩</span>
+    <span class="music-note-decor__note music-note-decor__note--three">♬</span>
+</div>
+<main id="main-content" class="main main-content full-width" tabindex="-1"><article class="article-detail">
+    <aside class="article-detail__toc-rail" aria-label="文章目录" data-article-toc>
+    <a class="article-detail__toc-brand" href="/" aria-label="Jul1en home">
+        <span class="article-detail__toc-brand-text">Jul1en</span>
+        <span class="article-detail__toc-brand-note" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M14 4v11.4" />
+  <path d="M14 4l5 1.4v3.4L14 7.4" />
+  <path d="M9.2 17.6c0 1.3-1.4 2.4-3.1 2.4S3 18.9 3 17.6s1.4-2.4 3.1-2.4 3.1 1.1 3.1 2.4Z" />
+  <path d="M14 15.4c0 1.3-1.4 2.4-3.1 2.4-.7 0-1.4-.2-1.9-.5" />
+</svg>
+</span>
+    </a>
+
+    <span class="article-detail__toc-brand-rule" aria-hidden="true"></span>
+
+    <button class="article-detail__toc-toggle" type="button" aria-label="显示文章目录" aria-controls="TableOfContents" aria-expanded="false" data-article-toc-toggle>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
     </button>
 
-    <header>
-        
-            
-            <figure class="site-avatar">
-                <a href="/">
-                
-                    
-                    
-                    
-                        
-                        <img src="/img/avatar_hu_9c28e5b7b386072e.png" width="300"
-                            height="341" class="site-logo" loading="lazy" alt="Avatar">
-                    
-                
-                </a>
-                
-                    <span class="emoji">🥯</span>
-                
-            </figure>
-            
-        
-        
-        <div class="site-meta">
-            <h1 class="site-name"><a href="/">Jul1en</a></h1>
-            <h2 class="site-description">学会等候 期待有天🎏</h2>
+    <div class="article-detail__toc-panel">
+        <div class="article-detail__toc-nav">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#git命令大全">Git命令大全</a></li>
+    <li><a href="#添加文件">添加文件</a></li>
+    <li><a href="#提交">提交</a></li>
+    <li><a href="#查看日志">查看日志</a></li>
+    <li><a href="#版本回退">版本回退</a></li>
+    <li><a href="#查看当前仓库状态">查看当前仓库状态</a></li>
+    <li><a href="#查看差异">查看差异</a></li>
+    <li><a href="#撤销修改">撤销修改</a></li>
+    <li><a href="#删除文件">删除文件</a></li>
+    <li><a href="#分支">分支</a>
+      <ol>
+        <li><a href="#查看本地仓库分支情况">查看本地仓库分支情况</a></li>
+        <li><a href="#创建分支">创建分支</a></li>
+        <li><a href="#切换分支">切换分支</a></li>
+        <li><a href="#合并分支">合并分支</a></li>
+        <li><a href="#合并冲突">合并冲突</a></li>
+        <li><a href="#删除分支">删除分支</a></li>
+        <li><a href="#删除分支2">删除分支2</a></li>
+        <li><a href="#分支策略">分支策略</a></li>
+        <li><a href="#bug分支">Bug分支</a></li>
+      </ol>
+    </li>
+    <li><a href="#推送">推送</a></li>
+    <li><a href="#拉取">拉取</a></li>
+    <li><a href="#忽略特殊文件">忽略特殊文件</a></li>
+    <li><a href="#标签管理">标签管理</a>
+      <ol>
+        <li><a href="#创建标签">创建标签</a></li>
+        <li><a href="#描述标签">描述标签</a></li>
+        <li><a href="#查看标签">查看标签</a></li>
+        <li><a href="#删除标签">删除标签</a></li>
+        <li><a href="#推送标签">推送标签</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
         </div>
-    </header><ol class="menu-social">
-            
-                <li>
-                    <a 
-                        href='https://blog.csdn.net/TwoCat_C?type=blog'
-                        target="_blank"
-                        title="CSDN"
-                        rel="me"
-                    >
-                        
-                        
-                            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1765201201519" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6401" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M200.234667 581.888c-21.205333 24.234667-58.154667 26.88-73.045334 26.88-27.648 0-48.810667-6.997333-62.890666-20.821333-13.354667-13.098667-20.394667-32.426667-20.864-57.429334-1.066667-57.941333 31.744-117.845333 88.490666-117.845333 27.093333 0 47.957333 19.413333 55.936 27.477333a14.378667 14.378667 0 0 0 12.032 4.224 16.213333 16.213333 0 0 0 10.282667-6.784c2.901333-3.712 5.76-10.112 5.888-17.109333s-2.432-14.677333-10.368-20.906667a112.725333 112.725333 0 0 0-71.168-25.216c-34.944 0-69.418667 16.042667-94.634667 44.074667-26.496 29.482667-40.661333 69.546667-39.893333 112.896 0.64 34.773333 12.032 64 32.981333 84.565333 22.528 22.101333 55.466667 33.749333 95.36 33.749334 46.805333 0 75.776-13.866667 91.904-25.472a24.917333 24.917333 0 0 0 10.24-19.456 29.952 29.952 0 0 0-8.874666-21.205334c-9.813333-10.581333-19.114667-4.309333-21.461334-1.578666z m212.053333-91.733333a318.762667 318.762667 0 0 0-29.781333-10.581334c-6.698667-2.048-13.184-3.882667-19.2-5.589333-39.338667-11.093333-43.818667-21.333333-43.392-29.013333 0.938667-15.488 21.973333-36.394667 57.685333-33.792 25.898667 1.92 43.306667 21.717333 51.413333 33.322666 6.357333 9.130667 15.829333 5.76 18.517334 4.053334a25.685333 25.685333 0 0 0 13.184-21.930667 26.709333 26.709333 0 0 0-8.917334-20.821333 113.237333 113.237333 0 0 0-142.805333-11.648c-19.456 13.781333-31.744 32.938667-32.853333 51.285333-2.730667 45.269333 43.306667 58.282667 76.928 67.754667 9.130667 2.602667 18.304 5.418667 28.458666 8.618666 48.64 15.232 50.048 30.592 46.592 54.058667-3.498667 23.722667-29.696 35.584-71.893333 32.469333-43.904-3.242667-62.464-26.026667-68.778667-38.442666-2.133333-4.181333-8.746667-10.581333-17.621333-6.656-21.930667 9.770667-20.181333 31.189333-11.093333 42.368 14.464 17.749333 49.066667 44.16 113.792 44.16 73.984 0 96.213333-37.333333 101.461333-69.973334 3.925333-24.405333-0.938667-43.861333-14.848-59.562666-10.069333-11.392-25.258667-21.12-46.976-30.122667z m289.152-92.373334c-25.514667-18.389333-59.434667-26.026667-100.693333-22.698666-30.378667 2.474667-54.357333 10.368-56.96 11.221333l-0.256 0.085333a18.645333 18.645333 0 0 0-12.672 16.170667l-20.053334 221.909333a14.378667 14.378667 0 0 0 10.538667 14.933334l3.072 0.853333 2.816 0.768 3.669333 0.896a337.664 337.664 0 0 0 69.973334 7.808c41.472 0 75.306667-9.813333 100.693333-29.184 32.597333-24.874667 48.682667-64 47.701333-116.266667-0.896-48.426667-16.981333-84.224-47.829333-106.453333z m-28.245333 190.336c-35.669333 27.264-89.173333 23.978667-114.218667 20.522667a5.461333 5.461333 0 0 1-4.650667-5.845333l16.938667-181.248a4.821333 4.821333 0 0 1 3.669333-4.266667c42.624-10.282667 75.818667-7.168 98.645334 9.301333 8.064 5.845333 14.848 14.122667 20.096 24.234667 7.509333 14.464 11.818667 32.64 12.202666 52.650667 0.725333 39.082667-10.24 67.541333-32.64 84.650666z m349.397333-143.957333a81.92 81.92 0 0 0-18.432-39.210667c-17.024-19.84-43.904-29.397333-78.848-29.397333-31.317333 0-58.538667 9.728-83.072 34.090667 0.298667-3.669333 0.810667-6.784 0.768-9.514667s-0.725333-4.949333-2.816-6.954667c-2.048-1.92-3.285333-2.858667-5.418667-3.285333-2.133333-0.426667-5.205333-0.341333-10.922666-0.256a25.045333 25.045333 0 0 0-25.130667 23.04s-13.866667 165.290667-18.261333 220.373333a13.141333 13.141333 0 0 0 3.114666 9.728 15.36 15.36 0 0 0 11.093334 5.589334h16.512a9.557333 9.557333 0 0 0 9.642666-8.746667l11.648-124.970667 0.597334-6.272a81.152 81.152 0 0 1 3.498666-17.578666c0.597333-1.92 1.28-3.925333 2.005334-5.973334 10.453333-29.610667 34.261333-73.386667 84.096-72.277333 35.84 0.768 61.824 19.413333 59.093333 47.530667-4.309333 44.117333-11.349333 132.266667-15.274667 176.64-0.810667 8.917333 7.765333 11.648 10.752 11.648h12.970667a18.858667 18.858667 0 0 0 18.944-17.237334s7.893333-90.752 12.544-143.018666l2.048-22.698667a83.584 83.584 0 0 0-1.109333-21.333333z" p-id="6402" fill="#707070"></path></svg>
-                        
-                    </a>
-                </li>
-            
-                <li>
-                    <a 
-                        href='https://gitee.com/Cary_C'
-                        target="_blank"
-                        title="Gitee"
-                        rel="me"
-                    >
-                        
-                        
-                            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1765175787209" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="12364" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M817.0496 445.44H456.5504c-11.1104 0-27.7504 16.64-27.7504 27.7504v72.0896c0 16.64 16.64 27.7504 27.7504 27.7504h227.3792c16.64 0 27.7504 16.64 27.7504 27.6992v22.2208c0 49.92-44.3904 88.7296-88.7296 88.7296H334.4896c-16.64 0-27.6992-16.64-27.6992-27.7504V389.9904c-5.5808-44.3904 38.8096-88.7808 83.2-88.7808h421.5296c11.1104 0 27.7504-16.64 27.7504-27.6992v-66.56c5.5296-11.1104-11.1104-27.7504-22.2208-27.7504H401.0496A222.5152 222.5152 0 0 0 179.2 401.0496v416c0 11.1104 16.64 27.7504 27.7504 27.7504H645.12c110.9504 0 199.68-88.7296 199.68-199.68V473.1904c0-11.1104-16.64-27.7504-27.7504-27.7504z" fill="#8B8B8B" p-id="12365"></path></svg>
-                        
-                    </a>
-                </li>
-            
-                <li>
-                    <a 
-                        href='https://github.com/Jul1en-Lin'
-                        target="_blank"
-                        title="GitHub"
-                        rel="me"
-                    >
-                        
-                        
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
-</svg>
+    </div>
 
-
-
-                        
-                    </a>
-                </li>
-            
-        </ol><ol class="menu" id="main-menu">
-        
-        
-        
-        <li >
-            <a href='/archives/' >
-                
-                
-                
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <rect x="3" y="4" width="18" height="4" rx="2" />
-  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
-  <line x1="10" y1="12" x2="14" y2="12" />
-</svg>
-
-
-
-                
-                <span>合集</span>
-            </a>
-        </li>
-        
-        
-        <li >
-            <a href='/categories/' >
-                
-                
-                
-                    <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1765359277966" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11523" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M575.68 736a160.32 160.32 0 1 0 160.32-160.32H599.893333c-13.461333 0-24.192 10.752-24.192 24.192V736zM736 533.333333A202.666667 202.666667 0 1 1 533.333333 736V599.893333A66.432 66.432 0 0 1 599.872 533.333333H736zM490.666667 736a202.666667 202.666667 0 1 1-202.666667-202.666667h136.128A66.432 66.432 0 0 1 490.666667 599.872V736z m-202.666667-160.32a160.32 160.32 0 1 0 160.32 160.32V599.893333c0-13.44-10.730667-24.192-24.192-24.192H288zM533.333333 287.978667A202.666667 202.666667 0 1 1 736 490.666667H599.893333A66.432 66.432 0 0 1 533.333333 424.128V288z m202.666667 160.341333a160.32 160.32 0 1 0-160.32-160.32v136.128c0 13.44 10.730667 24.192 24.192 24.192H736zM448.32 288a160.32 160.32 0 1 0-160.32 160.32h136.128c13.461333 0 24.192-10.752 24.192-24.192V288zM288 490.666667A202.666667 202.666667 0 1 1 490.666667 288v136.128A66.432 66.432 0 0 1 424.128 490.666667H288z" fill="currentColor" p-id="11524"></path></svg>
-                
-                <span>分类</span>
-            </a>
-        </li>
-        
-        
-        <li >
-            <a href='/search/' >
-                
-                
-                
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="10" cy="10" r="7" />
-  <line x1="21" y1="21" x2="15" y2="15" />
-</svg>
-
-
-
-                
-                <span>搜索</span>
-            </a>
-        </li>
-        
-        <li class="menu-bottom-section">
-            <ol class="menu">
-
-                
-                    <li id="dark-mode-toggle">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="8" cy="12" r="2" />
-  <rect x="2" y="6" width="20" height="12" rx="6" />
-</svg>
-
-
-
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="16" cy="12" r="2" />
-  <rect x="2" y="6" width="20" height="12" rx="6" />
-</svg>
-
-
-
-                        <span>暗色模式</span>
-                    </li>
-                
-            </ol>
-        </li>
-    </ol>
+    <div class="article-detail__toc-staff" aria-hidden="true">
+        <svg viewBox="0 0 320 110" preserveAspectRatio="none" focusable="false">
+            <g>
+                <path d="M-18 58 C 52 25, 106 82, 176 52 S 270 42, 338 66" />
+                <path d="M-18 69 C 52 36, 106 93, 176 63 S 270 53, 338 77" />
+                <path d="M-18 80 C 52 47, 106 104, 176 74 S 270 64, 338 88" />
+                <path d="M-18 91 C 52 58, 106 115, 176 85 S 270 75, 338 99" />
+                <path d="M-18 102 C 52 69, 106 126, 176 96 S 270 86, 338 110" />
+            </g>
+            <text x="72" y="83">♪</text>
+            <text x="176" y="63">♩</text>
+        </svg>
+    </div>
 </aside>
 
-        <main class="main full-width">
+    <div class="article-detail__layout">
+        <div class="article-detail__main">
+            <header class="article-detail__header">
+                <div class="article-detail__meta"><time datetime="2025-12-15T00:47:22&#43;08:00">2025-12-15</time><span aria-hidden="true">•</span>
+                        <a href="/categories/git/">Git</a></div>
 
-<article class="editorial-article">
-    <div class="editorial-grid">
-        
-        <aside class="editorial-title-column">
-            
-            
-            <div class="editorial-category">
-                
-                <a href="/categories/git/" >
-                    Git
-                </a>
-                
-            </div>
-            
+                <h1 class="article-detail__title">
+                    <span>🪶 Git命令大全</span>
+                    <span class="article-detail__title-note" aria-hidden="true">♪</span>
+                </h1><p class="article-detail__summary">Git命令大全 前提介绍
+git是一个分布式版本控制系统，相当于一个时光机，拿来保管代码，一旦出错，可以随时回滚到任何一个历史节点
+其核心架构分为三个区域：工作区（写代码的地方 …</p><div class="article-detail__header-quote">
+                    <aside class="quote-block quote-block--article">
+    <p class="quote-block__text">Document the path while the idea is still warm.</p>
+    <p class="quote-block__signature">Jul1en</p>
+</aside>
 
-            
-            <h1 class="editorial-title">🪶 Git命令大全</h1>
+                </div><figure class="article-detail__cover"><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/Gemini123_hu_14a1de32fe7e4768.webp" width="1120" height="520" alt="🪶 Git命令大全" loading="eager" decoding="async" fetchpriority="high"></figure></header>
 
-            
-            
-
-            
-            <div class="editorial-meta">
-                
-                <time datetime='2025-12-15T00:47:22&#43;08:00'>
-                    2025-12-15
-                </time>
-                <span class="editorial-meta-sep">·</span>
-                <span class="editorial-lastmod">
-                    更新于 2025-12-15
-                </span></div>
-
-            
-            
-        </aside>
-
-        
-        <div class="editorial-content-column">
-            <section class="article-content">
-                
-                <h1 id="git命令大全">Git命令大全
-</h1><p>前提介绍</p>
+            <section class="article-content article-detail__content">
+                <h2 id="git命令大全">Git命令大全
+</h2><p>前提介绍</p>
 <p>git是一个分布式版本控制系统，相当于一个时光机，拿来保管代码，一旦出错，可以随时回滚到任何一个历史节点</p>
 <p>其核心架构分为三个区域：<strong>工作区（写代码的地方）、暂存区（临时存放的地方）和版本库（安全存档的地方）</strong></p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/Gemini123.png" width="2528"  height="1696"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/Gemini123_hu_e8e84fcf2d0adb27.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/Gemini123_hu_47a9809c0ad06524.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/Gemini123_hu_80fbd994d30b44af.png 2400w"  loading="lazy"  alt="Git仓库结构"   class="gallery-image" data-flex-grow="149"
-	data-flex-basis="357px" ></p>
-<h1 id="添加文件">添加文件
-</h1><p>​<code>git add .</code>表示添加所有在工作区的文件至暂存区</p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/Gemini123_hu_e10a82f4ff2ba24f.webp" width="1600" height="1073" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/Gemini123_hu_dbafb9a7b776cf61.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/Gemini123_hu_e10a82f4ff2ba24f.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/Gemini123_hu_91fe44afe684b214.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="Git仓库结构" class="gallery-image" data-flex-grow="149" data-flex-basis="357px">
+</p>
+<h2 id="添加文件">添加文件
+</h2><p>​<code>git add .</code>表示添加所有在工作区的文件至暂存区</p>
 <p>​<code>git add &lt;fileName&gt; &lt;fileName&gt;</code></p>
 <p>eg：<code>git add file1 file2</code></p>
-<h1 id="提交">提交
-</h1><p>提交暂存区的文件至版本库中</p>
+<h2 id="提交">提交
+</h2><p>提交暂存区的文件至版本库中</p>
 <p>​<code>git commit -m &quot;&lt;填写你要备注的内容&gt;&quot;</code></p>
 <p>eg：<code>git commit -m &quot;no message commit&quot;</code></p>
-<h1 id="查看日志">查看日志
-</h1><ul>
+<h2 id="查看日志">查看日志
+</h2><ul>
 <li>
 <p>查看最近日志：<code>git log</code>​ / <code>git log --pretty=oneline</code></p>
 </li>
@@ -282,24 +233,24 @@
 </li>
 </ul>
 <p>得到每一次的id，此id可用于版本回退功能</p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119212943-wvcvc93.png" width="1333"  height="1026"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119212943-wvcvc93_hu_3309ee8a905ae59d.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119212943-wvcvc93_hu_4224c8574969dbc8.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119212943-wvcvc93_hu_5bbe9dcbe128d68d.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="129"
-	data-flex-basis="311px" ></p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119212943-wvcvc93_hu_6e71c1ebba48129c.webp" width="1600" height="1232" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119212943-wvcvc93_hu_46c055af39432610.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119212943-wvcvc93_hu_6e71c1ebba48129c.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119212943-wvcvc93_hu_698797b70999bfa9.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="129" data-flex-basis="311px">
+</p>
 <p>高亮部分就是每次提交的id，用<code>git reflog</code>命令也能得到，且id更加简洁</p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119215310-0affl22.png" width="1578"  height="358"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119215310-0affl22_hu_6cc2e58277bb29ba.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119215310-0affl22_hu_5c24628195fe7c61.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119215310-0affl22_hu_9d51081f5f65b6f4.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="440"
-	data-flex-basis="1057px" ></p>
-<h1 id="版本回退">版本回退
-</h1><p>它有三个版本</p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119215310-0affl22_hu_f707fbca13d4e722.webp" width="1600" height="363" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119215310-0affl22_hu_8affcf1a29910fa1.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119215310-0affl22_hu_f707fbca13d4e722.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119215310-0affl22_hu_bfbd937695b645ec.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="440" data-flex-basis="1057px">
+</p>
+<h2 id="版本回退">版本回退
+</h2><p>它有三个版本</p>
 <p>​<code>git reset [--soft / --mixed / --hard] &lt;HEAD&gt;</code>，区别如图所示</p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251105003923-cmv4tgy.png" width="1758"  height="778"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251105003923-cmv4tgy_hu_e11f01839e73b7fe.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251105003923-cmv4tgy_hu_21213dd7556e6d53.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251105003923-cmv4tgy_hu_c5b9b2f08e9de24e.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="225"
-	data-flex-basis="542px" ></p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251105003923-cmv4tgy_hu_501c1385607c3489.webp" width="1600" height="708" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251105003923-cmv4tgy_hu_7dc3ed6670424bf7.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251105003923-cmv4tgy_hu_501c1385607c3489.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251105003923-cmv4tgy_hu_446f50595c0dc564.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="225" data-flex-basis="542px">
+</p>
 <p>​<code>git reset &lt;使用 git log / git reflog 后查看的对应版本的提交id&gt;</code>，版本id在&lt;查看日志&gt;部分可得到</p>
 <p>eg：<code>git reset --mixed 3f50f68</code></p>
-<h1 id="查看当前仓库状态">查看当前仓库状态
-</h1><p>查看与上一次提交之后到现在是否对文件进行修改（工作区）</p>
+<h2 id="查看当前仓库状态">查看当前仓库状态
+</h2><p>查看与上一次提交之后到现在是否对文件进行修改（工作区）</p>
 <p>​<code>git status</code></p>
 <p>查看是哪个文件被修改了之后，用下面介绍的<code>diff</code>命令即可查看修改的具体内容</p>
-<h1 id="查看差异">查看差异
-</h1><ul>
+<h2 id="查看差异">查看差异
+</h2><ul>
 <li>
 <p>查看暂存区与工作区之间的差异：<code>git diff &lt;fileName&gt;</code></p>
 <p>eg：<code>git diff ReadMe</code></p>
@@ -310,21 +261,21 @@
 <p>eg：<code>git diff HEAD -- ReadMe</code></p>
 </li>
 </ul>
-<h1 id="撤销修改">撤销修改
-</h1><p>如果你在工作区中写了好多天的代码，但是效果还不如初次的，此时你想要退回到未修改的状态，就需要撤销修改操作</p>
+<h2 id="撤销修改">撤销修改
+</h2><p>如果你在工作区中写了好多天的代码，但是效果还不如初次的，此时你想要退回到未修改的状态，就需要撤销修改操作</p>
 <p>撤销修改虽然可以手动把你自己写的代码删掉，但如果写的太多了，手动删除会有隐患且耗费时间精力</p>
 <p>撤销的目的，就是为了不影响远程仓库，所以撤销修改的前提是代码没有push到远程仓库</p>
 <p>以下是撤销修改的命令，分三种情况</p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251109015150-ieem3qz.png" width="2524"  height="1016"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251109015150-ieem3qz_hu_e8a47bb0ddf041ef.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251109015150-ieem3qz_hu_2a3f75bcd87ea5ed.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251109015150-ieem3qz_hu_e94d64cd5999f444.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="248"
-	data-flex-basis="596px" ></p>
-<h1 id="删除文件">删除文件
-</h1><ol>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251109015150-ieem3qz_hu_663cdab081d1111a.webp" width="1600" height="644" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251109015150-ieem3qz_hu_e376c604790f16ba.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251109015150-ieem3qz_hu_663cdab081d1111a.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251109015150-ieem3qz_hu_d5f2480a80f899de.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="248" data-flex-basis="596px">
+</p>
+<h2 id="删除文件">删除文件
+</h2><ol>
 <li>终端命令使用<code>rm &lt;fileName&gt;</code>​，这时会将工作区的文件删除，如果想提交修改的话后续使用<code>add 、commit</code>操作，分为三步</li>
 <li>git 也提供了这个命令，将这个流程简化为了两布：<code>git rm &lt;fileName&gt;</code>​，这是将工作区与暂存区的文件同时删除，此时git已经自动将删除后的文件提交到暂存区中，只需要<code>commit</code>操作即可</li>
 </ol>
 <p>‍</p>
-<h1 id="分支">分支
-</h1><h2 id="查看本地仓库分支情况">查看本地仓库分支情况
+<h2 id="分支">分支
+</h2><h2 id="查看本地仓库分支情况">查看本地仓库分支情况
 </h2><p>​<code>git branch</code></p>
 <h2 id="创建分支">创建分支
 </h2><p>在<code>git branch</code>后加上想要添加分支的名字即可</p>
@@ -340,13 +291,13 @@
 <p>​<code>git merge &lt;branchName&gt;</code>（Fast-forward模式）</p>
 <p>例如有两个分支：<code>master 和 dev</code></p>
 <p>如果想要合并dev分支，那需要讲选中的分支切换到master上，用<code>git branch</code>来查看现在所处的分支，前面带 * 号的就是所在分支</p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118000559-ea8sdim.png" width="122"  height="50"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118000559-ea8sdim_hu_b1802a7d3eb6073d.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118000559-ea8sdim_hu_93f93e6dd63a2e9.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118000559-ea8sdim_hu_95d9f809ee3839e5.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="244"
-	data-flex-basis="585px" ></p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118000559-ea8sdim_hu_a30c249c6d4eefe3.webp" width="1600" height="656" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118000559-ea8sdim_hu_38ebac5358fbf628.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118000559-ea8sdim_hu_a30c249c6d4eefe3.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118000559-ea8sdim_hu_7deb79a3784f4a98.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="244" data-flex-basis="585px">
+</p>
 <p>像这样，所在是分支dev，就使用<code>git checkout master</code>转回master分支</p>
 <p>然后就能进行合并操作了，使用<code>git merge dev</code>，这时master就指向了dev的最新一次提交</p>
 <p>此时的分支情况为</p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118003722-spucr2i.png" width="1919"  height="924"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118003722-spucr2i_hu_d01db69fe881ce7.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118003722-spucr2i_hu_b6af4f9e9760dd25.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118003722-spucr2i_hu_b04a1f1ff5af8481.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="207"
-	data-flex-basis="498px" ></p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118003722-spucr2i_hu_cab24b7ef648722b.webp" width="1600" height="770" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118003722-spucr2i_hu_9ee42245d69adadb.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118003722-spucr2i_hu_cab24b7ef648722b.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118003722-spucr2i_hu_fc334b2c33157e65.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="207" data-flex-basis="498px">
+</p>
 </li>
 </ol>
 <p>在这种Fast-forward模式下，删除分支历史时，会丢掉分支的信息，看不出来最新的提交是merge进来的还是master分支上正常提交的，为了更好的溯源以及留痕，日后便于发现是哪个分支提交出了问题，在合并的时候会使用no-ff模式，即No-Fast-forward</p>
@@ -355,21 +306,21 @@
 <p>​<code>git merge --no-ff -m &quot;新提交的信息&quot; &lt;branchName&gt;</code></p>
 <p>其中<code>-m &quot;新提交的信息&quot;</code>表示在使用no-ff的模式下，表示merge之后还带有一个提交，说明no-ff模式下，master必须要指向一个新的提交</p>
 <p>例如：有分支<code>dev、master</code>​，在选中master分支的前提下使用<code>git merge --no-ff -m &quot;merge dev&quot; dev</code>，此时分支的情况为</p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118004848-3eh6v98.png" width="2311"  height="953"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118004848-3eh6v98_hu_2b1d591cf9a3c997.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118004848-3eh6v98_hu_cc3324253efffa61.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118004848-3eh6v98_hu_2ec19389d772a0da.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="242"
-	data-flex-basis="581px" ></p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118004848-3eh6v98_hu_c1623ea127633965.webp" width="1600" height="660" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118004848-3eh6v98_hu_dae9cd82303224a6.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118004848-3eh6v98_hu_c1623ea127633965.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118004848-3eh6v98_hu_8de4edfab3c294f1.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="242" data-flex-basis="581px">
+</p>
 <p><strong>==在平时使用中，更加建议使用no-ff模式，能进行更好的区别与溯源==</strong></p>
 </li>
 </ol>
 <h2 id="合并冲突">合并冲突
 </h2><p>如果出现merge冲突，需要手动解决，<strong>并进行一次《添加 + 提交》操作！！！如果不提交，是不属于成功的merge</strong></p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118002835-0l81g4z.png" width="1877"  height="1352"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118002835-0l81g4z_hu_d1754384d0a8d1ae.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118002835-0l81g4z_hu_d3cc6c3fb5aacd54.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118002835-0l81g4z_hu_2d47e8c3c3544880.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="138"
-	data-flex-basis="333px" ></p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118002835-0l81g4z_hu_31cfea99eaae0ca0.webp" width="1600" height="1152" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118002835-0l81g4z_hu_e8ff61df5029ed3a.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118002835-0l81g4z_hu_31cfea99eaae0ca0.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118002835-0l81g4z_hu_1140aa9e9142e9a0.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="138" data-flex-basis="333px">
+</p>
 <p>此时的分支情况</p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118003231-8009p5k.png" width="1949"  height="1004"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118003231-8009p5k_hu_b6868184297fd5ef.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118003231-8009p5k_hu_9a91638b822a8dc5.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118003231-8009p5k_hu_f06b1ca2777de8c9.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="194"
-	data-flex-basis="465px" ></p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118003231-8009p5k_hu_fe2cd13afa9a621f.webp" width="1600" height="824" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118003231-8009p5k_hu_15e38f9aeff7d9fe.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118003231-8009p5k_hu_fe2cd13afa9a621f.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118003231-8009p5k_hu_a3b7b71178a1d7a.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="194" data-flex-basis="465px">
+</p>
 <p>在git中也支持提交线的可视化图标，使用<code>git log --graph --abbrev-commit</code>，如图所示</p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118003527-w7w7uap.png" width="909"  height="885"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118003527-w7w7uap_hu_644a7b7334a4007f.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118003527-w7w7uap_hu_a943e6d95a3e3ab5.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118003527-w7w7uap_hu_47c86311253449a1.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="102"
-	data-flex-basis="246px" ></p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118003527-w7w7uap_hu_61122a37ad0d33fc.webp" width="1600" height="1558" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118003527-w7w7uap_hu_3929686eb2968cd5.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118003527-w7w7uap_hu_61122a37ad0d33fc.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118003527-w7w7uap_hu_5acfc1227813edf6.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="102" data-flex-basis="246px">
+</p>
 <h2 id="删除分支">删除分支
 </h2><p>删除分支也是只能在其他的分支上删除分支，比如在dev分支上就不能删除dev，必须要切到master分支上才可以</p>
 <p>使用<code>git branch -d &lt;branchName&gt;</code></p>
@@ -377,8 +328,8 @@
 <h2 id="删除分支2">删除分支2
 </h2><p>开发过程中，可能<code>dev</code>​分支在中途被废弃了，不需要合并到<code>master</code>​中，直接删除<code>dev</code>​分支，此时强制删除分支用命令<code>git branch -D &lt;branchName&gt;</code></p>
 <p>在终端命令中也会提醒你，这个分支未被完全合并到master分支上，如果确定你要删除，使用<code>git branch -D &lt;branchName&gt;</code></p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119212250-66ug4cp.png" width="1449"  height="326"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119212250-66ug4cp_hu_f76ccce74059d2ff.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119212250-66ug4cp_hu_74684e1efd4cfca3.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119212250-66ug4cp_hu_49347b867b1af676.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="444"
-	data-flex-basis="1066px" ></p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119212250-66ug4cp_hu_7c6a78641b5eae92.webp" width="1600" height="360" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119212250-66ug4cp_hu_566c02e28672ba7b.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119212250-66ug4cp_hu_7c6a78641b5eae92.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119212250-66ug4cp_hu_68b878861f4ce654.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="444" data-flex-basis="1066px">
+</p>
 <h2 id="分支策略">分支策略
 </h2><p>在实际开发中，git给我们的分支管理能力是非常重要的，这能帮我们进行多人协同开发</p>
 <p>在git管理中，需要遵守的几个重要约定</p>
@@ -390,8 +341,8 @@
 <p>干活修改的内容都应该在dev分支上，等到某个时候迎来版本更新，再把dev分支合并到master上，在master分支上发布新版本</p>
 <p>这样每个人都能在基于master上创建dev分支进行协同开发，每个人都有自己的分支，时不时往dev分支上合并即可</p>
 <p>故团队协同开发的分支belike：</p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118011057-v5s8oxu.png" width="2466"  height="1379"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118011057-v5s8oxu_hu_431825f3ed99c133.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118011057-v5s8oxu_hu_45e2a4e2fc70ac9a.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118011057-v5s8oxu_hu_1313c4e3887594e3.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="178"
-	data-flex-basis="429px" ></p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118011057-v5s8oxu_hu_ac66a7625fd96bb6.webp" width="1600" height="895" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118011057-v5s8oxu_hu_401414efcda56104.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118011057-v5s8oxu_hu_ac66a7625fd96bb6.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251118011057-v5s8oxu_hu_f7a3bdee437544fd.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="178" data-flex-basis="429px">
+</p>
 </li>
 </ul>
 <h2 id="bug分支">Bug分支
@@ -399,92 +350,92 @@
 <p>假如已经建立了分支dev，但是发现了master上有bug，那是不建议在dev分支上进行bug修复的，因为这违背了分支dev的任务，可能dev的任务是对某个模块进行更新，且已经修改了部分文件，所以我们需要再创建分支专门对master分支进行修复bug</p>
 <p>这时候我们切回master分支后其实能看到分支dev修改的代码，虽然这只是在工作区的修改，还未提交到暂存区，但这也影响了对master的创建bug分支的步骤</p>
 <p>比如在dev上修改了readme文件</p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119214443-mtmd3j9.png" width="1696"  height="496"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119214443-mtmd3j9_hu_74a74a6c6dce482d.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119214443-mtmd3j9_hu_866b9168046eaf3b.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119214443-mtmd3j9_hu_19f9ce1172c4a9ba.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="341"
-	data-flex-basis="820px" ></p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119214443-mtmd3j9_hu_64e7116008ab7777.webp" width="1600" height="468" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119214443-mtmd3j9_hu_a40c7e5e90aba684.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119214443-mtmd3j9_hu_64e7116008ab7777.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119214443-mtmd3j9_hu_81fe1a1eb283c903.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="341" data-flex-basis="820px">
+</p>
 <p>在master分支上也能看到dev修改的内容</p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119202832-z3gjr98.png" width="1205"  height="406"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119202832-z3gjr98_hu_975b183316a251c6.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119202832-z3gjr98_hu_9b7b28fc89fb9899.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119202832-z3gjr98_hu_ca94193af42190e4.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="296"
-	data-flex-basis="712px" ></p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119202832-z3gjr98_hu_be3cc836c67b73dd.webp" width="1600" height="539" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119202832-z3gjr98_hu_e387d6716c44fe6d.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119202832-z3gjr98_hu_be3cc836c67b73dd.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119202832-z3gjr98_hu_4690996572cd68e4.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="296" data-flex-basis="712px">
+</p>
 <p>原因是master工作区中的代码有变动的</p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119131537-kxueqbn.png" width="1211"  height="575"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119131537-kxueqbn_hu_bd4ca0a4d2b69944.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119131537-kxueqbn_hu_302ca990a03f1db5.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119131537-kxueqbn_hu_8c74181ac729e56b.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="210"
-	data-flex-basis="505px" ></p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119131537-kxueqbn_hu_4e58ec42c653051f.webp" width="1600" height="760" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119131537-kxueqbn_hu_5fe35a2bf0de5ae3.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119131537-kxueqbn_hu_4e58ec42c653051f.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119131537-kxueqbn_hu_1b444edd5670a6cd.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="210" data-flex-basis="505px">
+</p>
 <p>虽然代码只存在工作区中，但我们还是不想在master上看到dev修改的代码，且在dev分支上不影响master，可在dev分支上用<code>git stash</code>，将工作区中的内容进行储存。</p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119214215-559d67r.png" width="1226"  height="105"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119214215-559d67r_hu_ed8c3798af5782f9.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119214215-559d67r_hu_c9a61b9f1959c603.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119214215-559d67r_hu_49caa9ce33adb20.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="1167"
-	data-flex-basis="2802px" >​此时的<code>tree .git</code>​仓库一下就能看到<code>stash</code>分区保存在refs上</p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119132237-33kmjue.png" width="613"  height="392"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119132237-33kmjue_hu_8070f80a814b8ea1.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119132237-33kmjue_hu_45d518bdf0cc4980.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119132237-33kmjue_hu_3d93e1be6ed2dd09.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="156"
-	data-flex-basis="375px" ></p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119214215-559d67r_hu_d3144f5cd28a0c70.webp" width="1600" height="137" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119214215-559d67r_hu_9feeee2013778462.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119214215-559d67r_hu_d3144f5cd28a0c70.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119214215-559d67r_hu_6b0e5487ee5dd240.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="1167" data-flex-basis="2802px">
+​此时的<code>tree .git</code>​仓库一下就能看到<code>stash</code>分区保存在refs上</p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119132237-33kmjue_hu_12b68e4c0b9965ae.webp" width="1600" height="1023" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119132237-33kmjue_hu_11476a9b30af369b.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119132237-33kmjue_hu_12b68e4c0b9965ae.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119132237-33kmjue_hu_f27b9ef4ec7a1083.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="156" data-flex-basis="375px">
+</p>
 <p>此时再返回到<code>master</code>​分支上，就已经看不到<code>dev</code>修改的代码了</p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119132318-pabl3t4.png" width="1386"  height="233"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119132318-pabl3t4_hu_98eedb5ce70988b.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119132318-pabl3t4_hu_8d5077c3f07e8b7e.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119132318-pabl3t4_hu_ff2bdd905f88ecec.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="594"
-	data-flex-basis="1427px" ></p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119132318-pabl3t4_hu_d45b8c97898286d2.webp" width="1600" height="269" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119132318-pabl3t4_hu_9e09a63c504f670f.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119132318-pabl3t4_hu_d45b8c97898286d2.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119132318-pabl3t4_hu_96463a03515f7d99.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="594" data-flex-basis="1427px">
+</p>
 <p>此时就能对<code>master</code>​进行bug修复了，先切回<code>master</code>​分支。然后在<code>master</code>​上新建fix_bug分支并切换到fix_bug，可用<code>git checkout -b fix_bug</code></p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119132854-0p9u42o.png" width="1462"  height="313"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119132854-0p9u42o_hu_4a5eb58d1a6db650.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119132854-0p9u42o_hu_87adb4bb455052bb.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119132854-0p9u42o_hu_70b339bdc722f96e.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="467"
-	data-flex-basis="1121px" ></p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119132854-0p9u42o_hu_243e48288de4f238.webp" width="1600" height="343" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119132854-0p9u42o_hu_6d6ecbc177cc2f1b.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119132854-0p9u42o_hu_243e48288de4f238.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119132854-0p9u42o_hu_c2751367ca5126d8.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="467" data-flex-basis="1121px">
+</p>
 <p>在fix_bug上修改代码后，更新提交后就可以提交到<code>master</code>​上了，可合并后直接提交，这里用no-ff方式提交，命令为<code>git merge --no-ff -m &quot;&lt;commit message&gt;&quot; &lt;devName&gt;</code></p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203044-yneddim.png" width="1402"  height="403"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203044-yneddim_hu_c201960f342ea71d.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203044-yneddim_hu_62a57a5177eea218.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203044-yneddim_hu_d6e13b88c8614858.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="347"
-	data-flex-basis="834px" ><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203530-9xzrr9z.png" width="1608"  height="416"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203530-9xzrr9z_hu_47ef0e9abaca277e.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203530-9xzrr9z_hu_3459c88a8f930ef.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203530-9xzrr9z_hu_3bf1d785c2f1dc1a.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="386"
-	data-flex-basis="927px" ></p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203044-yneddim_hu_cda5f43d9f17a1f.webp" width="1600" height="460" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203044-yneddim_hu_f5e1694d3213127f.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203044-yneddim_hu_cda5f43d9f17a1f.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203044-yneddim_hu_a60732bb21314994.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="347" data-flex-basis="834px">
+<img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203530-9xzrr9z_hu_154241276ae93b6d.webp" width="1600" height="414" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203530-9xzrr9z_hu_369379093d7f2d67.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203530-9xzrr9z_hu_154241276ae93b6d.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203530-9xzrr9z_hu_36e645878cca5d67.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="386" data-flex-basis="927px">
+</p>
 <p>此时的<code>master</code>分支上就是已经修复好的bug了</p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203601-j5yioad.png" width="1211"  height="255"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203601-j5yioad_hu_36de419b0b1a2d31.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203601-j5yioad_hu_ea9233075b135d7.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203601-j5yioad_hu_ae9ec09cd892c5ee.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="474"
-	data-flex-basis="1139px" ></p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203601-j5yioad_hu_2dc14976b6a62417.webp" width="1600" height="337" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203601-j5yioad_hu_85724b87563a1db8.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203601-j5yioad_hu_2dc14976b6a62417.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203601-j5yioad_hu_3e5cc297cd90e7dc.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="474" data-flex-basis="1139px">
+</p>
 <p>但<code>dev</code>​分支上我们还是以有bug的<code>master</code>​基础上开发的，那怎么办呢？<code>dev</code>​分支的修改信息还存在<code>stash</code>上，我们需要把暂存在stash区的代码给拉回来，这是没拉回来的readme文件</p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203743-j5v93qi.png" width="1335"  height="357"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203743-j5v93qi_hu_dacac86a1dc0a8fd.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203743-j5v93qi_hu_64bdbf662de626d2.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203743-j5v93qi_hu_62ece055b4dbc785.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="373"
-	data-flex-basis="897px" ></p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203743-j5v93qi_hu_9103d3c486b58812.webp" width="1600" height="428" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203743-j5v93qi_hu_6cf5f1c5befda2db.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203743-j5v93qi_hu_9103d3c486b58812.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119203743-j5v93qi_hu_335c7b38a33f1cd3.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="373" data-flex-basis="897px">
+</p>
 <p>在上面提到，<code>dev</code>​已经修改了readme的内容，那这些内容都存在了<code>stash</code>​区，且dev本地是没在的。可以用<code>git stash list</code>查看stash区的状态</p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119204025-72pwhka.png" width="1304"  height="206"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119204025-72pwhka_hu_77b86c051da9c3c6.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119204025-72pwhka_hu_341395d4ffc0c328.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119204025-72pwhka_hu_62d521030739b89a.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="633"
-	data-flex-basis="1519px" ></p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119204025-72pwhka_hu_bb6b8bff8c1c424.webp" width="1600" height="253" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119204025-72pwhka_hu_72d63f428281d999.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119204025-72pwhka_hu_bb6b8bff8c1c424.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119204025-72pwhka_hu_9a55dde2e4bfd6b.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="633" data-flex-basis="1519px">
+</p>
 <p>现在拉回来的dev分支上的readme文件就显示正常了，用到命令<code>git stash pop</code>，这时readme文件就正常显示了</p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119204154-25ds3ni.png" width="1361"  height="812"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119204154-25ds3ni_hu_90e7505fb8ec5e67.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119204154-25ds3ni_hu_8eb6bdcc0e7b50a4.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119204154-25ds3ni_hu_a3000e0a11fc9481.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="167"
-	data-flex-basis="402px" ></p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119204154-25ds3ni_hu_e6e47ab10f00a1d9.webp" width="1600" height="955" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119204154-25ds3ni_hu_739e9054e2716a4c.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119204154-25ds3ni_hu_e6e47ab10f00a1d9.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119204154-25ds3ni_hu_d12ac5675c32c40.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="167" data-flex-basis="402px">
+</p>
 <p>假设dev分支上已经完成开发，且已经更新最新一次提交。（add + commit）</p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119204552-9gswvnm.png" width="1555"  height="619"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119204552-9gswvnm_hu_5235ea68a2c35e37.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119204552-9gswvnm_hu_cd0497abee8012b8.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119204552-9gswvnm_hu_3b2d0b8514c14f58.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="251"
-	data-flex-basis="602px" ></p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119204552-9gswvnm_hu_9eb7462e16ae31c6.webp" width="1600" height="637" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119204552-9gswvnm_hu_393b5cb38400fb9f.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119204552-9gswvnm_hu_9eb7462e16ae31c6.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119204552-9gswvnm_hu_9a6c30673c652d0.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="251" data-flex-basis="602px">
+</p>
 <p>现在要提交到master上，那怎么办呢？它还存有<code>master</code>​原来的bug代码，<strong>==如果直接合并到==****==​<code>master</code>​==<strong>​</strong>==分支上，那会出现合并冲突，需要我们手动解决，手动解决是非常危险的，处理不当可能会污染master分支，变得更加不稳定。==</strong> 情况如图所示，会更加直观。</p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119205319-8qfuplj.png" width="1985"  height="928"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119205319-8qfuplj_hu_3afd9c0709f3204b.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119205319-8qfuplj_hu_d33687935739acf5.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119205319-8qfuplj_hu_f59c849de1bf702a.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="213"
-	data-flex-basis="513px" ></p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119205319-8qfuplj_hu_71ae358282170b17.webp" width="1600" height="748" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119205319-8qfuplj_hu_3b4b44de29fe39e4.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119205319-8qfuplj_hu_71ae358282170b17.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119205319-8qfuplj_hu_5e8a4c4429366eb8.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="213" data-flex-basis="513px">
+</p>
 <p>解决这个问题的一个好的建议是：最好在自己的分支上合并下<code>master</code>​，再让<code>master</code>​去合并<code>dev</code>​，这样做的目的是有冲突可以在本地分支解决并进行测试，而不影响<code>master</code>，这样做此时的状态为：</p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119210205-6stwel5.png" width="2379"  height="1151"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119210205-6stwel5_hu_c124e15052900818.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119210205-6stwel5_hu_d618420b97367afa.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119210205-6stwel5_hu_10bb5c0709378aa9.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="206"
-	data-flex-basis="496px" ></p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119210308-2c4655f.png" width="2710"  height="1054"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119210308-2c4655f_hu_72cff31dca8b1b5.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119210308-2c4655f_hu_d19fa01dc1b439dd.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119210308-2c4655f_hu_281701f55548a96c.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="257"
-	data-flex-basis="617px" ></p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119210205-6stwel5_hu_58e9ac4669443f16.webp" width="1600" height="774" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119210205-6stwel5_hu_6fbb02db3ea209f3.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119210205-6stwel5_hu_58e9ac4669443f16.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119210205-6stwel5_hu_82fea326087fac05.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="206" data-flex-basis="496px">
+</p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119210308-2c4655f_hu_f26f2bb68f9ce979.webp" width="1600" height="622" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119210308-2c4655f_hu_ba62865750de1bf8.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119210308-2c4655f_hu_f26f2bb68f9ce979.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119210308-2c4655f_hu_1a27eb5a261d2890.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="257" data-flex-basis="617px">
+</p>
 <p>具体操作如下，在第一步中不出意外遇到了冲突</p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119210545-wdaw7ch.png" width="1603"  height="266"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119210545-wdaw7ch_hu_18f16cc3901944c0.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119210545-wdaw7ch_hu_9d4d3abc4a66716d.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119210545-wdaw7ch_hu_2f07beeffb6624c6.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="602"
-	data-flex-basis="1446px" ></p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119210545-wdaw7ch_hu_a367dd819b779fcb.webp" width="1600" height="266" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119210545-wdaw7ch_hu_344e6ec4b6fc6114.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119210545-wdaw7ch_hu_a367dd819b779fcb.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119210545-wdaw7ch_hu_30d6d1620a92dbb7.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="602" data-flex-basis="1446px">
+</p>
 <p>手动修改后别忘了提交，然后切回到<code>master</code>​分支上，再合并<code>dev</code>​，此时<code>master</code>​上就既有修改后的代码，也有<code>dev</code>上提交的新代码且不冲突了</p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119211401-fm7zl8x.png" width="1608"  height="618"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119211401-fm7zl8x_hu_79a0dc299583306d.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119211401-fm7zl8x_hu_c50cd317e584c522.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119211401-fm7zl8x_hu_571be1213c4f6d90.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="260"
-	data-flex-basis="624px" ></p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119211401-fm7zl8x_hu_acb9afedeb795358.webp" width="1600" height="615" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119211401-fm7zl8x_hu_a100493bf428b689.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119211401-fm7zl8x_hu_acb9afedeb795358.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251119211401-fm7zl8x_hu_6fb7041f24264ba0.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="260" data-flex-basis="624px">
+</p>
 <p>完成后记得删分支，这是个好习惯😁</p>
 <p>​<code>git branch -d dev</code>​、<code>git branch -d fix_bug</code></p>
-<h1 id="推送">推送
-</h1><p>​<code>git push origin &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</code>​，比如<code>git push origin test-branch:remote-test-branch</code>，远程仓库就会出现</p>
+<h2 id="推送">推送
+</h2><p>​<code>git push origin &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</code>​，比如<code>git push origin test-branch:remote-test-branch</code>，远程仓库就会出现</p>
 <p>​<code>remote-test-branch</code> 的新分支</p>
-<h1 id="拉取">拉取
-</h1><p>Pull其实是有拉取 + 合并的操作，拉取过程中自动帮你合并了，且默认的是fast-forward模式</p>
+<h2 id="拉取">拉取
+</h2><p>Pull其实是有拉取 + 合并的操作，拉取过程中自动帮你合并了，且默认的是fast-forward模式</p>
 <p>​<code>git pull origin &lt;远程branchName&gt;:&lt;要拉取到的本地branchName&gt;</code></p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124165733-gfaiycq.png" width="1266"  height="396"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124165733-gfaiycq_hu_b7865b7be0352b0d.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124165733-gfaiycq_hu_74e9eeb41952902e.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124165733-gfaiycq_hu_b496090dddfbedb.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="319"
-	data-flex-basis="767px" ></p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124165733-gfaiycq_hu_30c8215e6ced2f29.webp" width="1600" height="500" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124165733-gfaiycq_hu_e7fe0a3dace2cedd.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124165733-gfaiycq_hu_30c8215e6ced2f29.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124165733-gfaiycq_hu_8f21db2fa6f4d7ed.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="319" data-flex-basis="767px">
+</p>
 <p>如果远端的master与本地的分支名字一样，即是拉取到本地master分支，则可以省略<code>:master</code>​，即<code>git pull origin master</code></p>
-<h1 id="忽略特殊文件">忽略特殊文件
-</h1><p>在开发中，有时候有些文件不应该被提交到远端仓库，比如重要的数据库密码等配置文件，那怎么才能让git知道并自动忽略呢？</p>
+<h2 id="忽略特殊文件">忽略特殊文件
+</h2><p>在开发中，有时候有些文件不应该被提交到远端仓库，比如重要的数据库密码等配置文件，那怎么才能让git知道并自动忽略呢？</p>
 <p>在git的工作区根目录上创建一个特殊的<code>.gitignore</code>文件，然后把忽略的文件名填进去，git就会自动忽略这些文件了</p>
 <p>可以手动创建，如：<code>touch .gitignore</code>，也可以在创建远程仓库的时候选择</p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124172126-rwiu879.png" width="2196"  height="389"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124172126-rwiu879_hu_4a50ecbeaf9890db.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124172126-rwiu879_hu_1eb7bd1ee1027085.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124172126-rwiu879_hu_22c2d89026758ece.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="564"
-	data-flex-basis="1354px" ></p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124172126-rwiu879_hu_46faa0c829fe83d5.webp" width="1600" height="283" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124172126-rwiu879_hu_e36dadf735d97e3d.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124172126-rwiu879_hu_46faa0c829fe83d5.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124172126-rwiu879_hu_607b61d2b23e512b.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="564" data-flex-basis="1354px">
+</p>
 <p>然后修改在<code>.gitignore</code>​上写上要忽略的文件类型 / 文件后缀名，修改命令为<code>vim</code>​，如<code>vim .gitignore</code></p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124173342-9h0v7bn.png" width="842"  height="527"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124173342-9h0v7bn_hu_292ba7b3c01bc7f9.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124173342-9h0v7bn_hu_365286a3c177bcb9.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124173342-9h0v7bn_hu_3136dca7080d6f14.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="159"
-	data-flex-basis="383px" ></p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124173342-9h0v7bn_hu_9778314b6d96b602.webp" width="1600" height="1001" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124173342-9h0v7bn_hu_e41e07a4c08e3c06.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124173342-9h0v7bn_hu_9778314b6d96b602.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124173342-9h0v7bn_hu_1bb14f971570049b.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="159" data-flex-basis="383px">
+</p>
 <p>此处我在工作区中新建了<code>file.txt</code>​、<code>a.io</code>​、<code>c.io</code>​、<code>picture.png</code>文件</p>
 <p>查看git状态的时发现，<code>picture.png</code>​没有被忽略，<code>file.txt</code>​、<code>a.io</code>​和单独指定的<code>c.io</code>文件被忽略了，没有被git追踪管理，这个结果是理想的</p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124174325-f4r8qgh.png" width="1473"  height="692"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124174325-f4r8qgh_hu_706dcbb7cf18b120.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124174325-f4r8qgh_hu_a1ce52affb88563f.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124174325-f4r8qgh_hu_be6f420493bc838.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="212"
-	data-flex-basis="510px" ></p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124174325-f4r8qgh_hu_54d40f70a80841b4.webp" width="1600" height="752" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124174325-f4r8qgh_hu_7ac9da9b4467bf1e.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124174325-f4r8qgh_hu_54d40f70a80841b4.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124174325-f4r8qgh_hu_5d1f90eed082adf0.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="212" data-flex-basis="510px">
+</p>
 <p>有时候<code>.gitignore</code>​文件太大了，记不清具体忽略了哪些文件，但是又不小心建立了被忽略的文件，手动在ignore文件内查看太费劲了，可以使用命令<code>git check-ignore -v &lt;被忽略的文件名&gt;</code></p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124174841-iqiqhgg.png" width="890"  height="154"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124174841-iqiqhgg_hu_c662b4220b54012.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124174841-iqiqhgg_hu_80db19d34c6010a9.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124174841-iqiqhgg_hu_fa5fca05b8fbc179.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="577"
-	data-flex-basis="1387px" ></p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124174841-iqiqhgg_hu_58aefd928fc2e5e5.webp" width="1600" height="277" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124174841-iqiqhgg_hu_2e95c1ae68ca83bb.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124174841-iqiqhgg_hu_58aefd928fc2e5e5.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251124174841-iqiqhgg_hu_9bbdd4b2bb69729d.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="577" data-flex-basis="1387px">
+</p>
 <p>这就能看到具体的被忽略的文件的具体位置</p>
-<h1 id="标签管理">标签管理
-</h1><p>标签<code>tag</code>​，可以简单理解为对某次<code>commit</code> 的一次标识，相当于起了个别名。</p>
+<h2 id="标签管理">标签管理
+</h2><p>标签<code>tag</code>​，可以简单理解为对某次<code>commit</code> 的一次标识，相当于起了个别名。</p>
 <p>相较于难以记住的<code>commit id</code>​，<code>tag</code>​可以很好的解决这个问题，当我们需要回退某个重要的版本时，直接使用标签就能很快的定位到对应的<code>commit</code></p>
 <p>这里引用hutool 工具包的GitHub仓库，能看到不同版本的tag</p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251205012941-z67yes7.png" width="1531"  height="1093"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251205012941-z67yes7_hu_d5d3adb40953dd30.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251205012941-z67yes7_hu_6a0a48060d7bbc1f.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251205012941-z67yes7_hu_ab0a1846a978e2ab.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="140"
-	data-flex-basis="336px" ></p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251205012941-z67yes7_hu_ec7402335969cc0f.webp" width="1600" height="1142" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251205012941-z67yes7_hu_3ad80a10dab44382.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251205012941-z67yes7_hu_ec7402335969cc0f.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251205012941-z67yes7_hu_a988e5c12f07e6de.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="140" data-flex-basis="336px">
+</p>
 <h2 id="创建标签">创建标签
 </h2><p>在Git中打标签非常简单，首先切换到需要打标签的分支上，直接<code>git tag &lt;name&gt;</code>​就可以打一个新的标签，<strong>这样的标签默认指向最新的一次提交</strong></p>
 <p>当然也可以<strong>指定某个提交打</strong>​<code>tag</code>​，只需在后面加上提交的id，如：<code>git tag v0.9 f7340fd</code></p>
@@ -492,15 +443,15 @@
 </h2><p>新建<code>tag</code>​​​的同时还能对标签进行一些描述，使用<code>git tag -a v0.8 -m &quot;XXX&quot; &lt;需要指定的哪次提交id，如果没有默认指向最新的一次&gt;</code></p>
 <h2 id="查看标签">查看标签
 </h2><p>使用<code>git tag</code>就能看到当前目录下有多少个标签，</p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251126130810-3tkybqm.png" width="1151"  height="208"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251126130810-3tkybqm_hu_1c195acb8c46de64.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251126130810-3tkybqm_hu_2e4c439158e91c4c.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251126130810-3tkybqm_hu_bda4b22ff6f09d7d.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="553"
-	data-flex-basis="1328px" ></p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251126130810-3tkybqm_hu_dd721ba0963af62a.webp" width="1600" height="289" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251126130810-3tkybqm_hu_619c870401988aad.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251126130810-3tkybqm_hu_dd721ba0963af62a.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251126130810-3tkybqm_hu_f00339eefa939e2c.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="553" data-flex-basis="1328px">
+</p>
 <p>如果需要看具体某一次的<code>tag</code>​的详细描述，则需要命令<code>git show &lt;某一次的tag&gt;</code>​，如：<code>git show v0.8</code>​ / <code>git show v1.0</code></p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251126131019-78ja9tl.png" width="1614"  height="744"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251126131019-78ja9tl_hu_d38687bf16aea2d4.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251126131019-78ja9tl_hu_9d3255b721c180ed.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251126131019-78ja9tl_hu_504ded23c51caaf1.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="216"
-	data-flex-basis="520px" ></p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251126131019-78ja9tl_hu_6a7357f18c857cd.webp" width="1600" height="738" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251126131019-78ja9tl_hu_ff8e99f415652894.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251126131019-78ja9tl_hu_6a7357f18c857cd.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251126131019-78ja9tl_hu_a6cd2b8b1e2b5d6c.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="216" data-flex-basis="520px">
+</p>
 <h2 id="删除标签">删除标签
 </h2><p><strong>本地删除：</strong> 删除标签与删除分支的操作类似：<code>git tag -d &lt;tagName&gt;</code>​，如<code>git tag -d v0.8</code>​，可见已经删除了<code>tag</code>v0.8</p>
-<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251126131203-8qe7jxs.png" width="1317"  height="267"  srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251126131203-8qe7jxs_hu_7bea6024ac2762f.png 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251126131203-8qe7jxs_hu_f15a50d19f411a63.png 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251126131203-8qe7jxs_hu_9012473ae0da705.png 2400w"  loading="lazy"   class="gallery-image" data-flex-grow="493"
-	data-flex-basis="1183px" ></p>
+<p><img src="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251126131203-8qe7jxs_hu_cc003fa494f57445.webp" width="1600" height="324" srcset="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251126131203-8qe7jxs_hu_5596281914816d4f.webp 800w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251126131203-8qe7jxs_hu_cc003fa494f57445.webp 1600w, /p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/assets/image-20251126131203-8qe7jxs_hu_a1cff1ac150687c0.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="493" data-flex-basis="1183px">
+</p>
 <p><strong>删除远程仓库标签：</strong></p>
 <ol>
 <li>直接在远程仓库删除</li>
@@ -513,6 +464,23 @@
 <p>‍</p>
 
             </section>
+
+            <footer class="article-detail__footer">
+                <div class="article-closing" aria-label="Article closing">
+    <ul class="article-closing__links">
+        <li>
+            <span class="article-closing__chevron" aria-hidden="true">›</span>
+            <span>written by <span class="article-closing__author">@Jul1en</span></span>
+        </li>
+        <li>
+            <span class="article-closing__chevron" aria-hidden="true">›</span>
+            <a href="/post/">cd ..</a>
+        </li>
+    </ul>
+
+</div>
+
+            </footer>
         </div>
     </div>
 </article>
@@ -521,29 +489,6 @@
 
 
 
-
-
-
-
-<button id="dark-mode-toggle" class="editorial-dark-mode-toggle" type="button" aria-label="暗色模式" title="暗色模式">
-    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="8" cy="12" r="2" />
-  <rect x="2" y="6" width="20" height="12" rx="6" />
-</svg>
-
-
-
-    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="16" cy="12" r="2" />
-  <rect x="2" y="6" width="20" height="12" rx="6" />
-</svg>
-
-
-
-    <span>暗色模式</span>
-</button>
 
 
 
@@ -624,382 +569,229 @@
                 href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
             >
 
-        </main>
-    </div>
+    </main>
+
     <script 
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.836efe327773ba454adac61ee8b35272b6f512bd594ed9ea0f926fca8386433b.js" defer></script>
-<script>
-    (function () {
-        const customFont = document.createElement('link');
-        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
-
-        customFont.type = "text/css";
-        customFont.rel = "stylesheet";
-
-        document.head.appendChild(customFont);
-    }());
-</script>
-<style>
-   
-  .article-content .highlight,
-  .editorial-content-column .article-content .highlight,
-  .article-content pre,
-  .editorial-content-column .article-content pre {
-    max-height: none !important;
-    overflow-y: visible !important;
-    overflow-x: auto !important;
-    scrollbar-width: auto;
-    scrollbar-color: #3c3d3e transparent;
-  }
-
-  .article-content .highlight pre,
-  .editorial-content-column .article-content .highlight pre,
-  .article-content .highlight .chroma,
-  .editorial-content-column .article-content .highlight .chroma {
-    overflow: visible !important;
-  }
-
-  .article-content .highlight::-webkit-scrollbar,
-  .editorial-content-column .article-content .highlight::-webkit-scrollbar,
-  .article-content pre::-webkit-scrollbar,
-  .editorial-content-column .article-content pre::-webkit-scrollbar {
-    width: 12px;
-    height: 12px;
-  }
-
-  .article-content .highlight::-webkit-scrollbar-track,
-  .editorial-content-column .article-content .highlight::-webkit-scrollbar-track,
-  .article-content pre::-webkit-scrollbar-track,
-  .editorial-content-column .article-content pre::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  .article-content .highlight::-webkit-scrollbar-thumb,
-  .editorial-content-column .article-content .highlight::-webkit-scrollbar-thumb,
-  .article-content pre::-webkit-scrollbar-thumb,
-  .editorial-content-column .article-content pre::-webkit-scrollbar-thumb {
-    background: #3c3d3e;
-    border-radius: 999px;
-  }
-
-  .article-content .highlight::-webkit-scrollbar-thumb:hover,
-  .editorial-content-column .article-content .highlight::-webkit-scrollbar-thumb:hover,
-  .article-content pre::-webkit-scrollbar-thumb:hover,
-  .editorial-content-column .article-content pre::-webkit-scrollbar-thumb:hover {
-    background: #48494a;
-  }
-
-  :root[data-scheme="dark"] .article-content .highlight,
-  :root[data-scheme="dark"] .editorial-content-column .article-content .highlight,
-  :root[data-scheme="dark"] .article-content pre,
-  :root[data-scheme="dark"] .editorial-content-column .article-content pre {
-    scrollbar-color: #3c3d3e transparent;
-  }
-
-  :root[data-scheme="dark"] .article-content .highlight::-webkit-scrollbar-thumb,
-  :root[data-scheme="dark"] .editorial-content-column .article-content .highlight::-webkit-scrollbar-thumb,
-  :root[data-scheme="dark"] .article-content pre::-webkit-scrollbar-thumb,
-  :root[data-scheme="dark"] .editorial-content-column .article-content pre::-webkit-scrollbar-thumb {
-    background: #3c3d3e;
-  }
-
-  :root[data-scheme="dark"] .article-content .highlight::-webkit-scrollbar-thumb:hover,
-  :root[data-scheme="dark"] .editorial-content-column .article-content .highlight::-webkit-scrollbar-thumb:hover,
-  :root[data-scheme="dark"] .article-content pre::-webkit-scrollbar-thumb:hover,
-  :root[data-scheme="dark"] .editorial-content-column .article-content pre::-webkit-scrollbar-thumb:hover {
-    background: #48494a;
-  }
-
-   
-  :root[data-scheme="light"] .article-content .highlight,
-  :root[data-scheme="light"] .editorial-content-column .article-content .highlight,
-  :root[data-scheme="light"] .article-content pre,
-  :root[data-scheme="light"] .editorial-content-column .article-content pre {
-    scrollbar-color: #3c3d3e transparent;
-    scrollbar-width: thin;
-  }
-
-  :root[data-scheme="light"] .article-content .highlight::-webkit-scrollbar,
-  :root[data-scheme="light"] .editorial-content-column .article-content .highlight::-webkit-scrollbar,
-  :root[data-scheme="light"] .article-content pre::-webkit-scrollbar,
-  :root[data-scheme="light"] .editorial-content-column .article-content pre::-webkit-scrollbar {
-    width: 14px;
-    height: 14px;
-  }
-
-  :root[data-scheme="light"] .article-content .highlight::-webkit-scrollbar-track,
-  :root[data-scheme="light"] .editorial-content-column .article-content .highlight::-webkit-scrollbar-track,
-  :root[data-scheme="light"] .article-content pre::-webkit-scrollbar-track,
-  :root[data-scheme="light"] .editorial-content-column .article-content pre::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  :root[data-scheme="light"] .article-content .highlight::-webkit-scrollbar-thumb,
-  :root[data-scheme="light"] .editorial-content-column .article-content .highlight::-webkit-scrollbar-thumb,
-  :root[data-scheme="light"] .article-content pre::-webkit-scrollbar-thumb,
-  :root[data-scheme="light"] .editorial-content-column .article-content pre::-webkit-scrollbar-thumb {
-    background: #3c3d3e;
-    border-radius: 999px;
-  }
-
-  :root[data-scheme="light"] .article-content .highlight::-webkit-scrollbar-thumb:hover,
-  :root[data-scheme="light"] .editorial-content-column .article-content .highlight::-webkit-scrollbar-thumb:hover,
-  :root[data-scheme="light"] .article-content pre::-webkit-scrollbar-thumb:hover,
-  :root[data-scheme="light"] .editorial-content-column .article-content pre::-webkit-scrollbar-thumb:hover {
-    background: #48494a;
-  }
-
-   
-  .article-content .highlight::-webkit-scrollbar-button,
-  .editorial-content-column .article-content .highlight::-webkit-scrollbar-button,
-  .article-content pre::-webkit-scrollbar-button,
-  .editorial-content-column .article-content pre::-webkit-scrollbar-button {
-    display: none;
-  }
-</style>
-<script src="/js/particles.js"></script>
+            </script><script type="text/javascript" src="/ts/main.836efe327773ba454adac61ee8b35272b6f512bd594ed9ea0f926fca8386433b.js" defer></script><script type="text/javascript" src="/ts/custom.77669e75e8d67de70fbaba61f97bc81baa9b5f9fc7e3afee3da166b02cceae50.js" defer></script>
 
 
-
-<script src="/js/fireworks.js"></script>
-
-
-<script src="/js/avatar-colors.js"></script>
-
-
-
-
-<button id="back-to-top" class="back-to-top-btn" aria-label="回到顶部" title="回到顶部">
-  
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="18 15 12 9 6 15"></polyline>
-  </svg>
+<button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M6 14.5 12 8l6 6.5" />
+    </svg>
 </button>
 
-
-<style>
-   
-  .back-to-top-btn {
-     
-    position: fixed;
-    z-index: 999;
-
-     
-    left: 50px;
-     
-    top: auto;
-     
-    bottom: auto;
-     
-
-     
-    width: 24px;
-    height: 24px;
-
-     
-    border-radius: 20%;
-
-     
-    background: rgba(252, 249, 244, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-
-     
-    box-shadow: 0 4px 16px rgba(180, 170, 160, 0.2);
-
-     
-    cursor: pointer;
-
-     
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-     
-    color: #555555;
-
-     
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-
-     
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-     
-    outline: none;
-  }
-
-   
-  .back-to-top-btn.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-
-   
-  .back-to-top-btn:hover {
-    transform: translateY(-4px) scale(1.05);
-    background: rgba(252, 249, 244, 0.95);
-    box-shadow: 0 8px 24px rgba(180, 170, 160, 0.3);
-    border-color: rgba(0, 0, 0, 0.12);
-    color: #333333;
-  }
-
-   
-  .back-to-top-btn:active {
-    transform: translateY(-2px) scale(0.98);
-  }
-
-   
-  .back-to-top-btn svg {
-    width: 24px;
-    height: 24px;
-    stroke-width: 2.5;
-  }
-
-   
-  :root[data-scheme="dark"] .back-to-top-btn {
-     
-    background: rgba(40, 40, 40, 0.8);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-
-     
-    color: #e0e0e0;
-  }
-
-  :root[data-scheme="dark"] .back-to-top-btn:hover {
-    background: rgba(50, 50, 50, 0.9);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
-    border-color: rgba(255, 255, 255, 0.2);
-    color: #ffffff;
-  }
-
-   
-   
-
-   
-  @media (max-width: 768px) {
-    .back-to-top-btn {
-       
-      width: 18px;
-      height: 18px;
-    }
-
-    .back-to-top-btn svg {
-      width: 16px;
-      height: 16px;
-    }
-  }
-</style>
-
-
 <script>
-  (function () {
-    'use strict';
+    (function () {
+        'use strict';
 
-    
-    const backToTopBtn = document.getElementById('back-to-top');
+        const menuToggle = document.querySelector('.site-menu-toggle');
+        const nav = document.getElementById('primary-navigation');
+        const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-    if (!backToTopBtn) return;
-
-    
-    const SCROLL_THRESHOLD = 300;
-
-    
-    function throttle(func, delay) {
-      let lastCall = 0;
-      return function (...args) {
-        const now = Date.now();
-        if (now - lastCall >= delay) {
-          lastCall = now;
-          func.apply(this, args);
+        function setMenuOpen(open) {
+            if (!menuToggle || !nav) return;
+            menuToggle.classList.toggle('is-open', open);
+            nav.classList.toggle('is-open', open);
+            document.body.classList.toggle('site-nav-open', open);
+            menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
         }
-      };
-    }
 
-    
-    function checkScroll() {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (menuToggle && nav) {
+            menuToggle.addEventListener('click', function (event) {
+                event.stopPropagation();
+                setMenuOpen(!nav.classList.contains('is-open'));
+            });
 
-      if (scrollTop > SCROLL_THRESHOLD) {
-        backToTopBtn.classList.add('show');
-      } else {
-        backToTopBtn.classList.remove('show');
-      }
-    }
+            nav.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    setMenuOpen(false);
+                });
+            });
 
-    
-    function scrollToTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    }
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape') setMenuOpen(false);
+            });
 
-    
-    window.addEventListener('scroll', throttle(checkScroll, 100));
+            document.addEventListener('click', function (event) {
+                if (!document.body.classList.contains('site-nav-open')) return;
+                if (nav.contains(event.target) || menuToggle.contains(event.target)) return;
+                setMenuOpen(false);
+            });
 
-    
-    backToTopBtn.addEventListener('click', scrollToTop);
+            const desktopQuery = window.matchMedia('(min-width: 921px)');
+            const closeMenuOnDesktop = function (event) {
+                if (event.matches) setMenuOpen(false);
+            };
 
-    
-    function positionButton() {
-      
-      const mainMenu = document.getElementById('main-menu');
-      const bottomSection = document.querySelector('.menu-bottom-section');
+            if (desktopQuery.addEventListener) {
+                desktopQuery.addEventListener('change', closeMenuOnDesktop);
+            } else if (desktopQuery.addListener) {
+                desktopQuery.addListener(closeMenuOnDesktop);
+            }
+        }
 
-      if (!mainMenu || !bottomSection) {
-        
-        return;
-      }
+        const backToTop = document.getElementById('back-to-top');
 
-      
-      const menuRect = mainMenu.getBoundingClientRect();
-      const menuCenter = menuRect.left + (menuRect.width / 2);
+        if (backToTop) {
+            function updateBackToTop() {
+                backToTop.classList.toggle('is-visible', window.scrollY > 420);
+            }
 
-      
-      const bottomRect = bottomSection.getBoundingClientRect();
-      const bottomTop = bottomRect.top;
+            backToTop.addEventListener('click', function () {
+                window.scrollTo({ top: 0, behavior: reduceMotionQuery.matches ? 'auto' : 'smooth' });
+            });
 
-      
-      const buttonWidth = 24; 
-      const buttonHeight = 24; 
-      const buttonLeft = menuCenter - (buttonWidth / 2);
+            window.addEventListener('scroll', updateBackToTop, { passive: true });
+            updateBackToTop();
+        }
 
-      
-      const spacing = 15; 
-      const buttonTop = bottomTop - buttonHeight - spacing;
+        function initStaffParallax() {
+            const staff = document.querySelector('.music-staff-bg');
+            if (!staff || reduceMotionQuery.matches) return;
 
-      
-      backToTopBtn.style.left = buttonLeft + 'px';
-      backToTopBtn.style.top = buttonTop + 'px';
-      backToTopBtn.style.bottom = 'auto'; 
-      backToTopBtn.style.right = 'auto'; 
-    }
+            let ticking = false;
 
-    
-    positionButton();
+            function updateStaffPosition() {
+                const shift = Math.max(-5, Math.min(5, window.scrollY * -0.012));
+                staff.style.transform = 'translate3d(0, ' + shift.toFixed(2) + 'px, 0)';
+                ticking = false;
+            }
 
-    
-    checkScroll();
+            function requestStaffUpdate() {
+                if (ticking) return;
+                ticking = true;
+                window.requestAnimationFrame(updateStaffPosition);
+            }
 
-    
-    window.addEventListener('resize', throttle(positionButton, 200));
+            staff.classList.add('is-parallax-ready');
+            window.addEventListener('scroll', requestStaffUpdate, { passive: true });
+            updateStaffPosition();
+        }
 
-    
-    window.addEventListener('load', positionButton);
-  })();
+        function initArticleTocHover() {
+            const toc = document.querySelector('[data-article-toc]');
+            const articleMain = document.querySelector('.article-detail__main');
+            if (!toc || !articleMain) return;
 
+            const toggle = toc.querySelector('[data-article-toc-toggle]');
+            let lockedOpen = false;
+
+            function setVisible(visible) {
+                document.body.classList.toggle('is-article-toc-visible', visible);
+                if (toggle) {
+                    toggle.setAttribute('aria-expanded', visible ? 'true' : 'false');
+                    toggle.setAttribute('aria-label', visible ? '隐藏文章目录' : '显示文章目录');
+                }
+            }
+
+            function getLeftRevealZone() {
+                return Math.min(380, Math.max(280, window.innerWidth * 0.22));
+            }
+
+            function isInsideReadingColumn(x, y) {
+                const rect = articleMain.getBoundingClientRect();
+                const top = Math.min(rect.top, 0) - 48;
+                const bottom = Math.max(rect.bottom, window.innerHeight) + 48;
+
+                return x >= rect.left - 72 && x <= rect.right + 32 && y >= top && y <= bottom;
+            }
+
+            document.addEventListener('pointermove', function (event) {
+                if (lockedOpen) return;
+                setVisible(event.clientX <= getLeftRevealZone() || isInsideReadingColumn(event.clientX, event.clientY));
+            }, { passive: true });
+
+            document.addEventListener('pointerleave', function () {
+                if (!lockedOpen) setVisible(false);
+            });
+
+            toc.addEventListener('focusin', function () {
+                setVisible(true);
+            });
+
+            toc.addEventListener('focusout', function (event) {
+                if (lockedOpen || toc.contains(event.relatedTarget)) return;
+                setVisible(false);
+            });
+
+            if (toggle) {
+                toggle.addEventListener('click', function () {
+                    const isVisible = document.body.classList.contains('is-article-toc-visible');
+                    if (lockedOpen && isVisible) {
+                        lockedOpen = false;
+                        setVisible(false);
+                        return;
+                    }
+
+                    lockedOpen = true;
+                    setVisible(true);
+                });
+            }
+
+            document.addEventListener('click', function (event) {
+                if (!lockedOpen) return;
+                if (toc.contains(event.target) || articleMain.contains(event.target)) return;
+                lockedOpen = false;
+                setVisible(false);
+            });
+
+            document.addEventListener('keydown', function (event) {
+                if (event.key !== 'Escape') return;
+                lockedOpen = false;
+                setVisible(false);
+            });
+        }
+
+        function initRevealOnScroll() {
+            if (reduceMotionQuery.matches || !('IntersectionObserver' in window)) return;
+
+            const revealSelectors = [
+                '.section-band',
+                '.featured-section',
+                '.blog-card',
+                '.post-tools',
+                '.article-detail__content > *',
+                '.article-detail__footer',
+                '.journal-entry',
+                '.music-panel',
+                '.curated-inspirations'
+            ];
+
+            const targets = Array.prototype.slice.call(document.querySelectorAll(revealSelectors.join(',')));
+            if (!targets.length) return;
+
+            const observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                });
+            }, {
+                rootMargin: '0px 0px -8% 0px',
+                threshold: 0.12
+            });
+
+            targets.forEach(function (target, index) {
+                target.classList.add('reveal-on-scroll');
+                target.style.setProperty('--reveal-delay', Math.min(index % 5, 4) * 45 + 'ms');
+                observer.observe(target);
+            });
+        }
+
+        initStaffParallax();
+        initArticleTocHover();
+        initRevealOnScroll();
+
+        window.requestAnimationFrame(function () {
+            document.body.classList.add('is-loaded');
+        });
+    })();
 </script>
+
 </body>
 
 </html>

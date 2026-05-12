@@ -1,262 +1,206 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr" data-scheme="dark">
+<html lang="en-us" dir="ltr">
 
 <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="开发模型和测试模型 开发模型 学习测试，我们需要了解产品的开发流程，开发模型实际上指的就是产品的开发流程\n瀑布模型 瀑布模型是其他模型的基础框架，它是最基础的模型，模型如图所示\n">
-<title>🌵 开发模型和测试模型</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="开发模型和测试模型 开发模型 学习测试，我们需要了解产品的开发流程，开发模型实际上指的就是产品的开发流程 瀑布模型 瀑布模型是其他模型的基础框架，它是最基础的模型，模型如图所示">
+<title>🌵 开发模型和测试模型 | Jul1en</title>
 
 <link rel='canonical' href='https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/'>
 
-<link rel="stylesheet" href="/scss/style.min.502a380229eacc0e12af50d218c823259247c480ba28a71cc1a8f31e36902a3e.css"><meta property='og:title' content="🌵 开发模型和测试模型">
-<meta property='og:description' content="开发模型和测试模型 开发模型 学习测试，我们需要了解产品的开发流程，开发模型实际上指的就是产品的开发流程\n瀑布模型 瀑布模型是其他模型的基础框架，它是最基础的模型，模型如图所示\n">
+<link rel="stylesheet" href="/scss/style.min.35e176eae627f0ca2a1fbda52d9af8ddef4f4a6604a605260cd42cf3d00b683a.css"><meta property='og:title' content="🌵 开发模型和测试模型 | Jul1en">
+<meta property='og:description' content="开发模型和测试模型 开发模型 学习测试，我们需要了解产品的开发流程，开发模型实际上指的就是产品的开发流程 瀑布模型 瀑布模型是其他模型的基础框架，它是最基础的模型，模型如图所示">
 <meta property='og:url' content='https://Jul1en-Lin.github.io/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/'>
 <meta property='og:site_name' content='Jul1en'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-10-31T05:31:52&#43;00:00'/><meta property='article:modified_time' content='2026-04-28T14:13:47&#43;08:00'/>
-<meta name="twitter:title" content="🌵 开发模型和测试模型">
-<meta name="twitter:description" content="开发模型和测试模型 开发模型 学习测试，我们需要了解产品的开发流程，开发模型实际上指的就是产品的开发流程\n瀑布模型 瀑布模型是其他模型的基础框架，它是最基础的模型，模型如图所示\n">
-
-<script>
+<meta name="twitter:title" content="🌵 开发模型和测试模型 | Jul1en">
+<meta name="twitter:description" content="开发模型和测试模型 开发模型 学习测试，我们需要了解产品的开发流程，开发模型实际上指的就是产品的开发流程 瀑布模型 瀑布模型是其他模型的基础框架，它是最基础的模型，模型如图所示"><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<meta name="author" content="Jul1en">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)"><script src="/js/custom.77669e75e8d67de70fbaba61f97bc81baa9b5f9fc7e3afee3da166b02cceae50.js" integrity="sha256-d2aedejWfecPurph&#43;XvIG6qbX5/H46/uPaFmsCzOrlA=" defer></script><script>
     (function () {
         const colorSchemeKey = 'StackColorScheme';
-        if (!localStorage.getItem(colorSchemeKey)) {
-            
-            const now = new Date();
-            const utcHour = now.getUTCHours();
-            const beijingHour = (utcHour + 8) % 24;
-
-            
-            
-            const isDarkTime = beijingHour >= 21 || beijingHour < 8;
-            const scheme = isDarkTime ? 'dark' : 'light';
-            localStorage.setItem(colorSchemeKey, scheme);
-        }
-    })();
-</script><script>
-    (function () {
-        const colorSchemeKey = 'StackColorScheme';
-        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const savedScheme = localStorage.getItem(colorSchemeKey);
+        const defaultScheme = "light";
         const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+        const scheme = savedScheme || defaultScheme;
 
-        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
-            
-
+        if (scheme === 'dark' || (scheme === 'auto' && supportDarkMode)) {
             document.documentElement.dataset.scheme = 'dark';
         } else {
             document.documentElement.dataset.scheme = 'light';
         }
     })();
 </script>
+
 </head>
 
-<body class="article-page editorial-layout">
+<body class="melody-shell template-article-detail article-page">
+    <a class="skip-link" href="#main-content">Skip to content</a><header class="site-header" role="banner">
+    <div class="site-header__inner">
+        <a class="site-brand" href="/" aria-label="Jul1en home">
+            <span class="site-brand__text">Jul1en</span>
+        </a>
 
-    <div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
-    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
-        <span class="hamburger-box">
-            <span class="hamburger-inner"></span>
-        </span>
+        <div class="site-header__right">
+            <nav id="primary-navigation" class="site-nav" aria-label="Primary navigation">
+                <ul class="site-nav__list"><li class="site-nav__item">
+                            <a class="site-nav__link is-active" href="/post/" aria-current="page">
+                                Blog
+                            </a>
+                        </li><li class="site-nav__item">
+                            <a class="site-nav__link" href="/journal/">
+                                Journal
+                            </a>
+                        </li><li class="site-nav__item">
+                            <a class="site-nav__link" href="/music/">
+                                Music
+                            </a>
+                        </li></ul>
+            </nav>
+
+            <div class="site-actions" role="group" aria-label="Social links and theme"><a class="site-action-link" href="https://github.com/Jul1en-Lin" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+                        <span class="site-action-link__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+  <path fill="currentColor" d="M12 2.2c-5.5 0-9.9 4.5-9.9 9.9 0 4.4 2.8 8.1 6.8 9.4.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.2-3.4-1.2-.5-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 0 1.6 1.1 1.6 1.1.9 1.5 2.4 1.1 2.9.8.1-.7.4-1.1.7-1.4-2.2-.3-4.5-1.1-4.5-4.9 0-1.1.4-2 1.1-2.7-.1-.3-.5-1.3.1-2.7 0 0 .9-.3 2.8 1.1.8-.2 1.7-.3 2.5-.3s1.7.1 2.5.3c1.9-1.3 2.8-1.1 2.8-1.1.6 1.4.2 2.4.1 2.7.7.8 1.1 1.7 1.1 2.7 0 3.8-2.3 4.6-4.5 4.9.4.3.7.9.7 1.9V21c0 .3.2.6.7.5 4-1.3 6.8-5 6.8-9.4 0-5.4-4.4-9.9-9.9-9.9Z" />
+</svg>
+</span>
+                    </a><a class="site-action-link" href="https://www.instagram.com/jul1en_lin" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+                        <span class="site-action-link__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+  <path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M7.5 3.5h9A4 4 0 0 1 20.5 7.5v9a4 4 0 0 1-4 4h-9a4 4 0 0 1-4-4v-9a4 4 0 0 1 4-4Z" />
+  <path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M8.8 12a3.2 3.2 0 1 0 6.4 0 3.2 3.2 0 0 0-6.4 0Z" />
+  <path fill="currentColor" d="M17.2 7.2a.9.9 0 1 1-1.8 0 .9.9 0 0 1 1.8 0Z" />
+</svg>
+</span>
+                    </a><button id="dark-mode-toggle" class="theme-toggle" type="button" aria-label="暗色模式" title="暗色模式">
+                    <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="4.2" />
+    <path d="M12 2.8v2.2M12 19v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.8 12h2.2M19 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" />
+</svg>
+</span>
+                    <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M19.7 14.6c-1.3 2.9-4.6 4.8-8.1 4.2-4.3-.7-7.2-4.8-6.5-9.1.5-3.2 2.8-5.7 5.7-6.5-.9 2.1-.5 4.7 1.2 6.6 1.9 2.2 4.9 3 7.7 2.2-.1.9-.1 1.7 0 2.6z" />
+</svg>
+</span>
+                </button></div>
+
+            <button class="site-menu-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false">
+                <span class="site-menu-toggle__bar" aria-hidden="true"></span>
+                <span class="site-menu-toggle__bar" aria-hidden="true"></span>
+                <span class="site-menu-toggle__bar" aria-hidden="true"></span>
+                <span class="sr-only">Menu</span>
+            </button>
+        </div>
+    </div>
+</header>
+<div class="music-staff-bg" aria-hidden="true">
+    <svg viewBox="0 0 1440 360" preserveAspectRatio="none" focusable="false">
+        <path class="music-staff-bg__curve" d="M-80 210 C 180 110, 360 310, 620 190 S 1040 80, 1520 170" />
+        <g class="music-staff-bg__lines">
+            <path d="M-80 128 C 240 98, 520 158, 820 128 S 1220 98, 1520 128" />
+            <path d="M-80 146 C 240 116, 520 176, 820 146 S 1220 116, 1520 146" />
+            <path d="M-80 164 C 240 134, 520 194, 820 164 S 1220 134, 1520 164" />
+            <path d="M-80 182 C 240 152, 520 212, 820 182 S 1220 152, 1520 182" />
+            <path d="M-80 200 C 240 170, 520 230, 820 200 S 1220 170, 1520 200" />
+        </g>
+    </svg>
+</div>
+<div class="music-note-decor" aria-hidden="true">
+    <span class="music-note-decor__note music-note-decor__note--one">♪</span>
+    <span class="music-note-decor__note music-note-decor__note--two">♩</span>
+    <span class="music-note-decor__note music-note-decor__note--three">♬</span>
+</div>
+<main id="main-content" class="main main-content full-width" tabindex="-1"><article class="article-detail">
+    <aside class="article-detail__toc-rail" aria-label="文章目录" data-article-toc>
+    <a class="article-detail__toc-brand" href="/" aria-label="Jul1en home">
+        <span class="article-detail__toc-brand-text">Jul1en</span>
+        <span class="article-detail__toc-brand-note" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M14 4v11.4" />
+  <path d="M14 4l5 1.4v3.4L14 7.4" />
+  <path d="M9.2 17.6c0 1.3-1.4 2.4-3.1 2.4S3 18.9 3 17.6s1.4-2.4 3.1-2.4 3.1 1.1 3.1 2.4Z" />
+  <path d="M14 15.4c0 1.3-1.4 2.4-3.1 2.4-.7 0-1.4-.2-1.9-.5" />
+</svg>
+</span>
+    </a>
+
+    <span class="article-detail__toc-brand-rule" aria-hidden="true"></span>
+
+    <button class="article-detail__toc-toggle" type="button" aria-label="显示文章目录" aria-controls="TableOfContents" aria-expanded="false" data-article-toc-toggle>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
     </button>
 
-    <header>
-        
-            
-            <figure class="site-avatar">
-                <a href="/">
-                
-                    
-                    
-                    
-                        
-                        <img src="/img/avatar_hu_9c28e5b7b386072e.png" width="300"
-                            height="341" class="site-logo" loading="lazy" alt="Avatar">
-                    
-                
-                </a>
-                
-                    <span class="emoji">🥯</span>
-                
-            </figure>
-            
-        
-        
-        <div class="site-meta">
-            <h1 class="site-name"><a href="/">Jul1en</a></h1>
-            <h2 class="site-description">学会等候 期待有天🎏</h2>
+    <div class="article-detail__toc-panel">
+        <div class="article-detail__toc-nav">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#开发模型和测试模型">开发模型和测试模型</a></li>
+    <li><a href="#开发模型">开发模型</a>
+      <ol>
+        <li><a href="#瀑布模型">瀑布模型</a></li>
+        <li><a href="#螺旋模型">螺旋模型</a></li>
+        <li><a href="#增量模型--迭代模型">增量模型 / 迭代模型</a>
+          <ol>
+            <li><a href="#增量模型">增量模型</a></li>
+            <li><a href="#迭代模型">迭代模型</a></li>
+          </ol>
+        </li>
+        <li><a href="#敏捷模型">敏捷模型</a></li>
+      </ol>
+    </li>
+    <li><a href="#软件测试">软件测试</a></li>
+    <li><a href="#测试模型">测试模型</a>
+      <ol>
+        <li><a href="#v模型">V模型</a></li>
+        <li><a href="#w模型">W模型</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
         </div>
-    </header><ol class="menu-social">
-            
-                <li>
-                    <a 
-                        href='https://blog.csdn.net/TwoCat_C?type=blog'
-                        target="_blank"
-                        title="CSDN"
-                        rel="me"
-                    >
-                        
-                        
-                            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1765201201519" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6401" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M200.234667 581.888c-21.205333 24.234667-58.154667 26.88-73.045334 26.88-27.648 0-48.810667-6.997333-62.890666-20.821333-13.354667-13.098667-20.394667-32.426667-20.864-57.429334-1.066667-57.941333 31.744-117.845333 88.490666-117.845333 27.093333 0 47.957333 19.413333 55.936 27.477333a14.378667 14.378667 0 0 0 12.032 4.224 16.213333 16.213333 0 0 0 10.282667-6.784c2.901333-3.712 5.76-10.112 5.888-17.109333s-2.432-14.677333-10.368-20.906667a112.725333 112.725333 0 0 0-71.168-25.216c-34.944 0-69.418667 16.042667-94.634667 44.074667-26.496 29.482667-40.661333 69.546667-39.893333 112.896 0.64 34.773333 12.032 64 32.981333 84.565333 22.528 22.101333 55.466667 33.749333 95.36 33.749334 46.805333 0 75.776-13.866667 91.904-25.472a24.917333 24.917333 0 0 0 10.24-19.456 29.952 29.952 0 0 0-8.874666-21.205334c-9.813333-10.581333-19.114667-4.309333-21.461334-1.578666z m212.053333-91.733333a318.762667 318.762667 0 0 0-29.781333-10.581334c-6.698667-2.048-13.184-3.882667-19.2-5.589333-39.338667-11.093333-43.818667-21.333333-43.392-29.013333 0.938667-15.488 21.973333-36.394667 57.685333-33.792 25.898667 1.92 43.306667 21.717333 51.413333 33.322666 6.357333 9.130667 15.829333 5.76 18.517334 4.053334a25.685333 25.685333 0 0 0 13.184-21.930667 26.709333 26.709333 0 0 0-8.917334-20.821333 113.237333 113.237333 0 0 0-142.805333-11.648c-19.456 13.781333-31.744 32.938667-32.853333 51.285333-2.730667 45.269333 43.306667 58.282667 76.928 67.754667 9.130667 2.602667 18.304 5.418667 28.458666 8.618666 48.64 15.232 50.048 30.592 46.592 54.058667-3.498667 23.722667-29.696 35.584-71.893333 32.469333-43.904-3.242667-62.464-26.026667-68.778667-38.442666-2.133333-4.181333-8.746667-10.581333-17.621333-6.656-21.930667 9.770667-20.181333 31.189333-11.093333 42.368 14.464 17.749333 49.066667 44.16 113.792 44.16 73.984 0 96.213333-37.333333 101.461333-69.973334 3.925333-24.405333-0.938667-43.861333-14.848-59.562666-10.069333-11.392-25.258667-21.12-46.976-30.122667z m289.152-92.373334c-25.514667-18.389333-59.434667-26.026667-100.693333-22.698666-30.378667 2.474667-54.357333 10.368-56.96 11.221333l-0.256 0.085333a18.645333 18.645333 0 0 0-12.672 16.170667l-20.053334 221.909333a14.378667 14.378667 0 0 0 10.538667 14.933334l3.072 0.853333 2.816 0.768 3.669333 0.896a337.664 337.664 0 0 0 69.973334 7.808c41.472 0 75.306667-9.813333 100.693333-29.184 32.597333-24.874667 48.682667-64 47.701333-116.266667-0.896-48.426667-16.981333-84.224-47.829333-106.453333z m-28.245333 190.336c-35.669333 27.264-89.173333 23.978667-114.218667 20.522667a5.461333 5.461333 0 0 1-4.650667-5.845333l16.938667-181.248a4.821333 4.821333 0 0 1 3.669333-4.266667c42.624-10.282667 75.818667-7.168 98.645334 9.301333 8.064 5.845333 14.848 14.122667 20.096 24.234667 7.509333 14.464 11.818667 32.64 12.202666 52.650667 0.725333 39.082667-10.24 67.541333-32.64 84.650666z m349.397333-143.957333a81.92 81.92 0 0 0-18.432-39.210667c-17.024-19.84-43.904-29.397333-78.848-29.397333-31.317333 0-58.538667 9.728-83.072 34.090667 0.298667-3.669333 0.810667-6.784 0.768-9.514667s-0.725333-4.949333-2.816-6.954667c-2.048-1.92-3.285333-2.858667-5.418667-3.285333-2.133333-0.426667-5.205333-0.341333-10.922666-0.256a25.045333 25.045333 0 0 0-25.130667 23.04s-13.866667 165.290667-18.261333 220.373333a13.141333 13.141333 0 0 0 3.114666 9.728 15.36 15.36 0 0 0 11.093334 5.589334h16.512a9.557333 9.557333 0 0 0 9.642666-8.746667l11.648-124.970667 0.597334-6.272a81.152 81.152 0 0 1 3.498666-17.578666c0.597333-1.92 1.28-3.925333 2.005334-5.973334 10.453333-29.610667 34.261333-73.386667 84.096-72.277333 35.84 0.768 61.824 19.413333 59.093333 47.530667-4.309333 44.117333-11.349333 132.266667-15.274667 176.64-0.810667 8.917333 7.765333 11.648 10.752 11.648h12.970667a18.858667 18.858667 0 0 0 18.944-17.237334s7.893333-90.752 12.544-143.018666l2.048-22.698667a83.584 83.584 0 0 0-1.109333-21.333333z" p-id="6402" fill="#707070"></path></svg>
-                        
-                    </a>
-                </li>
-            
-                <li>
-                    <a 
-                        href='https://gitee.com/Cary_C'
-                        target="_blank"
-                        title="Gitee"
-                        rel="me"
-                    >
-                        
-                        
-                            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1765175787209" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="12364" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M817.0496 445.44H456.5504c-11.1104 0-27.7504 16.64-27.7504 27.7504v72.0896c0 16.64 16.64 27.7504 27.7504 27.7504h227.3792c16.64 0 27.7504 16.64 27.7504 27.6992v22.2208c0 49.92-44.3904 88.7296-88.7296 88.7296H334.4896c-16.64 0-27.6992-16.64-27.6992-27.7504V389.9904c-5.5808-44.3904 38.8096-88.7808 83.2-88.7808h421.5296c11.1104 0 27.7504-16.64 27.7504-27.6992v-66.56c5.5296-11.1104-11.1104-27.7504-22.2208-27.7504H401.0496A222.5152 222.5152 0 0 0 179.2 401.0496v416c0 11.1104 16.64 27.7504 27.7504 27.7504H645.12c110.9504 0 199.68-88.7296 199.68-199.68V473.1904c0-11.1104-16.64-27.7504-27.7504-27.7504z" fill="#8B8B8B" p-id="12365"></path></svg>
-                        
-                    </a>
-                </li>
-            
-                <li>
-                    <a 
-                        href='https://github.com/Jul1en-Lin'
-                        target="_blank"
-                        title="GitHub"
-                        rel="me"
-                    >
-                        
-                        
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
-</svg>
+    </div>
 
-
-
-                        
-                    </a>
-                </li>
-            
-        </ol><ol class="menu" id="main-menu">
-        
-        
-        
-        <li >
-            <a href='/archives/' >
-                
-                
-                
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <rect x="3" y="4" width="18" height="4" rx="2" />
-  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
-  <line x1="10" y1="12" x2="14" y2="12" />
-</svg>
-
-
-
-                
-                <span>合集</span>
-            </a>
-        </li>
-        
-        
-        <li >
-            <a href='/categories/' >
-                
-                
-                
-                    <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1765359277966" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11523" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M575.68 736a160.32 160.32 0 1 0 160.32-160.32H599.893333c-13.461333 0-24.192 10.752-24.192 24.192V736zM736 533.333333A202.666667 202.666667 0 1 1 533.333333 736V599.893333A66.432 66.432 0 0 1 599.872 533.333333H736zM490.666667 736a202.666667 202.666667 0 1 1-202.666667-202.666667h136.128A66.432 66.432 0 0 1 490.666667 599.872V736z m-202.666667-160.32a160.32 160.32 0 1 0 160.32 160.32V599.893333c0-13.44-10.730667-24.192-24.192-24.192H288zM533.333333 287.978667A202.666667 202.666667 0 1 1 736 490.666667H599.893333A66.432 66.432 0 0 1 533.333333 424.128V288z m202.666667 160.341333a160.32 160.32 0 1 0-160.32-160.32v136.128c0 13.44 10.730667 24.192 24.192 24.192H736zM448.32 288a160.32 160.32 0 1 0-160.32 160.32h136.128c13.461333 0 24.192-10.752 24.192-24.192V288zM288 490.666667A202.666667 202.666667 0 1 1 490.666667 288v136.128A66.432 66.432 0 0 1 424.128 490.666667H288z" fill="currentColor" p-id="11524"></path></svg>
-                
-                <span>分类</span>
-            </a>
-        </li>
-        
-        
-        <li >
-            <a href='/search/' >
-                
-                
-                
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="10" cy="10" r="7" />
-  <line x1="21" y1="21" x2="15" y2="15" />
-</svg>
-
-
-
-                
-                <span>搜索</span>
-            </a>
-        </li>
-        
-        <li class="menu-bottom-section">
-            <ol class="menu">
-
-                
-                    <li id="dark-mode-toggle">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="8" cy="12" r="2" />
-  <rect x="2" y="6" width="20" height="12" rx="6" />
-</svg>
-
-
-
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="16" cy="12" r="2" />
-  <rect x="2" y="6" width="20" height="12" rx="6" />
-</svg>
-
-
-
-                        <span>暗色模式</span>
-                    </li>
-                
-            </ol>
-        </li>
-    </ol>
+    <div class="article-detail__toc-staff" aria-hidden="true">
+        <svg viewBox="0 0 320 110" preserveAspectRatio="none" focusable="false">
+            <g>
+                <path d="M-18 58 C 52 25, 106 82, 176 52 S 270 42, 338 66" />
+                <path d="M-18 69 C 52 36, 106 93, 176 63 S 270 53, 338 77" />
+                <path d="M-18 80 C 52 47, 106 104, 176 74 S 270 64, 338 88" />
+                <path d="M-18 91 C 52 58, 106 115, 176 85 S 270 75, 338 99" />
+                <path d="M-18 102 C 52 69, 106 126, 176 96 S 270 86, 338 110" />
+            </g>
+            <text x="72" y="83">♪</text>
+            <text x="176" y="63">♩</text>
+        </svg>
+    </div>
 </aside>
 
-        <main class="main full-width">
+    <div class="article-detail__layout">
+        <div class="article-detail__main">
+            <header class="article-detail__header">
+                <div class="article-detail__meta"><time datetime="2025-10-31T05:31:52Z">2025-10-31</time></div>
 
-<article class="editorial-article">
-    <div class="editorial-grid">
-        
-        <aside class="editorial-title-column">
-            
-            
+                <h1 class="article-detail__title">
+                    <span>🌵 开发模型和测试模型</span>
+                    <span class="article-detail__title-note" aria-hidden="true">♪</span>
+                </h1><p class="article-detail__summary">开发模型和测试模型 开发模型 学习测试，我们需要了解产品的开发流程，开发模型实际上指的就是产品的开发流程
+瀑布模型 瀑布模型是其他模型的基础框架，它是最基础的模型，模型如图所示 …</p><div class="article-detail__header-quote">
+                    <aside class="quote-block quote-block--article">
+    <p class="quote-block__text">Document the path while the idea is still warm.</p>
+    <p class="quote-block__signature">Jul1en</p>
+</aside>
 
-            
-            <h1 class="editorial-title">🌵 开发模型和测试模型</h1>
+                </div><figure class="article-detail__cover"><img src="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102102442-x94ywwp_hu_eec4a7432af597a6.webp" width="1120" height="520" alt="🌵 开发模型和测试模型" loading="eager" decoding="async" fetchpriority="high"></figure></header>
 
-            
-            
-
-            
-            <div class="editorial-meta">
-                
-                <time datetime='2025-10-31T05:31:52Z'>
-                    2025-10-31
-                </time>
-                <span class="editorial-meta-sep">·</span>
-                <span class="editorial-lastmod">
-                    更新于 2026-04-28
-                </span></div>
-
-            
-            
-        </aside>
-
-        
-        <div class="editorial-content-column">
-            <section class="article-content">
-                
-                <h1 id="开发模型和测试模型">开发模型和测试模型
-</h1><h1 id="开发模型">开发模型
-</h1><p>学习测试，我们需要了解产品的开发流程，开发模型实际上指的就是产品的开发流程</p>
+            <section class="article-content article-detail__content">
+                <h2 id="开发模型和测试模型">开发模型和测试模型
+</h2><h2 id="开发模型">开发模型
+</h2><p>学习测试，我们需要了解产品的开发流程，开发模型实际上指的就是产品的开发流程</p>
 <h2 id="瀑布模型">瀑布模型
 </h2><p>瀑布模型是其他模型的基础框架，它是最基础的模型，模型如图所示</p>
-<p><img src="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102104910-povdkg8.png" width="2118"  height="200"  srcset="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102104910-povdkg8_hu_cd0d136484f96bd3.png 800w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102104910-povdkg8_hu_a331ee362b961097.png 1600w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102104910-povdkg8_hu_781c713828f3ff98.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="1059"
-	data-flex-basis="2541px" ></p>
+<p><img src="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102104910-povdkg8_hu_5430bc0371496014.webp" width="1600" height="151" srcset="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102104910-povdkg8_hu_c36333a3d9a9d5f0.webp 800w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102104910-povdkg8_hu_5430bc0371496014.webp 1600w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102104910-povdkg8_hu_48861a16f03cf997.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="1059" data-flex-basis="2541px">
+</p>
 <p>特点 / 优点：</p>
 <ul>
 <li>开发流程是线性的，每个阶段执行一次就结束</li>
@@ -268,11 +212,11 @@
 <li>测试阶段执行晚，如果一个需求引入的缺陷要到测试阶段或更晚的阶段才能看到，可能会导致前面的工作大面积的返工</li>
 </ul>
 <h2 id="螺旋模型">螺旋模型
-</h2><p><img src="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102105245-1drxuts.png" width="1629"  height="1310"  srcset="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102105245-1drxuts_hu_fa1b4001511c5bcd.png 800w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102105245-1drxuts_hu_23cfe387b5c712fa.png 1600w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102105245-1drxuts_hu_2c48f7c60184dbd0.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="124"
-	data-flex-basis="298px" ></p>
+</h2><p><img src="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102105245-1drxuts_hu_16f282369dad39e7.webp" width="1600" height="1287" srcset="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102105245-1drxuts_hu_75d822b32ff1c98f.webp 800w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102105245-1drxuts_hu_16f282369dad39e7.webp 1600w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102105245-1drxuts_hu_183aa9de29ea4ab3.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="124" data-flex-basis="298px">
+</p>
 <p>它与瀑布模型的不同是在需求分析到编码环节都进行风险分析，评估方案后才进入下一级产品</p>
-<p><img src="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102110024-mvcffwc.png" width="2354"  height="598"  srcset="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102110024-mvcffwc_hu_6dc3c724869c2675.png 800w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102110024-mvcffwc_hu_2744ec73412dc56c.png 1600w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102110024-mvcffwc_hu_dcd8afcbb7d073ac.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="393"
-	data-flex-basis="944px" ></p>
+<p><img src="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102110024-mvcffwc_hu_20ff3b14e40bb90a.webp" width="1600" height="406" srcset="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102110024-mvcffwc_hu_b66d841ab53b406d.webp 800w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102110024-mvcffwc_hu_20ff3b14e40bb90a.webp 1600w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102110024-mvcffwc_hu_52b816159c0f4c81.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="393" data-flex-basis="944px">
+</p>
 <p>特点 / 优点：</p>
 <ul>
 <li>强调开发中各个环节的质量</li>
@@ -305,30 +249,30 @@
 <li>管理和测试成本增高，每一次迭代都需要经过一次完整的开发、测试、评审、部署流程</li>
 </ul>
 <h3 id="增量模型">增量模型
-</h3><p><img src="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111052-ar8at9e.png" width="717"  height="942"  srcset="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111052-ar8at9e_hu_a376f80bbe5823dd.png 800w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111052-ar8at9e_hu_68329852910bb2f3.png 1600w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111052-ar8at9e_hu_979cdab20a5306c0.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="76"
-	data-flex-basis="182px" ></p>
+</h3><p><img src="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111052-ar8at9e_hu_d9031673e16ea72b.webp" width="1600" height="2102" srcset="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111052-ar8at9e_hu_a186423ef278219.webp 800w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111052-ar8at9e_hu_d9031673e16ea72b.webp 1600w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111052-ar8at9e_hu_5a614821fa5d1bc5.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="76" data-flex-basis="182px">
+</p>
 <p>可能先上线一部分的功能 / 模块，后续再进行完善，上线顺序可能是 模块1 -&gt; 功能1 -&gt; 功能2 -&gt; 功能3 -&gt; 功能4 -&gt; 模块2</p>
 <h3 id="迭代模型">迭代模型
-</h3><p><img src="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111456-fmja664.png" width="1761"  height="986"  srcset="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111456-fmja664_hu_3ffa1d49808b078b.png 800w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111456-fmja664_hu_c043530a2103bb94.png 1600w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111456-fmja664_hu_69a7492eee6aa043.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="178"
-	data-flex-basis="428px" ></p>
+</h3><p><img src="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111456-fmja664_hu_9c013e1501973ffe.webp" width="1600" height="896" srcset="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111456-fmja664_hu_79e174d0c4111f65.webp 800w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111456-fmja664_hu_9c013e1501973ffe.webp 1600w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102111456-fmja664_hu_af9738c8caca2eb7.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="178" data-flex-basis="428px">
+</p>
 <h2 id="敏捷模型">敏捷模型
 </h2><p>敏捷模型的特点是：轻文档、轻流程、重目标，重产出。</p>
 <p><strong>Scrum模型</strong>就是敏捷模型中的一种，又称为迭代式增量软件开发模型，可以看成<strong>迭代模型与增量模型的结合。</strong></p>
 <p>scrum的基本流程如图所示</p>
-<p><img src="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102114531-7hcr4dj.png" width="2653"  height="1227"  srcset="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102114531-7hcr4dj_hu_a6b02a353e24cbe3.png 800w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102114531-7hcr4dj_hu_f25f83b219a8e5af.png 1600w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102114531-7hcr4dj_hu_23f2114d4f7f0b2c.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="216"
-	data-flex-basis="518px" ></p>
+<p><img src="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102114531-7hcr4dj_hu_90ed703e1e74d4b8.webp" width="1600" height="740" srcset="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102114531-7hcr4dj_hu_4c53e4774b95d985.webp 800w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102114531-7hcr4dj_hu_90ed703e1e74d4b8.webp 1600w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102114531-7hcr4dj_hu_99fa15eab401799c.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="216" data-flex-basis="518px">
+</p>
 <p>‍</p>
-<h1 id="软件测试">软件测试
-</h1><p><strong>软件测试的最终目的是验证产品<u><strong>==<strong>特性</strong>==</strong></u>是否满足客户需求~</strong></p>
+<h2 id="软件测试">软件测试
+</h2><p><strong>软件测试的最终目的是验证产品<u><strong>==<strong>特性</strong>==</strong></u>是否满足客户需求~</strong></p>
 <p><strong>软件测试贯穿于软件的整个生命周期~（非常重要！！！！！面试可以装杯）</strong></p>
 <p>🤔延申问题：如何理解<strong>软件测试贯穿于软件的整个生命周期~</strong> 这句话？</p>
 <p>先来看软件的生命周期，才能更好的理解软件测试的生命周期</p>
-<p><img src="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115130-wpxwf40.png" width="1932"  height="212"  srcset="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115130-wpxwf40_hu_147f1d6d6cf446e2.png 800w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115130-wpxwf40_hu_7eabcd3b136f707b.png 1600w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115130-wpxwf40_hu_5280329f8b258992.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="911"
-	data-flex-basis="2187px" ></p>
+<p><img src="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115130-wpxwf40_hu_379b4bc643489d0c.webp" width="1600" height="176" srcset="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115130-wpxwf40_hu_c9baaa7f86b2ee54.webp 800w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115130-wpxwf40_hu_379b4bc643489d0c.webp 1600w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115130-wpxwf40_hu_66861903c050ab1f.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="911" data-flex-basis="2187px">
+</p>
 <p>软件的生命从需求分析就开始了，一直到上线维护</p>
 <p>软件测试的生命周期也从需求分析开始，虽然说在软件声明周期内测试是排在编码之后，但是软件测试的内容从需求分析就开始了，故说 <u><strong>==软件测试贯穿于整个软件的生命周期！==</strong></u></p>
-<p><img src="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115153-48xy6bk.png" width="1372"  height="316"  srcset="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115153-48xy6bk_hu_5752da1a1c90a7e3.png 800w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115153-48xy6bk_hu_4ea5e3e0517db4c1.png 1600w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115153-48xy6bk_hu_bce597ea67798aef.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="434"
-	data-flex-basis="1042px" ></p>
+<p><img src="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115153-48xy6bk_hu_3ebd7bda66a2a4c.webp" width="1600" height="369" srcset="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115153-48xy6bk_hu_12665b6d66da1964.webp 800w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115153-48xy6bk_hu_3ebd7bda66a2a4c.webp 1600w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102115153-48xy6bk_hu_d1ec97cfcaba5441.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="434" data-flex-basis="1042px">
+</p>
 <ol>
 <li>需求分析：从用户角度（软件需求是否合理）、技术角度（技术上是否可行）、测试角度（是否存在业务逻辑错误、冲突等问题）分析</li>
 <li>测试计划：指定测试计划——什么时候开发测试，什么时候结束测试，耗时需要多久</li>
@@ -338,18 +282,18 @@
 <li>上线：上线后，测试人员跟踪并测试线上环境，确保运行是否正常</li>
 <li>运行维护：在运行项目时收集问题并反馈相关负责人</li>
 </ol>
-<h1 id="测试模型">测试模型
-</h1><p>测试中有两个重要且标志性的测试模型：V 模型与 W 模型</p>
+<h2 id="测试模型">测试模型
+</h2><p>测试中有两个重要且标志性的测试模型：V 模型与 W 模型</p>
 <h2 id="v模型">V模型
-</h2><p><img src="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102102442-x94ywwp.png" width="1742"  height="869"  srcset="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102102442-x94ywwp_hu_66f7fa4fd51ca005.png 800w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102102442-x94ywwp_hu_d7bbd57925f4269d.png 1600w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102102442-x94ywwp_hu_a4a2bd2af80cb79d.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="200"
-	data-flex-basis="481px" ></p>
+</h2><p><img src="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102102442-x94ywwp_hu_18400b9aac7cc641.webp" width="1600" height="798" srcset="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102102442-x94ywwp_hu_9f50ce1ea4eb87f4.webp 800w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102102442-x94ywwp_hu_18400b9aac7cc641.webp 1600w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102102442-x94ywwp_hu_afb09977dbc80286.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="200" data-flex-basis="481px">
+</p>
 <p>其中测试环节中的单元测试与集成测试一般是由开发人员来测试，单元测试的单元是人为规定的，可以认为是某个接口 / api / 方法 / 类</p>
 <p>它也是基于瀑布模型的，所以缺点也是测试后置，导致风险到后期才发现</p>
 <p>我们希望给测试留有充足的时间，否则会把缺点直接暴露到线上</p>
 <h2 id="w模型">W模型
 </h2><p>在 W 模型中，V 模型的测试后置的问题得到了解决，如图所示</p>
-<p><img src="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102103915-0fdhavz.png" width="1875"  height="989"  srcset="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102103915-0fdhavz_hu_d601d066d8356e0.png 800w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102103915-0fdhavz_hu_ed9e74a6b45469d9.png 1600w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102103915-0fdhavz_hu_14135f0b155172f6.png 2400w"  loading="lazy"  alt="image"   class="gallery-image" data-flex-grow="189"
-	data-flex-basis="455px" ></p>
+<p><img src="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102103915-0fdhavz_hu_f673d4748821edbc.webp" width="1600" height="844" srcset="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102103915-0fdhavz_hu_ff059c2983a38fc7.webp 800w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102103915-0fdhavz_hu_f673d4748821edbc.webp 1600w, /p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/assets/image-20251102103915-0fdhavz_hu_4b9bde7f67ccedab.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="189" data-flex-basis="455px">
+</p>
 <p>特点：</p>
 <ul>
 <li>测试与开发是同步进行的，测试的对象也不仅仅是程序，需求、设计等同样需要测试，有利于能尽早发现问题</li>
@@ -362,6 +306,23 @@
 <p>‍</p>
 
             </section>
+
+            <footer class="article-detail__footer">
+                <div class="article-closing" aria-label="Article closing">
+    <ul class="article-closing__links">
+        <li>
+            <span class="article-closing__chevron" aria-hidden="true">›</span>
+            <span>written by <span class="article-closing__author">@Jul1en</span></span>
+        </li>
+        <li>
+            <span class="article-closing__chevron" aria-hidden="true">›</span>
+            <a href="/post/">cd ..</a>
+        </li>
+    </ul>
+
+</div>
+
+            </footer>
         </div>
     </div>
 </article>
@@ -370,29 +331,6 @@
 
 
 
-
-
-
-
-<button id="dark-mode-toggle" class="editorial-dark-mode-toggle" type="button" aria-label="暗色模式" title="暗色模式">
-    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="8" cy="12" r="2" />
-  <rect x="2" y="6" width="20" height="12" rx="6" />
-</svg>
-
-
-
-    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="16" cy="12" r="2" />
-  <rect x="2" y="6" width="20" height="12" rx="6" />
-</svg>
-
-
-
-    <span>暗色模式</span>
-</button>
 
 
 
@@ -473,382 +411,229 @@
                 href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
             >
 
-        </main>
-    </div>
+    </main>
+
     <script 
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.836efe327773ba454adac61ee8b35272b6f512bd594ed9ea0f926fca8386433b.js" defer></script>
-<script>
-    (function () {
-        const customFont = document.createElement('link');
-        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
-
-        customFont.type = "text/css";
-        customFont.rel = "stylesheet";
-
-        document.head.appendChild(customFont);
-    }());
-</script>
-<style>
-   
-  .article-content .highlight,
-  .editorial-content-column .article-content .highlight,
-  .article-content pre,
-  .editorial-content-column .article-content pre {
-    max-height: none !important;
-    overflow-y: visible !important;
-    overflow-x: auto !important;
-    scrollbar-width: auto;
-    scrollbar-color: #3c3d3e transparent;
-  }
-
-  .article-content .highlight pre,
-  .editorial-content-column .article-content .highlight pre,
-  .article-content .highlight .chroma,
-  .editorial-content-column .article-content .highlight .chroma {
-    overflow: visible !important;
-  }
-
-  .article-content .highlight::-webkit-scrollbar,
-  .editorial-content-column .article-content .highlight::-webkit-scrollbar,
-  .article-content pre::-webkit-scrollbar,
-  .editorial-content-column .article-content pre::-webkit-scrollbar {
-    width: 12px;
-    height: 12px;
-  }
-
-  .article-content .highlight::-webkit-scrollbar-track,
-  .editorial-content-column .article-content .highlight::-webkit-scrollbar-track,
-  .article-content pre::-webkit-scrollbar-track,
-  .editorial-content-column .article-content pre::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  .article-content .highlight::-webkit-scrollbar-thumb,
-  .editorial-content-column .article-content .highlight::-webkit-scrollbar-thumb,
-  .article-content pre::-webkit-scrollbar-thumb,
-  .editorial-content-column .article-content pre::-webkit-scrollbar-thumb {
-    background: #3c3d3e;
-    border-radius: 999px;
-  }
-
-  .article-content .highlight::-webkit-scrollbar-thumb:hover,
-  .editorial-content-column .article-content .highlight::-webkit-scrollbar-thumb:hover,
-  .article-content pre::-webkit-scrollbar-thumb:hover,
-  .editorial-content-column .article-content pre::-webkit-scrollbar-thumb:hover {
-    background: #48494a;
-  }
-
-  :root[data-scheme="dark"] .article-content .highlight,
-  :root[data-scheme="dark"] .editorial-content-column .article-content .highlight,
-  :root[data-scheme="dark"] .article-content pre,
-  :root[data-scheme="dark"] .editorial-content-column .article-content pre {
-    scrollbar-color: #3c3d3e transparent;
-  }
-
-  :root[data-scheme="dark"] .article-content .highlight::-webkit-scrollbar-thumb,
-  :root[data-scheme="dark"] .editorial-content-column .article-content .highlight::-webkit-scrollbar-thumb,
-  :root[data-scheme="dark"] .article-content pre::-webkit-scrollbar-thumb,
-  :root[data-scheme="dark"] .editorial-content-column .article-content pre::-webkit-scrollbar-thumb {
-    background: #3c3d3e;
-  }
-
-  :root[data-scheme="dark"] .article-content .highlight::-webkit-scrollbar-thumb:hover,
-  :root[data-scheme="dark"] .editorial-content-column .article-content .highlight::-webkit-scrollbar-thumb:hover,
-  :root[data-scheme="dark"] .article-content pre::-webkit-scrollbar-thumb:hover,
-  :root[data-scheme="dark"] .editorial-content-column .article-content pre::-webkit-scrollbar-thumb:hover {
-    background: #48494a;
-  }
-
-   
-  :root[data-scheme="light"] .article-content .highlight,
-  :root[data-scheme="light"] .editorial-content-column .article-content .highlight,
-  :root[data-scheme="light"] .article-content pre,
-  :root[data-scheme="light"] .editorial-content-column .article-content pre {
-    scrollbar-color: #3c3d3e transparent;
-    scrollbar-width: thin;
-  }
-
-  :root[data-scheme="light"] .article-content .highlight::-webkit-scrollbar,
-  :root[data-scheme="light"] .editorial-content-column .article-content .highlight::-webkit-scrollbar,
-  :root[data-scheme="light"] .article-content pre::-webkit-scrollbar,
-  :root[data-scheme="light"] .editorial-content-column .article-content pre::-webkit-scrollbar {
-    width: 14px;
-    height: 14px;
-  }
-
-  :root[data-scheme="light"] .article-content .highlight::-webkit-scrollbar-track,
-  :root[data-scheme="light"] .editorial-content-column .article-content .highlight::-webkit-scrollbar-track,
-  :root[data-scheme="light"] .article-content pre::-webkit-scrollbar-track,
-  :root[data-scheme="light"] .editorial-content-column .article-content pre::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  :root[data-scheme="light"] .article-content .highlight::-webkit-scrollbar-thumb,
-  :root[data-scheme="light"] .editorial-content-column .article-content .highlight::-webkit-scrollbar-thumb,
-  :root[data-scheme="light"] .article-content pre::-webkit-scrollbar-thumb,
-  :root[data-scheme="light"] .editorial-content-column .article-content pre::-webkit-scrollbar-thumb {
-    background: #3c3d3e;
-    border-radius: 999px;
-  }
-
-  :root[data-scheme="light"] .article-content .highlight::-webkit-scrollbar-thumb:hover,
-  :root[data-scheme="light"] .editorial-content-column .article-content .highlight::-webkit-scrollbar-thumb:hover,
-  :root[data-scheme="light"] .article-content pre::-webkit-scrollbar-thumb:hover,
-  :root[data-scheme="light"] .editorial-content-column .article-content pre::-webkit-scrollbar-thumb:hover {
-    background: #48494a;
-  }
-
-   
-  .article-content .highlight::-webkit-scrollbar-button,
-  .editorial-content-column .article-content .highlight::-webkit-scrollbar-button,
-  .article-content pre::-webkit-scrollbar-button,
-  .editorial-content-column .article-content pre::-webkit-scrollbar-button {
-    display: none;
-  }
-</style>
-<script src="/js/particles.js"></script>
+            </script><script type="text/javascript" src="/ts/main.836efe327773ba454adac61ee8b35272b6f512bd594ed9ea0f926fca8386433b.js" defer></script><script type="text/javascript" src="/ts/custom.77669e75e8d67de70fbaba61f97bc81baa9b5f9fc7e3afee3da166b02cceae50.js" defer></script>
 
 
-
-<script src="/js/fireworks.js"></script>
-
-
-<script src="/js/avatar-colors.js"></script>
-
-
-
-
-<button id="back-to-top" class="back-to-top-btn" aria-label="回到顶部" title="回到顶部">
-  
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="18 15 12 9 6 15"></polyline>
-  </svg>
+<button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M6 14.5 12 8l6 6.5" />
+    </svg>
 </button>
 
-
-<style>
-   
-  .back-to-top-btn {
-     
-    position: fixed;
-    z-index: 999;
-
-     
-    left: 50px;
-     
-    top: auto;
-     
-    bottom: auto;
-     
-
-     
-    width: 24px;
-    height: 24px;
-
-     
-    border-radius: 20%;
-
-     
-    background: rgba(252, 249, 244, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-
-     
-    box-shadow: 0 4px 16px rgba(180, 170, 160, 0.2);
-
-     
-    cursor: pointer;
-
-     
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-     
-    color: #555555;
-
-     
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-
-     
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-     
-    outline: none;
-  }
-
-   
-  .back-to-top-btn.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-
-   
-  .back-to-top-btn:hover {
-    transform: translateY(-4px) scale(1.05);
-    background: rgba(252, 249, 244, 0.95);
-    box-shadow: 0 8px 24px rgba(180, 170, 160, 0.3);
-    border-color: rgba(0, 0, 0, 0.12);
-    color: #333333;
-  }
-
-   
-  .back-to-top-btn:active {
-    transform: translateY(-2px) scale(0.98);
-  }
-
-   
-  .back-to-top-btn svg {
-    width: 24px;
-    height: 24px;
-    stroke-width: 2.5;
-  }
-
-   
-  :root[data-scheme="dark"] .back-to-top-btn {
-     
-    background: rgba(40, 40, 40, 0.8);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-
-     
-    color: #e0e0e0;
-  }
-
-  :root[data-scheme="dark"] .back-to-top-btn:hover {
-    background: rgba(50, 50, 50, 0.9);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
-    border-color: rgba(255, 255, 255, 0.2);
-    color: #ffffff;
-  }
-
-   
-   
-
-   
-  @media (max-width: 768px) {
-    .back-to-top-btn {
-       
-      width: 18px;
-      height: 18px;
-    }
-
-    .back-to-top-btn svg {
-      width: 16px;
-      height: 16px;
-    }
-  }
-</style>
-
-
 <script>
-  (function () {
-    'use strict';
+    (function () {
+        'use strict';
 
-    
-    const backToTopBtn = document.getElementById('back-to-top');
+        const menuToggle = document.querySelector('.site-menu-toggle');
+        const nav = document.getElementById('primary-navigation');
+        const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-    if (!backToTopBtn) return;
-
-    
-    const SCROLL_THRESHOLD = 300;
-
-    
-    function throttle(func, delay) {
-      let lastCall = 0;
-      return function (...args) {
-        const now = Date.now();
-        if (now - lastCall >= delay) {
-          lastCall = now;
-          func.apply(this, args);
+        function setMenuOpen(open) {
+            if (!menuToggle || !nav) return;
+            menuToggle.classList.toggle('is-open', open);
+            nav.classList.toggle('is-open', open);
+            document.body.classList.toggle('site-nav-open', open);
+            menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
         }
-      };
-    }
 
-    
-    function checkScroll() {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (menuToggle && nav) {
+            menuToggle.addEventListener('click', function (event) {
+                event.stopPropagation();
+                setMenuOpen(!nav.classList.contains('is-open'));
+            });
 
-      if (scrollTop > SCROLL_THRESHOLD) {
-        backToTopBtn.classList.add('show');
-      } else {
-        backToTopBtn.classList.remove('show');
-      }
-    }
+            nav.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    setMenuOpen(false);
+                });
+            });
 
-    
-    function scrollToTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    }
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape') setMenuOpen(false);
+            });
 
-    
-    window.addEventListener('scroll', throttle(checkScroll, 100));
+            document.addEventListener('click', function (event) {
+                if (!document.body.classList.contains('site-nav-open')) return;
+                if (nav.contains(event.target) || menuToggle.contains(event.target)) return;
+                setMenuOpen(false);
+            });
 
-    
-    backToTopBtn.addEventListener('click', scrollToTop);
+            const desktopQuery = window.matchMedia('(min-width: 921px)');
+            const closeMenuOnDesktop = function (event) {
+                if (event.matches) setMenuOpen(false);
+            };
 
-    
-    function positionButton() {
-      
-      const mainMenu = document.getElementById('main-menu');
-      const bottomSection = document.querySelector('.menu-bottom-section');
+            if (desktopQuery.addEventListener) {
+                desktopQuery.addEventListener('change', closeMenuOnDesktop);
+            } else if (desktopQuery.addListener) {
+                desktopQuery.addListener(closeMenuOnDesktop);
+            }
+        }
 
-      if (!mainMenu || !bottomSection) {
-        
-        return;
-      }
+        const backToTop = document.getElementById('back-to-top');
 
-      
-      const menuRect = mainMenu.getBoundingClientRect();
-      const menuCenter = menuRect.left + (menuRect.width / 2);
+        if (backToTop) {
+            function updateBackToTop() {
+                backToTop.classList.toggle('is-visible', window.scrollY > 420);
+            }
 
-      
-      const bottomRect = bottomSection.getBoundingClientRect();
-      const bottomTop = bottomRect.top;
+            backToTop.addEventListener('click', function () {
+                window.scrollTo({ top: 0, behavior: reduceMotionQuery.matches ? 'auto' : 'smooth' });
+            });
 
-      
-      const buttonWidth = 24; 
-      const buttonHeight = 24; 
-      const buttonLeft = menuCenter - (buttonWidth / 2);
+            window.addEventListener('scroll', updateBackToTop, { passive: true });
+            updateBackToTop();
+        }
 
-      
-      const spacing = 15; 
-      const buttonTop = bottomTop - buttonHeight - spacing;
+        function initStaffParallax() {
+            const staff = document.querySelector('.music-staff-bg');
+            if (!staff || reduceMotionQuery.matches) return;
 
-      
-      backToTopBtn.style.left = buttonLeft + 'px';
-      backToTopBtn.style.top = buttonTop + 'px';
-      backToTopBtn.style.bottom = 'auto'; 
-      backToTopBtn.style.right = 'auto'; 
-    }
+            let ticking = false;
 
-    
-    positionButton();
+            function updateStaffPosition() {
+                const shift = Math.max(-5, Math.min(5, window.scrollY * -0.012));
+                staff.style.transform = 'translate3d(0, ' + shift.toFixed(2) + 'px, 0)';
+                ticking = false;
+            }
 
-    
-    checkScroll();
+            function requestStaffUpdate() {
+                if (ticking) return;
+                ticking = true;
+                window.requestAnimationFrame(updateStaffPosition);
+            }
 
-    
-    window.addEventListener('resize', throttle(positionButton, 200));
+            staff.classList.add('is-parallax-ready');
+            window.addEventListener('scroll', requestStaffUpdate, { passive: true });
+            updateStaffPosition();
+        }
 
-    
-    window.addEventListener('load', positionButton);
-  })();
+        function initArticleTocHover() {
+            const toc = document.querySelector('[data-article-toc]');
+            const articleMain = document.querySelector('.article-detail__main');
+            if (!toc || !articleMain) return;
 
+            const toggle = toc.querySelector('[data-article-toc-toggle]');
+            let lockedOpen = false;
+
+            function setVisible(visible) {
+                document.body.classList.toggle('is-article-toc-visible', visible);
+                if (toggle) {
+                    toggle.setAttribute('aria-expanded', visible ? 'true' : 'false');
+                    toggle.setAttribute('aria-label', visible ? '隐藏文章目录' : '显示文章目录');
+                }
+            }
+
+            function getLeftRevealZone() {
+                return Math.min(380, Math.max(280, window.innerWidth * 0.22));
+            }
+
+            function isInsideReadingColumn(x, y) {
+                const rect = articleMain.getBoundingClientRect();
+                const top = Math.min(rect.top, 0) - 48;
+                const bottom = Math.max(rect.bottom, window.innerHeight) + 48;
+
+                return x >= rect.left - 72 && x <= rect.right + 32 && y >= top && y <= bottom;
+            }
+
+            document.addEventListener('pointermove', function (event) {
+                if (lockedOpen) return;
+                setVisible(event.clientX <= getLeftRevealZone() || isInsideReadingColumn(event.clientX, event.clientY));
+            }, { passive: true });
+
+            document.addEventListener('pointerleave', function () {
+                if (!lockedOpen) setVisible(false);
+            });
+
+            toc.addEventListener('focusin', function () {
+                setVisible(true);
+            });
+
+            toc.addEventListener('focusout', function (event) {
+                if (lockedOpen || toc.contains(event.relatedTarget)) return;
+                setVisible(false);
+            });
+
+            if (toggle) {
+                toggle.addEventListener('click', function () {
+                    const isVisible = document.body.classList.contains('is-article-toc-visible');
+                    if (lockedOpen && isVisible) {
+                        lockedOpen = false;
+                        setVisible(false);
+                        return;
+                    }
+
+                    lockedOpen = true;
+                    setVisible(true);
+                });
+            }
+
+            document.addEventListener('click', function (event) {
+                if (!lockedOpen) return;
+                if (toc.contains(event.target) || articleMain.contains(event.target)) return;
+                lockedOpen = false;
+                setVisible(false);
+            });
+
+            document.addEventListener('keydown', function (event) {
+                if (event.key !== 'Escape') return;
+                lockedOpen = false;
+                setVisible(false);
+            });
+        }
+
+        function initRevealOnScroll() {
+            if (reduceMotionQuery.matches || !('IntersectionObserver' in window)) return;
+
+            const revealSelectors = [
+                '.section-band',
+                '.featured-section',
+                '.blog-card',
+                '.post-tools',
+                '.article-detail__content > *',
+                '.article-detail__footer',
+                '.journal-entry',
+                '.music-panel',
+                '.curated-inspirations'
+            ];
+
+            const targets = Array.prototype.slice.call(document.querySelectorAll(revealSelectors.join(',')));
+            if (!targets.length) return;
+
+            const observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                });
+            }, {
+                rootMargin: '0px 0px -8% 0px',
+                threshold: 0.12
+            });
+
+            targets.forEach(function (target, index) {
+                target.classList.add('reveal-on-scroll');
+                target.style.setProperty('--reveal-delay', Math.min(index % 5, 4) * 45 + 'ms');
+                observer.observe(target);
+            });
+        }
+
+        initStaffParallax();
+        initArticleTocHover();
+        initRevealOnScroll();
+
+        window.requestAnimationFrame(function () {
+            document.body.classList.add('is-loaded');
+        });
+    })();
 </script>
+
 </body>
 
 </html>
