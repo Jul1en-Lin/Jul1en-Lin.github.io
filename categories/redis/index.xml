@@ -7,7 +7,243 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>Jul1en</copyright>
-        <lastBuildDate>Wed, 13 May 2026 00:25:10 +0800</lastBuildDate><atom:link href="https://Jul1en-Lin.github.io/categories/redis/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 14 May 2026 00:37:44 +0800</lastBuildDate><atom:link href="https://Jul1en-Lin.github.io/categories/redis/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Redis 主从复制</title>
+        <link>https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</link>
+        <pubDate>Wed, 13 May 2026 15:29:13 +0000</pubDate>
+        
+        <guid>https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</guid>
+        <description>&lt;h1 id=&#34;redis-主从复制&#34;&gt;Redis 主从复制
+&lt;/h1&gt;&lt;h2 id=&#34;概念与结构&#34;&gt;概念与结构
+&lt;/h2&gt;&lt;p&gt;Redis 主从复制指的是：让一个 Redis 主节点，也就是 &lt;code&gt;master&lt;/code&gt;，把自己的数据同步给一个或多个从节点，也就是 &lt;code&gt;replica&lt;/code&gt;。以前很多资料会写 &lt;code&gt;slave&lt;/code&gt;，现在更推荐使用 &lt;code&gt;replica&lt;/code&gt; 这个说法，但学习时看到 &lt;code&gt;slave&lt;/code&gt; 也要能对应上。&lt;/p&gt;
+&lt;p&gt;主从复制最基本的结构是：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;master
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  ├── replica 1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  ├── replica 2
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  └── replica 3
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在这种结构中，&lt;code&gt;master&lt;/code&gt; 通常负责处理写请求，&lt;code&gt;replica&lt;/code&gt; 负责接收主节点同步过来的数据，并承担一部分读请求。这样做的核心目的有三个：第一是读写分离，第二是提高可用性，第三是扩展系统的读取能力。Redis 官方文档也说明，基础复制模型是 leader-follower，也就是 master-replica 模型，replica 会尽量成为 master 的精确副本。&lt;/p&gt;
+&lt;p&gt;实际理解时可以把主从复制想成&lt;u&gt;&lt;strong&gt;主库负责写，从库负责跟随&lt;/strong&gt;&lt;/u&gt;。客户端写入数据时，一般写到主节点；主节点接收到写命令后，再把这些变更同步给从节点。客户端读取数据时，可以从从节点读取，从而减轻主节点压力。&lt;/p&gt;
+&lt;p&gt;不过要注意，Redis 默认使用异步复制，主节点不会每次写入都等待所有从节点确认完成后再返回结果，所以主从之间可能存在短暂的数据延迟。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233030-2p0t9uw_hu_584b8c1bc8011807.webp&#34; width=&#34;1600&#34; height=&#34;1185&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233030-2p0t9uw_hu_c7edcecaa2156a59.webp 800w, https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233030-2p0t9uw_hu_584b8c1bc8011807.webp 1600w, https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233030-2p0t9uw_hu_84bdd6cce0c1eb22.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;135&#34; data-flex-basis=&#34;324px&#34;&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;安全性只读与传输延迟&#34;&gt;安全性、只读与传输延迟
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;安全性：Redis 主从复制可以提高系统可用性，但它不是严格意义上的“备份方案”。如果主节点发生误删、误写，这些错误操作也可能同步到从节点，导致从节点也会同步主节点，进而删除数据。所以如果数据安全非常重要，不能只依赖主从复制，还要考虑 RDB、AOF、定期备份、权限控制和运维策略。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;u&gt;&lt;strong&gt;官方文档里也特别提醒过一种情况：如果主节点关闭持久化，并且崩溃后自动重启，那么主节点可能以空数据集启动，从节点继续复制它时，也可能被同步成空数据集。&lt;/strong&gt;&lt;/u&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;只读：从节点&lt;code&gt;replica&lt;/code&gt;通常配置为只读模式，由 &lt;code&gt;replica-read-only&lt;/code&gt; 控制，它能防止误把写请求打到从节点，降低主从数据不一致的风险。&lt;u&gt;&lt;strong&gt;如果主动尝试在从节点中修改数据，Redis 是会直接返回错误信息的。&lt;/strong&gt;&lt;/u&gt; 毕竟从节点来写数据，那就不算从节点了，那就是翻身做主人了！&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;传输延迟：由于 Redis 默认是异步复制，写命令先在主节点执行，然后再通过复制流发送给从节点。如果网络波动、从节点处理较慢、复制缓冲区压力较大，就可能出现从节点短暂落后主节点的情况。读写分离场景下，如果业务对“刚写完马上读到最新数据”要求非常高，就不能随便把读请求分流到从节点。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;拓扑结构&#34;&gt;拓扑结构
+&lt;/h2&gt;&lt;p&gt;主从复制不只有“一主一从”。根据系统规模和用途，常见拓扑可以分成几类。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;单主单从：它是最简单的结构，一个 master 对应一个 replica。这个结构容易理解，也适合学习和小规模部署。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513234817-3qhpteq_hu_b3e65b6f572b1590.webp&#34; width=&#34;1600&#34; height=&#34;621&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513234817-3qhpteq_hu_7ad1c6a6d0679b8a.webp 800w, https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513234817-3qhpteq_hu_b3e65b6f572b1590.webp 1600w, https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513234817-3qhpteq_hu_a0d1a8551f89d375.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;257&#34; data-flex-basis=&#34;618px&#34;&gt;
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一主多从：一个 master 同步给多个 replica，这是比较常见的读扩展结构。多个从节点可以承担读请求，减轻主节点压力。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513234832-a08lxmz_hu_e2be0ec2aa7133eb.webp&#34; width=&#34;1600&#34; height=&#34;595&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513234832-a08lxmz_hu_aa03d4efdf6609ab.webp 800w, https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513234832-a08lxmz_hu_e2be0ec2aa7133eb.webp 1600w, https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513234832-a08lxmz_hu_9e90e3cace288bfb.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;268&#34; data-flex-basis=&#34;645px&#34;&gt;
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;链式或树状复制：Redis 支持 replica 连接到另一个 replica，形成级联复制结构。官方文档也提到，replica 可以接受其他 replica 的连接，从而形成类似级联的复制结构。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513234846-jnk3d41_hu_10b4425fe757eca3.webp&#34; width=&#34;1600&#34; height=&#34;687&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513234846-jnk3d41_hu_3cb41a0e76f90ead.webp 800w, https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513234846-jnk3d41_hu_10b4425fe757eca3.webp 1600w, https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513234846-jnk3d41_hu_bd445a44face7498.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;232&#34; data-flex-basis=&#34;558px&#34;&gt;
+&lt;/p&gt;
+&lt;p&gt;这种结构的好处是可以减轻 master 的出口压力，&lt;u&gt;&lt;strong&gt;但问题是链路变长后，复制延迟可能变大。越靠后的从节点，越可能落后主节点，具体要实现哪种要根据实际业务要求。&lt;/strong&gt;&lt;/u&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;第四种是在哨兵或集群场景中的复制关系。Sentinel 主要负责监控和故障转移，Cluster 则用于分片和高可用。它们不是主从复制本身，但实际项目中经常和主从复制配合出现。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513234855-2r14vs7_hu_52467902c18128bb.webp&#34; width=&#34;1600&#34; height=&#34;658&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513234855-2r14vs7_hu_a256a14c8b82be7a.webp 800w, https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513234855-2r14vs7_hu_52467902c18128bb.webp 1600w, https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513234855-2r14vs7_hu_da8882b465afb30a.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;243&#34; data-flex-basis=&#34;583px&#34;&gt;
+&lt;/p&gt;
+&lt;p&gt;总结图片&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233046-92pvyph_hu_c5e6e2583fd6220a.webp&#34; width=&#34;1600&#34; height=&#34;1184&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233046-92pvyph_hu_852e0cc8aa0dd15c.webp 800w, https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233046-92pvyph_hu_c5e6e2583fd6220a.webp 1600w, https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233046-92pvyph_hu_8f843a6cae9046f9.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;135&#34; data-flex-basis=&#34;324px&#34;&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;基本流程&#34;&gt;基本流程
+&lt;/h2&gt;&lt;p&gt;Redis 主从复制的基本流程可以理解成三句话：先建立连接，再同步数据，最后持续跟随。&lt;/p&gt;
+&lt;p&gt;当一个 replica 想要复制 master 时，它会先连接 master，并发起复制请求。Redis 使用 &lt;code&gt;PSYNC&lt;/code&gt; 机制进行同步判断。主节点会根据 replica 提供的信息判断：这次可以部分复制，还是必须全量复制。官方文档说明，如果部分重同步不可行，replica 会请求全量重同步；如果可行，就只获取断开期间缺失的那部分命令流。&lt;/p&gt;
+&lt;p&gt;复制流程可以拆成下面几步：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;replica 连接 master，&lt;u&gt;&lt;strong&gt;主动发起 PSYNC&lt;/strong&gt;&lt;/u&gt;&lt;/li&gt;
+&lt;li&gt;master 判断同步方式：是选择全量复制或部分复制&lt;/li&gt;
+&lt;li&gt;如果需要全量复制，master 生成 RDB 快照&lt;/li&gt;
+&lt;li&gt;master 将 RDB 发送给 replica&lt;/li&gt;
+&lt;li&gt;replica 加载 RDB 数据&lt;/li&gt;
+&lt;li&gt;master 再发送生成 RDB 期间积累的增量命令 &lt;strong&gt;（因为replica在加载RDB文件时 master 可能还会产生新的文件和命令~）&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;进入稳定阶段，master 持续把写命令传播给 replica &lt;strong&gt;（建立 TCP 长连接）&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;进入稳定阶段后，如果从节点也开启了 AOF，则从节点也要进行响应的 AOF 判断，在必要时执行 &lt;code&gt;bgrewriteaof&lt;/code&gt;命令&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;首次建立主从关系时，通常会走全量复制。因为 replica 没有旧的同步历史，master 只能给它一份完整数据。&lt;/p&gt;
+&lt;p&gt;之后如果网络短暂中断再恢复，就有机会走部分复制，只补上中间缺失的命令。如何判断是走部分还是全量复制呢？下面章节会有详细说明~&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513235628-c8qtsx6_hu_1b8e563cc64dbf3.webp&#34; width=&#34;1600&#34; height=&#34;1207&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513235628-c8qtsx6_hu_483bb5460712b273.webp 800w, https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513235628-c8qtsx6_hu_1b8e563cc64dbf3.webp 1600w, https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513235628-c8qtsx6_hu_e50b59e81a6c0b58.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;132&#34; data-flex-basis=&#34;318px&#34;&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;replid-和-offset-的作用&#34;&gt;replid 和 offset 的作用
+&lt;/h2&gt;&lt;p&gt;Redis 主从复制要解决两个判断问题：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;我们是不是同一条复制历史？&lt;/li&gt;
+&lt;li&gt;已经同步到哪里了？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;第一个问题对应着 replid；第二个问题对应 offset&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;replid 可以理解为“复制历史身份”。官方文档说每个 master 都有一个 replication ID，它标记某一段数据集历史。master 和 replica 如果处在同一条复制历史上，就会共享对应的 replication ID。当从节点从属于主节点的话，它的 replication ID 就是主节点的 replication ID。相当于主节点靠 replication ID 来认小弟~&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;offset 可以理解为“复制进度”。master 产生复制流时，offset 会随着复制流字节数不断增长。replica 会记录自己已经处理到哪个 offset。如果从节点的 offset 与主节点的 offset 不一致，说明就有数据没有同步过来了（通常是这样）。官方文档也说明，replication ID + offset 可以标识 master 数据集的一个精确版本。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;举个栗子：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;master replid = abc, offset = 1000；replica replid = abc, offset = 800&lt;/p&gt;
+&lt;p&gt;这说明它们属于同一条复制历史，但 replica 落后了 200 的复制流。如果 master 的&lt;u&gt;&lt;strong&gt;复制积压缓冲区&lt;/strong&gt;&lt;/u&gt;里还保留着 offset 800 之后的数据，那么 replica 只需要部分复制，补上缺失的那一段就可以。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;如果 replid 不一样，或者 offset 太旧，master 已经没有保留那段复制流，那么就只能走全量复制。&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;此处提到了积压缓冲区，我们来看看它是什么~&lt;/p&gt;
+&lt;h3 id=&#34;积压缓冲区&#34;&gt;积压缓冲区
+&lt;/h3&gt;&lt;p&gt;积压缓冲区就是当主从复制建立后，master 会持续把写命令传播给 replica，同时也把这些写命令对应的复制流记录到复制积压缓冲区里。里面保存的是最近一段写命令的复制流和offset 开始值与最大值，直到从节点重新连接。&lt;/p&gt;
+&lt;p&gt;重新连接后，主节点会检查 replication ID + offset，看看这个从节点还是不是之前的小弟。如果 replication ID 一致，就说明是曾经复制过的小弟，就会检查它的 offset，如果从节点的 offset 太旧了，主节点的 offset 的最小值都比从节点的 offset 大，此时就会丢弃，重新进行全量复制。（因为主节点在积压缓冲区的范围是有限的，若数据比较多，缓冲区中会丢弃更加久的数据，保留最近的数据，offset 会慢慢变大）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260514003034-qzz5pul_hu_a1c0012d98a5fb23.webp&#34; width=&#34;1600&#34; height=&#34;1193&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260514003034-qzz5pul_hu_3b58c6455a7be29.webp 800w, https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260514003034-qzz5pul_hu_a1c0012d98a5fb23.webp 1600w, https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260514003034-qzz5pul_hu_f98ffc7f581ab7e1.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;134&#34; data-flex-basis=&#34;321px&#34;&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;全量复制&#34;&gt;全量复制
+&lt;/h2&gt;&lt;p&gt;全量复制，也叫 full resynchronization，意思是从节点需要重新获得一份完整的数据集。&lt;/p&gt;
+&lt;p&gt;典型触发场景有三种：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;第一次建立主从关系&lt;/li&gt;
+&lt;li&gt;replica 落后太多，offset 不在 backlog 范围内&lt;/li&gt;
+&lt;li&gt;replid 不匹配，说明不是同一条复制历史（同一个小弟~）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;全量复制流程大致是：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;replica 发起同步请求&lt;/li&gt;
+&lt;li&gt;master 判断无法部分复制&lt;/li&gt;
+&lt;li&gt;master 生成 RDB 快照&lt;/li&gt;
+&lt;li&gt;master 将 RDB 文件发送给 replica&lt;/li&gt;
+&lt;li&gt;replica 加载 RDB&lt;/li&gt;
+&lt;li&gt;master 补发生成 RDB 期间收到的写命令&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;master 在生成 RDB 的同时，仍然可能继续接收新的写命令。这些新写命令不能丢，所以 master 会把这段时间的增量命令缓冲起来。等 replica 加载完 RDB 后，再把这些增量命令发过去。Redis 官方文档对全量同步的描述也是：master 后台生成 RDB 文件，同时缓冲新的写命令，RDB 传输并加载完成后，再把缓冲命令发送给 replica。&lt;/p&gt;
+&lt;p&gt;全量复制的缺点是开销比较大。它涉及 RDB 生成、RDB 传输、replica 加载整个数据集。如果数据量很大，可能带来磁盘、网络、CPU、内存等压力。&lt;/p&gt;
+&lt;h2 id=&#34;部分复制&#34;&gt;部分复制
+&lt;/h2&gt;&lt;p&gt;部分复制，也叫 partial resynchronization，意思是 replica 不需要重新同步整个数据集，只需要补上自己断线期间缺失的那部分命令。&lt;/p&gt;
+&lt;p&gt;部分复制通常发生在 replica 和 master 短暂断开后重新连接时。replica 会向 master 发送自己保存的 &lt;code&gt;replid&lt;/code&gt; 和 &lt;code&gt;offset&lt;/code&gt;，master 根据这些信息判断能不能只补增量。官方文档说明，replica 连接 master 时会使用 &lt;code&gt;PSYNC&lt;/code&gt; 发送旧 master 的 replication ID 和已经处理的 offset；如果 master 缓冲区里还有对应数据，就可以发送增量部分，否则走全量同步。&lt;/p&gt;
+&lt;p&gt;部分复制的判断可以简化成：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;如果 replid 一样，并且 offset 还在复制积压缓冲区范围内：
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    走部分复制
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    只补缺失命令
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;否则：
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    走全量复制
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    重新同步完整数据
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;部分复制的优点很明显：更快、更轻量、网络开销更小。对于短暂网络抖动、从节点短暂掉线这种情况，部分复制非常重要。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233138-t07v5in_hu_86e47d1b701fe6b1.webp&#34; width=&#34;1600&#34; height=&#34;1188&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233138-t07v5in_hu_94590be88d8aa63f.webp 800w, https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233138-t07v5in_hu_86e47d1b701fe6b1.webp 1600w, https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233138-t07v5in_hu_597e3236f93eada4.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;134&#34; data-flex-basis=&#34;323px&#34;&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;实时复制&#34;&gt;实时复制
+&lt;/h2&gt;&lt;p&gt;当全量复制或部分复制完成后，主从关系进入稳定阶段。这个阶段 master 会继续接收客户端写命令，并把这些写命令传播给 replica。replica 按顺序执行收到的命令，从而让数据尽量跟上 master。这个阶段也可以叫命令传播阶段，或者增量复制阶段。&lt;/p&gt;
+&lt;p&gt;实时复制依赖的是主从节点之间的 TCP 长连接传输~&lt;/p&gt;
+&lt;p&gt;基本流程：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;客户端写入 master&lt;/li&gt;
+&lt;li&gt;master 执行写命令&lt;/li&gt;
+&lt;li&gt;master 将写命令传播给 replica&lt;/li&gt;
+&lt;li&gt;replica 顺序执行写命令&lt;/li&gt;
+&lt;li&gt;主从数据继续保持接近一致&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;在进行实时复制时，需要保证连接处于持续可用的状态，所以引入了“心跳包”的机制：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;主节点默认每隔一段时间就会给从节点发送一个 ping 命令，从节点收到就回 pong&lt;/li&gt;
+&lt;li&gt;从节点默认每个一个时间周期就会给主节点发送一个特定的请求，会上报当前复制主节点数据的进度（offset）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;实时复制不代表强一致。因为复制仍然以异步为主，网络和执行时间都会带来延迟。&lt;u&gt;&lt;strong&gt;主从数据持续接近一致，而不是任何时刻都绝对一致。&lt;/strong&gt;&lt;/u&gt;&lt;/p&gt;
+&lt;h3 id=&#34;主从连接与心跳机制的区别&#34;&gt;主从连接与心跳机制的区别
+&lt;/h3&gt;&lt;p&gt;主从连接和心跳机制有联系，但不是一回事。主从连接强调的是 replica 与 master 建立复制通道，完成握手并确认同步方式；&lt;/p&gt;
+&lt;p&gt;心跳机制强调的是复制关系建立之后，双方持续保持联系，replica 周期性向 master 汇报同步进度，master 借此判断从节点是否在线、是否落后。如果心跳异常或连接中断，从节点会重新连接 master，并根据 &lt;code&gt;replid + offset&lt;/code&gt; 尝试进行部分复制。&lt;/p&gt;
+&lt;h2 id=&#34;全量复制的无硬盘模式优化&#34;&gt;全量复制的无硬盘模式优化
+&lt;/h2&gt;&lt;p&gt;无硬盘复制即 diskless replication&lt;/p&gt;
+&lt;p&gt;正常全量复制时，master 需要生成 RDB 文件。传统方式是先把 RDB 写到磁盘，然后再从磁盘读取并发送给 replica，流程大概为：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;master 生成 RDB 到磁盘&lt;/li&gt;
+&lt;li&gt;master 从磁盘读取 RDB&lt;/li&gt;
+&lt;li&gt;发送给 replica&lt;/li&gt;
+&lt;li&gt;replica 加载 RDB&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;无硬盘复制，也就是 diskless replication，是对全量复制阶段的优化。它的核心思想是：master 不先把 RDB 落盘，而是直接通过 socket 把 RDB 流式发送给 replica。在 diskless replication 中子进程会直接通过网络把 RDB 发给 replicas，而不使用磁盘作为中间存储。&lt;/p&gt;
+&lt;p&gt;可以这样对比：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260514003336-w0e3zdk_hu_8bbcdd39036328cf.webp&#34; width=&#34;1600&#34; height=&#34;782&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260514003336-w0e3zdk_hu_60c6c8c76a3f40be.webp 800w, https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260514003336-w0e3zdk_hu_8bbcdd39036328cf.webp 1600w, https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260514003336-w0e3zdk_hu_c190510434c1ea6.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;204&#34; data-flex-basis=&#34;491px&#34;&gt;
+&lt;/p&gt;
+&lt;p&gt;无硬盘复制的好处是减少磁盘 I/O，尤其适合磁盘压力大、数据集较大、多个 replica 同步的场景。不过它不一定在所有场景都更优。如果网络条件差，或者需要更稳定的落盘中间文件，普通方式也可能更合适。&lt;/p&gt;
+&lt;p&gt;另外要注意：无硬盘复制优化的是全量复制阶段，不是部分复制阶段。部分复制本来就是补增量命令，不需要重新传完整 RDB。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233215-802ygu1_hu_667b9ee9cd481486.webp&#34; width=&#34;1600&#34; height=&#34;1187&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233215-802ygu1_hu_1c694c9df5297d50.webp 800w, https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233215-802ygu1_hu_667b9ee9cd481486.webp 1600w, https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233215-802ygu1_hu_6c56cdef2b06d0af.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;134&#34; data-flex-basis=&#34;323px&#34;&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;runid-与-replid-的区别&#34;&gt;runid 与 replid 的区别
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;runid&lt;/code&gt; 和 &lt;code&gt;replid&lt;/code&gt; 都像“身份标识”，但它们不是一个东西。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;runid&lt;/code&gt; 是 Redis 实例自身的运行时 ID。你可以把它理解成“这个 Redis 进程的身份证”。Redis &lt;code&gt;INFO&lt;/code&gt; 命令文档中，&lt;code&gt;run_id&lt;/code&gt; 被描述为用于识别 Redis server 的随机值，也会被 Sentinel 和 Cluster 使用。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;replid&lt;/code&gt; 是复制历史 ID。它不是用来识别 Redis 进程本身，而是用来识别某一段复制历史。主从复制、PSYNC、部分复制判断时，更关键的是 &lt;code&gt;replid + offset&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;二者可以这样区分：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;对比项&lt;/th&gt;
+          &lt;th&gt;runid&lt;/th&gt;
+          &lt;th&gt;replid&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;关注对象&lt;/td&gt;
+          &lt;td&gt;Redis 实例本身&lt;/td&gt;
+          &lt;td&gt;复制历史，redis 服务重启后就不一样了&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;用途&lt;/td&gt;
+          &lt;td&gt;识别 server 实例&lt;/td&gt;
+          &lt;td&gt;判断复制历史、辅助部分复制&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;是否直接决定部分复制&lt;/td&gt;
+          &lt;td&gt;不是关键&lt;/td&gt;
+          &lt;td&gt;是关键参考&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;常见位置&lt;/td&gt;
+          &lt;td&gt;INFO server 里的&lt;code&gt;run_id&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;INFO replication 里的&lt;code&gt;master_replid&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Redis 还可能维护两个 replication ID：当前 &lt;code&gt;master_replid&lt;/code&gt; 和 &lt;code&gt;master_replid2&lt;/code&gt;。官方文档说明，第二个 replication ID 是为了故障转移后的部分重同步服务的；当 replica 被提升为 master 后，它会保留旧 master 的复制 ID 信息，从而尽量让其他 replica 不必全部重新全量复制。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233231-axrb9rc_hu_4a5b800dcc84c9e2.webp&#34; width=&#34;1600&#34; height=&#34;1194&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233231-axrb9rc_hu_1ddd954c12f049f0.webp 800w, https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233231-axrb9rc_hu_4a5b800dcc84c9e2.webp 1600w, https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233231-axrb9rc_hu_41a96c73fb9d32fb.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;133&#34; data-flex-basis=&#34;321px&#34;&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;最小实践配置&#34;&gt;最小实践配置
+&lt;/h2&gt;&lt;p&gt;如果只是做学习 demo，可以启动两个 Redis 实例。假设主节点端口是 &lt;code&gt;6379&lt;/code&gt;，从节点端口是 &lt;code&gt;6380&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;从节点配置中可以写：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;replicaof 127.0.0.1 6379
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;或者在从节点运行时执行：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;REPLICAOF 127.0.0.1 6379
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Redis 官方文档也说明，配置基础复制可以在 replica 配置文件里添加 &lt;code&gt;replicaof &amp;lt;master-ip&amp;gt; &amp;lt;master-port&amp;gt;&lt;/code&gt;，也可以通过 &lt;code&gt;REPLICAOF&lt;/code&gt; 命令让实例开始同步 master。&lt;/p&gt;
+&lt;p&gt;常用观察命令：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;INFO replication
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ROLE
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;INFO replication&lt;/code&gt; 可以看到当前实例的复制角色、复制 ID、复制偏移量、连接的从节点数量等信息。&lt;code&gt;ROLE&lt;/code&gt; 可以直接查看当前节点是 master 还是 replica，以及复制状态。Redis 官方文档也提到，&lt;code&gt;INFO replication&lt;/code&gt; 和 &lt;code&gt;ROLE&lt;/code&gt; 都能提供当前复制相关参数。&lt;/p&gt;
+&lt;h2 id=&#34;从节点晋升主节点&#34;&gt;从节点晋升主节点
+&lt;/h2&gt;&lt;p&gt;从节点断开主节点有两种情况&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;从节点主动断开：使用&lt;code&gt;slaveof no one&lt;/code&gt;，这时候从节点就能晋升为主节点，这意味着我们主动干预了 Redis 的结构&lt;/li&gt;
+&lt;li&gt;主节点挂了：这个时候从节点不会主动晋升为主节点，它必须通过人工干预的方式，将主节点重新启动&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;复习总结&#34;&gt;复习总结
+&lt;/h2&gt;&lt;p&gt;Redis 主从复制的核心，是 master 持续把自己的数据变化同步给 replica。它常用于读写分离、提高可用性和扩展读能力，但 Redis 默认是异步复制，所以主从之间可能有短暂延迟。&lt;/p&gt;
+&lt;p&gt;复制流程可以理解为：replica 先连接 master，然后通过 PSYNC 请求同步。master 根据 &lt;code&gt;replid&lt;/code&gt; 和 &lt;code&gt;offset&lt;/code&gt; 判断是全量复制还是部分复制。全量复制会发送完整 RDB，再补发期间的增量命令；部分复制只补断开期间缺失的命令。稳定后，master 持续把写命令传播给 replica，形成实时复制。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;replid&lt;/code&gt; 表示复制历史，&lt;code&gt;offset&lt;/code&gt; 表示同步进度。&lt;code&gt;runid&lt;/code&gt; 表示 Redis 实例自身身份，不要和 &lt;code&gt;replid&lt;/code&gt; 混淆。无硬盘复制是全量复制阶段的优化，它通过 socket 直接发送 RDB，减少磁盘 I/O。&lt;/p&gt;
+&lt;p&gt;‍&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Reids 事务</title>
         <link>https://Jul1en-Lin.github.io/p/reids-%E4%BA%8B%E5%8A%A1/</link>
         <pubDate>Tue, 12 May 2026 07:48:34 +0000</pubDate>
