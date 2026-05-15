@@ -2,18 +2,18 @@
 <html lang="en-us" dir="ltr">
 
 <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="核心概念 Spring Cloud 简单概念笔记：Eureka、Nacos、OpenFeign 与 Gateway 版本说明：本文以 Spring Boot 3 / Spring Cloud 新版本思路为主。很多旧教程会使用 bootstrap.yml、Ribbon 等写法，学习时可以看，但自己写新项目时更建议优先使用 …">
-<title>核心概念 | Jul1en</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Spring Cloud 核心概念 Spring Cloud 简单概念笔记：Eureka、Nacos、OpenFeign 与 Gateway 版本说明：本文以 Spring Boot 3 / Spring Cloud 新版本思路为主。很多旧教程会使用 bootstrap.yml、Ribbon 等写法，学习时可以看，但自 …">
+<title>Spring Cloud 核心概念 | Jul1en</title>
 
-<link rel='canonical' href='https://Jul1en-Lin.github.io/p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/'>
+<link rel='canonical' href='https://Jul1en-Lin.github.io/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/'>
 
-<link rel="stylesheet" href="/scss/style.min.ae0e66a44073eac154fbaddf1a8f2fec1c2b423e0ca55a0815d23fb5e083cfac.css"><meta property='og:title' content="核心概念 | Jul1en">
-<meta property='og:description' content="核心概念 Spring Cloud 简单概念笔记：Eureka、Nacos、OpenFeign 与 Gateway 版本说明：本文以 Spring Boot 3 / Spring Cloud 新版本思路为主。很多旧教程会使用 bootstrap.yml、Ribbon 等写法，学习时可以看，但自己写新项目时更建议优先使用 …">
-<meta property='og:url' content='https://Jul1en-Lin.github.io/p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/'>
+<link rel="stylesheet" href="/scss/style.min.ae0e66a44073eac154fbaddf1a8f2fec1c2b423e0ca55a0815d23fb5e083cfac.css"><meta property='og:title' content="Spring Cloud 核心概念 | Jul1en">
+<meta property='og:description' content="Spring Cloud 核心概念 Spring Cloud 简单概念笔记：Eureka、Nacos、OpenFeign 与 Gateway 版本说明：本文以 Spring Boot 3 / Spring Cloud 新版本思路为主。很多旧教程会使用 bootstrap.yml、Ribbon 等写法，学习时可以看，但自 …">
+<meta property='og:url' content='https://Jul1en-Lin.github.io/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/'>
 <meta property='og:site_name' content='Jul1en'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-05-10T13:00:35&#43;00:00'/><meta property='article:modified_time' content='2026-05-15T16:21:56&#43;08:00'/>
-<meta name="twitter:title" content="核心概念 | Jul1en">
-<meta name="twitter:description" content="核心概念 Spring Cloud 简单概念笔记：Eureka、Nacos、OpenFeign 与 Gateway 版本说明：本文以 Spring Boot 3 / Spring Cloud 新版本思路为主。很多旧教程会使用 bootstrap.yml、Ribbon 等写法，学习时可以看，但自己写新项目时更建议优先使用 …"><link rel="preconnect" href="https://fonts.googleapis.com">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-05-10T13:00:35&#43;00:00'/><meta property='article:modified_time' content='2026-05-15T16:23:00&#43;08:00'/>
+<meta name="twitter:title" content="Spring Cloud 核心概念 | Jul1en">
+<meta name="twitter:description" content="Spring Cloud 核心概念 Spring Cloud 简单概念笔记：Eureka、Nacos、OpenFeign 与 Gateway 版本说明：本文以 Spring Boot 3 / Spring Cloud 新版本思路为主。很多旧教程会使用 bootstrap.yml、Ribbon 等写法，学习时可以看，但自 …"><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <meta name="author" content="Jul1en">
@@ -135,7 +135,7 @@
         <div class="article-detail__toc-nav">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#核心概念">核心概念</a></li>
+    <li><a href="#spring-cloud-核心概念">Spring Cloud 核心概念</a></li>
     <li><a href="#spring-cloud-简单概念笔记eurekanacosopenfeign-与-gateway">Spring Cloud 简单概念笔记：Eureka、Nacos、OpenFeign 与 Gateway</a>
       <ol>
         <li><a href="#微服务里的几个核心问题">微服务里的几个核心问题</a></li>
@@ -246,7 +246,7 @@
                         <a href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a></div>
 
                 <h1 class="article-detail__title">
-                    <span>核心概念</span>
+                    <span>Spring Cloud 核心概念</span>
                     <span class="article-detail__title-note" aria-hidden="true">♪</span>
                 </h1><p class="article-detail__summary">Spring Cloud 简单概念笔记：Eureka、Nacos、OpenFeign 与 Gateway 版本说明：本文以 Spring Boot 3 / Spring …</p><div class="article-detail__header-quote">
                     <aside class="quote-block quote-block--article">
@@ -254,7 +254,7 @@
     <p class="quote-block__signature">Jul1en</p>
 </aside>
 
-                </div><figure class="article-detail__cover"><img src="/p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510212744-wo0u8vw_hu_ffbdcaf451dea03c.webp" width="1120" height="520" alt="核心概念" loading="eager" decoding="async" fetchpriority="high"></figure></header>
+                </div><figure class="article-detail__cover"><img src="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510212744-wo0u8vw_hu_ffbdcaf451dea03c.webp" width="1120" height="520" alt="Spring Cloud 核心概念" loading="eager" decoding="async" fetchpriority="high"></figure></header>
 
             <section class="article-content article-detail__content">
                 <h2 id="spring-cloud-简单概念笔记eurekanacosopenfeign-与-gateway">Spring Cloud 简单概念笔记：Eureka、Nacos、OpenFeign 与 Gateway
@@ -320,13 +320,13 @@
       </tr>
   </tbody>
 </table></div>
-<p><img src="/p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510212744-wo0u8vw_hu_7ba2c258b951a316.webp" width="1600" height="1172" srcset="/p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510212744-wo0u8vw_hu_32d80114f3bdafd8.webp 800w, /p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510212744-wo0u8vw_hu_7ba2c258b951a316.webp 1600w, /p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510212744-wo0u8vw_hu_ad5587cc5bd1a08e.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="136" data-flex-basis="327px">
+<p><img src="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510212744-wo0u8vw_hu_7ba2c258b951a316.webp" width="1600" height="1172" srcset="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510212744-wo0u8vw_hu_32d80114f3bdafd8.webp 800w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510212744-wo0u8vw_hu_7ba2c258b951a316.webp 1600w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510212744-wo0u8vw_hu_ad5587cc5bd1a08e.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="136" data-flex-basis="327px">
 </p>
 <blockquote>
 <p>服务启动后注册到注册中心；调用方从注册中心发现目标服务实例；负载均衡器从多个实例中选一个；OpenFeign 发起服务间调用；Gateway 负责外部入口和公共过滤逻辑；Nacos 还可以统一管理配置。</p>
 </blockquote>
 <h2 id="eureka注册中心服务注册与服务发现">Eureka：注册中心、服务注册与服务发现
-</h2><p><img src="/p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510212924-9tiveuh_hu_27f9f436db48156f.webp" width="1600" height="1203" srcset="/p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510212924-9tiveuh_hu_db84659730cc8c32.webp 800w, /p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510212924-9tiveuh_hu_27f9f436db48156f.webp 1600w, /p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510212924-9tiveuh_hu_b96021f982d4357e.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="132" data-flex-basis="319px">
+</h2><p><img src="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510212924-9tiveuh_hu_27f9f436db48156f.webp" width="1600" height="1203" srcset="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510212924-9tiveuh_hu_db84659730cc8c32.webp 800w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510212924-9tiveuh_hu_27f9f436db48156f.webp 1600w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510212924-9tiveuh_hu_b96021f982d4357e.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="132" data-flex-basis="319px">
 </p>
 <h3 id="eureka-是什么">Eureka 是什么
 </h3><p>Eureka 是 Netflix OSS 体系里的服务注册与发现组件。它主要分成两类角色：</p>
@@ -441,7 +441,7 @@
 </span></span></span></code></pre></div><p>后面可以通过 OpenFeign 或 RestTemplate 调用 <code>user-service</code>。</p>
 <hr>
 <h2 id="负载均衡为什么不能只调用一个实例">负载均衡：为什么不能只调用一个实例
-</h2><p><img src="/p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213117-m7thvqb_hu_713825e41bfcafc5.webp" width="1600" height="1160" srcset="/p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213117-m7thvqb_hu_5ccf6d2c01fb81c1.webp 800w, /p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213117-m7thvqb_hu_713825e41bfcafc5.webp 1600w, /p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213117-m7thvqb_hu_aaf1cbcba5fb5f6e.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="137" data-flex-basis="331px">
+</h2><p><img src="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213117-m7thvqb_hu_713825e41bfcafc5.webp" width="1600" height="1160" srcset="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213117-m7thvqb_hu_5ccf6d2c01fb81c1.webp 800w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213117-m7thvqb_hu_713825e41bfcafc5.webp 1600w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213117-m7thvqb_hu_aaf1cbcba5fb5f6e.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="137" data-flex-basis="331px">
 </p>
 <h3 id="负载均衡解决什么问题">负载均衡解决什么问题
 </h3><p>当一个服务部署多个实例时，请求不能永远打到同一个实例，否则会导致：</p>
@@ -474,7 +474,7 @@
 <li><strong>同集群优先</strong>：消费者优先调用同一个集群或同一个机房内的服务实例。</li>
 </ul>
 <h2 id="nacos注册中心--配置中心">Nacos：注册中心 + 配置中心
-</h2><p><img src="/p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213220-0g15lcw_hu_3cef1cbb259cef.webp" width="1600" height="1192" srcset="/p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213220-0g15lcw_hu_d3a5826a9a7e2c66.webp 800w, /p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213220-0g15lcw_hu_3cef1cbb259cef.webp 1600w, /p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213220-0g15lcw_hu_65114f2d945a8817.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="134" data-flex-basis="322px">
+</h2><p><img src="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213220-0g15lcw_hu_3cef1cbb259cef.webp" width="1600" height="1192" srcset="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213220-0g15lcw_hu_d3a5826a9a7e2c66.webp 800w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213220-0g15lcw_hu_3cef1cbb259cef.webp 1600w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213220-0g15lcw_hu_65114f2d945a8817.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="134" data-flex-basis="322px">
 </p>
 <h3 id="nacos">Nacos
 </h3><p>Nacos 是阿里开源的动态服务发现、配置管理和服务管理平台。在 Spring Cloud Alibaba 体系中，Nacos 通常承担两个角色：</p>
@@ -705,7 +705,7 @@
 </span></span></span></code></pre></div><p>这样开发环境服务只注册到开发环境空间，开发环境配置也只从开发空间读取。</p>
 <hr>
 <h2 id="eureka-与-nacos-的区别">Eureka 与 Nacos 的区别
-</h2><p><img src="/p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213514-6abjoi7_hu_e5cf8b43216fd7cd.webp" width="1600" height="1183" srcset="/p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213514-6abjoi7_hu_f6dee8ad4cc06e21.webp 800w, /p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213514-6abjoi7_hu_e5cf8b43216fd7cd.webp 1600w, /p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213514-6abjoi7_hu_7d9536fc0c7b5510.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="135" data-flex-basis="324px">
+</h2><p><img src="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213514-6abjoi7_hu_e5cf8b43216fd7cd.webp" width="1600" height="1183" srcset="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213514-6abjoi7_hu_f6dee8ad4cc06e21.webp 800w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213514-6abjoi7_hu_e5cf8b43216fd7cd.webp 1600w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213514-6abjoi7_hu_7d9536fc0c7b5510.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="135" data-flex-basis="324px">
 </p>
 <div class="table-wrapper"><table>
   <thead>
@@ -759,7 +759,7 @@
   </tbody>
 </table></div>
 <h2 id="openfeign声明式服务调用">OpenFeign：声明式服务调用
-</h2><p><img src="/p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213558-ps0u4ej_hu_b762e559fee2a770.webp" width="1600" height="1166" srcset="/p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213558-ps0u4ej_hu_9a9543c698d51e0f.webp 800w, /p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213558-ps0u4ej_hu_b762e559fee2a770.webp 1600w, /p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213558-ps0u4ej_hu_7f4c200136773aea.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="137" data-flex-basis="329px">
+</h2><p><img src="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213558-ps0u4ej_hu_b762e559fee2a770.webp" width="1600" height="1166" srcset="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213558-ps0u4ej_hu_9a9543c698d51e0f.webp 800w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213558-ps0u4ej_hu_b762e559fee2a770.webp 1600w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213558-ps0u4ej_hu_7f4c200136773aea.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="137" data-flex-basis="329px">
 </p>
 <h3 id="openfeign-是什么">OpenFeign 是什么
 </h3><p>OpenFeign 是一个声明式 HTTP 客户端。所谓声明式，就是你不用手写完整的 HTTP 请求过程，只需要定义一个接口，Spring Cloud 会帮你生成代理对象去调用远程服务。</p>
@@ -849,7 +849,7 @@
 </ul>
 <hr>
 <h2 id="gateway网关服务">Gateway：网关服务
-</h2><p><img src="/p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213833-wuurt3g_hu_ca6be2dd7b8dc26f.webp" width="1600" height="1187" srcset="/p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213833-wuurt3g_hu_70a04f11e8e854d5.webp 800w, /p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213833-wuurt3g_hu_ca6be2dd7b8dc26f.webp 1600w, /p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213833-wuurt3g_hu_e98c41d60630d50c.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="134" data-flex-basis="323px">
+</h2><p><img src="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213833-wuurt3g_hu_ca6be2dd7b8dc26f.webp" width="1600" height="1187" srcset="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213833-wuurt3g_hu_70a04f11e8e854d5.webp 800w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213833-wuurt3g_hu_ca6be2dd7b8dc26f.webp 1600w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213833-wuurt3g_hu_e98c41d60630d50c.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="134" data-flex-basis="323px">
 </p>
 <h3 id="gateway">Gateway
 </h3><p>Spring Cloud Gateway 是微服务系统的 API 网关。它通常位于客户端和后端服务之间，作为统一入口。</p>
@@ -956,7 +956,7 @@
 </span></span><span class="line"><span class="cl">StripPrefix=1 后：/users/1
 </span></span><span class="line"><span class="cl">转发目标：lb://user-service/users/1
 </span></span></code></pre></div><h2 id="gatewayfilterglobalfilter-与自定义-filter">GatewayFilter、GlobalFilter 与自定义 Filter
-</h2><p><img src="/p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510214028-d03ujw3_hu_de6006e8a9433080.webp" width="1600" height="1171" srcset="/p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510214028-d03ujw3_hu_aac1310dd8ec1aec.webp 800w, /p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510214028-d03ujw3_hu_de6006e8a9433080.webp 1600w, /p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510214028-d03ujw3_hu_ae788d767e76dd3f.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="136" data-flex-basis="327px">
+</h2><p><img src="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510214028-d03ujw3_hu_de6006e8a9433080.webp" width="1600" height="1171" srcset="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510214028-d03ujw3_hu_aac1310dd8ec1aec.webp 800w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510214028-d03ujw3_hu_de6006e8a9433080.webp 1600w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510214028-d03ujw3_hu_ae788d767e76dd3f.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="136" data-flex-basis="327px">
 </p>
 <h3 id="gatewayfilter">GatewayFilter
 </h3><p><code>GatewayFilter</code> 是<strong>路由级过滤器</strong>，只对某一条或某几条路由生效。</p>
@@ -1173,7 +1173,7 @@
 <li>OpenFeign：负责服务内部之间的声明式 HTTP 调用；</li>
 <li>Nacos Config：虽然不在请求链路中，但负责服务启动和运行时读取配置。</li>
 </ul>
-<p><img src="/p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510214143-e9vlpp0_hu_67a2fd08bd4756c8.webp" width="1600" height="1162" srcset="/p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510214143-e9vlpp0_hu_326d04598af5128c.webp 800w, /p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510214143-e9vlpp0_hu_67a2fd08bd4756c8.webp 1600w, /p/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510214143-e9vlpp0_hu_fcff8a84a222d480.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="137" data-flex-basis="330px">
+<p><img src="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510214143-e9vlpp0_hu_67a2fd08bd4756c8.webp" width="1600" height="1162" srcset="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510214143-e9vlpp0_hu_326d04598af5128c.webp 800w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510214143-e9vlpp0_hu_67a2fd08bd4756c8.webp 1600w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510214143-e9vlpp0_hu_fcff8a84a222d480.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="137" data-flex-basis="330px">
 </p>
 <p>‍</p>
 
