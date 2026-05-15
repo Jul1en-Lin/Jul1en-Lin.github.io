@@ -7,7 +7,269 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>Jul1en</copyright>
-        <lastBuildDate>Fri, 03 Apr 2026 02:18:31 +0800</lastBuildDate><atom:link href="https://Jul1en-Lin.github.io/categories/git/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 15 May 2026 15:24:27 +0800</lastBuildDate><atom:link href="https://Jul1en-Lin.github.io/categories/git/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Git stash</title>
+        <link>https://Jul1en-Lin.github.io/p/git-stash/</link>
+        <pubDate>Fri, 15 May 2026 05:40:20 +0000</pubDate>
+        
+        <guid>https://Jul1en-Lin.github.io/p/git-stash/</guid>
+        <description>&lt;h1 id=&#34;git-stash&#34;&gt;Git stash
+&lt;/h1&gt;&lt;p&gt;在使用 Git 开发时，我们经常会遇到一种很尴尬的情况：当前功能还没写完，代码处于“半成品”状态，既不适合提交 commit，也不想直接丢掉。但这时突然来了一个新的任务，比如需要马上切换分支去修 Bug，或者需要拉取远程最新代码。&lt;/p&gt;
+&lt;p&gt;问题就出现了：Git 默认不太喜欢你带着一堆未提交的修改到处切换分支。因为这些修改可能会和目标分支的文件产生冲突，Git 无法确定你到底想保留哪一份内容。&lt;/p&gt;
+&lt;p&gt;这时候就需要 &lt;code&gt;git stash&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;stash&lt;/code&gt; 的作用可以理解为：把当前还不想提交的修改临时存起来，让工作区恢复到干净状态。等你处理完别的事情后，再把这些修改取回来继续写。&lt;/p&gt;
+&lt;h2 id=&#34;核心理解&#34;&gt;核心理解
+&lt;/h2&gt;&lt;p&gt;Git 里常见的代码状态主要有三个区域：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;区域&lt;/th&gt;
+          &lt;th&gt;含义&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;工作区 Working Directory&lt;/td&gt;
+          &lt;td&gt;你正在编辑的文件内容&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;暂存区 Staging Area / Index&lt;/td&gt;
+          &lt;td&gt;已经&lt;code&gt;git add&lt;/code&gt;，准备提交的内容&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;本地仓库 Repository&lt;/td&gt;
+          &lt;td&gt;已经 commit 的历史版本&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;普通的 &lt;code&gt;git commit&lt;/code&gt; 是把暂存区内容正式保存到版本历史里。&lt;/p&gt;
+&lt;p&gt;而 &lt;code&gt;git stash&lt;/code&gt; 是把当前工作区和暂存区里的修改临时打包，放进一个 Git 管理的临时栈里。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;当前写到一半的代码 -&amp;gt; git stash -&amp;gt; 临时保存到 stash 栈中 -&amp;gt; 工作区恢复干净 -&amp;gt; 切换分支 / 拉代码 / 修 Bug -&amp;gt; git stash pop 或 git stash apply -&amp;gt; 恢复刚才写到一半的代码&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这里涉及到了&lt;strong&gt;栈的知识&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;stash 保存的内容不是只有一份，而是可以保存多份。每执行一次 &lt;code&gt;git stash&lt;/code&gt;，Git 就会往 stash 栈里新增一条记录。&lt;/p&gt;
+&lt;p&gt;最新的一条通常叫：stash@{0}，数字越小，表示越新。&lt;/p&gt;
+&lt;p&gt;再旧一点的是：stash@{1}、stash@{2}&lt;/p&gt;
+&lt;h2 id=&#34;最常用操作&#34;&gt;最常用操作
+&lt;/h2&gt;&lt;h3 id=&#34;临时保存当前修改&#34;&gt;临时保存当前修改
+&lt;/h3&gt;&lt;p&gt;最基础的命令是：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git stash
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;或者更推荐写成：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git stash push
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;执行后，Git 会把当前工作区和暂存区里的修改保存起来，然后让项目回到一个干净状态。&lt;/p&gt;
+&lt;p&gt;比如你正在开发登录功能：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;LoginController.java   修改中
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;UserService.java       修改中
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;但是突然需要切换到 &lt;code&gt;hotfix&lt;/code&gt; 分支修 Bug，这时候可以执行：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git stash push
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后再切换分支：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git checkout hotfix
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;或者：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git switch hotfix
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这样当前没写完的登录功能不会被丢掉，也不会影响你去处理别的任务。&lt;/p&gt;
+&lt;h3 id=&#34;添加说明&#34;&gt;添加说明
+&lt;/h3&gt;&lt;p&gt;如果 stash 记录多了，只看 &lt;code&gt;stash@{0}&lt;/code&gt;、&lt;code&gt;stash@{1}&lt;/code&gt; 会很难分清楚每一份是干什么的。&lt;/p&gt;
+&lt;p&gt;&lt;u&gt;&lt;strong&gt;所以更推荐加上说明：&lt;/strong&gt;&lt;/u&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git stash push -m &amp;#34;开发登录功能，临时保存&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;之后查看 stash 列表时，就能看到这条说明。&lt;/p&gt;
+&lt;p&gt;这就像给临时保存的代码贴了一个便利贴，后面找起来会轻松很多。&lt;/p&gt;
+&lt;h3 id=&#34;查看-stash-列表&#34;&gt;查看 stash 列表
+&lt;/h3&gt;&lt;p&gt;查看当前保存过的 stash：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git stash list
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;示例：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;stash@{0}: On feature-login: 开发登录功能，临时保存
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;stash@{1}: On dev: 修改订单模块样式
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;stash@{2}: On main: 调整配置文件
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这里需要注意，stash 是按照时间倒序排列的，最新的永远在最上面。&lt;/p&gt;
+&lt;h3 id=&#34;查看某个-stash-里改了什么&#34;&gt;查看某个 stash 里改了什么
+&lt;/h3&gt;&lt;p&gt;只看简略变更：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git stash show stash@{0}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果想看具体代码差异：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git stash show -p stash@{0}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;其中 &lt;code&gt;-p&lt;/code&gt; 表示以 patch 的形式展示详细修改内容。&lt;/p&gt;
+&lt;p&gt;如果你 stash 记录很多，恢复之前最好先看一下，避免把不相关的旧代码恢复回来。&lt;/p&gt;
+&lt;h2 id=&#34;恢复&#34;&gt;恢复
+&lt;/h2&gt;&lt;p&gt;恢复 stash 主要有两个命令：&lt;code&gt;apply&lt;/code&gt; 和 &lt;code&gt;pop&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;它们看起来都能把代码拿回来，但差别很重要。&lt;/p&gt;
+&lt;h3 id=&#34;apply&#34;&gt;apply
+&lt;/h3&gt;&lt;p&gt;&lt;code&gt;git stash apply&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;恢复代码，stash 记录还保存着。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;默认恢复最新的一条：&lt;code&gt;git stash apply stash@{0}&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git stash apply stash@{0}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果要恢复指定记录：&lt;code&gt;git stash apply stash@{1}&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;也就是说，你把临时代码拿回来了，但 Git 不会自动删除那条 stash。&lt;/p&gt;
+&lt;p&gt;适合的场景是：你不确定这份 stash 恢复后是否完全正确，想先拿出来试试看。如果没问题，再手动删除。&lt;/p&gt;
+&lt;h3 id=&#34;pop&#34;&gt;pop
+&lt;/h3&gt;&lt;p&gt;&lt;code&gt;git stash pop&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;恢复代码，并尝试删除这条 stash 记录。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;它相当于：&lt;code&gt;git stash apply&lt;/code&gt; 加上 &lt;code&gt;git stash drop&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;也就是说，代码恢复回来之后，这条临时记录就会从 stash 栈里移除。&lt;/p&gt;
+&lt;p&gt;不过如果恢复时发生冲突，Git 通常不会直接删除 stash 记录，这样可以避免代码丢失。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;pop&lt;/code&gt; 更适合已经确定这条 stash 就是要继续使用的场景。&lt;/p&gt;
+&lt;h3 id=&#34;apply-和-pop-的区别&#34;&gt;apply 和 pop 的区别
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;命令&lt;/th&gt;
+          &lt;th&gt;是否恢复代码&lt;/th&gt;
+          &lt;th&gt;是否删除 stash 记录&lt;/th&gt;
+          &lt;th&gt;适合场景&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;git stash apply&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;是&lt;/td&gt;
+          &lt;td&gt;否&lt;/td&gt;
+          &lt;td&gt;想先恢复看看，保留备份&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;git stash pop&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;是&lt;/td&gt;
+          &lt;td&gt;是&lt;/td&gt;
+          &lt;td&gt;确定要恢复并继续开发&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;删除&#34;&gt;删除
+&lt;/h2&gt;&lt;h3 id=&#34;删除特定-stash&#34;&gt;删除特定 stash
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git stash drop stash@{0}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这会删除指定的一条 stash。&lt;/p&gt;
+&lt;p&gt;如果你已经用 &lt;code&gt;apply&lt;/code&gt; 恢复过代码，并且确认这条 stash 不需要了，就可以手动删除。&lt;/p&gt;
+&lt;h3 id=&#34;清空所有-stash&#34;&gt;清空所有 stash
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git stash clear
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这个命令会删除所有 stash 记录。&lt;/p&gt;
+&lt;p&gt;这个操作要谨慎，因为一旦清空，普通方式下就很难再找回来了。&lt;/p&gt;
+&lt;p&gt;一般不建议随手执行，除非你非常确定这些临时修改都不需要了。&lt;/p&gt;
+&lt;h2 id=&#34;注意事项&#34;&gt;注意事项
+&lt;/h2&gt;&lt;p&gt;这是学习 stash 时非常容易踩坑的地方。&lt;/p&gt;
+&lt;p&gt;默认情况下：&lt;code&gt;git stash&lt;/code&gt;会保存已被 Git 跟踪的文件修改，如 git add 到暂存区的修改这两类文件&lt;/p&gt;
+&lt;p&gt;但它默认不会保存新建但还没有被 Git 跟踪的文件，如.gitignore 忽略的文件，这个新文件不会被 stash 保存。&lt;/p&gt;
+&lt;h2 id=&#34;保存未跟踪文件&#34;&gt;保存未跟踪文件
+&lt;/h2&gt;&lt;p&gt;如果想把新建的、还没被 Git 跟踪的文件也一起 stash，可以使用：&lt;code&gt;git stash push -u&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;-u 是 &amp;ndash;include-untracked 的简写，表示把未跟踪文件也保存进去。&lt;/p&gt;
+&lt;p&gt;eg：&lt;code&gt;git stash push -u -m &amp;quot;保存登录功能和新建测试文件&amp;quot;&lt;/code&gt;，这样新建文件也会一起被临时保存。&lt;/p&gt;
+&lt;h2 id=&#34;保存被忽略的文件&#34;&gt;保存被忽略的文件
+&lt;/h2&gt;&lt;p&gt;如果连 &lt;code&gt;.gitignore&lt;/code&gt; 里忽略的文件也想一起保存，可以使用&lt;code&gt;git stash push -a&lt;/code&gt;命令，这会把所有文件都包含进去，包括一些本地构建产物、缓存文件、临时文件也一起 stash 进去~&lt;/p&gt;
+&lt;h2 id=&#34;stash-指定文件&#34;&gt;stash 指定文件
+&lt;/h2&gt;&lt;p&gt;有时候你并不想保存所有修改，只想 stash 某几个文件。那就在stash后面跟上具体的文件名，跟&lt;code&gt;git add&lt;/code&gt;操作一致&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git stash push -m &amp;#34;只保存配置文件修改&amp;#34; src/main/resources/application.yml
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果有多个文件，就用空格分开：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git stash push -m &amp;#34;保存登录相关修改&amp;#34; LoginController.java UserService.java
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这样 Git 只会把指定文件的修改临时保存起来，其他文件的修改还会留在工作区。&lt;/p&gt;
+&lt;p&gt;这个操作在多人协作时很有用。比如你只想临时收起某个模块的修改，但另一个模块还要继续调试，就可以精确 stash。&lt;/p&gt;
+&lt;h2 id=&#34;从-stash-创建新分支&#34;&gt;从 stash 创建新分支
+&lt;/h2&gt;&lt;p&gt;有时候你写着写着发现：这部分代码不应该继续放在当前分支了，应该单独开一个新分支。&lt;/p&gt;
+&lt;p&gt;这时可以使用：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git stash branch new-branch-name stash@{0}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;执行逻辑：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;基于 stash 创建时所在的提交创建一个新分支&lt;/li&gt;
+&lt;li&gt;切换到这个新分支&lt;/li&gt;
+&lt;li&gt;把 stash 里的修改恢复出来&lt;/li&gt;
+&lt;li&gt;如果成功，删除对应的 stash&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这个命令适合写着写着发现分支开错了的情况。比如你本来在 &lt;code&gt;dev&lt;/code&gt; 分支上随手改了登录功能，但后来发现应该新开一个 &lt;code&gt;feature-login&lt;/code&gt; 分支。这时就可以先 stash，再用 &lt;code&gt;git stash branch&lt;/code&gt; 把修改转移到新分支上。&lt;/p&gt;
+&lt;h2 id=&#34;stash-冲突解决&#34;&gt;stash 冲突解决
+&lt;/h2&gt;&lt;p&gt;stash 恢复时也可能产生冲突。比如你 stash 的时候修改了 &lt;code&gt;UserService.java&lt;/code&gt;，后来目标分支也修改了同一个文件的同一段代码。此时执行&lt;code&gt;git stash pop&lt;/code&gt;：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git stash pop
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Git 可能会提示冲突。&lt;/p&gt;
+&lt;p&gt;冲突文件里通常会出现类似结构：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; Updated upstream
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;当前分支中的代码
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;=======
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;stash 中恢复出来的代码
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; Stashed changes
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;解决方式和普通 merge 冲突类似：先打开冲突文件，手动决定保留哪部分代码。修改完成后再次add冲突文件后文件执行就可以接下来的工作了。&lt;/p&gt;
+&lt;p&gt;如果你使用的是 &lt;code&gt;pop&lt;/code&gt;，并且发生了冲突，要注意检查 stash 是否还在：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git stash list
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果冲突导致 stash 没有被删除，解决完之后可以手动删除：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git stash drop stash@{0}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;命令总结&#34;&gt;命令总结
+&lt;/h2&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;命令&lt;/th&gt;
+          &lt;th&gt;作用&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;git stash&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;临时保存当前修改&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;git stash push&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;更推荐的 stash 写法&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;git stash push -m &amp;quot;说明&amp;quot;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;保存 stash 并添加说明&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;git stash list&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;查看 stash 列表&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;git stash show stash@{0}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;查看某条 stash 的简略变更&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;git stash show -p stash@{0}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;查看某条 stash 的详细代码差异&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;git stash apply&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;恢复最新 stash，但不删除记录&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;git stash apply stash@{1}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;恢复指定 stash，但不删除记录&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;git stash pop&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;恢复最新 stash，并删除记录&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;git stash drop stash@{0}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;删除某条 stash&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;git stash clear&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;清空所有 stash&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;git stash push -u&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;保存未跟踪文件&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;git stash push -a&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;保存所有文件，包括 ignored 文件&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;git stash branch new-branch stash@{0}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;从 stash 创建新分支并恢复修改&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;十五学习时最容易记混的点&#34;&gt;十五、学习时最容易记混的点
+&lt;/h2&gt;&lt;p&gt;第一，&lt;code&gt;git stash&lt;/code&gt; 默认不会保存未跟踪文件。新建文件如果没有被 Git 跟踪，需要使用：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git stash push -u
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;第二，&lt;code&gt;apply&lt;/code&gt; 和 &lt;code&gt;pop&lt;/code&gt; 都能恢复代码，但 &lt;code&gt;apply&lt;/code&gt; 不删除 stash，&lt;code&gt;pop&lt;/code&gt; 会尝试删除 stash。&lt;/p&gt;
+&lt;p&gt;第三，stash 不是用来长期保存代码的。如果代码已经是一个完整阶段，应该 commit，而不是一直堆在 stash 里。&lt;/p&gt;
+&lt;p&gt;第四，stash 恢复时可能冲突。它不是“无痛传送门”，只是帮你临时保存现场，后续恢复时仍然要遵守 Git 的合并规则。&lt;/p&gt;
+&lt;p&gt;第五，stash 记录多了以后一定要加说明，否则过几天再看 &lt;code&gt;stash@{0}&lt;/code&gt;、&lt;code&gt;stash@{1}&lt;/code&gt;，很容易完全不知道哪一条是什么。&lt;/p&gt;
+&lt;h2 id=&#34;理解图&#34;&gt;理解图
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/assets/ChatGPT%20Image%202026%e5%b9%b45%e6%9c%8815%e6%97%a5%2015_23_33-20260515152402-v7p9m2v.png&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;ChatGPT Image 2026年5月15日 15_23_33&#34;&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;git stash&lt;/code&gt; 本质上是 Git 提供的临时保存现场机制。它适合在代码还没完成、不想提交，但又必须切换任务时使用。它不会替代 commit，而是补充 commit 之前那段混乱、临时、半成品的开发过程。用得好的话，stash 可以让你在多个任务之间切换时更从容，不至于因为工作区不干净而手忙脚乱~&lt;/p&gt;
+&lt;p&gt;‍&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Git LFS 突破大文件上传限制</title>
         <link>https://Jul1en-Lin.github.io/p/git-lfs-%E7%AA%81%E7%A0%B4%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E9%99%90%E5%88%B6/</link>
         <pubDate>Fri, 03 Apr 2026 00:18:50 +0800</pubDate>
