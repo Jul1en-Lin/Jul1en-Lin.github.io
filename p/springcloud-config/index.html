@@ -11,7 +11,7 @@
 <meta property='og:description' content="SpringCloud Config Spring Cloud Config 解决的是微服务项目中“配置分散、环境复杂、修改成本高”的问题。单体项目里，配置通常写在本地 application.yml 中，应用启动时直接读取即可。但微服务项目会拆出多个服务，每个服务又会区分开发、测试、生产等环境。如果每个服务都自己维护 …">
 <meta property='og:url' content='https://Jul1en-Lin.github.io/p/springcloud-config/'>
 <meta property='og:site_name' content='Jul1en'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-05-14T16:38:45&#43;00:00'/><meta property='article:modified_time' content='2026-05-15T15:37:01&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-05-14T16:38:45&#43;00:00'/><meta property='article:modified_time' content='2026-05-15T15:59:26&#43;08:00'/>
 <meta name="twitter:title" content="SpringCloud Config | Jul1en">
 <meta name="twitter:description" content="SpringCloud Config Spring Cloud Config 解决的是微服务项目中“配置分散、环境复杂、修改成本高”的问题。单体项目里，配置通常写在本地 application.yml 中，应用启动时直接读取即可。但微服务项目会拆出多个服务，每个服务又会区分开发、测试、生产等环境。如果每个服务都自己维护 …"><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -176,7 +176,7 @@
         <div class="article-detail__main">
             <header class="article-detail__header">
                 <div class="article-detail__meta"><time datetime="2026-05-14T16:38:45Z">2026-05-14</time><span aria-hidden="true">•</span>
-                        <a href="/categories/spring/">Spring</a></div>
+                        <a href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a></div>
 
                 <h1 class="article-detail__title">
                     <span>SpringCloud Config</span>
@@ -192,7 +192,7 @@
             <section class="article-content article-detail__content">
                 <p>Spring Cloud Config 解决的是微服务项目中“配置分散、环境复杂、修改成本高”的问题。单体项目里，配置通常写在本地 <code>application.yml</code> 中，应用启动时直接读取即可。但微服务项目会拆出多个服务，每个服务又会区分开发、测试、生产等环境。如果每个服务都自己维护一份配置，时间久了就会出现配置重复、版本混乱、修改困难的问题。</p>
 <p>配置中心的思路就是把配置从服务代码里抽出来，交给一个统一的服务管理。Spring Cloud Config 中，承担统一管理角色的是 Config Server，真正使用配置的业务服务是 Config Client。Config Server 从 Git、本地文件系统、Vault、JDBC 等后端读取配置，再通过 HTTP 接口提供给各个客户端。Config Client 启动时访问 Config Server，拉取属于自己的配置并加载到 Spring Environment 中。</p>
-<p><img src="/p/springcloud-config/assets/image-20260515153553-efbbqze_hu_cad574e7d4c9c300.webp" width="1600" height="1183" srcset="/p/springcloud-config/assets/image-20260515153553-efbbqze_hu_dbf8fded61030c60.webp 800w, /p/springcloud-config/assets/image-20260515153553-efbbqze_hu_cad574e7d4c9c300.webp 1600w, /p/springcloud-config/assets/image-20260515153553-efbbqze_hu_719daf113c07d4bc.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="135" data-flex-basis="324px">
+<p><img src="/p/springcloud-config/assets/image-20260515153553-efbbqze_hu_cad574e7d4c9c300.webp" width="1600" height="1183" srcset="/p/springcloud-config/assets/image-20260515153553-efbbqze_hu_dbf8fded61030c60.webp 800w, /p/springcloud-config/assets/image-20260515153553-efbbqze_hu_cad574e7d4c9c300.webp 1600w, /p/springcloud-config/assets/image-20260515153553-efbbqze_hu_719daf113c07d4bc.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="test" class="gallery-image" data-flex-grow="135" data-flex-basis="324px">
 </p>
 <h2 id="为什么需要-spring-cloud-config">为什么需要 Spring Cloud Config
 </h2><p>微服务拆分之后，配置数量会快速增加。比如一个电商系统可能有用户服务、订单服务、商品服务、网关服务，每个服务又可能有 <code>dev</code>、<code>test</code>、<code>prod</code> 三套环境。如果所有配置都放在各自服务内部，修改数据库地址、缓存地址、开关配置时，就需要分别进入多个服务修改，甚至重新打包发布。</p>

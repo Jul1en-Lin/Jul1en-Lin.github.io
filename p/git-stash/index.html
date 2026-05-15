@@ -11,7 +11,7 @@
 <meta property='og:description' content="Git stash 在使用 Git 开发时，我们经常会遇到一种很尴尬的情况：当前功能还没写完，代码处于“半成品”状态，既不适合提交 commit，也不想直接丢掉。但这时突然来了一个新的任务，比如需要马上切换分支去修 Bug，或者需要拉取远程最新代码。">
 <meta property='og:url' content='https://Jul1en-Lin.github.io/p/git-stash/'>
 <meta property='og:site_name' content='Jul1en'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-05-15T05:40:20&#43;00:00'/><meta property='article:modified_time' content='2026-05-15T15:24:27&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-05-15T05:40:20&#43;00:00'/><meta property='article:modified_time' content='2026-05-15T16:04:28&#43;08:00'/>
 <meta name="twitter:title" content="Git stash | Jul1en">
 <meta name="twitter:description" content="Git stash 在使用 Git 开发时，我们经常会遇到一种很尴尬的情况：当前功能还没写完，代码处于“半成品”状态，既不适合提交 commit，也不想直接丢掉。但这时突然来了一个新的任务，比如需要马上切换分支去修 Bug，或者需要拉取远程最新代码。"><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -166,7 +166,6 @@
         <li><a href="#从-stash-创建新分支">从 stash 创建新分支</a></li>
         <li><a href="#stash-冲突解决">stash 冲突解决</a></li>
         <li><a href="#命令总结">命令总结</a></li>
-        <li><a href="#十五学习时最容易记混的点">十五、学习时最容易记混的点</a></li>
         <li><a href="#理解图">理解图</a></li>
       </ol>
     </li>
@@ -448,14 +447,6 @@
       </tr>
   </tbody>
 </table></div>
-<hr>
-<h2 id="十五学习时最容易记混的点">十五、学习时最容易记混的点
-</h2><p>第一，<code>git stash</code> 默认不会保存未跟踪文件。新建文件如果没有被 Git 跟踪，需要使用：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git stash push -u
-</span></span></code></pre></div><p>第二，<code>apply</code> 和 <code>pop</code> 都能恢复代码，但 <code>apply</code> 不删除 stash，<code>pop</code> 会尝试删除 stash。</p>
-<p>第三，stash 不是用来长期保存代码的。如果代码已经是一个完整阶段，应该 commit，而不是一直堆在 stash 里。</p>
-<p>第四，stash 恢复时可能冲突。它不是“无痛传送门”，只是帮你临时保存现场，后续恢复时仍然要遵守 Git 的合并规则。</p>
-<p>第五，stash 记录多了以后一定要加说明，否则过几天再看 <code>stash@{0}</code>、<code>stash@{1}</code>，很容易完全不知道哪一条是什么。</p>
 <h2 id="理解图">理解图
 </h2><p><img src="/assets/ChatGPT%20Image%202026%e5%b9%b45%e6%9c%8815%e6%97%a5%2015_23_33-20260515152402-v7p9m2v.png" loading="lazy" decoding="async" alt="ChatGPT Image 2026年5月15日 15_23_33">
 </p>

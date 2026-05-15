@@ -253,14 +253,6 @@
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;十五学习时最容易记混的点&#34;&gt;十五、学习时最容易记混的点
-&lt;/h2&gt;&lt;p&gt;第一，&lt;code&gt;git stash&lt;/code&gt; 默认不会保存未跟踪文件。新建文件如果没有被 Git 跟踪，需要使用：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git stash push -u
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;第二，&lt;code&gt;apply&lt;/code&gt; 和 &lt;code&gt;pop&lt;/code&gt; 都能恢复代码，但 &lt;code&gt;apply&lt;/code&gt; 不删除 stash，&lt;code&gt;pop&lt;/code&gt; 会尝试删除 stash。&lt;/p&gt;
-&lt;p&gt;第三，stash 不是用来长期保存代码的。如果代码已经是一个完整阶段，应该 commit，而不是一直堆在 stash 里。&lt;/p&gt;
-&lt;p&gt;第四，stash 恢复时可能冲突。它不是“无痛传送门”，只是帮你临时保存现场，后续恢复时仍然要遵守 Git 的合并规则。&lt;/p&gt;
-&lt;p&gt;第五，stash 记录多了以后一定要加说明，否则过几天再看 &lt;code&gt;stash@{0}&lt;/code&gt;、&lt;code&gt;stash@{1}&lt;/code&gt;，很容易完全不知道哪一条是什么。&lt;/p&gt;
 &lt;h2 id=&#34;理解图&#34;&gt;理解图
 &lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/assets/ChatGPT%20Image%202026%e5%b9%b45%e6%9c%8815%e6%97%a5%2015_23_33-20260515152402-v7p9m2v.png&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;ChatGPT Image 2026年5月15日 15_23_33&#34;&gt;
 &lt;/p&gt;
@@ -277,7 +269,7 @@
         <description>&lt;h1 id=&#34;springcloud-config&#34;&gt;SpringCloud Config
 &lt;/h1&gt;&lt;p&gt;Spring Cloud Config 解决的是微服务项目中“配置分散、环境复杂、修改成本高”的问题。单体项目里，配置通常写在本地 &lt;code&gt;application.yml&lt;/code&gt; 中，应用启动时直接读取即可。但微服务项目会拆出多个服务，每个服务又会区分开发、测试、生产等环境。如果每个服务都自己维护一份配置，时间久了就会出现配置重复、版本混乱、修改困难的问题。&lt;/p&gt;
 &lt;p&gt;配置中心的思路就是把配置从服务代码里抽出来，交给一个统一的服务管理。Spring Cloud Config 中，承担统一管理角色的是 Config Server，真正使用配置的业务服务是 Config Client。Config Server 从 Git、本地文件系统、Vault、JDBC 等后端读取配置，再通过 HTTP 接口提供给各个客户端。Config Client 启动时访问 Config Server，拉取属于自己的配置并加载到 Spring Environment 中。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/springcloud-config/assets/image-20260515153553-efbbqze_hu_cad574e7d4c9c300.webp&#34; width=&#34;1600&#34; height=&#34;1183&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/springcloud-config/assets/image-20260515153553-efbbqze_hu_dbf8fded61030c60.webp 800w, https://Jul1en-Lin.github.io/p/springcloud-config/assets/image-20260515153553-efbbqze_hu_cad574e7d4c9c300.webp 1600w, https://Jul1en-Lin.github.io/p/springcloud-config/assets/image-20260515153553-efbbqze_hu_719daf113c07d4bc.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;135&#34; data-flex-basis=&#34;324px&#34;&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/springcloud-config/assets/image-20260515153553-efbbqze_hu_cad574e7d4c9c300.webp&#34; width=&#34;1600&#34; height=&#34;1183&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/springcloud-config/assets/image-20260515153553-efbbqze_hu_dbf8fded61030c60.webp 800w, https://Jul1en-Lin.github.io/p/springcloud-config/assets/image-20260515153553-efbbqze_hu_cad574e7d4c9c300.webp 1600w, https://Jul1en-Lin.github.io/p/springcloud-config/assets/image-20260515153553-efbbqze_hu_719daf113c07d4bc.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;test&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;135&#34; data-flex-basis=&#34;324px&#34;&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;为什么需要-spring-cloud-config&#34;&gt;为什么需要 Spring Cloud Config
 &lt;/h2&gt;&lt;p&gt;微服务拆分之后，配置数量会快速增加。比如一个电商系统可能有用户服务、订单服务、商品服务、网关服务，每个服务又可能有 &lt;code&gt;dev&lt;/code&gt;、&lt;code&gt;test&lt;/code&gt;、&lt;code&gt;prod&lt;/code&gt; 三套环境。如果所有配置都放在各自服务内部，修改数据库地址、缓存地址、开关配置时，就需要分别进入多个服务修改，甚至重新打包发布。&lt;/p&gt;
