@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+
+<head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="一个关于后端开发、测试、工具实践与生活记录的个人博客。">
+<title>Tag: Sentinel | Jul1en</title>
+
+<link rel='canonical' href='https://Jul1en-Lin.github.io/tags/sentinel/'>
+
+<link rel="stylesheet" href="/scss/style.min.ae0e66a44073eac154fbaddf1a8f2fec1c2b423e0ca55a0815d23fb5e083cfac.css"><meta property='og:title' content="Tag: Sentinel | Jul1en">
+<meta property='og:description' content="一个关于后端开发、测试、工具实践与生活记录的个人博客。">
+<meta property='og:url' content='https://Jul1en-Lin.github.io/tags/sentinel/'>
+<meta property='og:site_name' content='Jul1en'>
+<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2026-05-21T17:45:15&#43;08:00 '/>
+<meta name="twitter:title" content="Tag: Sentinel | Jul1en">
+<meta name="twitter:description" content="一个关于后端开发、测试、工具实践与生活记录的个人博客。"><link rel="alternate" type="application/rss&#43;xml" href="https://Jul1en-Lin.github.io/tags/sentinel/index.xml"><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<meta name="author" content="Jul1en">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)"><script src="/js/custom.77669e75e8d67de70fbaba61f97bc81baa9b5f9fc7e3afee3da166b02cceae50.js" integrity="sha256-d2aedejWfecPurph&#43;XvIG6qbX5/H46/uPaFmsCzOrlA=" defer></script><script>
+    (function () {
+        const colorSchemeKey = 'StackColorScheme';
+        const savedScheme = localStorage.getItem(colorSchemeKey);
+        const defaultScheme = "light";
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+        const scheme = savedScheme || defaultScheme;
+
+        if (scheme === 'dark' || (scheme === 'auto' && supportDarkMode)) {
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+
+</head>
+
+<body class="melody-shell template-blog-list">
+    <a class="skip-link" href="#main-content">Skip to content</a><header class="site-header" role="banner">
+    <div class="site-header__inner">
+        <a class="site-brand" href="/" aria-label="Jul1en home">
+            <span class="site-brand__text">Jul1en</span>
+        </a>
+
+        <div class="site-header__right">
+            <nav id="primary-navigation" class="site-nav" aria-label="Primary navigation">
+                <ul class="site-nav__list"><li class="site-nav__item">
+                            <a class="site-nav__link" href="/post/">
+                                Blog
+                            </a>
+                        </li><li class="site-nav__item">
+                            <a class="site-nav__link" href="/journal/">
+                                Journal
+                            </a>
+                        </li><li class="site-nav__item">
+                            <a class="site-nav__link" href="/music/">
+                                Music
+                            </a>
+                        </li></ul>
+            </nav>
+
+            <div class="site-actions" role="group" aria-label="Social links and theme"><a class="site-action-link" href="https://github.com/Jul1en-Lin" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+                        <span class="site-action-link__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+  <path fill="currentColor" d="M12 2.2c-5.5 0-9.9 4.5-9.9 9.9 0 4.4 2.8 8.1 6.8 9.4.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.2-3.4-1.2-.5-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 0 1.6 1.1 1.6 1.1.9 1.5 2.4 1.1 2.9.8.1-.7.4-1.1.7-1.4-2.2-.3-4.5-1.1-4.5-4.9 0-1.1.4-2 1.1-2.7-.1-.3-.5-1.3.1-2.7 0 0 .9-.3 2.8 1.1.8-.2 1.7-.3 2.5-.3s1.7.1 2.5.3c1.9-1.3 2.8-1.1 2.8-1.1.6 1.4.2 2.4.1 2.7.7.8 1.1 1.7 1.1 2.7 0 3.8-2.3 4.6-4.5 4.9.4.3.7.9.7 1.9V21c0 .3.2.6.7.5 4-1.3 6.8-5 6.8-9.4 0-5.4-4.4-9.9-9.9-9.9Z" />
+</svg>
+</span>
+                    </a><a class="site-action-link" href="https://www.instagram.com/jul1en_lin" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+                        <span class="site-action-link__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+  <path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M7.5 3.5h9A4 4 0 0 1 20.5 7.5v9a4 4 0 0 1-4 4h-9a4 4 0 0 1-4-4v-9a4 4 0 0 1 4-4Z" />
+  <path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M8.8 12a3.2 3.2 0 1 0 6.4 0 3.2 3.2 0 0 0-6.4 0Z" />
+  <path fill="currentColor" d="M17.2 7.2a.9.9 0 1 1-1.8 0 .9.9 0 0 1 1.8 0Z" />
+</svg>
+</span>
+                    </a><button id="dark-mode-toggle" class="theme-toggle" type="button" aria-label="暗色模式" title="暗色模式">
+                    <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="4.2" />
+    <path d="M12 2.8v2.2M12 19v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.8 12h2.2M19 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" />
+</svg>
+</span>
+                    <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M19.7 14.6c-1.3 2.9-4.6 4.8-8.1 4.2-4.3-.7-7.2-4.8-6.5-9.1.5-3.2 2.8-5.7 5.7-6.5-.9 2.1-.5 4.7 1.2 6.6 1.9 2.2 4.9 3 7.7 2.2-.1.9-.1 1.7 0 2.6z" />
+</svg>
+</span>
+                </button></div>
+
+            <button class="site-menu-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false">
+                <span class="site-menu-toggle__bar" aria-hidden="true"></span>
+                <span class="site-menu-toggle__bar" aria-hidden="true"></span>
+                <span class="site-menu-toggle__bar" aria-hidden="true"></span>
+                <span class="sr-only">Menu</span>
+            </button>
+        </div>
+    </div>
+</header>
+<div class="music-staff-bg" aria-hidden="true">
+    <svg viewBox="0 0 1440 360" preserveAspectRatio="none" focusable="false">
+        <path class="music-staff-bg__curve" d="M-80 210 C 180 110, 360 310, 620 190 S 1040 80, 1520 170" />
+        <g class="music-staff-bg__lines">
+            <path d="M-80 128 C 240 98, 520 158, 820 128 S 1220 98, 1520 128" />
+            <path d="M-80 146 C 240 116, 520 176, 820 146 S 1220 116, 1520 146" />
+            <path d="M-80 164 C 240 134, 520 194, 820 164 S 1220 134, 1520 164" />
+            <path d="M-80 182 C 240 152, 520 212, 820 182 S 1220 152, 1520 182" />
+            <path d="M-80 200 C 240 170, 520 230, 820 200 S 1220 170, 1520 200" />
+        </g>
+    </svg>
+</div>
+<div class="music-note-decor" aria-hidden="true">
+    <span class="music-note-decor__note music-note-decor__note--one">♪</span>
+    <span class="music-note-decor__note music-note-decor__note--two">♩</span>
+    <span class="music-note-decor__note music-note-decor__note--three">♬</span>
+</div>
+<main id="main-content" class="main main-content full-width" tabindex="-1">
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+        
+            
+                
+            
+        
+        
+    
+    
+    
+        
+    
+
+    
+        <section class="hero-section hero-section--page">
+    <div class="hero-section__content">
+        <h1 class="hero-section__title">Sentinel <span class="script-accent">stories</span>.</h1><p class="hero-section__description">A quiet index of posts collected under this category.</p></div></section>
+
+
+        
+        <section class="featured-section" aria-label="Featured post">
+            <article class="featured-post ">
+    <a class="featured-post__link" href="/p/sentinel/"><div class="featured-post__media"><img src="/p/sentinel/assets/config-pull-push_hu_3aae11e250ef0d86.webp" width="980" height="620" alt="Sentinel" loading="lazy" decoding="async"></div><div class="featured-post__body">
+            <div class="featured-post__meta"><time datetime="2026-05-21T00:00:00&#43;08:00">2026-05-21</time><span>微服务</span></div>
+            <h2 class="featured-post__title">Sentinel</h2><p class="featured-post__summary">Sentinel Sentinel 是微服务里非常典型的一类保护组件。它负责的是流量管控：当流量突然变大、某个下游接口变慢、异常开始扩散时，系统不要被一路拖垮。
+如果说 Spring Cloud 核心概念 解决的是“服务怎么拆、怎么找、怎么调”，那么 Sentinel 更像是在这些调用链外面再加一层保险。微服务拆开后，请求就不再只经过一个系统，而是会在网关、 …</p><span class="featured-post__more">
+                Read featured story
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M5 12h13" />
+  <path d="m13 6 6 6-6 6" />
+</svg>
+
+            </span>
+        </div>
+    </a>
+</article>
+        </section>
+        
+    
+
+    <section class="blog-index" aria-labelledby="blog-index-title">
+        <h2 id="blog-index-title" class="sr-only">All stories</h2>
+
+        <div class="post-tools" data-post-tools>
+    <div class="category-tabs" role="group" aria-label="Filter posts by category">
+        <button class="category-tabs__button is-active" type="button" data-blog-filter="all" aria-pressed="true">
+            All
+            <span>0</span>
+        </button><button class="category-tabs__button" type="button" data-blog-filter="git" aria-pressed="false">
+                Git
+                <span>3</span>
+            </button><button class="category-tabs__button" type="button" data-blog-filter="redis" aria-pressed="false">
+                Redis
+                <span>3</span>
+            </button><button class="category-tabs__button" type="button" data-blog-filter="%E5%BE%AE%E6%9C%8D%E5%8A%A1" aria-pressed="false">
+                微服务
+                <span>3</span>
+            </button><button class="category-tabs__button" type="button" data-blog-filter="%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" aria-pressed="false">
+                数据结构
+                <span>3</span>
+            </button><button class="category-tabs__button" type="button" data-blog-filter="%E7%AE%97%E6%B3%95" aria-pressed="false">
+                算法
+                <span>3</span>
+            </button><button class="category-tabs__button" type="button" data-blog-filter="javaee%E8%BF%9B%E9%98%B6" aria-pressed="false">
+                JavaEE进阶
+                <span>2</span>
+            </button><button class="category-tabs__button" type="button" data-blog-filter="mybatis" aria-pressed="false">
+                MyBatis
+                <span>2</span>
+            </button><button class="category-tabs__button" type="button" data-blog-filter="spring" aria-pressed="false">
+                Spring
+                <span>2</span>
+            </button><button class="category-tabs__button" type="button" data-blog-filter="ai" aria-pressed="false">
+                AI
+                <span>1</span>
+            </button><button class="category-tabs__button" type="button" data-blog-filter="mysql" aria-pressed="false">
+                MySQL
+                <span>1</span>
+            </button><button class="category-tabs__button" type="button" data-blog-filter="test" aria-pressed="false">
+                Test
+                <span>1</span>
+            </button><button class="category-tabs__button" type="button" data-blog-filter="%E5%A0%86" aria-pressed="false">
+                堆
+                <span>1</span>
+            </button><button class="category-tabs__button" type="button" data-blog-filter="%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F" aria-pressed="false">
+                快速排序
+                <span>1</span>
+            </button><button class="category-tabs__button" type="button" data-blog-filter="%E6%B5%8B%E8%AF%95" aria-pressed="false">
+                测试
+                <span>1</span>
+            </button></div>
+
+    <label class="post-search" for="post-search-input">
+        <span class="post-search__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="10.8" cy="10.8" r="6.2" />
+  <path d="m16 16 4 4" />
+</svg>
+</span>
+        <span class="sr-only">Search posts</span>
+        <input id="post-search-input" type="search" placeholder="Search posts..." data-blog-search autocomplete="off">
+    </label>
+</div>
+
+
+        <div class="post-grid" data-blog-grid>
+            
+        </div>
+
+        <p class="post-grid__empty" data-blog-empty hidden aria-live="polite">No posts found in this category.</p>
+        <p class="post-index-note">More notes, more context.</p>
+    </section>
+
+
+
+
+    </main>
+
+    <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.836efe327773ba454adac61ee8b35272b6f512bd594ed9ea0f926fca8386433b.js" defer></script><script type="text/javascript" src="/ts/custom.77669e75e8d67de70fbaba61f97bc81baa9b5f9fc7e3afee3da166b02cceae50.js" defer></script>
+
+
+<button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M6 14.5 12 8l6 6.5" />
+    </svg>
+</button>
+
+<script>
+    (function () {
+        'use strict';
+
+        const menuToggle = document.querySelector('.site-menu-toggle');
+        const nav = document.getElementById('primary-navigation');
+        const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+        function setMenuOpen(open) {
+            if (!menuToggle || !nav) return;
+            menuToggle.classList.toggle('is-open', open);
+            nav.classList.toggle('is-open', open);
+            document.body.classList.toggle('site-nav-open', open);
+            menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        }
+
+        if (menuToggle && nav) {
+            menuToggle.addEventListener('click', function (event) {
+                event.stopPropagation();
+                setMenuOpen(!nav.classList.contains('is-open'));
+            });
+
+            nav.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    setMenuOpen(false);
+                });
+            });
+
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape') setMenuOpen(false);
+            });
+
+            document.addEventListener('click', function (event) {
+                if (!document.body.classList.contains('site-nav-open')) return;
+                if (nav.contains(event.target) || menuToggle.contains(event.target)) return;
+                setMenuOpen(false);
+            });
+
+            const desktopQuery = window.matchMedia('(min-width: 921px)');
+            const closeMenuOnDesktop = function (event) {
+                if (event.matches) setMenuOpen(false);
+            };
+
+            if (desktopQuery.addEventListener) {
+                desktopQuery.addEventListener('change', closeMenuOnDesktop);
+            } else if (desktopQuery.addListener) {
+                desktopQuery.addListener(closeMenuOnDesktop);
+            }
+        }
+
+        const backToTop = document.getElementById('back-to-top');
+
+        if (backToTop) {
+            function updateBackToTop() {
+                backToTop.classList.toggle('is-visible', window.scrollY > 420);
+            }
+
+            backToTop.addEventListener('click', function () {
+                window.scrollTo({ top: 0, behavior: reduceMotionQuery.matches ? 'auto' : 'smooth' });
+            });
+
+            window.addEventListener('scroll', updateBackToTop, { passive: true });
+            updateBackToTop();
+        }
+
+        function initStaffParallax() {
+            const staff = document.querySelector('.music-staff-bg');
+            if (!staff || reduceMotionQuery.matches) return;
+
+            let ticking = false;
+
+            function updateStaffPosition() {
+                const shift = Math.max(-5, Math.min(5, window.scrollY * -0.012));
+                staff.style.transform = 'translate3d(0, ' + shift.toFixed(2) + 'px, 0)';
+                ticking = false;
+            }
+
+            function requestStaffUpdate() {
+                if (ticking) return;
+                ticking = true;
+                window.requestAnimationFrame(updateStaffPosition);
+            }
+
+            staff.classList.add('is-parallax-ready');
+            window.addEventListener('scroll', requestStaffUpdate, { passive: true });
+            updateStaffPosition();
+        }
+
+        function initArticleTocHover() {
+            const toc = document.querySelector('[data-article-toc]');
+            const articleMain = document.querySelector('.article-detail__main');
+            if (!toc || !articleMain) return;
+
+            const toggle = toc.querySelector('[data-article-toc-toggle]');
+            let lockedOpen = false;
+
+            function setVisible(visible) {
+                document.body.classList.toggle('is-article-toc-visible', visible);
+                if (toggle) {
+                    toggle.setAttribute('aria-expanded', visible ? 'true' : 'false');
+                    toggle.setAttribute('aria-label', visible ? '隐藏文章目录' : '显示文章目录');
+                }
+            }
+
+            function getLeftRevealZone() {
+                return Math.min(380, Math.max(280, window.innerWidth * 0.22));
+            }
+
+            function isInsideReadingColumn(x, y) {
+                const rect = articleMain.getBoundingClientRect();
+                const top = Math.min(rect.top, 0) - 48;
+                const bottom = Math.max(rect.bottom, window.innerHeight) + 48;
+
+                return x >= rect.left - 72 && x <= rect.right + 32 && y >= top && y <= bottom;
+            }
+
+            document.addEventListener('pointermove', function (event) {
+                if (lockedOpen) return;
+                setVisible(event.clientX <= getLeftRevealZone() || isInsideReadingColumn(event.clientX, event.clientY));
+            }, { passive: true });
+
+            document.addEventListener('pointerleave', function () {
+                if (!lockedOpen) setVisible(false);
+            });
+
+            toc.addEventListener('focusin', function () {
+                setVisible(true);
+            });
+
+            toc.addEventListener('focusout', function (event) {
+                if (lockedOpen || toc.contains(event.relatedTarget)) return;
+                setVisible(false);
+            });
+
+            if (toggle) {
+                toggle.addEventListener('click', function () {
+                    const isVisible = document.body.classList.contains('is-article-toc-visible');
+                    if (lockedOpen && isVisible) {
+                        lockedOpen = false;
+                        setVisible(false);
+                        return;
+                    }
+
+                    lockedOpen = true;
+                    setVisible(true);
+                });
+            }
+
+            document.addEventListener('click', function (event) {
+                if (!lockedOpen) return;
+                if (toc.contains(event.target) || articleMain.contains(event.target)) return;
+                lockedOpen = false;
+                setVisible(false);
+            });
+
+            document.addEventListener('keydown', function (event) {
+                if (event.key !== 'Escape') return;
+                lockedOpen = false;
+                setVisible(false);
+            });
+        }
+
+        function initRevealOnScroll() {
+            if (reduceMotionQuery.matches || !('IntersectionObserver' in window)) return;
+
+            const revealSelectors = [
+                '.section-band',
+                '.featured-section',
+                '.blog-card',
+                '.post-tools',
+                '.article-detail__content > *',
+                '.article-detail__footer',
+                '.journal-entry',
+                '.music-panel',
+                '.curated-inspirations'
+            ];
+
+            const targets = Array.prototype.slice.call(document.querySelectorAll(revealSelectors.join(',')));
+            if (!targets.length) return;
+
+            const observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                });
+            }, {
+                rootMargin: '0px 0px -8% 0px',
+                threshold: 0.12
+            });
+
+            targets.forEach(function (target, index) {
+                target.classList.add('reveal-on-scroll');
+                target.style.setProperty('--reveal-delay', Math.min(index % 5, 4) * 45 + 'ms');
+                observer.observe(target);
+            });
+        }
+
+        initStaffParallax();
+        initArticleTocHover();
+        initRevealOnScroll();
+
+        window.requestAnimationFrame(function () {
+            document.body.classList.add('is-loaded');
+        });
+    })();
+</script>
+
+</body>
+
+</html>
