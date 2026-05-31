@@ -7,7 +7,7 @@
 
 <link rel='canonical' href='https://Jul1en-Lin.github.io/p/reids-%E4%BA%8B%E5%8A%A1/'>
 
-<link rel="stylesheet" href="/scss/style.min.321bfd358a007a4995b0493085bf5c32f46a9ec2420bcf1b1f2eb8db9ed072f9.css"><meta property='og:title' content="Reids 事务 | Jul1en">
+<link rel="stylesheet" href="/scss/style.min.ec82946fda8d90cf1fb1835f4491c98e9279c2eae00a5622fe790c8a9ce86062.css"><meta property='og:title' content="Reids 事务 | Jul1en">
 <meta property='og:description' content="Reids 事务 核心意义 Redis 事务的主要作用，是把多条命令“打包”为一组，然后按照顺序执行。它解决的核心问题不是像 MySQL 那样提供完整的强事务能力，而是在执行这一组命令时，尽量避免其他客户端的命令插入到这组操作中间。">
 <meta property='og:url' content='https://Jul1en-Lin.github.io/p/reids-%E4%BA%8B%E5%8A%A1/'>
 <meta property='og:site_name' content='Jul1en'>
@@ -23,7 +23,7 @@
 <link rel="alternate icon" href="/favicon-signature.ico" type="image/x-icon">
 <meta name="author" content="Jul1en">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)"><script src="/js/custom.f16f2dd3fdc62f940b3efc65e1bbd81d50c8807e283f382d355d1de9a6280573.js" integrity="sha256-8W8t0/3GL5QLPvxl4bvYHVDIgH4oPzgtNV0d6aYoBXM=" defer></script><script>
+<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)"><script src="/js/custom.4bb4ca905d915217c671721b75f16ae60652e805c90c767a80a951f0dddeeb9c.js" integrity="sha256-S7TKkF2RUhfGcXIbdfFq5gZS6AXJDHZ6gKlR8N3e65w=" defer></script><script>
     (function () {
         const colorSchemeKey = 'StackColorScheme';
         const savedScheme = localStorage.getItem(colorSchemeKey);
@@ -542,7 +542,7 @@
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.836efe327773ba454adac61ee8b35272b6f512bd594ed9ea0f926fca8386433b.js" defer></script><script type="text/javascript" src="/ts/custom.f16f2dd3fdc62f940b3efc65e1bbd81d50c8807e283f382d355d1de9a6280573.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.836efe327773ba454adac61ee8b35272b6f512bd594ed9ea0f926fca8386433b.js" defer></script><script type="text/javascript" src="/ts/custom.4bb4ca905d915217c671721b75f16ae60652e805c90c767a80a951f0dddeeb9c.js" defer></script>
 
 
 <button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
@@ -768,13 +768,44 @@
                 '.featured-section',
                 '.blog-card',
                 '.post-tools',
-                '.article-detail__content > *',
+                '.article-detail__content > blockquote',
+                '.article-detail__content > .highlight',
+                '.article-detail__content > pre',
+                '.article-detail__content > .table-wrapper',
+                '.article-detail__content > figure',
+                '.article-detail__content > details',
+                '.article-detail__content > hr',
                 '.article-detail__footer',
                 '.music-album-card'
             ];
 
-            const targets = Array.prototype.slice.call(document.querySelectorAll(revealSelectors.join(',')));
-            if (!targets.length) return;
+            const targets = revealSelectors.reduce(function (items, selector) {
+                return items.concat(Array.prototype.slice.call(document.querySelectorAll(selector)));
+            }, []);
+
+            const imageBlocks = Array.prototype.slice.call(document.querySelectorAll('.article-detail__content > p')).filter(function (block) {
+                const children = Array.prototype.slice.call(block.children).filter(function (child) {
+                    return child.tagName !== 'BR';
+                });
+                const onlyChild = children[0];
+
+                return children.length === 1 && (
+                    onlyChild.tagName === 'IMG' ||
+                    onlyChild.classList.contains('gallery') ||
+                    (onlyChild.tagName === 'A' && onlyChild.querySelector('img'))
+                );
+            });
+
+            imageBlocks.forEach(function (block) {
+                if (!targets.includes(block)) targets.push(block);
+            });
+
+            const filteredTargets = targets.filter(function (target, index) {
+                if (target.tagName === 'PRE' && target.closest('.highlight')) return false;
+                return targets.indexOf(target) === index;
+            });
+
+            if (!filteredTargets.length) return;
 
             const observer = new IntersectionObserver(function (entries) {
                 entries.forEach(function (entry) {
@@ -783,13 +814,13 @@
                     observer.unobserve(entry.target);
                 });
             }, {
-                rootMargin: '0px 0px -8% 0px',
-                threshold: 0.12
+                rootMargin: '0px 0px -6% 0px',
+                threshold: 0.1
             });
 
-            targets.forEach(function (target, index) {
+            filteredTargets.forEach(function (target, index) {
                 target.classList.add('reveal-on-scroll');
-                target.style.setProperty('--reveal-delay', Math.min(index % 5, 4) * 45 + 'ms');
+                target.style.setProperty('--reveal-delay', Math.min(index % 4, 3) * 32 + 'ms');
                 observer.observe(target);
             });
         }
