@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>Jul1en</copyright>
-        <lastBuildDate>Tue, 02 Jun 2026 22:37:55 +0800</lastBuildDate><atom:link href="https://Jul1en-Lin.github.io/categories/redis/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 04 Jun 2026 17:21:53 +0800</lastBuildDate><atom:link href="https://Jul1en-Lin.github.io/categories/redis/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Docker 部署 Redis 集群</title>
         <link>https://Jul1en-Lin.github.io/p/docker-%E9%83%A8%E7%BD%B2-redis-%E9%9B%86%E7%BE%A4/</link>
         <pubDate>Mon, 01 Jun 2026 16:01:33 +0800</pubDate>
@@ -313,8 +313,6 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果槽位太少，每个分片能分到的槽位少，数据均衡性不容易保证，某些槽位可能有很多 key，某些槽位也可能没有 key。&lt;/p&gt;
 &lt;p&gt;如果槽位太多，节点之间通信的元数据会变大。因为 Redis 节点之间需要通过心跳包通信，心跳包中包含了该节点持有哪些 slots，这个是使用位图这样的数据结构表示的。如果槽位数量变成 &lt;code&gt;65536&lt;/code&gt;，位图就会变成 &lt;code&gt;8KB&lt;/code&gt;，虽然看着也不大，但是在这种频繁发送心跳包的场景里，网络带宽负担还是比较明显。&lt;/p&gt;
 &lt;p&gt;slots 通常会用位图表示：第 &lt;code&gt;i&lt;/code&gt; 位为 &lt;code&gt;1&lt;/code&gt;，表示这个节点持有第 &lt;code&gt;i&lt;/code&gt; 个槽位；第 &lt;code&gt;i&lt;/code&gt; 位为 &lt;code&gt;0&lt;/code&gt;，表示不持有。注意这里表示的是节点是否持有槽位，不是这个槽位里有没有 key。&lt;/p&gt;
-&lt;h2 id=&#34;总结&#34;&gt;总结
-&lt;/h2&gt;&lt;p&gt;Redis Cluster 的核心是分片。主从复制和哨兵主要解决可用性，集群模式进一步解决单机存储容量限制。&lt;/p&gt;
 &lt;h2 id=&#34;集群部署&#34;&gt;集群部署
 &lt;/h2&gt;&lt;p&gt;具体部署步骤单独整理到：&lt;a class=&#34;link&#34; href=&#34;https://Jul1en-Lin.github.io/p/docker-%E9%83%A8%E7%BD%B2-redis-%E9%9B%86%E7%BE%A4/&#34; &gt;Docker 部署 Redis 集群&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;部署集群后，可以通过 &lt;code&gt;docker-compose ps&lt;/code&gt; 命令来查看各个节点的状态
@@ -343,7 +341,7 @@
 &lt;h3 id=&#34;过程&#34;&gt;过程
 &lt;/h3&gt;&lt;h4 id=&#34;故障判定&#34;&gt;故障判定
 &lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;节点 A 给节点 B 发送 ping 包，B 就会给 A 返回一个 pong 包。 ping 和 pong 除了 message type 属性之外，其他部分都是一样的。这里包含了集群的配置信息（该节点的 id，该节点从属于哪个分片，是主节点还是从节点，从属于谁，持有哪些 slots 的位图……）&lt;/li&gt;
+&lt;li&gt;节点 A 给节点 B 发送 ping 包，B 就会给 A 返回一个 pong 包。ping 和 pong 除了 message type 属性之外，其他部分都是一样的。这里包含了集群的配置信息（该节点的 id，该节点从属于哪个分片，是主节点还是从节点，从属于谁，持有哪些 slots 的位图……）&lt;/li&gt;
 &lt;li&gt;每个节点，每秒钟，都会给一些随机的节点发起 ping 包，而不是全发一遍。这样设定是为了避免在节点很多的时候，心跳包也非常多（比如有 9 个节点，如果全发，就是 9 * 8 有 72 组心跳了，而且这是按照 N^2 这样的级别增长的）。&lt;/li&gt;
 &lt;li&gt;当节点 A 给节点 B 发起 ping 包，B 不能如期回应的时候，此时 A 就会尝试重置和 B 的 TCP 连接，看能否连接成功。如果仍然连接失败，A 就会把 B 设为 &lt;strong&gt;PFAIL 状态&lt;/strong&gt;（相当于主观下线）&lt;/li&gt;
 &lt;li&gt;A 判定 B 为 PFAIL 之后，会通过 Redis 内置的 Gossip 协议，和其他节点进行沟通，向其他节点确认 B 的状态。（每个节点都会维护自己的“下线列表”，由于视角不同，每个节点的下线列表也不一定相同）。&lt;/li&gt;
@@ -359,8 +357,50 @@
 &lt;li&gt;主节点就会把自己的票投给 C（每个主节点只有 1 票）。当 C 收到的票数超过主节点数目的一半，C 就会晋升成主节点（C 自己负责执行 &lt;code&gt;slaveof no one&lt;/code&gt;，并且让 D 执行 &lt;code&gt;slaveof C&lt;/code&gt;）。&lt;/li&gt;
 &lt;li&gt;同时，C 还会把自己成为主节点的消息，同步给其他集群的节点。大家也都会更新自己保存的集群结构信息。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;更多的时候，是为了选一个节点出来，至于选谁，没那么重要&lt;/p&gt;
-&lt;p&gt;所以你看，不同点在于：哨兵，是先竞选出 leader，leader 负责找一个从节点升级成主节点，&lt;strong&gt;这里是直接投票选出新的主节点&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;更多的时候，是为了选一个节点出来，至于选谁，没那么重要。所以你看，不同点在于：哨兵，是先竞选出 leader，leader 负责找一个从节点升级成主节点，&lt;strong&gt;这里是直接投票选出新的主节点&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;集群扩容&#34;&gt;集群扩容
+&lt;/h2&gt;&lt;h3 id=&#34;扩容主节点&#34;&gt;扩容主节点
+&lt;/h3&gt;&lt;p&gt;这里将 redis-10 作为主节点，redis-11 作为从节点。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 添加 redis-10 的地址（172.30.0.110:6379）到集群中的任意一个节点地址（172.30.0.101:6379）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;redis-cli --cluster add-node 172.30.0.110:6379 172.30.0.101:6379
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/redis-%E9%9B%86%E7%BE%A4/assets/cluster-add-master_hu_861718925a68abf2.webp&#34; width=&#34;1600&#34; height=&#34;1175&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/redis-%E9%9B%86%E7%BE%A4/assets/cluster-add-master_hu_1cdfb137dac848be.webp 800w, https://Jul1en-Lin.github.io/p/redis-%E9%9B%86%E7%BE%A4/assets/cluster-add-master_hu_861718925a68abf2.webp 1600w, https://Jul1en-Lin.github.io/p/redis-%E9%9B%86%E7%BE%A4/assets/cluster-add-master_hu_fac1bf8c3b56c184.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;Add redis10 as cluster master&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;136&#34; data-flex-basis=&#34;326px&#34;&gt;
+&lt;/p&gt;
+&lt;p&gt;添加成功后 &lt;code&gt;cluster nodes&lt;/code&gt; 查看 redis-10 已经作为主节点进入集群，但还未分配到 slots
+&lt;img src=&#34;https://Jul1en-Lin.github.io/p/redis-%E9%9B%86%E7%BE%A4/assets/cluster-new-master-no-slots_hu_4f93f4ae6c54a8c2.webp&#34; width=&#34;1600&#34; height=&#34;589&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/redis-%E9%9B%86%E7%BE%A4/assets/cluster-new-master-no-slots_hu_303ea656e8ad19fa.webp 800w, https://Jul1en-Lin.github.io/p/redis-%E9%9B%86%E7%BE%A4/assets/cluster-new-master-no-slots_hu_4f93f4ae6c54a8c2.webp 1600w, https://Jul1en-Lin.github.io/p/redis-%E9%9B%86%E7%BE%A4/assets/cluster-new-master-no-slots_hu_dda2bf3982bf7dd7.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;Redis10 joined with no slots&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;271&#34; data-flex-basis=&#34;651px&#34;&gt;
+
+&lt;strong&gt;重新分配 slots&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# reshard （重新切分）后的地址是集群中的任意节点地址&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;redis-cli --cluster reshard 172.30.0.101:6379
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;执行后会进行交互操作，具体有&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;选择多少个 slots 分配到该节点（原先有 3 个分片，现扩容至 4 分片，16384 slots 平均到一个分片为 4096）
+&lt;img src=&#34;https://Jul1en-Lin.github.io/p/redis-%E9%9B%86%E7%BE%A4/assets/cluster-reshard-slots-count_hu_ec9179da53455cf3.webp&#34; width=&#34;1600&#34; height=&#34;1419&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/redis-%E9%9B%86%E7%BE%A4/assets/cluster-reshard-slots-count_hu_ca48175150b08f2d.webp 800w, https://Jul1en-Lin.github.io/p/redis-%E9%9B%86%E7%BE%A4/assets/cluster-reshard-slots-count_hu_ec9179da53455cf3.webp 1600w, https://Jul1en-Lin.github.io/p/redis-%E9%9B%86%E7%BE%A4/assets/cluster-reshard-slots-count_hu_675220c4bfc1bd1f.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;Choose reshard slot count&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;112&#34; data-flex-basis=&#34;270px&#34;&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;选择将 slots 转移到哪个节点上（此处填写节点的 id，如图）
+&lt;img src=&#34;https://Jul1en-Lin.github.io/p/redis-%E9%9B%86%E7%BE%A4/assets/cluster-reshard-target-node_hu_9aaac0e5a4585fec.webp&#34; width=&#34;1600&#34; height=&#34;1366&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/redis-%E9%9B%86%E7%BE%A4/assets/cluster-reshard-target-node_hu_795f72a8897a3c2a.webp 800w, https://Jul1en-Lin.github.io/p/redis-%E9%9B%86%E7%BE%A4/assets/cluster-reshard-target-node_hu_9aaac0e5a4585fec.webp 1600w, https://Jul1en-Lin.github.io/p/redis-%E9%9B%86%E7%BE%A4/assets/cluster-reshard-target-node_hu_a2a69713788a0325.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;Choose reshard target node&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;117&#34; data-flex-basis=&#34;281px&#34;&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;这些 slots 从哪些节点搬运过来（all 表示每个主节点都搬一点，若选择 done 则需手动填写主节点 id）
+&lt;img src=&#34;https://Jul1en-Lin.github.io/p/redis-%E9%9B%86%E7%BE%A4/assets/cluster-reshard-source-nodes_hu_e09d9675efbb19f0.webp&#34; width=&#34;1600&#34; height=&#34;251&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/redis-%E9%9B%86%E7%BE%A4/assets/cluster-reshard-source-nodes_hu_e8f66041a674d01c.webp 800w, https://Jul1en-Lin.github.io/p/redis-%E9%9B%86%E7%BE%A4/assets/cluster-reshard-source-nodes_hu_e09d9675efbb19f0.webp 1600w, https://Jul1en-Lin.github.io/p/redis-%E9%9B%86%E7%BE%A4/assets/cluster-reshard-source-nodes_hu_7bb90892296414ab.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;Choose reshard source nodes&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;637&#34; data-flex-basis=&#34;1530px&#34;&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;确定之后，会初步打印出搬运方案，让用户确认，之后就会进行集群的 key 搬运工作，主节点就配置好了&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;扩容从节点&#34;&gt;扩容从节点
+&lt;/h3&gt;&lt;p&gt;仅需一行命令&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 添加 redis-11（172.30.0.111:6379）到集群中（集群任意一个节点地址）作为从节点 （--cluster-slave），后跟上要跟随的主节点 id&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;redis-cli --cluster add-node 172.30.0.111:6379 172.30.0.101:6379 --cluster-slave --cluster-master-id &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;172.30.0.110 节点的 nodeId（主节点 id）&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;执行完毕后，从节点就已经被添加完成了，可见 &lt;strong&gt;redis-10 占了其他三个分片的部分 slots&lt;/strong&gt;，redis-11 也成功成为了 redis-10 的从节点
+&lt;img src=&#34;https://Jul1en-Lin.github.io/p/redis-%E9%9B%86%E7%BE%A4/assets/cluster-add-replica-result_hu_fac9cd3ff739230.webp&#34; width=&#34;1600&#34; height=&#34;877&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/redis-%E9%9B%86%E7%BE%A4/assets/cluster-add-replica-result_hu_260572166d4e2833.webp 800w, https://Jul1en-Lin.github.io/p/redis-%E9%9B%86%E7%BE%A4/assets/cluster-add-replica-result_hu_fac9cd3ff739230.webp 1600w, https://Jul1en-Lin.github.io/p/redis-%E9%9B%86%E7%BE%A4/assets/cluster-add-replica-result_hu_b8f88894fd424bcd.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;Redis10 slots and redis11 replica result&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;182&#34; data-flex-basis=&#34;437px&#34;&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;总结&#34;&gt;总结
+&lt;/h2&gt;&lt;p&gt;Redis Cluster 的核心是分片。主从复制和哨兵主要解决可用性，集群模式进一步解决单机存储容量限制。部署后可以通过 &lt;code&gt;redis-cli -c&lt;/code&gt; 让客户端自动跟随槽位跳转；扩容时则先添加主节点，再通过 reshard 分配 slots，最后把新从节点挂到对应主节点下面。&lt;/p&gt;
 </description>
         </item>
         <item>
