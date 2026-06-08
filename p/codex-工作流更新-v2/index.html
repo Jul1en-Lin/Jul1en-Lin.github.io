@@ -1,43 +1,49 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
+<html lang="zh-CN" dir="ltr">
 
-<head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="整理 Codex、Claude Code 和其他 Agent 的项目初始化入口，把 setup-light、setup-full、AGENTS.md、CLAUDE.md 与 checkpoint 工作流拆清楚。">
-<title>Codex 工作流更新-v2 | Jul1en</title>
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Codex 工作流更新-v2 | Jul1en</title>
+<meta name="description" content="整理 Codex、Claude Code 和其他 Agent 的项目初始化入口，把 setup-light、setup-full、AGENTS.md、CLAUDE.md 与 checkpoint 工作流拆清楚。">
+<meta name="author" content="Jul1en">
+<link rel="canonical" href="https://Jul1en-Lin.github.io/p/codex-%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%9B%B4%E6%96%B0-v2/">
 
-<link rel='canonical' href='https://Jul1en-Lin.github.io/p/codex-%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%9B%B4%E6%96%B0-v2/'>
-
-<link rel="stylesheet" href="/scss/style.min.ec82946fda8d90cf1fb1835f4491c98e9279c2eae00a5622fe790c8a9ce86062.css"><meta property='og:title' content="Codex 工作流更新-v2 | Jul1en">
-<meta property='og:description' content="整理 Codex、Claude Code 和其他 Agent 的项目初始化入口，把 setup-light、setup-full、AGENTS.md、CLAUDE.md 与 checkpoint 工作流拆清楚。">
-<meta property='og:url' content='https://Jul1en-Lin.github.io/p/codex-%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%9B%B4%E6%96%B0-v2/'>
-<meta property='og:site_name' content='Jul1en'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Codex' /><meta property='article:tag' content='AI' /><meta property='article:tag' content='工作流' /><meta property='article:published_time' content='2026-05-30T00:00:00&#43;08:00'/><meta property='article:modified_time' content='2026-05-31T16:35:35&#43;08:00'/>
-<meta name="twitter:title" content="Codex 工作流更新-v2 | Jul1en">
-<meta name="twitter:description" content="整理 Codex、Claude Code 和其他 Agent 的项目初始化入口，把 setup-light、setup-full、AGENTS.md、CLAUDE.md 与 checkpoint 工作流拆清楚。">
-    <link rel="shortcut icon" href="/favicon-signature.svg" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="icon" href="/favicon-signature.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-signature.png" type="image/png" sizes="512x512">
-<link rel="alternate icon" href="/favicon-signature.ico" type="image/x-icon">
-<meta name="author" content="Jul1en">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)"><script src="/js/custom.4bb4ca905d915217c671721b75f16ae60652e805c90c767a80a951f0dddeeb9c.js" integrity="sha256-S7TKkF2RUhfGcXIbdfFq5gZS6AXJDHZ6gKlR8N3e65w=" defer></script><script>
+<link rel="alternate icon" href="/favicon.ico" type="image/x-icon">
+<meta name="theme-color" content="#fdfdf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Codex 工作流更新-v2 | Jul1en">
+<meta property="og:description" content="整理 Codex、Claude Code 和其他 Agent 的项目初始化入口，把 setup-light、setup-full、AGENTS.md、CLAUDE.md 与 checkpoint 工作流拆清楚。">
+<meta property="og:url" content="https://Jul1en-Lin.github.io/p/codex-%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%9B%B4%E6%96%B0-v2/">
+<meta property="og:site_name" content="Jul1en">
+<meta property="og:type" content="article">
+<meta property="article:section" content="Post">
+<meta property="article:tag" content="Codex">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="工作流">
+<meta property="article:published_time" content="2026-05-30T00:00:00&#43;08:00">
+<meta property="article:modified_time" content="2026-05-31T16:35:35&#43;08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Codex 工作流更新-v2 | Jul1en">
+<meta name="twitter:description" content="整理 Codex、Claude Code 和其他 Agent 的项目初始化入口，把 setup-light、setup-full、AGENTS.md、CLAUDE.md 与 checkpoint 工作流拆清楚。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"><script>
     (function () {
-        const colorSchemeKey = 'StackColorScheme';
-        const savedScheme = localStorage.getItem(colorSchemeKey);
-        const defaultScheme = "light";
-        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
-        const scheme = savedScheme || defaultScheme;
-
-        if (scheme === 'dark' || (scheme === 'auto' && supportDarkMode)) {
-            document.documentElement.dataset.scheme = 'dark';
-        } else {
-            document.documentElement.dataset.scheme = 'light';
+        var stored = null;
+        try {
+            stored = window.localStorage.getItem('ColorScheme');
+        } catch (error) {
+            stored = null;
         }
+
+        var scheme = stored;
+        if (scheme !== 'light' && scheme !== 'dark') {
+            scheme = "light";
+        }
+        document.documentElement.dataset.scheme = scheme;
     })();
-</script>
+</script><link rel="stylesheet" href="/css/site.min.0758d8aad30f198f851a02b8c6494f637bd95774b2fd6b2f576cf99133b942f8.css" integrity="sha256-B1jYqtMPGY&#43;FGgK4xklPY3vZV3Sy/WsvV2z5kTO5Qvg="><script src="/js/site.51f8655227b5fb12b2585c2985e20ec3e93192ca19774662d732d2a0bcb492f0.js" integrity="sha256-UfhlUie1&#43;xKyWFwpheIOw&#43;kxksoZd0Zi1zLSoLy0kvA=" defer></script>
 
 </head>
 
@@ -93,7 +99,7 @@
   <path fill="currentColor" d="M17.2 7.2a.9.9 0 1 1-1.8 0 .9.9 0 0 1 1.8 0Z" />
 </svg>
 </span>
-                    </a><button id="dark-mode-toggle" class="theme-toggle" type="button" aria-label="暗色模式" title="暗色模式">
+                    </a><button id="dark-mode-toggle" class="theme-toggle" type="button" aria-label="切换配色" title="切换配色">
                     <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
     <circle cx="12" cy="12" r="4.2" />
     <path d="M12 2.8v2.2M12 19v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.8 12h2.2M19 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" />
@@ -167,14 +173,19 @@
 
             <section class="article-content article-detail__content">
                 <blockquote>
-<p>相关博客：<a class="link" href="/p/claude-%E8%BF%81%E7%A7%BB-codex-%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%9B%B4%E6%96%B0/" >Claude 迁移 Codex 工作流更新</a></p>
+<p>相关博客：<a class="link" href="/p/claude-%E8%BF%81%E7%A7%BB-codex-%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%9B%B4%E6%96%B0/">Claude 迁移 Codex 工作流更新</a>
+</p>
 </blockquote>
-<h2 id="背景">背景
-</h2><p>这次主要是在整理 Codex / Claude Code / 其他 Agent 之间的项目初始化工作流。
+<h2 id="背景">
+    背景
+</h2>
+<p>这次主要是在整理 Codex / Claude Code / 其他 Agent 之间的项目初始化工作流。
 之前有两个入口，一个是偏 Claude 的 <code>setup</code>，主要维护 <code>CLAUDE.md</code>；另一个是偏 Codex 的 <code>codex-agents-init</code>，主要维护 <code>AGENTS.md</code>。刚开始看起来只是名字不同，但实际用的时候会发现，这两个入口很容易记混，而且 Agent 自己也不一定能稳定判断当前到底运行在 Claude Code、Codex，还是其他兼容环境里。</p>
 <p>所以这次调整的重点在于统一入口：以后都走 <code>setup</code> 系列，只是根据项目复杂度分成 <code>setup-light</code> 和 <code>setup-full</code>。</p>
-<h2 id="优化">优化
-</h2><p>最后没有继续保留默认 <code>setup</code>，也不再使用 <code>codex-agents-init</code> 这个名字，而是拆成两个更明确的入口：<code>setup-light</code> 和 <code>setup-full</code>。
+<h2 id="优化">
+    优化
+</h2>
+<p>最后没有继续保留默认 <code>setup</code>，也不再使用 <code>codex-agents-init</code> 这个名字，而是拆成两个更明确的入口：<code>setup-light</code> 和 <code>setup-full</code>。
 <code>setup-light</code> 保留做小项目、脚本、demo、短期实验，只保留最基本的项目状态和 Agent 工作流记录：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">.
 </span></span><span class="line"><span class="cl">├── AGENTS.md
@@ -196,19 +207,25 @@
 </span></span><span class="line"><span class="cl">    ├── agent_workflow.md
 </span></span><span class="line"><span class="cl">    └── bugs/
 </span></span></code></pre></div><p>这里比较重要的是 <code>AGENTS.md</code> 和 <code>CLAUDE.md</code> 的关系。Codex 原生读取 <code>AGENTS.md</code>，Claude Code 则通过 <code>CLAUDE.md</code> 里的 <code>@AGENTS.md</code> 间接读取同一份规则。也就是说真正维护的只有 <code>AGENTS.md</code>，<code>CLAUDE.md</code> 只是桥接文件，避免两边各写一套规则，后面越改越不一致。</p>
-<h2 id="setup-现在负责什么">setup 现在负责什么
-</h2><p>新的 setup 系列不再只服务 Claude，而是作为通用的项目初始化入口。它会创建或更新 <code>AGENTS.md</code>，写入 <code>CLAUDE.md</code> 的桥接内容，按 light / full 创建对应的 <code>docs/</code> 文件，同时迁移旧的 <code>codex-long-term-docs</code> block，移除旧的 <code>claude-long-term-docs</code> block。</p>
+<h2 id="setup-现在负责什么">
+    setup 现在负责什么
+</h2>
+<p>新的 setup 系列不再只服务 Claude，而是作为通用的项目初始化入口。它会创建或更新 <code>AGENTS.md</code>，写入 <code>CLAUDE.md</code> 的桥接内容，按 light / full 创建对应的 <code>docs/</code> 文件，同时迁移旧的 <code>codex-long-term-docs</code> block，移除旧的 <code>claude-long-term-docs</code> block。</p>
 <p>这里需要注意的是，它只替换 managed block，不会整文件覆盖。已经存在的用户规则、已有的 docs 文件，都应该保留下来。<code>setup-light</code> 实际调用的是 <code>--profile light</code>，<code>setup-full</code> 调用的是 <code>--profile full</code>。</p>
 <p><code>codex-agents-init</code> 目录已经删掉了，主要是避免以后又出现两个入口。后续如果继续改初始化逻辑，优先改 <code>setup-light</code> / <code>setup-full</code> 的 skill，尽量不要重新造一个新名字。</p>
-<h2 id="agentsmd-的定位">AGENTS.md 的定位
-</h2><p>这次我不想让 <code>AGENTS.md</code> 变成一份很长的操作手册。它应该告诉 Agent 必须遵守什么，以及更详细的 workflow 去哪里读。checkpoint、commit、bug、handoff 的细节步骤，放到 <code>docs/agent_workflow.md</code> 会更合适。</p>
+<h2 id="agentsmd-的定位">
+    AGENTS.md 的定位
+</h2>
+<p>这次我不想让 <code>AGENTS.md</code> 变成一份很长的操作手册。它应该告诉 Agent 必须遵守什么，以及更详细的 workflow 去哪里读。checkpoint、commit、bug、handoff 的细节步骤，放到 <code>docs/agent_workflow.md</code> 会更合适。</p>
 <p>所以 <code>AGENTS.md</code> 里保留的是文件职责：<code>docs/brainstorm.md</code> 是想法池，不能当最终需求；<code>docs/project_spec.md</code> 是产品行为的事实来源；<code>docs/architecture.md</code> 是系统设计和模块边界；<code>docs/project_status.md</code> 记录当前里程碑、进度、阻塞和下一步；<code>docs/changelog.md</code> 记录有意义的用户可见或开发可见变化；<code>docs/decisions.md</code> 记录重要技术决策；复杂 bug 则先进入 <code>docs/bugs/</code> 做研究报告。</p>
 <p>这次新增了一条比较关键的规则：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Before any git commit, check whether the change requires a checkpoint.
 </span></span></code></pre></div><p>意思是提交前不能只想着 <code>git commit</code>，要先判断这次改动会不会影响项目长期记忆。如果影响产品行为、架构、依赖、项目进度、阻塞、下一步，或者涉及长时间任务交接，就要先更新相关 docs。</p>
 <p>具体的 checkpoint / commit / bug / handoff 流程则放到 <code>docs/agent_workflow.md</code>。这样 <code>AGENTS.md</code> 不会越来越长，Agent 真要执行的时候也有地方继续读。</p>
-<h2 id="checkpoint-的作用">checkpoint 的作用
-</h2><p>之前的 <code>/update-docs-and-commit</code> 是有用的，因为它能让 AI 长时间自主工作时留下一个项目状态记录。但是这个命令是会在每次提交都会更新文档，对小项目来说没问题，但是对于一些长期的项目，还需要进一步的优化。</p>
+<h2 id="checkpoint-的作用">
+    checkpoint 的作用
+</h2>
+<p>之前的 <code>/update-docs-and-commit</code> 是有用的，因为它能让 AI 长时间自主工作时留下一个项目状态记录。但是这个命令是会在每次提交都会更新文档，对小项目来说没问题，但是对于一些长期的项目，还需要进一步的优化。</p>
 <p>所以后面改成 <code>/checkpoint</code>。</p>
 <p><code>/checkpoint</code> 的逻辑是：先读当前项目记忆，优先看 <code>docs/agent_workflow.md</code>，再看 <code>git status</code> 和 diff，判断这次状态是否值得长期保存。如果值得保存，就更新 <code>docs/project_status.md</code>，按需更新 <code>docs/changelog.md</code>、<code>docs/decisions.md</code>，复杂问题则补 <code>docs/bugs/</code> 报告，最后再 commit 一次作为恢复点。</p>
 <p>它的作用更偏向状态判断：让 AI 在一个任务阶段结束时判断，现在这个状态以后还需不需要恢复。如果只是普通小改动，可以正常提交；但如果这次改动影响行为、架构、依赖、进度、阻塞、交接上下文或未解决风险，就应该先 checkpoint。我觉得 AI 能力越强，对它的 Hermes 应该适当放宽一些，让 AI 自主决定提交～</p>
@@ -217,8 +234,10 @@
 </span></span><span class="line"><span class="cl">Commit only the checkpoint-relevant files and current work.
 </span></span><span class="line"><span class="cl">Do not push unless the user explicitly asks or the current task grants push/publish authorization.
 </span></span></code></pre></div><p>这里默认不 push。这样可以让 AI 自主维护状态，但不会未经授权把内容发布出去。</p>
-<h2 id="setup-skill-排版重构">setup skill 排版重构
-</h2><p>后来又对 <code>setup-light</code> 和 <code>setup-full</code> 的 <code>SKILL.md</code> 做了一次排版重构。</p>
+<h2 id="setup-skill-排版重构">
+    setup skill 排版重构
+</h2>
+<p>后来又对 <code>setup-light</code> 和 <code>setup-full</code> 的 <code>SKILL.md</code> 做了一次排版重构。</p>
 <p>之前的问题是模板内容太靠前，Agent 一进来先看到一大段生成内容，反而不容易立刻知道自己应该怎么执行。后面改成先说明 profile 和事实来源，再写执行流程和安全规则，最后才放模板。</p>
 <p>新的主结构是：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Profile
@@ -229,8 +248,10 @@
 </span></span><span class="line"><span class="cl">Managed Block
 </span></span></code></pre></div><p>这样做的好处是，<code>Profile</code> 先告诉 Agent light / full 分别适合什么项目；<code>Sources Of Truth</code> 明确 <code>AGENTS.md</code>、<code>CLAUDE.md</code>、<code>SKILL.md</code> 的职责；<code>Workflow</code> 放在前面，Agent 不需要先读完大段模板；<code>Safety Rules</code> 提前强调不能覆盖用户已有内容、不能自动 commit、不能做无关修改。</p>
 <p><code>Minimal Templates</code> 和 <code>Managed Block</code> 继续保留在 <code>SKILL.md</code> 中，脚本仍然从 skill 中抽取模板和 managed block。这样以后只需要改 skill，就能更新生成结果，不需要在脚本里再重复维护一份模板。</p>
-<h2 id="复盘">复盘
-</h2><p>这次更新的核心是把工作流拆清楚。初始化规则交给 <code>setup-light</code> 和 <code>setup-full</code>，长期项目记忆放进 <code>AGENTS.md</code> 和 <code>docs/</code>，Claude Code 通过 <code>@AGENTS.md</code> 复用同一套规则，细流程放进 <code>docs/agent_workflow.md</code>，长时间自主工作再靠 <code>/checkpoint</code> 建立恢复点。</p>
+<h2 id="复盘">
+    复盘
+</h2>
+<p>这次更新的核心是把工作流拆清楚。初始化规则交给 <code>setup-light</code> 和 <code>setup-full</code>，长期项目记忆放进 <code>AGENTS.md</code> 和 <code>docs/</code>，Claude Code 通过 <code>@AGENTS.md</code> 复用同一套规则，细流程放进 <code>docs/agent_workflow.md</code>，长时间自主工作再靠 <code>/checkpoint</code> 建立恢复点。</p>
 <p>我觉得这里比较重要的一点是：<code>AGENTS.md</code> 只负责放最核心的规则和文件职责，尽量精简，如果需要更详细的说明可给出对应文件的索引，让 AI 按需寻找。比如一开始我规定 <code>AGENTS.md</code> 里放着具体的 workflow 流程，具体到每一步都写上去了，那我们就可以将这些具体步骤放到 <code>docs/agent_workflow.md</code>，在 <code>AGENTS.md</code> 中只需给出对应的文档索引，模型就会去主动找，这样后面维护起来更清楚。</p>
 <p>这次还有一个经验：工作流本身也可以让 AI 参与 review，减少一次性拍定方案的风险。最开始只是想合并 Claude 和 Codex 的初始化入口，后来让 AI 从批判角度检查，发现 <code>AGENTS.md</code> 承载了太多流程说明；再继续拆流程，又发现小项目不需要完整 docs，所以才拆成 light 和 full；最后又发现脚本不应该重复维护大量模板内容，于是改成从 <code>SKILL.md</code> 里抽取模板。</p>
 
@@ -256,389 +277,11 @@
     </div>
 </article>
 
-
-
-
-
-
-
-
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-    
-    <div class="pswp__bg"></div>
-
-    
-    <div class="pswp__scroll-wrap">
-
-        
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                
-                
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
-                defer
-                >
-            </script><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
-                defer
-                >
-            </script><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
-            ><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
-            >
-
-    </main>
-
-    <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
-                
-                >
-            </script><script type="text/javascript" src="/ts/main.836efe327773ba454adac61ee8b35272b6f512bd594ed9ea0f926fca8386433b.js" defer></script><script type="text/javascript" src="/ts/custom.4bb4ca905d915217c671721b75f16ae60652e805c90c767a80a951f0dddeeb9c.js" defer></script>
-
-
-<button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
+    </main><button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M6 14.5 12 8l6 6.5" />
+        <path d="M6 14.5 12 8l6 6.5"></path>
     </svg>
 </button>
-
-<script>
-    (function () {
-        'use strict';
-
-        const menuToggle = document.querySelector('.site-menu-toggle');
-        const nav = document.getElementById('primary-navigation');
-        const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-        function initThemeToggle() {
-            const toggle = document.getElementById('dark-mode-toggle');
-            if (!toggle || toggle.dataset.projectThemeToggleReady === 'true') return;
-
-            toggle.dataset.projectThemeToggleReady = 'true';
-
-            function getCurrentScheme() {
-                return document.documentElement.dataset.scheme === 'dark' ? 'dark' : 'light';
-            }
-
-            function getSystemScheme() {
-                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-            }
-
-            function saveScheme(scheme) {
-                try {
-                    window.localStorage.setItem('StackColorScheme', scheme === getSystemScheme() ? 'auto' : scheme);
-                } catch (error) {
-                    return;
-                }
-            }
-
-            function applyScheme(scheme) {
-                document.documentElement.dataset.scheme = scheme;
-                saveScheme(scheme);
-                window.dispatchEvent(new CustomEvent('onColorSchemeChange', { detail: scheme }));
-            }
-
-            toggle.addEventListener('click', function (event) {
-                event.preventDefault();
-                event.stopImmediatePropagation();
-
-                const x = event.clientX;
-                const y = event.clientY;
-                const willBeDark = getCurrentScheme() !== 'dark';
-                const nextScheme = willBeDark ? 'dark' : 'light';
-                const endRadius = Math.hypot(
-                    Math.max(x, window.innerWidth - x),
-                    Math.max(y, window.innerHeight - y)
-                );
-
-                if (!document.startViewTransition) {
-                    applyScheme(nextScheme);
-                    return;
-                }
-
-                const transition = document.startViewTransition(function () {
-                    applyScheme(nextScheme);
-                });
-
-                transition.ready.then(function () {
-                    const clipPath = willBeDark
-                        ? [`circle(${endRadius}px at ${x}px ${y}px)`, `circle(0px at ${x}px ${y}px)`]
-                        : [`circle(0px at ${x}px ${y}px)`, `circle(${endRadius}px at ${x}px ${y}px)`];
-
-                    document.documentElement.animate(
-                        { clipPath },
-                        {
-                            duration: 500,
-                            easing: 'ease-in-out',
-                            fill: 'forwards',
-                            pseudoElement: willBeDark
-                                ? '::view-transition-old(root)'
-                                : '::view-transition-new(root)'
-                        }
-                    );
-                });
-            }, { capture: true });
-        }
-
-        function setMenuOpen(open) {
-            if (!menuToggle || !nav) return;
-            menuToggle.classList.toggle('is-open', open);
-            nav.classList.toggle('is-open', open);
-            document.body.classList.toggle('site-nav-open', open);
-            menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        }
-
-        if (menuToggle && nav) {
-            menuToggle.addEventListener('click', function (event) {
-                event.stopPropagation();
-                setMenuOpen(!nav.classList.contains('is-open'));
-            });
-
-            nav.querySelectorAll('a').forEach(function (link) {
-                link.addEventListener('click', function () {
-                    setMenuOpen(false);
-                });
-            });
-
-            document.addEventListener('keydown', function (event) {
-                if (event.key === 'Escape') setMenuOpen(false);
-            });
-
-            document.addEventListener('click', function (event) {
-                if (!document.body.classList.contains('site-nav-open')) return;
-                if (nav.contains(event.target) || menuToggle.contains(event.target)) return;
-                setMenuOpen(false);
-            });
-
-            const desktopQuery = window.matchMedia('(min-width: 921px)');
-            const closeMenuOnDesktop = function (event) {
-                if (event.matches) setMenuOpen(false);
-            };
-
-            if (desktopQuery.addEventListener) {
-                desktopQuery.addEventListener('change', closeMenuOnDesktop);
-            } else if (desktopQuery.addListener) {
-                desktopQuery.addListener(closeMenuOnDesktop);
-            }
-        }
-
-        const backToTop = document.getElementById('back-to-top');
-
-        if (backToTop) {
-            function updateBackToTop() {
-                backToTop.classList.toggle('is-visible', window.scrollY > 420);
-            }
-
-            backToTop.addEventListener('click', function () {
-                window.scrollTo({ top: 0, behavior: reduceMotionQuery.matches ? 'auto' : 'smooth' });
-            });
-
-            window.addEventListener('scroll', updateBackToTop, { passive: true });
-            updateBackToTop();
-        }
-
-        function initArticleTocHover() {
-            const toc = document.querySelector('[data-article-toc]');
-            const articleMain = document.querySelector('.article-detail__main');
-            if (!toc || !articleMain) return;
-
-            const toggle = toc.querySelector('[data-article-toc-toggle]');
-            let lockedOpen = false;
-
-            function setVisible(visible) {
-                document.body.classList.toggle('is-article-toc-visible', visible);
-                if (toggle) {
-                    toggle.setAttribute('aria-expanded', visible ? 'true' : 'false');
-                    toggle.setAttribute('aria-label', visible ? '隐藏文章目录' : '显示文章目录');
-                }
-            }
-
-            function getLeftRevealZone() {
-                return Math.min(380, Math.max(280, window.innerWidth * 0.22));
-            }
-
-            function isInsideReadingColumn(x, y) {
-                const rect = articleMain.getBoundingClientRect();
-                const top = Math.min(rect.top, 0) - 48;
-                const bottom = Math.max(rect.bottom, window.innerHeight) + 48;
-
-                return x >= rect.left - 72 && x <= rect.right + 32 && y >= top && y <= bottom;
-            }
-
-            document.addEventListener('pointermove', function (event) {
-                if (lockedOpen) return;
-                setVisible(event.clientX <= getLeftRevealZone() || isInsideReadingColumn(event.clientX, event.clientY));
-            }, { passive: true });
-
-            document.addEventListener('pointerleave', function () {
-                if (!lockedOpen) setVisible(false);
-            });
-
-            toc.addEventListener('focusin', function () {
-                setVisible(true);
-            });
-
-            toc.addEventListener('focusout', function (event) {
-                if (lockedOpen || toc.contains(event.relatedTarget)) return;
-                setVisible(false);
-            });
-
-            if (toggle) {
-                toggle.addEventListener('click', function () {
-                    const isVisible = document.body.classList.contains('is-article-toc-visible');
-                    if (lockedOpen && isVisible) {
-                        lockedOpen = false;
-                        setVisible(false);
-                        return;
-                    }
-
-                    lockedOpen = true;
-                    setVisible(true);
-                });
-            }
-
-            document.addEventListener('click', function (event) {
-                if (!lockedOpen) return;
-                if (toc.contains(event.target) || articleMain.contains(event.target)) return;
-                lockedOpen = false;
-                setVisible(false);
-            });
-
-            document.addEventListener('keydown', function (event) {
-                if (event.key !== 'Escape') return;
-                lockedOpen = false;
-                setVisible(false);
-            });
-        }
-
-        function initRevealOnScroll() {
-            if (reduceMotionQuery.matches || !('IntersectionObserver' in window)) return;
-
-            const revealSelectors = [
-                '.section-band',
-                '.featured-section',
-                '.blog-card',
-                '.post-tools',
-                '.article-detail__content > blockquote',
-                '.article-detail__content > .highlight',
-                '.article-detail__content > pre',
-                '.article-detail__content > .table-wrapper',
-                '.article-detail__content > figure',
-                '.article-detail__content > details',
-                '.article-detail__content > hr',
-                '.article-detail__footer',
-                '.music-album-card'
-            ];
-
-            const targets = revealSelectors.reduce(function (items, selector) {
-                return items.concat(Array.prototype.slice.call(document.querySelectorAll(selector)));
-            }, []);
-
-            const imageBlocks = Array.prototype.slice.call(document.querySelectorAll('.article-detail__content > p')).filter(function (block) {
-                const children = Array.prototype.slice.call(block.children).filter(function (child) {
-                    return child.tagName !== 'BR';
-                });
-                const onlyChild = children[0];
-
-                return children.length === 1 && (
-                    onlyChild.tagName === 'IMG' ||
-                    onlyChild.classList.contains('gallery') ||
-                    (onlyChild.tagName === 'A' && onlyChild.querySelector('img'))
-                );
-            });
-
-            imageBlocks.forEach(function (block) {
-                if (!targets.includes(block)) targets.push(block);
-            });
-
-            const filteredTargets = targets.filter(function (target, index) {
-                if (target.tagName === 'PRE' && target.closest('.highlight')) return false;
-                return targets.indexOf(target) === index;
-            });
-
-            if (!filteredTargets.length) return;
-
-            const observer = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (!entry.isIntersecting) return;
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                });
-            }, {
-                rootMargin: '0px 0px -6% 0px',
-                threshold: 0.1
-            });
-
-            filteredTargets.forEach(function (target, index) {
-                target.classList.add('reveal-on-scroll');
-                target.style.setProperty('--reveal-delay', Math.min(index % 4, 3) * 32 + 'ms');
-                observer.observe(target);
-            });
-        }
-
-        initThemeToggle();
-        initArticleTocHover();
-        initRevealOnScroll();
-
-        window.requestAnimationFrame(function () {
-            document.body.classList.add('is-loaded');
-        });
-    })();
-</script>
-
 </body>
 
 </html>

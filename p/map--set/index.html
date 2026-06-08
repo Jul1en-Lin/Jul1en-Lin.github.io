@@ -1,43 +1,46 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
+<html lang="zh-CN" dir="ltr">
 
-<head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Map &amp;amp; Set #搜索树# 概念 二叉搜索树/二叉排序树，满足以下性质 若左树不为空，则左树上所有节点的值都小于父节点的值 若右树不为空，则右树上所有节点的值都大于父节点的值 它的左右子树也满足以上性质">
-<title>Map &amp; Set | Jul1en</title>
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Map &amp; Set | Jul1en</title>
+<meta name="description" content="Map &amp;amp; Set #搜索树# 概念 二叉搜索树/二叉排序树，满足以下性质 若左树不为空，则左树上所有节点的值都小于父节点的值 若右树不为空，则右树上所有节点的值都大于父节点的值 它的左右子树也满足以上性质">
+<meta name="author" content="Jul1en">
+<link rel="canonical" href="https://Jul1en-Lin.github.io/p/map--set/">
 
-<link rel='canonical' href='https://Jul1en-Lin.github.io/p/map--set/'>
-
-<link rel="stylesheet" href="/scss/style.min.ec82946fda8d90cf1fb1835f4491c98e9279c2eae00a5622fe790c8a9ce86062.css"><meta property='og:title' content="Map & Set | Jul1en">
-<meta property='og:description' content="Map &amp;amp; Set #搜索树# 概念 二叉搜索树/二叉排序树，满足以下性质 若左树不为空，则左树上所有节点的值都小于父节点的值 若右树不为空，则右树上所有节点的值都大于父节点的值 它的左右子树也满足以上性质">
-<meta property='og:url' content='https://Jul1en-Lin.github.io/p/map--set/'>
-<meta property='og:site_name' content='Jul1en'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-05-19T13:26:18&#43;00:00'/><meta property='article:modified_time' content='2026-04-27T22:00:12&#43;08:00'/>
-<meta name="twitter:title" content="Map & Set | Jul1en">
-<meta name="twitter:description" content="Map &amp;amp; Set #搜索树# 概念 二叉搜索树/二叉排序树，满足以下性质 若左树不为空，则左树上所有节点的值都小于父节点的值 若右树不为空，则右树上所有节点的值都大于父节点的值 它的左右子树也满足以上性质">
-    <link rel="shortcut icon" href="/favicon-signature.svg" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="icon" href="/favicon-signature.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-signature.png" type="image/png" sizes="512x512">
-<link rel="alternate icon" href="/favicon-signature.ico" type="image/x-icon">
-<meta name="author" content="Jul1en">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)"><script src="/js/custom.4bb4ca905d915217c671721b75f16ae60652e805c90c767a80a951f0dddeeb9c.js" integrity="sha256-S7TKkF2RUhfGcXIbdfFq5gZS6AXJDHZ6gKlR8N3e65w=" defer></script><script>
+<link rel="alternate icon" href="/favicon.ico" type="image/x-icon">
+<meta name="theme-color" content="#fdfdf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Map &amp; Set | Jul1en">
+<meta property="og:description" content="Map &amp;amp; Set #搜索树# 概念 二叉搜索树/二叉排序树，满足以下性质 若左树不为空，则左树上所有节点的值都小于父节点的值 若右树不为空，则右树上所有节点的值都大于父节点的值 它的左右子树也满足以上性质">
+<meta property="og:url" content="https://Jul1en-Lin.github.io/p/map--set/">
+<meta property="og:site_name" content="Jul1en">
+<meta property="og:type" content="article">
+<meta property="article:section" content="Post">
+<meta property="article:published_time" content="2025-05-19T13:26:18&#43;00:00">
+<meta property="article:modified_time" content="2026-04-27T22:00:12&#43;08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Map &amp; Set | Jul1en">
+<meta name="twitter:description" content="Map &amp;amp; Set #搜索树# 概念 二叉搜索树/二叉排序树，满足以下性质 若左树不为空，则左树上所有节点的值都小于父节点的值 若右树不为空，则右树上所有节点的值都大于父节点的值 它的左右子树也满足以上性质">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"><script>
     (function () {
-        const colorSchemeKey = 'StackColorScheme';
-        const savedScheme = localStorage.getItem(colorSchemeKey);
-        const defaultScheme = "light";
-        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
-        const scheme = savedScheme || defaultScheme;
-
-        if (scheme === 'dark' || (scheme === 'auto' && supportDarkMode)) {
-            document.documentElement.dataset.scheme = 'dark';
-        } else {
-            document.documentElement.dataset.scheme = 'light';
+        var stored = null;
+        try {
+            stored = window.localStorage.getItem('ColorScheme');
+        } catch (error) {
+            stored = null;
         }
+
+        var scheme = stored;
+        if (scheme !== 'light' && scheme !== 'dark') {
+            scheme = "light";
+        }
+        document.documentElement.dataset.scheme = scheme;
     })();
-</script>
+</script><link rel="stylesheet" href="/css/site.min.0758d8aad30f198f851a02b8c6494f637bd95774b2fd6b2f576cf99133b942f8.css" integrity="sha256-B1jYqtMPGY&#43;FGgK4xklPY3vZV3Sy/WsvV2z5kTO5Qvg="><script src="/js/site.51f8655227b5fb12b2585c2985e20ec3e93192ca19774662d732d2a0bcb492f0.js" integrity="sha256-UfhlUie1&#43;xKyWFwpheIOw&#43;kxksoZd0Zi1zLSoLy0kvA=" defer></script>
 
 </head>
 
@@ -93,7 +96,7 @@
   <path fill="currentColor" d="M17.2 7.2a.9.9 0 1 1-1.8 0 .9.9 0 0 1 1.8 0Z" />
 </svg>
 </span>
-                    </a><button id="dark-mode-toggle" class="theme-toggle" type="button" aria-label="暗色模式" title="暗色模式">
+                    </a><button id="dark-mode-toggle" class="theme-toggle" type="button" aria-label="切换配色" title="切换配色">
                     <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
     <circle cx="12" cy="12" r="4.2" />
     <path d="M12 2.8v2.2M12 19v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.8 12h2.2M19 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" />
@@ -212,12 +215,18 @@
             </header>
 
             <section class="article-content article-detail__content">
-                <h2 id="map--set">Map &amp; Set
-</h2><p><img src="/p/map--set/assets/image-20250519213833-8wgchrb_hu_54327138a38fcad2.webp" width="1600" height="955" srcset="/p/map--set/assets/image-20250519213833-8wgchrb_hu_993cb16fffa468f5.webp 800w, /p/map--set/assets/image-20250519213833-8wgchrb_hu_54327138a38fcad2.webp 1600w, /p/map--set/assets/image-20250519213833-8wgchrb_hu_b7278e3df7b999eb.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="167" data-flex-basis="402px">
+                <h2 id="map--set">
+    Map &amp; Set
+</h2>
+<p><img src="/p/map--set/assets/image-20250519213833-8wgchrb_hu_54327138a38fcad2.webp" width="1600" height="955" srcset="/p/map--set/assets/image-20250519213833-8wgchrb_hu_993cb16fffa468f5.webp 800w, /p/map--set/assets/image-20250519213833-8wgchrb_hu_54327138a38fcad2.webp 1600w, /p/map--set/assets/image-20250519213833-8wgchrb_hu_b7278e3df7b999eb.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="167" data-flex-basis="402px">
 </p>
-<h2 id="搜索树">#搜索树#
-</h2><h2 id="概念">概念
-</h2><p>二叉搜索树/二叉排序树，满足以下性质</p>
+<h2 id="搜索树">
+    #搜索树#
+</h2>
+<h2 id="概念">
+    概念
+</h2>
+<p>二叉搜索树/二叉排序树，满足以下性质</p>
 <ul>
 <li>若左树不为空，则左树上所有节点的值都小于父节点的值</li>
 <li>若右树不为空，则右树上所有节点的值都大于父节点的值</li>
@@ -227,9 +236,13 @@
 </p>
 <p>二叉搜索树的中序遍历是有序的：{0，1，2，3，4，5，6，7，8，9}</p>
 <hr>
-<h2 id="搜索树操作">搜索树操作
-</h2><h3 id="插入insert">插入<code>Insert</code>
-</h3><p>搜索树的插入也要满足本身性质，若插入元素在原本的搜索树中已经拥有，则插入失败</p>
+<h2 id="搜索树操作">
+    搜索树操作
+</h2>
+<h3 id="插入insert">
+    插入<code>Insert</code>
+</h3>
+<p>搜索树的插入也要满足本身性质，若插入元素在原本的搜索树中已经拥有，则插入失败</p>
 <p>思路：定义Cur走到null位置，同时Parent做Cur的根节点，记录Cur之前走过的位置，避免cur定位丢失</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -258,8 +271,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><hr>
-<h3 id="查找remove">查找<code>Remove</code>
-</h3><p>定义Cur遍历搜索树，在对比左右子树.val 与Key的大小关系时，注意Cur的遍历方向</p>
+<h3 id="查找remove">
+    查找<code>Remove</code>
+</h3>
+<p>定义Cur遍历搜索树，在对比左右子树.val 与Key的大小关系时，注意Cur的遍历方向</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="n">TreeNode</span><span class="w"> </span><span class="nf">searchTree</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w">
@@ -277,8 +292,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><hr>
-<h3 id="删除">删除
-</h3><p>删除节点时，要注意不要破坏二叉搜索树的性质</p>
+<h3 id="删除">
+    删除
+</h3>
+<p>删除节点时，要注意不要破坏二叉搜索树的性质</p>
 <p>思路：定义Cur并定位到待删除节点，待删除节点的父节点为Parent，找到Cur后分三种情况</p>
 <p><img src="/p/map--set/assets/image-20250520134205-cz4iiyd_hu_f535c172d371530.webp" width="1600" height="916" srcset="/p/map--set/assets/image-20250520134205-cz4iiyd_hu_a6482d8b983f7ee1.webp 800w, /p/map--set/assets/image-20250520134205-cz4iiyd_hu_f535c172d371530.webp 1600w, /p/map--set/assets/image-20250520134205-cz4iiyd_hu_71fca367b1cfafba.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="174" data-flex-basis="419px">
 </p>
@@ -364,13 +381,17 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
-</span></span></span></code></pre></div><h2 id="搜索">搜索
-</h2><p>Map和Set是专门搜索的数据结构，但他们的搜索效率与其他们具体实例化的子类有关——两者都是接口</p>
+</span></span></span></code></pre></div><h2 id="搜索">
+    搜索
+</h2>
+<p>Map和Set是专门搜索的数据结构，但他们的搜索效率与其他们具体实例化的子类有关——两者都是接口</p>
 <p><img src="/p/map--set/assets/image-20250527131611-1dre62t_hu_638891215002935f.webp" width="1600" height="543" srcset="/p/map--set/assets/image-20250527131611-1dre62t_hu_2ca745ffd52f1dd9.webp 800w, /p/map--set/assets/image-20250527131611-1dre62t_hu_638891215002935f.webp 1600w, /p/map--set/assets/image-20250527131611-1dre62t_hu_ef98dbaae285077a.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="294" data-flex-basis="707px">
 </p>
 <p>以前的搜索方式有遍历搜索，二分查找，但都是适用于静态查找。当涉及到插删查改的操作时，我们需要效率更高的查找方式，即动态查找，此时引出查找工具——Map和Set——适合动态查找的集合容器</p>
-<h2 id="模型">模型
-</h2><p>我们一般把要搜索的数据叫做关键字，而关键字中可能或带有对应的“值”，我们叫键值对Key-Value</p>
+<h2 id="模型">
+    模型
+</h2>
+<p>我们一般把要搜索的数据叫做关键字，而关键字中可能或带有对应的“值”，我们叫键值对Key-Value</p>
 <p>比如一个数组{1，2，3，4，4，4}，我们要寻找每一个数字出现的次数，此时寻找的数字是关键字，而它们出现的次数则称之为对应的“值” 如数字4出现了3次，则键值对是&lt;4 , 3&gt;或&lt;3 , 4&gt;</p>
 <ol>
 <li>纯Key模型</li>
@@ -378,19 +399,25 @@
 </ol>
 <p>Set中只存储Key模型，而Map存储Key-Value模型</p>
 <hr>
-<h2 id="map">Map
-</h2><p>Map是一个接口，存储的是&lt;Key , Value&gt;键值对，并且k是唯一的</p>
+<h2 id="map">
+    Map
+</h2>
+<p>Map是一个接口，存储的是&lt;Key , Value&gt;键值对，并且k是唯一的</p>
 <p>实例化对象需要实现类#TreeMap#或#HashMap#，还有个#LinkedHashMap#，基于HashMap维护了一个双向链表记录来记录元素的插入次序</p>
 <p><img src="/p/map--set/assets/image-20250527160845-fghgr1w_hu_78631aa7178aa478.webp" width="1600" height="1222" srcset="/p/map--set/assets/image-20250527160845-fghgr1w_hu_b0de953d02bbc349.webp 800w, /p/map--set/assets/image-20250527160845-fghgr1w_hu_78631aa7178aa478.webp 1600w, /p/map--set/assets/image-20250527160845-fghgr1w_hu_309c7a46cd2d5b2.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="130" data-flex-basis="314px">
 </p>
-<h2 id="treemap和hashmap的区别">TreeMap和HashMap的区别
-</h2><p><img src="/p/map--set/assets/image-20250527160038-mt2jd6e_hu_d0af52b327a42665.webp" width="1600" height="553" srcset="/p/map--set/assets/image-20250527160038-mt2jd6e_hu_86bffdd3cc2ef4ac.webp 800w, /p/map--set/assets/image-20250527160038-mt2jd6e_hu_d0af52b327a42665.webp 1600w, /p/map--set/assets/image-20250527160038-mt2jd6e_hu_b824ed60f6cd4b0f.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="289" data-flex-basis="694px">
+<h2 id="treemap和hashmap的区别">
+    TreeMap和HashMap的区别
+</h2>
+<p><img src="/p/map--set/assets/image-20250527160038-mt2jd6e_hu_d0af52b327a42665.webp" width="1600" height="553" srcset="/p/map--set/assets/image-20250527160038-mt2jd6e_hu_86bffdd3cc2ef4ac.webp 800w, /p/map--set/assets/image-20250527160038-mt2jd6e_hu_d0af52b327a42665.webp 1600w, /p/map--set/assets/image-20250527160038-mt2jd6e_hu_b824ed60f6cd4b0f.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="289" data-flex-basis="694px">
 </p>
 <ul>
 <li>TreeMap的Key不能传null</li>
 </ul>
-<h2 id="常用方法">常用方法
-</h2><ul>
+<h2 id="常用方法">
+    常用方法
+</h2>
+<ul>
 <li>
 <p>V <u>put</u>——存放键值</p>
 <p>🧭 步骤：</p>
@@ -465,8 +492,10 @@
 </ul>
 <p><img src="/p/map--set/assets/image-20250527162146-z95bnli_hu_24b2d1af644f3a53.webp" width="1600" height="781" srcset="/p/map--set/assets/image-20250527162146-z95bnli_hu_c93fcaface1e0c7e.webp 800w, /p/map--set/assets/image-20250527162146-z95bnli_hu_24b2d1af644f3a53.webp 1600w, /p/map--set/assets/image-20250527162146-z95bnli_hu_58567cf10ed49182.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="204" data-flex-basis="491px">
 </p>
-<h2 id="总结">总结
-</h2><ol>
+<h2 id="总结">
+    总结
+</h2>
+<ol>
 <li>
 <p>Map是一个接口，不能直接实例化对象，如果要实例化对象需要实现类<span data-type="text" style="background-color: var(--b3-font-background12);">TreeMap</span>或<span data-type="text" style="background-color: var(--b3-font-background13);">HashMap</span></p>
 </li>
@@ -490,20 +519,26 @@
 </li>
 </ol>
 <hr>
-<h2 id="set">Set
-</h2><p>Set也是一个接口，他没有具体的对象，继承自Collection接口类，只能存储Key模型，而且Key也是唯一的，可以把它看成一个塑料袋（集合），里面装着杂乱无序的不重复的数据。</p>
+<h2 id="set">
+    Set
+</h2>
+<p>Set也是一个接口，他没有具体的对象，继承自Collection接口类，只能存储Key模型，而且Key也是唯一的，可以把它看成一个塑料袋（集合），里面装着杂乱无序的不重复的数据。</p>
 <p><img src="/p/map--set/assets/image-20250527133258-k15e9e1_hu_b7def71c390b0733.webp" width="1600" height="990" srcset="/p/map--set/assets/image-20250527133258-k15e9e1_hu_89c6e3bd9b5a3bb1.webp 800w, /p/map--set/assets/image-20250527133258-k15e9e1_hu_b7def71c390b0733.webp 1600w, /p/map--set/assets/image-20250527133258-k15e9e1_hu_d0ef9e407ff162fa.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="161" data-flex-basis="387px">
 <img src="/p/map--set/assets/image-20250527135138-vkuxg6d_hu_ccb47fcd98997ca.webp" width="1600" height="937" srcset="/p/map--set/assets/image-20250527135138-vkuxg6d_hu_70ad9f441a6d742d.webp 800w, /p/map--set/assets/image-20250527135138-vkuxg6d_hu_ccb47fcd98997ca.webp 1600w, /p/map--set/assets/image-20250527135138-vkuxg6d_hu_b5f4e6da44b234a1.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="170" data-flex-basis="409px">
 </p>
 <p>实现Set接口要实现类#TreeSet#和#HashSet#，还有个#LinkedHashSet#，是在HashSet的基础上维护了一个双向链表来记录元素的插入次序</p>
-<h2 id="treeset和hashset区别">TreeSet和HashSet区别
-</h2><p><img src="/p/map--set/assets/image-20250527165148-hubv3ot_hu_5efc87520e8f226c.webp" width="1600" height="599" srcset="/p/map--set/assets/image-20250527165148-hubv3ot_hu_f441eb0fd2a45ad6.webp 800w, /p/map--set/assets/image-20250527165148-hubv3ot_hu_5efc87520e8f226c.webp 1600w, /p/map--set/assets/image-20250527165148-hubv3ot_hu_74f6c47353cc113d.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="266" data-flex-basis="640px">
+<h2 id="treeset和hashset区别">
+    TreeSet和HashSet区别
+</h2>
+<p><img src="/p/map--set/assets/image-20250527165148-hubv3ot_hu_5efc87520e8f226c.webp" width="1600" height="599" srcset="/p/map--set/assets/image-20250527165148-hubv3ot_hu_f441eb0fd2a45ad6.webp 800w, /p/map--set/assets/image-20250527165148-hubv3ot_hu_5efc87520e8f226c.webp 1600w, /p/map--set/assets/image-20250527165148-hubv3ot_hu_74f6c47353cc113d.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="266" data-flex-basis="640px">
 </p>
 <ul>
 <li>TreeSet插入的Key不能是null——会空指针异常，但HashSet可以</li>
 </ul>
-<h2 id="常见方法">常见方法
-</h2><ol>
+<h2 id="常见方法">
+    常见方法
+</h2>
+<ol>
 <li>
 <p>boolean <u>add</u>——添加数据，但重复元素不会被添加成功</p>
 </li>
@@ -523,8 +558,10 @@
 </ol>
 <p><img src="/p/map--set/assets/image-20250527162206-aslkprn_hu_205ac26a7e5b9ea0.webp" width="1600" height="1035" srcset="/p/map--set/assets/image-20250527162206-aslkprn_hu_6bf26112f7b7db26.webp 800w, /p/map--set/assets/image-20250527162206-aslkprn_hu_205ac26a7e5b9ea0.webp 1600w, /p/map--set/assets/image-20250527162206-aslkprn_hu_6a3224f3128caec7.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="154" data-flex-basis="370px">
 </p>
-<h2 id="总结-1">总结
-</h2><ol>
+<h2 id="总结-1">
+    总结
+</h2>
+<ol>
 <li>
 <p>Set只能存储K，且K也是和Map一样唯一的</p>
 </li>
@@ -551,8 +588,10 @@
 </li>
 </ol>
 <hr>
-<h2 id="map和set的关系">Map和Set的关系
-</h2><ul>
+<h2 id="map和set的关系">
+    Map和Set的关系
+</h2>
+<ul>
 <li>TreeSet的底层是用Map实现的，其使用的Key与Object的一个默认的对象（Value）组成键值插入到Map中</li>
 <li>TreeMap和TreeSet的复杂度都是log<sub>2</sub>N，它们的 K 都是要能比较大小的。</li>
 <li>HashMap和HashSet的复杂度都是O（1），</li>
@@ -560,9 +599,13 @@
 </ul>
 <p>‍</p>
 <p>前面提到了HashMap，HashSet，LinkedHashMap，LinkedHashSet，那Hash到底是什么呢？为什么他们的效率这么高？这就引入哈希表的概念</p>
-<h2 id="哈希表散列表">哈希表/散列表
-</h2><h2 id="概念-1">概念
-</h2><p>理想的搜索方法：不经过任何的比较，一次直接从表中得到想要的元素。如果构造一种存储结构，能够通过某种函数使得元素与它的关键字/码之间建立某种联系，那么在查找的时候就很容易得到这些元素</p>
+<h2 id="哈希表散列表">
+    哈希表/散列表
+</h2>
+<h2 id="概念-1">
+    概念
+</h2>
+<p>理想的搜索方法：不经过任何的比较，一次直接从表中得到想要的元素。如果构造一种存储结构，能够通过某种函数使得元素与它的关键字/码之间建立某种联系，那么在查找的时候就很容易得到这些元素</p>
 <p>该方式就叫哈希方法，哈希方法中使用的函数就叫做<u>==哈希函数/散列函数==</u>，构造出来的结构就为==<u>哈希表/散列表</u>==</p>
 <p>‍</p>
 <p>每一种数据结构它的哈希函数都不一致，但是哈希表本质上是一个数组，不过数组不是放的单一数据，而是存放的键值对，所以哈希表是数组的一种拓展，这是哈希表的表现形式</p>
@@ -570,8 +613,10 @@
 </p>
 <p>我们将学生信息包括名字和岁数（Key—Value），我们先通过哈希函数让Key进行计算，得出Index，确定键值对entry存放的位置，但是有一个问题，如果数据多了，别的key通过哈希函数可能也会得到相同的下标Index，像这样具有不同关键码但具有相同哈希地址的数据元素称为“同义词”，这个问题我们称之<u>==哈希冲突，==</u>哈希是一种用来进行高效查找的<u>==数据结构==</u></p>
 <hr>
-<h2 id="哈希冲突">哈希冲突
-</h2><p>那么有哈希冲突就会有解决哈希冲突问题的办法</p>
+<h2 id="哈希冲突">
+    哈希冲突
+</h2>
+<p>那么有哈希冲突就会有解决哈希冲突问题的办法</p>
 <p>‍</p>
 <p>哈希冲突是必然的，我们做的应该是降低冲突率，引起冲突的一个原因可能是哈希函数设计不合理，但是我们一般都不会涉及到设计哈希函数，但常用的哈希函数我们需要了解</p>
 <p><img src="/p/map--set/assets/image-20250527210400-0irc0gl_hu_c1f3e209b6ff6a90.webp" width="1600" height="545" srcset="/p/map--set/assets/image-20250527210400-0irc0gl_hu_1da7c99b3f50e82f.webp 800w, /p/map--set/assets/image-20250527210400-0irc0gl_hu_c1f3e209b6ff6a90.webp 1600w, /p/map--set/assets/image-20250527210400-0irc0gl_hu_ae30845e5438bade.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="293" data-flex-basis="704px">
@@ -579,14 +624,18 @@
 <p>哈希函数设计的越精妙，产生哈希冲突的可能性就越低，但是无法避免哈希冲突</p>
 <p>那反应哈希冲突率的一个数据叫负载因子</p>
 <hr>
-<h3 id="负载因子">负载因子
-</h3><p>哈希列表的负载因子定义为 α = 填入表中的元素 / 哈希表的长度</p>
+<h3 id="负载因子">
+    负载因子
+</h3>
+<p>哈希列表的负载因子定义为 α = 填入表中的元素 / 哈希表的长度</p>
 <p><img src="/p/map--set/assets/image-20250527210847-upqe8p5_hu_2505ccbfb1fb43b5.webp" width="1600" height="1518" srcset="/p/map--set/assets/image-20250527210847-upqe8p5_hu_12d17dbc40c39e93.webp 800w, /p/map--set/assets/image-20250527210847-upqe8p5_hu_2505ccbfb1fb43b5.webp 1600w, /p/map--set/assets/image-20250527210847-upqe8p5_hu_8d648a7c1173853d.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="105" data-flex-basis="252px">
 </p>
 <p><img src="/p/map--set/assets/image-20250527210505-i5bp6zq_hu_8914f2ca2a80aa57.webp" width="1600" height="1927" srcset="/p/map--set/assets/image-20250527210505-i5bp6zq_hu_82166455d87c5cb.webp 800w, /p/map--set/assets/image-20250527210505-i5bp6zq_hu_8914f2ca2a80aa57.webp 1600w, /p/map--set/assets/image-20250527210505-i5bp6zq_hu_b5acf088c0b9ad21.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="83" data-flex-basis="199px">
 </p>
-<h2 id="避免哈希冲突">避免哈希冲突
-</h2><p>两个方法 : 优化哈希函数、<span data-type="text" style="color: var(--b3-font-color12); background-color: var(--b3-font-background11);">降低负载因子✨</span></p>
+<h2 id="避免哈希冲突">
+    避免哈希冲突
+</h2>
+<p>两个方法 : 优化哈希函数、<span data-type="text" style="color: var(--b3-font-color12); background-color: var(--b3-font-background11);">降低负载因子✨</span></p>
 <ul>
 <li>
 <p>💯<span data-type="text" style="color: var(--b3-font-color12);">降低负载因子即需要对数组进行扩容，扩容之后需要对原来的数组的元素进行重新哈希分配——即重新哈希</span></p>
@@ -606,10 +655,14 @@
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div></li>
 </ul>
-<h3 id="解决哈希冲突">解决哈希冲突
-</h3><p>两种常见方法：#闭散列#和#开散列#</p>
-<h3 id="注意要区分清楚哈希冲突的处理方法和哈希函数">注意要区分清楚：哈希冲突的处理方法和哈希函数
-</h3><p>哈希函数作用是：建立元素与其存储位置之前的对应关系的，在存储元素时，先通过哈希函数计算元素在哈希表格中的存储位置，然后存储元素。好的哈希函数可以减少冲突的概率，但是不能够绝对避免，万一发生哈希冲突，得需要借助哈希冲突处理方法来解决。</p>
+<h3 id="解决哈希冲突">
+    解决哈希冲突
+</h3>
+<p>两种常见方法：#闭散列#和#开散列#</p>
+<h3 id="注意要区分清楚哈希冲突的处理方法和哈希函数">
+    注意要区分清楚：哈希冲突的处理方法和哈希函数
+</h3>
+<p>哈希函数作用是：建立元素与其存储位置之前的对应关系的，在存储元素时，先通过哈希函数计算元素在哈希表格中的存储位置，然后存储元素。好的哈希函数可以减少冲突的概率，但是不能够绝对避免，万一发生哈希冲突，得需要借助哈希冲突处理方法来解决。</p>
 <ul>
 <li>
 <p>常见的哈希函数有：直接定址法、除留余数法、平方取中法、随机数法、数字分析法、叠加法等</p>
@@ -618,15 +671,19 @@
 <p>常见哈希冲突处理：闭散列（线性探测、二次探测）、开散列(链地址法)、多次散列</p>
 </li>
 </ul>
-<h3 id="闭散列">闭散列
-</h3><p>也叫#开放地址法#，当发生哈希冲突时， 如果哈希表没有被装满，说明哈希表还有位置可以放，那么就可以把Key放到空的位置上</p>
+<h3 id="闭散列">
+    闭散列
+</h3>
+<p>也叫#开放地址法#，当发生哈希冲突时， 如果哈希表没有被装满，说明哈希表还有位置可以放，那么就可以把Key放到空的位置上</p>
 <ul>
 <li>线性探测：从发生冲突的位置开始找到空位置放</li>
 <li>二次探测：优化了线性探测的问题（不重点解释，需要可再查找）</li>
 </ul>
 <hr>
-<h3 id="开散列重点">💫开散列（重点）
-</h3><p>开散列，又叫#链地址法#（#拉链法#），首先对关键码集合用哈希函数计算哈希地址，具有相同地址的关键码归于同一子集合，每一个子集合称为一个桶，各个桶中的元素通过一个单链表链接起来，各链表的头结点存储在哈希表中。</p>
+<h3 id="开散列重点">
+    💫开散列（重点）
+</h3>
+<p>开散列，又叫#链地址法#（#拉链法#），首先对关键码集合用哈希函数计算哈希地址，具有相同地址的关键码归于同一子集合，每一个子集合称为一个桶，各个桶中的元素通过一个单链表链接起来，各链表的头结点存储在哈希表中。</p>
 <p>与闭散列不同，这种将链表的头地址存储在哈希表的方式，不会影响与自己哈希地址不同的元素的增删查改的效率</p>
 <p><img src="/p/map--set/assets/image-20250527221754-gualx2i_hu_356cfc58d758a38b.webp" width="1600" height="1515" srcset="/p/map--set/assets/image-20250527221754-gualx2i_hu_53c8915abc0c2e70.webp 800w, /p/map--set/assets/image-20250527221754-gualx2i_hu_356cfc58d758a38b.webp 1600w, /p/map--set/assets/image-20250527221754-gualx2i_hu_e139578ef303222a.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="105" data-flex-basis="253px">
 </p>
@@ -637,8 +694,10 @@
 <p>树化条件 ：<span data-type="text" style="color: var(--b3-font-color12);">链表的长度 &gt;= 8 &amp;&amp; 数组长度 &gt;= 64 </span>如果红黑树删除后不满足条件或没必要再用红黑树时可以变回为哈希桶的结构</p>
 <p><strong>开散列可以认为是把大集合中的搜索问题转化为了小集合中做搜索了</strong></p>
 <hr>
-<h2 id="与java类集合的关系">💫与Java类集合的关系
-</h2><ol>
+<h2 id="与java类集合的关系">
+    💫与Java类集合的关系
+</h2>
+<ol>
 <li>
 <p>HashMap和HashSet都是Java中利用哈希表来实现的Map和Set</p>
 </li>
@@ -654,8 +713,10 @@
 自定义类重写<code>hashCode（）</code>和<code>equals（）</code>接口</p>
 </li>
 </ol>
-<h2 id="平均查找长度">#平均查找长度#
-</h2><p>len = 总的比较次数 / 元素个数</p>
+<h2 id="平均查找长度">
+    #平均查找长度#
+</h2>
+<p>len = 总的比较次数 / 元素个数</p>
 <p><img src="/p/map--set/assets/image-20250529223254-6fb77y1_hu_eb0131aca0e3aed.webp" width="1600" height="215" srcset="/p/map--set/assets/image-20250529223254-6fb77y1_hu_23f4966493453943.webp 800w, /p/map--set/assets/image-20250529223254-6fb77y1_hu_eb0131aca0e3aed.webp 1600w, /p/map--set/assets/image-20250529223254-6fb77y1_hu_6a43ec4894caa8e0.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="745" data-flex-basis="1788px">
 <img src="/p/map--set/assets/image-20250529223307-vfyt3u6_hu_9f69efcbb55d2d27.webp" width="1600" height="756" srcset="/p/map--set/assets/image-20250529223307-vfyt3u6_hu_571d1808b68b5c04.webp 800w, /p/map--set/assets/image-20250529223307-vfyt3u6_hu_9f69efcbb55d2d27.webp 1600w, /p/map--set/assets/image-20250529223307-vfyt3u6_hu_e35078263d344ffc.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="211" data-flex-basis="507px">
 </p>
@@ -683,389 +744,11 @@
     </div>
 </article>
 
-
-
-
-
-
-
-
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-    
-    <div class="pswp__bg"></div>
-
-    
-    <div class="pswp__scroll-wrap">
-
-        
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                
-                
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
-                defer
-                >
-            </script><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
-                defer
-                >
-            </script><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
-            ><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
-            >
-
-    </main>
-
-    <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
-                
-                >
-            </script><script type="text/javascript" src="/ts/main.836efe327773ba454adac61ee8b35272b6f512bd594ed9ea0f926fca8386433b.js" defer></script><script type="text/javascript" src="/ts/custom.4bb4ca905d915217c671721b75f16ae60652e805c90c767a80a951f0dddeeb9c.js" defer></script>
-
-
-<button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
+    </main><button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M6 14.5 12 8l6 6.5" />
+        <path d="M6 14.5 12 8l6 6.5"></path>
     </svg>
 </button>
-
-<script>
-    (function () {
-        'use strict';
-
-        const menuToggle = document.querySelector('.site-menu-toggle');
-        const nav = document.getElementById('primary-navigation');
-        const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-        function initThemeToggle() {
-            const toggle = document.getElementById('dark-mode-toggle');
-            if (!toggle || toggle.dataset.projectThemeToggleReady === 'true') return;
-
-            toggle.dataset.projectThemeToggleReady = 'true';
-
-            function getCurrentScheme() {
-                return document.documentElement.dataset.scheme === 'dark' ? 'dark' : 'light';
-            }
-
-            function getSystemScheme() {
-                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-            }
-
-            function saveScheme(scheme) {
-                try {
-                    window.localStorage.setItem('StackColorScheme', scheme === getSystemScheme() ? 'auto' : scheme);
-                } catch (error) {
-                    return;
-                }
-            }
-
-            function applyScheme(scheme) {
-                document.documentElement.dataset.scheme = scheme;
-                saveScheme(scheme);
-                window.dispatchEvent(new CustomEvent('onColorSchemeChange', { detail: scheme }));
-            }
-
-            toggle.addEventListener('click', function (event) {
-                event.preventDefault();
-                event.stopImmediatePropagation();
-
-                const x = event.clientX;
-                const y = event.clientY;
-                const willBeDark = getCurrentScheme() !== 'dark';
-                const nextScheme = willBeDark ? 'dark' : 'light';
-                const endRadius = Math.hypot(
-                    Math.max(x, window.innerWidth - x),
-                    Math.max(y, window.innerHeight - y)
-                );
-
-                if (!document.startViewTransition) {
-                    applyScheme(nextScheme);
-                    return;
-                }
-
-                const transition = document.startViewTransition(function () {
-                    applyScheme(nextScheme);
-                });
-
-                transition.ready.then(function () {
-                    const clipPath = willBeDark
-                        ? [`circle(${endRadius}px at ${x}px ${y}px)`, `circle(0px at ${x}px ${y}px)`]
-                        : [`circle(0px at ${x}px ${y}px)`, `circle(${endRadius}px at ${x}px ${y}px)`];
-
-                    document.documentElement.animate(
-                        { clipPath },
-                        {
-                            duration: 500,
-                            easing: 'ease-in-out',
-                            fill: 'forwards',
-                            pseudoElement: willBeDark
-                                ? '::view-transition-old(root)'
-                                : '::view-transition-new(root)'
-                        }
-                    );
-                });
-            }, { capture: true });
-        }
-
-        function setMenuOpen(open) {
-            if (!menuToggle || !nav) return;
-            menuToggle.classList.toggle('is-open', open);
-            nav.classList.toggle('is-open', open);
-            document.body.classList.toggle('site-nav-open', open);
-            menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        }
-
-        if (menuToggle && nav) {
-            menuToggle.addEventListener('click', function (event) {
-                event.stopPropagation();
-                setMenuOpen(!nav.classList.contains('is-open'));
-            });
-
-            nav.querySelectorAll('a').forEach(function (link) {
-                link.addEventListener('click', function () {
-                    setMenuOpen(false);
-                });
-            });
-
-            document.addEventListener('keydown', function (event) {
-                if (event.key === 'Escape') setMenuOpen(false);
-            });
-
-            document.addEventListener('click', function (event) {
-                if (!document.body.classList.contains('site-nav-open')) return;
-                if (nav.contains(event.target) || menuToggle.contains(event.target)) return;
-                setMenuOpen(false);
-            });
-
-            const desktopQuery = window.matchMedia('(min-width: 921px)');
-            const closeMenuOnDesktop = function (event) {
-                if (event.matches) setMenuOpen(false);
-            };
-
-            if (desktopQuery.addEventListener) {
-                desktopQuery.addEventListener('change', closeMenuOnDesktop);
-            } else if (desktopQuery.addListener) {
-                desktopQuery.addListener(closeMenuOnDesktop);
-            }
-        }
-
-        const backToTop = document.getElementById('back-to-top');
-
-        if (backToTop) {
-            function updateBackToTop() {
-                backToTop.classList.toggle('is-visible', window.scrollY > 420);
-            }
-
-            backToTop.addEventListener('click', function () {
-                window.scrollTo({ top: 0, behavior: reduceMotionQuery.matches ? 'auto' : 'smooth' });
-            });
-
-            window.addEventListener('scroll', updateBackToTop, { passive: true });
-            updateBackToTop();
-        }
-
-        function initArticleTocHover() {
-            const toc = document.querySelector('[data-article-toc]');
-            const articleMain = document.querySelector('.article-detail__main');
-            if (!toc || !articleMain) return;
-
-            const toggle = toc.querySelector('[data-article-toc-toggle]');
-            let lockedOpen = false;
-
-            function setVisible(visible) {
-                document.body.classList.toggle('is-article-toc-visible', visible);
-                if (toggle) {
-                    toggle.setAttribute('aria-expanded', visible ? 'true' : 'false');
-                    toggle.setAttribute('aria-label', visible ? '隐藏文章目录' : '显示文章目录');
-                }
-            }
-
-            function getLeftRevealZone() {
-                return Math.min(380, Math.max(280, window.innerWidth * 0.22));
-            }
-
-            function isInsideReadingColumn(x, y) {
-                const rect = articleMain.getBoundingClientRect();
-                const top = Math.min(rect.top, 0) - 48;
-                const bottom = Math.max(rect.bottom, window.innerHeight) + 48;
-
-                return x >= rect.left - 72 && x <= rect.right + 32 && y >= top && y <= bottom;
-            }
-
-            document.addEventListener('pointermove', function (event) {
-                if (lockedOpen) return;
-                setVisible(event.clientX <= getLeftRevealZone() || isInsideReadingColumn(event.clientX, event.clientY));
-            }, { passive: true });
-
-            document.addEventListener('pointerleave', function () {
-                if (!lockedOpen) setVisible(false);
-            });
-
-            toc.addEventListener('focusin', function () {
-                setVisible(true);
-            });
-
-            toc.addEventListener('focusout', function (event) {
-                if (lockedOpen || toc.contains(event.relatedTarget)) return;
-                setVisible(false);
-            });
-
-            if (toggle) {
-                toggle.addEventListener('click', function () {
-                    const isVisible = document.body.classList.contains('is-article-toc-visible');
-                    if (lockedOpen && isVisible) {
-                        lockedOpen = false;
-                        setVisible(false);
-                        return;
-                    }
-
-                    lockedOpen = true;
-                    setVisible(true);
-                });
-            }
-
-            document.addEventListener('click', function (event) {
-                if (!lockedOpen) return;
-                if (toc.contains(event.target) || articleMain.contains(event.target)) return;
-                lockedOpen = false;
-                setVisible(false);
-            });
-
-            document.addEventListener('keydown', function (event) {
-                if (event.key !== 'Escape') return;
-                lockedOpen = false;
-                setVisible(false);
-            });
-        }
-
-        function initRevealOnScroll() {
-            if (reduceMotionQuery.matches || !('IntersectionObserver' in window)) return;
-
-            const revealSelectors = [
-                '.section-band',
-                '.featured-section',
-                '.blog-card',
-                '.post-tools',
-                '.article-detail__content > blockquote',
-                '.article-detail__content > .highlight',
-                '.article-detail__content > pre',
-                '.article-detail__content > .table-wrapper',
-                '.article-detail__content > figure',
-                '.article-detail__content > details',
-                '.article-detail__content > hr',
-                '.article-detail__footer',
-                '.music-album-card'
-            ];
-
-            const targets = revealSelectors.reduce(function (items, selector) {
-                return items.concat(Array.prototype.slice.call(document.querySelectorAll(selector)));
-            }, []);
-
-            const imageBlocks = Array.prototype.slice.call(document.querySelectorAll('.article-detail__content > p')).filter(function (block) {
-                const children = Array.prototype.slice.call(block.children).filter(function (child) {
-                    return child.tagName !== 'BR';
-                });
-                const onlyChild = children[0];
-
-                return children.length === 1 && (
-                    onlyChild.tagName === 'IMG' ||
-                    onlyChild.classList.contains('gallery') ||
-                    (onlyChild.tagName === 'A' && onlyChild.querySelector('img'))
-                );
-            });
-
-            imageBlocks.forEach(function (block) {
-                if (!targets.includes(block)) targets.push(block);
-            });
-
-            const filteredTargets = targets.filter(function (target, index) {
-                if (target.tagName === 'PRE' && target.closest('.highlight')) return false;
-                return targets.indexOf(target) === index;
-            });
-
-            if (!filteredTargets.length) return;
-
-            const observer = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (!entry.isIntersecting) return;
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                });
-            }, {
-                rootMargin: '0px 0px -6% 0px',
-                threshold: 0.1
-            });
-
-            filteredTargets.forEach(function (target, index) {
-                target.classList.add('reveal-on-scroll');
-                target.style.setProperty('--reveal-delay', Math.min(index % 4, 3) * 32 + 'ms');
-                observer.observe(target);
-            });
-        }
-
-        initThemeToggle();
-        initArticleTocHover();
-        initRevealOnScroll();
-
-        window.requestAnimationFrame(function () {
-            document.body.classList.add('is-loaded');
-        });
-    })();
-</script>
-
 </body>
 
 </html>

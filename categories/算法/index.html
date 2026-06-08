@@ -1,43 +1,45 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
+<html lang="zh-CN" dir="ltr">
 
-<head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="一个关于后端开发、测试、工具实践与生活记录的个人博客。">
-<title>Category: 算法 | Jul1en</title>
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Category: 算法 | Jul1en</title>
+<meta name="description" content="一个关于后端开发、测试、工具实践与生活记录的个人博客。">
+<meta name="author" content="Jul1en">
+<link rel="canonical" href="https://Jul1en-Lin.github.io/categories/%E7%AE%97%E6%B3%95/">
+<link rel="alternate" type="application/rss&#43;xml" href="https://Jul1en-Lin.github.io/categories/%E7%AE%97%E6%B3%95/index.xml">
 
-<link rel='canonical' href='https://Jul1en-Lin.github.io/categories/%E7%AE%97%E6%B3%95/'>
-
-<link rel="stylesheet" href="/scss/style.min.ec82946fda8d90cf1fb1835f4491c98e9279c2eae00a5622fe790c8a9ce86062.css"><meta property='og:title' content="Category: 算法 | Jul1en">
-<meta property='og:description' content="一个关于后端开发、测试、工具实践与生活记录的个人博客。">
-<meta property='og:url' content='https://Jul1en-Lin.github.io/categories/%E7%AE%97%E6%B3%95/'>
-<meta property='og:site_name' content='Jul1en'>
-<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2026-06-05T20:35:17&#43;08:00 '/>
-<meta name="twitter:title" content="Category: 算法 | Jul1en">
-<meta name="twitter:description" content="一个关于后端开发、测试、工具实践与生活记录的个人博客。"><link rel="alternate" type="application/rss&#43;xml" href="https://Jul1en-Lin.github.io/categories/%E7%AE%97%E6%B3%95/index.xml">
-    <link rel="shortcut icon" href="/favicon-signature.svg" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="icon" href="/favicon-signature.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-signature.png" type="image/png" sizes="512x512">
-<link rel="alternate icon" href="/favicon-signature.ico" type="image/x-icon">
-<meta name="author" content="Jul1en">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)"><script src="/js/custom.4bb4ca905d915217c671721b75f16ae60652e805c90c767a80a951f0dddeeb9c.js" integrity="sha256-S7TKkF2RUhfGcXIbdfFq5gZS6AXJDHZ6gKlR8N3e65w=" defer></script><script>
+<link rel="alternate icon" href="/favicon.ico" type="image/x-icon">
+<meta name="theme-color" content="#fdfdf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Category: 算法 | Jul1en">
+<meta property="og:description" content="一个关于后端开发、测试、工具实践与生活记录的个人博客。">
+<meta property="og:url" content="https://Jul1en-Lin.github.io/categories/%E7%AE%97%E6%B3%95/">
+<meta property="og:site_name" content="Jul1en">
+<meta property="og:type" content="website">
+<meta property="og:updated_time" content="2026-06-05T20:35:17&#43;08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Category: 算法 | Jul1en">
+<meta name="twitter:description" content="一个关于后端开发、测试、工具实践与生活记录的个人博客。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"><script>
     (function () {
-        const colorSchemeKey = 'StackColorScheme';
-        const savedScheme = localStorage.getItem(colorSchemeKey);
-        const defaultScheme = "light";
-        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
-        const scheme = savedScheme || defaultScheme;
-
-        if (scheme === 'dark' || (scheme === 'auto' && supportDarkMode)) {
-            document.documentElement.dataset.scheme = 'dark';
-        } else {
-            document.documentElement.dataset.scheme = 'light';
+        var stored = null;
+        try {
+            stored = window.localStorage.getItem('ColorScheme');
+        } catch (error) {
+            stored = null;
         }
+
+        var scheme = stored;
+        if (scheme !== 'light' && scheme !== 'dark') {
+            scheme = "light";
+        }
+        document.documentElement.dataset.scheme = scheme;
     })();
-</script>
+</script><link rel="stylesheet" href="/css/site.min.0758d8aad30f198f851a02b8c6494f637bd95774b2fd6b2f576cf99133b942f8.css" integrity="sha256-B1jYqtMPGY&#43;FGgK4xklPY3vZV3Sy/WsvV2z5kTO5Qvg="><script src="/js/site.51f8655227b5fb12b2585c2985e20ec3e93192ca19774662d732d2a0bcb492f0.js" integrity="sha256-UfhlUie1&#43;xKyWFwpheIOw&#43;kxksoZd0Zi1zLSoLy0kvA=" defer></script>
 
 </head>
 
@@ -93,7 +95,7 @@
   <path fill="currentColor" d="M17.2 7.2a.9.9 0 1 1-1.8 0 .9.9 0 0 1 1.8 0Z" />
 </svg>
 </span>
-                    </a><button id="dark-mode-toggle" class="theme-toggle" type="button" aria-label="暗色模式" title="暗色模式">
+                    </a><button id="dark-mode-toggle" class="theme-toggle" type="button" aria-label="切换配色" title="切换配色">
                     <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
     <circle cx="12" cy="12" r="4.2" />
     <path d="M12 2.8v2.2M12 19v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.8 12h2.2M19 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" />
@@ -129,17 +131,15 @@
     <section class="blog-index blog-index--timeline" aria-labelledby="blog-index-title">
         <h1 class="sr-only" id="blog-index-title">算法</h1>
 
-        <div class="post-timeline" data-blog-timeline>
+        <div class="post-timeline">
             
-            <section class="post-year" data-blog-year-group>
+            <section class="post-year">
                 <h2 class="post-year__label">
                     <a href="#year-2025">2025</a>
                 </h2>
                 <div class="post-year__list" id="year-2025">
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="%E7%AE%97%E6%B3%95" data-title="🛹 位运算类题目" data-summary="位运算总结图
-判定字符是否唯一 如何从浅到深的挖入这道题？从常见的哈希表到数组模拟哈希表到用到位图思想，想到了用位图
-">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%B1%BB%E9%A2%98%E7%9B%AE/">
         <span class="post-timeline__title">🛹 位运算类题目</span>
 
@@ -149,8 +149,7 @@
 </article>
 
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="%E7%AE%97%E6%B3%95" data-title="🪭 分治-归并类题目" data-summary="归并数组 类似于分治快排，归并是从底下往上递归排序，快排是先解决当前部分再往下排，两个的顺序是反的~
-class Solution { int[] tmp; // 辅助数组 public int[] sortArray(int[] nums) { // 分治归并 if (nums …">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/%E5%88%86%E6%B2%BB-%E5%BD%92%E5%B9%B6%E7%B1%BB%E9%A2%98%E7%9B%AE/">
         <span class="post-timeline__title">🪭 分治-归并类题目</span>
 
@@ -160,9 +159,7 @@ class Solution { int[] tmp; // 辅助数组 public int[] sortArray(int[] nums) {
 </article>
 
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="%E7%AE%97%E6%B3%95 %E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F %E5%A0%86" data-title="🌶️ TopK问题" data-summary="topK问题 topK问题是经典的算法题，包括有（第k大、第k小、前k大、前k小），这类题的解决方法也比较固定
-堆排序 一句话总结：找前 K 大，用 Size 为 K 的小顶堆；找前 K 小，用 Size 为 K 的大顶堆。
-">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/">
         <span class="post-timeline__title">🌶️ TopK问题</span>
 
@@ -179,307 +176,11 @@ class Solution { int[] tmp; // 辅助数组 public int[] sortArray(int[] nums) {
     </section>
 
 
-
-
-    </main>
-
-    <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
-                
-                >
-            </script><script type="text/javascript" src="/ts/main.836efe327773ba454adac61ee8b35272b6f512bd594ed9ea0f926fca8386433b.js" defer></script><script type="text/javascript" src="/ts/custom.4bb4ca905d915217c671721b75f16ae60652e805c90c767a80a951f0dddeeb9c.js" defer></script>
-
-
-<button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
+    </main><button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M6 14.5 12 8l6 6.5" />
+        <path d="M6 14.5 12 8l6 6.5"></path>
     </svg>
 </button>
-
-<script>
-    (function () {
-        'use strict';
-
-        const menuToggle = document.querySelector('.site-menu-toggle');
-        const nav = document.getElementById('primary-navigation');
-        const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-        function initThemeToggle() {
-            const toggle = document.getElementById('dark-mode-toggle');
-            if (!toggle || toggle.dataset.projectThemeToggleReady === 'true') return;
-
-            toggle.dataset.projectThemeToggleReady = 'true';
-
-            function getCurrentScheme() {
-                return document.documentElement.dataset.scheme === 'dark' ? 'dark' : 'light';
-            }
-
-            function getSystemScheme() {
-                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-            }
-
-            function saveScheme(scheme) {
-                try {
-                    window.localStorage.setItem('StackColorScheme', scheme === getSystemScheme() ? 'auto' : scheme);
-                } catch (error) {
-                    return;
-                }
-            }
-
-            function applyScheme(scheme) {
-                document.documentElement.dataset.scheme = scheme;
-                saveScheme(scheme);
-                window.dispatchEvent(new CustomEvent('onColorSchemeChange', { detail: scheme }));
-            }
-
-            toggle.addEventListener('click', function (event) {
-                event.preventDefault();
-                event.stopImmediatePropagation();
-
-                const x = event.clientX;
-                const y = event.clientY;
-                const willBeDark = getCurrentScheme() !== 'dark';
-                const nextScheme = willBeDark ? 'dark' : 'light';
-                const endRadius = Math.hypot(
-                    Math.max(x, window.innerWidth - x),
-                    Math.max(y, window.innerHeight - y)
-                );
-
-                if (!document.startViewTransition) {
-                    applyScheme(nextScheme);
-                    return;
-                }
-
-                const transition = document.startViewTransition(function () {
-                    applyScheme(nextScheme);
-                });
-
-                transition.ready.then(function () {
-                    const clipPath = willBeDark
-                        ? [`circle(${endRadius}px at ${x}px ${y}px)`, `circle(0px at ${x}px ${y}px)`]
-                        : [`circle(0px at ${x}px ${y}px)`, `circle(${endRadius}px at ${x}px ${y}px)`];
-
-                    document.documentElement.animate(
-                        { clipPath },
-                        {
-                            duration: 500,
-                            easing: 'ease-in-out',
-                            fill: 'forwards',
-                            pseudoElement: willBeDark
-                                ? '::view-transition-old(root)'
-                                : '::view-transition-new(root)'
-                        }
-                    );
-                });
-            }, { capture: true });
-        }
-
-        function setMenuOpen(open) {
-            if (!menuToggle || !nav) return;
-            menuToggle.classList.toggle('is-open', open);
-            nav.classList.toggle('is-open', open);
-            document.body.classList.toggle('site-nav-open', open);
-            menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        }
-
-        if (menuToggle && nav) {
-            menuToggle.addEventListener('click', function (event) {
-                event.stopPropagation();
-                setMenuOpen(!nav.classList.contains('is-open'));
-            });
-
-            nav.querySelectorAll('a').forEach(function (link) {
-                link.addEventListener('click', function () {
-                    setMenuOpen(false);
-                });
-            });
-
-            document.addEventListener('keydown', function (event) {
-                if (event.key === 'Escape') setMenuOpen(false);
-            });
-
-            document.addEventListener('click', function (event) {
-                if (!document.body.classList.contains('site-nav-open')) return;
-                if (nav.contains(event.target) || menuToggle.contains(event.target)) return;
-                setMenuOpen(false);
-            });
-
-            const desktopQuery = window.matchMedia('(min-width: 921px)');
-            const closeMenuOnDesktop = function (event) {
-                if (event.matches) setMenuOpen(false);
-            };
-
-            if (desktopQuery.addEventListener) {
-                desktopQuery.addEventListener('change', closeMenuOnDesktop);
-            } else if (desktopQuery.addListener) {
-                desktopQuery.addListener(closeMenuOnDesktop);
-            }
-        }
-
-        const backToTop = document.getElementById('back-to-top');
-
-        if (backToTop) {
-            function updateBackToTop() {
-                backToTop.classList.toggle('is-visible', window.scrollY > 420);
-            }
-
-            backToTop.addEventListener('click', function () {
-                window.scrollTo({ top: 0, behavior: reduceMotionQuery.matches ? 'auto' : 'smooth' });
-            });
-
-            window.addEventListener('scroll', updateBackToTop, { passive: true });
-            updateBackToTop();
-        }
-
-        function initArticleTocHover() {
-            const toc = document.querySelector('[data-article-toc]');
-            const articleMain = document.querySelector('.article-detail__main');
-            if (!toc || !articleMain) return;
-
-            const toggle = toc.querySelector('[data-article-toc-toggle]');
-            let lockedOpen = false;
-
-            function setVisible(visible) {
-                document.body.classList.toggle('is-article-toc-visible', visible);
-                if (toggle) {
-                    toggle.setAttribute('aria-expanded', visible ? 'true' : 'false');
-                    toggle.setAttribute('aria-label', visible ? '隐藏文章目录' : '显示文章目录');
-                }
-            }
-
-            function getLeftRevealZone() {
-                return Math.min(380, Math.max(280, window.innerWidth * 0.22));
-            }
-
-            function isInsideReadingColumn(x, y) {
-                const rect = articleMain.getBoundingClientRect();
-                const top = Math.min(rect.top, 0) - 48;
-                const bottom = Math.max(rect.bottom, window.innerHeight) + 48;
-
-                return x >= rect.left - 72 && x <= rect.right + 32 && y >= top && y <= bottom;
-            }
-
-            document.addEventListener('pointermove', function (event) {
-                if (lockedOpen) return;
-                setVisible(event.clientX <= getLeftRevealZone() || isInsideReadingColumn(event.clientX, event.clientY));
-            }, { passive: true });
-
-            document.addEventListener('pointerleave', function () {
-                if (!lockedOpen) setVisible(false);
-            });
-
-            toc.addEventListener('focusin', function () {
-                setVisible(true);
-            });
-
-            toc.addEventListener('focusout', function (event) {
-                if (lockedOpen || toc.contains(event.relatedTarget)) return;
-                setVisible(false);
-            });
-
-            if (toggle) {
-                toggle.addEventListener('click', function () {
-                    const isVisible = document.body.classList.contains('is-article-toc-visible');
-                    if (lockedOpen && isVisible) {
-                        lockedOpen = false;
-                        setVisible(false);
-                        return;
-                    }
-
-                    lockedOpen = true;
-                    setVisible(true);
-                });
-            }
-
-            document.addEventListener('click', function (event) {
-                if (!lockedOpen) return;
-                if (toc.contains(event.target) || articleMain.contains(event.target)) return;
-                lockedOpen = false;
-                setVisible(false);
-            });
-
-            document.addEventListener('keydown', function (event) {
-                if (event.key !== 'Escape') return;
-                lockedOpen = false;
-                setVisible(false);
-            });
-        }
-
-        function initRevealOnScroll() {
-            if (reduceMotionQuery.matches || !('IntersectionObserver' in window)) return;
-
-            const revealSelectors = [
-                '.section-band',
-                '.featured-section',
-                '.blog-card',
-                '.post-tools',
-                '.article-detail__content > blockquote',
-                '.article-detail__content > .highlight',
-                '.article-detail__content > pre',
-                '.article-detail__content > .table-wrapper',
-                '.article-detail__content > figure',
-                '.article-detail__content > details',
-                '.article-detail__content > hr',
-                '.article-detail__footer',
-                '.music-album-card'
-            ];
-
-            const targets = revealSelectors.reduce(function (items, selector) {
-                return items.concat(Array.prototype.slice.call(document.querySelectorAll(selector)));
-            }, []);
-
-            const imageBlocks = Array.prototype.slice.call(document.querySelectorAll('.article-detail__content > p')).filter(function (block) {
-                const children = Array.prototype.slice.call(block.children).filter(function (child) {
-                    return child.tagName !== 'BR';
-                });
-                const onlyChild = children[0];
-
-                return children.length === 1 && (
-                    onlyChild.tagName === 'IMG' ||
-                    onlyChild.classList.contains('gallery') ||
-                    (onlyChild.tagName === 'A' && onlyChild.querySelector('img'))
-                );
-            });
-
-            imageBlocks.forEach(function (block) {
-                if (!targets.includes(block)) targets.push(block);
-            });
-
-            const filteredTargets = targets.filter(function (target, index) {
-                if (target.tagName === 'PRE' && target.closest('.highlight')) return false;
-                return targets.indexOf(target) === index;
-            });
-
-            if (!filteredTargets.length) return;
-
-            const observer = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (!entry.isIntersecting) return;
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                });
-            }, {
-                rootMargin: '0px 0px -6% 0px',
-                threshold: 0.1
-            });
-
-            filteredTargets.forEach(function (target, index) {
-                target.classList.add('reveal-on-scroll');
-                target.style.setProperty('--reveal-delay', Math.min(index % 4, 3) * 32 + 'ms');
-                observer.observe(target);
-            });
-        }
-
-        initThemeToggle();
-        initArticleTocHover();
-        initRevealOnScroll();
-
-        window.requestAnimationFrame(function () {
-            document.body.classList.add('is-loaded');
-        });
-    })();
-</script>
-
 </body>
 
 </html>

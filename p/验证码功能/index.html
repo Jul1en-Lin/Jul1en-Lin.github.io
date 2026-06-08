@@ -1,43 +1,46 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
+<html lang="zh-CN" dir="ltr">
 
-<head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="验证码功能 引入Hutool工具包 Hutool工具是一个开源的Java工具依赖库，封装了许多功能，访问https://hutool.cn，按图中引入依赖即可使用，具体功能可查看官方文档~">
-<title>🧣 验证码功能 | Jul1en</title>
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>🧣 验证码功能 | Jul1en</title>
+<meta name="description" content="验证码功能 引入Hutool工具包 Hutool工具是一个开源的Java工具依赖库，封装了许多功能，访问https://hutool.cn，按图中引入依赖即可使用，具体功能可查看官方文档~">
+<meta name="author" content="Jul1en">
+<link rel="canonical" href="https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/">
 
-<link rel='canonical' href='https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/'>
-
-<link rel="stylesheet" href="/scss/style.min.ec82946fda8d90cf1fb1835f4491c98e9279c2eae00a5622fe790c8a9ce86062.css"><meta property='og:title' content="🧣 验证码功能 | Jul1en">
-<meta property='og:description' content="验证码功能 引入Hutool工具包 Hutool工具是一个开源的Java工具依赖库，封装了许多功能，访问https://hutool.cn，按图中引入依赖即可使用，具体功能可查看官方文档~">
-<meta property='og:url' content='https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/'>
-<meta property='og:site_name' content='Jul1en'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-12-13T01:02:22&#43;08:00'/><meta property='article:modified_time' content='2025-12-13T21:52:46&#43;08:00'/>
-<meta name="twitter:title" content="🧣 验证码功能 | Jul1en">
-<meta name="twitter:description" content="验证码功能 引入Hutool工具包 Hutool工具是一个开源的Java工具依赖库，封装了许多功能，访问https://hutool.cn，按图中引入依赖即可使用，具体功能可查看官方文档~">
-    <link rel="shortcut icon" href="/favicon-signature.svg" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="icon" href="/favicon-signature.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-signature.png" type="image/png" sizes="512x512">
-<link rel="alternate icon" href="/favicon-signature.ico" type="image/x-icon">
-<meta name="author" content="Jul1en">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)"><script src="/js/custom.4bb4ca905d915217c671721b75f16ae60652e805c90c767a80a951f0dddeeb9c.js" integrity="sha256-S7TKkF2RUhfGcXIbdfFq5gZS6AXJDHZ6gKlR8N3e65w=" defer></script><script>
+<link rel="alternate icon" href="/favicon.ico" type="image/x-icon">
+<meta name="theme-color" content="#fdfdf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="🧣 验证码功能 | Jul1en">
+<meta property="og:description" content="验证码功能 引入Hutool工具包 Hutool工具是一个开源的Java工具依赖库，封装了许多功能，访问https://hutool.cn，按图中引入依赖即可使用，具体功能可查看官方文档~">
+<meta property="og:url" content="https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/">
+<meta property="og:site_name" content="Jul1en">
+<meta property="og:type" content="article">
+<meta property="article:section" content="Post">
+<meta property="article:published_time" content="2025-12-13T01:02:22&#43;08:00">
+<meta property="article:modified_time" content="2025-12-13T21:52:46&#43;08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="🧣 验证码功能 | Jul1en">
+<meta name="twitter:description" content="验证码功能 引入Hutool工具包 Hutool工具是一个开源的Java工具依赖库，封装了许多功能，访问https://hutool.cn，按图中引入依赖即可使用，具体功能可查看官方文档~">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"><script>
     (function () {
-        const colorSchemeKey = 'StackColorScheme';
-        const savedScheme = localStorage.getItem(colorSchemeKey);
-        const defaultScheme = "light";
-        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
-        const scheme = savedScheme || defaultScheme;
-
-        if (scheme === 'dark' || (scheme === 'auto' && supportDarkMode)) {
-            document.documentElement.dataset.scheme = 'dark';
-        } else {
-            document.documentElement.dataset.scheme = 'light';
+        var stored = null;
+        try {
+            stored = window.localStorage.getItem('ColorScheme');
+        } catch (error) {
+            stored = null;
         }
+
+        var scheme = stored;
+        if (scheme !== 'light' && scheme !== 'dark') {
+            scheme = "light";
+        }
+        document.documentElement.dataset.scheme = scheme;
     })();
-</script>
+</script><link rel="stylesheet" href="/css/site.min.0758d8aad30f198f851a02b8c6494f637bd95774b2fd6b2f576cf99133b942f8.css" integrity="sha256-B1jYqtMPGY&#43;FGgK4xklPY3vZV3Sy/WsvV2z5kTO5Qvg="><script src="/js/site.51f8655227b5fb12b2585c2985e20ec3e93192ca19774662d732d2a0bcb492f0.js" integrity="sha256-UfhlUie1&#43;xKyWFwpheIOw&#43;kxksoZd0Zi1zLSoLy0kvA=" defer></script>
 
 </head>
 
@@ -93,7 +96,7 @@
   <path fill="currentColor" d="M17.2 7.2a.9.9 0 1 1-1.8 0 .9.9 0 0 1 1.8 0Z" />
 </svg>
 </span>
-                    </a><button id="dark-mode-toggle" class="theme-toggle" type="button" aria-label="暗色模式" title="暗色模式">
+                    </a><button id="dark-mode-toggle" class="theme-toggle" type="button" aria-label="切换配色" title="切换配色">
                     <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
     <circle cx="12" cy="12" r="4.2" />
     <path d="M12 2.8v2.2M12 19v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.8 12h2.2M19 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" />
@@ -173,9 +176,13 @@
             </header>
 
             <section class="article-content article-detail__content">
-                <h2 id="验证码功能">验证码功能
-</h2><h2 id="引入hutool工具包">引入Hutool工具包
-</h2><p>Hutool工具是一个开源的Java工具依赖库，封装了许多功能，访问<code>https://hutool.cn</code>，按图中引入依赖即可使用，具体功能可查看官方文档~</p>
+                <h2 id="验证码功能">
+    验证码功能
+</h2>
+<h2 id="引入hutool工具包">
+    引入Hutool工具包
+</h2>
+<p>Hutool工具是一个开源的Java工具依赖库，封装了许多功能，访问<code>https://hutool.cn</code>，按图中引入依赖即可使用，具体功能可查看官方文档~</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">cn</span><span class="p">.</span><span class="na">hutool</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">hutool</span><span class="o">-</span><span class="n">all</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="w">
@@ -183,13 +190,17 @@
 </span></span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
 </span></span></span></code></pre></div><p><img src="/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251206144812-e28xm5t_hu_56cd8c251ce871c9.webp" width="1600" height="425" srcset="/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251206144812-e28xm5t_hu_8748bf1de66d6c97.webp 800w, /p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251206144812-e28xm5t_hu_56cd8c251ce871c9.webp 1600w, /p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251206144812-e28xm5t_hu_dfd7e2905c9965fc.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="376" data-flex-basis="903px">
 </p>
-<h2 id="实现功能">实现功能
-</h2><p>以下是参考文档代码，以写出到浏览器（Servlet输出）为栗子</p>
+<h2 id="实现功能">
+    实现功能
+</h2>
+<p>以下是参考文档代码，以写出到浏览器（Servlet输出）为栗子</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">ICaptcha</span><span class="w"> </span><span class="n">captcha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="n">captcha</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="na">getOutputStream</span><span class="p">());</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="c1">//Servlet的OutputStream记得自行关闭哦！</span><span class="w">
-</span></span></span></code></pre></div><h2 id="执行流程">执行流程
-</h2><p><strong>==验证码的服务主要由后端实现，前端只负责发起请求，且验证码的答案一般存于内存/Redis中，这里以Hutool工具实现==</strong></p>
+</span></span></span></code></pre></div><h2 id="执行流程">
+    执行流程
+</h2>
+<p><strong>==验证码的服务主要由后端实现，前端只负责发起请求，且验证码的答案一般存于内存/Redis中，这里以Hutool工具实现==</strong></p>
 <ol>
 <li>前端发起GET请求</li>
 <li>后端：</li>
@@ -203,9 +214,13 @@
 <li>前端拿到图片，将用户输入一起POST到后端</li>
 <li>后端校验，返回对应的值</li>
 </ol>
-<h2 id="细节问题">细节问题
-</h2><h2 id="线程安全">线程安全
-</h2><p>http是无状态的，后端接口之间<code>/captcha/getCaptcha</code>​与<code>/captcha/check</code>是独立的，内容无法共享数据，那需要校验的时候如何拿到验证码呢？</p>
+<h2 id="细节问题">
+    细节问题
+</h2>
+<h2 id="线程安全">
+    线程安全
+</h2>
+<p>http是无状态的，后端接口之间<code>/captcha/getCaptcha</code>​与<code>/captcha/check</code>是独立的，内容无法共享数据，那需要校验的时候如何拿到验证码呢？</p>
 <p>​<code>/getCaptcha</code>​接口的成员变量与<code>/check</code>是不共享的，以线程安全角度来说，以下两个方法都是不可取的</p>
 <ol>
 <li>直接声明一个成员变量</li>
@@ -219,15 +234,21 @@
 <li>解决方法</li>
 </ul>
 <p><strong>我们可以使用Session存储，Session保证了对话安全，每个用户都有单独的会话id，把验证码存储到Session中，生成与校验都能通过Session操作存入/拿出</strong></p>
-<h2 id="考虑线程安全问题的场景">考虑线程安全问题的场景
-</h2><ol>
+<h2 id="考虑线程安全问题的场景">
+    考虑线程安全问题的场景
+</h2>
+<ol>
 <li>对象有没有数据共享</li>
 <li>主动创建线程（池）的时候</li>
 </ol>
-<h2 id="时间戳">时间戳
-</h2><p>项目开发中，时间的处理和表示通常使用时间戳，能解决跨时区的问题，实现了前后端 UI 解耦，计算也更加便捷</p>
-<h2 id="参数配置">参数配置
-</h2><p>学到Spring就要充分用到管理对象的功能，但是有些时候参数的注入过于繁琐，如需要构造一个图片类型的验证码，需要传入<code>width</code>​、<code>height</code>、验证码长度、干扰因子等等，这些固定参数通常需要放到配置文件中管理，起到解耦作用</p>
+<h2 id="时间戳">
+    时间戳
+</h2>
+<p>项目开发中，时间的处理和表示通常使用时间戳，能解决跨时区的问题，实现了前后端 UI 解耦，计算也更加便捷</p>
+<h2 id="参数配置">
+    参数配置
+</h2>
+<p>学到Spring就要充分用到管理对象的功能，但是有些时候参数的注入过于繁琐，如需要构造一个图片类型的验证码，需要传入<code>width</code>​、<code>height</code>、验证码长度、干扰因子等等，这些固定参数通常需要放到配置文件中管理，起到解耦作用</p>
 <p>那注入这么多参数，代码非常不美观，故又想到将配置参数转换为一个对象，从对象中去取，就更加优雅了~</p>
 <p>举个栗子，这是构造图片验证码的代码</p>
 <p><img src="/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003220-724pqj1_hu_bef0853dd21ccf55.webp" width="1600" height="216" srcset="/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003220-724pqj1_hu_d8bffc6d6d4295b6.webp 800w, /p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003220-724pqj1_hu_bef0853dd21ccf55.webp 1600w, /p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003220-724pqj1_hu_37f9f4f2f1b4ad28.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="739" data-flex-basis="1775px">
@@ -264,10 +285,14 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1">// 定义图形验证码的长和宽</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="n">LineCaptcha</span><span class="w"> </span><span class="n">captcha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CaptchaUtil</span><span class="p">.</span><span class="na">createLineCaptcha</span><span class="p">(</span><span class="n">properties</span><span class="p">.</span><span class="na">getWidth</span><span class="p">(),</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">properties</span><span class="p">.</span><span class="na">getHeight</span><span class="p">(),</span><span class="w"> </span><span class="n">properties</span><span class="p">.</span><span class="na">getCodeCount</span><span class="p">(),</span><span class="w"> </span><span class="n">properties</span><span class="p">.</span><span class="na">getLineCount</span><span class="p">());</span><span class="w">
-</span></span></span></code></pre></div><h2 id="常量处理">常量处理
-</h2><p>开发中，管理常量的成员一般存入<code>constant</code>​包中，交给<code>Constant</code>类管理</p>
-<h2 id="实现代码">实现代码
-</h2><p>控制层</p>
+</span></span></span></code></pre></div><h2 id="常量处理">
+    常量处理
+</h2>
+<p>开发中，管理常量的成员一般存入<code>constant</code>​包中，交给<code>Constant</code>类管理</p>
+<h2 id="实现代码">
+    实现代码
+</h2>
+<p>控制层</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@RestController</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&#34;/captcha&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CaptchaController</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -362,389 +387,11 @@
     </div>
 </article>
 
-
-
-
-
-
-
-
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-    
-    <div class="pswp__bg"></div>
-
-    
-    <div class="pswp__scroll-wrap">
-
-        
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                
-                
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
-                defer
-                >
-            </script><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
-                defer
-                >
-            </script><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
-            ><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
-            >
-
-    </main>
-
-    <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
-                
-                >
-            </script><script type="text/javascript" src="/ts/main.836efe327773ba454adac61ee8b35272b6f512bd594ed9ea0f926fca8386433b.js" defer></script><script type="text/javascript" src="/ts/custom.4bb4ca905d915217c671721b75f16ae60652e805c90c767a80a951f0dddeeb9c.js" defer></script>
-
-
-<button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
+    </main><button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M6 14.5 12 8l6 6.5" />
+        <path d="M6 14.5 12 8l6 6.5"></path>
     </svg>
 </button>
-
-<script>
-    (function () {
-        'use strict';
-
-        const menuToggle = document.querySelector('.site-menu-toggle');
-        const nav = document.getElementById('primary-navigation');
-        const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-        function initThemeToggle() {
-            const toggle = document.getElementById('dark-mode-toggle');
-            if (!toggle || toggle.dataset.projectThemeToggleReady === 'true') return;
-
-            toggle.dataset.projectThemeToggleReady = 'true';
-
-            function getCurrentScheme() {
-                return document.documentElement.dataset.scheme === 'dark' ? 'dark' : 'light';
-            }
-
-            function getSystemScheme() {
-                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-            }
-
-            function saveScheme(scheme) {
-                try {
-                    window.localStorage.setItem('StackColorScheme', scheme === getSystemScheme() ? 'auto' : scheme);
-                } catch (error) {
-                    return;
-                }
-            }
-
-            function applyScheme(scheme) {
-                document.documentElement.dataset.scheme = scheme;
-                saveScheme(scheme);
-                window.dispatchEvent(new CustomEvent('onColorSchemeChange', { detail: scheme }));
-            }
-
-            toggle.addEventListener('click', function (event) {
-                event.preventDefault();
-                event.stopImmediatePropagation();
-
-                const x = event.clientX;
-                const y = event.clientY;
-                const willBeDark = getCurrentScheme() !== 'dark';
-                const nextScheme = willBeDark ? 'dark' : 'light';
-                const endRadius = Math.hypot(
-                    Math.max(x, window.innerWidth - x),
-                    Math.max(y, window.innerHeight - y)
-                );
-
-                if (!document.startViewTransition) {
-                    applyScheme(nextScheme);
-                    return;
-                }
-
-                const transition = document.startViewTransition(function () {
-                    applyScheme(nextScheme);
-                });
-
-                transition.ready.then(function () {
-                    const clipPath = willBeDark
-                        ? [`circle(${endRadius}px at ${x}px ${y}px)`, `circle(0px at ${x}px ${y}px)`]
-                        : [`circle(0px at ${x}px ${y}px)`, `circle(${endRadius}px at ${x}px ${y}px)`];
-
-                    document.documentElement.animate(
-                        { clipPath },
-                        {
-                            duration: 500,
-                            easing: 'ease-in-out',
-                            fill: 'forwards',
-                            pseudoElement: willBeDark
-                                ? '::view-transition-old(root)'
-                                : '::view-transition-new(root)'
-                        }
-                    );
-                });
-            }, { capture: true });
-        }
-
-        function setMenuOpen(open) {
-            if (!menuToggle || !nav) return;
-            menuToggle.classList.toggle('is-open', open);
-            nav.classList.toggle('is-open', open);
-            document.body.classList.toggle('site-nav-open', open);
-            menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        }
-
-        if (menuToggle && nav) {
-            menuToggle.addEventListener('click', function (event) {
-                event.stopPropagation();
-                setMenuOpen(!nav.classList.contains('is-open'));
-            });
-
-            nav.querySelectorAll('a').forEach(function (link) {
-                link.addEventListener('click', function () {
-                    setMenuOpen(false);
-                });
-            });
-
-            document.addEventListener('keydown', function (event) {
-                if (event.key === 'Escape') setMenuOpen(false);
-            });
-
-            document.addEventListener('click', function (event) {
-                if (!document.body.classList.contains('site-nav-open')) return;
-                if (nav.contains(event.target) || menuToggle.contains(event.target)) return;
-                setMenuOpen(false);
-            });
-
-            const desktopQuery = window.matchMedia('(min-width: 921px)');
-            const closeMenuOnDesktop = function (event) {
-                if (event.matches) setMenuOpen(false);
-            };
-
-            if (desktopQuery.addEventListener) {
-                desktopQuery.addEventListener('change', closeMenuOnDesktop);
-            } else if (desktopQuery.addListener) {
-                desktopQuery.addListener(closeMenuOnDesktop);
-            }
-        }
-
-        const backToTop = document.getElementById('back-to-top');
-
-        if (backToTop) {
-            function updateBackToTop() {
-                backToTop.classList.toggle('is-visible', window.scrollY > 420);
-            }
-
-            backToTop.addEventListener('click', function () {
-                window.scrollTo({ top: 0, behavior: reduceMotionQuery.matches ? 'auto' : 'smooth' });
-            });
-
-            window.addEventListener('scroll', updateBackToTop, { passive: true });
-            updateBackToTop();
-        }
-
-        function initArticleTocHover() {
-            const toc = document.querySelector('[data-article-toc]');
-            const articleMain = document.querySelector('.article-detail__main');
-            if (!toc || !articleMain) return;
-
-            const toggle = toc.querySelector('[data-article-toc-toggle]');
-            let lockedOpen = false;
-
-            function setVisible(visible) {
-                document.body.classList.toggle('is-article-toc-visible', visible);
-                if (toggle) {
-                    toggle.setAttribute('aria-expanded', visible ? 'true' : 'false');
-                    toggle.setAttribute('aria-label', visible ? '隐藏文章目录' : '显示文章目录');
-                }
-            }
-
-            function getLeftRevealZone() {
-                return Math.min(380, Math.max(280, window.innerWidth * 0.22));
-            }
-
-            function isInsideReadingColumn(x, y) {
-                const rect = articleMain.getBoundingClientRect();
-                const top = Math.min(rect.top, 0) - 48;
-                const bottom = Math.max(rect.bottom, window.innerHeight) + 48;
-
-                return x >= rect.left - 72 && x <= rect.right + 32 && y >= top && y <= bottom;
-            }
-
-            document.addEventListener('pointermove', function (event) {
-                if (lockedOpen) return;
-                setVisible(event.clientX <= getLeftRevealZone() || isInsideReadingColumn(event.clientX, event.clientY));
-            }, { passive: true });
-
-            document.addEventListener('pointerleave', function () {
-                if (!lockedOpen) setVisible(false);
-            });
-
-            toc.addEventListener('focusin', function () {
-                setVisible(true);
-            });
-
-            toc.addEventListener('focusout', function (event) {
-                if (lockedOpen || toc.contains(event.relatedTarget)) return;
-                setVisible(false);
-            });
-
-            if (toggle) {
-                toggle.addEventListener('click', function () {
-                    const isVisible = document.body.classList.contains('is-article-toc-visible');
-                    if (lockedOpen && isVisible) {
-                        lockedOpen = false;
-                        setVisible(false);
-                        return;
-                    }
-
-                    lockedOpen = true;
-                    setVisible(true);
-                });
-            }
-
-            document.addEventListener('click', function (event) {
-                if (!lockedOpen) return;
-                if (toc.contains(event.target) || articleMain.contains(event.target)) return;
-                lockedOpen = false;
-                setVisible(false);
-            });
-
-            document.addEventListener('keydown', function (event) {
-                if (event.key !== 'Escape') return;
-                lockedOpen = false;
-                setVisible(false);
-            });
-        }
-
-        function initRevealOnScroll() {
-            if (reduceMotionQuery.matches || !('IntersectionObserver' in window)) return;
-
-            const revealSelectors = [
-                '.section-band',
-                '.featured-section',
-                '.blog-card',
-                '.post-tools',
-                '.article-detail__content > blockquote',
-                '.article-detail__content > .highlight',
-                '.article-detail__content > pre',
-                '.article-detail__content > .table-wrapper',
-                '.article-detail__content > figure',
-                '.article-detail__content > details',
-                '.article-detail__content > hr',
-                '.article-detail__footer',
-                '.music-album-card'
-            ];
-
-            const targets = revealSelectors.reduce(function (items, selector) {
-                return items.concat(Array.prototype.slice.call(document.querySelectorAll(selector)));
-            }, []);
-
-            const imageBlocks = Array.prototype.slice.call(document.querySelectorAll('.article-detail__content > p')).filter(function (block) {
-                const children = Array.prototype.slice.call(block.children).filter(function (child) {
-                    return child.tagName !== 'BR';
-                });
-                const onlyChild = children[0];
-
-                return children.length === 1 && (
-                    onlyChild.tagName === 'IMG' ||
-                    onlyChild.classList.contains('gallery') ||
-                    (onlyChild.tagName === 'A' && onlyChild.querySelector('img'))
-                );
-            });
-
-            imageBlocks.forEach(function (block) {
-                if (!targets.includes(block)) targets.push(block);
-            });
-
-            const filteredTargets = targets.filter(function (target, index) {
-                if (target.tagName === 'PRE' && target.closest('.highlight')) return false;
-                return targets.indexOf(target) === index;
-            });
-
-            if (!filteredTargets.length) return;
-
-            const observer = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (!entry.isIntersecting) return;
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                });
-            }, {
-                rootMargin: '0px 0px -6% 0px',
-                threshold: 0.1
-            });
-
-            filteredTargets.forEach(function (target, index) {
-                target.classList.add('reveal-on-scroll');
-                target.style.setProperty('--reveal-delay', Math.min(index % 4, 3) * 32 + 'ms');
-                observer.observe(target);
-            });
-        }
-
-        initThemeToggle();
-        initArticleTocHover();
-        initRevealOnScroll();
-
-        window.requestAnimationFrame(function () {
-            document.body.classList.add('is-loaded');
-        });
-    })();
-</script>
-
 </body>
 
 </html>

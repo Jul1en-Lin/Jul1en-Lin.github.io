@@ -1,43 +1,46 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
+<html lang="zh-CN" dir="ltr">
 
-<head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="MyBatis MyBatis 是一款半自动对象关系映射持久层框架，其核心通过 XML 或注解实现原生 SQL 与 Java 对象的解耦映射，在消除冗余 JDBC 代码的同时，保留了对 SQL 执行逻辑的控制 接下来先讲传统Mybatis的配置">
-<title>🥓 MyBatis/plus 及配置 | Jul1en</title>
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>🥓 MyBatis/plus 及配置 | Jul1en</title>
+<meta name="description" content="MyBatis MyBatis 是一款半自动对象关系映射持久层框架，其核心通过 XML 或注解实现原生 SQL 与 Java 对象的解耦映射，在消除冗余 JDBC 代码的同时，保留了对 SQL 执行逻辑的控制 接下来先讲传统Mybatis的配置">
+<meta name="author" content="Jul1en">
+<link rel="canonical" href="https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/">
 
-<link rel='canonical' href='https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/'>
-
-<link rel="stylesheet" href="/scss/style.min.ec82946fda8d90cf1fb1835f4491c98e9279c2eae00a5622fe790c8a9ce86062.css"><meta property='og:title' content="🥓 MyBatis/plus 及配置 | Jul1en">
-<meta property='og:description' content="MyBatis MyBatis 是一款半自动对象关系映射持久层框架，其核心通过 XML 或注解实现原生 SQL 与 Java 对象的解耦映射，在消除冗余 JDBC 代码的同时，保留了对 SQL 执行逻辑的控制 接下来先讲传统Mybatis的配置">
-<meta property='og:url' content='https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/'>
-<meta property='og:site_name' content='Jul1en'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-02-05T22:48:02&#43;08:00'/><meta property='article:modified_time' content='2026-02-05T22:57:23&#43;08:00'/>
-<meta name="twitter:title" content="🥓 MyBatis/plus 及配置 | Jul1en">
-<meta name="twitter:description" content="MyBatis MyBatis 是一款半自动对象关系映射持久层框架，其核心通过 XML 或注解实现原生 SQL 与 Java 对象的解耦映射，在消除冗余 JDBC 代码的同时，保留了对 SQL 执行逻辑的控制 接下来先讲传统Mybatis的配置">
-    <link rel="shortcut icon" href="/favicon-signature.svg" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="icon" href="/favicon-signature.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-signature.png" type="image/png" sizes="512x512">
-<link rel="alternate icon" href="/favicon-signature.ico" type="image/x-icon">
-<meta name="author" content="Jul1en">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)"><script src="/js/custom.4bb4ca905d915217c671721b75f16ae60652e805c90c767a80a951f0dddeeb9c.js" integrity="sha256-S7TKkF2RUhfGcXIbdfFq5gZS6AXJDHZ6gKlR8N3e65w=" defer></script><script>
+<link rel="alternate icon" href="/favicon.ico" type="image/x-icon">
+<meta name="theme-color" content="#fdfdf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="🥓 MyBatis/plus 及配置 | Jul1en">
+<meta property="og:description" content="MyBatis MyBatis 是一款半自动对象关系映射持久层框架，其核心通过 XML 或注解实现原生 SQL 与 Java 对象的解耦映射，在消除冗余 JDBC 代码的同时，保留了对 SQL 执行逻辑的控制 接下来先讲传统Mybatis的配置">
+<meta property="og:url" content="https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/">
+<meta property="og:site_name" content="Jul1en">
+<meta property="og:type" content="article">
+<meta property="article:section" content="Post">
+<meta property="article:published_time" content="2026-02-05T22:48:02&#43;08:00">
+<meta property="article:modified_time" content="2026-02-05T22:57:23&#43;08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="🥓 MyBatis/plus 及配置 | Jul1en">
+<meta name="twitter:description" content="MyBatis MyBatis 是一款半自动对象关系映射持久层框架，其核心通过 XML 或注解实现原生 SQL 与 Java 对象的解耦映射，在消除冗余 JDBC 代码的同时，保留了对 SQL 执行逻辑的控制 接下来先讲传统Mybatis的配置">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"><script>
     (function () {
-        const colorSchemeKey = 'StackColorScheme';
-        const savedScheme = localStorage.getItem(colorSchemeKey);
-        const defaultScheme = "light";
-        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
-        const scheme = savedScheme || defaultScheme;
-
-        if (scheme === 'dark' || (scheme === 'auto' && supportDarkMode)) {
-            document.documentElement.dataset.scheme = 'dark';
-        } else {
-            document.documentElement.dataset.scheme = 'light';
+        var stored = null;
+        try {
+            stored = window.localStorage.getItem('ColorScheme');
+        } catch (error) {
+            stored = null;
         }
+
+        var scheme = stored;
+        if (scheme !== 'light' && scheme !== 'dark') {
+            scheme = "light";
+        }
+        document.documentElement.dataset.scheme = scheme;
     })();
-</script>
+</script><link rel="stylesheet" href="/css/site.min.0758d8aad30f198f851a02b8c6494f637bd95774b2fd6b2f576cf99133b942f8.css" integrity="sha256-B1jYqtMPGY&#43;FGgK4xklPY3vZV3Sy/WsvV2z5kTO5Qvg="><script src="/js/site.51f8655227b5fb12b2585c2985e20ec3e93192ca19774662d732d2a0bcb492f0.js" integrity="sha256-UfhlUie1&#43;xKyWFwpheIOw&#43;kxksoZd0Zi1zLSoLy0kvA=" defer></script>
 
 </head>
 
@@ -93,7 +96,7 @@
   <path fill="currentColor" d="M17.2 7.2a.9.9 0 1 1-1.8 0 .9.9 0 0 1 1.8 0Z" />
 </svg>
 </span>
-                    </a><button id="dark-mode-toggle" class="theme-toggle" type="button" aria-label="暗色模式" title="暗色模式">
+                    </a><button id="dark-mode-toggle" class="theme-toggle" type="button" aria-label="切换配色" title="切换配色">
                     <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
     <circle cx="12" cy="12" r="4.2" />
     <path d="M12 2.8v2.2M12 19v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.8 12h2.2M19 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" />
@@ -194,11 +197,15 @@
             </header>
 
             <section class="article-content article-detail__content">
-                <h2 id="mybatis">MyBatis
-</h2><p>MyBatis 是一款半自动对象关系映射持久层框架，其核心通过 XML 或注解实现原生 SQL 与 Java 对象的解耦映射，在消除冗余 JDBC 代码的同时，保留了对 SQL 执行逻辑的控制</p>
+                <h2 id="mybatis">
+    MyBatis
+</h2>
+<p>MyBatis 是一款半自动对象关系映射持久层框架，其核心通过 XML 或注解实现原生 SQL 与 Java 对象的解耦映射，在消除冗余 JDBC 代码的同时，保留了对 SQL 执行逻辑的控制</p>
 <p>接下来先讲传统Mybatis的配置</p>
-<h2 id="mybatis配置">MyBatis配置
-</h2><p>mybatis是IDE和数据库的桥梁，便于在后端也能执行SQL，故配置必须需要连接数据库~</p>
+<h2 id="mybatis配置">
+    MyBatis配置
+</h2>
+<p>mybatis是IDE和数据库的桥梁，便于在后端也能执行SQL，故配置必须需要连接数据库~</p>
 <p>💫<code>application.yml</code>配置💫必备</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">#</span><span class="w"> </span><span class="n">数据库连接配置</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nl">spring</span><span class="p">:</span><span class="w">
@@ -215,15 +222,21 @@
 </span></span></span><span class="line"><span class="cl"><span class="nl">logging</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">file</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="n">spring</span><span class="o">-</span><span class="n">book</span><span class="p">.</span><span class="na">log</span><span class="w">
-</span></span></span></code></pre></div><h2 id="mybatis-1">MyBatis
-</h2><h3 id="yml配置">yml配置
-</h3><p>在<code>application.yml</code>中可以增加mybatis的相关配置，如配置驼峰自动转换</p>
+</span></span></span></code></pre></div><h2 id="mybatis-1">
+    MyBatis
+</h2>
+<h3 id="yml配置">
+    yml配置
+</h3>
+<p>在<code>application.yml</code>中可以增加mybatis的相关配置，如配置驼峰自动转换</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nl">mybatis</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">configuration</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">map</span><span class="o">-</span><span class="n">underscore</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">camel</span><span class="o">-</span><span class="k">case</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="err">#</span><span class="n">配置驼峰自动转换</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">log</span><span class="o">-</span><span class="n">impl</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="p">.</span><span class="na">apache</span><span class="p">.</span><span class="na">ibatis</span><span class="p">.</span><span class="na">logging</span><span class="p">.</span><span class="na">stdout</span><span class="p">.</span><span class="na">StdOutImpl</span><span class="w"> </span><span class="err">#</span><span class="n">打印sql语句</span><span class="w">
-</span></span></span></code></pre></div><h3 id="添加依赖">添加依赖
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">		</span><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span></code></pre></div><h3 id="添加依赖">
+    添加依赖
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">		</span><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="p">.</span><span class="na">mybatis</span><span class="p">.</span><span class="na">spring</span><span class="p">.</span><span class="na">boot</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">mybatis</span><span class="o">-</span><span class="n">spring</span><span class="o">-</span><span class="n">boot</span><span class="o">-</span><span class="n">starter</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">3</span><span class="p">.</span><span class="na">0</span><span class="p">.</span><span class="na">5</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span><span class="w">
@@ -233,8 +246,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">j</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">&lt;</span><span class="n">scope</span><span class="o">&gt;</span><span class="n">runtime</span><span class="o">&lt;/</span><span class="n">scope</span><span class="o">&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
-</span></span></span></code></pre></div><h3 id="xml配置动态sql">xml配置（动态SQL）
-</h3><p>xml一般是在写SQL中，简单的SQL已经无法满足业务需求，需要动态SQL时，需要的mybatis的配置，动态SQL就在xml文件里写。</p>
+</span></span></span></code></pre></div><h3 id="xml配置动态sql">
+    xml配置（动态SQL）
+</h3>
+<p>xml一般是在写SQL中，简单的SQL已经无法满足业务需求，需要动态SQL时，需要的mybatis的配置，动态SQL就在xml文件里写。</p>
 <p>一般放在resources.mapper包下，命名规范为<code>xxxMapper.xml</code>，对应某个类。效果和注解Spring的@Select、@Update注解作用一致</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">&lt;!--</span><span class="n">将以下放到xml文件头</span><span class="o">--&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
@@ -247,12 +262,16 @@
 </p>
 <p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204152931-uekqeap_hu_9f9637ededf31b75.webp" width="1600" height="717" srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204152931-uekqeap_hu_2e2000326266c701.webp 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204152931-uekqeap_hu_9f9637ededf31b75.webp 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204152931-uekqeap_hu_8ab71c9e64e9e7d2.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="223" data-flex-basis="535px">
 </p>
-<h2 id="mybatisx">MyBatisX
-</h2><p>是一款plugin，支持xml的快速跳转和生成代码，非常好用~</p>
+<h2 id="mybatisx">
+    MyBatisX
+</h2>
+<p>是一款plugin，支持xml的快速跳转和生成代码，非常好用~</p>
 <p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204213706-byzmjek_hu_c28cf6e57dc7d26f.webp" width="1600" height="707" srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204213706-byzmjek_hu_cae6aab3e8dc9d10.webp 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204213706-byzmjek_hu_c28cf6e57dc7d26f.webp 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204213706-byzmjek_hu_356bf46251504f3e.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="226" data-flex-basis="543px">
 </p>
-<h2 id="mybatis-generator插件">MyBatis-Generator插件
-</h2><p>这个插件使用也是非常的广泛</p>
+<h2 id="mybatis-generator插件">
+    MyBatis-Generator插件
+</h2>
+<p>这个插件使用也是非常的广泛</p>
 <p>手写mapper还是太麻烦了，有一些插件能够帮我们自动生成一些sql，提高效率，同时需要generator文件</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">plugin</span><span class="o">&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="p">.</span><span class="na">mybatis</span><span class="p">.</span><span class="na">generator</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span><span class="w">
@@ -284,7 +303,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="o">&lt;/</span><span class="n">dependencies</span><span class="o">&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">plugin</span><span class="o">&gt;</span><span class="w">
-</span></span></span></code></pre></div><p>上述插件提到的文件<a class="link" href="assets/generator-20260204145109-vh72myh.xml" >generator.xml</a>，需放所提到的<code>&lt;configurationFile&gt;</code>​对应的位置，<strong>位置可修改</strong></p>
+</span></span></span></code></pre></div><p>上述插件提到的文件<a class="link" href="assets/generator-20260204145109-vh72myh.xml">generator.xml</a>
+，需放所提到的<code>&lt;configurationFile&gt;</code>​对应的位置，<strong>位置可修改</strong></p>
 <p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153629-4tl8z7h_hu_d3ad58f89184a866.webp" width="1600" height="432" srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153629-4tl8z7h_hu_6bbda1e2fa0e82a6.webp 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153629-4tl8z7h_hu_d3ad58f89184a866.webp 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153629-4tl8z7h_hu_d468e317ee03174b.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="370" data-flex-basis="889px">
 </p>
 <p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153439-kb50mlp_hu_55e722bb23c9ff00.webp" width="1600" height="778" srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153439-kb50mlp_hu_36d017ffd4d18a63.webp 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153439-kb50mlp_hu_55e722bb23c9ff00.webp 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153439-kb50mlp_hu_5a5d58a9df4c103b.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="205" data-flex-basis="493px">
@@ -338,18 +358,26 @@
 </span></span></span></code></pre></div><p>配置完成，<strong>双击运行插件即可，配置文件</strong>​<strong>​<code>generator.xml</code>​</strong>就会生成对应的实体类与xml文件</p>
 <p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204151811-zkc66ob_hu_2da318c2fd1e6515.webp" width="1600" height="955" srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204151811-zkc66ob_hu_1554190990f34f14.webp 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204151811-zkc66ob_hu_2da318c2fd1e6515.webp 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204151811-zkc66ob_hu_7235a70cea0ad268.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="167" data-flex-basis="402px">
 </p>
-<h3 id="注意">注意
-</h3><p>​<code>generator.xml</code>文件头放到IDE上会出现报错，无需更改</p>
+<h3 id="注意">
+    注意
+</h3>
+<p>​<code>generator.xml</code>文件头放到IDE上会出现报错，无需更改</p>
 <p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153843-3oxr5g3_hu_713a1080cb40ea59.webp" width="1600" height="388" srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153843-3oxr5g3_hu_59f27b296b0cebb5.webp 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153843-3oxr5g3_hu_713a1080cb40ea59.webp 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153843-3oxr5g3_hu_73e772a22d59f51a.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="412" data-flex-basis="988px">
 </p>
 <hr>
-<h2 id="mybatis-plus">🚩MyBatis-plus
-</h2><p>是一个MyBatis的增强工具，简化开发，提高效率，类似于Hutool工具包，使用时仅需导入依赖即可</p>
+<h2 id="mybatis-plus">
+    🚩MyBatis-plus
+</h2>
+<p>是一个MyBatis的增强工具，简化开发，提高效率，类似于Hutool工具包，使用时仅需导入依赖即可</p>
 <p>它封装了许多SQL语句，使用时仅需让mapper类<code>extends BaseMapper&lt;&gt;</code>父类接口，执行时则可以直接调用他的一系列函数，无需手写</p>
-<h2 id="配置">配置
-</h2><h3 id="引入依赖">引入依赖
-</h3><p>参考官方文档<a class="link" href="https://baomidou.com/getting-started/"  target="_blank" rel="noopener"
-    >https://baomidou.com/getting-started</a></p>
+<h2 id="配置">
+    配置
+</h2>
+<h3 id="引入依赖">
+    引入依赖
+</h3>
+<p>参考官方文档<a class="link" href="https://baomidou.com/getting-started/" target="_blank" rel="noopener noreferrer">https://baomidou.com/getting-started</a>
+</p>
 <p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204160525-zmsvdkf_hu_c771123f738cfae2.webp" width="1600" height="1310" srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204160525-zmsvdkf_hu_e39de97f462376c1.webp 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204160525-zmsvdkf_hu_c771123f738cfae2.webp 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204160525-zmsvdkf_hu_406c57d49e97b135.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="122" data-flex-basis="293px">
 </p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">&lt;!--</span><span class="n">Spring</span><span class="w"> </span><span class="n">Boot3</span><span class="o">--&gt;</span><span class="w">
@@ -368,8 +396,10 @@
 </span></span></span></code></pre></div><p>根据你现使用的SpringBoot版本选择对应的依赖~</p>
 <p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204160833-7pkg4gj_hu_88ce74a56a2d8847.webp" width="1600" height="656" srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204160833-7pkg4gj_hu_c677b7e25b1cbba2.webp 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204160833-7pkg4gj_hu_88ce74a56a2d8847.webp 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204160833-7pkg4gj_hu_9ed85305802c965.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="244" data-flex-basis="585px">
 </p>
-<h3 id="编码">编码
-</h3><ol>
+<h3 id="编码">
+    编码
+</h3>
+<ol>
 <li>编写对应实体类</li>
 <li>编写 Mapper 接口并拓展<code>BaseMapper&lt;T&gt;</code>接口</li>
 </ol>
@@ -378,15 +408,19 @@
 </p>
 <p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205000225-jyr3ehi_hu_a31cf16a98370dc4.webp" width="1600" height="1026" srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205000225-jyr3ehi_hu_e80a97aef9e6eb5a.webp 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205000225-jyr3ehi_hu_a31cf16a98370dc4.webp 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205000225-jyr3ehi_hu_70f7caa2cbdba862.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="155" data-flex-basis="374px">
 </p>
-<h3 id="打印执行sql日志">打印执行SQL日志
-</h3><p>与mybatis的配置文件类似，只需把名字改为mybatis-plus</p>
+<h3 id="打印执行sql日志">
+    打印执行SQL日志
+</h3>
+<p>与mybatis的配置文件类似，只需把名字改为mybatis-plus</p>
 <p>​<code>application.yml</code></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">mybatis</span><span class="o">-</span><span class="n">plus</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">configuration</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">map</span><span class="o">-</span><span class="n">underscore</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">camel</span><span class="o">-</span><span class="k">case</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="err">#</span><span class="n">配置驼峰自动转换</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">log</span><span class="o">-</span><span class="n">impl</span><span class="p">:</span><span class="w"> </span><span class="n">org</span><span class="p">.</span><span class="na">apache</span><span class="p">.</span><span class="na">ibatis</span><span class="p">.</span><span class="na">logging</span><span class="p">.</span><span class="na">stdout</span><span class="p">.</span><span class="na">StdOutImpl</span><span class="w"> </span><span class="err">#</span><span class="n">打印sql语句</span><span class="w">
-</span></span></span></code></pre></div><h2 id="识别原理">识别原理
-</h2><p>刚才只是配置了<code>application.yml</code>​中的数据库连接信息，拓展了<code>BaseMapper&lt;&gt;</code>​接口与实现了一个实体类<code>UserInfo</code>​，就能够查询数据库中的<code>user_info</code>这张表并且成功执行SQL了，它是如何识别出来的呢？</p>
+</span></span></span></code></pre></div><h2 id="识别原理">
+    识别原理
+</h2>
+<p>刚才只是配置了<code>application.yml</code>​中的数据库连接信息，拓展了<code>BaseMapper&lt;&gt;</code>​接口与实现了一个实体类<code>UserInfo</code>​，就能够查询数据库中的<code>user_info</code>这张表并且成功执行SQL了，它是如何识别出来的呢？</p>
 <ol>
 <li>表名</li>
 </ol>
@@ -416,11 +450,13 @@
 <p>他的推断规律与推断表名是一样的，如果不一致则用<code>@TableField</code>映射</p>
 <p><img src="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205011841-3q1kzhd_hu_116ca9e3c6bec93c.webp" width="1600" height="1235" srcset="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205011841-3q1kzhd_hu_f670cd069532ad0a.webp 800w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205011841-3q1kzhd_hu_116ca9e3c6bec93c.webp 1600w, /p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205011841-3q1kzhd_hu_954b694e628662a8.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="129" data-flex-basis="310px">
 </p>
-<h2 id="条件构造器wrapper">条件构造器Wrapper
-</h2><p>MyBatis-Plus 提供了一套强大的条件构造器（Wrapper），用于构建复杂的数据库查询条件。Wrapper 类允许开发者以链式调用的方式构造查询条件，无需编写繁琐的 SQL 语句，从而提高开发效率并减少 SQL 注入的风险</p>
+<h2 id="条件构造器wrapper">
+    条件构造器Wrapper
+</h2>
+<p>MyBatis-Plus 提供了一套强大的条件构造器（Wrapper），用于构建复杂的数据库查询条件。Wrapper 类允许开发者以链式调用的方式构造查询条件，无需编写繁琐的 SQL 语句，从而提高开发效率并减少 SQL 注入的风险</p>
 <p>它是构建复杂查询和更新条件的关键工具。<strong>它允许开发者以链式调用的方式构造 SQL 的 WHERE 子句，提供了极大的灵活性和便利性</strong></p>
-<p>MyBatis-Plus 关于构造器的官方参考文档：<a class="link" href="https://baomidou.com/guides/wrapper"  target="_blank" rel="noopener"
-    >https://baomidou.com/guides/wrapper</a></p>
+<p>MyBatis-Plus 关于构造器的官方参考文档：<a class="link" href="https://baomidou.com/guides/wrapper" target="_blank" rel="noopener noreferrer">https://baomidou.com/guides/wrapper</a>
+</p>
 <ul>
 <li>
 <p><strong>AbstractWrapper</strong>：这是一个抽象基类，提供了所有 Wrapper  类共有的方法和属性。它定义了条件构造的基本逻辑，包括字段（column）、值（value）、操作符（condition）等。<strong><u>所有的  QueryWrapper、UpdateWrapper、LambdaQueryWrapper 和 LambdaUpdateWrapper 都继承自 AbstractWrapper</u></strong></p>
@@ -488,8 +524,10 @@
 </ul>
 </li>
 </ol>
-<h3 id="代码示例">代码示例
-</h3><p>以id为自增主键的用户表名举例</p>
+<h3 id="代码示例">
+    代码示例
+</h3>
+<p>以id为自增主键的用户表名举例</p>
 <p>用户实体类</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Data</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nd">@TableName</span><span class="p">(</span><span class="s">&#34;user_info&#34;</span><span class="p">)</span><span class="w">
@@ -714,389 +752,11 @@
     </div>
 </article>
 
-
-
-
-
-
-
-
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-    
-    <div class="pswp__bg"></div>
-
-    
-    <div class="pswp__scroll-wrap">
-
-        
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                
-                
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
-                defer
-                >
-            </script><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
-                defer
-                >
-            </script><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
-            ><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
-            >
-
-    </main>
-
-    <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
-                
-                >
-            </script><script type="text/javascript" src="/ts/main.836efe327773ba454adac61ee8b35272b6f512bd594ed9ea0f926fca8386433b.js" defer></script><script type="text/javascript" src="/ts/custom.4bb4ca905d915217c671721b75f16ae60652e805c90c767a80a951f0dddeeb9c.js" defer></script>
-
-
-<button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
+    </main><button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M6 14.5 12 8l6 6.5" />
+        <path d="M6 14.5 12 8l6 6.5"></path>
     </svg>
 </button>
-
-<script>
-    (function () {
-        'use strict';
-
-        const menuToggle = document.querySelector('.site-menu-toggle');
-        const nav = document.getElementById('primary-navigation');
-        const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-        function initThemeToggle() {
-            const toggle = document.getElementById('dark-mode-toggle');
-            if (!toggle || toggle.dataset.projectThemeToggleReady === 'true') return;
-
-            toggle.dataset.projectThemeToggleReady = 'true';
-
-            function getCurrentScheme() {
-                return document.documentElement.dataset.scheme === 'dark' ? 'dark' : 'light';
-            }
-
-            function getSystemScheme() {
-                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-            }
-
-            function saveScheme(scheme) {
-                try {
-                    window.localStorage.setItem('StackColorScheme', scheme === getSystemScheme() ? 'auto' : scheme);
-                } catch (error) {
-                    return;
-                }
-            }
-
-            function applyScheme(scheme) {
-                document.documentElement.dataset.scheme = scheme;
-                saveScheme(scheme);
-                window.dispatchEvent(new CustomEvent('onColorSchemeChange', { detail: scheme }));
-            }
-
-            toggle.addEventListener('click', function (event) {
-                event.preventDefault();
-                event.stopImmediatePropagation();
-
-                const x = event.clientX;
-                const y = event.clientY;
-                const willBeDark = getCurrentScheme() !== 'dark';
-                const nextScheme = willBeDark ? 'dark' : 'light';
-                const endRadius = Math.hypot(
-                    Math.max(x, window.innerWidth - x),
-                    Math.max(y, window.innerHeight - y)
-                );
-
-                if (!document.startViewTransition) {
-                    applyScheme(nextScheme);
-                    return;
-                }
-
-                const transition = document.startViewTransition(function () {
-                    applyScheme(nextScheme);
-                });
-
-                transition.ready.then(function () {
-                    const clipPath = willBeDark
-                        ? [`circle(${endRadius}px at ${x}px ${y}px)`, `circle(0px at ${x}px ${y}px)`]
-                        : [`circle(0px at ${x}px ${y}px)`, `circle(${endRadius}px at ${x}px ${y}px)`];
-
-                    document.documentElement.animate(
-                        { clipPath },
-                        {
-                            duration: 500,
-                            easing: 'ease-in-out',
-                            fill: 'forwards',
-                            pseudoElement: willBeDark
-                                ? '::view-transition-old(root)'
-                                : '::view-transition-new(root)'
-                        }
-                    );
-                });
-            }, { capture: true });
-        }
-
-        function setMenuOpen(open) {
-            if (!menuToggle || !nav) return;
-            menuToggle.classList.toggle('is-open', open);
-            nav.classList.toggle('is-open', open);
-            document.body.classList.toggle('site-nav-open', open);
-            menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        }
-
-        if (menuToggle && nav) {
-            menuToggle.addEventListener('click', function (event) {
-                event.stopPropagation();
-                setMenuOpen(!nav.classList.contains('is-open'));
-            });
-
-            nav.querySelectorAll('a').forEach(function (link) {
-                link.addEventListener('click', function () {
-                    setMenuOpen(false);
-                });
-            });
-
-            document.addEventListener('keydown', function (event) {
-                if (event.key === 'Escape') setMenuOpen(false);
-            });
-
-            document.addEventListener('click', function (event) {
-                if (!document.body.classList.contains('site-nav-open')) return;
-                if (nav.contains(event.target) || menuToggle.contains(event.target)) return;
-                setMenuOpen(false);
-            });
-
-            const desktopQuery = window.matchMedia('(min-width: 921px)');
-            const closeMenuOnDesktop = function (event) {
-                if (event.matches) setMenuOpen(false);
-            };
-
-            if (desktopQuery.addEventListener) {
-                desktopQuery.addEventListener('change', closeMenuOnDesktop);
-            } else if (desktopQuery.addListener) {
-                desktopQuery.addListener(closeMenuOnDesktop);
-            }
-        }
-
-        const backToTop = document.getElementById('back-to-top');
-
-        if (backToTop) {
-            function updateBackToTop() {
-                backToTop.classList.toggle('is-visible', window.scrollY > 420);
-            }
-
-            backToTop.addEventListener('click', function () {
-                window.scrollTo({ top: 0, behavior: reduceMotionQuery.matches ? 'auto' : 'smooth' });
-            });
-
-            window.addEventListener('scroll', updateBackToTop, { passive: true });
-            updateBackToTop();
-        }
-
-        function initArticleTocHover() {
-            const toc = document.querySelector('[data-article-toc]');
-            const articleMain = document.querySelector('.article-detail__main');
-            if (!toc || !articleMain) return;
-
-            const toggle = toc.querySelector('[data-article-toc-toggle]');
-            let lockedOpen = false;
-
-            function setVisible(visible) {
-                document.body.classList.toggle('is-article-toc-visible', visible);
-                if (toggle) {
-                    toggle.setAttribute('aria-expanded', visible ? 'true' : 'false');
-                    toggle.setAttribute('aria-label', visible ? '隐藏文章目录' : '显示文章目录');
-                }
-            }
-
-            function getLeftRevealZone() {
-                return Math.min(380, Math.max(280, window.innerWidth * 0.22));
-            }
-
-            function isInsideReadingColumn(x, y) {
-                const rect = articleMain.getBoundingClientRect();
-                const top = Math.min(rect.top, 0) - 48;
-                const bottom = Math.max(rect.bottom, window.innerHeight) + 48;
-
-                return x >= rect.left - 72 && x <= rect.right + 32 && y >= top && y <= bottom;
-            }
-
-            document.addEventListener('pointermove', function (event) {
-                if (lockedOpen) return;
-                setVisible(event.clientX <= getLeftRevealZone() || isInsideReadingColumn(event.clientX, event.clientY));
-            }, { passive: true });
-
-            document.addEventListener('pointerleave', function () {
-                if (!lockedOpen) setVisible(false);
-            });
-
-            toc.addEventListener('focusin', function () {
-                setVisible(true);
-            });
-
-            toc.addEventListener('focusout', function (event) {
-                if (lockedOpen || toc.contains(event.relatedTarget)) return;
-                setVisible(false);
-            });
-
-            if (toggle) {
-                toggle.addEventListener('click', function () {
-                    const isVisible = document.body.classList.contains('is-article-toc-visible');
-                    if (lockedOpen && isVisible) {
-                        lockedOpen = false;
-                        setVisible(false);
-                        return;
-                    }
-
-                    lockedOpen = true;
-                    setVisible(true);
-                });
-            }
-
-            document.addEventListener('click', function (event) {
-                if (!lockedOpen) return;
-                if (toc.contains(event.target) || articleMain.contains(event.target)) return;
-                lockedOpen = false;
-                setVisible(false);
-            });
-
-            document.addEventListener('keydown', function (event) {
-                if (event.key !== 'Escape') return;
-                lockedOpen = false;
-                setVisible(false);
-            });
-        }
-
-        function initRevealOnScroll() {
-            if (reduceMotionQuery.matches || !('IntersectionObserver' in window)) return;
-
-            const revealSelectors = [
-                '.section-band',
-                '.featured-section',
-                '.blog-card',
-                '.post-tools',
-                '.article-detail__content > blockquote',
-                '.article-detail__content > .highlight',
-                '.article-detail__content > pre',
-                '.article-detail__content > .table-wrapper',
-                '.article-detail__content > figure',
-                '.article-detail__content > details',
-                '.article-detail__content > hr',
-                '.article-detail__footer',
-                '.music-album-card'
-            ];
-
-            const targets = revealSelectors.reduce(function (items, selector) {
-                return items.concat(Array.prototype.slice.call(document.querySelectorAll(selector)));
-            }, []);
-
-            const imageBlocks = Array.prototype.slice.call(document.querySelectorAll('.article-detail__content > p')).filter(function (block) {
-                const children = Array.prototype.slice.call(block.children).filter(function (child) {
-                    return child.tagName !== 'BR';
-                });
-                const onlyChild = children[0];
-
-                return children.length === 1 && (
-                    onlyChild.tagName === 'IMG' ||
-                    onlyChild.classList.contains('gallery') ||
-                    (onlyChild.tagName === 'A' && onlyChild.querySelector('img'))
-                );
-            });
-
-            imageBlocks.forEach(function (block) {
-                if (!targets.includes(block)) targets.push(block);
-            });
-
-            const filteredTargets = targets.filter(function (target, index) {
-                if (target.tagName === 'PRE' && target.closest('.highlight')) return false;
-                return targets.indexOf(target) === index;
-            });
-
-            if (!filteredTargets.length) return;
-
-            const observer = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (!entry.isIntersecting) return;
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                });
-            }, {
-                rootMargin: '0px 0px -6% 0px',
-                threshold: 0.1
-            });
-
-            filteredTargets.forEach(function (target, index) {
-                target.classList.add('reveal-on-scroll');
-                target.style.setProperty('--reveal-delay', Math.min(index % 4, 3) * 32 + 'ms');
-                observer.observe(target);
-            });
-        }
-
-        initThemeToggle();
-        initArticleTocHover();
-        initRevealOnScroll();
-
-        window.requestAnimationFrame(function () {
-            document.body.classList.add('is-loaded');
-        });
-    })();
-</script>
-
 </body>
 
 </html>

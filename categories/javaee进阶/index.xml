@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>JavaEE进阶 on Jul1en</title>
-        <link>https://Jul1en-Lin.github.io/categories/javaee%E8%BF%9B%E9%98%B6/</link>
-        <description>Recent content in JavaEE进阶 on Jul1en</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>en-us</language>
-        <copyright>Jul1en</copyright>
-        <lastBuildDate>Tue, 28 Apr 2026 13:42:32 +0800</lastBuildDate><atom:link href="https://Jul1en-Lin.github.io/categories/javaee%E8%BF%9B%E9%98%B6/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>博客系统项目</title>
-        <link>https://Jul1en-Lin.github.io/p/%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE/</link>
-        <pubDate>Wed, 11 Feb 2026 08:14:24 +0000</pubDate>
-        
-        <guid>https://Jul1en-Lin.github.io/p/%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE/</guid>
-        <description>&lt;h1 id=&#34;博客系统项目&#34;&gt;博客系统项目
-&lt;/h1&gt;&lt;p&gt;技术栈：SpringBoot + MyBatisPlus&lt;/p&gt;
+  <channel>
+    <title>JavaEE进阶 - Jul1en</title>
+    <link>https://Jul1en-Lin.github.io/categories/javaee%E8%BF%9B%E9%98%B6/</link>
+    <description>JavaEE进阶 - Jul1en</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <copyright>Jul1en</copyright>
+    <lastBuildDate>Tue, 28 Apr 2026 13:42:32 +0800</lastBuildDate>
+    <atom:link href="https://Jul1en-Lin.github.io/categories/javaee%E8%BF%9B%E9%98%B6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>博客系统项目</title>
+      <link>https://Jul1en-Lin.github.io/p/%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE/</link>
+      <pubDate>Wed, 11 Feb 2026 08:14:24 +0000</pubDate>
+      <guid>https://Jul1en-Lin.github.io/p/%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE/</guid>
+      <description>&lt;h1 id=&#34;博客系统项目&#34;&gt;
+    博客系统项目
+&lt;/h1&gt;
+&lt;p&gt;技术栈：SpringBoot + MyBatisPlus&lt;/p&gt;
 &lt;p&gt;‍&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;遇到的问题以及处理细节点：&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
@@ -46,7 +49,8 @@
 &lt;p&gt;实现登录的两种模式&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;使用Session：Session持久化——&lt;a class=&#34;link&#34; href=&#34;assets/Spring%20Session%20%e6%8c%81%e4%b9%85%e5%8c%96-20260213215737-de188oj.pdf&#34; &gt;Spring Session 持久化.pdf&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;使用Session：Session持久化——&lt;a class=&#34;link&#34; href=&#34;assets/Spring%20Session%20%e6%8c%81%e4%b9%85%e5%8c%96-20260213215737-de188oj.pdf&#34;&gt;Spring Session 持久化.pdf&lt;/a&gt;
+&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;存储到MySQL&lt;/li&gt;
 &lt;li&gt;存储到Redis&lt;/li&gt;
@@ -89,15 +93,16 @@
 &lt;/ol&gt;
 &lt;p&gt;‍&lt;/p&gt;
 </description>
-        </item>
-        <item>
-        <title>打印日志</title>
-        <link>https://Jul1en-Lin.github.io/p/%E6%89%93%E5%8D%B0%E6%97%A5%E5%BF%97/</link>
-        <pubDate>Wed, 04 Feb 2026 07:47:28 +0000</pubDate>
-        
-        <guid>https://Jul1en-Lin.github.io/p/%E6%89%93%E5%8D%B0%E6%97%A5%E5%BF%97/</guid>
-        <description>&lt;h1 id=&#34;打印日志&#34;&gt;打印日志
-&lt;/h1&gt;&lt;p&gt;可在&lt;code&gt;application.yml&lt;/code&gt;文件中配置&lt;/p&gt;
+    </item>
+    <item>
+      <title>打印日志</title>
+      <link>https://Jul1en-Lin.github.io/p/%E6%89%93%E5%8D%B0%E6%97%A5%E5%BF%97/</link>
+      <pubDate>Wed, 04 Feb 2026 07:47:28 +0000</pubDate>
+      <guid>https://Jul1en-Lin.github.io/p/%E6%89%93%E5%8D%B0%E6%97%A5%E5%BF%97/</guid>
+      <description>&lt;h1 id=&#34;打印日志&#34;&gt;
+    打印日志
+&lt;/h1&gt;
+&lt;p&gt;可在&lt;code&gt;application.yml&lt;/code&gt;文件中配置&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;设置日志文件的文件名&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nl&#34;&gt;logging&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;file&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -109,7 +114,6 @@
 &lt;p&gt;log.warn，用于警告&lt;/p&gt;
 &lt;p&gt;‍&lt;/p&gt;
 </description>
-        </item>
-        
-    </channel>
+    </item>
+  </channel>
 </rss>

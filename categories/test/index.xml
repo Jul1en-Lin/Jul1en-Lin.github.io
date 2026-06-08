@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>Test on Jul1en</title>
-        <link>https://Jul1en-Lin.github.io/categories/test/</link>
-        <description>Recent content in Test on Jul1en</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>en-us</language>
-        <copyright>Jul1en</copyright>
-        <lastBuildDate>Tue, 28 Apr 2026 00:19:59 +0800</lastBuildDate><atom:link href="https://Jul1en-Lin.github.io/categories/test/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>打印日志</title>
-        <link>https://Jul1en-Lin.github.io/p/%E6%89%93%E5%8D%B0%E6%97%A5%E5%BF%97/</link>
-        <pubDate>Wed, 04 Feb 2026 07:47:28 +0000</pubDate>
-        
-        <guid>https://Jul1en-Lin.github.io/p/%E6%89%93%E5%8D%B0%E6%97%A5%E5%BF%97/</guid>
-        <description>&lt;h1 id=&#34;打印日志&#34;&gt;打印日志
-&lt;/h1&gt;&lt;p&gt;可在&lt;code&gt;application.yml&lt;/code&gt;文件中配置&lt;/p&gt;
+  <channel>
+    <title>Test - Jul1en</title>
+    <link>https://Jul1en-Lin.github.io/categories/test/</link>
+    <description>Test - Jul1en</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <copyright>Jul1en</copyright>
+    <lastBuildDate>Tue, 28 Apr 2026 00:19:59 +0800</lastBuildDate>
+    <atom:link href="https://Jul1en-Lin.github.io/categories/test/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>打印日志</title>
+      <link>https://Jul1en-Lin.github.io/p/%E6%89%93%E5%8D%B0%E6%97%A5%E5%BF%97/</link>
+      <pubDate>Wed, 04 Feb 2026 07:47:28 +0000</pubDate>
+      <guid>https://Jul1en-Lin.github.io/p/%E6%89%93%E5%8D%B0%E6%97%A5%E5%BF%97/</guid>
+      <description>&lt;h1 id=&#34;打印日志&#34;&gt;
+    打印日志
+&lt;/h1&gt;
+&lt;p&gt;可在&lt;code&gt;application.yml&lt;/code&gt;文件中配置&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;设置日志文件的文件名&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nl&#34;&gt;logging&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;file&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -26,7 +29,6 @@
 &lt;p&gt;log.warn，用于警告&lt;/p&gt;
 &lt;p&gt;‍&lt;/p&gt;
 </description>
-        </item>
-        
-    </channel>
+    </item>
+  </channel>
 </rss>

@@ -1,43 +1,45 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
+<html lang="zh-CN" dir="ltr">
 
-<head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="一个关于后端开发、测试、工具实践与生活记录的个人博客。">
-<title>Pages | Jul1en</title>
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Pages | Jul1en</title>
+<meta name="description" content="一个关于后端开发、测试、工具实践与生活记录的个人博客。">
+<meta name="author" content="Jul1en">
+<link rel="canonical" href="https://Jul1en-Lin.github.io/page/">
+<link rel="alternate" type="application/rss&#43;xml" href="https://Jul1en-Lin.github.io/page/index.xml">
 
-<link rel='canonical' href='https://Jul1en-Lin.github.io/page/'>
-
-<link rel="stylesheet" href="/scss/style.min.ec82946fda8d90cf1fb1835f4491c98e9279c2eae00a5622fe790c8a9ce86062.css"><meta property='og:title' content="Pages | Jul1en">
-<meta property='og:description' content="一个关于后端开发、测试、工具实践与生活记录的个人博客。">
-<meta property='og:url' content='https://Jul1en-Lin.github.io/page/'>
-<meta property='og:site_name' content='Jul1en'>
-<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2026-06-05T20:35:17&#43;08:00 '/>
-<meta name="twitter:title" content="Pages | Jul1en">
-<meta name="twitter:description" content="一个关于后端开发、测试、工具实践与生活记录的个人博客。"><link rel="alternate" type="application/rss&#43;xml" href="https://Jul1en-Lin.github.io/page/index.xml">
-    <link rel="shortcut icon" href="/favicon-signature.svg" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="icon" href="/favicon-signature.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-signature.png" type="image/png" sizes="512x512">
-<link rel="alternate icon" href="/favicon-signature.ico" type="image/x-icon">
-<meta name="author" content="Jul1en">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)"><script src="/js/custom.4bb4ca905d915217c671721b75f16ae60652e805c90c767a80a951f0dddeeb9c.js" integrity="sha256-S7TKkF2RUhfGcXIbdfFq5gZS6AXJDHZ6gKlR8N3e65w=" defer></script><script>
+<link rel="alternate icon" href="/favicon.ico" type="image/x-icon">
+<meta name="theme-color" content="#fdfdf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Pages | Jul1en">
+<meta property="og:description" content="一个关于后端开发、测试、工具实践与生活记录的个人博客。">
+<meta property="og:url" content="https://Jul1en-Lin.github.io/page/">
+<meta property="og:site_name" content="Jul1en">
+<meta property="og:type" content="website">
+<meta property="og:updated_time" content="2026-06-05T20:35:17&#43;08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Pages | Jul1en">
+<meta name="twitter:description" content="一个关于后端开发、测试、工具实践与生活记录的个人博客。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"><script>
     (function () {
-        const colorSchemeKey = 'StackColorScheme';
-        const savedScheme = localStorage.getItem(colorSchemeKey);
-        const defaultScheme = "light";
-        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
-        const scheme = savedScheme || defaultScheme;
-
-        if (scheme === 'dark' || (scheme === 'auto' && supportDarkMode)) {
-            document.documentElement.dataset.scheme = 'dark';
-        } else {
-            document.documentElement.dataset.scheme = 'light';
+        var stored = null;
+        try {
+            stored = window.localStorage.getItem('ColorScheme');
+        } catch (error) {
+            stored = null;
         }
+
+        var scheme = stored;
+        if (scheme !== 'light' && scheme !== 'dark') {
+            scheme = "light";
+        }
+        document.documentElement.dataset.scheme = scheme;
     })();
-</script>
+</script><link rel="stylesheet" href="/css/site.min.0758d8aad30f198f851a02b8c6494f637bd95774b2fd6b2f576cf99133b942f8.css" integrity="sha256-B1jYqtMPGY&#43;FGgK4xklPY3vZV3Sy/WsvV2z5kTO5Qvg="><script src="/js/site.51f8655227b5fb12b2585c2985e20ec3e93192ca19774662d732d2a0bcb492f0.js" integrity="sha256-UfhlUie1&#43;xKyWFwpheIOw&#43;kxksoZd0Zi1zLSoLy0kvA=" defer></script>
 
 </head>
 
@@ -93,7 +95,7 @@
   <path fill="currentColor" d="M17.2 7.2a.9.9 0 1 1-1.8 0 .9.9 0 0 1 1.8 0Z" />
 </svg>
 </span>
-                    </a><button id="dark-mode-toggle" class="theme-toggle" type="button" aria-label="暗色模式" title="暗色模式">
+                    </a><button id="dark-mode-toggle" class="theme-toggle" type="button" aria-label="切换配色" title="切换配色">
                     <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
     <circle cx="12" cy="12" r="4.2" />
     <path d="M12 2.8v2.2M12 19v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.8 12h2.2M19 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" />
@@ -131,15 +133,15 @@
     <section class="blog-index blog-index--timeline" aria-labelledby="blog-index-title">
         <h1 class="sr-only" id="blog-index-title">Blog</h1>
 
-        <div class="post-timeline" data-blog-timeline>
+        <div class="post-timeline">
             
-            <section class="post-year" data-blog-year-group>
+            <section class="post-year">
                 <h2 class="post-year__label">
                     <a href="#year-2026">2026</a>
                 </h2>
                 <div class="post-year__list" id="year-2026">
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="redis" data-title="Redis 缓存" data-summary="整理 Redis 缓存的更新策略、内存淘汰、缓存预热，以及缓存穿透、雪崩和击穿等常见问题。">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/redis-%E7%BC%93%E5%AD%98/">
         <span class="post-timeline__title">Redis 缓存</span>
 
@@ -149,7 +151,7 @@
 </article>
 
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE" data-title="API 类型总结" data-summary="梳理 REST、SOAP、RPC、gRPC、GraphQL、Webhook、SSE、WebSocket、WebRTC、MQTT、AMQP、Kafka、MCP 与 AsyncAPI 的定位和适用场景。">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/">
         <span class="post-timeline__title">API 类型总结</span>
 
@@ -159,7 +161,7 @@
 </article>
 
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="redis" data-title="Docker 部署 Redis 集群" data-summary="记录用 Docker Compose 部署 11 个 Redis 节点，并用 9 个节点创建 Redis Cluster、一主两从分片集群的过程。">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/docker-%E9%83%A8%E7%BD%B2-redis-%E9%9B%86%E7%BE%A4/">
         <span class="post-timeline__title">Docker 部署 Redis 集群</span>
 
@@ -169,7 +171,7 @@
 </article>
 
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="redis" data-title="Redis 集群" data-summary="梳理 Redis Cluster 的分片、哈希槽、客户端重定向、故障转移，以及通过 Docker 节点完成主从扩容的过程。">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/redis-%E9%9B%86%E7%BE%A4/">
         <span class="post-timeline__title">Redis 集群</span>
 
@@ -179,7 +181,7 @@
 </article>
 
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="redis" data-title="Redis 哨兵" data-summary="记录 Redis Sentinel 如何在主从复制基础上完成监控、选主、故障转移，以及用 Docker 搭建一主二从三哨兵的练习过程。">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/redis-%E5%93%A8%E5%85%B5/">
         <span class="post-timeline__title">Redis 哨兵</span>
 
@@ -189,7 +191,7 @@
 </article>
 
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="ai" data-title="Codex 工作流更新-v2" data-summary="整理 Codex、Claude Code 和其他 Agent 的项目初始化入口，把 setup-light、setup-full、AGENTS.md、CLAUDE.md 与 checkpoint 工作流拆清楚。">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/codex-%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%9B%B4%E6%96%B0-v2/">
         <span class="post-timeline__title">Codex 工作流更新-v2</span>
 
@@ -199,8 +201,7 @@
 </article>
 
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="%E5%BE%AE%E6%9C%8D%E5%8A%A1" data-title="Sentinel" data-summary="Sentinel Sentinel 是微服务里非常典型的一类保护组件。它负责的是流量管控：当流量突然变大、某个下游接口变慢、异常开始扩散时，系统不要被一路拖垮。
-如果说 Spring Cloud 核心概念 解决的是“服务怎么拆、怎么找、怎么调”，那么 Sentinel 更像是在这 …">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/sentinel/">
         <span class="post-timeline__title">Sentinel</span>
 
@@ -210,8 +211,7 @@
 </article>
 
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="git" data-title="Git stash" data-summary="Git stash 在使用 Git 开发时，我们经常会遇到一种很尴尬的情况：当前功能还没写完，代码处于“半成品”状态，既不适合提交 commit，也不想直接丢掉。但这时突然来了一个新的任务，比如需要马上切换分支去修 Bug，或者需要拉取远程最新代码。
-">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/git-stash/">
         <span class="post-timeline__title">Git stash</span>
 
@@ -221,7 +221,7 @@
 </article>
 
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="%E5%BE%AE%E6%9C%8D%E5%8A%A1" data-title="SpringCloud Config" data-summary="SpringCloud Config Spring Cloud Config 解决的是微服务项目中“配置分散、环境复杂、修改成本高”的问题。单体项目里，配置通常写在本地 application.yml 中，应用启动时直接读取即可。但微服务项目会拆出多个服务，每个服务又会区分开发、 …">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/springcloud-config/">
         <span class="post-timeline__title">SpringCloud Config</span>
 
@@ -231,7 +231,7 @@
 </article>
 
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="redis" data-title="Redis 主从复制" data-summary="Redis 主从复制 概念与结构 Redis 主从复制指的是：让一个 Redis 主节点，也就是 master，把自己的数据同步给一个或多个从节点，也就是 replica。以前很多资料会写 slave，现在更推荐使用 replica 这个说法，但学习时看到 slave 也要能对应 …">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/">
         <span class="post-timeline__title">Redis 主从复制</span>
 
@@ -241,8 +241,7 @@
 </article>
 
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="redis" data-title="Reids 事务" data-summary="Reids 事务 核心意义 Redis 事务的主要作用，是把多条命令“打包”为一组，然后按照顺序执行。它解决的核心问题不是像 MySQL 那样提供完整的强事务能力，而是在执行这一组命令时，尽量避免其他客户端的命令插入到这组操作中间。
-">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/reids-%E4%BA%8B%E5%8A%A1/">
         <span class="post-timeline__title">Reids 事务</span>
 
@@ -252,7 +251,7 @@
 </article>
 
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="%E5%BE%AE%E6%9C%8D%E5%8A%A1" data-title="Spring Cloud 核心概念" data-summary="Spring Cloud 核心概念 Spring Cloud 简单概念笔记：Eureka、Nacos、OpenFeign 与 Gateway 版本说明：本文以 Spring Boot 3 / Spring Cloud 新版本思路为主。很多旧教程会使用 …">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/">
         <span class="post-timeline__title">Spring Cloud 核心概念</span>
 
@@ -262,8 +261,7 @@
 </article>
 
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="ai" data-title="Claude 迁移 Codex 工作流更新" data-summary="Claude 迁移 Codex 工作流更新 工作流框架 这篇博客旨在为从 Claude 转到 Codex 的工作者提供一些注意事项与 Tips。
-Claude code 的工作方式与 Codex 还是有些许不一样，Claude code 更适合长对话的上下文，将模糊的想法转为可实 …">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/claude-%E8%BF%81%E7%A7%BB-codex-%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%9B%B4%E6%96%B0/">
         <span class="post-timeline__title">Claude 迁移 Codex 工作流更新</span>
 
@@ -273,8 +271,7 @@ Claude code 的工作方式与 Codex 还是有些许不一样，Claude code 更�
 </article>
 
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="redis" data-title="Redis 进阶" data-summary="Redis 进阶 持久化 Redis 的持久化有两个策略
-RDB -&gt; Redis DataBase AOF -&gt; Append Only File RDB RDB 的触发时机有两种，一种是手动存储，一种是定时存储。将数据备份到数据库中，通常存在一个后缀名为 .rdb …">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/redis-%E8%BF%9B%E9%98%B6/">
         <span class="post-timeline__title">Redis 进阶</span>
 
@@ -284,8 +281,7 @@ RDB -&gt; Redis DataBase AOF -&gt; Append Only File RDB RDB 的触发时机有�
 </article>
 
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="" data-title="Agent 概念" data-summary="Hooks 概念 学习概念最好的方法就是参考官方文档：code.claude.com/docs/en/hooks
-Hooks 是用户定义的 shell 命令、HTTP 端点或 LLM 提示，它们在 Claude Code 的生命周期中的特定点自动执行。用于参考查找事件模式、配置选 …">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/agent-%E6%A6%82%E5%BF%B5/">
         <span class="post-timeline__title">Agent 概念</span>
 
@@ -295,8 +291,7 @@ Hooks 是用户定义的 shell 命令、HTTP 端点或 LLM 提示，它们在 Cl
 </article>
 
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="git" data-title="Git LFS 突破大文件上传限制" data-summary="Git LFS 接触此技术背景 本人一直有将笔记备份的习惯，虽然已经有云同步，但是异地存档能再加多层保险
-随时间推移，笔记内容也越来越多，我的笔记快照的体积越来越大，最近一次直接超出了 Git 单次推送的最大体积限制（100MB），在查询解决方法时，发现 Git 有一种叫 LFS …">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/git-lfs-%E7%AA%81%E7%A0%B4%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E9%99%90%E5%88%B6/">
         <span class="post-timeline__title">Git LFS 突破大文件上传限制</span>
 
@@ -306,8 +301,7 @@ Hooks 是用户定义的 shell 命令、HTTP 端点或 LLM 提示，它们在 Cl
 </article>
 
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="" data-title="🎏 抽奖系统" data-summary="抽奖系统项目 此博客旨在记录学习项目时遇到的各种技术问题，以便后续复盘学习，同时起到记录勉励作用。持续更新&hellip;
-遇到的问题 技术细节错误 Mybatis字段处理器TypeHandler：写库时自动对手机号做对称加密，读库时自动解密还原，统一把加解密收敛在持久层，便于在 …">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/%E6%8A%BD%E5%A5%96%E7%B3%BB%E7%BB%9F/">
         <span class="post-timeline__title">🎏 抽奖系统</span>
 
@@ -317,11 +311,7 @@ Hooks 是用户定义的 shell 命令、HTTP 端点或 LLM 提示，它们在 Cl
 </article>
 
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="javaee%E8%BF%9B%E9%98%B6" data-title="博客系统项目" data-summary="博客系统项目 技术栈：SpringBoot &#43; MyBatisPlus
-‍
-遇到的问题以及处理细节点：
-在处理返回博客信息的时候，通常不需要返回整个博客的信息BlogInfo类，只需要提供部分有用的信息返回给前端，故新建一个BlogInfoResponse类，也有利于数据安全
-">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE/">
         <span class="post-timeline__title">博客系统项目</span>
 
@@ -331,9 +321,7 @@ Hooks 是用户定义的 shell 命令、HTTP 端点或 LLM 提示，它们在 Cl
 </article>
 
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="mybatis" data-title="🥓 MyBatis/plus 及配置" data-summary="MyBatis MyBatis 是一款半自动对象关系映射持久层框架，其核心通过 XML 或注解实现原生 SQL 与 Java 对象的解耦映射，在消除冗余 JDBC 代码的同时，保留了对 SQL 执行逻辑的控制
-接下来先讲传统Mybatis的配置
-">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/">
         <span class="post-timeline__title">🥓 MyBatis/plus 及配置</span>
 
@@ -343,8 +331,7 @@ Hooks 是用户定义的 shell 命令、HTTP 端点或 LLM 提示，它们在 Cl
 </article>
 
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="javaee%E8%BF%9B%E9%98%B6 test" data-title="打印日志" data-summary="打印日志 可在application.yml文件中配置
-# 设置日志文件的文件名 logging: file: name: spring-book.log Spring中使用注解@Slf4j，即可打印日志，日志如下 ">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/%E6%89%93%E5%8D%B0%E6%97%A5%E5%BF%97/">
         <span class="post-timeline__title">打印日志</span>
 
@@ -354,9 +341,7 @@ Hooks 是用户定义的 shell 命令、HTTP 端点或 LLM 提示，它们在 Cl
 </article>
 
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="" data-title="🎁 Jmeter 安装配置" data-summary="性能测试 掌握性能测试工具是自动化测试中必备的技能，有助于提高效率
-JMeter配置 下载安装 JMeter官网jmeter.apache.org/download_jmeter.cgi，点击Binary一栏，注意要求JDK为8及以上，选择任意解压包，下载后解压
-">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/jmeter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/">
         <span class="post-timeline__title">🎁 Jmeter 安装配置</span>
 
@@ -369,15 +354,13 @@ JMeter配置 下载安装 JMeter官网jmeter.apache.org/download_jmeter.cgi，�
                 </div>
             </section>
             
-            <section class="post-year" data-blog-year-group>
+            <section class="post-year">
                 <h2 class="post-year__label">
                     <a href="#year-2025">2025</a>
                 </h2>
                 <div class="post-year__list" id="year-2025">
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="%E7%AE%97%E6%B3%95" data-title="🛹 位运算类题目" data-summary="位运算总结图
-判定字符是否唯一 如何从浅到深的挖入这道题？从常见的哈希表到数组模拟哈希表到用到位图思想，想到了用位图
-">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%B1%BB%E9%A2%98%E7%9B%AE/">
         <span class="post-timeline__title">🛹 位运算类题目</span>
 
@@ -387,8 +370,7 @@ JMeter配置 下载安装 JMeter官网jmeter.apache.org/download_jmeter.cgi，�
 </article>
 
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="%E7%AE%97%E6%B3%95" data-title="🪭 分治-归并类题目" data-summary="归并数组 类似于分治快排，归并是从底下往上递归排序，快排是先解决当前部分再往下排，两个的顺序是反的~
-class Solution { int[] tmp; // 辅助数组 public int[] sortArray(int[] nums) { // 分治归并 if (nums …">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/%E5%88%86%E6%B2%BB-%E5%BD%92%E5%B9%B6%E7%B1%BB%E9%A2%98%E7%9B%AE/">
         <span class="post-timeline__title">🪭 分治-归并类题目</span>
 
@@ -398,9 +380,7 @@ class Solution { int[] tmp; // 辅助数组 public int[] sortArray(int[] nums) {
 </article>
 
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="%E7%AE%97%E6%B3%95 %E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F %E5%A0%86" data-title="🌶️ TopK问题" data-summary="topK问题 topK问题是经典的算法题，包括有（第k大、第k小、前k大、前k小），这类题的解决方法也比较固定
-堆排序 一句话总结：找前 K 大，用 Size 为 K 的小顶堆；找前 K 小，用 Size 为 K 的大顶堆。
-">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/">
         <span class="post-timeline__title">🌶️ TopK问题</span>
 
@@ -410,10 +390,7 @@ class Solution { int[] tmp; // 辅助数组 public int[] sortArray(int[] nums) {
 </article>
 
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="git" data-title="🪶 Git命令大全" data-summary="Git命令大全 前提介绍
-git是一个分布式版本控制系统，相当于一个时光机，拿来保管代码，一旦出错，可以随时回滚到任何一个历史节点
-其核心架构分为三个区域：工作区（写代码的地方）、暂存区（临时存放的地方）和版本库（安全存档的地方）
-">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/">
         <span class="post-timeline__title">🪶 Git命令大全</span>
 
@@ -423,8 +400,7 @@ git是一个分布式版本控制系统，相当于一个时光机，拿来保�
 </article>
 
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="spring" data-title="🧣 验证码功能" data-summary="验证码功能 引入Hutool工具包 Hutool工具是一个开源的Java工具依赖库，封装了许多功能，访问https://hutool.cn，按图中引入依赖即可使用，具体功能可查看官方文档~
-">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/">
         <span class="post-timeline__title">🧣 验证码功能</span>
 
@@ -434,8 +410,7 @@ git是一个分布式版本控制系统，相当于一个时光机，拿来保�
 </article>
 
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="mybatis" data-title="💫 MyBatis／plus" data-summary="💫 MyBatis／plus MyBatis 是一款半自动对象关系映射持久层框架，其核心通过 XML 或注解实现原生 SQL 与 Java 对象的解耦映射，在消除冗余 JDBC 代码的同时，保留了对 SQL 执行逻辑的控制
-">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/-mybatisplus/">
         <span class="post-timeline__title">💫 MyBatis／plus</span>
 
@@ -445,14 +420,7 @@ git是一个分布式版本控制系统，相当于一个时光机，拿来保�
 </article>
 
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="%E6%B5%8B%E8%AF%95" data-title="🎓 Web自动化测试" data-summary="自动化测试 自动化测试包括
-接口自动化测试
-UI自动化测试
-Web自动化测试
-客户端界面自动化测试
-这次来讲讲Web 自动化测试。
-Web 自动化测试 在大厂的研发流程中，自动化测试是&quot;CI/CD（持续集成/持续部署）&ldquo;不可或缺的一环。
-">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/">
         <span class="post-timeline__title">🎓 Web自动化测试</span>
 
@@ -462,10 +430,7 @@ Web 自动化测试 在大厂的研发流程中，自动化测试是&quot;CI/CD�
 </article>
 
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="spring" data-title="🍀Spring IoC & DI" data-summary="Spring 两个核心思想：IoC &amp; DI 和 AOP
-IoC &amp; DI IoC全名为Inversion of Control，即“控制反转”，何为控制反转呢？
-控制：指的是对象的创建、初始化、销毁和生命周期的管理权
-">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/spring-ioc-di/">
         <span class="post-timeline__title">🍀Spring IoC &amp; DI</span>
 
@@ -475,9 +440,7 @@ IoC &amp; DI IoC全名为Inversion of Control，即“控制反转”，何为�
 </article>
 
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="" data-title="🌵 开发模型和测试模型" data-summary="开发模型和测试模型 开发模型 学习测试，我们需要了解产品的开发流程，开发模型实际上指的就是产品的开发流程
-瀑布模型 瀑布模型是其他模型的基础框架，它是最基础的模型，模型如图所示
-">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/">
         <span class="post-timeline__title">🌵 开发模型和测试模型</span>
 
@@ -487,9 +450,7 @@ IoC &amp; DI IoC全名为Inversion of Control，即“控制反转”，何为�
 </article>
 
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="" data-title="🪐 Github码云同步脚本" data-summary="Github 、Gitee 自动同步脚本 解决 GitHub Actions 同步 Gitee 过程中遇到的一些问题 前言 由于是在CSDN上更新博客，随着不断学习，想了想应该不应该局限于这一个平台
-于是萌生出搭建一个属于自己博客网站，最终决定采用Hugo &#43; Github
-">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/github%E7%A0%81%E4%BA%91%E5%90%8C%E6%AD%A5%E8%84%9A%E6%9C%AC/">
         <span class="post-timeline__title">🪐 Github码云同步脚本</span>
 
@@ -499,10 +460,7 @@ IoC &amp; DI IoC全名为Inversion of Control，即“控制反转”，何为�
 </article>
 
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="mysql" data-title="事务" data-summary="事务 MySQL是一个客户端-服务器结构的程序
-事务的四大原则ACID A——（Atomicity）原子性：
-把多个SQL打包成一个整体，不可分割，要么执行全部，要么不执行
-">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/%E4%BA%8B%E5%8A%A1/">
         <span class="post-timeline__title">事务</span>
 
@@ -512,8 +470,7 @@ IoC &amp; DI IoC全名为Inversion of Control，即“控制反转”，何为�
 </article>
 
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" data-title="前言" data-summary="前言 数据结构是一种基于多维数据的多种处理方式，对合适的数据运用合适的数据结构
-集合框架 ">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/%E5%89%8D%E8%A8%80/">
         <span class="post-timeline__title">前言</span>
 
@@ -523,8 +480,7 @@ IoC &amp; DI IoC全名为Inversion of Control，即“控制反转”，何为�
 </article>
 
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" data-title="Map & Set" data-summary="Map &amp; Set #搜索树# 概念 二叉搜索树/二叉排序树，满足以下性质
-若左树不为空，则左树上所有节点的值都小于父节点的值 若右树不为空，则右树上所有节点的值都大于父节点的值 它的左右子树也满足以上性质 ">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/map--set/">
         <span class="post-timeline__title">Map &amp; Set</span>
 
@@ -534,8 +490,7 @@ IoC &amp; DI IoC全名为Inversion of Control，即“控制反转”，何为�
 </article>
 
                     
-                        <article class="post-timeline__item" data-blog-card data-blog-row data-categories="%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" data-title="数据结构——排序" data-summary="数据结构——排序 排序概念 在数据结构中，有许多无序的数据，所谓排序，就是使一串无序的记录，按照其中某个或某些关键字的大小，来进行递增或者递减的排列起来的操作
-#稳定性# 在待排序的数据中，存在一些相同数据的，如果排序之后他们的相对位置保持不变，那么这个排序就是稳定的，相反则不稳 …">
+                        <article class="post-timeline__item">
     <a class="post-timeline__link" href="/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/">
         <span class="post-timeline__title">数据结构——排序</span>
 
@@ -552,307 +507,11 @@ IoC &amp; DI IoC全名为Inversion of Control，即“控制反转”，何为�
     </section>
 
 
-
-
-    </main>
-
-    <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
-                
-                >
-            </script><script type="text/javascript" src="/ts/main.836efe327773ba454adac61ee8b35272b6f512bd594ed9ea0f926fca8386433b.js" defer></script><script type="text/javascript" src="/ts/custom.4bb4ca905d915217c671721b75f16ae60652e805c90c767a80a951f0dddeeb9c.js" defer></script>
-
-
-<button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
+    </main><button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M6 14.5 12 8l6 6.5" />
+        <path d="M6 14.5 12 8l6 6.5"></path>
     </svg>
 </button>
-
-<script>
-    (function () {
-        'use strict';
-
-        const menuToggle = document.querySelector('.site-menu-toggle');
-        const nav = document.getElementById('primary-navigation');
-        const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-        function initThemeToggle() {
-            const toggle = document.getElementById('dark-mode-toggle');
-            if (!toggle || toggle.dataset.projectThemeToggleReady === 'true') return;
-
-            toggle.dataset.projectThemeToggleReady = 'true';
-
-            function getCurrentScheme() {
-                return document.documentElement.dataset.scheme === 'dark' ? 'dark' : 'light';
-            }
-
-            function getSystemScheme() {
-                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-            }
-
-            function saveScheme(scheme) {
-                try {
-                    window.localStorage.setItem('StackColorScheme', scheme === getSystemScheme() ? 'auto' : scheme);
-                } catch (error) {
-                    return;
-                }
-            }
-
-            function applyScheme(scheme) {
-                document.documentElement.dataset.scheme = scheme;
-                saveScheme(scheme);
-                window.dispatchEvent(new CustomEvent('onColorSchemeChange', { detail: scheme }));
-            }
-
-            toggle.addEventListener('click', function (event) {
-                event.preventDefault();
-                event.stopImmediatePropagation();
-
-                const x = event.clientX;
-                const y = event.clientY;
-                const willBeDark = getCurrentScheme() !== 'dark';
-                const nextScheme = willBeDark ? 'dark' : 'light';
-                const endRadius = Math.hypot(
-                    Math.max(x, window.innerWidth - x),
-                    Math.max(y, window.innerHeight - y)
-                );
-
-                if (!document.startViewTransition) {
-                    applyScheme(nextScheme);
-                    return;
-                }
-
-                const transition = document.startViewTransition(function () {
-                    applyScheme(nextScheme);
-                });
-
-                transition.ready.then(function () {
-                    const clipPath = willBeDark
-                        ? [`circle(${endRadius}px at ${x}px ${y}px)`, `circle(0px at ${x}px ${y}px)`]
-                        : [`circle(0px at ${x}px ${y}px)`, `circle(${endRadius}px at ${x}px ${y}px)`];
-
-                    document.documentElement.animate(
-                        { clipPath },
-                        {
-                            duration: 500,
-                            easing: 'ease-in-out',
-                            fill: 'forwards',
-                            pseudoElement: willBeDark
-                                ? '::view-transition-old(root)'
-                                : '::view-transition-new(root)'
-                        }
-                    );
-                });
-            }, { capture: true });
-        }
-
-        function setMenuOpen(open) {
-            if (!menuToggle || !nav) return;
-            menuToggle.classList.toggle('is-open', open);
-            nav.classList.toggle('is-open', open);
-            document.body.classList.toggle('site-nav-open', open);
-            menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        }
-
-        if (menuToggle && nav) {
-            menuToggle.addEventListener('click', function (event) {
-                event.stopPropagation();
-                setMenuOpen(!nav.classList.contains('is-open'));
-            });
-
-            nav.querySelectorAll('a').forEach(function (link) {
-                link.addEventListener('click', function () {
-                    setMenuOpen(false);
-                });
-            });
-
-            document.addEventListener('keydown', function (event) {
-                if (event.key === 'Escape') setMenuOpen(false);
-            });
-
-            document.addEventListener('click', function (event) {
-                if (!document.body.classList.contains('site-nav-open')) return;
-                if (nav.contains(event.target) || menuToggle.contains(event.target)) return;
-                setMenuOpen(false);
-            });
-
-            const desktopQuery = window.matchMedia('(min-width: 921px)');
-            const closeMenuOnDesktop = function (event) {
-                if (event.matches) setMenuOpen(false);
-            };
-
-            if (desktopQuery.addEventListener) {
-                desktopQuery.addEventListener('change', closeMenuOnDesktop);
-            } else if (desktopQuery.addListener) {
-                desktopQuery.addListener(closeMenuOnDesktop);
-            }
-        }
-
-        const backToTop = document.getElementById('back-to-top');
-
-        if (backToTop) {
-            function updateBackToTop() {
-                backToTop.classList.toggle('is-visible', window.scrollY > 420);
-            }
-
-            backToTop.addEventListener('click', function () {
-                window.scrollTo({ top: 0, behavior: reduceMotionQuery.matches ? 'auto' : 'smooth' });
-            });
-
-            window.addEventListener('scroll', updateBackToTop, { passive: true });
-            updateBackToTop();
-        }
-
-        function initArticleTocHover() {
-            const toc = document.querySelector('[data-article-toc]');
-            const articleMain = document.querySelector('.article-detail__main');
-            if (!toc || !articleMain) return;
-
-            const toggle = toc.querySelector('[data-article-toc-toggle]');
-            let lockedOpen = false;
-
-            function setVisible(visible) {
-                document.body.classList.toggle('is-article-toc-visible', visible);
-                if (toggle) {
-                    toggle.setAttribute('aria-expanded', visible ? 'true' : 'false');
-                    toggle.setAttribute('aria-label', visible ? '隐藏文章目录' : '显示文章目录');
-                }
-            }
-
-            function getLeftRevealZone() {
-                return Math.min(380, Math.max(280, window.innerWidth * 0.22));
-            }
-
-            function isInsideReadingColumn(x, y) {
-                const rect = articleMain.getBoundingClientRect();
-                const top = Math.min(rect.top, 0) - 48;
-                const bottom = Math.max(rect.bottom, window.innerHeight) + 48;
-
-                return x >= rect.left - 72 && x <= rect.right + 32 && y >= top && y <= bottom;
-            }
-
-            document.addEventListener('pointermove', function (event) {
-                if (lockedOpen) return;
-                setVisible(event.clientX <= getLeftRevealZone() || isInsideReadingColumn(event.clientX, event.clientY));
-            }, { passive: true });
-
-            document.addEventListener('pointerleave', function () {
-                if (!lockedOpen) setVisible(false);
-            });
-
-            toc.addEventListener('focusin', function () {
-                setVisible(true);
-            });
-
-            toc.addEventListener('focusout', function (event) {
-                if (lockedOpen || toc.contains(event.relatedTarget)) return;
-                setVisible(false);
-            });
-
-            if (toggle) {
-                toggle.addEventListener('click', function () {
-                    const isVisible = document.body.classList.contains('is-article-toc-visible');
-                    if (lockedOpen && isVisible) {
-                        lockedOpen = false;
-                        setVisible(false);
-                        return;
-                    }
-
-                    lockedOpen = true;
-                    setVisible(true);
-                });
-            }
-
-            document.addEventListener('click', function (event) {
-                if (!lockedOpen) return;
-                if (toc.contains(event.target) || articleMain.contains(event.target)) return;
-                lockedOpen = false;
-                setVisible(false);
-            });
-
-            document.addEventListener('keydown', function (event) {
-                if (event.key !== 'Escape') return;
-                lockedOpen = false;
-                setVisible(false);
-            });
-        }
-
-        function initRevealOnScroll() {
-            if (reduceMotionQuery.matches || !('IntersectionObserver' in window)) return;
-
-            const revealSelectors = [
-                '.section-band',
-                '.featured-section',
-                '.blog-card',
-                '.post-tools',
-                '.article-detail__content > blockquote',
-                '.article-detail__content > .highlight',
-                '.article-detail__content > pre',
-                '.article-detail__content > .table-wrapper',
-                '.article-detail__content > figure',
-                '.article-detail__content > details',
-                '.article-detail__content > hr',
-                '.article-detail__footer',
-                '.music-album-card'
-            ];
-
-            const targets = revealSelectors.reduce(function (items, selector) {
-                return items.concat(Array.prototype.slice.call(document.querySelectorAll(selector)));
-            }, []);
-
-            const imageBlocks = Array.prototype.slice.call(document.querySelectorAll('.article-detail__content > p')).filter(function (block) {
-                const children = Array.prototype.slice.call(block.children).filter(function (child) {
-                    return child.tagName !== 'BR';
-                });
-                const onlyChild = children[0];
-
-                return children.length === 1 && (
-                    onlyChild.tagName === 'IMG' ||
-                    onlyChild.classList.contains('gallery') ||
-                    (onlyChild.tagName === 'A' && onlyChild.querySelector('img'))
-                );
-            });
-
-            imageBlocks.forEach(function (block) {
-                if (!targets.includes(block)) targets.push(block);
-            });
-
-            const filteredTargets = targets.filter(function (target, index) {
-                if (target.tagName === 'PRE' && target.closest('.highlight')) return false;
-                return targets.indexOf(target) === index;
-            });
-
-            if (!filteredTargets.length) return;
-
-            const observer = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (!entry.isIntersecting) return;
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                });
-            }, {
-                rootMargin: '0px 0px -6% 0px',
-                threshold: 0.1
-            });
-
-            filteredTargets.forEach(function (target, index) {
-                target.classList.add('reveal-on-scroll');
-                target.style.setProperty('--reveal-delay', Math.min(index % 4, 3) * 32 + 'ms');
-                observer.observe(target);
-            });
-        }
-
-        initThemeToggle();
-        initArticleTocHover();
-        initRevealOnScroll();
-
-        window.requestAnimationFrame(function () {
-            document.body.classList.add('is-loaded');
-        });
-    })();
-</script>
-
 </body>
 
 </html>

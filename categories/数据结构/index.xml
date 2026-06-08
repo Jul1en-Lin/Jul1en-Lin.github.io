@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>数据结构 on Jul1en</title>
-        <link>https://Jul1en-Lin.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
-        <description>Recent content in 数据结构 on Jul1en</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>en-us</language>
-        <copyright>Jul1en</copyright>
-        <lastBuildDate>Mon, 27 Apr 2026 22:03:42 +0800</lastBuildDate><atom:link href="https://Jul1en-Lin.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>前言</title>
-        <link>https://Jul1en-Lin.github.io/p/%E5%89%8D%E8%A8%80/</link>
-        <pubDate>Tue, 27 May 2025 08:30:48 +0000</pubDate>
-        
-        <guid>https://Jul1en-Lin.github.io/p/%E5%89%8D%E8%A8%80/</guid>
-        <description>&lt;h1 id=&#34;前言&#34;&gt;前言
-&lt;/h1&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%89%8D%E8%A8%80/assets/image-20250519213833-8wgchrb_hu_54327138a38fcad2.webp&#34; width=&#34;1600&#34; height=&#34;955&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%89%8D%E8%A8%80/assets/image-20250519213833-8wgchrb_hu_993cb16fffa468f5.webp 800w, https://Jul1en-Lin.github.io/p/%E5%89%8D%E8%A8%80/assets/image-20250519213833-8wgchrb_hu_54327138a38fcad2.webp 1600w, https://Jul1en-Lin.github.io/p/%E5%89%8D%E8%A8%80/assets/image-20250519213833-8wgchrb_hu_b7278e3df7b999eb.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;167&#34; data-flex-basis=&#34;402px&#34;&gt;
+  <channel>
+    <title>数据结构 - Jul1en</title>
+    <link>https://Jul1en-Lin.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+    <description>数据结构 - Jul1en</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <copyright>Jul1en</copyright>
+    <lastBuildDate>Mon, 27 Apr 2026 22:03:42 +0800</lastBuildDate>
+    <atom:link href="https://Jul1en-Lin.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>前言</title>
+      <link>https://Jul1en-Lin.github.io/p/%E5%89%8D%E8%A8%80/</link>
+      <pubDate>Tue, 27 May 2025 08:30:48 +0000</pubDate>
+      <guid>https://Jul1en-Lin.github.io/p/%E5%89%8D%E8%A8%80/</guid>
+      <description>&lt;h1 id=&#34;前言&#34;&gt;
+    前言
+&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%89%8D%E8%A8%80/assets/image-20250519213833-8wgchrb_hu_54327138a38fcad2.webp&#34; width=&#34;1600&#34; height=&#34;955&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%89%8D%E8%A8%80/assets/image-20250519213833-8wgchrb_hu_993cb16fffa468f5.webp 800w, https://Jul1en-Lin.github.io/p/%E5%89%8D%E8%A8%80/assets/image-20250519213833-8wgchrb_hu_54327138a38fcad2.webp 1600w, https://Jul1en-Lin.github.io/p/%E5%89%8D%E8%A8%80/assets/image-20250519213833-8wgchrb_hu_b7278e3df7b999eb.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;167&#34; data-flex-basis=&#34;402px&#34;&gt;
 &lt;/p&gt;
 &lt;p&gt;数据结构是一种基于多维数据的多种处理方式，对合适的数据运用合适的数据结构&lt;/p&gt;
-&lt;h1 id=&#34;集合框架&#34;&gt;集合框架
-&lt;/h1&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%89%8D%E8%A8%80/assets/image-20250601191053-f3gai5p_hu_3de46ca221ab3bed.webp&#34; width=&#34;1600&#34; height=&#34;2735&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%89%8D%E8%A8%80/assets/image-20250601191053-f3gai5p_hu_9580d83ee2c808b5.webp 800w, https://Jul1en-Lin.github.io/p/%E5%89%8D%E8%A8%80/assets/image-20250601191053-f3gai5p_hu_3de46ca221ab3bed.webp 1600w, https://Jul1en-Lin.github.io/p/%E5%89%8D%E8%A8%80/assets/image-20250601191053-f3gai5p_hu_f3342697fbf09c99.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;58&#34; data-flex-basis=&#34;140px&#34;&gt;
+&lt;h1 id=&#34;集合框架&#34;&gt;
+    集合框架
+&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%89%8D%E8%A8%80/assets/image-20250601191053-f3gai5p_hu_3de46ca221ab3bed.webp&#34; width=&#34;1600&#34; height=&#34;2735&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%89%8D%E8%A8%80/assets/image-20250601191053-f3gai5p_hu_9580d83ee2c808b5.webp 800w, https://Jul1en-Lin.github.io/p/%E5%89%8D%E8%A8%80/assets/image-20250601191053-f3gai5p_hu_3de46ca221ab3bed.webp 1600w, https://Jul1en-Lin.github.io/p/%E5%89%8D%E8%A8%80/assets/image-20250601191053-f3gai5p_hu_f3342697fbf09c99.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;58&#34; data-flex-basis=&#34;140px&#34;&gt;
 &lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%89%8D%E8%A8%80/assets/image-20250601191128-y6ubryd_hu_9b066ace8897d440.webp&#34; width=&#34;1600&#34; height=&#34;2777&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%89%8D%E8%A8%80/assets/image-20250601191128-y6ubryd_hu_b8aa04c87e9411e6.webp 800w, https://Jul1en-Lin.github.io/p/%E5%89%8D%E8%A8%80/assets/image-20250601191128-y6ubryd_hu_9b066ace8897d440.webp 1600w, https://Jul1en-Lin.github.io/p/%E5%89%8D%E8%A8%80/assets/image-20250601191128-y6ubryd_hu_652bbebc32965c07.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;57&#34; data-flex-basis=&#34;138px&#34;&gt;
 &lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%89%8D%E8%A8%80/assets/image-20250601191233-6jd1b1b_hu_2bf9ed005dc9ee98.webp&#34; width=&#34;1600&#34; height=&#34;2789&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%89%8D%E8%A8%80/assets/image-20250601191233-6jd1b1b_hu_6e39d4ddfe188704.webp 800w, https://Jul1en-Lin.github.io/p/%E5%89%8D%E8%A8%80/assets/image-20250601191233-6jd1b1b_hu_2bf9ed005dc9ee98.webp 1600w, https://Jul1en-Lin.github.io/p/%E5%89%8D%E8%A8%80/assets/image-20250601191233-6jd1b1b_hu_74919b0bac4c748e.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;57&#34; data-flex-basis=&#34;137px&#34;&gt;
 &lt;/p&gt;
@@ -36,19 +41,24 @@
 &lt;p&gt;其他的Stack、Linkedlist，TreeSet等等很少用到&lt;/p&gt;
 &lt;p&gt;‍&lt;/p&gt;
 </description>
-        </item>
-        <item>
-        <title>Map &amp; Set</title>
-        <link>https://Jul1en-Lin.github.io/p/map--set/</link>
-        <pubDate>Mon, 19 May 2025 13:26:18 +0000</pubDate>
-        
-        <guid>https://Jul1en-Lin.github.io/p/map--set/</guid>
-        <description>&lt;h1 id=&#34;map--set&#34;&gt;Map &amp;amp; Set
-&lt;/h1&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250519213833-8wgchrb_hu_54327138a38fcad2.webp&#34; width=&#34;1600&#34; height=&#34;955&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250519213833-8wgchrb_hu_993cb16fffa468f5.webp 800w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250519213833-8wgchrb_hu_54327138a38fcad2.webp 1600w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250519213833-8wgchrb_hu_b7278e3df7b999eb.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;167&#34; data-flex-basis=&#34;402px&#34;&gt;
+    </item>
+    <item>
+      <title>Map &amp; Set</title>
+      <link>https://Jul1en-Lin.github.io/p/map--set/</link>
+      <pubDate>Mon, 19 May 2025 13:26:18 +0000</pubDate>
+      <guid>https://Jul1en-Lin.github.io/p/map--set/</guid>
+      <description>&lt;h1 id=&#34;map--set&#34;&gt;
+    Map &amp;amp; Set
+&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250519213833-8wgchrb_hu_54327138a38fcad2.webp&#34; width=&#34;1600&#34; height=&#34;955&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250519213833-8wgchrb_hu_993cb16fffa468f5.webp 800w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250519213833-8wgchrb_hu_54327138a38fcad2.webp 1600w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250519213833-8wgchrb_hu_b7278e3df7b999eb.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;167&#34; data-flex-basis=&#34;402px&#34;&gt;
 &lt;/p&gt;
-&lt;h1 id=&#34;搜索树&#34;&gt;#搜索树#
-&lt;/h1&gt;&lt;h2 id=&#34;概念&#34;&gt;概念
-&lt;/h2&gt;&lt;p&gt;二叉搜索树/二叉排序树，满足以下性质&lt;/p&gt;
+&lt;h1 id=&#34;搜索树&#34;&gt;
+    #搜索树#
+&lt;/h1&gt;
+&lt;h2 id=&#34;概念&#34;&gt;
+    概念
+&lt;/h2&gt;
+&lt;p&gt;二叉搜索树/二叉排序树，满足以下性质&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;若左树不为空，则左树上所有节点的值都小于父节点的值&lt;/li&gt;
 &lt;li&gt;若右树不为空，则右树上所有节点的值都大于父节点的值&lt;/li&gt;
@@ -58,9 +68,13 @@
 &lt;/p&gt;
 &lt;p&gt;二叉搜索树的中序遍历是有序的：{0，1，2，3，4，5，6，7，8，9}&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;搜索树操作&#34;&gt;搜索树操作
-&lt;/h2&gt;&lt;h3 id=&#34;插入insert&#34;&gt;插入&lt;code&gt;Insert&lt;/code&gt;
-&lt;/h3&gt;&lt;p&gt;搜索树的插入也要满足本身性质，若插入元素在原本的搜索树中已经拥有，则插入失败&lt;/p&gt;
+&lt;h2 id=&#34;搜索树操作&#34;&gt;
+    搜索树操作
+&lt;/h2&gt;
+&lt;h3 id=&#34;插入insert&#34;&gt;
+    插入&lt;code&gt;Insert&lt;/code&gt;
+&lt;/h3&gt;
+&lt;p&gt;搜索树的插入也要满足本身性质，若插入元素在原本的搜索树中已经拥有，则插入失败&lt;/p&gt;
 &lt;p&gt;思路：定义Cur走到null位置，同时Parent做Cur的根节点，记录Cur之前走过的位置，避免cur定位丢失&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;boolean&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;insert&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;key&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;root&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -89,8 +103,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;查找remove&#34;&gt;查找&lt;code&gt;Remove&lt;/code&gt;
-&lt;/h3&gt;&lt;p&gt;定义Cur遍历搜索树，在对比左右子树.val 与Key的大小关系时，注意Cur的遍历方向&lt;/p&gt;
+&lt;h3 id=&#34;查找remove&#34;&gt;
+    查找&lt;code&gt;Remove&lt;/code&gt;
+&lt;/h3&gt;
+&lt;p&gt;定义Cur遍历搜索树，在对比左右子树.val 与Key的大小关系时，注意Cur的遍历方向&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;TreeNode&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;searchTree&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;key&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;root&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -108,8 +124,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;删除&#34;&gt;删除
-&lt;/h3&gt;&lt;p&gt;删除节点时，要注意不要破坏二叉搜索树的性质&lt;/p&gt;
+&lt;h3 id=&#34;删除&#34;&gt;
+    删除
+&lt;/h3&gt;
+&lt;p&gt;删除节点时，要注意不要破坏二叉搜索树的性质&lt;/p&gt;
 &lt;p&gt;思路：定义Cur并定位到待删除节点，待删除节点的父节点为Parent，找到Cur后分三种情况&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250520134205-cz4iiyd_hu_f535c172d371530.webp&#34; width=&#34;1600&#34; height=&#34;916&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250520134205-cz4iiyd_hu_a6482d8b983f7ee1.webp 800w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250520134205-cz4iiyd_hu_f535c172d371530.webp 1600w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250520134205-cz4iiyd_hu_71fca367b1cfafba.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;174&#34; data-flex-basis=&#34;419px&#34;&gt;
 &lt;/p&gt;
@@ -195,13 +213,17 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;搜索&#34;&gt;搜索
-&lt;/h1&gt;&lt;p&gt;Map和Set是专门搜索的数据结构，但他们的搜索效率与其他们具体实例化的子类有关——两者都是接口&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;搜索&#34;&gt;
+    搜索
+&lt;/h1&gt;
+&lt;p&gt;Map和Set是专门搜索的数据结构，但他们的搜索效率与其他们具体实例化的子类有关——两者都是接口&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527131611-1dre62t_hu_638891215002935f.webp&#34; width=&#34;1600&#34; height=&#34;543&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527131611-1dre62t_hu_2ca745ffd52f1dd9.webp 800w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527131611-1dre62t_hu_638891215002935f.webp 1600w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527131611-1dre62t_hu_ef98dbaae285077a.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;294&#34; data-flex-basis=&#34;707px&#34;&gt;
 &lt;/p&gt;
 &lt;p&gt;以前的搜索方式有遍历搜索，二分查找，但都是适用于静态查找。当涉及到插删查改的操作时，我们需要效率更高的查找方式，即动态查找，此时引出查找工具——Map和Set——适合动态查找的集合容器&lt;/p&gt;
-&lt;h2 id=&#34;模型&#34;&gt;模型
-&lt;/h2&gt;&lt;p&gt;我们一般把要搜索的数据叫做关键字，而关键字中可能或带有对应的“值”，我们叫键值对Key-Value&lt;/p&gt;
+&lt;h2 id=&#34;模型&#34;&gt;
+    模型
+&lt;/h2&gt;
+&lt;p&gt;我们一般把要搜索的数据叫做关键字，而关键字中可能或带有对应的“值”，我们叫键值对Key-Value&lt;/p&gt;
 &lt;p&gt;比如一个数组{1，2，3，4，4，4}，我们要寻找每一个数字出现的次数，此时寻找的数字是关键字，而它们出现的次数则称之为对应的“值” 如数字4出现了3次，则键值对是&amp;lt;4 , 3&amp;gt;或&amp;lt;3 , 4&amp;gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;纯Key模型&lt;/li&gt;
@@ -209,19 +231,25 @@
 &lt;/ol&gt;
 &lt;p&gt;Set中只存储Key模型，而Map存储Key-Value模型&lt;/p&gt;
 &lt;hr&gt;
-&lt;h1 id=&#34;map&#34;&gt;Map
-&lt;/h1&gt;&lt;p&gt;Map是一个接口，存储的是&amp;lt;Key , Value&amp;gt;键值对，并且k是唯一的&lt;/p&gt;
+&lt;h1 id=&#34;map&#34;&gt;
+    Map
+&lt;/h1&gt;
+&lt;p&gt;Map是一个接口，存储的是&amp;lt;Key , Value&amp;gt;键值对，并且k是唯一的&lt;/p&gt;
 &lt;p&gt;实例化对象需要实现类#TreeMap#或#HashMap#，还有个#LinkedHashMap#，基于HashMap维护了一个双向链表记录来记录元素的插入次序&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527160845-fghgr1w_hu_78631aa7178aa478.webp&#34; width=&#34;1600&#34; height=&#34;1222&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527160845-fghgr1w_hu_b0de953d02bbc349.webp 800w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527160845-fghgr1w_hu_78631aa7178aa478.webp 1600w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527160845-fghgr1w_hu_309c7a46cd2d5b2.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;130&#34; data-flex-basis=&#34;314px&#34;&gt;
 &lt;/p&gt;
-&lt;h2 id=&#34;treemap和hashmap的区别&#34;&gt;TreeMap和HashMap的区别
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527160038-mt2jd6e_hu_d0af52b327a42665.webp&#34; width=&#34;1600&#34; height=&#34;553&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527160038-mt2jd6e_hu_86bffdd3cc2ef4ac.webp 800w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527160038-mt2jd6e_hu_d0af52b327a42665.webp 1600w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527160038-mt2jd6e_hu_b824ed60f6cd4b0f.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;289&#34; data-flex-basis=&#34;694px&#34;&gt;
+&lt;h2 id=&#34;treemap和hashmap的区别&#34;&gt;
+    TreeMap和HashMap的区别
+&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527160038-mt2jd6e_hu_d0af52b327a42665.webp&#34; width=&#34;1600&#34; height=&#34;553&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527160038-mt2jd6e_hu_86bffdd3cc2ef4ac.webp 800w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527160038-mt2jd6e_hu_d0af52b327a42665.webp 1600w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527160038-mt2jd6e_hu_b824ed60f6cd4b0f.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;289&#34; data-flex-basis=&#34;694px&#34;&gt;
 &lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;TreeMap的Key不能传null&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;常用方法&#34;&gt;常用方法
-&lt;/h2&gt;&lt;ul&gt;
+&lt;h2 id=&#34;常用方法&#34;&gt;
+    常用方法
+&lt;/h2&gt;
+&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;V &lt;u&gt;put&lt;/u&gt;——存放键值&lt;/p&gt;
 &lt;p&gt;🧭 步骤：&lt;/p&gt;
@@ -296,8 +324,10 @@
 &lt;/ul&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527162146-z95bnli_hu_24b2d1af644f3a53.webp&#34; width=&#34;1600&#34; height=&#34;781&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527162146-z95bnli_hu_c93fcaface1e0c7e.webp 800w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527162146-z95bnli_hu_24b2d1af644f3a53.webp 1600w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527162146-z95bnli_hu_58567cf10ed49182.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;204&#34; data-flex-basis=&#34;491px&#34;&gt;
 &lt;/p&gt;
-&lt;h2 id=&#34;总结&#34;&gt;总结
-&lt;/h2&gt;&lt;ol&gt;
+&lt;h2 id=&#34;总结&#34;&gt;
+    总结
+&lt;/h2&gt;
+&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Map是一个接口，不能直接实例化对象，如果要实例化对象需要实现类&lt;span data-type=&#34;text&#34; style=&#34;background-color: var(--b3-font-background12);&#34;&gt;TreeMap&lt;/span&gt;或&lt;span data-type=&#34;text&#34; style=&#34;background-color: var(--b3-font-background13);&#34;&gt;HashMap&lt;/span&gt;&lt;/p&gt;
 &lt;/li&gt;
@@ -321,20 +351,26 @@
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;hr&gt;
-&lt;h1 id=&#34;set&#34;&gt;Set
-&lt;/h1&gt;&lt;p&gt;Set也是一个接口，他没有具体的对象，继承自Collection接口类，只能存储Key模型，而且Key也是唯一的，可以把它看成一个塑料袋（集合），里面装着杂乱无序的不重复的数据。&lt;/p&gt;
+&lt;h1 id=&#34;set&#34;&gt;
+    Set
+&lt;/h1&gt;
+&lt;p&gt;Set也是一个接口，他没有具体的对象，继承自Collection接口类，只能存储Key模型，而且Key也是唯一的，可以把它看成一个塑料袋（集合），里面装着杂乱无序的不重复的数据。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527133258-k15e9e1_hu_b7def71c390b0733.webp&#34; width=&#34;1600&#34; height=&#34;990&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527133258-k15e9e1_hu_89c6e3bd9b5a3bb1.webp 800w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527133258-k15e9e1_hu_b7def71c390b0733.webp 1600w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527133258-k15e9e1_hu_d0ef9e407ff162fa.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;161&#34; data-flex-basis=&#34;387px&#34;&gt;
 &lt;img src=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527135138-vkuxg6d_hu_ccb47fcd98997ca.webp&#34; width=&#34;1600&#34; height=&#34;937&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527135138-vkuxg6d_hu_70ad9f441a6d742d.webp 800w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527135138-vkuxg6d_hu_ccb47fcd98997ca.webp 1600w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527135138-vkuxg6d_hu_b5f4e6da44b234a1.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;170&#34; data-flex-basis=&#34;409px&#34;&gt;
 &lt;/p&gt;
 &lt;p&gt;实现Set接口要实现类#TreeSet#和#HashSet#，还有个#LinkedHashSet#，是在HashSet的基础上维护了一个双向链表来记录元素的插入次序&lt;/p&gt;
-&lt;h2 id=&#34;treeset和hashset区别&#34;&gt;TreeSet和HashSet区别
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527165148-hubv3ot_hu_5efc87520e8f226c.webp&#34; width=&#34;1600&#34; height=&#34;599&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527165148-hubv3ot_hu_f441eb0fd2a45ad6.webp 800w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527165148-hubv3ot_hu_5efc87520e8f226c.webp 1600w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527165148-hubv3ot_hu_74f6c47353cc113d.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;266&#34; data-flex-basis=&#34;640px&#34;&gt;
+&lt;h2 id=&#34;treeset和hashset区别&#34;&gt;
+    TreeSet和HashSet区别
+&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527165148-hubv3ot_hu_5efc87520e8f226c.webp&#34; width=&#34;1600&#34; height=&#34;599&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527165148-hubv3ot_hu_f441eb0fd2a45ad6.webp 800w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527165148-hubv3ot_hu_5efc87520e8f226c.webp 1600w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527165148-hubv3ot_hu_74f6c47353cc113d.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;266&#34; data-flex-basis=&#34;640px&#34;&gt;
 &lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;TreeSet插入的Key不能是null——会空指针异常，但HashSet可以&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;常见方法&#34;&gt;常见方法
-&lt;/h2&gt;&lt;ol&gt;
+&lt;h2 id=&#34;常见方法&#34;&gt;
+    常见方法
+&lt;/h2&gt;
+&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;boolean &lt;u&gt;add&lt;/u&gt;——添加数据，但重复元素不会被添加成功&lt;/p&gt;
 &lt;/li&gt;
@@ -354,8 +390,10 @@
 &lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527162206-aslkprn_hu_205ac26a7e5b9ea0.webp&#34; width=&#34;1600&#34; height=&#34;1035&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527162206-aslkprn_hu_6bf26112f7b7db26.webp 800w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527162206-aslkprn_hu_205ac26a7e5b9ea0.webp 1600w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527162206-aslkprn_hu_6a3224f3128caec7.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;154&#34; data-flex-basis=&#34;370px&#34;&gt;
 &lt;/p&gt;
-&lt;h2 id=&#34;总结-1&#34;&gt;总结
-&lt;/h2&gt;&lt;ol&gt;
+&lt;h2 id=&#34;总结-1&#34;&gt;
+    总结
+&lt;/h2&gt;
+&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Set只能存储K，且K也是和Map一样唯一的&lt;/p&gt;
 &lt;/li&gt;
@@ -382,8 +420,10 @@
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;hr&gt;
-&lt;h1 id=&#34;map和set的关系&#34;&gt;Map和Set的关系
-&lt;/h1&gt;&lt;ul&gt;
+&lt;h1 id=&#34;map和set的关系&#34;&gt;
+    Map和Set的关系
+&lt;/h1&gt;
+&lt;ul&gt;
 &lt;li&gt;TreeSet的底层是用Map实现的，其使用的Key与Object的一个默认的对象（Value）组成键值插入到Map中&lt;/li&gt;
 &lt;li&gt;TreeMap和TreeSet的复杂度都是log&lt;sub&gt;2&lt;/sub&gt;N，它们的 K 都是要能比较大小的。&lt;/li&gt;
 &lt;li&gt;HashMap和HashSet的复杂度都是O（1），&lt;/li&gt;
@@ -391,9 +431,13 @@
 &lt;/ul&gt;
 &lt;p&gt;‍&lt;/p&gt;
 &lt;p&gt;前面提到了HashMap，HashSet，LinkedHashMap，LinkedHashSet，那Hash到底是什么呢？为什么他们的效率这么高？这就引入哈希表的概念&lt;/p&gt;
-&lt;h1 id=&#34;哈希表散列表&#34;&gt;哈希表/散列表
-&lt;/h1&gt;&lt;h2 id=&#34;概念-1&#34;&gt;概念
-&lt;/h2&gt;&lt;p&gt;理想的搜索方法：不经过任何的比较，一次直接从表中得到想要的元素。如果构造一种存储结构，能够通过某种函数使得元素与它的关键字/码之间建立某种联系，那么在查找的时候就很容易得到这些元素&lt;/p&gt;
+&lt;h1 id=&#34;哈希表散列表&#34;&gt;
+    哈希表/散列表
+&lt;/h1&gt;
+&lt;h2 id=&#34;概念-1&#34;&gt;
+    概念
+&lt;/h2&gt;
+&lt;p&gt;理想的搜索方法：不经过任何的比较，一次直接从表中得到想要的元素。如果构造一种存储结构，能够通过某种函数使得元素与它的关键字/码之间建立某种联系，那么在查找的时候就很容易得到这些元素&lt;/p&gt;
 &lt;p&gt;该方式就叫哈希方法，哈希方法中使用的函数就叫做&lt;u&gt;==哈希函数/散列函数==&lt;/u&gt;，构造出来的结构就为==&lt;u&gt;哈希表/散列表&lt;/u&gt;==&lt;/p&gt;
 &lt;p&gt;‍&lt;/p&gt;
 &lt;p&gt;每一种数据结构它的哈希函数都不一致，但是哈希表本质上是一个数组，不过数组不是放的单一数据，而是存放的键值对，所以哈希表是数组的一种拓展，这是哈希表的表现形式&lt;/p&gt;
@@ -401,8 +445,10 @@
 &lt;/p&gt;
 &lt;p&gt;我们将学生信息包括名字和岁数（Key—Value），我们先通过哈希函数让Key进行计算，得出Index，确定键值对entry存放的位置，但是有一个问题，如果数据多了，别的key通过哈希函数可能也会得到相同的下标Index，像这样具有不同关键码但具有相同哈希地址的数据元素称为“同义词”，这个问题我们称之&lt;u&gt;==哈希冲突，==&lt;/u&gt;哈希是一种用来进行高效查找的&lt;u&gt;==数据结构==&lt;/u&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;哈希冲突&#34;&gt;哈希冲突
-&lt;/h2&gt;&lt;p&gt;那么有哈希冲突就会有解决哈希冲突问题的办法&lt;/p&gt;
+&lt;h2 id=&#34;哈希冲突&#34;&gt;
+    哈希冲突
+&lt;/h2&gt;
+&lt;p&gt;那么有哈希冲突就会有解决哈希冲突问题的办法&lt;/p&gt;
 &lt;p&gt;‍&lt;/p&gt;
 &lt;p&gt;哈希冲突是必然的，我们做的应该是降低冲突率，引起冲突的一个原因可能是哈希函数设计不合理，但是我们一般都不会涉及到设计哈希函数，但常用的哈希函数我们需要了解&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527210400-0irc0gl_hu_c1f3e209b6ff6a90.webp&#34; width=&#34;1600&#34; height=&#34;545&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527210400-0irc0gl_hu_1da7c99b3f50e82f.webp 800w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527210400-0irc0gl_hu_c1f3e209b6ff6a90.webp 1600w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527210400-0irc0gl_hu_ae30845e5438bade.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;293&#34; data-flex-basis=&#34;704px&#34;&gt;
@@ -410,14 +456,18 @@
 &lt;p&gt;哈希函数设计的越精妙，产生哈希冲突的可能性就越低，但是无法避免哈希冲突&lt;/p&gt;
 &lt;p&gt;那反应哈希冲突率的一个数据叫负载因子&lt;/p&gt;
 &lt;hr&gt;
-&lt;h3 id=&#34;负载因子&#34;&gt;负载因子
-&lt;/h3&gt;&lt;p&gt;哈希列表的负载因子定义为 α = 填入表中的元素 / 哈希表的长度&lt;/p&gt;
+&lt;h3 id=&#34;负载因子&#34;&gt;
+    负载因子
+&lt;/h3&gt;
+&lt;p&gt;哈希列表的负载因子定义为 α = 填入表中的元素 / 哈希表的长度&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527210847-upqe8p5_hu_2505ccbfb1fb43b5.webp&#34; width=&#34;1600&#34; height=&#34;1518&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527210847-upqe8p5_hu_12d17dbc40c39e93.webp 800w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527210847-upqe8p5_hu_2505ccbfb1fb43b5.webp 1600w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527210847-upqe8p5_hu_8d648a7c1173853d.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;105&#34; data-flex-basis=&#34;252px&#34;&gt;
 &lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527210505-i5bp6zq_hu_8914f2ca2a80aa57.webp&#34; width=&#34;1600&#34; height=&#34;1927&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527210505-i5bp6zq_hu_82166455d87c5cb.webp 800w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527210505-i5bp6zq_hu_8914f2ca2a80aa57.webp 1600w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527210505-i5bp6zq_hu_b5acf088c0b9ad21.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;83&#34; data-flex-basis=&#34;199px&#34;&gt;
 &lt;/p&gt;
-&lt;h2 id=&#34;避免哈希冲突&#34;&gt;避免哈希冲突
-&lt;/h2&gt;&lt;p&gt;两个方法 : 优化哈希函数、&lt;span data-type=&#34;text&#34; style=&#34;color: var(--b3-font-color12); background-color: var(--b3-font-background11);&#34;&gt;降低负载因子✨&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&#34;避免哈希冲突&#34;&gt;
+    避免哈希冲突
+&lt;/h2&gt;
+&lt;p&gt;两个方法 : 优化哈希函数、&lt;span data-type=&#34;text&#34; style=&#34;color: var(--b3-font-color12); background-color: var(--b3-font-background11);&#34;&gt;降低负载因子✨&lt;/span&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;💯&lt;span data-type=&#34;text&#34; style=&#34;color: var(--b3-font-color12);&#34;&gt;降低负载因子即需要对数组进行扩容，扩容之后需要对原来的数组的元素进行重新哈希分配——即重新哈希&lt;/span&gt;&lt;/p&gt;
@@ -437,10 +487,14 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;解决哈希冲突&#34;&gt;解决哈希冲突
-&lt;/h3&gt;&lt;p&gt;两种常见方法：#闭散列#和#开散列#&lt;/p&gt;
-&lt;h3 id=&#34;注意要区分清楚哈希冲突的处理方法和哈希函数&#34;&gt;注意要区分清楚：哈希冲突的处理方法和哈希函数
-&lt;/h3&gt;&lt;p&gt;哈希函数作用是：建立元素与其存储位置之前的对应关系的，在存储元素时，先通过哈希函数计算元素在哈希表格中的存储位置，然后存储元素。好的哈希函数可以减少冲突的概率，但是不能够绝对避免，万一发生哈希冲突，得需要借助哈希冲突处理方法来解决。&lt;/p&gt;
+&lt;h3 id=&#34;解决哈希冲突&#34;&gt;
+    解决哈希冲突
+&lt;/h3&gt;
+&lt;p&gt;两种常见方法：#闭散列#和#开散列#&lt;/p&gt;
+&lt;h3 id=&#34;注意要区分清楚哈希冲突的处理方法和哈希函数&#34;&gt;
+    注意要区分清楚：哈希冲突的处理方法和哈希函数
+&lt;/h3&gt;
+&lt;p&gt;哈希函数作用是：建立元素与其存储位置之前的对应关系的，在存储元素时，先通过哈希函数计算元素在哈希表格中的存储位置，然后存储元素。好的哈希函数可以减少冲突的概率，但是不能够绝对避免，万一发生哈希冲突，得需要借助哈希冲突处理方法来解决。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;常见的哈希函数有：直接定址法、除留余数法、平方取中法、随机数法、数字分析法、叠加法等&lt;/p&gt;
@@ -449,15 +503,19 @@
 &lt;p&gt;常见哈希冲突处理：闭散列（线性探测、二次探测）、开散列(链地址法)、多次散列&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;闭散列&#34;&gt;闭散列
-&lt;/h3&gt;&lt;p&gt;也叫#开放地址法#，当发生哈希冲突时， 如果哈希表没有被装满，说明哈希表还有位置可以放，那么就可以把Key放到空的位置上&lt;/p&gt;
+&lt;h3 id=&#34;闭散列&#34;&gt;
+    闭散列
+&lt;/h3&gt;
+&lt;p&gt;也叫#开放地址法#，当发生哈希冲突时， 如果哈希表没有被装满，说明哈希表还有位置可以放，那么就可以把Key放到空的位置上&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;线性探测：从发生冲突的位置开始找到空位置放&lt;/li&gt;
 &lt;li&gt;二次探测：优化了线性探测的问题（不重点解释，需要可再查找）&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h3 id=&#34;开散列重点&#34;&gt;💫开散列（重点）
-&lt;/h3&gt;&lt;p&gt;开散列，又叫#链地址法#（#拉链法#），首先对关键码集合用哈希函数计算哈希地址，具有相同地址的关键码归于同一子集合，每一个子集合称为一个桶，各个桶中的元素通过一个单链表链接起来，各链表的头结点存储在哈希表中。&lt;/p&gt;
+&lt;h3 id=&#34;开散列重点&#34;&gt;
+    💫开散列（重点）
+&lt;/h3&gt;
+&lt;p&gt;开散列，又叫#链地址法#（#拉链法#），首先对关键码集合用哈希函数计算哈希地址，具有相同地址的关键码归于同一子集合，每一个子集合称为一个桶，各个桶中的元素通过一个单链表链接起来，各链表的头结点存储在哈希表中。&lt;/p&gt;
 &lt;p&gt;与闭散列不同，这种将链表的头地址存储在哈希表的方式，不会影响与自己哈希地址不同的元素的增删查改的效率&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527221754-gualx2i_hu_356cfc58d758a38b.webp&#34; width=&#34;1600&#34; height=&#34;1515&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527221754-gualx2i_hu_53c8915abc0c2e70.webp 800w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527221754-gualx2i_hu_356cfc58d758a38b.webp 1600w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250527221754-gualx2i_hu_e139578ef303222a.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;105&#34; data-flex-basis=&#34;253px&#34;&gt;
 &lt;/p&gt;
@@ -468,8 +526,10 @@
 &lt;p&gt;树化条件 ：&lt;span data-type=&#34;text&#34; style=&#34;color: var(--b3-font-color12);&#34;&gt;链表的长度 &amp;gt;= 8 &amp;amp;&amp;amp; 数组长度 &amp;gt;= 64 &lt;/span&gt;如果红黑树删除后不满足条件或没必要再用红黑树时可以变回为哈希桶的结构&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;开散列可以认为是把大集合中的搜索问题转化为了小集合中做搜索了&lt;/strong&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;与java类集合的关系&#34;&gt;💫与Java类集合的关系
-&lt;/h2&gt;&lt;ol&gt;
+&lt;h2 id=&#34;与java类集合的关系&#34;&gt;
+    💫与Java类集合的关系
+&lt;/h2&gt;
+&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;HashMap和HashSet都是Java中利用哈希表来实现的Map和Set&lt;/p&gt;
 &lt;/li&gt;
@@ -485,33 +545,45 @@
 自定义类重写&lt;code&gt;hashCode（）&lt;/code&gt;和&lt;code&gt;equals（）&lt;/code&gt;接口&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;平均查找长度&#34;&gt;#平均查找长度#
-&lt;/h2&gt;&lt;p&gt;len = 总的比较次数 / 元素个数&lt;/p&gt;
+&lt;h2 id=&#34;平均查找长度&#34;&gt;
+    #平均查找长度#
+&lt;/h2&gt;
+&lt;p&gt;len = 总的比较次数 / 元素个数&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250529223254-6fb77y1_hu_eb0131aca0e3aed.webp&#34; width=&#34;1600&#34; height=&#34;215&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250529223254-6fb77y1_hu_23f4966493453943.webp 800w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250529223254-6fb77y1_hu_eb0131aca0e3aed.webp 1600w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250529223254-6fb77y1_hu_6a43ec4894caa8e0.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;745&#34; data-flex-basis=&#34;1788px&#34;&gt;
 &lt;img src=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250529223307-vfyt3u6_hu_9f69efcbb55d2d27.webp&#34; width=&#34;1600&#34; height=&#34;756&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/map--set/assets/image-20250529223307-vfyt3u6_hu_571d1808b68b5c04.webp 800w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250529223307-vfyt3u6_hu_9f69efcbb55d2d27.webp 1600w, https://Jul1en-Lin.github.io/p/map--set/assets/image-20250529223307-vfyt3u6_hu_e35078263d344ffc.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;211&#34; data-flex-basis=&#34;507px&#34;&gt;
 &lt;/p&gt;
 &lt;p&gt;‍&lt;/p&gt;
 </description>
-        </item>
-        <item>
-        <title>数据结构——排序</title>
-        <link>https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/</link>
-        <pubDate>Mon, 19 May 2025 02:43:08 +0000</pubDate>
-        
-        <guid>https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/</guid>
-        <description>&lt;h1 id=&#34;数据结构排序&#34;&gt;数据结构——排序
-&lt;/h1&gt;&lt;h1 id=&#34;排序概念&#34;&gt;排序概念
-&lt;/h1&gt;&lt;p&gt;在数据结构中，有许多无序的数据，所谓排序，就是使一串无序的记录，按照其中某个或某些关键字的大小，来进行递增或者递减的排列起来的操作&lt;/p&gt;
-&lt;h2 id=&#34;稳定性&#34;&gt;#稳定性#
-&lt;/h2&gt;&lt;p&gt;在待排序的数据中，存在一些相同数据的，如果排序之后他们的相对位置保持不变，那么这个排序就是稳定的，相反则不稳定&lt;/p&gt;
+    </item>
+    <item>
+      <title>数据结构——排序</title>
+      <link>https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Mon, 19 May 2025 02:43:08 +0000</pubDate>
+      <guid>https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/</guid>
+      <description>&lt;h1 id=&#34;数据结构排序&#34;&gt;
+    数据结构——排序
+&lt;/h1&gt;
+&lt;h1 id=&#34;排序概念&#34;&gt;
+    排序概念
+&lt;/h1&gt;
+&lt;p&gt;在数据结构中，有许多无序的数据，所谓排序，就是使一串无序的记录，按照其中某个或某些关键字的大小，来进行递增或者递减的排列起来的操作&lt;/p&gt;
+&lt;h2 id=&#34;稳定性&#34;&gt;
+    #稳定性#
+&lt;/h2&gt;
+&lt;p&gt;在待排序的数据中，存在一些相同数据的，如果排序之后他们的相对位置保持不变，那么这个排序就是稳定的，相反则不稳定&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519105815-kzfcn9w_hu_a6de8042fe6197ea.webp&#34; width=&#34;1600&#34; height=&#34;593&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519105815-kzfcn9w_hu_a9123ee4db7c41c.webp 800w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519105815-kzfcn9w_hu_a6de8042fe6197ea.webp 1600w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519105815-kzfcn9w_hu_c7fb3e37690f88a2.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;270&#34; data-flex-basis=&#34;648px&#34;&gt;
 &lt;/p&gt;
-&lt;h1 id=&#34;常见排序&#34;&gt;&lt;strong&gt;常见排序&lt;/strong&gt;
-&lt;/h1&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519110554-edpc7ov_hu_e4915b112edde704.webp&#34; width=&#34;1600&#34; height=&#34;1626&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519110554-edpc7ov_hu_38c18f2293738406.webp 800w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519110554-edpc7ov_hu_e4915b112edde704.webp 1600w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519110554-edpc7ov_hu_6b23685b596afb10.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;98&#34; data-flex-basis=&#34;236px&#34;&gt;
+&lt;h1 id=&#34;常见排序&#34;&gt;
+    &lt;strong&gt;常见排序&lt;/strong&gt;
+&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519110554-edpc7ov_hu_e4915b112edde704.webp&#34; width=&#34;1600&#34; height=&#34;1626&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519110554-edpc7ov_hu_38c18f2293738406.webp 800w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519110554-edpc7ov_hu_e4915b112edde704.webp 1600w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519110554-edpc7ov_hu_6b23685b596afb10.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;98&#34; data-flex-basis=&#34;236px&#34;&gt;
 &lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;直接插入排序insertsort&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;&#34; &gt;直接插入排序&lt;/a&gt;&lt;code&gt;InsertSort&lt;/code&gt;
-&lt;/h2&gt;&lt;p&gt;类似于扑克牌的排法，先有第一张”牌“，然后插入新的元素进来与前面的”牌“比较，最终使得整幅”牌“趋于有序&lt;/p&gt;
+&lt;h2 id=&#34;直接插入排序insertsort&#34;&gt;
+    &lt;a class=&#34;link&#34; href=&#34;&#34;&gt;直接插入排序&lt;/a&gt;
+&lt;code&gt;InsertSort&lt;/code&gt;
+&lt;/h2&gt;
+&lt;p&gt;类似于扑克牌的排法，先有第一张”牌“，然后插入新的元素进来与前面的”牌“比较，最终使得整幅”牌“趋于有序&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519111132-hn7l67f_hu_2a3af76cd6ce4a79.webp&#34; width=&#34;1600&#34; height=&#34;1377&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519111132-hn7l67f_hu_dcdbffb2ef7fc22b.webp 800w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519111132-hn7l67f_hu_2a3af76cd6ce4a79.webp 1600w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519111132-hn7l67f_hu_3edd1de396242504.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;116&#34; data-flex-basis=&#34;278px&#34;&gt;
 &lt;/p&gt;
 &lt;p&gt;&lt;u&gt;&lt;strong&gt;直接插入排序特性总结&lt;/strong&gt;&lt;/u&gt;&lt;/p&gt;
@@ -549,8 +621,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h2 id=&#34;希尔排序shellsort优化直接插入排序-&#34;&gt;希尔排序&lt;code&gt;ShellSort&lt;/code&gt;——优化直接插入排序 ✨
-&lt;/h2&gt;&lt;p&gt;先选定一个整数 &lt;span data-type=&#34;text&#34; style=&#34;font-size: 17px;&#34;&gt;Gap，把数据分成多个组，所有距离为 Gap 的记录分在同一个组内，对组内进行排序，然后让 Gap 趋于 1，此时再排序数据就是有序的&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&#34;希尔排序shellsort优化直接插入排序-&#34;&gt;
+    希尔排序&lt;code&gt;ShellSort&lt;/code&gt;——优化直接插入排序 ✨
+&lt;/h2&gt;
+&lt;p&gt;先选定一个整数 &lt;span data-type=&#34;text&#34; style=&#34;font-size: 17px;&#34;&gt;Gap，把数据分成多个组，所有距离为 Gap 的记录分在同一个组内，对组内进行排序，然后让 Gap 趋于 1，此时再排序数据就是有序的&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519112511-rwb2l94_hu_bab079efac48fd2d.webp&#34; width=&#34;1600&#34; height=&#34;1274&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519112511-rwb2l94_hu_3410656e7651e791.webp 800w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519112511-rwb2l94_hu_bab079efac48fd2d.webp 1600w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519112511-rwb2l94_hu_8b9ed3f3941f360a.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;125&#34; data-flex-basis=&#34;301px&#34;&gt;
 &lt;/p&gt;
 &lt;p&gt;&lt;u&gt;&lt;strong&gt;希尔排序特性总结&lt;/strong&gt;&lt;/u&gt;&lt;/p&gt;
@@ -585,8 +659,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h2 id=&#34;选择排序selectsort&#34;&gt;选择排序&lt;code&gt;SelectSort&lt;/code&gt;
-&lt;/h2&gt;&lt;p&gt;每次向后寻找最小（或者最大）的元素，找出下标 minIndex（maxIndex）与初始位置进行交换，直到全部待排序的数据元素排完&lt;/p&gt;
+&lt;h2 id=&#34;选择排序selectsort&#34;&gt;
+    选择排序&lt;code&gt;SelectSort&lt;/code&gt;
+&lt;/h2&gt;
+&lt;p&gt;每次向后寻找最小（或者最大）的元素，找出下标 minIndex（maxIndex）与初始位置进行交换，直到全部待排序的数据元素排完&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519124330-5bdzm5h_hu_acefd37861758aa1.webp&#34; width=&#34;1600&#34; height=&#34;532&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519124330-5bdzm5h_hu_6d99c4ddb2d76eb5.webp 800w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519124330-5bdzm5h_hu_acefd37861758aa1.webp 1600w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519124330-5bdzm5h_hu_d2014a2cce8f5dff.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;300&#34; data-flex-basis=&#34;721px&#34;&gt;
 &lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519124915-0ajtqbc_hu_35d5d925dcd48459.webp&#34; width=&#34;1600&#34; height=&#34;902&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519124915-0ajtqbc_hu_988774fb9d106c1.webp 800w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519124915-0ajtqbc_hu_35d5d925dcd48459.webp 1600w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519124915-0ajtqbc_hu_17acaf3c129b6cb7.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;177&#34; data-flex-basis=&#34;425px&#34;&gt;
@@ -611,8 +687,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h2 id=&#34;堆排序heapsort&#34;&gt;堆排序&lt;code&gt;HeapSort&lt;/code&gt;
-&lt;/h2&gt;&lt;p&gt;是指利用堆积树（堆）这种数据结构所设计的⼀种排序算法，它是选择排序的⼀种。它是通过堆来进行选择数据。需要注意的是&lt;u&gt;&lt;strong&gt;排升序建大堆，排降序建小堆&lt;/strong&gt;&lt;/u&gt;&lt;/p&gt;
+&lt;h2 id=&#34;堆排序heapsort&#34;&gt;
+    堆排序&lt;code&gt;HeapSort&lt;/code&gt;
+&lt;/h2&gt;
+&lt;p&gt;是指利用堆积树（堆）这种数据结构所设计的⼀种排序算法，它是选择排序的⼀种。它是通过堆来进行选择数据。需要注意的是&lt;u&gt;&lt;strong&gt;排升序建大堆，排降序建小堆&lt;/strong&gt;&lt;/u&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519130756-whvyjez_hu_da079ccb649dfa08.webp&#34; width=&#34;1600&#34; height=&#34;1509&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519130756-whvyjez_hu_c8cee964d196938a.webp 800w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519130756-whvyjez_hu_da079ccb649dfa08.webp 1600w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519130756-whvyjez_hu_9840f1516d59bbb5.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;106&#34; data-flex-basis=&#34;254px&#34;&gt;
 &lt;/p&gt;
 &lt;p&gt;&lt;u&gt;&lt;strong&gt;堆排序特性总结&lt;/strong&gt;&lt;/u&gt;&lt;/p&gt;
@@ -654,8 +732,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h2 id=&#34;冒泡排序bubblesort&#34;&gt;冒泡排序&lt;code&gt;BubbleSort&lt;/code&gt;
-&lt;/h2&gt;&lt;p&gt;&lt;u&gt;&lt;strong&gt;冒泡排序特性总结&lt;/strong&gt;&lt;/u&gt;&lt;/p&gt;
+&lt;h2 id=&#34;冒泡排序bubblesort&#34;&gt;
+    冒泡排序&lt;code&gt;BubbleSort&lt;/code&gt;
+&lt;/h2&gt;
+&lt;p&gt;&lt;u&gt;&lt;strong&gt;冒泡排序特性总结&lt;/strong&gt;&lt;/u&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;非常容易理解&lt;/li&gt;
 &lt;li&gt;时间复杂度 o（N&lt;sup&gt;2&lt;/sup&gt;）&lt;/li&gt;
@@ -679,8 +759,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h2 id=&#34;快速排序quicksort&#34;&gt;快速排序&lt;code&gt;QuickSort&lt;/code&gt;✨
-&lt;/h2&gt;&lt;p&gt;任取待排序元素作为基准值，按照该排序将排序集合分为两个子序列（一边是小于基准值，另一边是大于基准值），然后最左右子序列重复该过程，直至所有元素排列完成&lt;/p&gt;
+&lt;h2 id=&#34;快速排序quicksort&#34;&gt;
+    快速排序&lt;code&gt;QuickSort&lt;/code&gt;✨
+&lt;/h2&gt;
+&lt;p&gt;任取待排序元素作为基准值，按照该排序将排序集合分为两个子序列（一边是小于基准值，另一边是大于基准值），然后最左右子序列重复该过程，直至所有元素排列完成&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;quickSort&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;//接口统一性 ---重载&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;quickSort&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;length&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -694,13 +776,17 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;quickSort&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;par&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;right&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以上代码为快排的主框架，发现与二叉树的前序遍历规则非常像，此地方写递归方法时可想到二叉树前序遍历规则即可快速写出来，后面只需要分析如何按照基准值对数据进行划分即可&lt;/p&gt;
-&lt;h3 id=&#34;快速排序三种方法的效率对比&#34;&gt;快速排序三种方法的效率对比
-&lt;/h3&gt;&lt;p&gt;挖坑版 &amp;gt; Hoare 版 &amp;gt; 前后指针版&lt;/p&gt;
+&lt;h3 id=&#34;快速排序三种方法的效率对比&#34;&gt;
+    快速排序三种方法的效率对比
+&lt;/h3&gt;
+&lt;p&gt;挖坑版 &amp;gt; Hoare 版 &amp;gt; 前后指针版&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;‍&lt;/p&gt;
 &lt;p&gt;将区间按照基准值划分为左右部分的方式有：&lt;/p&gt;
-&lt;h4 id=&#34;hoare-版&#34;&gt;Hoare 版
-&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519132955-ii7go03_hu_5b5d9c5e4d712c3f.webp&#34; width=&#34;1600&#34; height=&#34;714&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519132955-ii7go03_hu_d826eeb6bd8fdd4d.webp 800w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519132955-ii7go03_hu_5b5d9c5e4d712c3f.webp 1600w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519132955-ii7go03_hu_85d21a3dfd4030b7.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;224&#34; data-flex-basis=&#34;538px&#34;&gt;
+&lt;h4 id=&#34;hoare-版&#34;&gt;
+    Hoare 版
+&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519132955-ii7go03_hu_5b5d9c5e4d712c3f.webp&#34; width=&#34;1600&#34; height=&#34;714&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519132955-ii7go03_hu_d826eeb6bd8fdd4d.webp 800w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519132955-ii7go03_hu_5b5d9c5e4d712c3f.webp 1600w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519132955-ii7go03_hu_85d21a3dfd4030b7.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;224&#34; data-flex-basis=&#34;538px&#34;&gt;
 &lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;partitionHoare&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;low&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;high&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;low&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -718,8 +804,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;swap&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;low&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;low&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;挖坑版&#34;&gt;挖坑版
-&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519132832-if6rf0f_hu_224b98bed5359726.webp&#34; width=&#34;1600&#34; height=&#34;937&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519132832-if6rf0f_hu_212eff7fc59cd903.webp 800w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519132832-if6rf0f_hu_224b98bed5359726.webp 1600w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519132832-if6rf0f_hu_473eb80f3cadeff6.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;170&#34; data-flex-basis=&#34;409px&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;挖坑版&#34;&gt;
+    挖坑版
+&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519132832-if6rf0f_hu_224b98bed5359726.webp&#34; width=&#34;1600&#34; height=&#34;937&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519132832-if6rf0f_hu_212eff7fc59cd903.webp 800w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519132832-if6rf0f_hu_224b98bed5359726.webp 1600w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519132832-if6rf0f_hu_473eb80f3cadeff6.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;170&#34; data-flex-basis=&#34;409px&#34;&gt;
 &lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;partition&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;low&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;high&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tmp&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;low&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -736,8 +824,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;low&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tmp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;low&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;前后指针法&#34;&gt;前后指针法
-&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519132942-7r9sag8_hu_f5c29ca0f81b434.webp&#34; width=&#34;1600&#34; height=&#34;854&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519132942-7r9sag8_hu_8de7a03a7a4a1eb6.webp 800w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519132942-7r9sag8_hu_f5c29ca0f81b434.webp 1600w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519132942-7r9sag8_hu_c64f2074a604d7fb.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;187&#34; data-flex-basis=&#34;449px&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;前后指针法&#34;&gt;
+    前后指针法
+&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519132942-7r9sag8_hu_f5c29ca0f81b434.webp&#34; width=&#34;1600&#34; height=&#34;854&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519132942-7r9sag8_hu_8de7a03a7a4a1eb6.webp 800w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519132942-7r9sag8_hu_f5c29ca0f81b434.webp 1600w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519132942-7r9sag8_hu_c64f2074a604d7fb.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;187&#34; data-flex-basis=&#34;449px&#34;&gt;
 &lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;partition1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;low&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;high&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;prv&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;low&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;//&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -752,10 +842,14 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;swap&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;prv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;low&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;prv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;快排的内部优化&#34;&gt;快排的内部优化
-&lt;/h3&gt;&lt;p&gt;为了使得最开始找的基准值更加合理，提高排序效率，利用三数取中&lt;/p&gt;
-&lt;h4 id=&#34;1三数取中&#34;&gt;1.三数取中
-&lt;/h4&gt;&lt;p&gt;找数据的最左边的元素和最右边的元素，再找中间值，取出他们三者之间的平均值的下标&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;快排的内部优化&#34;&gt;
+    快排的内部优化
+&lt;/h3&gt;
+&lt;p&gt;为了使得最开始找的基准值更加合理，提高排序效率，利用三数取中&lt;/p&gt;
+&lt;h4 id=&#34;1三数取中&#34;&gt;
+    1.三数取中
+&lt;/h4&gt;
+&lt;p&gt;找数据的最左边的元素和最右边的元素，再找中间值，取出他们三者之间的平均值的下标&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;threeMid&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;low&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;high&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mid&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;low&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;high&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;low&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;high&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -776,9 +870,12 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;2嵌套直接插入排序&#34;&gt;2.嵌套直接插入排序
-&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519134017-xcon31p_hu_8bb93bb4d552d592.webp&#34; width=&#34;1600&#34; height=&#34;1392&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519134017-xcon31p_hu_224d0d4a687151f.webp 800w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519134017-xcon31p_hu_8bb93bb4d552d592.webp 1600w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519134017-xcon31p_hu_214e92a688a8669d.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;114&#34; data-flex-basis=&#34;275px&#34;&gt;
-当数据集合有序的时候，快排还需要遍历只有右子树的情况，浪费了时间，此时嵌套&lt;a class=&#34;link&#34; href=&#34;#20250519110700-aauve5w&#34; &gt;直接插入排序&lt;/a&gt;则可以直接减少遍历&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;2嵌套直接插入排序&#34;&gt;
+    2.嵌套直接插入排序
+&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519134017-xcon31p_hu_8bb93bb4d552d592.webp&#34; width=&#34;1600&#34; height=&#34;1392&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519134017-xcon31p_hu_224d0d4a687151f.webp 800w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519134017-xcon31p_hu_8bb93bb4d552d592.webp 1600w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519134017-xcon31p_hu_214e92a688a8669d.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;114&#34; data-flex-basis=&#34;275px&#34;&gt;
+当数据集合有序的时候，快排还需要遍历只有右子树的情况，浪费了时间，此时嵌套&lt;a class=&#34;link&#34; href=&#34;#20250519110700-aauve5w&#34;&gt;直接插入排序&lt;/a&gt;
+则可以直接减少遍历&lt;/p&gt;
 &lt;p&gt;此时针对快排主框架的情况，直接插入排序要做出一点改变，总体框架不变&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;insertSortRange&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;low&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;high&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;low&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;high&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -842,8 +939,10 @@
 &lt;p&gt;稳定性：不稳定&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;非递归快排quicksortnor&#34;&gt;非递归快排&lt;code&gt;QuickSortNor&lt;/code&gt;
-&lt;/h3&gt;&lt;p&gt;利用栈进行排序&lt;/p&gt;
+&lt;h3 id=&#34;非递归快排quicksortnor&#34;&gt;
+    非递归快排&lt;code&gt;QuickSortNor&lt;/code&gt;
+&lt;/h3&gt;
+&lt;p&gt;利用栈进行排序&lt;/p&gt;
 &lt;p&gt;代码块&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;quickSortNor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;start&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -874,8 +973,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h2 id=&#34;归并排序mergesort&#34;&gt;归并排序&lt;code&gt;MergeSort&lt;/code&gt;
-&lt;/h2&gt;&lt;p&gt;运用了”分而治之“的思想，采用”分治法“，即是将每个子序列变得有序，再使子序列段有序。若将两个有序表合并成一个有序表，叫二路归并。&lt;/p&gt;
+&lt;h2 id=&#34;归并排序mergesort&#34;&gt;
+    归并排序&lt;code&gt;MergeSort&lt;/code&gt;
+&lt;/h2&gt;
+&lt;p&gt;运用了”分而治之“的思想，采用”分治法“，即是将每个子序列变得有序，再使子序列段有序。若将两个有序表合并成一个有序表，叫二路归并。&lt;/p&gt;
 &lt;p&gt;‍&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519135554-h21sflk_hu_579816e5e32b5f72.webp&#34; width=&#34;1600&#34; height=&#34;963&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519135554-h21sflk_hu_f9d127757349eeee.webp 800w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519135554-h21sflk_hu_579816e5e32b5f72.webp 1600w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519135554-h21sflk_hu_2af1dc6922cc20e1.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;166&#34; data-flex-basis=&#34;398px&#34;&gt;
 &lt;/p&gt;
@@ -931,8 +1032,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;非递归归并排序mergesortnor&#34;&gt;非递归归并排序&lt;code&gt;MergeSortNor&lt;/code&gt;✨
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519211019-1s20ytr_hu_dc10fd394f916bf2.webp&#34; width=&#34;1600&#34; height=&#34;698&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519211019-1s20ytr_hu_b396d80199d0c618.webp 800w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519211019-1s20ytr_hu_dc10fd394f916bf2.webp 1600w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519211019-1s20ytr_hu_1e991bc7abf2588b.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;229&#34; data-flex-basis=&#34;550px&#34;&gt;
+&lt;h3 id=&#34;非递归归并排序mergesortnor&#34;&gt;
+    非递归归并排序&lt;code&gt;MergeSortNor&lt;/code&gt;✨
+&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519211019-1s20ytr_hu_dc10fd394f916bf2.webp&#34; width=&#34;1600&#34; height=&#34;698&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519211019-1s20ytr_hu_b396d80199d0c618.webp 800w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519211019-1s20ytr_hu_dc10fd394f916bf2.webp 1600w, https://Jul1en-Lin.github.io/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/assets/image-20250519211019-1s20ytr_hu_1e991bc7abf2588b.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;229&#34; data-flex-basis=&#34;550px&#34;&gt;
 &lt;/p&gt;
 &lt;p&gt;代码块&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;mergeSortNor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -956,7 +1059,6 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;‍&lt;/p&gt;
 &lt;p&gt;‍&lt;/p&gt;
 </description>
-        </item>
-        
-    </channel>
+    </item>
+  </channel>
 </rss>

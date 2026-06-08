@@ -1,43 +1,46 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
+<html lang="zh-CN" dir="ltr">
 
-<head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Reids 事务 核心意义 Redis 事务的主要作用，是把多条命令“打包”为一组，然后按照顺序执行。它解决的核心问题不是像 MySQL 那样提供完整的强事务能力，而是在执行这一组命令时，尽量避免其他客户端的命令插入到这组操作中间。">
-<title>Reids 事务 | Jul1en</title>
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Reids 事务 | Jul1en</title>
+<meta name="description" content="Reids 事务 核心意义 Redis 事务的主要作用，是把多条命令“打包”为一组，然后按照顺序执行。它解决的核心问题不是像 MySQL 那样提供完整的强事务能力，而是在执行这一组命令时，尽量避免其他客户端的命令插入到这组操作中间。">
+<meta name="author" content="Jul1en">
+<link rel="canonical" href="https://Jul1en-Lin.github.io/p/reids-%E4%BA%8B%E5%8A%A1/">
 
-<link rel='canonical' href='https://Jul1en-Lin.github.io/p/reids-%E4%BA%8B%E5%8A%A1/'>
-
-<link rel="stylesheet" href="/scss/style.min.ec82946fda8d90cf1fb1835f4491c98e9279c2eae00a5622fe790c8a9ce86062.css"><meta property='og:title' content="Reids 事务 | Jul1en">
-<meta property='og:description' content="Reids 事务 核心意义 Redis 事务的主要作用，是把多条命令“打包”为一组，然后按照顺序执行。它解决的核心问题不是像 MySQL 那样提供完整的强事务能力，而是在执行这一组命令时，尽量避免其他客户端的命令插入到这组操作中间。">
-<meta property='og:url' content='https://Jul1en-Lin.github.io/p/reids-%E4%BA%8B%E5%8A%A1/'>
-<meta property='og:site_name' content='Jul1en'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-05-12T07:48:34&#43;00:00'/><meta property='article:modified_time' content='2026-05-13T00:25:10&#43;08:00'/>
-<meta name="twitter:title" content="Reids 事务 | Jul1en">
-<meta name="twitter:description" content="Reids 事务 核心意义 Redis 事务的主要作用，是把多条命令“打包”为一组，然后按照顺序执行。它解决的核心问题不是像 MySQL 那样提供完整的强事务能力，而是在执行这一组命令时，尽量避免其他客户端的命令插入到这组操作中间。">
-    <link rel="shortcut icon" href="/favicon-signature.svg" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="icon" href="/favicon-signature.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-signature.png" type="image/png" sizes="512x512">
-<link rel="alternate icon" href="/favicon-signature.ico" type="image/x-icon">
-<meta name="author" content="Jul1en">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)"><script src="/js/custom.4bb4ca905d915217c671721b75f16ae60652e805c90c767a80a951f0dddeeb9c.js" integrity="sha256-S7TKkF2RUhfGcXIbdfFq5gZS6AXJDHZ6gKlR8N3e65w=" defer></script><script>
+<link rel="alternate icon" href="/favicon.ico" type="image/x-icon">
+<meta name="theme-color" content="#fdfdf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Reids 事务 | Jul1en">
+<meta property="og:description" content="Reids 事务 核心意义 Redis 事务的主要作用，是把多条命令“打包”为一组，然后按照顺序执行。它解决的核心问题不是像 MySQL 那样提供完整的强事务能力，而是在执行这一组命令时，尽量避免其他客户端的命令插入到这组操作中间。">
+<meta property="og:url" content="https://Jul1en-Lin.github.io/p/reids-%E4%BA%8B%E5%8A%A1/">
+<meta property="og:site_name" content="Jul1en">
+<meta property="og:type" content="article">
+<meta property="article:section" content="Post">
+<meta property="article:published_time" content="2026-05-12T07:48:34&#43;00:00">
+<meta property="article:modified_time" content="2026-05-13T00:25:10&#43;08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Reids 事务 | Jul1en">
+<meta name="twitter:description" content="Reids 事务 核心意义 Redis 事务的主要作用，是把多条命令“打包”为一组，然后按照顺序执行。它解决的核心问题不是像 MySQL 那样提供完整的强事务能力，而是在执行这一组命令时，尽量避免其他客户端的命令插入到这组操作中间。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"><script>
     (function () {
-        const colorSchemeKey = 'StackColorScheme';
-        const savedScheme = localStorage.getItem(colorSchemeKey);
-        const defaultScheme = "light";
-        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
-        const scheme = savedScheme || defaultScheme;
-
-        if (scheme === 'dark' || (scheme === 'auto' && supportDarkMode)) {
-            document.documentElement.dataset.scheme = 'dark';
-        } else {
-            document.documentElement.dataset.scheme = 'light';
+        var stored = null;
+        try {
+            stored = window.localStorage.getItem('ColorScheme');
+        } catch (error) {
+            stored = null;
         }
+
+        var scheme = stored;
+        if (scheme !== 'light' && scheme !== 'dark') {
+            scheme = "light";
+        }
+        document.documentElement.dataset.scheme = scheme;
     })();
-</script>
+</script><link rel="stylesheet" href="/css/site.min.0758d8aad30f198f851a02b8c6494f637bd95774b2fd6b2f576cf99133b942f8.css" integrity="sha256-B1jYqtMPGY&#43;FGgK4xklPY3vZV3Sy/WsvV2z5kTO5Qvg="><script src="/js/site.51f8655227b5fb12b2585c2985e20ec3e93192ca19774662d732d2a0bcb492f0.js" integrity="sha256-UfhlUie1&#43;xKyWFwpheIOw&#43;kxksoZd0Zi1zLSoLy0kvA=" defer></script>
 
 </head>
 
@@ -93,7 +96,7 @@
   <path fill="currentColor" d="M17.2 7.2a.9.9 0 1 1-1.8 0 .9.9 0 0 1 1.8 0Z" />
 </svg>
 </span>
-                    </a><button id="dark-mode-toggle" class="theme-toggle" type="button" aria-label="暗色模式" title="暗色模式">
+                    </a><button id="dark-mode-toggle" class="theme-toggle" type="button" aria-label="切换配色" title="切换配色">
                     <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
     <circle cx="12" cy="12" r="4.2" />
     <path d="M12 2.8v2.2M12 19v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.8 12h2.2M19 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" />
@@ -181,8 +184,11 @@
             </header>
 
             <section class="article-content article-detail__content">
-                <h2 id="核心意义">核心意义
-</h2><p>Redis 事务的主要作用，是把多条命令“打包”为一组，然后按照顺序执行。它解决的核心问题不是像 MySQL 那样提供完整的强事务能力，而是在执行这一组命令时，尽量避免其他客户端的命令插入到这组操作中间。</p>
+                
+<h2 id="核心意义">
+    核心意义
+</h2>
+<p>Redis 事务的主要作用，是把多条命令“打包”为一组，然后按照顺序执行。它解决的核心问题不是像 MySQL 那样提供完整的强事务能力，而是在执行这一组命令时，尽量避免其他客户端的命令插入到这组操作中间。</p>
 <p>可以先用一个生活例子理解。</p>
 <p>你和朋友约好晚上去吃烧烤。你先到了烧烤店，点了牛肉串、羊肉串、五花肉等，但是你告诉服务员：</p>
 <blockquote>
@@ -203,8 +209,10 @@
 <p>对应图片：<br>
 <img src="/p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512224943-2vftui1_hu_ccdec4a13c02d68c.webp" width="1600" height="1133" srcset="/p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512224943-2vftui1_hu_19a5d7e9d45aa479.webp 800w, /p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512224943-2vftui1_hu_ccdec4a13c02d68c.webp 1600w, /p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512224943-2vftui1_hu_b05763630f54b252.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="141" data-flex-basis="338px">
 </p>
-<h2 id="执行机制">执行机制
-</h2><p>再说说它的执行机制，Redis 事务的基本流程是：</p>
+<h2 id="执行机制">
+    执行机制
+</h2>
+<p>再说说它的执行机制，Redis 事务的基本流程是：</p>
 <p>客户端发送 MULTI -&gt; Redis 开启事务状态 -&gt; 后续命令进入队列，返回 QUEUED -&gt; 客户端发送 EXEC -&gt; Redis 按顺序执行队列中的命令 -&gt; 返回执行结果</p>
 <p>执行过程可以理解为：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">MULTI：告诉 Redis，我要开始打包命令了
@@ -219,43 +227,45 @@
 <p>对应图片：<br>
 <img src="/p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512225249-y395qsd_hu_bdf8c84484dce3bf.webp" width="1600" height="1137" srcset="/p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512225249-y395qsd_hu_d8986a76ed043dce.webp 800w, /p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512225249-y395qsd_hu_bdf8c84484dce3bf.webp 1600w, /p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512225249-y395qsd_hu_f312b6cb743ec9bd.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="140" data-flex-basis="337px">
 </p>
-<h2 id="常用命令">常用命令
-</h2><p>Redis 事务相关的核心命令主要有 5 个</p>
+<h2 id="常用命令">
+    常用命令
+</h2>
+<p>Redis 事务相关的核心命令主要有 5 个</p>
 <div class="table-wrapper"><table>
-	<thead>
-			<tr>
-					<th>命令</th>
-					<th>作用</th>
-					<th>理解</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td><code>MULTI</code></td>
-					<td>开启事务</td>
-					<td>后续命令不立即执行，而是进入队列</td>
-			</tr>
-			<tr>
-					<td><code>EXEC</code></td>
-					<td>执行事务</td>
-					<td>按顺序执行队列里的所有命令</td>
-			</tr>
-			<tr>
-					<td><code>DISCARD</code></td>
-					<td>取消事务</td>
-					<td>清空事务队列，不执行</td>
-			</tr>
-			<tr>
-					<td><code>WATCH</code></td>
-					<td>监视 key</td>
-					<td>用于实现乐观锁</td>
-			</tr>
-			<tr>
-					<td><code>UNWATCH</code></td>
-					<td>取消监视</td>
-					<td>取消对 key 的监控</td>
-			</tr>
-	</tbody>
+  <thead>
+      <tr>
+          <th>命令</th>
+          <th>作用</th>
+          <th>理解</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>MULTI</code></td>
+          <td>开启事务</td>
+          <td>后续命令不立即执行，而是进入队列</td>
+      </tr>
+      <tr>
+          <td><code>EXEC</code></td>
+          <td>执行事务</td>
+          <td>按顺序执行队列里的所有命令</td>
+      </tr>
+      <tr>
+          <td><code>DISCARD</code></td>
+          <td>取消事务</td>
+          <td>清空事务队列，不执行</td>
+      </tr>
+      <tr>
+          <td><code>WATCH</code></td>
+          <td>监视 key</td>
+          <td>用于实现乐观锁</td>
+      </tr>
+      <tr>
+          <td><code>UNWATCH</code></td>
+          <td>取消监视</td>
+          <td>取消对 key 的监控</td>
+      </tr>
+  </tbody>
 </table></div>
 <ul>
 <li>MULTI：开启事务</li>
@@ -305,75 +315,89 @@
 <li>UNWATCH：取消监视</li>
 </ul>
 <p>用于取消对 key 的监视。通常当你不想继续执行当前事务逻辑时，可以使用它取消监控。</p>
-<h2 id="与-mysql-事务的区别">与 MySQL 事务的区别
-</h2><p>它们不是一个级别的东西，Redis 事务更轻量、更简单；MySQL 事务更完整、更严格。</p>
+<h2 id="与-mysql-事务的区别">
+    与 MySQL 事务的区别
+</h2>
+<p>它们不是一个级别的东西，Redis 事务更轻量、更简单；MySQL 事务更完整、更严格。</p>
 <div class="table-wrapper"><table>
-	<thead>
-			<tr>
-					<th>对比项</th>
-					<th>Redis 事务</th>
-					<th>MySQL 事务</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td>定位</td>
-					<td>命令打包 + 顺序执行</td>
-					<td>完整数据库事务</td>
-			</tr>
-			<tr>
-					<td>原子性</td>
-					<td>更像“整体提交，不被插队”，只强调全部执行</td>
-					<td>强调真正的 all-or-nothing，确保全部都可以正确执行</td>
-			</tr>
-			<tr>
-					<td>回滚</td>
-					<td>不支持 MySQL 那样的自动回滚</td>
-					<td>支持回滚</td>
-			</tr>
-			<tr>
-					<td>隔离性</td>
-					<td>依赖 Redis 单线程顺序执行，只是事务执行期间不被插队</td>
-					<td>有完整隔离级别，如读已提交、可重复读等</td>
-			</tr>
-			<tr>
-					<td>一致性</td>
-					<td>通常不作为强一致事务理解</td>
-					<td>ACID 语义更完整</td>
-			</tr>
-			<tr>
-					<td>适用场景</td>
-					<td>缓存、计数器、轻量批量更新</td>
-					<td>订单、支付、转账等强事务业务</td>
-			</tr>
-	</tbody>
+  <thead>
+      <tr>
+          <th>对比项</th>
+          <th>Redis 事务</th>
+          <th>MySQL 事务</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>定位</td>
+          <td>命令打包 + 顺序执行</td>
+          <td>完整数据库事务</td>
+      </tr>
+      <tr>
+          <td>原子性</td>
+          <td>更像“整体提交，不被插队”，只强调全部执行</td>
+          <td>强调真正的 all-or-nothing，确保全部都可以正确执行</td>
+      </tr>
+      <tr>
+          <td>回滚</td>
+          <td>不支持 MySQL 那样的自动回滚</td>
+          <td>支持回滚</td>
+      </tr>
+      <tr>
+          <td>隔离性</td>
+          <td>依赖 Redis 单线程顺序执行，只是事务执行期间不被插队</td>
+          <td>有完整隔离级别，如读已提交、可重复读等</td>
+      </tr>
+      <tr>
+          <td>一致性</td>
+          <td>通常不作为强一致事务理解</td>
+          <td>ACID 语义更完整</td>
+      </tr>
+      <tr>
+          <td>适用场景</td>
+          <td>缓存、计数器、轻量批量更新</td>
+          <td>订单、支付、转账等强事务业务</td>
+      </tr>
+  </tbody>
 </table></div>
 <p>对应图片：<br>
 <img src="/p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512230310-1ozjs43_hu_f7d4d4911c0a6908.webp" width="1600" height="1126" srcset="/p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512230310-1ozjs43_hu_bcf4b9b1b6adefc6.webp 800w, /p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512230310-1ozjs43_hu_f7d4d4911c0a6908.webp 1600w, /p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512230310-1ozjs43_hu_7ebc8fbe9cb06259.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="142" data-flex-basis="340px">
 </p>
-<h2 id="原子性">原子性
-</h2><p>这个地方很容易混乱，也是课堂板书里重点强调的地方。</p>
-<h3 id="单条-redis-命令通常具有原子性">单条 Redis 命令通常具有原子性
-</h3><p>Redis 本身是单线程执行命令的，同一时刻只会处理一个命令。</p>
+<h2 id="原子性">
+    原子性
+</h2>
+<p>这个地方很容易混乱，也是课堂板书里重点强调的地方。</p>
+<h3 id="单条-redis-命令通常具有原子性">
+    单条 Redis 命令通常具有原子性
+</h3>
+<p>Redis 本身是单线程执行命令的，同一时刻只会处理一个命令。</p>
 <p>所以像下面这种单条命令：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">INCR count
 </span></span></code></pre></div><p>它本身通常可以理解为原子操作。不会出现加到一半被其他命令插进来的情况。</p>
-<h3 id="redis-事务的原子性比较弱">Redis 事务的“原子性”比较弱
-</h3><p>Redis 事务的原子性，不能完全按照 MySQL 的事务原子性理解。</p>
+<h3 id="redis-事务的原子性比较弱">
+    Redis 事务的“原子性”比较弱
+</h3>
+<p>Redis 事务的原子性，不能完全按照 MySQL 的事务原子性理解。</p>
 <p>Redis 事务可以做到一组命令按顺序执行，执行过程中不会被其他客户端命令插队</p>
 <p>但是它做不到 MySQL 那种要么全部成功、要么失败后全部回滚，它只确认命令能全部执行，但不保证完全对~</p>
 <p>这就是 Redis 事务和 MySQL 事务非常大的区别。</p>
-<h3 id="mysql-的原子性更严格">MySQL 的原子性更严格
-</h3><p>MySQL 事务强调的是要么全部成功、要么全部失败，而且支持失败后可以回滚的功能</p>
+<h3 id="mysql-的原子性更严格">
+    MySQL 的原子性更严格
+</h3>
+<p>MySQL 事务强调的是要么全部成功、要么全部失败，而且支持失败后可以回滚的功能</p>
 <p>Redis 并没有实现这种功能，虽然这种功能强大，但也是需要一定的性能开销，所以 Redis 没有实现这种功能开发者可能也有一定的考虑~</p>
-<h2 id="watch-实现思想乐观锁">WATCH 实现思想：乐观锁
-</h2><p>详细来说，Redis 的 watch 是基于版本号<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>这样的机制实现了乐观锁<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<h2 id="watch-实现思想乐观锁">
+    WATCH 实现思想：乐观锁
+</h2>
+<p>详细来说，Redis 的 watch 是基于版本号<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>这样的机制实现了乐观锁<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
 <p>版本号这个概念在 CAS<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup> 中的 ABA 问题<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>也涉及过，其思想方法和实现方式上是十分相似的~</p>
 <p>虽然说我之前的博客也有对乐观锁、CAS 和 ABA 问题有详细的讲解，但不影响阅读体验，就在这简略介绍下</p>
 <p><img src="/p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512234646-cgzlkhb_hu_7a587c5d83239bab.webp" width="1600" height="1116" srcset="/p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512234646-cgzlkhb_hu_f56b93dbc40a235d.webp 800w, /p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512234646-cgzlkhb_hu_7a587c5d83239bab.webp 1600w, /p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512234646-cgzlkhb_hu_b96e33dc4a4e5a92.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="143" data-flex-basis="344px">
 </p>
-<h3 id="什么是乐观锁">什么是乐观锁？
-</h3><p>乐观锁的想法是：</p>
+<h3 id="什么是乐观锁">
+    什么是乐观锁？
+</h3>
+<p>乐观锁的想法是：</p>
 <blockquote>
 <p>我先假设冲突不会发生，所以不提前把资源锁死；等真正提交时，再检查有没有被别人改过。</p>
 </blockquote>
@@ -385,8 +409,10 @@
 <p>乐观锁是：我觉得大概率不会冲突，所以大家都可以先操作，提交时再检查有没有冲突，如果冲突了，我就失败重试。</p>
 </li>
 </ul>
-<h3 id="版本号">版本号
-</h3><p>当执行<code>watch key</code>时，这时就会给 key 分配一个版本号，此处的版本号可以理解为“一个整数”，key 在每次修改后，版本号就会+1，此处假设 watch 之后 key 的版本号默认为1。</p>
+<h3 id="版本号">
+    版本号
+</h3>
+<p>当执行<code>watch key</code>时，这时就会给 key 分配一个版本号，此处的版本号可以理解为“一个整数”，key 在每次修改后，版本号就会+1，此处假设 watch 之后 key 的版本号默认为1。</p>
 <p>然后有两个客户端，客户端1执行了watch key，然后开启了事务，客户端2对key进行了更新操作，此时版本号+1。客户端1在队列中也安排了key的更新操作，然后客户端1 执行 exec，（exec 执行时间在客户端2对 key 更新操作之后）。此时 exec 在执行事务命令之后就会做出判定，判定watch时候的版本号与现在的版本号是否一致：如果一致，说明当前key在事务开启到最终执行的这个过程中都没有别的客户端进行修改，就能正常执行；反之，如果不一致，说明 key 在其他客户端就改过了，因此就丢弃了这个事务的操作，返回 nil ~</p>
 <p><img src="/p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512234621-c3hytfo_hu_d515ece130abd106.webp" width="1600" height="1125" srcset="/p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512234621-c3hytfo_hu_dbb9cc4ae0fefc76.webp 800w, /p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512234621-c3hytfo_hu_d515ece130abd106.webp 1600w, /p/reids-%E4%BA%8B%E5%8A%A1/assets/image-20260512234621-c3hytfo_hu_ceb34395ea1b760c.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="142" data-flex-basis="341px">
 </p>
@@ -416,8 +442,10 @@
 在通过A的值相同判定是否有插队，由于次数的修改有加也有减，就可能会出现ABA的问题，那么有一些解决方案：限制此处的操作（只能加或者只能减）、或者引入“版本号”概念，每次修改都让“版本号”+1，再次使用判定的时候就不是用值来判定了，而是看版本号&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:2">
-<h2 id="乐观锁--悲观锁">乐观锁 &amp; 悲观锁
-</h2><p>加锁的时候预测这个锁出现竞争性的可能性大还是小？</p>
+<h2 id="乐观锁--悲观锁">
+    乐观锁 &amp; 悲观锁
+</h2>
+<p>加锁的时候预测这个锁出现竞争性的可能性大还是小？</p>
 <p>预测这个锁出现竞争可能性小 —— 乐观锁</p>
 <p>预测这个锁出现竞争可能性大 —— 悲观锁&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
@@ -452,389 +480,11 @@
     </div>
 </article>
 
-
-
-
-
-
-
-
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-    
-    <div class="pswp__bg"></div>
-
-    
-    <div class="pswp__scroll-wrap">
-
-        
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                
-                
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
-                defer
-                >
-            </script><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
-                defer
-                >
-            </script><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
-            ><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
-            >
-
-    </main>
-
-    <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
-                
-                >
-            </script><script type="text/javascript" src="/ts/main.836efe327773ba454adac61ee8b35272b6f512bd594ed9ea0f926fca8386433b.js" defer></script><script type="text/javascript" src="/ts/custom.4bb4ca905d915217c671721b75f16ae60652e805c90c767a80a951f0dddeeb9c.js" defer></script>
-
-
-<button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
+    </main><button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M6 14.5 12 8l6 6.5" />
+        <path d="M6 14.5 12 8l6 6.5"></path>
     </svg>
 </button>
-
-<script>
-    (function () {
-        'use strict';
-
-        const menuToggle = document.querySelector('.site-menu-toggle');
-        const nav = document.getElementById('primary-navigation');
-        const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-        function initThemeToggle() {
-            const toggle = document.getElementById('dark-mode-toggle');
-            if (!toggle || toggle.dataset.projectThemeToggleReady === 'true') return;
-
-            toggle.dataset.projectThemeToggleReady = 'true';
-
-            function getCurrentScheme() {
-                return document.documentElement.dataset.scheme === 'dark' ? 'dark' : 'light';
-            }
-
-            function getSystemScheme() {
-                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-            }
-
-            function saveScheme(scheme) {
-                try {
-                    window.localStorage.setItem('StackColorScheme', scheme === getSystemScheme() ? 'auto' : scheme);
-                } catch (error) {
-                    return;
-                }
-            }
-
-            function applyScheme(scheme) {
-                document.documentElement.dataset.scheme = scheme;
-                saveScheme(scheme);
-                window.dispatchEvent(new CustomEvent('onColorSchemeChange', { detail: scheme }));
-            }
-
-            toggle.addEventListener('click', function (event) {
-                event.preventDefault();
-                event.stopImmediatePropagation();
-
-                const x = event.clientX;
-                const y = event.clientY;
-                const willBeDark = getCurrentScheme() !== 'dark';
-                const nextScheme = willBeDark ? 'dark' : 'light';
-                const endRadius = Math.hypot(
-                    Math.max(x, window.innerWidth - x),
-                    Math.max(y, window.innerHeight - y)
-                );
-
-                if (!document.startViewTransition) {
-                    applyScheme(nextScheme);
-                    return;
-                }
-
-                const transition = document.startViewTransition(function () {
-                    applyScheme(nextScheme);
-                });
-
-                transition.ready.then(function () {
-                    const clipPath = willBeDark
-                        ? [`circle(${endRadius}px at ${x}px ${y}px)`, `circle(0px at ${x}px ${y}px)`]
-                        : [`circle(0px at ${x}px ${y}px)`, `circle(${endRadius}px at ${x}px ${y}px)`];
-
-                    document.documentElement.animate(
-                        { clipPath },
-                        {
-                            duration: 500,
-                            easing: 'ease-in-out',
-                            fill: 'forwards',
-                            pseudoElement: willBeDark
-                                ? '::view-transition-old(root)'
-                                : '::view-transition-new(root)'
-                        }
-                    );
-                });
-            }, { capture: true });
-        }
-
-        function setMenuOpen(open) {
-            if (!menuToggle || !nav) return;
-            menuToggle.classList.toggle('is-open', open);
-            nav.classList.toggle('is-open', open);
-            document.body.classList.toggle('site-nav-open', open);
-            menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        }
-
-        if (menuToggle && nav) {
-            menuToggle.addEventListener('click', function (event) {
-                event.stopPropagation();
-                setMenuOpen(!nav.classList.contains('is-open'));
-            });
-
-            nav.querySelectorAll('a').forEach(function (link) {
-                link.addEventListener('click', function () {
-                    setMenuOpen(false);
-                });
-            });
-
-            document.addEventListener('keydown', function (event) {
-                if (event.key === 'Escape') setMenuOpen(false);
-            });
-
-            document.addEventListener('click', function (event) {
-                if (!document.body.classList.contains('site-nav-open')) return;
-                if (nav.contains(event.target) || menuToggle.contains(event.target)) return;
-                setMenuOpen(false);
-            });
-
-            const desktopQuery = window.matchMedia('(min-width: 921px)');
-            const closeMenuOnDesktop = function (event) {
-                if (event.matches) setMenuOpen(false);
-            };
-
-            if (desktopQuery.addEventListener) {
-                desktopQuery.addEventListener('change', closeMenuOnDesktop);
-            } else if (desktopQuery.addListener) {
-                desktopQuery.addListener(closeMenuOnDesktop);
-            }
-        }
-
-        const backToTop = document.getElementById('back-to-top');
-
-        if (backToTop) {
-            function updateBackToTop() {
-                backToTop.classList.toggle('is-visible', window.scrollY > 420);
-            }
-
-            backToTop.addEventListener('click', function () {
-                window.scrollTo({ top: 0, behavior: reduceMotionQuery.matches ? 'auto' : 'smooth' });
-            });
-
-            window.addEventListener('scroll', updateBackToTop, { passive: true });
-            updateBackToTop();
-        }
-
-        function initArticleTocHover() {
-            const toc = document.querySelector('[data-article-toc]');
-            const articleMain = document.querySelector('.article-detail__main');
-            if (!toc || !articleMain) return;
-
-            const toggle = toc.querySelector('[data-article-toc-toggle]');
-            let lockedOpen = false;
-
-            function setVisible(visible) {
-                document.body.classList.toggle('is-article-toc-visible', visible);
-                if (toggle) {
-                    toggle.setAttribute('aria-expanded', visible ? 'true' : 'false');
-                    toggle.setAttribute('aria-label', visible ? '隐藏文章目录' : '显示文章目录');
-                }
-            }
-
-            function getLeftRevealZone() {
-                return Math.min(380, Math.max(280, window.innerWidth * 0.22));
-            }
-
-            function isInsideReadingColumn(x, y) {
-                const rect = articleMain.getBoundingClientRect();
-                const top = Math.min(rect.top, 0) - 48;
-                const bottom = Math.max(rect.bottom, window.innerHeight) + 48;
-
-                return x >= rect.left - 72 && x <= rect.right + 32 && y >= top && y <= bottom;
-            }
-
-            document.addEventListener('pointermove', function (event) {
-                if (lockedOpen) return;
-                setVisible(event.clientX <= getLeftRevealZone() || isInsideReadingColumn(event.clientX, event.clientY));
-            }, { passive: true });
-
-            document.addEventListener('pointerleave', function () {
-                if (!lockedOpen) setVisible(false);
-            });
-
-            toc.addEventListener('focusin', function () {
-                setVisible(true);
-            });
-
-            toc.addEventListener('focusout', function (event) {
-                if (lockedOpen || toc.contains(event.relatedTarget)) return;
-                setVisible(false);
-            });
-
-            if (toggle) {
-                toggle.addEventListener('click', function () {
-                    const isVisible = document.body.classList.contains('is-article-toc-visible');
-                    if (lockedOpen && isVisible) {
-                        lockedOpen = false;
-                        setVisible(false);
-                        return;
-                    }
-
-                    lockedOpen = true;
-                    setVisible(true);
-                });
-            }
-
-            document.addEventListener('click', function (event) {
-                if (!lockedOpen) return;
-                if (toc.contains(event.target) || articleMain.contains(event.target)) return;
-                lockedOpen = false;
-                setVisible(false);
-            });
-
-            document.addEventListener('keydown', function (event) {
-                if (event.key !== 'Escape') return;
-                lockedOpen = false;
-                setVisible(false);
-            });
-        }
-
-        function initRevealOnScroll() {
-            if (reduceMotionQuery.matches || !('IntersectionObserver' in window)) return;
-
-            const revealSelectors = [
-                '.section-band',
-                '.featured-section',
-                '.blog-card',
-                '.post-tools',
-                '.article-detail__content > blockquote',
-                '.article-detail__content > .highlight',
-                '.article-detail__content > pre',
-                '.article-detail__content > .table-wrapper',
-                '.article-detail__content > figure',
-                '.article-detail__content > details',
-                '.article-detail__content > hr',
-                '.article-detail__footer',
-                '.music-album-card'
-            ];
-
-            const targets = revealSelectors.reduce(function (items, selector) {
-                return items.concat(Array.prototype.slice.call(document.querySelectorAll(selector)));
-            }, []);
-
-            const imageBlocks = Array.prototype.slice.call(document.querySelectorAll('.article-detail__content > p')).filter(function (block) {
-                const children = Array.prototype.slice.call(block.children).filter(function (child) {
-                    return child.tagName !== 'BR';
-                });
-                const onlyChild = children[0];
-
-                return children.length === 1 && (
-                    onlyChild.tagName === 'IMG' ||
-                    onlyChild.classList.contains('gallery') ||
-                    (onlyChild.tagName === 'A' && onlyChild.querySelector('img'))
-                );
-            });
-
-            imageBlocks.forEach(function (block) {
-                if (!targets.includes(block)) targets.push(block);
-            });
-
-            const filteredTargets = targets.filter(function (target, index) {
-                if (target.tagName === 'PRE' && target.closest('.highlight')) return false;
-                return targets.indexOf(target) === index;
-            });
-
-            if (!filteredTargets.length) return;
-
-            const observer = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (!entry.isIntersecting) return;
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                });
-            }, {
-                rootMargin: '0px 0px -6% 0px',
-                threshold: 0.1
-            });
-
-            filteredTargets.forEach(function (target, index) {
-                target.classList.add('reveal-on-scroll');
-                target.style.setProperty('--reveal-delay', Math.min(index % 4, 3) * 32 + 'ms');
-                observer.observe(target);
-            });
-        }
-
-        initThemeToggle();
-        initArticleTocHover();
-        initRevealOnScroll();
-
-        window.requestAnimationFrame(function () {
-            document.body.classList.add('is-loaded');
-        });
-    })();
-</script>
-
 </body>
 
 </html>

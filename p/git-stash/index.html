@@ -1,43 +1,46 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
+<html lang="zh-CN" dir="ltr">
 
-<head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Git stash 在使用 Git 开发时，我们经常会遇到一种很尴尬的情况：当前功能还没写完，代码处于“半成品”状态，既不适合提交 commit，也不想直接丢掉。但这时突然来了一个新的任务，比如需要马上切换分支去修 Bug，或者需要拉取远程最新代码。">
-<title>Git stash | Jul1en</title>
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Git stash | Jul1en</title>
+<meta name="description" content="Git stash 在使用 Git 开发时，我们经常会遇到一种很尴尬的情况：当前功能还没写完，代码处于“半成品”状态，既不适合提交 commit，也不想直接丢掉。但这时突然来了一个新的任务，比如需要马上切换分支去修 Bug，或者需要拉取远程最新代码。">
+<meta name="author" content="Jul1en">
+<link rel="canonical" href="https://Jul1en-Lin.github.io/p/git-stash/">
 
-<link rel='canonical' href='https://Jul1en-Lin.github.io/p/git-stash/'>
-
-<link rel="stylesheet" href="/scss/style.min.ec82946fda8d90cf1fb1835f4491c98e9279c2eae00a5622fe790c8a9ce86062.css"><meta property='og:title' content="Git stash | Jul1en">
-<meta property='og:description' content="Git stash 在使用 Git 开发时，我们经常会遇到一种很尴尬的情况：当前功能还没写完，代码处于“半成品”状态，既不适合提交 commit，也不想直接丢掉。但这时突然来了一个新的任务，比如需要马上切换分支去修 Bug，或者需要拉取远程最新代码。">
-<meta property='og:url' content='https://Jul1en-Lin.github.io/p/git-stash/'>
-<meta property='og:site_name' content='Jul1en'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-05-15T05:40:20&#43;00:00'/><meta property='article:modified_time' content='2026-05-15T16:19:14&#43;08:00'/>
-<meta name="twitter:title" content="Git stash | Jul1en">
-<meta name="twitter:description" content="Git stash 在使用 Git 开发时，我们经常会遇到一种很尴尬的情况：当前功能还没写完，代码处于“半成品”状态，既不适合提交 commit，也不想直接丢掉。但这时突然来了一个新的任务，比如需要马上切换分支去修 Bug，或者需要拉取远程最新代码。">
-    <link rel="shortcut icon" href="/favicon-signature.svg" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="icon" href="/favicon-signature.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-signature.png" type="image/png" sizes="512x512">
-<link rel="alternate icon" href="/favicon-signature.ico" type="image/x-icon">
-<meta name="author" content="Jul1en">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)"><script src="/js/custom.4bb4ca905d915217c671721b75f16ae60652e805c90c767a80a951f0dddeeb9c.js" integrity="sha256-S7TKkF2RUhfGcXIbdfFq5gZS6AXJDHZ6gKlR8N3e65w=" defer></script><script>
+<link rel="alternate icon" href="/favicon.ico" type="image/x-icon">
+<meta name="theme-color" content="#fdfdf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Git stash | Jul1en">
+<meta property="og:description" content="Git stash 在使用 Git 开发时，我们经常会遇到一种很尴尬的情况：当前功能还没写完，代码处于“半成品”状态，既不适合提交 commit，也不想直接丢掉。但这时突然来了一个新的任务，比如需要马上切换分支去修 Bug，或者需要拉取远程最新代码。">
+<meta property="og:url" content="https://Jul1en-Lin.github.io/p/git-stash/">
+<meta property="og:site_name" content="Jul1en">
+<meta property="og:type" content="article">
+<meta property="article:section" content="Post">
+<meta property="article:published_time" content="2026-05-15T05:40:20&#43;00:00">
+<meta property="article:modified_time" content="2026-05-15T16:19:14&#43;08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git stash | Jul1en">
+<meta name="twitter:description" content="Git stash 在使用 Git 开发时，我们经常会遇到一种很尴尬的情况：当前功能还没写完，代码处于“半成品”状态，既不适合提交 commit，也不想直接丢掉。但这时突然来了一个新的任务，比如需要马上切换分支去修 Bug，或者需要拉取远程最新代码。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"><script>
     (function () {
-        const colorSchemeKey = 'StackColorScheme';
-        const savedScheme = localStorage.getItem(colorSchemeKey);
-        const defaultScheme = "light";
-        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
-        const scheme = savedScheme || defaultScheme;
-
-        if (scheme === 'dark' || (scheme === 'auto' && supportDarkMode)) {
-            document.documentElement.dataset.scheme = 'dark';
-        } else {
-            document.documentElement.dataset.scheme = 'light';
+        var stored = null;
+        try {
+            stored = window.localStorage.getItem('ColorScheme');
+        } catch (error) {
+            stored = null;
         }
+
+        var scheme = stored;
+        if (scheme !== 'light' && scheme !== 'dark') {
+            scheme = "light";
+        }
+        document.documentElement.dataset.scheme = scheme;
     })();
-</script>
+</script><link rel="stylesheet" href="/css/site.min.0758d8aad30f198f851a02b8c6494f637bd95774b2fd6b2f576cf99133b942f8.css" integrity="sha256-B1jYqtMPGY&#43;FGgK4xklPY3vZV3Sy/WsvV2z5kTO5Qvg="><script src="/js/site.51f8655227b5fb12b2585c2985e20ec3e93192ca19774662d732d2a0bcb492f0.js" integrity="sha256-UfhlUie1&#43;xKyWFwpheIOw&#43;kxksoZd0Zi1zLSoLy0kvA=" defer></script>
 
 </head>
 
@@ -93,7 +96,7 @@
   <path fill="currentColor" d="M17.2 7.2a.9.9 0 1 1-1.8 0 .9.9 0 0 1 1.8 0Z" />
 </svg>
 </span>
-                    </a><button id="dark-mode-toggle" class="theme-toggle" type="button" aria-label="暗色模式" title="暗色模式">
+                    </a><button id="dark-mode-toggle" class="theme-toggle" type="button" aria-label="切换配色" title="切换配色">
                     <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
     <circle cx="12" cy="12" r="4.2" />
     <path d="M12 2.8v2.2M12 19v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.8 12h2.2M19 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" />
@@ -193,33 +196,36 @@
             </header>
 
             <section class="article-content article-detail__content">
-                <p>在使用 Git 开发时，我们经常会遇到一种很尴尬的情况：当前功能还没写完，代码处于“半成品”状态，既不适合提交 commit，也不想直接丢掉。但这时突然来了一个新的任务，比如需要马上切换分支去修 Bug，或者需要拉取远程最新代码。</p>
+                
+<p>在使用 Git 开发时，我们经常会遇到一种很尴尬的情况：当前功能还没写完，代码处于“半成品”状态，既不适合提交 commit，也不想直接丢掉。但这时突然来了一个新的任务，比如需要马上切换分支去修 Bug，或者需要拉取远程最新代码。</p>
 <p>问题就出现了：Git 默认不太喜欢你带着一堆未提交的修改到处切换分支。因为这些修改可能会和目标分支的文件产生冲突，Git 无法确定你到底想保留哪一份内容。</p>
 <p>这时候就需要 <code>git stash</code>。</p>
 <p><code>stash</code> 的作用可以理解为：把当前还不想提交的修改临时存起来，让工作区恢复到干净状态。等你处理完别的事情后，再把这些修改取回来继续写。</p>
-<h2 id="核心理解">核心理解
-</h2><p>Git 里常见的代码状态主要有三个区域：</p>
+<h2 id="核心理解">
+    核心理解
+</h2>
+<p>Git 里常见的代码状态主要有三个区域：</p>
 <div class="table-wrapper"><table>
-	<thead>
-			<tr>
-					<th>区域</th>
-					<th>含义</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td>工作区 Working Directory</td>
-					<td>你正在编辑的文件内容</td>
-			</tr>
-			<tr>
-					<td>暂存区 Staging Area / Index</td>
-					<td>已经<code>git add</code>，准备提交的内容</td>
-			</tr>
-			<tr>
-					<td>本地仓库 Repository</td>
-					<td>已经 commit 的历史版本</td>
-			</tr>
-	</tbody>
+  <thead>
+      <tr>
+          <th>区域</th>
+          <th>含义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>工作区 Working Directory</td>
+          <td>你正在编辑的文件内容</td>
+      </tr>
+      <tr>
+          <td>暂存区 Staging Area / Index</td>
+          <td>已经<code>git add</code>，准备提交的内容</td>
+      </tr>
+      <tr>
+          <td>本地仓库 Repository</td>
+          <td>已经 commit 的历史版本</td>
+      </tr>
+  </tbody>
 </table></div>
 <p>普通的 <code>git commit</code> 是把暂存区内容正式保存到版本历史里。</p>
 <p>而 <code>git stash</code> 是把当前工作区和暂存区里的修改临时打包，放进一个 Git 管理的临时栈里。</p>
@@ -230,9 +236,13 @@
 <p>stash 保存的内容不是只有一份，而是可以保存多份。每执行一次 <code>git stash</code>，Git 就会往 stash 栈里新增一条记录。</p>
 <p>最新的一条通常叫：stash@{0}，数字越小，表示越新。</p>
 <p>再旧一点的是：stash@{1}、stash@{2}</p>
-<h2 id="最常用操作">最常用操作
-</h2><h3 id="临时保存当前修改">临时保存当前修改
-</h3><p>最基础的命令是：</p>
+<h2 id="最常用操作">
+    最常用操作
+</h2>
+<h3 id="临时保存当前修改">
+    临时保存当前修改
+</h3>
+<p>最基础的命令是：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git stash
 </span></span></code></pre></div><p>或者更推荐写成：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git stash push
@@ -247,99 +257,129 @@
 </span></span></code></pre></div><p>或者：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git switch hotfix
 </span></span></code></pre></div><p>这样当前没写完的登录功能不会被丢掉，也不会影响你去处理别的任务。</p>
-<h3 id="添加说明">添加说明
-</h3><p>如果 stash 记录多了，只看 <code>stash@{0}</code>、<code>stash@{1}</code> 会很难分清楚每一份是干什么的。</p>
+<h3 id="添加说明">
+    添加说明
+</h3>
+<p>如果 stash 记录多了，只看 <code>stash@{0}</code>、<code>stash@{1}</code> 会很难分清楚每一份是干什么的。</p>
 <p><u><strong>所以更推荐加上说明：</strong></u></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git stash push -m &#34;开发登录功能，临时保存&#34;
 </span></span></code></pre></div><p>之后查看 stash 列表时，就能看到这条说明。</p>
 <p>这就像给临时保存的代码贴了一个便利贴，后面找起来会轻松很多。</p>
-<h3 id="查看-stash-列表">查看 stash 列表
-</h3><p>查看当前保存过的 stash：</p>
+<h3 id="查看-stash-列表">
+    查看 stash 列表
+</h3>
+<p>查看当前保存过的 stash：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git stash list
 </span></span></code></pre></div><p>示例：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">stash@{0}: On feature-login: 开发登录功能，临时保存
 </span></span><span class="line"><span class="cl">stash@{1}: On dev: 修改订单模块样式
 </span></span><span class="line"><span class="cl">stash@{2}: On main: 调整配置文件
 </span></span></code></pre></div><p>这里需要注意，stash 是按照时间倒序排列的，最新的永远在最上面。</p>
-<h3 id="查看某个-stash-里改了什么">查看某个 stash 里改了什么
-</h3><p>只看简略变更：</p>
+<h3 id="查看某个-stash-里改了什么">
+    查看某个 stash 里改了什么
+</h3>
+<p>只看简略变更：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git stash show stash@{0}
 </span></span></code></pre></div><p>如果想看具体代码差异：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git stash show -p stash@{0}
 </span></span></code></pre></div><p>其中 <code>-p</code> 表示以 patch 的形式展示详细修改内容。</p>
 <p>如果你 stash 记录很多，恢复之前最好先看一下，避免把不相关的旧代码恢复回来。</p>
-<h2 id="恢复">恢复
-</h2><p>恢复 stash 主要有两个命令：<code>apply</code> 和 <code>pop</code>。</p>
+<h2 id="恢复">
+    恢复
+</h2>
+<p>恢复 stash 主要有两个命令：<code>apply</code> 和 <code>pop</code>。</p>
 <p>它们看起来都能把代码拿回来，但差别很重要。</p>
-<h3 id="apply">apply
-</h3><p><code>git stash apply</code></p>
+<h3 id="apply">
+    apply
+</h3>
+<p><code>git stash apply</code></p>
 <p><strong>恢复代码，stash 记录还保存着。</strong></p>
 <p>默认恢复最新的一条：<code>git stash apply stash@{0}</code></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git stash apply stash@{0}
 </span></span></code></pre></div><p>如果要恢复指定记录：<code>git stash apply stash@{1}</code></p>
 <p>也就是说，你把临时代码拿回来了，但 Git 不会自动删除那条 stash。</p>
 <p>适合的场景是：你不确定这份 stash 恢复后是否完全正确，想先拿出来试试看。如果没问题，再手动删除。</p>
-<h3 id="pop">pop
-</h3><p><code>git stash pop</code></p>
+<h3 id="pop">
+    pop
+</h3>
+<p><code>git stash pop</code></p>
 <p><strong>恢复代码，并尝试删除这条 stash 记录。</strong></p>
 <p>它相当于：<code>git stash apply</code> 加上 <code>git stash drop</code></p>
 <p>也就是说，代码恢复回来之后，这条临时记录就会从 stash 栈里移除。</p>
 <p>不过如果恢复时发生冲突，Git 通常不会直接删除 stash 记录，这样可以避免代码丢失。</p>
 <p><code>pop</code> 更适合已经确定这条 stash 就是要继续使用的场景。</p>
-<h3 id="apply-和-pop-的区别">apply 和 pop 的区别
-</h3><div class="table-wrapper"><table>
-	<thead>
-			<tr>
-					<th>命令</th>
-					<th>是否恢复代码</th>
-					<th>是否删除 stash 记录</th>
-					<th>适合场景</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td><code>git stash apply</code></td>
-					<td>是</td>
-					<td>否</td>
-					<td>想先恢复看看，保留备份</td>
-			</tr>
-			<tr>
-					<td><code>git stash pop</code></td>
-					<td>是</td>
-					<td>是</td>
-					<td>确定要恢复并继续开发</td>
-			</tr>
-	</tbody>
+<h3 id="apply-和-pop-的区别">
+    apply 和 pop 的区别
+</h3>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>命令</th>
+          <th>是否恢复代码</th>
+          <th>是否删除 stash 记录</th>
+          <th>适合场景</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>git stash apply</code></td>
+          <td>是</td>
+          <td>否</td>
+          <td>想先恢复看看，保留备份</td>
+      </tr>
+      <tr>
+          <td><code>git stash pop</code></td>
+          <td>是</td>
+          <td>是</td>
+          <td>确定要恢复并继续开发</td>
+      </tr>
+  </tbody>
 </table></div>
-<h2 id="删除">删除
-</h2><h3 id="删除特定-stash">删除特定 stash
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git stash drop stash@{0}
+<h2 id="删除">
+    删除
+</h2>
+<h3 id="删除特定-stash">
+    删除特定 stash
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git stash drop stash@{0}
 </span></span></code></pre></div><p>这会删除指定的一条 stash。</p>
 <p>如果你已经用 <code>apply</code> 恢复过代码，并且确认这条 stash 不需要了，就可以手动删除。</p>
-<h3 id="清空所有-stash">清空所有 stash
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git stash clear
+<h3 id="清空所有-stash">
+    清空所有 stash
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git stash clear
 </span></span></code></pre></div><p>这个命令会删除所有 stash 记录。</p>
 <p>这个操作要谨慎，因为一旦清空，普通方式下就很难再找回来了。</p>
 <p>一般不建议随手执行，除非你非常确定这些临时修改都不需要了。</p>
-<h2 id="注意事项">注意事项
-</h2><p>这是学习 stash 时非常容易踩坑的地方。</p>
+<h2 id="注意事项">
+    注意事项
+</h2>
+<p>这是学习 stash 时非常容易踩坑的地方。</p>
 <p>默认情况下：<code>git stash</code>会保存已被 Git 跟踪的文件修改，如 git add 到暂存区的修改这两类文件</p>
 <p>但它默认不会保存新建但还没有被 Git 跟踪的文件，如.gitignore 忽略的文件，这个新文件不会被 stash 保存。</p>
-<h2 id="保存未跟踪文件">保存未跟踪文件
-</h2><p>如果想把新建的、还没被 Git 跟踪的文件也一起 stash，可以使用：<code>git stash push -u</code></p>
+<h2 id="保存未跟踪文件">
+    保存未跟踪文件
+</h2>
+<p>如果想把新建的、还没被 Git 跟踪的文件也一起 stash，可以使用：<code>git stash push -u</code></p>
 <p>-u 是 &ndash;include-untracked 的简写，表示把未跟踪文件也保存进去。</p>
 <p>eg：<code>git stash push -u -m &quot;保存登录功能和新建测试文件&quot;</code>，这样新建文件也会一起被临时保存。</p>
-<h2 id="保存被忽略的文件">保存被忽略的文件
-</h2><p>如果连 <code>.gitignore</code> 里忽略的文件也想一起保存，可以使用<code>git stash push -a</code>命令，这会把所有文件都包含进去，包括一些本地构建产物、缓存文件、临时文件也一起 stash 进去~</p>
-<h2 id="stash-指定文件">stash 指定文件
-</h2><p>有时候你并不想保存所有修改，只想 stash 某几个文件。那就在stash后面跟上具体的文件名，跟<code>git add</code>操作一致</p>
+<h2 id="保存被忽略的文件">
+    保存被忽略的文件
+</h2>
+<p>如果连 <code>.gitignore</code> 里忽略的文件也想一起保存，可以使用<code>git stash push -a</code>命令，这会把所有文件都包含进去，包括一些本地构建产物、缓存文件、临时文件也一起 stash 进去~</p>
+<h2 id="stash-指定文件">
+    stash 指定文件
+</h2>
+<p>有时候你并不想保存所有修改，只想 stash 某几个文件。那就在stash后面跟上具体的文件名，跟<code>git add</code>操作一致</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git stash push -m &#34;只保存配置文件修改&#34; src/main/resources/application.yml
 </span></span></code></pre></div><p>如果有多个文件，就用空格分开：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git stash push -m &#34;保存登录相关修改&#34; LoginController.java UserService.java
 </span></span></code></pre></div><p>这样 Git 只会把指定文件的修改临时保存起来，其他文件的修改还会留在工作区。</p>
 <p>这个操作在多人协作时很有用。比如你只想临时收起某个模块的修改，但另一个模块还要继续调试，就可以精确 stash。</p>
-<h2 id="从-stash-创建新分支">从 stash 创建新分支
-</h2><p>有时候你写着写着发现：这部分代码不应该继续放在当前分支了，应该单独开一个新分支。</p>
+<h2 id="从-stash-创建新分支">
+    从 stash 创建新分支
+</h2>
+<p>有时候你写着写着发现：这部分代码不应该继续放在当前分支了，应该单独开一个新分支。</p>
 <p>这时可以使用：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git stash branch new-branch-name stash@{0}
 </span></span></code></pre></div><p>执行逻辑：</p>
@@ -350,8 +390,10 @@
 <li>如果成功，删除对应的 stash</li>
 </ol>
 <p>这个命令适合写着写着发现分支开错了的情况。比如你本来在 <code>dev</code> 分支上随手改了登录功能，但后来发现应该新开一个 <code>feature-login</code> 分支。这时就可以先 stash，再用 <code>git stash branch</code> 把修改转移到新分支上。</p>
-<h2 id="stash-冲突解决">stash 冲突解决
-</h2><p>stash 恢复时也可能产生冲突。比如你 stash 的时候修改了 <code>UserService.java</code>，后来目标分支也修改了同一个文件的同一段代码。此时执行<code>git stash pop</code>：</p>
+<h2 id="stash-冲突解决">
+    stash 冲突解决
+</h2>
+<p>stash 恢复时也可能产生冲突。比如你 stash 的时候修改了 <code>UserService.java</code>，后来目标分支也修改了同一个文件的同一段代码。此时执行<code>git stash pop</code>：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git stash pop
 </span></span></code></pre></div><p>Git 可能会提示冲突。</p>
 <p>冲突文件里通常会出现类似结构：</p>
@@ -366,75 +408,79 @@
 </span></span></code></pre></div><p>如果冲突导致 stash 没有被删除，解决完之后可以手动删除：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git stash drop stash@{0}
 </span></span></code></pre></div><hr>
-<h2 id="命令总结">命令总结
-</h2><div class="table-wrapper"><table>
-	<thead>
-			<tr>
-					<th>命令</th>
-					<th>作用</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td><code>git stash</code></td>
-					<td>临时保存当前修改</td>
-			</tr>
-			<tr>
-					<td><code>git stash push</code></td>
-					<td>更推荐的 stash 写法</td>
-			</tr>
-			<tr>
-					<td><code>git stash push -m &quot;说明&quot;</code></td>
-					<td>保存 stash 并添加说明</td>
-			</tr>
-			<tr>
-					<td><code>git stash list</code></td>
-					<td>查看 stash 列表</td>
-			</tr>
-			<tr>
-					<td><code>git stash show stash@{0}</code></td>
-					<td>查看某条 stash 的简略变更</td>
-			</tr>
-			<tr>
-					<td><code>git stash show -p stash@{0}</code></td>
-					<td>查看某条 stash 的详细代码差异</td>
-			</tr>
-			<tr>
-					<td><code>git stash apply</code></td>
-					<td>恢复最新 stash，但不删除记录</td>
-			</tr>
-			<tr>
-					<td><code>git stash apply stash@{1}</code></td>
-					<td>恢复指定 stash，但不删除记录</td>
-			</tr>
-			<tr>
-					<td><code>git stash pop</code></td>
-					<td>恢复最新 stash，并删除记录</td>
-			</tr>
-			<tr>
-					<td><code>git stash drop stash@{0}</code></td>
-					<td>删除某条 stash</td>
-			</tr>
-			<tr>
-					<td><code>git stash clear</code></td>
-					<td>清空所有 stash</td>
-			</tr>
-			<tr>
-					<td><code>git stash push -u</code></td>
-					<td>保存未跟踪文件</td>
-			</tr>
-			<tr>
-					<td><code>git stash push -a</code></td>
-					<td>保存所有文件，包括 ignored 文件</td>
-			</tr>
-			<tr>
-					<td><code>git stash branch new-branch stash@{0}</code></td>
-					<td>从 stash 创建新分支并恢复修改</td>
-			</tr>
-	</tbody>
+<h2 id="命令总结">
+    命令总结
+</h2>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>命令</th>
+          <th>作用</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>git stash</code></td>
+          <td>临时保存当前修改</td>
+      </tr>
+      <tr>
+          <td><code>git stash push</code></td>
+          <td>更推荐的 stash 写法</td>
+      </tr>
+      <tr>
+          <td><code>git stash push -m &quot;说明&quot;</code></td>
+          <td>保存 stash 并添加说明</td>
+      </tr>
+      <tr>
+          <td><code>git stash list</code></td>
+          <td>查看 stash 列表</td>
+      </tr>
+      <tr>
+          <td><code>git stash show stash@{0}</code></td>
+          <td>查看某条 stash 的简略变更</td>
+      </tr>
+      <tr>
+          <td><code>git stash show -p stash@{0}</code></td>
+          <td>查看某条 stash 的详细代码差异</td>
+      </tr>
+      <tr>
+          <td><code>git stash apply</code></td>
+          <td>恢复最新 stash，但不删除记录</td>
+      </tr>
+      <tr>
+          <td><code>git stash apply stash@{1}</code></td>
+          <td>恢复指定 stash，但不删除记录</td>
+      </tr>
+      <tr>
+          <td><code>git stash pop</code></td>
+          <td>恢复最新 stash，并删除记录</td>
+      </tr>
+      <tr>
+          <td><code>git stash drop stash@{0}</code></td>
+          <td>删除某条 stash</td>
+      </tr>
+      <tr>
+          <td><code>git stash clear</code></td>
+          <td>清空所有 stash</td>
+      </tr>
+      <tr>
+          <td><code>git stash push -u</code></td>
+          <td>保存未跟踪文件</td>
+      </tr>
+      <tr>
+          <td><code>git stash push -a</code></td>
+          <td>保存所有文件，包括 ignored 文件</td>
+      </tr>
+      <tr>
+          <td><code>git stash branch new-branch stash@{0}</code></td>
+          <td>从 stash 创建新分支并恢复修改</td>
+      </tr>
+  </tbody>
 </table></div>
-<h2 id="理解图">理解图
-</h2><p><img src="/assets/git%20stash-20260515161908-u50h01u.png" loading="lazy" decoding="async" alt="git stash">
+<h2 id="理解图">
+    理解图
+</h2>
+<p><img src="/assets/git%20stash-20260515161908-u50h01u.png" loading="lazy" decoding="async" alt="git stash">
 </p>
 <p><code>git stash</code> 本质上是 Git 提供的临时保存现场机制。它适合在代码还没完成、不想提交，但又必须切换任务时使用。它不会替代 commit，而是补充 commit 之前那段混乱、临时、半成品的开发过程。用得好的话，stash 可以让你在多个任务之间切换时更从容，不至于因为工作区不干净而手忙脚乱~</p>
 <p>‍</p>
@@ -461,389 +507,11 @@
     </div>
 </article>
 
-
-
-
-
-
-
-
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-    
-    <div class="pswp__bg"></div>
-
-    
-    <div class="pswp__scroll-wrap">
-
-        
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                
-                
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
-                defer
-                >
-            </script><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
-                defer
-                >
-            </script><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
-            ><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
-            >
-
-    </main>
-
-    <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
-                
-                >
-            </script><script type="text/javascript" src="/ts/main.836efe327773ba454adac61ee8b35272b6f512bd594ed9ea0f926fca8386433b.js" defer></script><script type="text/javascript" src="/ts/custom.4bb4ca905d915217c671721b75f16ae60652e805c90c767a80a951f0dddeeb9c.js" defer></script>
-
-
-<button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
+    </main><button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M6 14.5 12 8l6 6.5" />
+        <path d="M6 14.5 12 8l6 6.5"></path>
     </svg>
 </button>
-
-<script>
-    (function () {
-        'use strict';
-
-        const menuToggle = document.querySelector('.site-menu-toggle');
-        const nav = document.getElementById('primary-navigation');
-        const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-        function initThemeToggle() {
-            const toggle = document.getElementById('dark-mode-toggle');
-            if (!toggle || toggle.dataset.projectThemeToggleReady === 'true') return;
-
-            toggle.dataset.projectThemeToggleReady = 'true';
-
-            function getCurrentScheme() {
-                return document.documentElement.dataset.scheme === 'dark' ? 'dark' : 'light';
-            }
-
-            function getSystemScheme() {
-                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-            }
-
-            function saveScheme(scheme) {
-                try {
-                    window.localStorage.setItem('StackColorScheme', scheme === getSystemScheme() ? 'auto' : scheme);
-                } catch (error) {
-                    return;
-                }
-            }
-
-            function applyScheme(scheme) {
-                document.documentElement.dataset.scheme = scheme;
-                saveScheme(scheme);
-                window.dispatchEvent(new CustomEvent('onColorSchemeChange', { detail: scheme }));
-            }
-
-            toggle.addEventListener('click', function (event) {
-                event.preventDefault();
-                event.stopImmediatePropagation();
-
-                const x = event.clientX;
-                const y = event.clientY;
-                const willBeDark = getCurrentScheme() !== 'dark';
-                const nextScheme = willBeDark ? 'dark' : 'light';
-                const endRadius = Math.hypot(
-                    Math.max(x, window.innerWidth - x),
-                    Math.max(y, window.innerHeight - y)
-                );
-
-                if (!document.startViewTransition) {
-                    applyScheme(nextScheme);
-                    return;
-                }
-
-                const transition = document.startViewTransition(function () {
-                    applyScheme(nextScheme);
-                });
-
-                transition.ready.then(function () {
-                    const clipPath = willBeDark
-                        ? [`circle(${endRadius}px at ${x}px ${y}px)`, `circle(0px at ${x}px ${y}px)`]
-                        : [`circle(0px at ${x}px ${y}px)`, `circle(${endRadius}px at ${x}px ${y}px)`];
-
-                    document.documentElement.animate(
-                        { clipPath },
-                        {
-                            duration: 500,
-                            easing: 'ease-in-out',
-                            fill: 'forwards',
-                            pseudoElement: willBeDark
-                                ? '::view-transition-old(root)'
-                                : '::view-transition-new(root)'
-                        }
-                    );
-                });
-            }, { capture: true });
-        }
-
-        function setMenuOpen(open) {
-            if (!menuToggle || !nav) return;
-            menuToggle.classList.toggle('is-open', open);
-            nav.classList.toggle('is-open', open);
-            document.body.classList.toggle('site-nav-open', open);
-            menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        }
-
-        if (menuToggle && nav) {
-            menuToggle.addEventListener('click', function (event) {
-                event.stopPropagation();
-                setMenuOpen(!nav.classList.contains('is-open'));
-            });
-
-            nav.querySelectorAll('a').forEach(function (link) {
-                link.addEventListener('click', function () {
-                    setMenuOpen(false);
-                });
-            });
-
-            document.addEventListener('keydown', function (event) {
-                if (event.key === 'Escape') setMenuOpen(false);
-            });
-
-            document.addEventListener('click', function (event) {
-                if (!document.body.classList.contains('site-nav-open')) return;
-                if (nav.contains(event.target) || menuToggle.contains(event.target)) return;
-                setMenuOpen(false);
-            });
-
-            const desktopQuery = window.matchMedia('(min-width: 921px)');
-            const closeMenuOnDesktop = function (event) {
-                if (event.matches) setMenuOpen(false);
-            };
-
-            if (desktopQuery.addEventListener) {
-                desktopQuery.addEventListener('change', closeMenuOnDesktop);
-            } else if (desktopQuery.addListener) {
-                desktopQuery.addListener(closeMenuOnDesktop);
-            }
-        }
-
-        const backToTop = document.getElementById('back-to-top');
-
-        if (backToTop) {
-            function updateBackToTop() {
-                backToTop.classList.toggle('is-visible', window.scrollY > 420);
-            }
-
-            backToTop.addEventListener('click', function () {
-                window.scrollTo({ top: 0, behavior: reduceMotionQuery.matches ? 'auto' : 'smooth' });
-            });
-
-            window.addEventListener('scroll', updateBackToTop, { passive: true });
-            updateBackToTop();
-        }
-
-        function initArticleTocHover() {
-            const toc = document.querySelector('[data-article-toc]');
-            const articleMain = document.querySelector('.article-detail__main');
-            if (!toc || !articleMain) return;
-
-            const toggle = toc.querySelector('[data-article-toc-toggle]');
-            let lockedOpen = false;
-
-            function setVisible(visible) {
-                document.body.classList.toggle('is-article-toc-visible', visible);
-                if (toggle) {
-                    toggle.setAttribute('aria-expanded', visible ? 'true' : 'false');
-                    toggle.setAttribute('aria-label', visible ? '隐藏文章目录' : '显示文章目录');
-                }
-            }
-
-            function getLeftRevealZone() {
-                return Math.min(380, Math.max(280, window.innerWidth * 0.22));
-            }
-
-            function isInsideReadingColumn(x, y) {
-                const rect = articleMain.getBoundingClientRect();
-                const top = Math.min(rect.top, 0) - 48;
-                const bottom = Math.max(rect.bottom, window.innerHeight) + 48;
-
-                return x >= rect.left - 72 && x <= rect.right + 32 && y >= top && y <= bottom;
-            }
-
-            document.addEventListener('pointermove', function (event) {
-                if (lockedOpen) return;
-                setVisible(event.clientX <= getLeftRevealZone() || isInsideReadingColumn(event.clientX, event.clientY));
-            }, { passive: true });
-
-            document.addEventListener('pointerleave', function () {
-                if (!lockedOpen) setVisible(false);
-            });
-
-            toc.addEventListener('focusin', function () {
-                setVisible(true);
-            });
-
-            toc.addEventListener('focusout', function (event) {
-                if (lockedOpen || toc.contains(event.relatedTarget)) return;
-                setVisible(false);
-            });
-
-            if (toggle) {
-                toggle.addEventListener('click', function () {
-                    const isVisible = document.body.classList.contains('is-article-toc-visible');
-                    if (lockedOpen && isVisible) {
-                        lockedOpen = false;
-                        setVisible(false);
-                        return;
-                    }
-
-                    lockedOpen = true;
-                    setVisible(true);
-                });
-            }
-
-            document.addEventListener('click', function (event) {
-                if (!lockedOpen) return;
-                if (toc.contains(event.target) || articleMain.contains(event.target)) return;
-                lockedOpen = false;
-                setVisible(false);
-            });
-
-            document.addEventListener('keydown', function (event) {
-                if (event.key !== 'Escape') return;
-                lockedOpen = false;
-                setVisible(false);
-            });
-        }
-
-        function initRevealOnScroll() {
-            if (reduceMotionQuery.matches || !('IntersectionObserver' in window)) return;
-
-            const revealSelectors = [
-                '.section-band',
-                '.featured-section',
-                '.blog-card',
-                '.post-tools',
-                '.article-detail__content > blockquote',
-                '.article-detail__content > .highlight',
-                '.article-detail__content > pre',
-                '.article-detail__content > .table-wrapper',
-                '.article-detail__content > figure',
-                '.article-detail__content > details',
-                '.article-detail__content > hr',
-                '.article-detail__footer',
-                '.music-album-card'
-            ];
-
-            const targets = revealSelectors.reduce(function (items, selector) {
-                return items.concat(Array.prototype.slice.call(document.querySelectorAll(selector)));
-            }, []);
-
-            const imageBlocks = Array.prototype.slice.call(document.querySelectorAll('.article-detail__content > p')).filter(function (block) {
-                const children = Array.prototype.slice.call(block.children).filter(function (child) {
-                    return child.tagName !== 'BR';
-                });
-                const onlyChild = children[0];
-
-                return children.length === 1 && (
-                    onlyChild.tagName === 'IMG' ||
-                    onlyChild.classList.contains('gallery') ||
-                    (onlyChild.tagName === 'A' && onlyChild.querySelector('img'))
-                );
-            });
-
-            imageBlocks.forEach(function (block) {
-                if (!targets.includes(block)) targets.push(block);
-            });
-
-            const filteredTargets = targets.filter(function (target, index) {
-                if (target.tagName === 'PRE' && target.closest('.highlight')) return false;
-                return targets.indexOf(target) === index;
-            });
-
-            if (!filteredTargets.length) return;
-
-            const observer = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (!entry.isIntersecting) return;
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                });
-            }, {
-                rootMargin: '0px 0px -6% 0px',
-                threshold: 0.1
-            });
-
-            filteredTargets.forEach(function (target, index) {
-                target.classList.add('reveal-on-scroll');
-                target.style.setProperty('--reveal-delay', Math.min(index % 4, 3) * 32 + 'ms');
-                observer.observe(target);
-            });
-        }
-
-        initThemeToggle();
-        initArticleTocHover();
-        initRevealOnScroll();
-
-        window.requestAnimationFrame(function () {
-            document.body.classList.add('is-loaded');
-        });
-    })();
-</script>
-
 </body>
 
 </html>

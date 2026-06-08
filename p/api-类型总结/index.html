@@ -1,43 +1,49 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
+<html lang="zh-CN" dir="ltr">
 
-<head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="梳理 REST、SOAP、RPC、gRPC、GraphQL、Webhook、SSE、WebSocket、WebRTC、MQTT、AMQP、Kafka、MCP 与 AsyncAPI 的定位和适用场景。">
-<title>API 类型总结 | Jul1en</title>
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>API 类型总结 | Jul1en</title>
+<meta name="description" content="梳理 REST、SOAP、RPC、gRPC、GraphQL、Webhook、SSE、WebSocket、WebRTC、MQTT、AMQP、Kafka、MCP 与 AsyncAPI 的定位和适用场景。">
+<meta name="author" content="Jul1en">
+<link rel="canonical" href="https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/">
 
-<link rel='canonical' href='https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/'>
-
-<link rel="stylesheet" href="/scss/style.min.ec82946fda8d90cf1fb1835f4491c98e9279c2eae00a5622fe790c8a9ce86062.css"><meta property='og:title' content="API 类型总结 | Jul1en">
-<meta property='og:description' content="梳理 REST、SOAP、RPC、gRPC、GraphQL、Webhook、SSE、WebSocket、WebRTC、MQTT、AMQP、Kafka、MCP 与 AsyncAPI 的定位和适用场景。">
-<meta property='og:url' content='https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/'>
-<meta property='og:site_name' content='Jul1en'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='API' /><meta property='article:tag' content='通信协议' /><meta property='article:tag' content='微服务' /><meta property='article:published_time' content='2026-06-01T23:35:26&#43;08:00'/><meta property='article:modified_time' content='2026-06-02T00:00:51&#43;08:00'/>
-<meta name="twitter:title" content="API 类型总结 | Jul1en">
-<meta name="twitter:description" content="梳理 REST、SOAP、RPC、gRPC、GraphQL、Webhook、SSE、WebSocket、WebRTC、MQTT、AMQP、Kafka、MCP 与 AsyncAPI 的定位和适用场景。">
-    <link rel="shortcut icon" href="/favicon-signature.svg" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="icon" href="/favicon-signature.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-signature.png" type="image/png" sizes="512x512">
-<link rel="alternate icon" href="/favicon-signature.ico" type="image/x-icon">
-<meta name="author" content="Jul1en">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)"><script src="/js/custom.4bb4ca905d915217c671721b75f16ae60652e805c90c767a80a951f0dddeeb9c.js" integrity="sha256-S7TKkF2RUhfGcXIbdfFq5gZS6AXJDHZ6gKlR8N3e65w=" defer></script><script>
+<link rel="alternate icon" href="/favicon.ico" type="image/x-icon">
+<meta name="theme-color" content="#fdfdf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="API 类型总结 | Jul1en">
+<meta property="og:description" content="梳理 REST、SOAP、RPC、gRPC、GraphQL、Webhook、SSE、WebSocket、WebRTC、MQTT、AMQP、Kafka、MCP 与 AsyncAPI 的定位和适用场景。">
+<meta property="og:url" content="https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/">
+<meta property="og:site_name" content="Jul1en">
+<meta property="og:type" content="article">
+<meta property="article:section" content="Post">
+<meta property="article:tag" content="API">
+<meta property="article:tag" content="通信协议">
+<meta property="article:tag" content="微服务">
+<meta property="article:published_time" content="2026-06-01T23:35:26&#43;08:00">
+<meta property="article:modified_time" content="2026-06-02T00:00:51&#43;08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="API 类型总结 | Jul1en">
+<meta name="twitter:description" content="梳理 REST、SOAP、RPC、gRPC、GraphQL、Webhook、SSE、WebSocket、WebRTC、MQTT、AMQP、Kafka、MCP 与 AsyncAPI 的定位和适用场景。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"><script>
     (function () {
-        const colorSchemeKey = 'StackColorScheme';
-        const savedScheme = localStorage.getItem(colorSchemeKey);
-        const defaultScheme = "light";
-        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
-        const scheme = savedScheme || defaultScheme;
-
-        if (scheme === 'dark' || (scheme === 'auto' && supportDarkMode)) {
-            document.documentElement.dataset.scheme = 'dark';
-        } else {
-            document.documentElement.dataset.scheme = 'light';
+        var stored = null;
+        try {
+            stored = window.localStorage.getItem('ColorScheme');
+        } catch (error) {
+            stored = null;
         }
+
+        var scheme = stored;
+        if (scheme !== 'light' && scheme !== 'dark') {
+            scheme = "light";
+        }
+        document.documentElement.dataset.scheme = scheme;
     })();
-</script>
+</script><link rel="stylesheet" href="/css/site.min.0758d8aad30f198f851a02b8c6494f637bd95774b2fd6b2f576cf99133b942f8.css" integrity="sha256-B1jYqtMPGY&#43;FGgK4xklPY3vZV3Sy/WsvV2z5kTO5Qvg="><script src="/js/site.51f8655227b5fb12b2585c2985e20ec3e93192ca19774662d732d2a0bcb492f0.js" integrity="sha256-UfhlUie1&#43;xKyWFwpheIOw&#43;kxksoZd0Zi1zLSoLy0kvA=" defer></script>
 
 </head>
 
@@ -93,7 +99,7 @@
   <path fill="currentColor" d="M17.2 7.2a.9.9 0 1 1-1.8 0 .9.9 0 0 1 1.8 0Z" />
 </svg>
 </span>
-                    </a><button id="dark-mode-toggle" class="theme-toggle" type="button" aria-label="暗色模式" title="暗色模式">
+                    </a><button id="dark-mode-toggle" class="theme-toggle" type="button" aria-label="切换配色" title="切换配色">
                     <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
     <circle cx="12" cy="12" r="4.2" />
     <path d="M12 2.8v2.2M12 19v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.8 12h2.2M19 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" />
@@ -209,14 +215,16 @@
             </header>
 
             <section class="article-content article-detail__content">
-                <p>视频来源：<a class="link" href="https://www.youtube.com/watch?v=VQyPVCT2Kl8"  target="_blank" rel="noopener"
-    >Every Type Of API Explained in 18 Minutes.</a></p>
+                <p>视频来源：<a class="link" href="https://www.youtube.com/watch?v=VQyPVCT2Kl8" target="_blank" rel="noopener noreferrer">Every Type Of API Explained in 18 Minutes.</a>
+</p>
 <p>这篇笔记主要将 API 类型到底是怎么联系起来，它们分别是在不同通信需求下长出来的方案：有的解决“怎么请求数据”，有的解决“服务之间怎么快一点”，有的解决“不要一直轮询”，还有的解决“事件太多以后怎么管理”。</p>
 <p>先放一张关系图，后面再逐个展开。</p>
 <p><img src="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/api-relationship-map_hu_5b5ec65bfe952cb8.webp" width="1600" height="2400" srcset="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/api-relationship-map_hu_2573f08bc3ca097.webp 800w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/api-relationship-map_hu_5b5ec65bfe952cb8.webp 1600w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/api-relationship-map_hu_460ce8ff674b1afc.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="API 类型之间的关系" class="gallery-image" data-flex-grow="66" data-flex-basis="160px">
 </p>
-<h2 id="整体脉络">整体脉络
-</h2><ul>
+<h2 id="整体脉络">
+    整体脉络
+</h2>
+<ul>
 <li>
 <p>最早我们只是想让客户端和服务端通信：页面要用户信息，服务端返回用户信息。这时 REST 就够用了，它把数据抽象成资源，用 <code>GET</code>、<code>POST</code>、<code>PUT</code>、<code>DELETE</code> 这些 HTTP 方法去操作。企业系统里，光“能通信”还不够。银行、保险、CRM 这类系统更在意契约、事务、安全和错误处理，所以 SOAP 这种更正式、更重的协议就有存在空间。</p>
 </li>
@@ -236,9 +244,13 @@
 <p>最后还有两个偏“规范 / 连接层”的东西。AsyncAPI 不是一个运行时协议，它更像异步系统里的 OpenAPI，用来说明有哪些事件、谁生产、谁消费。MCP 则是 AI 时代出现的新接口规范，解决模型接外部工具和数据源时重复集成的问题。</p>
 </li>
 </ul>
-<h2 id="请求响应rest-和-soap">请求响应：REST 和 SOAP
-</h2><h3 id="rest-api">REST API
-</h3><p><img src="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0000-rest-api_hu_3b13e68889d98089.webp" width="1600" height="2400" srcset="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0000-rest-api_hu_ed9d4427935784d3.webp 800w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0000-rest-api_hu_3b13e68889d98089.webp 1600w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0000-rest-api_hu_42582a4acbb7ded4.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="REST API" class="gallery-image" data-flex-grow="66" data-flex-basis="160px">
+<h2 id="请求响应rest-和-soap">
+    请求响应：REST 和 SOAP
+</h2>
+<h3 id="rest-api">
+    REST API
+</h3>
+<p><img src="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0000-rest-api_hu_3b13e68889d98089.webp" width="1600" height="2400" srcset="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0000-rest-api_hu_ed9d4427935784d3.webp 800w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0000-rest-api_hu_3b13e68889d98089.webp 1600w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0000-rest-api_hu_42582a4acbb7ded4.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="REST API" class="gallery-image" data-flex-grow="66" data-flex-basis="160px">
 </p>
 <p>REST 可以理解成最常见的 Web API 形态。客户端发一个 HTTP 请求，服务端返回一份数据。视频里用了“餐厅服务员”的类比：你告诉服务员要什么，服务员去厨房拿，再把结果带回来。对应到系统里，就是客户端请求服务端，服务端返回 JSON。</p>
 <p>REST 的核心是资源。比如用户是资源，订单是资源，文章也是资源。这样做的好处是简单、通用、跨平台。Web 前端、移动端、小程序、服务端脚本，基本都能很容易调用 REST API。</p>
@@ -246,30 +258,38 @@
 </span></span><span class="line"><span class="cl">POST   /orders
 </span></span><span class="line"><span class="cl">PUT    /users/1
 </span></span><span class="line"><span class="cl">DELETE /items/9
-</span></span></code></pre></div><p>实际公司场景里，<a class="link" href="https://docs.github.com/en/rest"  target="_blank" rel="noopener"
-    >GitHub REST API</a> 就是非常典型的例子。你可以通过 REST API 获取仓库、Issue、Pull Request、用户信息，也可以做自动化脚本和第三方集成。</p>
+</span></span></code></pre></div><p>实际公司场景里，<a class="link" href="https://docs.github.com/en/rest" target="_blank" rel="noopener noreferrer">GitHub REST API</a>
+ 就是非常典型的例子。你可以通过 REST API 获取仓库、Issue、Pull Request、用户信息，也可以做自动化脚本和第三方集成。</p>
 <p>缺点：REST 适合普通请求响应，但它不是所有场景的答案。如果页面一次要聚合很多资源，一次调用可能不能返回全部所需要的，会请求很多次；如果服务之间要高频调用，JSON + HTTP 的开销也可能偏大；如果需要实时推送，REST 本身也不擅长。</p>
-<h3 id="soap-api">SOAP API
-</h3><p><img src="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0091-soap-api_hu_c816e1df593e75c2.webp" width="1600" height="2400" srcset="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0091-soap-api_hu_48edebe1fba3bf8.webp 800w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0091-soap-api_hu_c816e1df593e75c2.webp 1600w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0091-soap-api_hu_31a1863da85ce071.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="SOAP API" class="gallery-image" data-flex-grow="66" data-flex-basis="160px">
+<h3 id="soap-api">
+    SOAP API
+</h3>
+<p><img src="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0091-soap-api_hu_c816e1df593e75c2.webp" width="1600" height="2400" srcset="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0091-soap-api_hu_48edebe1fba3bf8.webp 800w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0091-soap-api_hu_c816e1df593e75c2.webp 1600w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0091-soap-api_hu_31a1863da85ce071.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="SOAP API" class="gallery-image" data-flex-grow="66" data-flex-basis="160px">
 </p>
 <p>SOAP 是更早、更正式的一套通信协议。它用 XML 包一层固定结构，里面会有 envelope、header、body 这些部分。视频里把 REST 比成比较随意的电话沟通，把 SOAP 比成正式合同，这个类比挺准确。它更稳定、规范、强契约。它可以配合 WSDL 描述服务能力，也有一整套错误处理、安全、事务相关的规范。</p>
-<p>所以 SOAP 现在看起来没那么“新”，但在企业系统里仍然很常见。比如 <a class="link" href="https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_quickstart_intro.htm"  target="_blank" rel="noopener"
-    >Salesforce SOAP API</a> 主要用于企业系统和 Salesforce 之间做数据集成，<a class="link" href="https://learn.microsoft.com/en-us/exchange/client-developer/exchange-web-services/explore-the-ews-managed-api-ews-and-web-services-in-exchange"  target="_blank" rel="noopener"
-    >Microsoft Exchange Web Services</a> 这类历史系统也长期走 SOAP / XML 这一类接口风格。</p>
+<p>所以 SOAP 现在看起来没那么“新”，但在企业系统里仍然很常见。比如 <a class="link" href="https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_quickstart_intro.htm" target="_blank" rel="noopener noreferrer">Salesforce SOAP API</a>
+ 主要用于企业系统和 Salesforce 之间做数据集成，<a class="link" href="https://learn.microsoft.com/en-us/exchange/client-developer/exchange-web-services/explore-the-ews-managed-api-ews-and-web-services-in-exchange" target="_blank" rel="noopener noreferrer">Microsoft Exchange Web Services</a>
+ 这类历史系统也长期走 SOAP / XML 这一类接口风格。</p>
 <p>这里可以这么记：REST 更适合互联网应用的通用接口，SOAP 更适合企业系统里需要严格契约的集成。</p>
-<h2 id="服务间调用rpc-和-grpc">服务间调用：RPC 和 gRPC
-</h2><h3 id="rpc">RPC
-</h3><p><img src="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0676-rpc_hu_18332fdb54811f1e.webp" width="1600" height="2400" srcset="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0676-rpc_hu_669ca3b26efcfb7f.webp 800w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0676-rpc_hu_18332fdb54811f1e.webp 1600w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0676-rpc_hu_d68e6c99112328b1.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="RPC" class="gallery-image" data-flex-grow="66" data-flex-basis="160px">
+<h2 id="服务间调用rpc-和-grpc">
+    服务间调用：RPC 和 gRPC
+</h2>
+<h3 id="rpc">
+    RPC
+</h3>
+<p><img src="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0676-rpc_hu_18332fdb54811f1e.webp" width="1600" height="2400" srcset="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0676-rpc_hu_669ca3b26efcfb7f.webp 800w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0676-rpc_hu_18332fdb54811f1e.webp 1600w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0676-rpc_hu_d68e6c99112328b1.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="RPC" class="gallery-image" data-flex-grow="66" data-flex-basis="160px">
 </p>
 <p>RPC 的意思是 Remote Procedure Call，也就是远程过程调用。它想解决的问题很直接：服务拆开以后，我不想每次都手写 HTTP 请求、解析 JSON、处理各种细节，我希望像调用本地函数一样调用远程服务。</p>
 <p>比如订单服务要校验用户是否登录，如果用 RPC 的思路，就可以像这样理解：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">authService.verifyUser(userId)
-</span></span></code></pre></div><p>实际执行时这个函数不在本地，它会通过网络请求到认证服务。现实里，RPC 有很多形态。比如以太坊生态里很多节点都暴露 <a class="link" href="https://ethereum.org/en/developers/docs/apis/json-rpc/"  target="_blank" rel="noopener"
-    >JSON-RPC API</a>，钱包、区块浏览器、脚本工具会通过它查询区块、交易、账户状态。Cloudflare Workers 也有 <a class="link" href="https://developers.cloudflare.com/workers/runtime-apis/rpc/"  target="_blank" rel="noopener"
-    >Workers RPC</a> 这种更接近方法调用的接口模型。</p>
+</span></span></code></pre></div><p>实际执行时这个函数不在本地，它会通过网络请求到认证服务。现实里，RPC 有很多形态。比如以太坊生态里很多节点都暴露 <a class="link" href="https://ethereum.org/en/developers/docs/apis/json-rpc/" target="_blank" rel="noopener noreferrer">JSON-RPC API</a>
+，钱包、区块浏览器、脚本工具会通过它查询区块、交易、账户状态。Cloudflare Workers 也有 <a class="link" href="https://developers.cloudflare.com/workers/runtime-apis/rpc/" target="_blank" rel="noopener noreferrer">Workers RPC</a>
+ 这种更接近方法调用的接口模型。</p>
 <p>RPC 的好处是调用表达简单，适合内部服务。需要注意的是，远程调用毕竟还是网络调用，不能真的当成本地函数一样随便调用。网络延迟、超时、重试、幂等，这些都要考虑。</p>
-<h3 id="grpc-api">gRPC API
-</h3><p><img src="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0171-grpc-api_hu_aca6666cc422da76.webp" width="1600" height="2400" srcset="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0171-grpc-api_hu_d77a834acb3c2c7d.webp 800w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0171-grpc-api_hu_aca6666cc422da76.webp 1600w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0171-grpc-api_hu_ecc29f15c54d7d1c.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="gRPC API" class="gallery-image" data-flex-grow="66" data-flex-basis="160px">
+<h3 id="grpc-api">
+    gRPC API
+</h3>
+<p><img src="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0171-grpc-api_hu_aca6666cc422da76.webp" width="1600" height="2400" srcset="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0171-grpc-api_hu_d77a834acb3c2c7d.webp 800w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0171-grpc-api_hu_aca6666cc422da76.webp 1600w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0171-grpc-api_hu_ecc29f15c54d7d1c.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="gRPC API" class="gallery-image" data-flex-grow="66" data-flex-basis="160px">
 </p>
 <p>gRPC 可以看成现代版本的 RPC。它用 Protocol Buffers 定义数据结构，用 HTTP/2 做传输，所以比传统 JSON + HTTP 更适合高频服务间通信。</p>
 <p>它解决的需求主要有几个：</p>
@@ -278,20 +298,24 @@
 <li>多语言服务之间需要统一接口定义</li>
 <li>有些接口不只是请求响应，还需要服务端流、客户端流、双向流</li>
 </ul>
-<p>这也是 gRPC 和普通 REST 很不一样的地方。REST 更像“我请求一个资源，你返回结果”，gRPC 更像“我调用你的某个能力，而且这个调用可以是流式的”。公开资料里，gRPC 在大型微服务系统里很常见。比如 <a class="link" href="https://www.uber.com/blog/ubers-next-gen-push-platform-on-grpc/"  target="_blank" rel="noopener"
-    >Uber 的实时 Push 平台</a> 就把协议演进到基于 gRPC 的双向流，CNCF 也有 <a class="link" href="https://www.cncf.io/case-studies/netflix/"  target="_blank" rel="noopener"
-    >Netflix 使用 gRPC 的案例</a>。</p>
+<p>这也是 gRPC 和普通 REST 很不一样的地方。REST 更像“我请求一个资源，你返回结果”，gRPC 更像“我调用你的某个能力，而且这个调用可以是流式的”。公开资料里，gRPC 在大型微服务系统里很常见。比如 <a class="link" href="https://www.uber.com/blog/ubers-next-gen-push-platform-on-grpc/" target="_blank" rel="noopener noreferrer">Uber 的实时 Push 平台</a>
+ 就把协议演进到基于 gRPC 的双向流，CNCF 也有 <a class="link" href="https://www.cncf.io/case-studies/netflix/" target="_blank" rel="noopener noreferrer">Netflix 使用 gRPC 的案例</a>
+。</p>
 <p>如果只是普通前后端接口，REST 更容易调试和接入。如果是内部微服务、高吞吐、低延迟、跨语言调用，gRPC 会更适合。</p>
-<h2 id="前端取数graphql">前端取数：GraphQL
-</h2><h3 id="graphql-api">GraphQL API
-</h3><p><img src="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0280-graphql-api_hu_9cd50e9cd2f09eea.webp" width="1600" height="2400" srcset="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0280-graphql-api_hu_83ef0c58af730456.webp 800w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0280-graphql-api_hu_9cd50e9cd2f09eea.webp 1600w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0280-graphql-api_hu_50b6a2f04fae9978.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="GraphQL API" class="gallery-image" data-flex-grow="66" data-flex-basis="160px">
+<h2 id="前端取数graphql">
+    前端取数：GraphQL
+</h2>
+<h3 id="graphql-api">
+    GraphQL API
+</h3>
+<p><img src="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0280-graphql-api_hu_9cd50e9cd2f09eea.webp" width="1600" height="2400" srcset="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0280-graphql-api_hu_83ef0c58af730456.webp 800w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0280-graphql-api_hu_9cd50e9cd2f09eea.webp 1600w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0280-graphql-api_hu_50b6a2f04fae9978.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="GraphQL API" class="gallery-image" data-flex-grow="66" data-flex-basis="160px">
 </p>
 <p>GraphQL 解决的是 REST 里的一个常见问题：要么拿多了，要么拿少了。</p>
 <p>比如一个用户页只想显示用户名和邮箱，但 REST 接口可能直接返回完整用户资料，这就是 over-fetching。反过来，如果页面还要订单、评论、收藏，又可能要连续请求好几个接口，这就是 under-fetching。GraphQL 的思路是让客户端声明自己需要什么字段：
 例如：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-graphql" data-lang="graphql"><span class="line"><span class="cl"><span class="kd">query</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="py">user</span><span class="p">(</span><span class="py">id</span><span class="p">:</span><span class="w"> </span><span class="sc">&#34;1&#34;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="py">name</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nc">user</span><span class="p">(</span><span class="py">id</span><span class="p">:</span><span class="w"> </span><span class="sc">&#34;1&#34;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nc">name</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="py">email</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="py">orders</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="py">total</span><span class="w">
@@ -299,15 +323,21 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><p>服务端按这个查询返回刚好需要的数据。这样前端灵活度会高很多，尤其适合移动端、多端应用、复杂后台页面。</p>
-<h2 id="实时通知webhookssewebsocket">实时通知：Webhook、SSE、WebSocket
-</h2><h3 id="webhook-api">Webhook API
-</h3><p><img src="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0373-webhooks-api_hu_14d077bade992df5.webp" width="1600" height="2400" srcset="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0373-webhooks-api_hu_aed07bf02f44330c.webp 800w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0373-webhooks-api_hu_14d077bade992df5.webp 1600w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0373-webhooks-api_hu_9bb05421cd8af5c9.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="Webhook API" class="gallery-image" data-flex-grow="66" data-flex-basis="160px">
+<h2 id="实时通知webhookssewebsocket">
+    实时通知：Webhook、SSE、WebSocket
+</h2>
+<h3 id="webhook-api">
+    Webhook API
+</h3>
+<p><img src="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0373-webhooks-api_hu_14d077bade992df5.webp" width="1600" height="2400" srcset="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0373-webhooks-api_hu_aed07bf02f44330c.webp 800w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0373-webhooks-api_hu_14d077bade992df5.webp 1600w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0373-webhooks-api_hu_9bb05421cd8af5c9.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="Webhook API" class="gallery-image" data-flex-grow="66" data-flex-basis="160px">
 </p>
 <p>Webhook 的出现，是因为轮询太浪费。</p>
 <p>传统 API 是一直问服务端发送类似心跳包的询问。Webhook 的思路是反过来：你先给对方一个 callback URL，等事件发生时，对方主动发 HTTP 请求通知你。所以 Webhook 有时候也被叫 reverse API。不需要你时刻监控数据，数据变化后会主动来找你。比如你的 github 上的 push、pull request、issue 等事件发生时都会通知到你的邮箱里～</p>
 <p>Webhook 适合“事件发生后通知我”，但它不是持续连接。对方请求你一次，你处理一次。</p>
-<h3 id="sse">SSE
-</h3><p><img src="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0743-sse_hu_b84db820532a798e.webp" width="1600" height="2400" srcset="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0743-sse_hu_b1f70c6450c52f3.webp 800w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0743-sse_hu_b84db820532a798e.webp 1600w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0743-sse_hu_53c6a18fd1d64f66.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="SSE" class="gallery-image" data-flex-grow="66" data-flex-basis="160px">
+<h3 id="sse">
+    SSE
+</h3>
+<p><img src="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0743-sse_hu_b84db820532a798e.webp" width="1600" height="2400" srcset="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0743-sse_hu_b1f70c6450c52f3.webp 800w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0743-sse_hu_b84db820532a798e.webp 1600w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0743-sse_hu_53c6a18fd1d64f66.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="SSE" class="gallery-image" data-flex-grow="66" data-flex-basis="160px">
 </p>
 <p>SSE 是 Server-Sent Events，适合服务端持续往浏览器推消息。</p>
 <p>它的模型很简单：浏览器发起一个 HTTP 请求，服务端不立刻关闭连接，而是有新数据就顺着这个连接继续往下发。它主要是单向的，也就是服务端到客户端。</p>
@@ -320,176 +350,202 @@
 <li>AI 回复的流式输出</li>
 </ul>
 <p>实际应用里，OpenAI API 的 streaming 响应就使用了 SSE 这种形式，适合一边生成一边返回内容，这里可以和 流式传输 放在一起看。它比 WebSocket 简单，因为底层仍然是普通 HTTP，浏览器里也有 <code>EventSource</code> 这样的原生能力。SSE 主要适合服务端单方面推送客户端。如果双方都要高频互发消息，就要考虑 WebSocket。</p>
-<h3 id="websocket-api">WebSocket API
-</h3><p><img src="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0451-websockets-api_hu_783105addb915b3d.webp" width="1600" height="2400" srcset="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0451-websockets-api_hu_b222bedf9b33e11c.webp 800w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0451-websockets-api_hu_783105addb915b3d.webp 1600w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0451-websockets-api_hu_2f042a628cf2c4e3.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="WebSocket API" class="gallery-image" data-flex-grow="66" data-flex-basis="160px">
+<h3 id="websocket-api">
+    WebSocket API
+</h3>
+<p><img src="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0451-websockets-api_hu_783105addb915b3d.webp" width="1600" height="2400" srcset="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0451-websockets-api_hu_b222bedf9b33e11c.webp 800w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0451-websockets-api_hu_783105addb915b3d.webp 1600w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0451-websockets-api_hu_2f042a628cf2c4e3.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="WebSocket API" class="gallery-image" data-flex-grow="66" data-flex-basis="160px">
 </p>
 <p>WebSocket 解决的是双向实时通信。它先通过 HTTP 握手，然后升级成 WebSocket 连接。连接建立后，客户端和服务端都可以主动发消息。</p>
-<p>这和 SSE 的区别很关键：SSE 更像服务端一直往你这里播报，WebSocket 更像双方开了一条实时电话线。<a class="link" href="https://discord.com/developers/docs/events/gateway"  target="_blank" rel="noopener"
-    >Discord Gateway</a> 就是 WebSocket API，客户端通过它接收实时事件、心跳、状态变化。</p>
+<p>这和 SSE 的区别很关键：SSE 更像服务端一直往你这里播报，WebSocket 更像双方开了一条实时电话线。<a class="link" href="https://discord.com/developers/docs/events/gateway" target="_blank" rel="noopener noreferrer">Discord Gateway</a>
+ 就是 WebSocket API，客户端通过它接收实时事件、心跳、状态变化。</p>
 <p>WebSocket 的优势就是适合聊天、协作编辑、在线游戏、行情系统。代价是连接状态要维护，心跳、断线重连、扩容、负载均衡都比普通 HTTP 更复杂。</p>
-<h2 id="实时音视频webrtc">实时音视频：WebRTC
-</h2><h3 id="webrtc-api">WebRTC API
-</h3><p><img src="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0511-webrtc-api_hu_bbd016716bccd2a5.webp" width="1600" height="2400" srcset="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0511-webrtc-api_hu_d6186dba8aad4268.webp 800w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0511-webrtc-api_hu_bbd016716bccd2a5.webp 1600w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0511-webrtc-api_hu_b8321a11829920d2.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="WebRTC API" class="gallery-image" data-flex-grow="66" data-flex-basis="160px">
+<h2 id="实时音视频webrtc">
+    实时音视频：WebRTC
+</h2>
+<h3 id="webrtc-api">
+    WebRTC API
+</h3>
+<p><img src="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0511-webrtc-api_hu_bbd016716bccd2a5.webp" width="1600" height="2400" srcset="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0511-webrtc-api_hu_d6186dba8aad4268.webp 800w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0511-webrtc-api_hu_bbd016716bccd2a5.webp 1600w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0511-webrtc-api_hu_b8321a11829920d2.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="WebRTC API" class="gallery-image" data-flex-grow="66" data-flex-basis="160px">
 </p>
 <p>WebRTC 面向音频、视频、屏幕共享，甚至点对点传文件，是一套浏览器和客户端实时通信能力。它可以处理音视频编解码、网络穿透、带宽自适应等问题。实际连接前通常还需要信令服务帮两端交换连接信息。</p>
 <p>这里可以把 WebRTC 和 WebSocket 区分开：WebSocket 更适合传结构化消息，WebRTC 更适合实时媒体流。很多系统会一起用它们，比如用 WebSocket 做信令，再用 WebRTC 传音视频。</p>
-<h2 id="ai-接工具mcp">AI 接工具：MCP
-</h2><h3 id="mcp-server">MCP Server
-</h3><p><img src="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0594-mcp-server_hu_a951f5804e886add.webp" width="1600" height="2400" srcset="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0594-mcp-server_hu_3aabca45b6d9c679.webp 800w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0594-mcp-server_hu_a951f5804e886add.webp 1600w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0594-mcp-server_hu_d91da09b1bcb6423.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="MCP Server" class="gallery-image" data-flex-grow="66" data-flex-basis="160px">
+<h2 id="ai-接工具mcp">
+    AI 接工具：MCP
+</h2>
+<h3 id="mcp-server">
+    MCP Server
+</h3>
+<p><img src="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0594-mcp-server_hu_a951f5804e886add.webp" width="1600" height="2400" srcset="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0594-mcp-server_hu_3aabca45b6d9c679.webp 800w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0594-mcp-server_hu_a951f5804e886add.webp 1600w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0594-mcp-server_hu_d91da09b1bcb6423.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="MCP Server" class="gallery-image" data-flex-grow="66" data-flex-basis="160px">
 </p>
 <p>MCP 是 Model Context Protocol，模型上下文协议是 AI 应用这两年才开始大量出现的一类接口规范。AI 助手想访问文件、数据库、代码仓库、日历、搜索、内部系统时，如果每个工具都单独写一套集成，成本会很高。MCP 的思路是给模型和外部工具之间加一层统一协议。只要工具提供 MCP Server，支持 MCP 的客户端就能用比较统一的方式接入。</p>
-<p>你可以类比成 AI 工具世界里的通用连接头，比如一个 coding assistant 通过 MCP 读取项目文件、查 Git 历史、访问文档或数据库，就不需要每个能力都重新做一套私有集成。<a class="link" href="https://modelcontextprotocol.io/introduction"  target="_blank" rel="noopener"
-    >Model Context Protocol 官方文档</a> 把 MCP 定位为连接 LLM 应用和外部数据源、工具的开放协议；OpenAI Apps SDK 也支持围绕 MCP server 描述工具能力。</p>
+<p>你可以类比成 AI 工具世界里的通用连接头，比如一个 coding assistant 通过 MCP 读取项目文件、查 Git 历史、访问文档或数据库，就不需要每个能力都重新做一套私有集成。<a class="link" href="https://modelcontextprotocol.io/introduction" target="_blank" rel="noopener noreferrer">Model Context Protocol 官方文档</a>
+ 把 MCP 定位为连接 LLM 应用和外部数据源、工具的开放协议；OpenAI Apps SDK 也支持围绕 MCP server 描述工具能力。</p>
 <p>MCP 和前面那些 API 不完全在同一层。REST、GraphQL、gRPC 更像服务接口；MCP 更像 AI 应用里的连接协议。它可以把 REST API、数据库、文件系统这些能力包装成模型可调用的工具。</p>
-<h2 id="消息与事件mqttamqpevent-driven-apikafka">消息与事件：MQTT、AMQP、Event-Driven API、Kafka
-</h2><h3 id="mqtt">MQTT
-</h3><p><img src="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0811-mqtt_hu_d48174565ef4ffda.webp" width="1600" height="2400" srcset="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0811-mqtt_hu_546f557b94541004.webp 800w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0811-mqtt_hu_d48174565ef4ffda.webp 1600w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0811-mqtt_hu_51a94ba6e3c60638.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="MQTT" class="gallery-image" data-flex-grow="66" data-flex-basis="160px">
+<h2 id="消息与事件mqttamqpevent-driven-apikafka">
+    消息与事件：MQTT、AMQP、Event-Driven API、Kafka
+</h2>
+<h3 id="mqtt">
+    MQTT
+</h3>
+<p><img src="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0811-mqtt_hu_d48174565ef4ffda.webp" width="1600" height="2400" srcset="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0811-mqtt_hu_546f557b94541004.webp 800w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0811-mqtt_hu_d48174565ef4ffda.webp 1600w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0811-mqtt_hu_51a94ba6e3c60638.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="MQTT" class="gallery-image" data-flex-grow="66" data-flex-basis="160px">
 </p>
 <p>MQTT 是一个非常轻量的协议，很多 IoT 设备带宽小、电量有限、网络也不稳定，MQTT 协议就非常合适，在智能家居、传感器、工业设备、车联网中都很常见。</p>
 <p>它采用发布订阅模型。设备把消息发到某个 topic，订阅这个 topic 的客户端就能收到消息，像一个大广播一样把消息给传出去。比如温度传感器发布数据，手机 App、仪表盘、自动化系统都可以收到它的信息。</p>
-<h3 id="amqp">AMQP
-</h3><p><img src="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0869-amqp_hu_817a6d569f7e27b1.webp" width="1600" height="2400" srcset="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0869-amqp_hu_cf3cdda99454071.webp 800w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0869-amqp_hu_817a6d569f7e27b1.webp 1600w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0869-amqp_hu_e27ca72f9532b3bb.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="AMQP" class="gallery-image" data-flex-grow="66" data-flex-basis="160px">
+<h3 id="amqp">
+    AMQP
+</h3>
+<p><img src="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0869-amqp_hu_817a6d569f7e27b1.webp" width="1600" height="2400" srcset="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0869-amqp_hu_cf3cdda99454071.webp 800w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0869-amqp_hu_817a6d569f7e27b1.webp 1600w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0869-amqp_hu_e27ca72f9532b3bb.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="AMQP" class="gallery-image" data-flex-grow="66" data-flex-basis="160px">
 </p>
 <p>AMQP 更偏可靠消息队列，注重消息不能丢、要能确认、要能路由、要能持久化，如果出现错误也会有错误的处理机制。如果一个支付消息、订单消息、医疗系统消息丢了，后果就比较严重。AMQP 这类协议会提供 acknowledgement、持久化、事务、路由等能力。RabbitMQ 是 AMQP 生态里很典型的实现。</p>
-<h3 id="event-driven-api">Event-Driven API
-</h3><p><img src="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0932-event-driven-api_hu_90dfbb79805dbe83.webp" width="1600" height="2400" srcset="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0932-event-driven-api_hu_66e21e6349d5f012.webp 800w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0932-event-driven-api_hu_90dfbb79805dbe83.webp 1600w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0932-event-driven-api_hu_899bcca62cb5176d.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="Event-Driven API" class="gallery-image" data-flex-grow="66" data-flex-basis="160px">
+<h3 id="event-driven-api">
+    Event-Driven API
+</h3>
+<p><img src="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0932-event-driven-api_hu_90dfbb79805dbe83.webp" width="1600" height="2400" srcset="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0932-event-driven-api_hu_66e21e6349d5f012.webp 800w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0932-event-driven-api_hu_90dfbb79805dbe83.webp 1600w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0932-event-driven-api_hu_899bcca62cb5176d.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="Event-Driven API" class="gallery-image" data-flex-grow="66" data-flex-basis="160px">
 </p>
 <p>Event-Driven API 更像一种架构思路，不是某一个具体协议。</p>
 <p>传统同步调用里，订单服务可能要依次调用库存服务、邮件服务、物流服务、分析服务。如果其中一个服务挂了，整个链路就容易被拖住。事件驱动的做法是：订单服务只发布一个 <code>OrderPlaced</code> 事件。库存服务监听这个事件去扣库存，邮件服务监听它去发确认邮件，分析服务监听它去记录数据。每个服务做自己的事，不需要订单服务挨个等结果。</p>
 <p>这个模式的好处是解耦，后面新增一个短信通知服务，只要监听订单事件就行。</p>
-<h3 id="apache-kafka">Apache Kafka
-</h3><p><img src="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0999-apache-kafka_hu_7996ef6486b42c90.webp" width="1600" height="2400" srcset="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0999-apache-kafka_hu_2a15b8247c13fd18.webp 800w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0999-apache-kafka_hu_7996ef6486b42c90.webp 1600w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0999-apache-kafka_hu_112627e88a8a89d7.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="Apache Kafka" class="gallery-image" data-flex-grow="66" data-flex-basis="160px">
+<h3 id="apache-kafka">
+    Apache Kafka
+</h3>
+<p><img src="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0999-apache-kafka_hu_7996ef6486b42c90.webp" width="1600" height="2400" srcset="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0999-apache-kafka_hu_2a15b8247c13fd18.webp 800w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0999-apache-kafka_hu_7996ef6486b42c90.webp 1600w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0999-apache-kafka_hu_112627e88a8a89d7.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="Apache Kafka" class="gallery-image" data-flex-grow="66" data-flex-basis="160px">
 </p>
 <p>Kafka 可以理解成事件驱动架构扩展到大规模之后的基础设施。普通消息队列通常是消息被消费后就删除，而 Kafka 更像一条可持久化、可回放的事件日志。最早就是 LinkedIn 为了处理大规模站内事件流做出来的，后来进入 Apache 生态。视频里举了 Netflix、Uber、LinkedIn 这类例子，本质都差不多：用户行为、播放、司机位置、消息、连接关系，这些事件量非常大，而且后续很多系统都要消费。</p>
 <p>普通异步任务RabbitMQ / AMQP 可能就够了。如果是海量事件、日志、埋点、实时数据管道，Kafka 更合适。</p>
-<h3 id="asyncapi">AsyncAPI
-</h3><p><img src="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/1038-asyncapi_hu_502e1174d207deaa.webp" width="1600" height="2400" srcset="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/1038-asyncapi_hu_b39ea3ea3f3c046b.webp 800w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/1038-asyncapi_hu_502e1174d207deaa.webp 1600w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/1038-asyncapi_hu_acf4568253c23456.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="AsyncAPI" class="gallery-image" data-flex-grow="66" data-flex-basis="160px">
+<h3 id="asyncapi">
+    AsyncAPI
+</h3>
+<p><img src="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/1038-asyncapi_hu_502e1174d207deaa.webp" width="1600" height="2400" srcset="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/1038-asyncapi_hu_b39ea3ea3f3c046b.webp 800w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/1038-asyncapi_hu_502e1174d207deaa.webp 1600w, /p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/1038-asyncapi_hu_acf4568253c23456.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="AsyncAPI" class="gallery-image" data-flex-grow="66" data-flex-basis="160px">
 </p>
 <p>当系统里只有几个 HTTP 接口时，用 OpenAPI / Swagger 就能把接口列清楚。但如果公司里有几十个服务通过 Kafka、MQTT、AMQP、WebSocket 通信，问题就变成：谁会发布什么事件？事件字段是什么？谁会消费？版本怎么演进？</p>
 <p><strong>AsyncAPI 就是给这类异步接口写规范</strong>，它会描述 channel、message、schema、producer、consumer 等信息。这样新同事接手时不用到处翻代码，也能知道系统里有哪些事件。</p>
-<p><a class="link" href="https://www.asyncapi.com/docs"  target="_blank" rel="noopener"
-    >AsyncAPI 官方文档</a> 里把它定位为描述事件驱动和消息 API 的规范，<a class="link" href="https://www.asyncapi.com/casestudies"  target="_blank" rel="noopener"
-    >案例页</a> 也能看到它主要服务的是异步系统文档化、工具生成和团队协作。</p>
+<p><a class="link" href="https://www.asyncapi.com/docs" target="_blank" rel="noopener noreferrer">AsyncAPI 官方文档</a>
+ 里把它定位为描述事件驱动和消息 API 的规范，<a class="link" href="https://www.asyncapi.com/casestudies" target="_blank" rel="noopener noreferrer">案例页</a>
+ 也能看到它主要服务的是异步系统文档化、工具生成和团队协作。</p>
 <p>这里可以这么理解：Kafka / MQTT / AMQP 是通信方式，AsyncAPI 是说明书。</p>
-<h2 id="简单选择">简单选择
-</h2><div class="table-wrapper"><table>
-	<thead>
-			<tr>
-					<th>需求</th>
-					<th>可以优先考虑</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td>普通前后端请求、CRUD、公开接口</td>
-					<td>REST</td>
-			</tr>
-			<tr>
-					<td>企业系统强契约、XML、事务和安全规范</td>
-					<td>SOAP</td>
-			</tr>
-			<tr>
-					<td>内部服务像调用函数一样互相调用</td>
-					<td>RPC</td>
-			</tr>
-			<tr>
-					<td>微服务高性能、跨语言、流式调用</td>
-					<td>gRPC</td>
-			</tr>
-			<tr>
-					<td>前端只想拿需要的字段</td>
-					<td>GraphQL</td>
-			</tr>
-			<tr>
-					<td>第三方系统事件发生后通知你</td>
-					<td>Webhook</td>
-			</tr>
-			<tr>
-					<td>服务端持续向浏览器推送</td>
-					<td>SSE</td>
-			</tr>
-			<tr>
-					<td>客户端和服务端双向实时通信</td>
-					<td>WebSocket</td>
-			</tr>
-			<tr>
-					<td>音视频、屏幕共享、P2P 通信</td>
-					<td>WebRTC</td>
-			</tr>
-			<tr>
-					<td>IoT 设备、低带宽、小消息</td>
-					<td>MQTT</td>
-			</tr>
-			<tr>
-					<td>可靠消息队列、企业业务消息</td>
-					<td>AMQP</td>
-			</tr>
-			<tr>
-					<td>服务之间通过事件解耦</td>
-					<td>Event-Driven API</td>
-			</tr>
-			<tr>
-					<td>大规模事件流、日志、实时数据管道</td>
-					<td>Kafka</td>
-			</tr>
-			<tr>
-					<td>AI 模型接工具和数据源</td>
-					<td>MCP</td>
-			</tr>
-			<tr>
-					<td>异步 API 的文档和契约</td>
-					<td>AsyncAPI</td>
-			</tr>
-	</tbody>
+<h2 id="简单选择">
+    简单选择
+</h2>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>需求</th>
+          <th>可以优先考虑</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>普通前后端请求、CRUD、公开接口</td>
+          <td>REST</td>
+      </tr>
+      <tr>
+          <td>企业系统强契约、XML、事务和安全规范</td>
+          <td>SOAP</td>
+      </tr>
+      <tr>
+          <td>内部服务像调用函数一样互相调用</td>
+          <td>RPC</td>
+      </tr>
+      <tr>
+          <td>微服务高性能、跨语言、流式调用</td>
+          <td>gRPC</td>
+      </tr>
+      <tr>
+          <td>前端只想拿需要的字段</td>
+          <td>GraphQL</td>
+      </tr>
+      <tr>
+          <td>第三方系统事件发生后通知你</td>
+          <td>Webhook</td>
+      </tr>
+      <tr>
+          <td>服务端持续向浏览器推送</td>
+          <td>SSE</td>
+      </tr>
+      <tr>
+          <td>客户端和服务端双向实时通信</td>
+          <td>WebSocket</td>
+      </tr>
+      <tr>
+          <td>音视频、屏幕共享、P2P 通信</td>
+          <td>WebRTC</td>
+      </tr>
+      <tr>
+          <td>IoT 设备、低带宽、小消息</td>
+          <td>MQTT</td>
+      </tr>
+      <tr>
+          <td>可靠消息队列、企业业务消息</td>
+          <td>AMQP</td>
+      </tr>
+      <tr>
+          <td>服务之间通过事件解耦</td>
+          <td>Event-Driven API</td>
+      </tr>
+      <tr>
+          <td>大规模事件流、日志、实时数据管道</td>
+          <td>Kafka</td>
+      </tr>
+      <tr>
+          <td>AI 模型接工具和数据源</td>
+          <td>MCP</td>
+      </tr>
+      <tr>
+          <td>异步 API 的文档和契约</td>
+          <td>AsyncAPI</td>
+      </tr>
+  </tbody>
 </table></div>
-<h2 id="资料来源">资料来源
-</h2><ul>
-<li><a class="link" href="https://docs.github.com/en/rest"  target="_blank" rel="noopener"
-    >GitHub REST API</a></li>
-<li><a class="link" href="https://docs.github.com/en/graphql"  target="_blank" rel="noopener"
-    >GitHub GraphQL API</a></li>
-<li><a class="link" href="https://docs.github.com/en/webhooks"  target="_blank" rel="noopener"
-    >GitHub Webhooks</a></li>
-<li><a class="link" href="https://docs.stripe.com/webhooks"  target="_blank" rel="noopener"
-    >Stripe Webhooks</a></li>
-<li><a class="link" href="https://api.slack.com/messaging/webhooks"  target="_blank" rel="noopener"
-    >Slack Incoming Webhooks</a></li>
-<li><a class="link" href="https://discord.com/developers/docs/events/gateway"  target="_blank" rel="noopener"
-    >Discord Gateway</a></li>
-<li><a class="link" href="https://discord.com/developers/docs/resources/webhook"  target="_blank" rel="noopener"
-    >Discord Webhooks</a></li>
-<li><a class="link" href="https://developers.binance.com/docs/binance-spot-api-docs/web-socket-streams"  target="_blank" rel="noopener"
-    >Binance WebSocket Streams</a></li>
-<li><a class="link" href="https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_quickstart_intro.htm"  target="_blank" rel="noopener"
-    >Salesforce SOAP API</a></li>
-<li><a class="link" href="https://shopify.dev/docs/api/admin-graphql"  target="_blank" rel="noopener"
-    >Shopify Admin GraphQL API</a></li>
-<li><a class="link" href="https://ethereum.org/en/developers/docs/apis/json-rpc/"  target="_blank" rel="noopener"
-    >Ethereum JSON-RPC API</a></li>
-<li><a class="link" href="https://developers.cloudflare.com/workers/runtime-apis/rpc/"  target="_blank" rel="noopener"
-    >Cloudflare Workers RPC</a></li>
-<li><a class="link" href="https://webrtc.org/"  target="_blank" rel="noopener"
-    >WebRTC</a></li>
-<li><a class="link" href="https://platform.openai.com/docs/guides/streaming-responses?api-mode=responses"  target="_blank" rel="noopener"
-    >OpenAI Streaming Responses</a></li>
-<li><a class="link" href="https://modelcontextprotocol.io/introduction"  target="_blank" rel="noopener"
-    >Model Context Protocol</a></li>
-<li><a class="link" href="https://developers.openai.com/apps-sdk/"  target="_blank" rel="noopener"
-    >OpenAI Apps SDK</a></li>
-<li><a class="link" href="https://www.uber.com/blog/ubers-next-gen-push-platform-on-grpc/"  target="_blank" rel="noopener"
-    >Uber Next Gen Push Platform on gRPC</a></li>
-<li><a class="link" href="https://www.cncf.io/case-studies/netflix/"  target="_blank" rel="noopener"
-    >CNCF Netflix gRPC case study</a></li>
-<li><a class="link" href="https://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html"  target="_blank" rel="noopener"
-    >AWS IoT Core MQTT</a></li>
-<li><a class="link" href="https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-amqp-overview"  target="_blank" rel="noopener"
-    >Azure Service Bus AMQP</a></li>
-<li><a class="link" href="https://aws.amazon.com/eventbridge/"  target="_blank" rel="noopener"
-    >Amazon EventBridge</a></li>
-<li><a class="link" href="https://kafka.apache.org/intro"  target="_blank" rel="noopener"
-    >Apache Kafka Introduction</a></li>
-<li><a class="link" href="https://www.asyncapi.com/docs"  target="_blank" rel="noopener"
-    >AsyncAPI Docs</a></li>
+<h2 id="资料来源">
+    资料来源
+</h2>
+<ul>
+<li><a class="link" href="https://docs.github.com/en/rest" target="_blank" rel="noopener noreferrer">GitHub REST API</a>
+</li>
+<li><a class="link" href="https://docs.github.com/en/graphql" target="_blank" rel="noopener noreferrer">GitHub GraphQL API</a>
+</li>
+<li><a class="link" href="https://docs.github.com/en/webhooks" target="_blank" rel="noopener noreferrer">GitHub Webhooks</a>
+</li>
+<li><a class="link" href="https://docs.stripe.com/webhooks" target="_blank" rel="noopener noreferrer">Stripe Webhooks</a>
+</li>
+<li><a class="link" href="https://api.slack.com/messaging/webhooks" target="_blank" rel="noopener noreferrer">Slack Incoming Webhooks</a>
+</li>
+<li><a class="link" href="https://discord.com/developers/docs/events/gateway" target="_blank" rel="noopener noreferrer">Discord Gateway</a>
+</li>
+<li><a class="link" href="https://discord.com/developers/docs/resources/webhook" target="_blank" rel="noopener noreferrer">Discord Webhooks</a>
+</li>
+<li><a class="link" href="https://developers.binance.com/docs/binance-spot-api-docs/web-socket-streams" target="_blank" rel="noopener noreferrer">Binance WebSocket Streams</a>
+</li>
+<li><a class="link" href="https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_quickstart_intro.htm" target="_blank" rel="noopener noreferrer">Salesforce SOAP API</a>
+</li>
+<li><a class="link" href="https://shopify.dev/docs/api/admin-graphql" target="_blank" rel="noopener noreferrer">Shopify Admin GraphQL API</a>
+</li>
+<li><a class="link" href="https://ethereum.org/en/developers/docs/apis/json-rpc/" target="_blank" rel="noopener noreferrer">Ethereum JSON-RPC API</a>
+</li>
+<li><a class="link" href="https://developers.cloudflare.com/workers/runtime-apis/rpc/" target="_blank" rel="noopener noreferrer">Cloudflare Workers RPC</a>
+</li>
+<li><a class="link" href="https://webrtc.org/" target="_blank" rel="noopener noreferrer">WebRTC</a>
+</li>
+<li><a class="link" href="https://platform.openai.com/docs/guides/streaming-responses?api-mode=responses" target="_blank" rel="noopener noreferrer">OpenAI Streaming Responses</a>
+</li>
+<li><a class="link" href="https://modelcontextprotocol.io/introduction" target="_blank" rel="noopener noreferrer">Model Context Protocol</a>
+</li>
+<li><a class="link" href="https://developers.openai.com/apps-sdk/" target="_blank" rel="noopener noreferrer">OpenAI Apps SDK</a>
+</li>
+<li><a class="link" href="https://www.uber.com/blog/ubers-next-gen-push-platform-on-grpc/" target="_blank" rel="noopener noreferrer">Uber Next Gen Push Platform on gRPC</a>
+</li>
+<li><a class="link" href="https://www.cncf.io/case-studies/netflix/" target="_blank" rel="noopener noreferrer">CNCF Netflix gRPC case study</a>
+</li>
+<li><a class="link" href="https://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html" target="_blank" rel="noopener noreferrer">AWS IoT Core MQTT</a>
+</li>
+<li><a class="link" href="https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-amqp-overview" target="_blank" rel="noopener noreferrer">Azure Service Bus AMQP</a>
+</li>
+<li><a class="link" href="https://aws.amazon.com/eventbridge/" target="_blank" rel="noopener noreferrer">Amazon EventBridge</a>
+</li>
+<li><a class="link" href="https://kafka.apache.org/intro" target="_blank" rel="noopener noreferrer">Apache Kafka Introduction</a>
+</li>
+<li><a class="link" href="https://www.asyncapi.com/docs" target="_blank" rel="noopener noreferrer">AsyncAPI Docs</a>
+</li>
 </ul>
 
             </section>
@@ -514,389 +570,11 @@
     </div>
 </article>
 
-
-
-
-
-
-
-
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-    
-    <div class="pswp__bg"></div>
-
-    
-    <div class="pswp__scroll-wrap">
-
-        
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                
-                
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
-                defer
-                >
-            </script><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
-                defer
-                >
-            </script><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
-            ><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
-            >
-
-    </main>
-
-    <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
-                
-                >
-            </script><script type="text/javascript" src="/ts/main.836efe327773ba454adac61ee8b35272b6f512bd594ed9ea0f926fca8386433b.js" defer></script><script type="text/javascript" src="/ts/custom.4bb4ca905d915217c671721b75f16ae60652e805c90c767a80a951f0dddeeb9c.js" defer></script>
-
-
-<button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
+    </main><button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M6 14.5 12 8l6 6.5" />
+        <path d="M6 14.5 12 8l6 6.5"></path>
     </svg>
 </button>
-
-<script>
-    (function () {
-        'use strict';
-
-        const menuToggle = document.querySelector('.site-menu-toggle');
-        const nav = document.getElementById('primary-navigation');
-        const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-        function initThemeToggle() {
-            const toggle = document.getElementById('dark-mode-toggle');
-            if (!toggle || toggle.dataset.projectThemeToggleReady === 'true') return;
-
-            toggle.dataset.projectThemeToggleReady = 'true';
-
-            function getCurrentScheme() {
-                return document.documentElement.dataset.scheme === 'dark' ? 'dark' : 'light';
-            }
-
-            function getSystemScheme() {
-                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-            }
-
-            function saveScheme(scheme) {
-                try {
-                    window.localStorage.setItem('StackColorScheme', scheme === getSystemScheme() ? 'auto' : scheme);
-                } catch (error) {
-                    return;
-                }
-            }
-
-            function applyScheme(scheme) {
-                document.documentElement.dataset.scheme = scheme;
-                saveScheme(scheme);
-                window.dispatchEvent(new CustomEvent('onColorSchemeChange', { detail: scheme }));
-            }
-
-            toggle.addEventListener('click', function (event) {
-                event.preventDefault();
-                event.stopImmediatePropagation();
-
-                const x = event.clientX;
-                const y = event.clientY;
-                const willBeDark = getCurrentScheme() !== 'dark';
-                const nextScheme = willBeDark ? 'dark' : 'light';
-                const endRadius = Math.hypot(
-                    Math.max(x, window.innerWidth - x),
-                    Math.max(y, window.innerHeight - y)
-                );
-
-                if (!document.startViewTransition) {
-                    applyScheme(nextScheme);
-                    return;
-                }
-
-                const transition = document.startViewTransition(function () {
-                    applyScheme(nextScheme);
-                });
-
-                transition.ready.then(function () {
-                    const clipPath = willBeDark
-                        ? [`circle(${endRadius}px at ${x}px ${y}px)`, `circle(0px at ${x}px ${y}px)`]
-                        : [`circle(0px at ${x}px ${y}px)`, `circle(${endRadius}px at ${x}px ${y}px)`];
-
-                    document.documentElement.animate(
-                        { clipPath },
-                        {
-                            duration: 500,
-                            easing: 'ease-in-out',
-                            fill: 'forwards',
-                            pseudoElement: willBeDark
-                                ? '::view-transition-old(root)'
-                                : '::view-transition-new(root)'
-                        }
-                    );
-                });
-            }, { capture: true });
-        }
-
-        function setMenuOpen(open) {
-            if (!menuToggle || !nav) return;
-            menuToggle.classList.toggle('is-open', open);
-            nav.classList.toggle('is-open', open);
-            document.body.classList.toggle('site-nav-open', open);
-            menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        }
-
-        if (menuToggle && nav) {
-            menuToggle.addEventListener('click', function (event) {
-                event.stopPropagation();
-                setMenuOpen(!nav.classList.contains('is-open'));
-            });
-
-            nav.querySelectorAll('a').forEach(function (link) {
-                link.addEventListener('click', function () {
-                    setMenuOpen(false);
-                });
-            });
-
-            document.addEventListener('keydown', function (event) {
-                if (event.key === 'Escape') setMenuOpen(false);
-            });
-
-            document.addEventListener('click', function (event) {
-                if (!document.body.classList.contains('site-nav-open')) return;
-                if (nav.contains(event.target) || menuToggle.contains(event.target)) return;
-                setMenuOpen(false);
-            });
-
-            const desktopQuery = window.matchMedia('(min-width: 921px)');
-            const closeMenuOnDesktop = function (event) {
-                if (event.matches) setMenuOpen(false);
-            };
-
-            if (desktopQuery.addEventListener) {
-                desktopQuery.addEventListener('change', closeMenuOnDesktop);
-            } else if (desktopQuery.addListener) {
-                desktopQuery.addListener(closeMenuOnDesktop);
-            }
-        }
-
-        const backToTop = document.getElementById('back-to-top');
-
-        if (backToTop) {
-            function updateBackToTop() {
-                backToTop.classList.toggle('is-visible', window.scrollY > 420);
-            }
-
-            backToTop.addEventListener('click', function () {
-                window.scrollTo({ top: 0, behavior: reduceMotionQuery.matches ? 'auto' : 'smooth' });
-            });
-
-            window.addEventListener('scroll', updateBackToTop, { passive: true });
-            updateBackToTop();
-        }
-
-        function initArticleTocHover() {
-            const toc = document.querySelector('[data-article-toc]');
-            const articleMain = document.querySelector('.article-detail__main');
-            if (!toc || !articleMain) return;
-
-            const toggle = toc.querySelector('[data-article-toc-toggle]');
-            let lockedOpen = false;
-
-            function setVisible(visible) {
-                document.body.classList.toggle('is-article-toc-visible', visible);
-                if (toggle) {
-                    toggle.setAttribute('aria-expanded', visible ? 'true' : 'false');
-                    toggle.setAttribute('aria-label', visible ? '隐藏文章目录' : '显示文章目录');
-                }
-            }
-
-            function getLeftRevealZone() {
-                return Math.min(380, Math.max(280, window.innerWidth * 0.22));
-            }
-
-            function isInsideReadingColumn(x, y) {
-                const rect = articleMain.getBoundingClientRect();
-                const top = Math.min(rect.top, 0) - 48;
-                const bottom = Math.max(rect.bottom, window.innerHeight) + 48;
-
-                return x >= rect.left - 72 && x <= rect.right + 32 && y >= top && y <= bottom;
-            }
-
-            document.addEventListener('pointermove', function (event) {
-                if (lockedOpen) return;
-                setVisible(event.clientX <= getLeftRevealZone() || isInsideReadingColumn(event.clientX, event.clientY));
-            }, { passive: true });
-
-            document.addEventListener('pointerleave', function () {
-                if (!lockedOpen) setVisible(false);
-            });
-
-            toc.addEventListener('focusin', function () {
-                setVisible(true);
-            });
-
-            toc.addEventListener('focusout', function (event) {
-                if (lockedOpen || toc.contains(event.relatedTarget)) return;
-                setVisible(false);
-            });
-
-            if (toggle) {
-                toggle.addEventListener('click', function () {
-                    const isVisible = document.body.classList.contains('is-article-toc-visible');
-                    if (lockedOpen && isVisible) {
-                        lockedOpen = false;
-                        setVisible(false);
-                        return;
-                    }
-
-                    lockedOpen = true;
-                    setVisible(true);
-                });
-            }
-
-            document.addEventListener('click', function (event) {
-                if (!lockedOpen) return;
-                if (toc.contains(event.target) || articleMain.contains(event.target)) return;
-                lockedOpen = false;
-                setVisible(false);
-            });
-
-            document.addEventListener('keydown', function (event) {
-                if (event.key !== 'Escape') return;
-                lockedOpen = false;
-                setVisible(false);
-            });
-        }
-
-        function initRevealOnScroll() {
-            if (reduceMotionQuery.matches || !('IntersectionObserver' in window)) return;
-
-            const revealSelectors = [
-                '.section-band',
-                '.featured-section',
-                '.blog-card',
-                '.post-tools',
-                '.article-detail__content > blockquote',
-                '.article-detail__content > .highlight',
-                '.article-detail__content > pre',
-                '.article-detail__content > .table-wrapper',
-                '.article-detail__content > figure',
-                '.article-detail__content > details',
-                '.article-detail__content > hr',
-                '.article-detail__footer',
-                '.music-album-card'
-            ];
-
-            const targets = revealSelectors.reduce(function (items, selector) {
-                return items.concat(Array.prototype.slice.call(document.querySelectorAll(selector)));
-            }, []);
-
-            const imageBlocks = Array.prototype.slice.call(document.querySelectorAll('.article-detail__content > p')).filter(function (block) {
-                const children = Array.prototype.slice.call(block.children).filter(function (child) {
-                    return child.tagName !== 'BR';
-                });
-                const onlyChild = children[0];
-
-                return children.length === 1 && (
-                    onlyChild.tagName === 'IMG' ||
-                    onlyChild.classList.contains('gallery') ||
-                    (onlyChild.tagName === 'A' && onlyChild.querySelector('img'))
-                );
-            });
-
-            imageBlocks.forEach(function (block) {
-                if (!targets.includes(block)) targets.push(block);
-            });
-
-            const filteredTargets = targets.filter(function (target, index) {
-                if (target.tagName === 'PRE' && target.closest('.highlight')) return false;
-                return targets.indexOf(target) === index;
-            });
-
-            if (!filteredTargets.length) return;
-
-            const observer = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (!entry.isIntersecting) return;
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                });
-            }, {
-                rootMargin: '0px 0px -6% 0px',
-                threshold: 0.1
-            });
-
-            filteredTargets.forEach(function (target, index) {
-                target.classList.add('reveal-on-scroll');
-                target.style.setProperty('--reveal-delay', Math.min(index % 4, 3) * 32 + 'ms');
-                observer.observe(target);
-            });
-        }
-
-        initThemeToggle();
-        initArticleTocHover();
-        initRevealOnScroll();
-
-        window.requestAnimationFrame(function () {
-            document.body.classList.add('is-loaded');
-        });
-    })();
-</script>
-
 </body>
 
 </html>

@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>MyBatis on Jul1en</title>
-        <link>https://Jul1en-Lin.github.io/categories/mybatis/</link>
-        <description>Recent content in MyBatis on Jul1en</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>en-us</language>
-        <copyright>Jul1en</copyright>
-        <lastBuildDate>Tue, 28 Apr 2026 11:29:56 +0800</lastBuildDate><atom:link href="https://Jul1en-Lin.github.io/categories/mybatis/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>🥓 MyBatis/plus 及配置</title>
-        <link>https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/</link>
-        <pubDate>Thu, 05 Feb 2026 22:48:02 +0800</pubDate>
-        
-        <guid>https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/</guid>
-        <description>&lt;h1 id=&#34;mybatis&#34;&gt;MyBatis
-&lt;/h1&gt;&lt;p&gt;MyBatis 是一款半自动对象关系映射持久层框架，其核心通过 XML 或注解实现原生 SQL 与 Java 对象的解耦映射，在消除冗余 JDBC 代码的同时，保留了对 SQL 执行逻辑的控制&lt;/p&gt;
+  <channel>
+    <title>MyBatis - Jul1en</title>
+    <link>https://Jul1en-Lin.github.io/categories/mybatis/</link>
+    <description>MyBatis - Jul1en</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <copyright>Jul1en</copyright>
+    <lastBuildDate>Tue, 28 Apr 2026 11:29:56 +0800</lastBuildDate>
+    <atom:link href="https://Jul1en-Lin.github.io/categories/mybatis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>🥓 MyBatis/plus 及配置</title>
+      <link>https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Thu, 05 Feb 2026 22:48:02 +0800</pubDate>
+      <guid>https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/</guid>
+      <description>&lt;h1 id=&#34;mybatis&#34;&gt;
+    MyBatis
+&lt;/h1&gt;
+&lt;p&gt;MyBatis 是一款半自动对象关系映射持久层框架，其核心通过 XML 或注解实现原生 SQL 与 Java 对象的解耦映射，在消除冗余 JDBC 代码的同时，保留了对 SQL 执行逻辑的控制&lt;/p&gt;
 &lt;p&gt;接下来先讲传统Mybatis的配置&lt;/p&gt;
-&lt;h1 id=&#34;mybatis配置&#34;&gt;MyBatis配置
-&lt;/h1&gt;&lt;p&gt;mybatis是IDE和数据库的桥梁，便于在后端也能执行SQL，故配置必须需要连接数据库~&lt;/p&gt;
+&lt;h1 id=&#34;mybatis配置&#34;&gt;
+    MyBatis配置
+&lt;/h1&gt;
+&lt;p&gt;mybatis是IDE和数据库的桥梁，便于在后端也能执行SQL，故配置必须需要连接数据库~&lt;/p&gt;
 &lt;p&gt;💫&lt;code&gt;application.yml&lt;/code&gt;配置💫必备&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;数据库连接配置&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nl&#34;&gt;spring&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -34,15 +39,21 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nl&#34;&gt;logging&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;file&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;spring&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;book&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;mybatis-1&#34;&gt;MyBatis
-&lt;/h2&gt;&lt;h3 id=&#34;yml配置&#34;&gt;yml配置
-&lt;/h3&gt;&lt;p&gt;在&lt;code&gt;application.yml&lt;/code&gt;中可以增加mybatis的相关配置，如配置驼峰自动转换&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;mybatis-1&#34;&gt;
+    MyBatis
+&lt;/h2&gt;
+&lt;h3 id=&#34;yml配置&#34;&gt;
+    yml配置
+&lt;/h3&gt;
+&lt;p&gt;在&lt;code&gt;application.yml&lt;/code&gt;中可以增加mybatis的相关配置，如配置驼峰自动转换&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nl&#34;&gt;mybatis&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;configuration&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;map&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;underscore&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;to&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;camel&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;case&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;err&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;配置驼峰自动转换&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;impl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;org&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;apache&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;ibatis&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;logging&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;stdout&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;StdOutImpl&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;err&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;打印sql语句&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;添加依赖&#34;&gt;添加依赖
-&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;		&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dependency&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;添加依赖&#34;&gt;
+    添加依赖
+&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;		&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dependency&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;groupId&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;org&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;mybatis&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;spring&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;boot&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;groupId&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;artifactId&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mybatis&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;spring&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;boot&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;starter&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;artifactId&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -52,8 +63,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;artifactId&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mysql&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;connector&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;artifactId&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;scope&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;runtime&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;scope&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dependency&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;xml配置动态sql&#34;&gt;xml配置（动态SQL）
-&lt;/h3&gt;&lt;p&gt;xml一般是在写SQL中，简单的SQL已经无法满足业务需求，需要动态SQL时，需要的mybatis的配置，动态SQL就在xml文件里写。&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;xml配置动态sql&#34;&gt;
+    xml配置（动态SQL）
+&lt;/h3&gt;
+&lt;p&gt;xml一般是在写SQL中，简单的SQL已经无法满足业务需求，需要动态SQL时，需要的mybatis的配置，动态SQL就在xml文件里写。&lt;/p&gt;
 &lt;p&gt;一般放在resources.mapper包下，命名规范为&lt;code&gt;xxxMapper.xml&lt;/code&gt;，对应某个类。效果和注解Spring的@Select、@Update注解作用一致&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;!--&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;将以下放到xml文件头&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;--&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
@@ -66,12 +79,16 @@
 &lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204152931-uekqeap_hu_9f9637ededf31b75.webp&#34; width=&#34;1600&#34; height=&#34;717&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204152931-uekqeap_hu_2e2000326266c701.webp 800w, https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204152931-uekqeap_hu_9f9637ededf31b75.webp 1600w, https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204152931-uekqeap_hu_8ab71c9e64e9e7d2.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;223&#34; data-flex-basis=&#34;535px&#34;&gt;
 &lt;/p&gt;
-&lt;h2 id=&#34;mybatisx&#34;&gt;MyBatisX
-&lt;/h2&gt;&lt;p&gt;是一款plugin，支持xml的快速跳转和生成代码，非常好用~&lt;/p&gt;
+&lt;h2 id=&#34;mybatisx&#34;&gt;
+    MyBatisX
+&lt;/h2&gt;
+&lt;p&gt;是一款plugin，支持xml的快速跳转和生成代码，非常好用~&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204213706-byzmjek_hu_c28cf6e57dc7d26f.webp&#34; width=&#34;1600&#34; height=&#34;707&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204213706-byzmjek_hu_cae6aab3e8dc9d10.webp 800w, https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204213706-byzmjek_hu_c28cf6e57dc7d26f.webp 1600w, https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204213706-byzmjek_hu_356bf46251504f3e.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;226&#34; data-flex-basis=&#34;543px&#34;&gt;
 &lt;/p&gt;
-&lt;h2 id=&#34;mybatis-generator插件&#34;&gt;MyBatis-Generator插件
-&lt;/h2&gt;&lt;p&gt;这个插件使用也是非常的广泛&lt;/p&gt;
+&lt;h2 id=&#34;mybatis-generator插件&#34;&gt;
+    MyBatis-Generator插件
+&lt;/h2&gt;
+&lt;p&gt;这个插件使用也是非常的广泛&lt;/p&gt;
 &lt;p&gt;手写mapper还是太麻烦了，有一些插件能够帮我们自动生成一些sql，提高效率，同时需要generator文件&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;plugin&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;	&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;groupId&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;org&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;mybatis&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;generator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;groupId&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -103,7 +120,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;		&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dependency&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;	&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dependencies&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;plugin&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;上述插件提到的文件&lt;a class=&#34;link&#34; href=&#34;assets/generator-20260204145109-vh72myh.xml&#34; &gt;generator.xml&lt;/a&gt;，需放所提到的&lt;code&gt;&amp;lt;configurationFile&amp;gt;&lt;/code&gt;​对应的位置，&lt;strong&gt;位置可修改&lt;/strong&gt;&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;上述插件提到的文件&lt;a class=&#34;link&#34; href=&#34;assets/generator-20260204145109-vh72myh.xml&#34;&gt;generator.xml&lt;/a&gt;
+，需放所提到的&lt;code&gt;&amp;lt;configurationFile&amp;gt;&lt;/code&gt;​对应的位置，&lt;strong&gt;位置可修改&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153629-4tl8z7h_hu_d3ad58f89184a866.webp&#34; width=&#34;1600&#34; height=&#34;432&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153629-4tl8z7h_hu_6bbda1e2fa0e82a6.webp 800w, https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153629-4tl8z7h_hu_d3ad58f89184a866.webp 1600w, https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153629-4tl8z7h_hu_d468e317ee03174b.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;370&#34; data-flex-basis=&#34;889px&#34;&gt;
 &lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153439-kb50mlp_hu_55e722bb23c9ff00.webp&#34; width=&#34;1600&#34; height=&#34;778&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153439-kb50mlp_hu_36d017ffd4d18a63.webp 800w, https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153439-kb50mlp_hu_55e722bb23c9ff00.webp 1600w, https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153439-kb50mlp_hu_5a5d58a9df4c103b.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;205&#34; data-flex-basis=&#34;493px&#34;&gt;
@@ -157,18 +175,26 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;配置完成，&lt;strong&gt;双击运行插件即可，配置文件&lt;/strong&gt;​&lt;strong&gt;​&lt;code&gt;generator.xml&lt;/code&gt;​&lt;/strong&gt;就会生成对应的实体类与xml文件&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204151811-zkc66ob_hu_2da318c2fd1e6515.webp&#34; width=&#34;1600&#34; height=&#34;955&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204151811-zkc66ob_hu_1554190990f34f14.webp 800w, https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204151811-zkc66ob_hu_2da318c2fd1e6515.webp 1600w, https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204151811-zkc66ob_hu_7235a70cea0ad268.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;167&#34; data-flex-basis=&#34;402px&#34;&gt;
 &lt;/p&gt;
-&lt;h3 id=&#34;注意&#34;&gt;注意
-&lt;/h3&gt;&lt;p&gt;​&lt;code&gt;generator.xml&lt;/code&gt;文件头放到IDE上会出现报错，无需更改&lt;/p&gt;
+&lt;h3 id=&#34;注意&#34;&gt;
+    注意
+&lt;/h3&gt;
+&lt;p&gt;​&lt;code&gt;generator.xml&lt;/code&gt;文件头放到IDE上会出现报错，无需更改&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153843-3oxr5g3_hu_713a1080cb40ea59.webp&#34; width=&#34;1600&#34; height=&#34;388&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153843-3oxr5g3_hu_59f27b296b0cebb5.webp 800w, https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153843-3oxr5g3_hu_713a1080cb40ea59.webp 1600w, https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204153843-3oxr5g3_hu_73e772a22d59f51a.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;412&#34; data-flex-basis=&#34;988px&#34;&gt;
 &lt;/p&gt;
 &lt;hr&gt;
-&lt;h1 id=&#34;mybatis-plus&#34;&gt;🚩MyBatis-plus
-&lt;/h1&gt;&lt;p&gt;是一个MyBatis的增强工具，简化开发，提高效率，类似于Hutool工具包，使用时仅需导入依赖即可&lt;/p&gt;
+&lt;h1 id=&#34;mybatis-plus&#34;&gt;
+    🚩MyBatis-plus
+&lt;/h1&gt;
+&lt;p&gt;是一个MyBatis的增强工具，简化开发，提高效率，类似于Hutool工具包，使用时仅需导入依赖即可&lt;/p&gt;
 &lt;p&gt;它封装了许多SQL语句，使用时仅需让mapper类&lt;code&gt;extends BaseMapper&amp;lt;&amp;gt;&lt;/code&gt;父类接口，执行时则可以直接调用他的一系列函数，无需手写&lt;/p&gt;
-&lt;h2 id=&#34;配置&#34;&gt;配置
-&lt;/h2&gt;&lt;h3 id=&#34;引入依赖&#34;&gt;引入依赖
-&lt;/h3&gt;&lt;p&gt;参考官方文档&lt;a class=&#34;link&#34; href=&#34;https://baomidou.com/getting-started/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://baomidou.com/getting-started&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;配置&#34;&gt;
+    配置
+&lt;/h2&gt;
+&lt;h3 id=&#34;引入依赖&#34;&gt;
+    引入依赖
+&lt;/h3&gt;
+&lt;p&gt;参考官方文档&lt;a class=&#34;link&#34; href=&#34;https://baomidou.com/getting-started/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;https://baomidou.com/getting-started&lt;/a&gt;
+&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204160525-zmsvdkf_hu_c771123f738cfae2.webp&#34; width=&#34;1600&#34; height=&#34;1310&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204160525-zmsvdkf_hu_e39de97f462376c1.webp 800w, https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204160525-zmsvdkf_hu_c771123f738cfae2.webp 1600w, https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204160525-zmsvdkf_hu_406c57d49e97b135.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;122&#34; data-flex-basis=&#34;293px&#34;&gt;
 &lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;!--&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Spring&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Boot3&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;--&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -187,8 +213,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;根据你现使用的SpringBoot版本选择对应的依赖~&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204160833-7pkg4gj_hu_88ce74a56a2d8847.webp&#34; width=&#34;1600&#34; height=&#34;656&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204160833-7pkg4gj_hu_c677b7e25b1cbba2.webp 800w, https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204160833-7pkg4gj_hu_88ce74a56a2d8847.webp 1600w, https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260204160833-7pkg4gj_hu_9ed85305802c965.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;244&#34; data-flex-basis=&#34;585px&#34;&gt;
 &lt;/p&gt;
-&lt;h3 id=&#34;编码&#34;&gt;编码
-&lt;/h3&gt;&lt;ol&gt;
+&lt;h3 id=&#34;编码&#34;&gt;
+    编码
+&lt;/h3&gt;
+&lt;ol&gt;
 &lt;li&gt;编写对应实体类&lt;/li&gt;
 &lt;li&gt;编写 Mapper 接口并拓展&lt;code&gt;BaseMapper&amp;lt;T&amp;gt;&lt;/code&gt;接口&lt;/li&gt;
 &lt;/ol&gt;
@@ -197,15 +225,19 @@
 &lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205000225-jyr3ehi_hu_a31cf16a98370dc4.webp&#34; width=&#34;1600&#34; height=&#34;1026&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205000225-jyr3ehi_hu_e80a97aef9e6eb5a.webp 800w, https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205000225-jyr3ehi_hu_a31cf16a98370dc4.webp 1600w, https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205000225-jyr3ehi_hu_70f7caa2cbdba862.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;155&#34; data-flex-basis=&#34;374px&#34;&gt;
 &lt;/p&gt;
-&lt;h3 id=&#34;打印执行sql日志&#34;&gt;打印执行SQL日志
-&lt;/h3&gt;&lt;p&gt;与mybatis的配置文件类似，只需把名字改为mybatis-plus&lt;/p&gt;
+&lt;h3 id=&#34;打印执行sql日志&#34;&gt;
+    打印执行SQL日志
+&lt;/h3&gt;
+&lt;p&gt;与mybatis的配置文件类似，只需把名字改为mybatis-plus&lt;/p&gt;
 &lt;p&gt;​&lt;code&gt;application.yml&lt;/code&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;mybatis&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;plus&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;configuration&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;map&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;underscore&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;to&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;camel&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;case&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;err&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;配置驼峰自动转换&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;impl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;org&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;apache&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;ibatis&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;logging&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;stdout&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;StdOutImpl&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;err&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;打印sql语句&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;识别原理&#34;&gt;识别原理
-&lt;/h2&gt;&lt;p&gt;刚才只是配置了&lt;code&gt;application.yml&lt;/code&gt;​中的数据库连接信息，拓展了&lt;code&gt;BaseMapper&amp;lt;&amp;gt;&lt;/code&gt;​接口与实现了一个实体类&lt;code&gt;UserInfo&lt;/code&gt;​，就能够查询数据库中的&lt;code&gt;user_info&lt;/code&gt;这张表并且成功执行SQL了，它是如何识别出来的呢？&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;识别原理&#34;&gt;
+    识别原理
+&lt;/h2&gt;
+&lt;p&gt;刚才只是配置了&lt;code&gt;application.yml&lt;/code&gt;​中的数据库连接信息，拓展了&lt;code&gt;BaseMapper&amp;lt;&amp;gt;&lt;/code&gt;​接口与实现了一个实体类&lt;code&gt;UserInfo&lt;/code&gt;​，就能够查询数据库中的&lt;code&gt;user_info&lt;/code&gt;这张表并且成功执行SQL了，它是如何识别出来的呢？&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;表名&lt;/li&gt;
 &lt;/ol&gt;
@@ -235,11 +267,13 @@
 &lt;p&gt;他的推断规律与推断表名是一样的，如果不一致则用&lt;code&gt;@TableField&lt;/code&gt;映射&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205011841-3q1kzhd_hu_116ca9e3c6bec93c.webp&#34; width=&#34;1600&#34; height=&#34;1235&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205011841-3q1kzhd_hu_f670cd069532ad0a.webp 800w, https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205011841-3q1kzhd_hu_116ca9e3c6bec93c.webp 1600w, https://Jul1en-Lin.github.io/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/assets/image-20260205011841-3q1kzhd_hu_954b694e628662a8.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;129&#34; data-flex-basis=&#34;310px&#34;&gt;
 &lt;/p&gt;
-&lt;h2 id=&#34;条件构造器wrapper&#34;&gt;条件构造器Wrapper
-&lt;/h2&gt;&lt;p&gt;MyBatis-Plus 提供了一套强大的条件构造器（Wrapper），用于构建复杂的数据库查询条件。Wrapper 类允许开发者以链式调用的方式构造查询条件，无需编写繁琐的 SQL 语句，从而提高开发效率并减少 SQL 注入的风险&lt;/p&gt;
+&lt;h2 id=&#34;条件构造器wrapper&#34;&gt;
+    条件构造器Wrapper
+&lt;/h2&gt;
+&lt;p&gt;MyBatis-Plus 提供了一套强大的条件构造器（Wrapper），用于构建复杂的数据库查询条件。Wrapper 类允许开发者以链式调用的方式构造查询条件，无需编写繁琐的 SQL 语句，从而提高开发效率并减少 SQL 注入的风险&lt;/p&gt;
 &lt;p&gt;它是构建复杂查询和更新条件的关键工具。&lt;strong&gt;它允许开发者以链式调用的方式构造 SQL 的 WHERE 子句，提供了极大的灵活性和便利性&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;MyBatis-Plus 关于构造器的官方参考文档：&lt;a class=&#34;link&#34; href=&#34;https://baomidou.com/guides/wrapper&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://baomidou.com/guides/wrapper&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;MyBatis-Plus 关于构造器的官方参考文档：&lt;a class=&#34;link&#34; href=&#34;https://baomidou.com/guides/wrapper&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;https://baomidou.com/guides/wrapper&lt;/a&gt;
+&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;AbstractWrapper&lt;/strong&gt;：这是一个抽象基类，提供了所有 Wrapper  类共有的方法和属性。它定义了条件构造的基本逻辑，包括字段（column）、值（value）、操作符（condition）等。&lt;strong&gt;&lt;u&gt;所有的  QueryWrapper、UpdateWrapper、LambdaQueryWrapper 和 LambdaUpdateWrapper 都继承自 AbstractWrapper&lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;
@@ -307,8 +341,10 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&#34;代码示例&#34;&gt;代码示例
-&lt;/h3&gt;&lt;p&gt;以id为自增主键的用户表名举例&lt;/p&gt;
+&lt;h3 id=&#34;代码示例&#34;&gt;
+    代码示例
+&lt;/h3&gt;
+&lt;p&gt;以id为自增主键的用户表名举例&lt;/p&gt;
 &lt;p&gt;用户实体类&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nd&#34;&gt;@Data&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nd&#34;&gt;@TableName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;user_info&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -511,18 +547,21 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;‍&lt;/p&gt;
 </description>
-        </item>
-        <item>
-        <title>💫 MyBatis／plus</title>
-        <link>https://Jul1en-Lin.github.io/p/-mybatisplus/</link>
-        <pubDate>Fri, 12 Dec 2025 16:47:26 +0000</pubDate>
-        
-        <guid>https://Jul1en-Lin.github.io/p/-mybatisplus/</guid>
-        <description>&lt;h1 id=&#34;-mybatisplus&#34;&gt;💫 MyBatis／plus
-&lt;/h1&gt;&lt;p&gt;MyBatis 是一款半自动对象关系映射持久层框架，其核心通过 XML 或注解实现原生 SQL 与 Java 对象的解耦映射，在消除冗余 JDBC 代码的同时，保留了对 SQL 执行逻辑的控制&lt;/p&gt;
+    </item>
+    <item>
+      <title>💫 MyBatis／plus</title>
+      <link>https://Jul1en-Lin.github.io/p/-mybatisplus/</link>
+      <pubDate>Fri, 12 Dec 2025 16:47:26 +0000</pubDate>
+      <guid>https://Jul1en-Lin.github.io/p/-mybatisplus/</guid>
+      <description>&lt;h1 id=&#34;-mybatisplus&#34;&gt;
+    💫 MyBatis／plus
+&lt;/h1&gt;
+&lt;p&gt;MyBatis 是一款半自动对象关系映射持久层框架，其核心通过 XML 或注解实现原生 SQL 与 Java 对象的解耦映射，在消除冗余 JDBC 代码的同时，保留了对 SQL 执行逻辑的控制&lt;/p&gt;
 &lt;p&gt;接下来先讲传统Mybatis的配置&lt;/p&gt;
-&lt;h1 id=&#34;mybatis配置&#34;&gt;MyBatis配置
-&lt;/h1&gt;&lt;p&gt;mybatis是IDE和数据库的桥梁，便于在后端也能执行SQL，故配置必须需要连接数据库~&lt;/p&gt;
+&lt;h1 id=&#34;mybatis配置&#34;&gt;
+    MyBatis配置
+&lt;/h1&gt;
+&lt;p&gt;mybatis是IDE和数据库的桥梁，便于在后端也能执行SQL，故配置必须需要连接数据库~&lt;/p&gt;
 &lt;p&gt;💫&lt;code&gt;application.yml&lt;/code&gt;配置💫必备&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;数据库连接配置&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nl&#34;&gt;spring&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -539,15 +578,21 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nl&#34;&gt;logging&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;file&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;spring&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;book&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;mybatis&#34;&gt;MyBatis
-&lt;/h2&gt;&lt;h3 id=&#34;yml配置&#34;&gt;yml配置
-&lt;/h3&gt;&lt;p&gt;在&lt;code&gt;application.yml&lt;/code&gt;中可以增加mybatis的相关配置，如配置驼峰自动转换&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;mybatis&#34;&gt;
+    MyBatis
+&lt;/h2&gt;
+&lt;h3 id=&#34;yml配置&#34;&gt;
+    yml配置
+&lt;/h3&gt;
+&lt;p&gt;在&lt;code&gt;application.yml&lt;/code&gt;中可以增加mybatis的相关配置，如配置驼峰自动转换&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nl&#34;&gt;mybatis&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;configuration&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;map&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;underscore&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;to&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;camel&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;case&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;err&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;配置驼峰自动转换&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;impl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;org&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;apache&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;ibatis&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;logging&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;stdout&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;StdOutImpl&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;err&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;打印sql语句&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;添加依赖&#34;&gt;添加依赖
-&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;		&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dependency&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;添加依赖&#34;&gt;
+    添加依赖
+&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;		&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dependency&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;groupId&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;org&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;mybatis&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;spring&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;boot&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;groupId&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;artifactId&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mybatis&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;spring&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;boot&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;starter&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;artifactId&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -557,8 +602,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;artifactId&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mysql&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;connector&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;artifactId&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;scope&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;runtime&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;scope&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dependency&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;xml配置动态sql&#34;&gt;xml配置（动态SQL）
-&lt;/h3&gt;&lt;p&gt;xml一般是在写SQL中，简单的SQL已经无法满足业务需求，需要动态SQL时，需要的mybatis的配置，动态SQL就在xml文件里写。&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;xml配置动态sql&#34;&gt;
+    xml配置（动态SQL）
+&lt;/h3&gt;
+&lt;p&gt;xml一般是在写SQL中，简单的SQL已经无法满足业务需求，需要动态SQL时，需要的mybatis的配置，动态SQL就在xml文件里写。&lt;/p&gt;
 &lt;p&gt;一般放在resources.mapper包下，命名规范为&lt;code&gt;xxxMapper.xml&lt;/code&gt;，对应某个类。效果和注解Spring的@Select、@Update注解作用一致&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;!--&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;将以下放到xml文件头&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;--&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
@@ -571,12 +618,16 @@
 &lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/-mybatisplus/assets/image-20260204152931-uekqeap_hu_9f9637ededf31b75.webp&#34; width=&#34;1600&#34; height=&#34;717&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/-mybatisplus/assets/image-20260204152931-uekqeap_hu_2e2000326266c701.webp 800w, https://Jul1en-Lin.github.io/p/-mybatisplus/assets/image-20260204152931-uekqeap_hu_9f9637ededf31b75.webp 1600w, https://Jul1en-Lin.github.io/p/-mybatisplus/assets/image-20260204152931-uekqeap_hu_8ab71c9e64e9e7d2.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;223&#34; data-flex-basis=&#34;535px&#34;&gt;
 &lt;/p&gt;
-&lt;h2 id=&#34;mybatisx&#34;&gt;MyBatisX
-&lt;/h2&gt;&lt;p&gt;是一款plugin，支持xml的快速跳转和生成代码，非常好用~&lt;/p&gt;
+&lt;h2 id=&#34;mybatisx&#34;&gt;
+    MyBatisX
+&lt;/h2&gt;
+&lt;p&gt;是一款plugin，支持xml的快速跳转和生成代码，非常好用~&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/-mybatisplus/assets/image-20260204213706-byzmjek_hu_c28cf6e57dc7d26f.webp&#34; width=&#34;1600&#34; height=&#34;707&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/-mybatisplus/assets/image-20260204213706-byzmjek_hu_cae6aab3e8dc9d10.webp 800w, https://Jul1en-Lin.github.io/p/-mybatisplus/assets/image-20260204213706-byzmjek_hu_c28cf6e57dc7d26f.webp 1600w, https://Jul1en-Lin.github.io/p/-mybatisplus/assets/image-20260204213706-byzmjek_hu_356bf46251504f3e.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;226&#34; data-flex-basis=&#34;543px&#34;&gt;
 &lt;/p&gt;
-&lt;h2 id=&#34;mybatis-generator插件&#34;&gt;MyBatis-Generator插件
-&lt;/h2&gt;&lt;p&gt;这个插件使用也是非常的广泛&lt;/p&gt;
+&lt;h2 id=&#34;mybatis-generator插件&#34;&gt;
+    MyBatis-Generator插件
+&lt;/h2&gt;
+&lt;p&gt;这个插件使用也是非常的广泛&lt;/p&gt;
 &lt;p&gt;手写mapper还是太麻烦了，有一些插件能够帮我们自动生成一些sql，提高效率，同时需要generator文件&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;plugin&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;	&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;groupId&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;org&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;mybatis&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;generator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;groupId&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -608,7 +659,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;		&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dependency&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;	&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dependencies&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;plugin&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;上述插件提到的文件&lt;a class=&#34;link&#34; href=&#34;assets/generator-20260204145109-vh72myh.xml&#34; &gt;generator.xml&lt;/a&gt;，需放所提到的&lt;code&gt;&amp;lt;configurationFile&amp;gt;&lt;/code&gt;对应的位置，&lt;strong&gt;位置可修改&lt;/strong&gt;&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;上述插件提到的文件&lt;a class=&#34;link&#34; href=&#34;assets/generator-20260204145109-vh72myh.xml&#34;&gt;generator.xml&lt;/a&gt;
+，需放所提到的&lt;code&gt;&amp;lt;configurationFile&amp;gt;&lt;/code&gt;对应的位置，&lt;strong&gt;位置可修改&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/-mybatisplus/assets/image-20260204153629-4tl8z7h_hu_d3ad58f89184a866.webp&#34; width=&#34;1600&#34; height=&#34;432&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/-mybatisplus/assets/image-20260204153629-4tl8z7h_hu_6bbda1e2fa0e82a6.webp 800w, https://Jul1en-Lin.github.io/p/-mybatisplus/assets/image-20260204153629-4tl8z7h_hu_d3ad58f89184a866.webp 1600w, https://Jul1en-Lin.github.io/p/-mybatisplus/assets/image-20260204153629-4tl8z7h_hu_d468e317ee03174b.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;370&#34; data-flex-basis=&#34;889px&#34;&gt;
 &lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/-mybatisplus/assets/image-20260204153439-kb50mlp_hu_55e722bb23c9ff00.webp&#34; width=&#34;1600&#34; height=&#34;778&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/-mybatisplus/assets/image-20260204153439-kb50mlp_hu_36d017ffd4d18a63.webp 800w, https://Jul1en-Lin.github.io/p/-mybatisplus/assets/image-20260204153439-kb50mlp_hu_55e722bb23c9ff00.webp 1600w, https://Jul1en-Lin.github.io/p/-mybatisplus/assets/image-20260204153439-kb50mlp_hu_5a5d58a9df4c103b.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;205&#34; data-flex-basis=&#34;493px&#34;&gt;
@@ -662,18 +714,26 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;配置完成，&lt;strong&gt;双击运行插件即可，配置文件&lt;/strong&gt;**&lt;code&gt;generator.xml&lt;/code&gt;**就会生成对应的实体类与xml文件&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/-mybatisplus/assets/image-20260204151811-zkc66ob_hu_2da318c2fd1e6515.webp&#34; width=&#34;1600&#34; height=&#34;955&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/-mybatisplus/assets/image-20260204151811-zkc66ob_hu_1554190990f34f14.webp 800w, https://Jul1en-Lin.github.io/p/-mybatisplus/assets/image-20260204151811-zkc66ob_hu_2da318c2fd1e6515.webp 1600w, https://Jul1en-Lin.github.io/p/-mybatisplus/assets/image-20260204151811-zkc66ob_hu_7235a70cea0ad268.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;167&#34; data-flex-basis=&#34;402px&#34;&gt;
 &lt;/p&gt;
-&lt;h3 id=&#34;注意&#34;&gt;注意
-&lt;/h3&gt;&lt;p&gt;&lt;code&gt;generator.xml&lt;/code&gt;文件头放到IDE上会出现报错，无需更改&lt;/p&gt;
+&lt;h3 id=&#34;注意&#34;&gt;
+    注意
+&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;generator.xml&lt;/code&gt;文件头放到IDE上会出现报错，无需更改&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/-mybatisplus/assets/image-20260204153843-3oxr5g3_hu_713a1080cb40ea59.webp&#34; width=&#34;1600&#34; height=&#34;388&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/-mybatisplus/assets/image-20260204153843-3oxr5g3_hu_59f27b296b0cebb5.webp 800w, https://Jul1en-Lin.github.io/p/-mybatisplus/assets/image-20260204153843-3oxr5g3_hu_713a1080cb40ea59.webp 1600w, https://Jul1en-Lin.github.io/p/-mybatisplus/assets/image-20260204153843-3oxr5g3_hu_73e772a22d59f51a.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;412&#34; data-flex-basis=&#34;988px&#34;&gt;
 &lt;/p&gt;
 &lt;hr&gt;
-&lt;h1 id=&#34;mybatis-plus&#34;&gt;🚩MyBatis-plus
-&lt;/h1&gt;&lt;p&gt;是一个MyBatis的增强工具，简化开发，提高效率，类似于Hutool工具包，使用时仅需导入依赖即可&lt;/p&gt;
+&lt;h1 id=&#34;mybatis-plus&#34;&gt;
+    🚩MyBatis-plus
+&lt;/h1&gt;
+&lt;p&gt;是一个MyBatis的增强工具，简化开发，提高效率，类似于Hutool工具包，使用时仅需导入依赖即可&lt;/p&gt;
 &lt;p&gt;它封装了许多SQL语句，使用时仅需让mapper类&lt;code&gt;extends BaseMapper&amp;lt;&amp;gt;&lt;/code&gt;父类接口，执行时则可以直接调用他的一系列函数，无需手写&lt;/p&gt;
-&lt;h2 id=&#34;配置&#34;&gt;配置
-&lt;/h2&gt;&lt;h3 id=&#34;引入依赖&#34;&gt;引入依赖
-&lt;/h3&gt;&lt;p&gt;参考官方文档&lt;a class=&#34;link&#34; href=&#34;https://baomidou.com/getting-started/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://baomidou.com/getting-started&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;配置&#34;&gt;
+    配置
+&lt;/h2&gt;
+&lt;h3 id=&#34;引入依赖&#34;&gt;
+    引入依赖
+&lt;/h3&gt;
+&lt;p&gt;参考官方文档&lt;a class=&#34;link&#34; href=&#34;https://baomidou.com/getting-started/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;https://baomidou.com/getting-started&lt;/a&gt;
+&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/-mybatisplus/assets/image-20260204160525-zmsvdkf_hu_c771123f738cfae2.webp&#34; width=&#34;1600&#34; height=&#34;1310&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/-mybatisplus/assets/image-20260204160525-zmsvdkf_hu_e39de97f462376c1.webp 800w, https://Jul1en-Lin.github.io/p/-mybatisplus/assets/image-20260204160525-zmsvdkf_hu_c771123f738cfae2.webp 1600w, https://Jul1en-Lin.github.io/p/-mybatisplus/assets/image-20260204160525-zmsvdkf_hu_406c57d49e97b135.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;122&#34; data-flex-basis=&#34;293px&#34;&gt;
 &lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;!--&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Spring&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Boot3&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;--&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -690,8 +750,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dependency&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;根据你现使用的SpringBoot版本选择对应的依赖~&lt;/p&gt;
-&lt;h3 id=&#34;编码&#34;&gt;编码
-&lt;/h3&gt;&lt;ol&gt;
+&lt;h3 id=&#34;编码&#34;&gt;
+    编码
+&lt;/h3&gt;
+&lt;ol&gt;
 &lt;li&gt;编写对应实体类&lt;/li&gt;
 &lt;li&gt;编写 Mapper 接口并拓展&lt;code&gt;BaseMapper&amp;lt;T&amp;gt;&lt;/code&gt;接口&lt;/li&gt;
 &lt;/ol&gt;
@@ -700,15 +762,19 @@
 &lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/-mybatisplus/assets/image-20260205000225-jyr3ehi_hu_a31cf16a98370dc4.webp&#34; width=&#34;1600&#34; height=&#34;1026&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/-mybatisplus/assets/image-20260205000225-jyr3ehi_hu_e80a97aef9e6eb5a.webp 800w, https://Jul1en-Lin.github.io/p/-mybatisplus/assets/image-20260205000225-jyr3ehi_hu_a31cf16a98370dc4.webp 1600w, https://Jul1en-Lin.github.io/p/-mybatisplus/assets/image-20260205000225-jyr3ehi_hu_70f7caa2cbdba862.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;155&#34; data-flex-basis=&#34;374px&#34;&gt;
 &lt;/p&gt;
-&lt;h3 id=&#34;打印执行sql日志&#34;&gt;打印执行SQL日志
-&lt;/h3&gt;&lt;p&gt;与mybatis的配置文件类似，只需把名字改为mybatis-plus&lt;/p&gt;
+&lt;h3 id=&#34;打印执行sql日志&#34;&gt;
+    打印执行SQL日志
+&lt;/h3&gt;
+&lt;p&gt;与mybatis的配置文件类似，只需把名字改为mybatis-plus&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;application.yml&lt;/code&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;mybatis&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;plus&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;configuration&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;map&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;underscore&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;to&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;camel&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;case&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;err&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;配置驼峰自动转换&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;impl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;org&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;apache&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;ibatis&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;logging&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;stdout&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;StdOutImpl&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;err&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;打印sql语句&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;识别原理&#34;&gt;识别原理
-&lt;/h2&gt;&lt;p&gt;刚才只是配置了&lt;code&gt;application.yml&lt;/code&gt;中的数据库连接信息，拓展了&lt;code&gt;BaseMapper&amp;lt;&amp;gt;&lt;/code&gt;接口与实现了一个实体类&lt;code&gt;UserInfo&lt;/code&gt;，就能够查询数据库中的&lt;code&gt;user_info&lt;/code&gt;这张表并且成功执行SQL了，它是如何识别出来的呢？&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;识别原理&#34;&gt;
+    识别原理
+&lt;/h2&gt;
+&lt;p&gt;刚才只是配置了&lt;code&gt;application.yml&lt;/code&gt;中的数据库连接信息，拓展了&lt;code&gt;BaseMapper&amp;lt;&amp;gt;&lt;/code&gt;接口与实现了一个实体类&lt;code&gt;UserInfo&lt;/code&gt;，就能够查询数据库中的&lt;code&gt;user_info&lt;/code&gt;这张表并且成功执行SQL了，它是如何识别出来的呢？&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;表名&lt;/li&gt;
 &lt;/ol&gt;
@@ -738,11 +804,13 @@
 &lt;p&gt;他的推断规律与推断表名是一样的，如果不一致则用&lt;code&gt;@TableField&lt;/code&gt;映射&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/-mybatisplus/assets/image-20260205011841-3q1kzhd_hu_116ca9e3c6bec93c.webp&#34; width=&#34;1600&#34; height=&#34;1235&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/-mybatisplus/assets/image-20260205011841-3q1kzhd_hu_f670cd069532ad0a.webp 800w, https://Jul1en-Lin.github.io/p/-mybatisplus/assets/image-20260205011841-3q1kzhd_hu_116ca9e3c6bec93c.webp 1600w, https://Jul1en-Lin.github.io/p/-mybatisplus/assets/image-20260205011841-3q1kzhd_hu_954b694e628662a8.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;129&#34; data-flex-basis=&#34;310px&#34;&gt;
 &lt;/p&gt;
-&lt;h2 id=&#34;条件构造器wrapper&#34;&gt;条件构造器Wrapper
-&lt;/h2&gt;&lt;p&gt;MyBatis-Plus 提供了一套强大的条件构造器（Wrapper），用于构建复杂的数据库查询条件。Wrapper 类允许开发者以链式调用的方式构造查询条件，无需编写繁琐的 SQL 语句，从而提高开发效率并减少 SQL 注入的风险&lt;/p&gt;
+&lt;h2 id=&#34;条件构造器wrapper&#34;&gt;
+    条件构造器Wrapper
+&lt;/h2&gt;
+&lt;p&gt;MyBatis-Plus 提供了一套强大的条件构造器（Wrapper），用于构建复杂的数据库查询条件。Wrapper 类允许开发者以链式调用的方式构造查询条件，无需编写繁琐的 SQL 语句，从而提高开发效率并减少 SQL 注入的风险&lt;/p&gt;
 &lt;p&gt;它是构建复杂查询和更新条件的关键工具。&lt;strong&gt;它允许开发者以链式调用的方式构造 SQL 的 WHERE 子句，提供了极大的灵活性和便利性&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;MyBatis-Plus 关于构造器的官方参考文档：&lt;a class=&#34;link&#34; href=&#34;https://baomidou.com/guides/wrapper&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://baomidou.com/guides/wrapper&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;MyBatis-Plus 关于构造器的官方参考文档：&lt;a class=&#34;link&#34; href=&#34;https://baomidou.com/guides/wrapper&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;https://baomidou.com/guides/wrapper&lt;/a&gt;
+&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;AbstractWrapper&lt;/strong&gt;：这是一个抽象基类，提供了所有 Wrapper  类共有的方法和属性。它定义了条件构造的基本逻辑，包括字段（column）、值（value）、操作符（condition）等。&lt;u&gt;&lt;strong&gt;所有的  QueryWrapper、UpdateWrapper、LambdaQueryWrapper 和 LambdaUpdateWrapper 都继承自 AbstractWrapper&lt;/strong&gt;&lt;/u&gt;&lt;/p&gt;
@@ -810,8 +878,10 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&#34;代码示例&#34;&gt;代码示例
-&lt;/h3&gt;&lt;p&gt;以id为自增主键的用户表名举例&lt;/p&gt;
+&lt;h3 id=&#34;代码示例&#34;&gt;
+    代码示例
+&lt;/h3&gt;
+&lt;p&gt;以id为自增主键的用户表名举例&lt;/p&gt;
 &lt;p&gt;用户实体类&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nd&#34;&gt;@Data&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nd&#34;&gt;@TableName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;user_info&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -1014,7 +1084,6 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;‍&lt;/p&gt;
 </description>
-        </item>
-        
-    </channel>
+    </item>
+  </channel>
 </rss>

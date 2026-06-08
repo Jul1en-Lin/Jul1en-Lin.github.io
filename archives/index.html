@@ -1,43 +1,46 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
+<html lang="zh-CN" dir="ltr">
 
-<head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="一个关于后端开发、测试、工具实践与生活记录的个人博客。">
-<title>合集 | Jul1en</title>
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>合集 | Jul1en</title>
+<meta name="description" content="一个关于后端开发、测试、工具实践与生活记录的个人博客。">
+<meta name="author" content="Jul1en">
+<link rel="canonical" href="https://Jul1en-Lin.github.io/archives/">
 
-<link rel='canonical' href='https://Jul1en-Lin.github.io/archives/'>
-
-<link rel="stylesheet" href="/scss/style.min.ec82946fda8d90cf1fb1835f4491c98e9279c2eae00a5622fe790c8a9ce86062.css"><meta property='og:title' content="合集 | Jul1en">
-<meta property='og:description' content="一个关于后端开发、测试、工具实践与生活记录的个人博客。">
-<meta property='og:url' content='https://Jul1en-Lin.github.io/archives/'>
-<meta property='og:site_name' content='Jul1en'>
-<meta property='og:type' content='article'><meta property='article:section' content='Page' /><meta property='article:published_time' content='2019-05-28T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-12-11T00:47:03&#43;08:00'/>
-<meta name="twitter:title" content="合集 | Jul1en">
-<meta name="twitter:description" content="一个关于后端开发、测试、工具实践与生活记录的个人博客。">
-    <link rel="shortcut icon" href="/favicon-signature.svg" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="icon" href="/favicon-signature.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-signature.png" type="image/png" sizes="512x512">
-<link rel="alternate icon" href="/favicon-signature.ico" type="image/x-icon">
-<meta name="author" content="Jul1en">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)"><script src="/js/custom.4bb4ca905d915217c671721b75f16ae60652e805c90c767a80a951f0dddeeb9c.js" integrity="sha256-S7TKkF2RUhfGcXIbdfFq5gZS6AXJDHZ6gKlR8N3e65w=" defer></script><script>
+<link rel="alternate icon" href="/favicon.ico" type="image/x-icon">
+<meta name="theme-color" content="#fdfdf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="合集 | Jul1en">
+<meta property="og:description" content="一个关于后端开发、测试、工具实践与生活记录的个人博客。">
+<meta property="og:url" content="https://Jul1en-Lin.github.io/archives/">
+<meta property="og:site_name" content="Jul1en">
+<meta property="og:type" content="article">
+<meta property="article:section" content="Page">
+<meta property="article:published_time" content="2019-05-28T00:00:00&#43;00:00">
+<meta property="article:modified_time" content="2025-12-11T00:47:03&#43;08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="合集 | Jul1en">
+<meta name="twitter:description" content="一个关于后端开发、测试、工具实践与生活记录的个人博客。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"><script>
     (function () {
-        const colorSchemeKey = 'StackColorScheme';
-        const savedScheme = localStorage.getItem(colorSchemeKey);
-        const defaultScheme = "light";
-        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
-        const scheme = savedScheme || defaultScheme;
-
-        if (scheme === 'dark' || (scheme === 'auto' && supportDarkMode)) {
-            document.documentElement.dataset.scheme = 'dark';
-        } else {
-            document.documentElement.dataset.scheme = 'light';
+        var stored = null;
+        try {
+            stored = window.localStorage.getItem('ColorScheme');
+        } catch (error) {
+            stored = null;
         }
+
+        var scheme = stored;
+        if (scheme !== 'light' && scheme !== 'dark') {
+            scheme = "light";
+        }
+        document.documentElement.dataset.scheme = scheme;
     })();
-</script>
+</script><link rel="stylesheet" href="/css/site.min.0758d8aad30f198f851a02b8c6494f637bd95774b2fd6b2f576cf99133b942f8.css" integrity="sha256-B1jYqtMPGY&#43;FGgK4xklPY3vZV3Sy/WsvV2z5kTO5Qvg="><script src="/js/site.51f8655227b5fb12b2585c2985e20ec3e93192ca19774662d732d2a0bcb492f0.js" integrity="sha256-UfhlUie1&#43;xKyWFwpheIOw&#43;kxksoZd0Zi1zLSoLy0kvA=" defer></script>
 
 </head>
 
@@ -93,7 +96,7 @@
   <path fill="currentColor" d="M17.2 7.2a.9.9 0 1 1-1.8 0 .9.9 0 0 1 1.8 0Z" />
 </svg>
 </span>
-                    </a><button id="dark-mode-toggle" class="theme-toggle" type="button" aria-label="暗色模式" title="暗色模式">
+                    </a><button id="dark-mode-toggle" class="theme-toggle" type="button" aria-label="切换配色" title="切换配色">
                     <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
     <circle cx="12" cy="12" r="4.2" />
     <path d="M12 2.8v2.2M12 19v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.8 12h2.2M19 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" />
@@ -117,738 +120,489 @@
 <div class="plum-background" data-plum-background aria-hidden="true">
     <canvas class="plum-background__canvas"></canvas>
 </div><main id="main-content" class="main main-content full-width" tabindex="-1">
-
-
-
-
-
-
-
-
-
-
-
-
+<header class="archives-header">
+    <p class="archives-header__eyebrow">Archive</p>
+    <h1>合集</h1>
+</header>
 <div class="archives-group" id="2026">
     <h2 class="archives-date section-title"><a href="/archives/#2026">2026</a></h2>
     <div class="article-list--compact">
-        
         <article>
     <a href="/p/redis-%E7%BC%93%E5%AD%98/">
         <div class="article-details">
             <h2 class="article-title">Redis 缓存</h2>
             <footer class="article-time">
-                <time datetime='2026-06-04T22:42:48&#43;08:00'>2026-06-04</time>
+                <time datetime="2026-06-04T22:42:48&#43;08:00">
+                    2026-06-04
+                </time>
             </footer>
         </div>
     </a>
 </article>
-        
+
         <article>
     <a href="/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/">
         <div class="article-details">
             <h2 class="article-title">API 类型总结</h2>
             <footer class="article-time">
-                <time datetime='2026-06-01T23:35:26&#43;08:00'>2026-06-01</time>
+                <time datetime="2026-06-01T23:35:26&#43;08:00">
+                    2026-06-01
+                </time>
             </footer>
         </div>
     </a>
 </article>
-        
+
         <article>
     <a href="/p/docker-%E9%83%A8%E7%BD%B2-redis-%E9%9B%86%E7%BE%A4/">
         <div class="article-details">
             <h2 class="article-title">Docker 部署 Redis 集群</h2>
             <footer class="article-time">
-                <time datetime='2026-06-01T16:01:33&#43;08:00'>2026-06-01</time>
+                <time datetime="2026-06-01T16:01:33&#43;08:00">
+                    2026-06-01
+                </time>
             </footer>
         </div>
     </a>
 </article>
-        
+
         <article>
     <a href="/p/redis-%E9%9B%86%E7%BE%A4/">
         <div class="article-details">
             <h2 class="article-title">Redis 集群</h2>
             <footer class="article-time">
-                <time datetime='2026-05-31T23:16:16&#43;08:00'>2026-05-31</time>
+                <time datetime="2026-05-31T23:16:16&#43;08:00">
+                    2026-05-31
+                </time>
             </footer>
         </div>
     </a>
 </article>
-        
+
         <article>
     <a href="/p/redis-%E5%93%A8%E5%85%B5/">
         <div class="article-details">
             <h2 class="article-title">Redis 哨兵</h2>
             <footer class="article-time">
-                <time datetime='2026-05-31T22:26:24&#43;08:00'>2026-05-31</time>
+                <time datetime="2026-05-31T22:26:24&#43;08:00">
+                    2026-05-31
+                </time>
             </footer>
         </div>
     </a>
 </article>
-        
+
         <article>
     <a href="/p/codex-%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%9B%B4%E6%96%B0-v2/">
         <div class="article-details">
             <h2 class="article-title">Codex 工作流更新-v2</h2>
             <footer class="article-time">
-                <time datetime='2026-05-30T00:00:00&#43;08:00'>2026-05-30</time>
+                <time datetime="2026-05-30T00:00:00&#43;08:00">
+                    2026-05-30
+                </time>
             </footer>
         </div>
     </a>
 </article>
-        
+
         <article>
     <a href="/p/sentinel/">
         <div class="article-details">
             <h2 class="article-title">Sentinel</h2>
             <footer class="article-time">
-                <time datetime='2026-05-21T00:00:00&#43;08:00'>2026-05-21</time>
+                <time datetime="2026-05-21T00:00:00&#43;08:00">
+                    2026-05-21
+                </time>
             </footer>
         </div>
     </a>
 </article>
-        
+
         <article>
     <a href="/p/git-stash/">
         <div class="article-details">
             <h2 class="article-title">Git stash</h2>
             <footer class="article-time">
-                <time datetime='2026-05-15T05:40:20Z'>2026-05-15</time>
+                <time datetime="2026-05-15T05:40:20Z">
+                    2026-05-15
+                </time>
             </footer>
         </div>
     </a>
 </article>
-        
+
         <article>
     <a href="/p/springcloud-config/">
         <div class="article-details">
             <h2 class="article-title">SpringCloud Config</h2>
             <footer class="article-time">
-                <time datetime='2026-05-14T16:38:45Z'>2026-05-14</time>
+                <time datetime="2026-05-14T16:38:45Z">
+                    2026-05-14
+                </time>
             </footer>
         </div>
     </a>
 </article>
-        
+
         <article>
     <a href="/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/">
         <div class="article-details">
             <h2 class="article-title">Redis 主从复制</h2>
             <footer class="article-time">
-                <time datetime='2026-05-13T15:29:13Z'>2026-05-13</time>
+                <time datetime="2026-05-13T15:29:13Z">
+                    2026-05-13
+                </time>
             </footer>
         </div>
     </a>
 </article>
-        
+
         <article>
     <a href="/p/reids-%E4%BA%8B%E5%8A%A1/">
         <div class="article-details">
             <h2 class="article-title">Reids 事务</h2>
             <footer class="article-time">
-                <time datetime='2026-05-12T07:48:34Z'>2026-05-12</time>
+                <time datetime="2026-05-12T07:48:34Z">
+                    2026-05-12
+                </time>
             </footer>
         </div>
     </a>
 </article>
-        
+
         <article>
     <a href="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/">
         <div class="article-details">
             <h2 class="article-title">Spring Cloud 核心概念</h2>
             <footer class="article-time">
-                <time datetime='2026-05-10T13:00:35Z'>2026-05-10</time>
+                <time datetime="2026-05-10T13:00:35Z">
+                    2026-05-10
+                </time>
             </footer>
         </div>
     </a>
 </article>
-        
+
         <article>
     <a href="/p/claude-%E8%BF%81%E7%A7%BB-codex-%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%9B%B4%E6%96%B0/">
         <div class="article-details">
             <h2 class="article-title">Claude 迁移 Codex 工作流更新</h2>
             <footer class="article-time">
-                <time datetime='2026-05-03T14:25:17Z'>2026-05-03</time>
+                <time datetime="2026-05-03T14:25:17Z">
+                    2026-05-03
+                </time>
             </footer>
         </div>
     </a>
 </article>
-        
+
         <article>
     <a href="/p/redis-%E8%BF%9B%E9%98%B6/">
         <div class="article-details">
             <h2 class="article-title">Redis 进阶</h2>
             <footer class="article-time">
-                <time datetime='2026-04-21T09:38:54Z'>2026-04-21</time>
+                <time datetime="2026-04-21T09:38:54Z">
+                    2026-04-21
+                </time>
             </footer>
         </div>
     </a>
 </article>
-        
+
         <article>
     <a href="/p/agent-%E6%A6%82%E5%BF%B5/">
         <div class="article-details">
             <h2 class="article-title">Agent 概念</h2>
             <footer class="article-time">
-                <time datetime='2026-04-12T06:07:14Z'>2026-04-12</time>
+                <time datetime="2026-04-12T06:07:14Z">
+                    2026-04-12
+                </time>
             </footer>
         </div>
     </a>
 </article>
-        
+
         <article>
     <a href="/p/git-lfs-%E7%AA%81%E7%A0%B4%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E9%99%90%E5%88%B6/">
         <div class="article-details">
             <h2 class="article-title">Git LFS 突破大文件上传限制</h2>
             <footer class="article-time">
-                <time datetime='2026-04-03T00:18:50&#43;08:00'>2026-04-03</time>
+                <time datetime="2026-04-03T00:18:50&#43;08:00">
+                    2026-04-03
+                </time>
             </footer>
         </div>
     </a>
 </article>
-        
+
         <article>
     <a href="/p/%E6%8A%BD%E5%A5%96%E7%B3%BB%E7%BB%9F/">
         <div class="article-details">
             <h2 class="article-title">🎏 抽奖系统</h2>
             <footer class="article-time">
-                <time datetime='2026-03-24T17:16:51&#43;08:00'>2026-03-24</time>
+                <time datetime="2026-03-24T17:16:51&#43;08:00">
+                    2026-03-24
+                </time>
             </footer>
         </div>
     </a>
 </article>
-        
+
         <article>
     <a href="/p/%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE/">
         <div class="article-details">
             <h2 class="article-title">博客系统项目</h2>
             <footer class="article-time">
-                <time datetime='2026-02-11T08:14:24Z'>2026-02-11</time>
+                <time datetime="2026-02-11T08:14:24Z">
+                    2026-02-11
+                </time>
             </footer>
         </div>
     </a>
 </article>
-        
+
         <article>
     <a href="/p/mybatis/plus-%E5%8F%8A%E9%85%8D%E7%BD%AE/">
         <div class="article-details">
             <h2 class="article-title">🥓 MyBatis/plus 及配置</h2>
             <footer class="article-time">
-                <time datetime='2026-02-05T22:48:02&#43;08:00'>2026-02-05</time>
+                <time datetime="2026-02-05T22:48:02&#43;08:00">
+                    2026-02-05
+                </time>
             </footer>
         </div>
     </a>
 </article>
-        
+
         <article>
     <a href="/p/%E6%89%93%E5%8D%B0%E6%97%A5%E5%BF%97/">
         <div class="article-details">
             <h2 class="article-title">打印日志</h2>
             <footer class="article-time">
-                <time datetime='2026-02-04T07:47:28Z'>2026-02-04</time>
+                <time datetime="2026-02-04T07:47:28Z">
+                    2026-02-04
+                </time>
             </footer>
         </div>
     </a>
 </article>
-        
+
         <article>
     <a href="/p/jmeter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/">
         <div class="article-details">
             <h2 class="article-title">🎁 Jmeter 安装配置</h2>
             <footer class="article-time">
-                <time datetime='2026-02-04T14:36:41&#43;08:00'>2026-02-04</time>
+                <time datetime="2026-02-04T14:36:41&#43;08:00">
+                    2026-02-04
+                </time>
             </footer>
         </div>
     </a>
 </article>
-        
+
     </div>
 </div>
-
-
 <div class="archives-group" id="2025">
     <h2 class="archives-date section-title"><a href="/archives/#2025">2025</a></h2>
     <div class="article-list--compact">
-        
         <article>
     <a href="/p/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%B1%BB%E9%A2%98%E7%9B%AE/">
         <div class="article-details">
             <h2 class="article-title">🛹 位运算类题目</h2>
             <footer class="article-time">
-                <time datetime='2025-12-24T23:35:35&#43;08:00'>2025-12-24</time>
+                <time datetime="2025-12-24T23:35:35&#43;08:00">
+                    2025-12-24
+                </time>
             </footer>
         </div>
     </a>
 </article>
-        
+
         <article>
     <a href="/p/%E5%88%86%E6%B2%BB-%E5%BD%92%E5%B9%B6%E7%B1%BB%E9%A2%98%E7%9B%AE/">
         <div class="article-details">
             <h2 class="article-title">🪭 分治-归并类题目</h2>
             <footer class="article-time">
-                <time datetime='2025-12-20T01:12:18&#43;08:00'>2025-12-20</time>
+                <time datetime="2025-12-20T01:12:18&#43;08:00">
+                    2025-12-20
+                </time>
             </footer>
         </div>
     </a>
 </article>
-        
+
         <article>
     <a href="/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/">
         <div class="article-details">
             <h2 class="article-title">🌶️ TopK问题</h2>
             <footer class="article-time">
-                <time datetime='2025-12-17T01:09:55&#43;08:00'>2025-12-17</time>
+                <time datetime="2025-12-17T01:09:55&#43;08:00">
+                    2025-12-17
+                </time>
             </footer>
         </div>
     </a>
 </article>
-        
+
         <article>
     <a href="/p/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/">
         <div class="article-details">
             <h2 class="article-title">🪶 Git命令大全</h2>
             <footer class="article-time">
-                <time datetime='2025-12-15T00:47:22&#43;08:00'>2025-12-15</time>
+                <time datetime="2025-12-15T00:47:22&#43;08:00">
+                    2025-12-15
+                </time>
             </footer>
         </div>
     </a>
 </article>
-        
+
         <article>
     <a href="/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/">
         <div class="article-details">
             <h2 class="article-title">🧣 验证码功能</h2>
             <footer class="article-time">
-                <time datetime='2025-12-13T01:02:22&#43;08:00'>2025-12-13</time>
+                <time datetime="2025-12-13T01:02:22&#43;08:00">
+                    2025-12-13
+                </time>
             </footer>
         </div>
     </a>
 </article>
-        
+
         <article>
     <a href="/p/-mybatisplus/">
         <div class="article-details">
             <h2 class="article-title">💫 MyBatis／plus</h2>
             <footer class="article-time">
-                <time datetime='2025-12-12T16:47:26Z'>2025-12-12</time>
+                <time datetime="2025-12-12T16:47:26Z">
+                    2025-12-12
+                </time>
             </footer>
         </div>
     </a>
 </article>
-        
-        <article>
+
+        <article class="has-image">
     <a href="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/">
         <div class="article-details">
             <h2 class="article-title">🎓 Web自动化测试</h2>
             <footer class="article-time">
-                <time datetime='2025-12-12T17:16:00&#43;08:00'>2025-12-12</time>
+                <time datetime="2025-12-12T17:16:00&#43;08:00">
+                    2025-12-12
+                </time>
             </footer>
         </div>
-            <div class="article-image">
-                <img src="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161502-kow88l3_hu_1dd36341b1ba9977.png" 
-                        width="120"
-                        height="120" 
-                        alt="🎓 Web自动化测试"
-                        loading="lazy">
-                
-            </div>
-        
+        <div class="article-image">
+            <img src="/p/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/assets/image-20251206161502-kow88l3_hu_83644ccedb0c04f1.png" width="240" height="240"
+                alt="" loading="lazy">
+        </div>
     </a>
 </article>
-        
-        <article>
+
+        <article class="has-image">
     <a href="/p/spring-ioc-di/">
         <div class="article-details">
             <h2 class="article-title">🍀Spring IoC &amp; DI</h2>
             <footer class="article-time">
-                <time datetime='2025-12-08T17:12:08&#43;08:00'>2025-12-08</time>
+                <time datetime="2025-12-08T17:12:08&#43;08:00">
+                    2025-12-08
+                </time>
             </footer>
         </div>
-            <div class="article-image">
-                <img src="/p/spring-ioc-di/assets/image-20251202182824-baismlb_hu_8da038f492544efa.png" 
-                        width="120"
-                        height="120" 
-                        alt="🍀Spring IoC &amp; DI"
-                        loading="lazy">
-                
-            </div>
-        
+        <div class="article-image">
+            <img src="/p/spring-ioc-di/assets/image-20251202182824-baismlb_hu_209e8066f1f11e64.png" width="240" height="240"
+                alt="" loading="lazy">
+        </div>
     </a>
 </article>
-        
+
         <article>
     <a href="/p/%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B/">
         <div class="article-details">
             <h2 class="article-title">🌵 开发模型和测试模型</h2>
             <footer class="article-time">
-                <time datetime='2025-10-31T05:31:52Z'>2025-10-31</time>
+                <time datetime="2025-10-31T05:31:52Z">
+                    2025-10-31
+                </time>
             </footer>
         </div>
     </a>
 </article>
-        
+
         <article>
     <a href="/p/github%E7%A0%81%E4%BA%91%E5%90%8C%E6%AD%A5%E8%84%9A%E6%9C%AC/">
         <div class="article-details">
             <h2 class="article-title">🪐 Github码云同步脚本</h2>
             <footer class="article-time">
-                <time datetime='2025-10-05T22:47:19&#43;08:00'>2025-10-05</time>
+                <time datetime="2025-10-05T22:47:19&#43;08:00">
+                    2025-10-05
+                </time>
             </footer>
         </div>
     </a>
 </article>
-        
+
         <article>
     <a href="/p/%E4%BA%8B%E5%8A%A1/">
         <div class="article-details">
             <h2 class="article-title">事务</h2>
             <footer class="article-time">
-                <time datetime='2025-07-18T13:32:29Z'>2025-07-18</time>
+                <time datetime="2025-07-18T13:32:29Z">
+                    2025-07-18
+                </time>
             </footer>
         </div>
     </a>
 </article>
-        
+
         <article>
     <a href="/p/%E5%89%8D%E8%A8%80/">
         <div class="article-details">
             <h2 class="article-title">前言</h2>
             <footer class="article-time">
-                <time datetime='2025-05-27T08:30:48Z'>2025-05-27</time>
+                <time datetime="2025-05-27T08:30:48Z">
+                    2025-05-27
+                </time>
             </footer>
         </div>
     </a>
 </article>
-        
+
         <article>
     <a href="/p/map--set/">
         <div class="article-details">
             <h2 class="article-title">Map &amp; Set</h2>
             <footer class="article-time">
-                <time datetime='2025-05-19T13:26:18Z'>2025-05-19</time>
+                <time datetime="2025-05-19T13:26:18Z">
+                    2025-05-19
+                </time>
             </footer>
         </div>
     </a>
 </article>
-        
+
         <article>
     <a href="/p/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8E%92%E5%BA%8F/">
         <div class="article-details">
             <h2 class="article-title">数据结构——排序</h2>
             <footer class="article-time">
-                <time datetime='2025-05-19T02:43:08Z'>2025-05-19</time>
+                <time datetime="2025-05-19T02:43:08Z">
+                    2025-05-19
+                </time>
             </footer>
         </div>
     </a>
 </article>
-        
+
     </div>
 </div>
 
-
-
-
-    </main>
-
-    <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
-                
-                >
-            </script><script type="text/javascript" src="/ts/main.836efe327773ba454adac61ee8b35272b6f512bd594ed9ea0f926fca8386433b.js" defer></script><script type="text/javascript" src="/ts/custom.4bb4ca905d915217c671721b75f16ae60652e805c90c767a80a951f0dddeeb9c.js" defer></script>
-
-
-<button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
+    </main><button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M6 14.5 12 8l6 6.5" />
+        <path d="M6 14.5 12 8l6 6.5"></path>
     </svg>
 </button>
-
-<script>
-    (function () {
-        'use strict';
-
-        const menuToggle = document.querySelector('.site-menu-toggle');
-        const nav = document.getElementById('primary-navigation');
-        const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-        function initThemeToggle() {
-            const toggle = document.getElementById('dark-mode-toggle');
-            if (!toggle || toggle.dataset.projectThemeToggleReady === 'true') return;
-
-            toggle.dataset.projectThemeToggleReady = 'true';
-
-            function getCurrentScheme() {
-                return document.documentElement.dataset.scheme === 'dark' ? 'dark' : 'light';
-            }
-
-            function getSystemScheme() {
-                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-            }
-
-            function saveScheme(scheme) {
-                try {
-                    window.localStorage.setItem('StackColorScheme', scheme === getSystemScheme() ? 'auto' : scheme);
-                } catch (error) {
-                    return;
-                }
-            }
-
-            function applyScheme(scheme) {
-                document.documentElement.dataset.scheme = scheme;
-                saveScheme(scheme);
-                window.dispatchEvent(new CustomEvent('onColorSchemeChange', { detail: scheme }));
-            }
-
-            toggle.addEventListener('click', function (event) {
-                event.preventDefault();
-                event.stopImmediatePropagation();
-
-                const x = event.clientX;
-                const y = event.clientY;
-                const willBeDark = getCurrentScheme() !== 'dark';
-                const nextScheme = willBeDark ? 'dark' : 'light';
-                const endRadius = Math.hypot(
-                    Math.max(x, window.innerWidth - x),
-                    Math.max(y, window.innerHeight - y)
-                );
-
-                if (!document.startViewTransition) {
-                    applyScheme(nextScheme);
-                    return;
-                }
-
-                const transition = document.startViewTransition(function () {
-                    applyScheme(nextScheme);
-                });
-
-                transition.ready.then(function () {
-                    const clipPath = willBeDark
-                        ? [`circle(${endRadius}px at ${x}px ${y}px)`, `circle(0px at ${x}px ${y}px)`]
-                        : [`circle(0px at ${x}px ${y}px)`, `circle(${endRadius}px at ${x}px ${y}px)`];
-
-                    document.documentElement.animate(
-                        { clipPath },
-                        {
-                            duration: 500,
-                            easing: 'ease-in-out',
-                            fill: 'forwards',
-                            pseudoElement: willBeDark
-                                ? '::view-transition-old(root)'
-                                : '::view-transition-new(root)'
-                        }
-                    );
-                });
-            }, { capture: true });
-        }
-
-        function setMenuOpen(open) {
-            if (!menuToggle || !nav) return;
-            menuToggle.classList.toggle('is-open', open);
-            nav.classList.toggle('is-open', open);
-            document.body.classList.toggle('site-nav-open', open);
-            menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        }
-
-        if (menuToggle && nav) {
-            menuToggle.addEventListener('click', function (event) {
-                event.stopPropagation();
-                setMenuOpen(!nav.classList.contains('is-open'));
-            });
-
-            nav.querySelectorAll('a').forEach(function (link) {
-                link.addEventListener('click', function () {
-                    setMenuOpen(false);
-                });
-            });
-
-            document.addEventListener('keydown', function (event) {
-                if (event.key === 'Escape') setMenuOpen(false);
-            });
-
-            document.addEventListener('click', function (event) {
-                if (!document.body.classList.contains('site-nav-open')) return;
-                if (nav.contains(event.target) || menuToggle.contains(event.target)) return;
-                setMenuOpen(false);
-            });
-
-            const desktopQuery = window.matchMedia('(min-width: 921px)');
-            const closeMenuOnDesktop = function (event) {
-                if (event.matches) setMenuOpen(false);
-            };
-
-            if (desktopQuery.addEventListener) {
-                desktopQuery.addEventListener('change', closeMenuOnDesktop);
-            } else if (desktopQuery.addListener) {
-                desktopQuery.addListener(closeMenuOnDesktop);
-            }
-        }
-
-        const backToTop = document.getElementById('back-to-top');
-
-        if (backToTop) {
-            function updateBackToTop() {
-                backToTop.classList.toggle('is-visible', window.scrollY > 420);
-            }
-
-            backToTop.addEventListener('click', function () {
-                window.scrollTo({ top: 0, behavior: reduceMotionQuery.matches ? 'auto' : 'smooth' });
-            });
-
-            window.addEventListener('scroll', updateBackToTop, { passive: true });
-            updateBackToTop();
-        }
-
-        function initArticleTocHover() {
-            const toc = document.querySelector('[data-article-toc]');
-            const articleMain = document.querySelector('.article-detail__main');
-            if (!toc || !articleMain) return;
-
-            const toggle = toc.querySelector('[data-article-toc-toggle]');
-            let lockedOpen = false;
-
-            function setVisible(visible) {
-                document.body.classList.toggle('is-article-toc-visible', visible);
-                if (toggle) {
-                    toggle.setAttribute('aria-expanded', visible ? 'true' : 'false');
-                    toggle.setAttribute('aria-label', visible ? '隐藏文章目录' : '显示文章目录');
-                }
-            }
-
-            function getLeftRevealZone() {
-                return Math.min(380, Math.max(280, window.innerWidth * 0.22));
-            }
-
-            function isInsideReadingColumn(x, y) {
-                const rect = articleMain.getBoundingClientRect();
-                const top = Math.min(rect.top, 0) - 48;
-                const bottom = Math.max(rect.bottom, window.innerHeight) + 48;
-
-                return x >= rect.left - 72 && x <= rect.right + 32 && y >= top && y <= bottom;
-            }
-
-            document.addEventListener('pointermove', function (event) {
-                if (lockedOpen) return;
-                setVisible(event.clientX <= getLeftRevealZone() || isInsideReadingColumn(event.clientX, event.clientY));
-            }, { passive: true });
-
-            document.addEventListener('pointerleave', function () {
-                if (!lockedOpen) setVisible(false);
-            });
-
-            toc.addEventListener('focusin', function () {
-                setVisible(true);
-            });
-
-            toc.addEventListener('focusout', function (event) {
-                if (lockedOpen || toc.contains(event.relatedTarget)) return;
-                setVisible(false);
-            });
-
-            if (toggle) {
-                toggle.addEventListener('click', function () {
-                    const isVisible = document.body.classList.contains('is-article-toc-visible');
-                    if (lockedOpen && isVisible) {
-                        lockedOpen = false;
-                        setVisible(false);
-                        return;
-                    }
-
-                    lockedOpen = true;
-                    setVisible(true);
-                });
-            }
-
-            document.addEventListener('click', function (event) {
-                if (!lockedOpen) return;
-                if (toc.contains(event.target) || articleMain.contains(event.target)) return;
-                lockedOpen = false;
-                setVisible(false);
-            });
-
-            document.addEventListener('keydown', function (event) {
-                if (event.key !== 'Escape') return;
-                lockedOpen = false;
-                setVisible(false);
-            });
-        }
-
-        function initRevealOnScroll() {
-            if (reduceMotionQuery.matches || !('IntersectionObserver' in window)) return;
-
-            const revealSelectors = [
-                '.section-band',
-                '.featured-section',
-                '.blog-card',
-                '.post-tools',
-                '.article-detail__content > blockquote',
-                '.article-detail__content > .highlight',
-                '.article-detail__content > pre',
-                '.article-detail__content > .table-wrapper',
-                '.article-detail__content > figure',
-                '.article-detail__content > details',
-                '.article-detail__content > hr',
-                '.article-detail__footer',
-                '.music-album-card'
-            ];
-
-            const targets = revealSelectors.reduce(function (items, selector) {
-                return items.concat(Array.prototype.slice.call(document.querySelectorAll(selector)));
-            }, []);
-
-            const imageBlocks = Array.prototype.slice.call(document.querySelectorAll('.article-detail__content > p')).filter(function (block) {
-                const children = Array.prototype.slice.call(block.children).filter(function (child) {
-                    return child.tagName !== 'BR';
-                });
-                const onlyChild = children[0];
-
-                return children.length === 1 && (
-                    onlyChild.tagName === 'IMG' ||
-                    onlyChild.classList.contains('gallery') ||
-                    (onlyChild.tagName === 'A' && onlyChild.querySelector('img'))
-                );
-            });
-
-            imageBlocks.forEach(function (block) {
-                if (!targets.includes(block)) targets.push(block);
-            });
-
-            const filteredTargets = targets.filter(function (target, index) {
-                if (target.tagName === 'PRE' && target.closest('.highlight')) return false;
-                return targets.indexOf(target) === index;
-            });
-
-            if (!filteredTargets.length) return;
-
-            const observer = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (!entry.isIntersecting) return;
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                });
-            }, {
-                rootMargin: '0px 0px -6% 0px',
-                threshold: 0.1
-            });
-
-            filteredTargets.forEach(function (target, index) {
-                target.classList.add('reveal-on-scroll');
-                target.style.setProperty('--reveal-delay', Math.min(index % 4, 3) * 32 + 'ms');
-                observer.observe(target);
-            });
-        }
-
-        initThemeToggle();
-        initArticleTocHover();
-        initRevealOnScroll();
-
-        window.requestAnimationFrame(function () {
-            document.body.classList.add('is-loaded');
-        });
-    })();
-</script>
-
 </body>
 
 </html>

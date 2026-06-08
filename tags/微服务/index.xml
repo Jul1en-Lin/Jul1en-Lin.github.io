@@ -1,26 +1,29 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>微服务 on Jul1en</title>
-        <link>https://Jul1en-Lin.github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</link>
-        <description>Recent content in 微服务 on Jul1en</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>en-us</language>
-        <copyright>Jul1en</copyright>
-        <lastBuildDate>Tue, 02 Jun 2026 00:00:51 +0800</lastBuildDate><atom:link href="https://Jul1en-Lin.github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>API 类型总结</title>
-        <link>https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/</link>
-        <pubDate>Mon, 01 Jun 2026 23:35:26 +0800</pubDate>
-        
-        <guid>https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/</guid>
-        <description>&lt;p&gt;视频来源：&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=VQyPVCT2Kl8&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Every Type Of API Explained in 18 Minutes.&lt;/a&gt;&lt;/p&gt;
+  <channel>
+    <title>微服务 - Jul1en</title>
+    <link>https://Jul1en-Lin.github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</link>
+    <description>微服务 - Jul1en</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <copyright>Jul1en</copyright>
+    <lastBuildDate>Tue, 02 Jun 2026 00:00:51 +0800</lastBuildDate>
+    <atom:link href="https://Jul1en-Lin.github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>API 类型总结</title>
+      <link>https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Mon, 01 Jun 2026 23:35:26 +0800</pubDate>
+      <guid>https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/</guid>
+      <description>&lt;p&gt;视频来源：&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=VQyPVCT2Kl8&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Every Type Of API Explained in 18 Minutes.&lt;/a&gt;
+&lt;/p&gt;
 &lt;p&gt;这篇笔记主要将 API 类型到底是怎么联系起来，它们分别是在不同通信需求下长出来的方案：有的解决“怎么请求数据”，有的解决“服务之间怎么快一点”，有的解决“不要一直轮询”，还有的解决“事件太多以后怎么管理”。&lt;/p&gt;
 &lt;p&gt;先放一张关系图，后面再逐个展开。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/api-relationship-map_hu_5b5ec65bfe952cb8.webp&#34; width=&#34;1600&#34; height=&#34;2400&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/api-relationship-map_hu_2573f08bc3ca097.webp 800w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/api-relationship-map_hu_5b5ec65bfe952cb8.webp 1600w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/api-relationship-map_hu_460ce8ff674b1afc.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;API 类型之间的关系&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;66&#34; data-flex-basis=&#34;160px&#34;&gt;
 &lt;/p&gt;
-&lt;h2 id=&#34;整体脉络&#34;&gt;整体脉络
-&lt;/h2&gt;&lt;ul&gt;
+&lt;h2 id=&#34;整体脉络&#34;&gt;
+    整体脉络
+&lt;/h2&gt;
+&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;最早我们只是想让客户端和服务端通信：页面要用户信息，服务端返回用户信息。这时 REST 就够用了，它把数据抽象成资源，用 &lt;code&gt;GET&lt;/code&gt;、&lt;code&gt;POST&lt;/code&gt;、&lt;code&gt;PUT&lt;/code&gt;、&lt;code&gt;DELETE&lt;/code&gt; 这些 HTTP 方法去操作。企业系统里，光“能通信”还不够。银行、保险、CRM 这类系统更在意契约、事务、安全和错误处理，所以 SOAP 这种更正式、更重的协议就有存在空间。&lt;/p&gt;
 &lt;/li&gt;
@@ -40,9 +43,13 @@
 &lt;p&gt;最后还有两个偏“规范 / 连接层”的东西。AsyncAPI 不是一个运行时协议，它更像异步系统里的 OpenAPI，用来说明有哪些事件、谁生产、谁消费。MCP 则是 AI 时代出现的新接口规范，解决模型接外部工具和数据源时重复集成的问题。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;请求响应rest-和-soap&#34;&gt;请求响应：REST 和 SOAP
-&lt;/h2&gt;&lt;h3 id=&#34;rest-api&#34;&gt;REST API
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0000-rest-api_hu_3b13e68889d98089.webp&#34; width=&#34;1600&#34; height=&#34;2400&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0000-rest-api_hu_ed9d4427935784d3.webp 800w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0000-rest-api_hu_3b13e68889d98089.webp 1600w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0000-rest-api_hu_42582a4acbb7ded4.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;REST API&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;66&#34; data-flex-basis=&#34;160px&#34;&gt;
+&lt;h2 id=&#34;请求响应rest-和-soap&#34;&gt;
+    请求响应：REST 和 SOAP
+&lt;/h2&gt;
+&lt;h3 id=&#34;rest-api&#34;&gt;
+    REST API
+&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0000-rest-api_hu_3b13e68889d98089.webp&#34; width=&#34;1600&#34; height=&#34;2400&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0000-rest-api_hu_ed9d4427935784d3.webp 800w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0000-rest-api_hu_3b13e68889d98089.webp 1600w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0000-rest-api_hu_42582a4acbb7ded4.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;REST API&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;66&#34; data-flex-basis=&#34;160px&#34;&gt;
 &lt;/p&gt;
 &lt;p&gt;REST 可以理解成最常见的 Web API 形态。客户端发一个 HTTP 请求，服务端返回一份数据。视频里用了“餐厅服务员”的类比：你告诉服务员要什么，服务员去厨房拿，再把结果带回来。对应到系统里，就是客户端请求服务端，服务端返回 JSON。&lt;/p&gt;
 &lt;p&gt;REST 的核心是资源。比如用户是资源，订单是资源，文章也是资源。这样做的好处是简单、通用、跨平台。Web 前端、移动端、小程序、服务端脚本，基本都能很容易调用 REST API。&lt;/p&gt;
@@ -50,30 +57,38 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;POST   /orders
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;PUT    /users/1
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;DELETE /items/9
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;实际公司场景里，&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/en/rest&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;GitHub REST API&lt;/a&gt; 就是非常典型的例子。你可以通过 REST API 获取仓库、Issue、Pull Request、用户信息，也可以做自动化脚本和第三方集成。&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;实际公司场景里，&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/en/rest&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;GitHub REST API&lt;/a&gt;
+ 就是非常典型的例子。你可以通过 REST API 获取仓库、Issue、Pull Request、用户信息，也可以做自动化脚本和第三方集成。&lt;/p&gt;
 &lt;p&gt;缺点：REST 适合普通请求响应，但它不是所有场景的答案。如果页面一次要聚合很多资源，一次调用可能不能返回全部所需要的，会请求很多次；如果服务之间要高频调用，JSON + HTTP 的开销也可能偏大；如果需要实时推送，REST 本身也不擅长。&lt;/p&gt;
-&lt;h3 id=&#34;soap-api&#34;&gt;SOAP API
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0091-soap-api_hu_c816e1df593e75c2.webp&#34; width=&#34;1600&#34; height=&#34;2400&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0091-soap-api_hu_48edebe1fba3bf8.webp 800w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0091-soap-api_hu_c816e1df593e75c2.webp 1600w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0091-soap-api_hu_31a1863da85ce071.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;SOAP API&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;66&#34; data-flex-basis=&#34;160px&#34;&gt;
+&lt;h3 id=&#34;soap-api&#34;&gt;
+    SOAP API
+&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0091-soap-api_hu_c816e1df593e75c2.webp&#34; width=&#34;1600&#34; height=&#34;2400&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0091-soap-api_hu_48edebe1fba3bf8.webp 800w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0091-soap-api_hu_c816e1df593e75c2.webp 1600w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0091-soap-api_hu_31a1863da85ce071.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;SOAP API&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;66&#34; data-flex-basis=&#34;160px&#34;&gt;
 &lt;/p&gt;
 &lt;p&gt;SOAP 是更早、更正式的一套通信协议。它用 XML 包一层固定结构，里面会有 envelope、header、body 这些部分。视频里把 REST 比成比较随意的电话沟通，把 SOAP 比成正式合同，这个类比挺准确。它更稳定、规范、强契约。它可以配合 WSDL 描述服务能力，也有一整套错误处理、安全、事务相关的规范。&lt;/p&gt;
-&lt;p&gt;所以 SOAP 现在看起来没那么“新”，但在企业系统里仍然很常见。比如 &lt;a class=&#34;link&#34; href=&#34;https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_quickstart_intro.htm&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Salesforce SOAP API&lt;/a&gt; 主要用于企业系统和 Salesforce 之间做数据集成，&lt;a class=&#34;link&#34; href=&#34;https://learn.microsoft.com/en-us/exchange/client-developer/exchange-web-services/explore-the-ews-managed-api-ews-and-web-services-in-exchange&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Microsoft Exchange Web Services&lt;/a&gt; 这类历史系统也长期走 SOAP / XML 这一类接口风格。&lt;/p&gt;
+&lt;p&gt;所以 SOAP 现在看起来没那么“新”，但在企业系统里仍然很常见。比如 &lt;a class=&#34;link&#34; href=&#34;https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_quickstart_intro.htm&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Salesforce SOAP API&lt;/a&gt;
+ 主要用于企业系统和 Salesforce 之间做数据集成，&lt;a class=&#34;link&#34; href=&#34;https://learn.microsoft.com/en-us/exchange/client-developer/exchange-web-services/explore-the-ews-managed-api-ews-and-web-services-in-exchange&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Microsoft Exchange Web Services&lt;/a&gt;
+ 这类历史系统也长期走 SOAP / XML 这一类接口风格。&lt;/p&gt;
 &lt;p&gt;这里可以这么记：REST 更适合互联网应用的通用接口，SOAP 更适合企业系统里需要严格契约的集成。&lt;/p&gt;
-&lt;h2 id=&#34;服务间调用rpc-和-grpc&#34;&gt;服务间调用：RPC 和 gRPC
-&lt;/h2&gt;&lt;h3 id=&#34;rpc&#34;&gt;RPC
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0676-rpc_hu_18332fdb54811f1e.webp&#34; width=&#34;1600&#34; height=&#34;2400&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0676-rpc_hu_669ca3b26efcfb7f.webp 800w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0676-rpc_hu_18332fdb54811f1e.webp 1600w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0676-rpc_hu_d68e6c99112328b1.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;RPC&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;66&#34; data-flex-basis=&#34;160px&#34;&gt;
+&lt;h2 id=&#34;服务间调用rpc-和-grpc&#34;&gt;
+    服务间调用：RPC 和 gRPC
+&lt;/h2&gt;
+&lt;h3 id=&#34;rpc&#34;&gt;
+    RPC
+&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0676-rpc_hu_18332fdb54811f1e.webp&#34; width=&#34;1600&#34; height=&#34;2400&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0676-rpc_hu_669ca3b26efcfb7f.webp 800w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0676-rpc_hu_18332fdb54811f1e.webp 1600w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0676-rpc_hu_d68e6c99112328b1.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;RPC&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;66&#34; data-flex-basis=&#34;160px&#34;&gt;
 &lt;/p&gt;
 &lt;p&gt;RPC 的意思是 Remote Procedure Call，也就是远程过程调用。它想解决的问题很直接：服务拆开以后，我不想每次都手写 HTTP 请求、解析 JSON、处理各种细节，我希望像调用本地函数一样调用远程服务。&lt;/p&gt;
 &lt;p&gt;比如订单服务要校验用户是否登录，如果用 RPC 的思路，就可以像这样理解：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;authService.verifyUser(userId)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;实际执行时这个函数不在本地，它会通过网络请求到认证服务。现实里，RPC 有很多形态。比如以太坊生态里很多节点都暴露 &lt;a class=&#34;link&#34; href=&#34;https://ethereum.org/en/developers/docs/apis/json-rpc/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;JSON-RPC API&lt;/a&gt;，钱包、区块浏览器、脚本工具会通过它查询区块、交易、账户状态。Cloudflare Workers 也有 &lt;a class=&#34;link&#34; href=&#34;https://developers.cloudflare.com/workers/runtime-apis/rpc/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Workers RPC&lt;/a&gt; 这种更接近方法调用的接口模型。&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;实际执行时这个函数不在本地，它会通过网络请求到认证服务。现实里，RPC 有很多形态。比如以太坊生态里很多节点都暴露 &lt;a class=&#34;link&#34; href=&#34;https://ethereum.org/en/developers/docs/apis/json-rpc/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;JSON-RPC API&lt;/a&gt;
+，钱包、区块浏览器、脚本工具会通过它查询区块、交易、账户状态。Cloudflare Workers 也有 &lt;a class=&#34;link&#34; href=&#34;https://developers.cloudflare.com/workers/runtime-apis/rpc/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Workers RPC&lt;/a&gt;
+ 这种更接近方法调用的接口模型。&lt;/p&gt;
 &lt;p&gt;RPC 的好处是调用表达简单，适合内部服务。需要注意的是，远程调用毕竟还是网络调用，不能真的当成本地函数一样随便调用。网络延迟、超时、重试、幂等，这些都要考虑。&lt;/p&gt;
-&lt;h3 id=&#34;grpc-api&#34;&gt;gRPC API
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0171-grpc-api_hu_aca6666cc422da76.webp&#34; width=&#34;1600&#34; height=&#34;2400&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0171-grpc-api_hu_d77a834acb3c2c7d.webp 800w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0171-grpc-api_hu_aca6666cc422da76.webp 1600w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0171-grpc-api_hu_ecc29f15c54d7d1c.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;gRPC API&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;66&#34; data-flex-basis=&#34;160px&#34;&gt;
+&lt;h3 id=&#34;grpc-api&#34;&gt;
+    gRPC API
+&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0171-grpc-api_hu_aca6666cc422da76.webp&#34; width=&#34;1600&#34; height=&#34;2400&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0171-grpc-api_hu_d77a834acb3c2c7d.webp 800w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0171-grpc-api_hu_aca6666cc422da76.webp 1600w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0171-grpc-api_hu_ecc29f15c54d7d1c.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;gRPC API&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;66&#34; data-flex-basis=&#34;160px&#34;&gt;
 &lt;/p&gt;
 &lt;p&gt;gRPC 可以看成现代版本的 RPC。它用 Protocol Buffers 定义数据结构，用 HTTP/2 做传输，所以比传统 JSON + HTTP 更适合高频服务间通信。&lt;/p&gt;
 &lt;p&gt;它解决的需求主要有几个：&lt;/p&gt;
@@ -82,20 +97,24 @@
 &lt;li&gt;多语言服务之间需要统一接口定义&lt;/li&gt;
 &lt;li&gt;有些接口不只是请求响应，还需要服务端流、客户端流、双向流&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;这也是 gRPC 和普通 REST 很不一样的地方。REST 更像“我请求一个资源，你返回结果”，gRPC 更像“我调用你的某个能力，而且这个调用可以是流式的”。公开资料里，gRPC 在大型微服务系统里很常见。比如 &lt;a class=&#34;link&#34; href=&#34;https://www.uber.com/blog/ubers-next-gen-push-platform-on-grpc/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Uber 的实时 Push 平台&lt;/a&gt; 就把协议演进到基于 gRPC 的双向流，CNCF 也有 &lt;a class=&#34;link&#34; href=&#34;https://www.cncf.io/case-studies/netflix/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Netflix 使用 gRPC 的案例&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;这也是 gRPC 和普通 REST 很不一样的地方。REST 更像“我请求一个资源，你返回结果”，gRPC 更像“我调用你的某个能力，而且这个调用可以是流式的”。公开资料里，gRPC 在大型微服务系统里很常见。比如 &lt;a class=&#34;link&#34; href=&#34;https://www.uber.com/blog/ubers-next-gen-push-platform-on-grpc/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Uber 的实时 Push 平台&lt;/a&gt;
+ 就把协议演进到基于 gRPC 的双向流，CNCF 也有 &lt;a class=&#34;link&#34; href=&#34;https://www.cncf.io/case-studies/netflix/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Netflix 使用 gRPC 的案例&lt;/a&gt;
+。&lt;/p&gt;
 &lt;p&gt;如果只是普通前后端接口，REST 更容易调试和接入。如果是内部微服务、高吞吐、低延迟、跨语言调用，gRPC 会更适合。&lt;/p&gt;
-&lt;h2 id=&#34;前端取数graphql&#34;&gt;前端取数：GraphQL
-&lt;/h2&gt;&lt;h3 id=&#34;graphql-api&#34;&gt;GraphQL API
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0280-graphql-api_hu_9cd50e9cd2f09eea.webp&#34; width=&#34;1600&#34; height=&#34;2400&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0280-graphql-api_hu_83ef0c58af730456.webp 800w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0280-graphql-api_hu_9cd50e9cd2f09eea.webp 1600w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0280-graphql-api_hu_50b6a2f04fae9978.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;GraphQL API&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;66&#34; data-flex-basis=&#34;160px&#34;&gt;
+&lt;h2 id=&#34;前端取数graphql&#34;&gt;
+    前端取数：GraphQL
+&lt;/h2&gt;
+&lt;h3 id=&#34;graphql-api&#34;&gt;
+    GraphQL API
+&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0280-graphql-api_hu_9cd50e9cd2f09eea.webp&#34; width=&#34;1600&#34; height=&#34;2400&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0280-graphql-api_hu_83ef0c58af730456.webp 800w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0280-graphql-api_hu_9cd50e9cd2f09eea.webp 1600w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0280-graphql-api_hu_50b6a2f04fae9978.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;GraphQL API&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;66&#34; data-flex-basis=&#34;160px&#34;&gt;
 &lt;/p&gt;
 &lt;p&gt;GraphQL 解决的是 REST 里的一个常见问题：要么拿多了，要么拿少了。&lt;/p&gt;
 &lt;p&gt;比如一个用户页只想显示用户名和邮箱，但 REST 接口可能直接返回完整用户资料，这就是 over-fetching。反过来，如果页面还要订单、评论、收藏，又可能要连续请求好几个接口，这就是 under-fetching。GraphQL 的思路是让客户端声明自己需要什么字段：
 例如：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-graphql&#34; data-lang=&#34;graphql&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;query&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;py&#34;&gt;user&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;py&#34;&gt;id&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;sc&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;py&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;user&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;py&#34;&gt;id&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;sc&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;py&#34;&gt;email&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;py&#34;&gt;orders&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;py&#34;&gt;total&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -103,15 +122,21 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;服务端按这个查询返回刚好需要的数据。这样前端灵活度会高很多，尤其适合移动端、多端应用、复杂后台页面。&lt;/p&gt;
-&lt;h2 id=&#34;实时通知webhookssewebsocket&#34;&gt;实时通知：Webhook、SSE、WebSocket
-&lt;/h2&gt;&lt;h3 id=&#34;webhook-api&#34;&gt;Webhook API
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0373-webhooks-api_hu_14d077bade992df5.webp&#34; width=&#34;1600&#34; height=&#34;2400&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0373-webhooks-api_hu_aed07bf02f44330c.webp 800w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0373-webhooks-api_hu_14d077bade992df5.webp 1600w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0373-webhooks-api_hu_9bb05421cd8af5c9.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;Webhook API&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;66&#34; data-flex-basis=&#34;160px&#34;&gt;
+&lt;h2 id=&#34;实时通知webhookssewebsocket&#34;&gt;
+    实时通知：Webhook、SSE、WebSocket
+&lt;/h2&gt;
+&lt;h3 id=&#34;webhook-api&#34;&gt;
+    Webhook API
+&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0373-webhooks-api_hu_14d077bade992df5.webp&#34; width=&#34;1600&#34; height=&#34;2400&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0373-webhooks-api_hu_aed07bf02f44330c.webp 800w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0373-webhooks-api_hu_14d077bade992df5.webp 1600w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0373-webhooks-api_hu_9bb05421cd8af5c9.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;Webhook API&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;66&#34; data-flex-basis=&#34;160px&#34;&gt;
 &lt;/p&gt;
 &lt;p&gt;Webhook 的出现，是因为轮询太浪费。&lt;/p&gt;
 &lt;p&gt;传统 API 是一直问服务端发送类似心跳包的询问。Webhook 的思路是反过来：你先给对方一个 callback URL，等事件发生时，对方主动发 HTTP 请求通知你。所以 Webhook 有时候也被叫 reverse API。不需要你时刻监控数据，数据变化后会主动来找你。比如你的 github 上的 push、pull request、issue 等事件发生时都会通知到你的邮箱里～&lt;/p&gt;
 &lt;p&gt;Webhook 适合“事件发生后通知我”，但它不是持续连接。对方请求你一次，你处理一次。&lt;/p&gt;
-&lt;h3 id=&#34;sse&#34;&gt;SSE
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0743-sse_hu_b84db820532a798e.webp&#34; width=&#34;1600&#34; height=&#34;2400&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0743-sse_hu_b1f70c6450c52f3.webp 800w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0743-sse_hu_b84db820532a798e.webp 1600w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0743-sse_hu_53c6a18fd1d64f66.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;SSE&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;66&#34; data-flex-basis=&#34;160px&#34;&gt;
+&lt;h3 id=&#34;sse&#34;&gt;
+    SSE
+&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0743-sse_hu_b84db820532a798e.webp&#34; width=&#34;1600&#34; height=&#34;2400&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0743-sse_hu_b1f70c6450c52f3.webp 800w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0743-sse_hu_b84db820532a798e.webp 1600w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0743-sse_hu_53c6a18fd1d64f66.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;SSE&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;66&#34; data-flex-basis=&#34;160px&#34;&gt;
 &lt;/p&gt;
 &lt;p&gt;SSE 是 Server-Sent Events，适合服务端持续往浏览器推消息。&lt;/p&gt;
 &lt;p&gt;它的模型很简单：浏览器发起一个 HTTP 请求，服务端不立刻关闭连接，而是有新数据就顺着这个连接继续往下发。它主要是单向的，也就是服务端到客户端。&lt;/p&gt;
@@ -124,191 +149,221 @@
 &lt;li&gt;AI 回复的流式输出&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;实际应用里，OpenAI API 的 streaming 响应就使用了 SSE 这种形式，适合一边生成一边返回内容，这里可以和 流式传输 放在一起看。它比 WebSocket 简单，因为底层仍然是普通 HTTP，浏览器里也有 &lt;code&gt;EventSource&lt;/code&gt; 这样的原生能力。SSE 主要适合服务端单方面推送客户端。如果双方都要高频互发消息，就要考虑 WebSocket。&lt;/p&gt;
-&lt;h3 id=&#34;websocket-api&#34;&gt;WebSocket API
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0451-websockets-api_hu_783105addb915b3d.webp&#34; width=&#34;1600&#34; height=&#34;2400&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0451-websockets-api_hu_b222bedf9b33e11c.webp 800w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0451-websockets-api_hu_783105addb915b3d.webp 1600w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0451-websockets-api_hu_2f042a628cf2c4e3.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;WebSocket API&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;66&#34; data-flex-basis=&#34;160px&#34;&gt;
+&lt;h3 id=&#34;websocket-api&#34;&gt;
+    WebSocket API
+&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0451-websockets-api_hu_783105addb915b3d.webp&#34; width=&#34;1600&#34; height=&#34;2400&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0451-websockets-api_hu_b222bedf9b33e11c.webp 800w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0451-websockets-api_hu_783105addb915b3d.webp 1600w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0451-websockets-api_hu_2f042a628cf2c4e3.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;WebSocket API&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;66&#34; data-flex-basis=&#34;160px&#34;&gt;
 &lt;/p&gt;
 &lt;p&gt;WebSocket 解决的是双向实时通信。它先通过 HTTP 握手，然后升级成 WebSocket 连接。连接建立后，客户端和服务端都可以主动发消息。&lt;/p&gt;
-&lt;p&gt;这和 SSE 的区别很关键：SSE 更像服务端一直往你这里播报，WebSocket 更像双方开了一条实时电话线。&lt;a class=&#34;link&#34; href=&#34;https://discord.com/developers/docs/events/gateway&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Discord Gateway&lt;/a&gt; 就是 WebSocket API，客户端通过它接收实时事件、心跳、状态变化。&lt;/p&gt;
+&lt;p&gt;这和 SSE 的区别很关键：SSE 更像服务端一直往你这里播报，WebSocket 更像双方开了一条实时电话线。&lt;a class=&#34;link&#34; href=&#34;https://discord.com/developers/docs/events/gateway&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Discord Gateway&lt;/a&gt;
+ 就是 WebSocket API，客户端通过它接收实时事件、心跳、状态变化。&lt;/p&gt;
 &lt;p&gt;WebSocket 的优势就是适合聊天、协作编辑、在线游戏、行情系统。代价是连接状态要维护，心跳、断线重连、扩容、负载均衡都比普通 HTTP 更复杂。&lt;/p&gt;
-&lt;h2 id=&#34;实时音视频webrtc&#34;&gt;实时音视频：WebRTC
-&lt;/h2&gt;&lt;h3 id=&#34;webrtc-api&#34;&gt;WebRTC API
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0511-webrtc-api_hu_bbd016716bccd2a5.webp&#34; width=&#34;1600&#34; height=&#34;2400&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0511-webrtc-api_hu_d6186dba8aad4268.webp 800w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0511-webrtc-api_hu_bbd016716bccd2a5.webp 1600w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0511-webrtc-api_hu_b8321a11829920d2.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;WebRTC API&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;66&#34; data-flex-basis=&#34;160px&#34;&gt;
+&lt;h2 id=&#34;实时音视频webrtc&#34;&gt;
+    实时音视频：WebRTC
+&lt;/h2&gt;
+&lt;h3 id=&#34;webrtc-api&#34;&gt;
+    WebRTC API
+&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0511-webrtc-api_hu_bbd016716bccd2a5.webp&#34; width=&#34;1600&#34; height=&#34;2400&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0511-webrtc-api_hu_d6186dba8aad4268.webp 800w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0511-webrtc-api_hu_bbd016716bccd2a5.webp 1600w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0511-webrtc-api_hu_b8321a11829920d2.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;WebRTC API&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;66&#34; data-flex-basis=&#34;160px&#34;&gt;
 &lt;/p&gt;
 &lt;p&gt;WebRTC 面向音频、视频、屏幕共享，甚至点对点传文件，是一套浏览器和客户端实时通信能力。它可以处理音视频编解码、网络穿透、带宽自适应等问题。实际连接前通常还需要信令服务帮两端交换连接信息。&lt;/p&gt;
 &lt;p&gt;这里可以把 WebRTC 和 WebSocket 区分开：WebSocket 更适合传结构化消息，WebRTC 更适合实时媒体流。很多系统会一起用它们，比如用 WebSocket 做信令，再用 WebRTC 传音视频。&lt;/p&gt;
-&lt;h2 id=&#34;ai-接工具mcp&#34;&gt;AI 接工具：MCP
-&lt;/h2&gt;&lt;h3 id=&#34;mcp-server&#34;&gt;MCP Server
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0594-mcp-server_hu_a951f5804e886add.webp&#34; width=&#34;1600&#34; height=&#34;2400&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0594-mcp-server_hu_3aabca45b6d9c679.webp 800w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0594-mcp-server_hu_a951f5804e886add.webp 1600w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0594-mcp-server_hu_d91da09b1bcb6423.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;MCP Server&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;66&#34; data-flex-basis=&#34;160px&#34;&gt;
+&lt;h2 id=&#34;ai-接工具mcp&#34;&gt;
+    AI 接工具：MCP
+&lt;/h2&gt;
+&lt;h3 id=&#34;mcp-server&#34;&gt;
+    MCP Server
+&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0594-mcp-server_hu_a951f5804e886add.webp&#34; width=&#34;1600&#34; height=&#34;2400&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0594-mcp-server_hu_3aabca45b6d9c679.webp 800w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0594-mcp-server_hu_a951f5804e886add.webp 1600w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0594-mcp-server_hu_d91da09b1bcb6423.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;MCP Server&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;66&#34; data-flex-basis=&#34;160px&#34;&gt;
 &lt;/p&gt;
 &lt;p&gt;MCP 是 Model Context Protocol，模型上下文协议是 AI 应用这两年才开始大量出现的一类接口规范。AI 助手想访问文件、数据库、代码仓库、日历、搜索、内部系统时，如果每个工具都单独写一套集成，成本会很高。MCP 的思路是给模型和外部工具之间加一层统一协议。只要工具提供 MCP Server，支持 MCP 的客户端就能用比较统一的方式接入。&lt;/p&gt;
-&lt;p&gt;你可以类比成 AI 工具世界里的通用连接头，比如一个 coding assistant 通过 MCP 读取项目文件、查 Git 历史、访问文档或数据库，就不需要每个能力都重新做一套私有集成。&lt;a class=&#34;link&#34; href=&#34;https://modelcontextprotocol.io/introduction&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Model Context Protocol 官方文档&lt;/a&gt; 把 MCP 定位为连接 LLM 应用和外部数据源、工具的开放协议；OpenAI Apps SDK 也支持围绕 MCP server 描述工具能力。&lt;/p&gt;
+&lt;p&gt;你可以类比成 AI 工具世界里的通用连接头，比如一个 coding assistant 通过 MCP 读取项目文件、查 Git 历史、访问文档或数据库，就不需要每个能力都重新做一套私有集成。&lt;a class=&#34;link&#34; href=&#34;https://modelcontextprotocol.io/introduction&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Model Context Protocol 官方文档&lt;/a&gt;
+ 把 MCP 定位为连接 LLM 应用和外部数据源、工具的开放协议；OpenAI Apps SDK 也支持围绕 MCP server 描述工具能力。&lt;/p&gt;
 &lt;p&gt;MCP 和前面那些 API 不完全在同一层。REST、GraphQL、gRPC 更像服务接口；MCP 更像 AI 应用里的连接协议。它可以把 REST API、数据库、文件系统这些能力包装成模型可调用的工具。&lt;/p&gt;
-&lt;h2 id=&#34;消息与事件mqttamqpevent-driven-apikafka&#34;&gt;消息与事件：MQTT、AMQP、Event-Driven API、Kafka
-&lt;/h2&gt;&lt;h3 id=&#34;mqtt&#34;&gt;MQTT
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0811-mqtt_hu_d48174565ef4ffda.webp&#34; width=&#34;1600&#34; height=&#34;2400&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0811-mqtt_hu_546f557b94541004.webp 800w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0811-mqtt_hu_d48174565ef4ffda.webp 1600w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0811-mqtt_hu_51a94ba6e3c60638.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;MQTT&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;66&#34; data-flex-basis=&#34;160px&#34;&gt;
+&lt;h2 id=&#34;消息与事件mqttamqpevent-driven-apikafka&#34;&gt;
+    消息与事件：MQTT、AMQP、Event-Driven API、Kafka
+&lt;/h2&gt;
+&lt;h3 id=&#34;mqtt&#34;&gt;
+    MQTT
+&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0811-mqtt_hu_d48174565ef4ffda.webp&#34; width=&#34;1600&#34; height=&#34;2400&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0811-mqtt_hu_546f557b94541004.webp 800w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0811-mqtt_hu_d48174565ef4ffda.webp 1600w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0811-mqtt_hu_51a94ba6e3c60638.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;MQTT&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;66&#34; data-flex-basis=&#34;160px&#34;&gt;
 &lt;/p&gt;
 &lt;p&gt;MQTT 是一个非常轻量的协议，很多 IoT 设备带宽小、电量有限、网络也不稳定，MQTT 协议就非常合适，在智能家居、传感器、工业设备、车联网中都很常见。&lt;/p&gt;
 &lt;p&gt;它采用发布订阅模型。设备把消息发到某个 topic，订阅这个 topic 的客户端就能收到消息，像一个大广播一样把消息给传出去。比如温度传感器发布数据，手机 App、仪表盘、自动化系统都可以收到它的信息。&lt;/p&gt;
-&lt;h3 id=&#34;amqp&#34;&gt;AMQP
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0869-amqp_hu_817a6d569f7e27b1.webp&#34; width=&#34;1600&#34; height=&#34;2400&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0869-amqp_hu_cf3cdda99454071.webp 800w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0869-amqp_hu_817a6d569f7e27b1.webp 1600w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0869-amqp_hu_e27ca72f9532b3bb.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;AMQP&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;66&#34; data-flex-basis=&#34;160px&#34;&gt;
+&lt;h3 id=&#34;amqp&#34;&gt;
+    AMQP
+&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0869-amqp_hu_817a6d569f7e27b1.webp&#34; width=&#34;1600&#34; height=&#34;2400&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0869-amqp_hu_cf3cdda99454071.webp 800w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0869-amqp_hu_817a6d569f7e27b1.webp 1600w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0869-amqp_hu_e27ca72f9532b3bb.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;AMQP&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;66&#34; data-flex-basis=&#34;160px&#34;&gt;
 &lt;/p&gt;
 &lt;p&gt;AMQP 更偏可靠消息队列，注重消息不能丢、要能确认、要能路由、要能持久化，如果出现错误也会有错误的处理机制。如果一个支付消息、订单消息、医疗系统消息丢了，后果就比较严重。AMQP 这类协议会提供 acknowledgement、持久化、事务、路由等能力。RabbitMQ 是 AMQP 生态里很典型的实现。&lt;/p&gt;
-&lt;h3 id=&#34;event-driven-api&#34;&gt;Event-Driven API
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0932-event-driven-api_hu_90dfbb79805dbe83.webp&#34; width=&#34;1600&#34; height=&#34;2400&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0932-event-driven-api_hu_66e21e6349d5f012.webp 800w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0932-event-driven-api_hu_90dfbb79805dbe83.webp 1600w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0932-event-driven-api_hu_899bcca62cb5176d.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;Event-Driven API&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;66&#34; data-flex-basis=&#34;160px&#34;&gt;
+&lt;h3 id=&#34;event-driven-api&#34;&gt;
+    Event-Driven API
+&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0932-event-driven-api_hu_90dfbb79805dbe83.webp&#34; width=&#34;1600&#34; height=&#34;2400&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0932-event-driven-api_hu_66e21e6349d5f012.webp 800w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0932-event-driven-api_hu_90dfbb79805dbe83.webp 1600w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0932-event-driven-api_hu_899bcca62cb5176d.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;Event-Driven API&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;66&#34; data-flex-basis=&#34;160px&#34;&gt;
 &lt;/p&gt;
 &lt;p&gt;Event-Driven API 更像一种架构思路，不是某一个具体协议。&lt;/p&gt;
 &lt;p&gt;传统同步调用里，订单服务可能要依次调用库存服务、邮件服务、物流服务、分析服务。如果其中一个服务挂了，整个链路就容易被拖住。事件驱动的做法是：订单服务只发布一个 &lt;code&gt;OrderPlaced&lt;/code&gt; 事件。库存服务监听这个事件去扣库存，邮件服务监听它去发确认邮件，分析服务监听它去记录数据。每个服务做自己的事，不需要订单服务挨个等结果。&lt;/p&gt;
 &lt;p&gt;这个模式的好处是解耦，后面新增一个短信通知服务，只要监听订单事件就行。&lt;/p&gt;
-&lt;h3 id=&#34;apache-kafka&#34;&gt;Apache Kafka
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0999-apache-kafka_hu_7996ef6486b42c90.webp&#34; width=&#34;1600&#34; height=&#34;2400&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0999-apache-kafka_hu_2a15b8247c13fd18.webp 800w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0999-apache-kafka_hu_7996ef6486b42c90.webp 1600w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0999-apache-kafka_hu_112627e88a8a89d7.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;Apache Kafka&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;66&#34; data-flex-basis=&#34;160px&#34;&gt;
+&lt;h3 id=&#34;apache-kafka&#34;&gt;
+    Apache Kafka
+&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0999-apache-kafka_hu_7996ef6486b42c90.webp&#34; width=&#34;1600&#34; height=&#34;2400&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0999-apache-kafka_hu_2a15b8247c13fd18.webp 800w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0999-apache-kafka_hu_7996ef6486b42c90.webp 1600w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/0999-apache-kafka_hu_112627e88a8a89d7.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;Apache Kafka&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;66&#34; data-flex-basis=&#34;160px&#34;&gt;
 &lt;/p&gt;
 &lt;p&gt;Kafka 可以理解成事件驱动架构扩展到大规模之后的基础设施。普通消息队列通常是消息被消费后就删除，而 Kafka 更像一条可持久化、可回放的事件日志。最早就是 LinkedIn 为了处理大规模站内事件流做出来的，后来进入 Apache 生态。视频里举了 Netflix、Uber、LinkedIn 这类例子，本质都差不多：用户行为、播放、司机位置、消息、连接关系，这些事件量非常大，而且后续很多系统都要消费。&lt;/p&gt;
 &lt;p&gt;普通异步任务RabbitMQ / AMQP 可能就够了。如果是海量事件、日志、埋点、实时数据管道，Kafka 更合适。&lt;/p&gt;
-&lt;h3 id=&#34;asyncapi&#34;&gt;AsyncAPI
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/1038-asyncapi_hu_502e1174d207deaa.webp&#34; width=&#34;1600&#34; height=&#34;2400&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/1038-asyncapi_hu_b39ea3ea3f3c046b.webp 800w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/1038-asyncapi_hu_502e1174d207deaa.webp 1600w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/1038-asyncapi_hu_acf4568253c23456.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;AsyncAPI&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;66&#34; data-flex-basis=&#34;160px&#34;&gt;
+&lt;h3 id=&#34;asyncapi&#34;&gt;
+    AsyncAPI
+&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/1038-asyncapi_hu_502e1174d207deaa.webp&#34; width=&#34;1600&#34; height=&#34;2400&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/1038-asyncapi_hu_b39ea3ea3f3c046b.webp 800w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/1038-asyncapi_hu_502e1174d207deaa.webp 1600w, https://Jul1en-Lin.github.io/p/api-%E7%B1%BB%E5%9E%8B%E6%80%BB%E7%BB%93/assets/api-types/1038-asyncapi_hu_acf4568253c23456.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;AsyncAPI&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;66&#34; data-flex-basis=&#34;160px&#34;&gt;
 &lt;/p&gt;
 &lt;p&gt;当系统里只有几个 HTTP 接口时，用 OpenAPI / Swagger 就能把接口列清楚。但如果公司里有几十个服务通过 Kafka、MQTT、AMQP、WebSocket 通信，问题就变成：谁会发布什么事件？事件字段是什么？谁会消费？版本怎么演进？&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;AsyncAPI 就是给这类异步接口写规范&lt;/strong&gt;，它会描述 channel、message、schema、producer、consumer 等信息。这样新同事接手时不用到处翻代码，也能知道系统里有哪些事件。&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.asyncapi.com/docs&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;AsyncAPI 官方文档&lt;/a&gt; 里把它定位为描述事件驱动和消息 API 的规范，&lt;a class=&#34;link&#34; href=&#34;https://www.asyncapi.com/casestudies&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;案例页&lt;/a&gt; 也能看到它主要服务的是异步系统文档化、工具生成和团队协作。&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.asyncapi.com/docs&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;AsyncAPI 官方文档&lt;/a&gt;
+ 里把它定位为描述事件驱动和消息 API 的规范，&lt;a class=&#34;link&#34; href=&#34;https://www.asyncapi.com/casestudies&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;案例页&lt;/a&gt;
+ 也能看到它主要服务的是异步系统文档化、工具生成和团队协作。&lt;/p&gt;
 &lt;p&gt;这里可以这么理解：Kafka / MQTT / AMQP 是通信方式，AsyncAPI 是说明书。&lt;/p&gt;
-&lt;h2 id=&#34;简单选择&#34;&gt;简单选择
-&lt;/h2&gt;&lt;table&gt;
-	&lt;thead&gt;
-			&lt;tr&gt;
-					&lt;th&gt;需求&lt;/th&gt;
-					&lt;th&gt;可以优先考虑&lt;/th&gt;
-			&lt;/tr&gt;
-	&lt;/thead&gt;
-	&lt;tbody&gt;
-			&lt;tr&gt;
-					&lt;td&gt;普通前后端请求、CRUD、公开接口&lt;/td&gt;
-					&lt;td&gt;REST&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;企业系统强契约、XML、事务和安全规范&lt;/td&gt;
-					&lt;td&gt;SOAP&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;内部服务像调用函数一样互相调用&lt;/td&gt;
-					&lt;td&gt;RPC&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;微服务高性能、跨语言、流式调用&lt;/td&gt;
-					&lt;td&gt;gRPC&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;前端只想拿需要的字段&lt;/td&gt;
-					&lt;td&gt;GraphQL&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;第三方系统事件发生后通知你&lt;/td&gt;
-					&lt;td&gt;Webhook&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;服务端持续向浏览器推送&lt;/td&gt;
-					&lt;td&gt;SSE&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;客户端和服务端双向实时通信&lt;/td&gt;
-					&lt;td&gt;WebSocket&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;音视频、屏幕共享、P2P 通信&lt;/td&gt;
-					&lt;td&gt;WebRTC&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;IoT 设备、低带宽、小消息&lt;/td&gt;
-					&lt;td&gt;MQTT&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;可靠消息队列、企业业务消息&lt;/td&gt;
-					&lt;td&gt;AMQP&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;服务之间通过事件解耦&lt;/td&gt;
-					&lt;td&gt;Event-Driven API&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;大规模事件流、日志、实时数据管道&lt;/td&gt;
-					&lt;td&gt;Kafka&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;AI 模型接工具和数据源&lt;/td&gt;
-					&lt;td&gt;MCP&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;异步 API 的文档和契约&lt;/td&gt;
-					&lt;td&gt;AsyncAPI&lt;/td&gt;
-			&lt;/tr&gt;
-	&lt;/tbody&gt;
+&lt;h2 id=&#34;简单选择&#34;&gt;
+    简单选择
+&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;需求&lt;/th&gt;
+          &lt;th&gt;可以优先考虑&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;普通前后端请求、CRUD、公开接口&lt;/td&gt;
+          &lt;td&gt;REST&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;企业系统强契约、XML、事务和安全规范&lt;/td&gt;
+          &lt;td&gt;SOAP&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;内部服务像调用函数一样互相调用&lt;/td&gt;
+          &lt;td&gt;RPC&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;微服务高性能、跨语言、流式调用&lt;/td&gt;
+          &lt;td&gt;gRPC&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;前端只想拿需要的字段&lt;/td&gt;
+          &lt;td&gt;GraphQL&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;第三方系统事件发生后通知你&lt;/td&gt;
+          &lt;td&gt;Webhook&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;服务端持续向浏览器推送&lt;/td&gt;
+          &lt;td&gt;SSE&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;客户端和服务端双向实时通信&lt;/td&gt;
+          &lt;td&gt;WebSocket&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;音视频、屏幕共享、P2P 通信&lt;/td&gt;
+          &lt;td&gt;WebRTC&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;IoT 设备、低带宽、小消息&lt;/td&gt;
+          &lt;td&gt;MQTT&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;可靠消息队列、企业业务消息&lt;/td&gt;
+          &lt;td&gt;AMQP&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;服务之间通过事件解耦&lt;/td&gt;
+          &lt;td&gt;Event-Driven API&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;大规模事件流、日志、实时数据管道&lt;/td&gt;
+          &lt;td&gt;Kafka&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;AI 模型接工具和数据源&lt;/td&gt;
+          &lt;td&gt;MCP&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;异步 API 的文档和契约&lt;/td&gt;
+          &lt;td&gt;AsyncAPI&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&#34;资料来源&#34;&gt;资料来源
-&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/en/rest&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;GitHub REST API&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/en/graphql&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;GitHub GraphQL API&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/en/webhooks&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;GitHub Webhooks&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.stripe.com/webhooks&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Stripe Webhooks&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://api.slack.com/messaging/webhooks&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Slack Incoming Webhooks&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://discord.com/developers/docs/events/gateway&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Discord Gateway&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://discord.com/developers/docs/resources/webhook&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Discord Webhooks&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://developers.binance.com/docs/binance-spot-api-docs/web-socket-streams&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Binance WebSocket Streams&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_quickstart_intro.htm&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Salesforce SOAP API&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://shopify.dev/docs/api/admin-graphql&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Shopify Admin GraphQL API&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://ethereum.org/en/developers/docs/apis/json-rpc/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Ethereum JSON-RPC API&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://developers.cloudflare.com/workers/runtime-apis/rpc/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Cloudflare Workers RPC&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://webrtc.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;WebRTC&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://platform.openai.com/docs/guides/streaming-responses?api-mode=responses&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;OpenAI Streaming Responses&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://modelcontextprotocol.io/introduction&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Model Context Protocol&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://developers.openai.com/apps-sdk/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;OpenAI Apps SDK&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.uber.com/blog/ubers-next-gen-push-platform-on-grpc/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Uber Next Gen Push Platform on gRPC&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.cncf.io/case-studies/netflix/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;CNCF Netflix gRPC case study&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;AWS IoT Core MQTT&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-amqp-overview&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Azure Service Bus AMQP&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://aws.amazon.com/eventbridge/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Amazon EventBridge&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://kafka.apache.org/intro&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Apache Kafka Introduction&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.asyncapi.com/docs&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;AsyncAPI Docs&lt;/a&gt;&lt;/li&gt;
+&lt;h2 id=&#34;资料来源&#34;&gt;
+    资料来源
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/en/rest&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;GitHub REST API&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/en/graphql&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;GitHub GraphQL API&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/en/webhooks&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;GitHub Webhooks&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.stripe.com/webhooks&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Stripe Webhooks&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://api.slack.com/messaging/webhooks&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Slack Incoming Webhooks&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://discord.com/developers/docs/events/gateway&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Discord Gateway&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://discord.com/developers/docs/resources/webhook&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Discord Webhooks&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://developers.binance.com/docs/binance-spot-api-docs/web-socket-streams&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Binance WebSocket Streams&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_quickstart_intro.htm&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Salesforce SOAP API&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://shopify.dev/docs/api/admin-graphql&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Shopify Admin GraphQL API&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://ethereum.org/en/developers/docs/apis/json-rpc/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Ethereum JSON-RPC API&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://developers.cloudflare.com/workers/runtime-apis/rpc/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Cloudflare Workers RPC&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://webrtc.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;WebRTC&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://platform.openai.com/docs/guides/streaming-responses?api-mode=responses&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;OpenAI Streaming Responses&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://modelcontextprotocol.io/introduction&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Model Context Protocol&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://developers.openai.com/apps-sdk/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;OpenAI Apps SDK&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.uber.com/blog/ubers-next-gen-push-platform-on-grpc/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Uber Next Gen Push Platform on gRPC&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.cncf.io/case-studies/netflix/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;CNCF Netflix gRPC case study&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;AWS IoT Core MQTT&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-amqp-overview&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Azure Service Bus AMQP&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://aws.amazon.com/eventbridge/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Amazon EventBridge&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://kafka.apache.org/intro&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Apache Kafka Introduction&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.asyncapi.com/docs&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;AsyncAPI Docs&lt;/a&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        </item>
-        <item>
-        <title>Sentinel</title>
-        <link>https://Jul1en-Lin.github.io/p/sentinel/</link>
-        <pubDate>Thu, 21 May 2026 00:00:00 +0800</pubDate>
-        
-        <guid>https://Jul1en-Lin.github.io/p/sentinel/</guid>
-        <description>&lt;h1 id=&#34;sentinel&#34;&gt;Sentinel
-&lt;/h1&gt;&lt;p&gt;&lt;code&gt;Sentinel&lt;/code&gt; 是微服务里非常典型的一类保护组件。它负责的是流量管控：当流量突然变大、某个下游接口变慢、异常开始扩散时，系统不要被一路拖垮。&lt;/p&gt;
-&lt;p&gt;如果说 &lt;a class=&#34;link&#34; href=&#34;https://Jul1en-Lin.github.io/post/%e6%a0%b8%e5%bf%83%e6%a6%82%e5%bf%b5/&#34; &gt;Spring Cloud 核心概念&lt;/a&gt; 解决的是“服务怎么拆、怎么找、怎么调”，那么 Sentinel 更像是在这些调用链外面再加一层保险。微服务拆开后，请求就不再只经过一个系统，而是会在网关、服务 A、服务 B、数据库、缓存之间层层传递。任何一个点出问题，都有可能变成整条链路的雪崩。&lt;/p&gt;
+    </item>
+    <item>
+      <title>Sentinel</title>
+      <link>https://Jul1en-Lin.github.io/p/sentinel/</link>
+      <pubDate>Thu, 21 May 2026 00:00:00 +0800</pubDate>
+      <guid>https://Jul1en-Lin.github.io/p/sentinel/</guid>
+      <description>&lt;h1 id=&#34;sentinel&#34;&gt;
+    Sentinel
+&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;Sentinel&lt;/code&gt; 是微服务里非常典型的一类保护组件。它负责的是流量管控：当流量突然变大、某个下游接口变慢、异常开始扩散时，系统不要被一路拖垮。&lt;/p&gt;
+&lt;p&gt;如果说 &lt;a class=&#34;link&#34; href=&#34;https://Jul1en-Lin.github.io/post/%e6%a0%b8%e5%bf%83%e6%a6%82%e5%bf%b5/&#34;&gt;Spring Cloud 核心概念&lt;/a&gt;
+ 解决的是“服务怎么拆、怎么找、怎么调”，那么 Sentinel 更像是在这些调用链外面再加一层保险。微服务拆开后，请求就不再只经过一个系统，而是会在网关、服务 A、服务 B、数据库、缓存之间层层传递。任何一个点出问题，都有可能变成整条链路的雪崩。&lt;/p&gt;
 &lt;p&gt;这也是为什么 Sentinel 的知识点看起来很多，既有流控规则，也有热点参数限流、熔断降级、授权规则、FallbackFactory、规则持久化。表面上它们是不同章节，本质上其实都在回答同一个问题：系统变复杂之后，怎么把风险拦在局部，而不是让故障扩散到全局。&lt;/p&gt;
-&lt;h1 id=&#34;主线&#34;&gt;主线
-&lt;/h1&gt;&lt;ol&gt;
+&lt;h1 id=&#34;主线&#34;&gt;
+    主线
+&lt;/h1&gt;
+&lt;ol&gt;
 &lt;li&gt;先理解为什么微服务需要限流，以及流控规则怎么配。&lt;/li&gt;
 &lt;li&gt;再区分基于 &lt;code&gt;QPS&lt;/code&gt; 和基于并发线程数的两种限流思路。&lt;/li&gt;
 &lt;li&gt;然后继续往下看流控模式，直接、关联、链路分别适合什么场景。&lt;/li&gt;
@@ -318,8 +373,10 @@
 &lt;li&gt;熔断之后，调用方不能直接报错给用户，所以又引出了 &lt;code&gt;fallback&lt;/code&gt;、&lt;code&gt;FallbackFactory&lt;/code&gt; 和自定义异常返回结果。&lt;/li&gt;
 &lt;li&gt;最后，学习环境里可以靠 Dashboard 临时配规则，但生产环境必须考虑规则持久化，也就是 &lt;code&gt;pull&lt;/code&gt; / &lt;code&gt;push&lt;/code&gt; 模式。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;为什么微服务需要-sentinel&#34;&gt;为什么微服务需要 Sentinel
-&lt;/h2&gt;&lt;p&gt;在微服务里，一个请求可能会先经过网关，再调用订单服务，订单服务再调用户服务、库存服务、支付服务。只要中间有一个节点响应慢了，上游线程就会被占住；如果大量线程一起等待，下游故障很快就会影响到上游。
+&lt;h2 id=&#34;为什么微服务需要-sentinel&#34;&gt;
+    为什么微服务需要 Sentinel
+&lt;/h2&gt;
+&lt;p&gt;在微服务里，一个请求可能会先经过网关，再调用订单服务，订单服务再调用户服务、库存服务、支付服务。只要中间有一个节点响应慢了，上游线程就会被占住；如果大量线程一起等待，下游故障很快就会影响到上游。
 &lt;img src=&#34;https://Jul1en-Lin.github.io/p/sentinel/assets/sentinel_hu_77d2887430b71f30.webp&#34; width=&#34;1600&#34; height=&#34;1067&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/sentinel/assets/sentinel_hu_195e155f9a71b3ba.webp 800w, https://Jul1en-Lin.github.io/p/sentinel/assets/sentinel_hu_77d2887430b71f30.webp 1600w, https://Jul1en-Lin.github.io/p/sentinel/assets/sentinel_hu_687f342ddf9b4419.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;Sentinel 风险扩散链路&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;149&#34; data-flex-basis=&#34;359px&#34;&gt;
 &lt;/p&gt;
 &lt;ul&gt;
@@ -329,13 +386,19 @@
 &lt;li&gt;如果请求被拦下来了，就返回一个可控、可读的降级结果。&lt;/li&gt;
 &lt;li&gt;如果系统已经准备上线，就把这些规则从“内存里的临时配置”变成“可以持久化管理的正式规则”。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;一流量控制&#34;&gt;一、流量控制
-&lt;/h2&gt;&lt;h3 id=&#34;1-为什么先学流控&#34;&gt;1. 为什么先学流控
-&lt;/h3&gt;&lt;p&gt;Sentinel 最核心的起点就是流量控制。因为很多线上问题，单位时间内进来的请求太多，或者请求处理得太慢，导致系统承受不住。&lt;/p&gt;
+&lt;h2 id=&#34;一流量控制&#34;&gt;
+    一、流量控制
+&lt;/h2&gt;
+&lt;h3 id=&#34;1-为什么先学流控&#34;&gt;
+    1. 为什么先学流控
+&lt;/h3&gt;
+&lt;p&gt;Sentinel 最核心的起点就是流量控制。因为很多线上问题，单位时间内进来的请求太多，或者请求处理得太慢，导致系统承受不住。&lt;/p&gt;
 &lt;p&gt;比如某个查询接口平时每秒只有 20 个请求，数据库完全顶得住。但活动一开始，流量瞬间变成每秒 2000 个请求，这时数据库、线程池、连接池都可能先后被打满。流控做的事，就是在系统快到极限之前，主动拒绝一部分请求，保持系统正常运行。&lt;/p&gt;
 &lt;p&gt;&lt;mark&gt;基于流量控制的算法有木桶算法、漏斗算法和令牌算法。此处不过多展开。&lt;/mark&gt;&lt;/p&gt;
-&lt;h3 id=&#34;2-基于-qps-和基于并发线程数的流控&#34;&gt;2. 基于 QPS 和基于并发线程数的流控
-&lt;/h3&gt;&lt;ul&gt;
+&lt;h3 id=&#34;2-基于-qps-和基于并发线程数的流控&#34;&gt;
+    2. 基于 QPS 和基于并发线程数的流控
+&lt;/h3&gt;
+&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;code&gt;QPS&lt;/code&gt; 是每秒请求数，限流策略是限制“请求进入速度”。比如一个接口每秒最多只希望处理 100 次调用，那么就可以基于 &lt;code&gt;QPS&lt;/code&gt; 配规则。&lt;/p&gt;
 &lt;/li&gt;
@@ -345,8 +408,10 @@
 &lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;3-流控规则的核心字段&#34;&gt;3. 流控规则的核心字段
-&lt;/h3&gt;&lt;p&gt;配置流控规则时，不管是在代码里还是在控制台里配置，有几个核心参数是必须了解的&lt;/p&gt;
+&lt;h3 id=&#34;3-流控规则的核心字段&#34;&gt;
+    3. 流控规则的核心字段
+&lt;/h3&gt;
+&lt;p&gt;配置流控规则时，不管是在代码里还是在控制台里配置，有几个核心参数是必须了解的&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;resource&lt;/code&gt;，针对哪个资源生效，通常就是某个接口、某个方法、某个服务调用点。&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;grade&lt;/code&gt;，按什么维度限流，是 &lt;code&gt;QPS&lt;/code&gt; 还是并发线程数。&lt;/li&gt;
@@ -361,30 +426,48 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;rule&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;setCount&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// QPS 设置为 100&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;FlowRuleManager&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;loadRules&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;List&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;of&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;rule&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这段代码规定资源名叫 &lt;code&gt;queryGoods&lt;/code&gt; 的入口，&lt;code&gt;QPS&lt;/code&gt; 超过 &lt;code&gt;100&lt;/code&gt; 以后就开始限流。&lt;/p&gt;
-&lt;h3 id=&#34;4-三种流控模式直接关联链路&#34;&gt;4. 三种流控模式，直接、关联、链路
-&lt;/h3&gt;&lt;h4 id=&#34;直接模式&#34;&gt;直接模式
-&lt;/h4&gt;&lt;p&gt;直接模式最好理解，就是“谁超了就限谁”。比如 &lt;code&gt;/goods/list&lt;/code&gt; 接口访问量过大，就直接对 &lt;code&gt;/goods/list&lt;/code&gt; 做限流。
+&lt;h3 id=&#34;4-三种流控模式直接关联链路&#34;&gt;
+    4. 三种流控模式，直接、关联、链路
+&lt;/h3&gt;
+&lt;h4 id=&#34;直接模式&#34;&gt;
+    直接模式
+&lt;/h4&gt;
+&lt;p&gt;直接模式最好理解，就是“谁超了就限谁”。比如 &lt;code&gt;/goods/list&lt;/code&gt; 接口访问量过大，就直接对 &lt;code&gt;/goods/list&lt;/code&gt; 做限流。
 这种模式适合最常见的单接口保护场景。&lt;/p&gt;
-&lt;h4 id=&#34;关联模式&#34;&gt;关联模式
-&lt;/h4&gt;&lt;p&gt;关联模式的是限制与重要接口相关联的资源
+&lt;h4 id=&#34;关联模式&#34;&gt;
+    关联模式
+&lt;/h4&gt;
+&lt;p&gt;关联模式的是限制与重要接口相关联的资源
 例如订单创建接口和商品查询接口都要访问数据库，秒杀时商品查询量暴增，可能会把数据库资源占满，影响到下单。这时就可以设置，当“商品查询”资源压力过大时，限制“商品查询”，把资源留给“下单”这种更重要的业务。&lt;/p&gt;
-&lt;h4 id=&#34;链路模式&#34;&gt;链路模式
-&lt;/h4&gt;&lt;p&gt;链路模式关注的是，同一个资源可能从不同调用入口进入，但这些入口的优先级不一样。
+&lt;h4 id=&#34;链路模式&#34;&gt;
+    链路模式
+&lt;/h4&gt;
+&lt;p&gt;链路模式关注的是，同一个资源可能从不同调用入口进入，但这些入口的优先级不一样。
 比如一个 &lt;code&gt;queryUser()&lt;/code&gt; 方法，既会被普通查询页面调用，也会被下单流程调用。虽然最终访问的是同一个方法，但“下单链路里的 &lt;code&gt;queryUser()&lt;/code&gt;”和“普通查询链路里的 &lt;code&gt;queryUser()&lt;/code&gt;”业务价值不同。链路模式就能针对某一条调用路径单独限流。
 这说明 Sentinel 的资源观念不只是“接口名”，而是“接口在整条调用链里扮演什么角色”。
 &lt;img src=&#34;https://Jul1en-Lin.github.io/p/sentinel/assets/flow-control-mode_hu_f5c6aeb4bc37a8e2.webp&#34; width=&#34;1600&#34; height=&#34;1200&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/sentinel/assets/flow-control-mode_hu_522ff61f0fac081b.webp 800w, https://Jul1en-Lin.github.io/p/sentinel/assets/flow-control-mode_hu_f5c6aeb4bc37a8e2.webp 1600w, https://Jul1en-Lin.github.io/p/sentinel/assets/flow-control-mode_hu_85821226d1f2eb08.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;Sentinel 三种流控模式&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;133&#34; data-flex-basis=&#34;320px&#34;&gt;
 &lt;/p&gt;
-&lt;h3 id=&#34;5-流控效果快速失败warm-up排队等待&#34;&gt;5. 流控效果：快速失败、warm up、排队等待
-&lt;/h3&gt;&lt;p&gt;阈值一旦超了，系统并不一定只有“直接拒绝”这一种做法。 warm up 和排队等待，就是在讨论“限流之后的处理节奏”。&lt;/p&gt;
-&lt;h4 id=&#34;快速失败&#34;&gt;快速失败
-&lt;/h4&gt;&lt;p&gt;快速失败是最直接的方式。超过阈值后，后续请求立刻被拒绝。这种方式实现简单，保护性最强，适合大多数接口。&lt;/p&gt;
-&lt;h4 id=&#34;warm-up&#34;&gt;warm up
-&lt;/h4&gt;&lt;p&gt;&lt;code&gt;warm up&lt;/code&gt; 适合服务冷启动的情况，如：资源正在初始化、数据库连接也刚建立，假设这个服务的 QPS 为 100，刚启动时请求就达到阈值，此时服务器的资源还未完全初始化，也有可能服务器的崩溃。
+&lt;h3 id=&#34;5-流控效果快速失败warm-up排队等待&#34;&gt;
+    5. 流控效果：快速失败、warm up、排队等待
+&lt;/h3&gt;
+&lt;p&gt;阈值一旦超了，系统并不一定只有“直接拒绝”这一种做法。 warm up 和排队等待，就是在讨论“限流之后的处理节奏”。&lt;/p&gt;
+&lt;h4 id=&#34;快速失败&#34;&gt;
+    快速失败
+&lt;/h4&gt;
+&lt;p&gt;快速失败是最直接的方式。超过阈值后，后续请求立刻被拒绝。这种方式实现简单，保护性最强，适合大多数接口。&lt;/p&gt;
+&lt;h4 id=&#34;warm-up&#34;&gt;
+    warm up
+&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;warm up&lt;/code&gt; 适合服务冷启动的情况，如：资源正在初始化、数据库连接也刚建立，假设这个服务的 QPS 为 100，刚启动时请求就达到阈值，此时服务器的资源还未完全初始化，也有可能服务器的崩溃。
 所以 &lt;code&gt;warm up&lt;/code&gt; 的思路不是一开始就放开全部流量，而是先给一个较低的通过阈值，然后随着时间逐步升高，线性地升到设定的目标阈值。&lt;/p&gt;
-&lt;h4 id=&#34;排队等待&#34;&gt;排队等待
-&lt;/h4&gt;&lt;p&gt;排队等待适合对“匀速处理”有要求的场景。比如某些写库操作，这时可以让请求先处于队列排队，按稳定节奏通过。&lt;/p&gt;
-&lt;h3 id=&#34;6-热点参数限流&#34;&gt;6. 热点参数限流
-&lt;/h3&gt;&lt;p&gt;资源的接口的访问量是不一样的，有些接口访问的频繁，我们称之为热点接口
+&lt;h4 id=&#34;排队等待&#34;&gt;
+    排队等待
+&lt;/h4&gt;
+&lt;p&gt;排队等待适合对“匀速处理”有要求的场景。比如某些写库操作，这时可以让请求先处于队列排队，按稳定节奏通过。&lt;/p&gt;
+&lt;h3 id=&#34;6-热点参数限流&#34;&gt;
+    6. 热点参数限流
+&lt;/h3&gt;
+&lt;p&gt;资源的接口的访问量是不一样的，有些接口访问的频繁，我们称之为热点接口
 例如商品详情接口 &lt;code&gt;/goods/{id}&lt;/code&gt; 平时很稳，但某个爆款商品 &lt;code&gt;id=1001&lt;/code&gt; 突然被全网抢购。这时接口本身不一定超限，真正热点的是参数 &lt;code&gt;1001&lt;/code&gt;。如果仍然按接口整体限流，就会误伤所有其他商品请求。
 热点参数限流能做到：&lt;/p&gt;
 &lt;ul&gt;
@@ -395,8 +478,10 @@
 &lt;p&gt;也就是说，普通流控解决的是“这个门太多人进”，热点参数限流解决的是“门本身没问题，但总有一小撮人疯狂挤同一个窗口”。
 &lt;img src=&#34;https://Jul1en-Lin.github.io/p/sentinel/assets/hot-param-limit_hu_d1c3bb38034e3125.webp&#34; width=&#34;1600&#34; height=&#34;1200&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/sentinel/assets/hot-param-limit_hu_6f0196ae3dad0389.webp 800w, https://Jul1en-Lin.github.io/p/sentinel/assets/hot-param-limit_hu_d1c3bb38034e3125.webp 1600w, https://Jul1en-Lin.github.io/p/sentinel/assets/hot-param-limit_hu_48f182b6899e98ae.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;热点参数限流&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;133&#34; data-flex-basis=&#34;320px&#34;&gt;
 &lt;/p&gt;
-&lt;h3 id=&#34;7-限流算法的理解重点&#34;&gt;7. 限流算法的理解重点
-&lt;/h3&gt;&lt;p&gt;常见限流算法通常有下面几类：&lt;/p&gt;
+&lt;h3 id=&#34;7-限流算法的理解重点&#34;&gt;
+    7. 限流算法的理解重点
+&lt;/h3&gt;
+&lt;p&gt;常见限流算法通常有下面几类：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;固定窗口 / 滑动窗口
 &lt;img src=&#34;https://Jul1en-Lin.github.io/p/sentinel/assets/window_hu_f869ba198dac612a.webp&#34; width=&#34;1600&#34; height=&#34;1200&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/sentinel/assets/window_hu_e8780e38170f282a.webp 800w, https://Jul1en-Lin.github.io/p/sentinel/assets/window_hu_f869ba198dac612a.webp 1600w, https://Jul1en-Lin.github.io/p/sentinel/assets/window_hu_9f41ea1ce2b0d529.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;固定窗口与滑动窗口&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;133&#34; data-flex-basis=&#34;320px&#34;&gt;
@@ -409,18 +494,30 @@
  &lt;img src=&#34;https://Jul1en-Lin.github.io/p/sentinel/assets/token-bucket_hu_be07c40fe8e5c767.webp&#34; width=&#34;1600&#34; height=&#34;1200&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/sentinel/assets/token-bucket_hu_94dc969e567346d5.webp 800w, https://Jul1en-Lin.github.io/p/sentinel/assets/token-bucket_hu_be07c40fe8e5c767.webp 1600w, https://Jul1en-Lin.github.io/p/sentinel/assets/token-bucket_hu_23e4fc560e52411d.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;令牌桶算法&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;133&#34; data-flex-basis=&#34;320px&#34;&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;二熔断降级&#34;&gt;二、熔断降级
-&lt;/h2&gt;&lt;h3 id=&#34;1-熔断的三种触发条件&#34;&gt;1. 熔断的三种触发条件
-&lt;/h3&gt;&lt;h4 id=&#34;慢调用比例&#34;&gt;慢调用比例
-&lt;/h4&gt;&lt;p&gt;当一个资源的响应时间持续很长，而且慢请求所占比例超过阈值时，就可以触发熔断。
+&lt;h2 id=&#34;二熔断降级&#34;&gt;
+    二、熔断降级
+&lt;/h2&gt;
+&lt;h3 id=&#34;1-熔断的三种触发条件&#34;&gt;
+    1. 熔断的三种触发条件
+&lt;/h3&gt;
+&lt;h4 id=&#34;慢调用比例&#34;&gt;
+    慢调用比例
+&lt;/h4&gt;
+&lt;p&gt;当一个资源的响应时间持续很长，而且慢请求所占比例超过阈值时，就可以触发熔断。
 这个规则适合处理接口请求过慢的场景。&lt;/p&gt;
-&lt;h4 id=&#34;异常比例&#34;&gt;异常比例
-&lt;/h4&gt;&lt;p&gt;如果在一个统计窗口内，请求中的异常占比明显超过阈值，就说明这个资源已经处于高风险状态，可以暂时熔断。
+&lt;h4 id=&#34;异常比例&#34;&gt;
+    异常比例
+&lt;/h4&gt;
+&lt;p&gt;如果在一个统计窗口内，请求中的异常占比明显超过阈值，就说明这个资源已经处于高风险状态，可以暂时熔断。
 这个规则强调的是接口请求失败的比例。&lt;/p&gt;
-&lt;h4 id=&#34;异常数&#34;&gt;异常数
-&lt;/h4&gt;&lt;p&gt;如果在统计窗口内，异常总数超过阈值时触发熔断。&lt;/p&gt;
-&lt;h3 id=&#34;2-熔断状态机&#34;&gt;2. 熔断状态机
-&lt;/h3&gt;&lt;p&gt;状态机用于监控接口&lt;/p&gt;
+&lt;h4 id=&#34;异常数&#34;&gt;
+    异常数
+&lt;/h4&gt;
+&lt;p&gt;如果在统计窗口内，异常总数超过阈值时触发熔断。&lt;/p&gt;
+&lt;h3 id=&#34;2-熔断状态机&#34;&gt;
+    2. 熔断状态机
+&lt;/h3&gt;
+&lt;p&gt;状态机用于监控接口&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/sentinel/assets/state-machine_hu_7bb6095bba4a52f0.webp&#34; width=&#34;1600&#34; height=&#34;1200&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/sentinel/assets/state-machine_hu_2f050a5cf4dc31a9.webp 800w, https://Jul1en-Lin.github.io/p/sentinel/assets/state-machine_hu_7bb6095bba4a52f0.webp 1600w, https://Jul1en-Lin.github.io/p/sentinel/assets/state-machine_hu_5485076d6c61751e.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;Sentinel 熔断状态机&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;133&#34; data-flex-basis=&#34;320px&#34;&gt;
 &lt;/p&gt;
 &lt;ul&gt;
@@ -428,13 +525,19 @@
 &lt;li&gt;&lt;code&gt;OPEN&lt;/code&gt; 表示熔断打开，这段时间内请求不会继续请求目标资源，而是直接走降级逻辑，可能会请求到另外的备用接口。&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;HALF_OPEN&lt;/code&gt; 表示半开，也就是给系统一次“试着恢复”的机会。它不会一次性把流量全放开，而是先用少量探测请求看看下游是否真的恢复了。如果恢复了，就回到 &lt;code&gt;CLOSED&lt;/code&gt;；如果还是不行，就重新进入 &lt;code&gt;OPEN&lt;/code&gt;。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;三授权规则与自定义异常返回&#34;&gt;三、授权规则与自定义异常返回
-&lt;/h2&gt;&lt;h3 id=&#34;1-授权规则&#34;&gt;1. 授权规则
-&lt;/h3&gt;&lt;p&gt;授权规则关注的是“谁可以访问我”，对请求来源进行白名单放行 / 黑名单拦截。
+&lt;h2 id=&#34;三授权规则与自定义异常返回&#34;&gt;
+    三、授权规则与自定义异常返回
+&lt;/h2&gt;
+&lt;h3 id=&#34;1-授权规则&#34;&gt;
+    1. 授权规则
+&lt;/h3&gt;
+&lt;p&gt;授权规则关注的是“谁可以访问我”，对请求来源进行白名单放行 / 黑名单拦截。
 在微服务里，不同来源的请求优先级可能不同。比如某个接口只允许内部服务调用，不允许外部来源直接访问；或者同一个资源，对某些来源放行，对另一些来源拦截。
 Sentinel 的授权规则一般会基于 &lt;code&gt;origin&lt;/code&gt; 来做判断。你可以把 &lt;code&gt;origin&lt;/code&gt; 理解成请求来源标识。规则的本质就是，对资源设置白名单或黑名单，让不同来源得到不同处理。&lt;/p&gt;
-&lt;h3 id=&#34;2-自定义异常返回结果&#34;&gt;2. 自定义异常返回结果
-&lt;/h3&gt;&lt;p&gt;当请求被 Sentinel 拦住时，如果直接把原始异常栈丢给前端，用户体验会很差，前端也很难统一处理。所以实际项目里，通常会把“被限流”“被降级”“被授权拦截”这些情况包装成统一的业务返回。
+&lt;h3 id=&#34;2-自定义异常返回结果&#34;&gt;
+    2. 自定义异常返回结果
+&lt;/h3&gt;
+&lt;p&gt;当请求被 Sentinel 拦住时，如果直接把原始异常栈丢给前端，用户体验会很差，前端也很难统一处理。所以实际项目里，通常会把“被限流”“被降级”“被授权拦截”这些情况包装成统一的业务返回。
 在 Spring MVC 项目中，常见做法是实现 &lt;code&gt;BlockExceptionHandler&lt;/code&gt;：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nd&#34;&gt;@Component&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;CustomBlockExceptionHandler&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;implements&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;BlockExceptionHandler&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -446,11 +549,17 @@ Sentinel 的授权规则一般会基于 &lt;code&gt;origin&lt;/code&gt; 来做�
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;response&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getWriter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;().&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;write&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{\&amp;#34;code\&amp;#34;:429,\&amp;#34;msg\&amp;#34;:\&amp;#34;当前请求被限流或降级，请稍后再试\&amp;#34;}&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;四fallback-行为与封装接口-fallbackfactory&#34;&gt;四、Fallback 行为与封装接口 FallbackFactory
-&lt;/h2&gt;&lt;h3 id=&#34;1-为什么熔断后还需要-fallback-行为&#34;&gt;1. 为什么熔断后还需要 fallback 行为
-&lt;/h3&gt;&lt;p&gt;熔断之后还需要降级逻辑，也就是 &lt;code&gt;fallback&lt;/code&gt;。降级逻辑的目标不是把功能完整替代掉，而是在主流程不可用时，提供一个能接受的兜底结果。&lt;/p&gt;
-&lt;h3 id=&#34;2-fallbackfactory&#34;&gt;2. FallbackFactory
-&lt;/h3&gt;&lt;p&gt;Spring 为我们封装了 &lt;code&gt;FallbackFactory&lt;/code&gt; 接口，此实例将在出现任何类型的错误时被调用，任何关于 fallback 的错误降级都可实现这个接口，捕获异常。它可以拿到触发降级的异常对象 &lt;code&gt;Throwable&lt;/code&gt;，这样在写兜底逻辑时就有更多上下文。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;四fallback-行为与封装接口-fallbackfactory&#34;&gt;
+    四、Fallback 行为与封装接口 FallbackFactory
+&lt;/h2&gt;
+&lt;h3 id=&#34;1-为什么熔断后还需要-fallback-行为&#34;&gt;
+    1. 为什么熔断后还需要 fallback 行为
+&lt;/h3&gt;
+&lt;p&gt;熔断之后还需要降级逻辑，也就是 &lt;code&gt;fallback&lt;/code&gt;。降级逻辑的目标不是把功能完整替代掉，而是在主流程不可用时，提供一个能接受的兜底结果。&lt;/p&gt;
+&lt;h3 id=&#34;2-fallbackfactory&#34;&gt;
+    2. FallbackFactory
+&lt;/h3&gt;
+&lt;p&gt;Spring 为我们封装了 &lt;code&gt;FallbackFactory&lt;/code&gt; 接口，此实例将在出现任何类型的错误时被调用，任何关于 fallback 的错误降级都可实现这个接口，捕获异常。它可以拿到触发降级的异常对象 &lt;code&gt;Throwable&lt;/code&gt;，这样在写兜底逻辑时就有更多上下文。
 &lt;img src=&#34;https://Jul1en-Lin.github.io/p/sentinel/assets/fallback-factory_hu_f181fb297c52f7a6.webp&#34; width=&#34;1600&#34; height=&#34;676&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/sentinel/assets/fallback-factory_hu_8a4ada5cff062332.webp 800w, https://Jul1en-Lin.github.io/p/sentinel/assets/fallback-factory_hu_f181fb297c52f7a6.webp 1600w, https://Jul1en-Lin.github.io/p/sentinel/assets/fallback-factory_hu_7f7425d08cb2f448.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;FallbackFactory 示例&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;236&#34; data-flex-basis=&#34;568px&#34;&gt;
 &lt;/p&gt;
 &lt;p&gt;实现栗子🌰&lt;/p&gt;
@@ -468,19 +577,28 @@ Sentinel 的授权规则一般会基于 &lt;code&gt;origin&lt;/code&gt; 来做�
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/sentinel/assets/fallback_hu_329e94a95b0f02e4.webp&#34; width=&#34;1600&#34; height=&#34;1200&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/sentinel/assets/fallback_hu_c8c13deb40cbfb17.webp 800w, https://Jul1en-Lin.github.io/p/sentinel/assets/fallback_hu_329e94a95b0f02e4.webp 1600w, https://Jul1en-Lin.github.io/p/sentinel/assets/fallback_hu_2a58035c15ee9418.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;Fallback 降级流程&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;133&#34; data-flex-basis=&#34;320px&#34;&gt;
 &lt;/p&gt;
-&lt;h2 id=&#34;五规则管理与持久化&#34;&gt;五、规则管理与持久化
-&lt;/h2&gt;&lt;h3 id=&#34;1-规则配置&#34;&gt;1. 规则配置
-&lt;/h3&gt;&lt;p&gt;当前的配置文件都是存放于内存中的，重启服务器后规则就没了，且微服务中多台示例部署，每个实例都规则可能都不同，管理配置会非常困难，我们需要平台将规则配置统一管理起来，方便修改同步。&lt;/p&gt;
-&lt;h3 id=&#34;2-pull---push-模式&#34;&gt;2. pull /  push 模式
-&lt;/h3&gt;&lt;h4 id=&#34;pull-模式&#34;&gt;pull 模式
-&lt;/h4&gt;&lt;p&gt;&lt;mark&gt;&lt;strong&gt;应用会主动从某个外部规则源读取配置&lt;/strong&gt;&lt;/mark&gt;，比如 &lt;code&gt;Nacos&lt;/code&gt;、&lt;code&gt;Apollo&lt;/code&gt;、&lt;code&gt;ZooKeeper&lt;/code&gt;、文件或数据库。应用更像是规则的消费者，规则中心保存正式配置，应用自己去拉取。&lt;/p&gt;
-&lt;h4 id=&#34;push-模式&#34;&gt;push 模式
-&lt;/h4&gt;&lt;p&gt;&lt;mark&gt;&lt;strong&gt;控制台或配置中心把规则配置主动推送到已经注册的实例中，实例（服务器）收到后会立刻更新&lt;/strong&gt;&lt;/mark&gt;
+&lt;h2 id=&#34;五规则管理与持久化&#34;&gt;
+    五、规则管理与持久化
+&lt;/h2&gt;
+&lt;h3 id=&#34;1-规则配置&#34;&gt;
+    1. 规则配置
+&lt;/h3&gt;
+&lt;p&gt;当前的配置文件都是存放于内存中的，重启服务器后规则就没了，且微服务中多台示例部署，每个实例都规则可能都不同，管理配置会非常困难，我们需要平台将规则配置统一管理起来，方便修改同步。&lt;/p&gt;
+&lt;h3 id=&#34;2-pull---push-模式&#34;&gt;
+    2. pull /  push 模式
+&lt;/h3&gt;
+&lt;h4 id=&#34;pull-模式&#34;&gt;
+    pull 模式
+&lt;/h4&gt;
+&lt;p&gt;&lt;mark&gt;&lt;strong&gt;应用会主动从某个外部规则源读取配置&lt;/strong&gt;&lt;/mark&gt;，比如 &lt;code&gt;Nacos&lt;/code&gt;、&lt;code&gt;Apollo&lt;/code&gt;、&lt;code&gt;ZooKeeper&lt;/code&gt;、文件或数据库。应用更像是规则的消费者，规则中心保存正式配置，应用自己去拉取。&lt;/p&gt;
+&lt;h4 id=&#34;push-模式&#34;&gt;
+    push 模式
+&lt;/h4&gt;
+&lt;p&gt;&lt;mark&gt;&lt;strong&gt;控制台或配置中心把规则配置主动推送到已经注册的实例中，实例（服务器）收到后会立刻更新&lt;/strong&gt;&lt;/mark&gt;
 它的好处是实时性更好，规则修改后生效更快，也更接近真正的集中治理模式。生产环境里都会建议将 Sentinel 规则配置台注册到服务中心如 &lt;code&gt;nacos&lt;/code&gt; 上，然后再由 &lt;code&gt;nacos&lt;/code&gt; 推送，方便统一管理。
 &lt;img src=&#34;https://Jul1en-Lin.github.io/p/sentinel/assets/config-pull-push_hu_c4ec30230bf4b20f.webp&#34; width=&#34;1600&#34; height=&#34;1200&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/sentinel/assets/config-pull-push_hu_55cfed7221b48531.webp 800w, https://Jul1en-Lin.github.io/p/sentinel/assets/config-pull-push_hu_c4ec30230bf4b20f.webp 1600w, https://Jul1en-Lin.github.io/p/sentinel/assets/config-pull-push_hu_d114dd292269f9ff.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;Sentinel 规则持久化 pull 与 push&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;133&#34; data-flex-basis=&#34;320px&#34;&gt;
 &lt;/p&gt;
 </description>
-        </item>
-        
-    </channel>
+    </item>
+  </channel>
 </rss>

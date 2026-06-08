@@ -1,43 +1,46 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
+<html lang="zh-CN" dir="ltr">
 
-<head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Redis 主从复制 概念与结构 Redis 主从复制指的是：让一个 Redis 主节点，也就是 master，把自己的数据同步给一个或多个从节点，也就是 replica。以前很多资料会写 slave，现在更推荐使用 replica 这个说法，但学习时看到 slave 也要能对应上。">
-<title>Redis 主从复制 | Jul1en</title>
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Redis 主从复制 | Jul1en</title>
+<meta name="description" content="Redis 主从复制 概念与结构 Redis 主从复制指的是：让一个 Redis 主节点，也就是 master，把自己的数据同步给一个或多个从节点，也就是 replica。以前很多资料会写 slave，现在更推荐使用 replica 这个说法，但学习时看到 slave 也要能对应上。">
+<meta name="author" content="Jul1en">
+<link rel="canonical" href="https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/">
 
-<link rel='canonical' href='https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/'>
-
-<link rel="stylesheet" href="/scss/style.min.ec82946fda8d90cf1fb1835f4491c98e9279c2eae00a5622fe790c8a9ce86062.css"><meta property='og:title' content="Redis 主从复制 | Jul1en">
-<meta property='og:description' content="Redis 主从复制 概念与结构 Redis 主从复制指的是：让一个 Redis 主节点，也就是 master，把自己的数据同步给一个或多个从节点，也就是 replica。以前很多资料会写 slave，现在更推荐使用 replica 这个说法，但学习时看到 slave 也要能对应上。">
-<meta property='og:url' content='https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/'>
-<meta property='og:site_name' content='Jul1en'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-05-13T15:29:13&#43;00:00'/><meta property='article:modified_time' content='2026-05-14T00:37:44&#43;08:00'/>
-<meta name="twitter:title" content="Redis 主从复制 | Jul1en">
-<meta name="twitter:description" content="Redis 主从复制 概念与结构 Redis 主从复制指的是：让一个 Redis 主节点，也就是 master，把自己的数据同步给一个或多个从节点，也就是 replica。以前很多资料会写 slave，现在更推荐使用 replica 这个说法，但学习时看到 slave 也要能对应上。">
-    <link rel="shortcut icon" href="/favicon-signature.svg" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="icon" href="/favicon-signature.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-signature.png" type="image/png" sizes="512x512">
-<link rel="alternate icon" href="/favicon-signature.ico" type="image/x-icon">
-<meta name="author" content="Jul1en">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)"><script src="/js/custom.4bb4ca905d915217c671721b75f16ae60652e805c90c767a80a951f0dddeeb9c.js" integrity="sha256-S7TKkF2RUhfGcXIbdfFq5gZS6AXJDHZ6gKlR8N3e65w=" defer></script><script>
+<link rel="alternate icon" href="/favicon.ico" type="image/x-icon">
+<meta name="theme-color" content="#fdfdf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Redis 主从复制 | Jul1en">
+<meta property="og:description" content="Redis 主从复制 概念与结构 Redis 主从复制指的是：让一个 Redis 主节点，也就是 master，把自己的数据同步给一个或多个从节点，也就是 replica。以前很多资料会写 slave，现在更推荐使用 replica 这个说法，但学习时看到 slave 也要能对应上。">
+<meta property="og:url" content="https://Jul1en-Lin.github.io/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/">
+<meta property="og:site_name" content="Jul1en">
+<meta property="og:type" content="article">
+<meta property="article:section" content="Post">
+<meta property="article:published_time" content="2026-05-13T15:29:13&#43;00:00">
+<meta property="article:modified_time" content="2026-05-14T00:37:44&#43;08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Redis 主从复制 | Jul1en">
+<meta name="twitter:description" content="Redis 主从复制 概念与结构 Redis 主从复制指的是：让一个 Redis 主节点，也就是 master，把自己的数据同步给一个或多个从节点，也就是 replica。以前很多资料会写 slave，现在更推荐使用 replica 这个说法，但学习时看到 slave 也要能对应上。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"><script>
     (function () {
-        const colorSchemeKey = 'StackColorScheme';
-        const savedScheme = localStorage.getItem(colorSchemeKey);
-        const defaultScheme = "light";
-        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
-        const scheme = savedScheme || defaultScheme;
-
-        if (scheme === 'dark' || (scheme === 'auto' && supportDarkMode)) {
-            document.documentElement.dataset.scheme = 'dark';
-        } else {
-            document.documentElement.dataset.scheme = 'light';
+        var stored = null;
+        try {
+            stored = window.localStorage.getItem('ColorScheme');
+        } catch (error) {
+            stored = null;
         }
+
+        var scheme = stored;
+        if (scheme !== 'light' && scheme !== 'dark') {
+            scheme = "light";
+        }
+        document.documentElement.dataset.scheme = scheme;
     })();
-</script>
+</script><link rel="stylesheet" href="/css/site.min.0758d8aad30f198f851a02b8c6494f637bd95774b2fd6b2f576cf99133b942f8.css" integrity="sha256-B1jYqtMPGY&#43;FGgK4xklPY3vZV3Sy/WsvV2z5kTO5Qvg="><script src="/js/site.51f8655227b5fb12b2585c2985e20ec3e93192ca19774662d732d2a0bcb492f0.js" integrity="sha256-UfhlUie1&#43;xKyWFwpheIOw&#43;kxksoZd0Zi1zLSoLy0kvA=" defer></script>
 
 </head>
 
@@ -93,7 +96,7 @@
   <path fill="currentColor" d="M17.2 7.2a.9.9 0 1 1-1.8 0 .9.9 0 0 1 1.8 0Z" />
 </svg>
 </span>
-                    </a><button id="dark-mode-toggle" class="theme-toggle" type="button" aria-label="暗色模式" title="暗色模式">
+                    </a><button id="dark-mode-toggle" class="theme-toggle" type="button" aria-label="切换配色" title="切换配色">
                     <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
     <circle cx="12" cy="12" r="4.2" />
     <path d="M12 2.8v2.2M12 19v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.8 12h2.2M19 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" />
@@ -184,8 +187,11 @@
             </header>
 
             <section class="article-content article-detail__content">
-                <h2 id="概念与结构">概念与结构
-</h2><p>Redis 主从复制指的是：让一个 Redis 主节点，也就是 <code>master</code>，把自己的数据同步给一个或多个从节点，也就是 <code>replica</code>。以前很多资料会写 <code>slave</code>，现在更推荐使用 <code>replica</code> 这个说法，但学习时看到 <code>slave</code> 也要能对应上。</p>
+                
+<h2 id="概念与结构">
+    概念与结构
+</h2>
+<p>Redis 主从复制指的是：让一个 Redis 主节点，也就是 <code>master</code>，把自己的数据同步给一个或多个从节点，也就是 <code>replica</code>。以前很多资料会写 <code>slave</code>，现在更推荐使用 <code>replica</code> 这个说法，但学习时看到 <code>slave</code> 也要能对应上。</p>
 <p>主从复制最基本的结构是：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">master
 </span></span><span class="line"><span class="cl">  ├── replica 1
@@ -196,8 +202,10 @@
 <p>不过要注意，Redis 默认使用异步复制，主节点不会每次写入都等待所有从节点确认完成后再返回结果，所以主从之间可能存在短暂的数据延迟。</p>
 <p><img src="/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233030-2p0t9uw_hu_584b8c1bc8011807.webp" width="1600" height="1185" srcset="/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233030-2p0t9uw_hu_c7edcecaa2156a59.webp 800w, /p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233030-2p0t9uw_hu_584b8c1bc8011807.webp 1600w, /p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233030-2p0t9uw_hu_84bdd6cce0c1eb22.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="135" data-flex-basis="324px">
 </p>
-<h2 id="安全性只读与传输延迟">安全性、只读与传输延迟
-</h2><ul>
+<h2 id="安全性只读与传输延迟">
+    安全性、只读与传输延迟
+</h2>
+<ul>
 <li>安全性：Redis 主从复制可以提高系统可用性，但它不是严格意义上的“备份方案”。如果主节点发生误删、误写，这些错误操作也可能同步到从节点，导致从节点也会同步主节点，进而删除数据。所以如果数据安全非常重要，不能只依赖主从复制，还要考虑 RDB、AOF、定期备份、权限控制和运维策略。</li>
 </ul>
 <p><u><strong>官方文档里也特别提醒过一种情况：如果主节点关闭持久化，并且崩溃后自动重启，那么主节点可能以空数据集启动，从节点继续复制它时，也可能被同步成空数据集。</strong></u></p>
@@ -209,8 +217,10 @@
 <p>传输延迟：由于 Redis 默认是异步复制，写命令先在主节点执行，然后再通过复制流发送给从节点。如果网络波动、从节点处理较慢、复制缓冲区压力较大，就可能出现从节点短暂落后主节点的情况。读写分离场景下，如果业务对“刚写完马上读到最新数据”要求非常高，就不能随便把读请求分流到从节点。</p>
 </li>
 </ul>
-<h2 id="拓扑结构">拓扑结构
-</h2><p>主从复制不只有“一主一从”。根据系统规模和用途，常见拓扑可以分成几类。</p>
+<h2 id="拓扑结构">
+    拓扑结构
+</h2>
+<p>主从复制不只有“一主一从”。根据系统规模和用途，常见拓扑可以分成几类。</p>
 <ul>
 <li>单主单从：它是最简单的结构，一个 master 对应一个 replica。这个结构容易理解，也适合学习和小规模部署。</li>
 </ul>
@@ -235,8 +245,10 @@
 <p>总结图片</p>
 <p><img src="/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233046-92pvyph_hu_c5e6e2583fd6220a.webp" width="1600" height="1184" srcset="/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233046-92pvyph_hu_852e0cc8aa0dd15c.webp 800w, /p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233046-92pvyph_hu_c5e6e2583fd6220a.webp 1600w, /p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233046-92pvyph_hu_8f843a6cae9046f9.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="135" data-flex-basis="324px">
 </p>
-<h2 id="基本流程">基本流程
-</h2><p>Redis 主从复制的基本流程可以理解成三句话：先建立连接，再同步数据，最后持续跟随。</p>
+<h2 id="基本流程">
+    基本流程
+</h2>
+<p>Redis 主从复制的基本流程可以理解成三句话：先建立连接，再同步数据，最后持续跟随。</p>
 <p>当一个 replica 想要复制 master 时，它会先连接 master，并发起复制请求。Redis 使用 <code>PSYNC</code> 机制进行同步判断。主节点会根据 replica 提供的信息判断：这次可以部分复制，还是必须全量复制。官方文档说明，如果部分重同步不可行，replica 会请求全量重同步；如果可行，就只获取断开期间缺失的那部分命令流。</p>
 <p>复制流程可以拆成下面几步：</p>
 <ol>
@@ -253,8 +265,10 @@
 <p>之后如果网络短暂中断再恢复，就有机会走部分复制，只补上中间缺失的命令。如何判断是走部分还是全量复制呢？下面章节会有详细说明~</p>
 <p><img src="/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513235628-c8qtsx6_hu_1b8e563cc64dbf3.webp" width="1600" height="1207" srcset="/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513235628-c8qtsx6_hu_483bb5460712b273.webp 800w, /p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513235628-c8qtsx6_hu_1b8e563cc64dbf3.webp 1600w, /p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513235628-c8qtsx6_hu_e50b59e81a6c0b58.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="132" data-flex-basis="318px">
 </p>
-<h2 id="replid-和-offset-的作用">replid 和 offset 的作用
-</h2><p>Redis 主从复制要解决两个判断问题：</p>
+<h2 id="replid-和-offset-的作用">
+    replid 和 offset 的作用
+</h2>
+<p>Redis 主从复制要解决两个判断问题：</p>
 <ul>
 <li>我们是不是同一条复制历史？</li>
 <li>已经同步到哪里了？</li>
@@ -275,13 +289,17 @@
 <p><strong>如果 replid 不一样，或者 offset 太旧，master 已经没有保留那段复制流，那么就只能走全量复制。</strong></p>
 </blockquote>
 <p>此处提到了积压缓冲区，我们来看看它是什么~</p>
-<h3 id="积压缓冲区">积压缓冲区
-</h3><p>积压缓冲区就是当主从复制建立后，master 会持续把写命令传播给 replica，同时也把这些写命令对应的复制流记录到复制积压缓冲区里。里面保存的是最近一段写命令的复制流和offset 开始值与最大值，直到从节点重新连接。</p>
+<h3 id="积压缓冲区">
+    积压缓冲区
+</h3>
+<p>积压缓冲区就是当主从复制建立后，master 会持续把写命令传播给 replica，同时也把这些写命令对应的复制流记录到复制积压缓冲区里。里面保存的是最近一段写命令的复制流和offset 开始值与最大值，直到从节点重新连接。</p>
 <p>重新连接后，主节点会检查 replication ID + offset，看看这个从节点还是不是之前的小弟。如果 replication ID 一致，就说明是曾经复制过的小弟，就会检查它的 offset，如果从节点的 offset 太旧了，主节点的 offset 的最小值都比从节点的 offset 大，此时就会丢弃，重新进行全量复制。（因为主节点在积压缓冲区的范围是有限的，若数据比较多，缓冲区中会丢弃更加久的数据，保留最近的数据，offset 会慢慢变大）</p>
 <p><img src="/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260514003034-qzz5pul_hu_a1c0012d98a5fb23.webp" width="1600" height="1193" srcset="/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260514003034-qzz5pul_hu_3b58c6455a7be29.webp 800w, /p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260514003034-qzz5pul_hu_a1c0012d98a5fb23.webp 1600w, /p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260514003034-qzz5pul_hu_f98ffc7f581ab7e1.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="134" data-flex-basis="321px">
 </p>
-<h2 id="全量复制">全量复制
-</h2><p>全量复制，也叫 full resynchronization，意思是从节点需要重新获得一份完整的数据集。</p>
+<h2 id="全量复制">
+    全量复制
+</h2>
+<p>全量复制，也叫 full resynchronization，意思是从节点需要重新获得一份完整的数据集。</p>
 <p>典型触发场景有三种：</p>
 <ul>
 <li>第一次建立主从关系</li>
@@ -299,8 +317,10 @@
 </ol>
 <p>master 在生成 RDB 的同时，仍然可能继续接收新的写命令。这些新写命令不能丢，所以 master 会把这段时间的增量命令缓冲起来。等 replica 加载完 RDB 后，再把这些增量命令发过去。Redis 官方文档对全量同步的描述也是：master 后台生成 RDB 文件，同时缓冲新的写命令，RDB 传输并加载完成后，再把缓冲命令发送给 replica。</p>
 <p>全量复制的缺点是开销比较大。它涉及 RDB 生成、RDB 传输、replica 加载整个数据集。如果数据量很大，可能带来磁盘、网络、CPU、内存等压力。</p>
-<h2 id="部分复制">部分复制
-</h2><p>部分复制，也叫 partial resynchronization，意思是 replica 不需要重新同步整个数据集，只需要补上自己断线期间缺失的那部分命令。</p>
+<h2 id="部分复制">
+    部分复制
+</h2>
+<p>部分复制，也叫 partial resynchronization，意思是 replica 不需要重新同步整个数据集，只需要补上自己断线期间缺失的那部分命令。</p>
 <p>部分复制通常发生在 replica 和 master 短暂断开后重新连接时。replica 会向 master 发送自己保存的 <code>replid</code> 和 <code>offset</code>，master 根据这些信息判断能不能只补增量。官方文档说明，replica 连接 master 时会使用 <code>PSYNC</code> 发送旧 master 的 replication ID 和已经处理的 offset；如果 master 缓冲区里还有对应数据，就可以发送增量部分，否则走全量同步。</p>
 <p>部分复制的判断可以简化成：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">如果 replid 一样，并且 offset 还在复制积压缓冲区范围内：
@@ -313,8 +333,10 @@
 </span></span></code></pre></div><p>部分复制的优点很明显：更快、更轻量、网络开销更小。对于短暂网络抖动、从节点短暂掉线这种情况，部分复制非常重要。</p>
 <p><img src="/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233138-t07v5in_hu_86e47d1b701fe6b1.webp" width="1600" height="1188" srcset="/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233138-t07v5in_hu_94590be88d8aa63f.webp 800w, /p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233138-t07v5in_hu_86e47d1b701fe6b1.webp 1600w, /p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233138-t07v5in_hu_597e3236f93eada4.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="134" data-flex-basis="323px">
 </p>
-<h2 id="实时复制">实时复制
-</h2><p>当全量复制或部分复制完成后，主从关系进入稳定阶段。这个阶段 master 会继续接收客户端写命令，并把这些写命令传播给 replica。replica 按顺序执行收到的命令，从而让数据尽量跟上 master。这个阶段也可以叫命令传播阶段，或者增量复制阶段。</p>
+<h2 id="实时复制">
+    实时复制
+</h2>
+<p>当全量复制或部分复制完成后，主从关系进入稳定阶段。这个阶段 master 会继续接收客户端写命令，并把这些写命令传播给 replica。replica 按顺序执行收到的命令，从而让数据尽量跟上 master。这个阶段也可以叫命令传播阶段，或者增量复制阶段。</p>
 <p>实时复制依赖的是主从节点之间的 TCP 长连接传输~</p>
 <p>基本流程：</p>
 <ol>
@@ -330,11 +352,15 @@
 <li>从节点默认每个一个时间周期就会给主节点发送一个特定的请求，会上报当前复制主节点数据的进度（offset）</li>
 </ul>
 <p>实时复制不代表强一致。因为复制仍然以异步为主，网络和执行时间都会带来延迟。<u><strong>主从数据持续接近一致，而不是任何时刻都绝对一致。</strong></u></p>
-<h3 id="主从连接与心跳机制的区别">主从连接与心跳机制的区别
-</h3><p>主从连接和心跳机制有联系，但不是一回事。主从连接强调的是 replica 与 master 建立复制通道，完成握手并确认同步方式；</p>
+<h3 id="主从连接与心跳机制的区别">
+    主从连接与心跳机制的区别
+</h3>
+<p>主从连接和心跳机制有联系，但不是一回事。主从连接强调的是 replica 与 master 建立复制通道，完成握手并确认同步方式；</p>
 <p>心跳机制强调的是复制关系建立之后，双方持续保持联系，replica 周期性向 master 汇报同步进度，master 借此判断从节点是否在线、是否落后。如果心跳异常或连接中断，从节点会重新连接 master，并根据 <code>replid + offset</code> 尝试进行部分复制。</p>
-<h2 id="全量复制的无硬盘模式优化">全量复制的无硬盘模式优化
-</h2><p>无硬盘复制即 diskless replication</p>
+<h2 id="全量复制的无硬盘模式优化">
+    全量复制的无硬盘模式优化
+</h2>
+<p>无硬盘复制即 diskless replication</p>
 <p>正常全量复制时，master 需要生成 RDB 文件。传统方式是先把 RDB 写到磁盘，然后再从磁盘读取并发送给 replica，流程大概为：</p>
 <ol>
 <li>master 生成 RDB 到磁盘</li>
@@ -350,47 +376,51 @@
 <p>另外要注意：无硬盘复制优化的是全量复制阶段，不是部分复制阶段。部分复制本来就是补增量命令，不需要重新传完整 RDB。</p>
 <p><img src="/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233215-802ygu1_hu_667b9ee9cd481486.webp" width="1600" height="1187" srcset="/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233215-802ygu1_hu_1c694c9df5297d50.webp 800w, /p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233215-802ygu1_hu_667b9ee9cd481486.webp 1600w, /p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233215-802ygu1_hu_6c56cdef2b06d0af.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="134" data-flex-basis="323px">
 </p>
-<h2 id="runid-与-replid-的区别">runid 与 replid 的区别
-</h2><p><code>runid</code> 和 <code>replid</code> 都像“身份标识”，但它们不是一个东西。</p>
+<h2 id="runid-与-replid-的区别">
+    runid 与 replid 的区别
+</h2>
+<p><code>runid</code> 和 <code>replid</code> 都像“身份标识”，但它们不是一个东西。</p>
 <p><code>runid</code> 是 Redis 实例自身的运行时 ID。你可以把它理解成“这个 Redis 进程的身份证”。Redis <code>INFO</code> 命令文档中，<code>run_id</code> 被描述为用于识别 Redis server 的随机值，也会被 Sentinel 和 Cluster 使用。</p>
 <p><code>replid</code> 是复制历史 ID。它不是用来识别 Redis 进程本身，而是用来识别某一段复制历史。主从复制、PSYNC、部分复制判断时，更关键的是 <code>replid + offset</code>。</p>
 <p>二者可以这样区分：</p>
 <div class="table-wrapper"><table>
-	<thead>
-			<tr>
-					<th>对比项</th>
-					<th>runid</th>
-					<th>replid</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td>关注对象</td>
-					<td>Redis 实例本身</td>
-					<td>复制历史，redis 服务重启后就不一样了</td>
-			</tr>
-			<tr>
-					<td>用途</td>
-					<td>识别 server 实例</td>
-					<td>判断复制历史、辅助部分复制</td>
-			</tr>
-			<tr>
-					<td>是否直接决定部分复制</td>
-					<td>不是关键</td>
-					<td>是关键参考</td>
-			</tr>
-			<tr>
-					<td>常见位置</td>
-					<td>INFO server 里的<code>run_id</code></td>
-					<td>INFO replication 里的<code>master_replid</code></td>
-			</tr>
-	</tbody>
+  <thead>
+      <tr>
+          <th>对比项</th>
+          <th>runid</th>
+          <th>replid</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>关注对象</td>
+          <td>Redis 实例本身</td>
+          <td>复制历史，redis 服务重启后就不一样了</td>
+      </tr>
+      <tr>
+          <td>用途</td>
+          <td>识别 server 实例</td>
+          <td>判断复制历史、辅助部分复制</td>
+      </tr>
+      <tr>
+          <td>是否直接决定部分复制</td>
+          <td>不是关键</td>
+          <td>是关键参考</td>
+      </tr>
+      <tr>
+          <td>常见位置</td>
+          <td>INFO server 里的<code>run_id</code></td>
+          <td>INFO replication 里的<code>master_replid</code></td>
+      </tr>
+  </tbody>
 </table></div>
 <p>Redis 还可能维护两个 replication ID：当前 <code>master_replid</code> 和 <code>master_replid2</code>。官方文档说明，第二个 replication ID 是为了故障转移后的部分重同步服务的；当 replica 被提升为 master 后，它会保留旧 master 的复制 ID 信息，从而尽量让其他 replica 不必全部重新全量复制。</p>
 <p><img src="/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233231-axrb9rc_hu_4a5b800dcc84c9e2.webp" width="1600" height="1194" srcset="/p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233231-axrb9rc_hu_1ddd954c12f049f0.webp 800w, /p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233231-axrb9rc_hu_4a5b800dcc84c9e2.webp 1600w, /p/redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/assets/image-20260513233231-axrb9rc_hu_41a96c73fb9d32fb.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="133" data-flex-basis="321px">
 </p>
-<h2 id="最小实践配置">最小实践配置
-</h2><p>如果只是做学习 demo，可以启动两个 Redis 实例。假设主节点端口是 <code>6379</code>，从节点端口是 <code>6380</code>。</p>
+<h2 id="最小实践配置">
+    最小实践配置
+</h2>
+<p>如果只是做学习 demo，可以启动两个 Redis 实例。假设主节点端口是 <code>6379</code>，从节点端口是 <code>6380</code>。</p>
 <p>从节点配置中可以写：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">replicaof 127.0.0.1 6379
 </span></span></code></pre></div><p>或者在从节点运行时执行：</p>
@@ -400,14 +430,18 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">INFO replication
 </span></span><span class="line"><span class="cl">ROLE
 </span></span></code></pre></div><p><code>INFO replication</code> 可以看到当前实例的复制角色、复制 ID、复制偏移量、连接的从节点数量等信息。<code>ROLE</code> 可以直接查看当前节点是 master 还是 replica，以及复制状态。Redis 官方文档也提到，<code>INFO replication</code> 和 <code>ROLE</code> 都能提供当前复制相关参数。</p>
-<h2 id="从节点晋升主节点">从节点晋升主节点
-</h2><p>从节点断开主节点有两种情况</p>
+<h2 id="从节点晋升主节点">
+    从节点晋升主节点
+</h2>
+<p>从节点断开主节点有两种情况</p>
 <ol>
 <li>从节点主动断开：使用<code>slaveof no one</code>，这时候从节点就能晋升为主节点，这意味着我们主动干预了 Redis 的结构</li>
 <li>主节点挂了：这个时候从节点不会主动晋升为主节点，它必须通过人工干预的方式，将主节点重新启动</li>
 </ol>
-<h2 id="复习总结">复习总结
-</h2><p>Redis 主从复制的核心，是 master 持续把自己的数据变化同步给 replica。它常用于读写分离、提高可用性和扩展读能力，但 Redis 默认是异步复制，所以主从之间可能有短暂延迟。</p>
+<h2 id="复习总结">
+    复习总结
+</h2>
+<p>Redis 主从复制的核心，是 master 持续把自己的数据变化同步给 replica。它常用于读写分离、提高可用性和扩展读能力，但 Redis 默认是异步复制，所以主从之间可能有短暂延迟。</p>
 <p>复制流程可以理解为：replica 先连接 master，然后通过 PSYNC 请求同步。master 根据 <code>replid</code> 和 <code>offset</code> 判断是全量复制还是部分复制。全量复制会发送完整 RDB，再补发期间的增量命令；部分复制只补断开期间缺失的命令。稳定后，master 持续把写命令传播给 replica，形成实时复制。</p>
 <p><code>replid</code> 表示复制历史，<code>offset</code> 表示同步进度。<code>runid</code> 表示 Redis 实例自身身份，不要和 <code>replid</code> 混淆。无硬盘复制是全量复制阶段的优化，它通过 socket 直接发送 RDB，减少磁盘 I/O。</p>
 <p>‍</p>
@@ -434,389 +468,11 @@
     </div>
 </article>
 
-
-
-
-
-
-
-
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-    
-    <div class="pswp__bg"></div>
-
-    
-    <div class="pswp__scroll-wrap">
-
-        
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                
-                
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
-                defer
-                >
-            </script><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
-                defer
-                >
-            </script><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
-            ><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
-            >
-
-    </main>
-
-    <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
-                
-                >
-            </script><script type="text/javascript" src="/ts/main.836efe327773ba454adac61ee8b35272b6f512bd594ed9ea0f926fca8386433b.js" defer></script><script type="text/javascript" src="/ts/custom.4bb4ca905d915217c671721b75f16ae60652e805c90c767a80a951f0dddeeb9c.js" defer></script>
-
-
-<button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
+    </main><button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M6 14.5 12 8l6 6.5" />
+        <path d="M6 14.5 12 8l6 6.5"></path>
     </svg>
 </button>
-
-<script>
-    (function () {
-        'use strict';
-
-        const menuToggle = document.querySelector('.site-menu-toggle');
-        const nav = document.getElementById('primary-navigation');
-        const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-        function initThemeToggle() {
-            const toggle = document.getElementById('dark-mode-toggle');
-            if (!toggle || toggle.dataset.projectThemeToggleReady === 'true') return;
-
-            toggle.dataset.projectThemeToggleReady = 'true';
-
-            function getCurrentScheme() {
-                return document.documentElement.dataset.scheme === 'dark' ? 'dark' : 'light';
-            }
-
-            function getSystemScheme() {
-                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-            }
-
-            function saveScheme(scheme) {
-                try {
-                    window.localStorage.setItem('StackColorScheme', scheme === getSystemScheme() ? 'auto' : scheme);
-                } catch (error) {
-                    return;
-                }
-            }
-
-            function applyScheme(scheme) {
-                document.documentElement.dataset.scheme = scheme;
-                saveScheme(scheme);
-                window.dispatchEvent(new CustomEvent('onColorSchemeChange', { detail: scheme }));
-            }
-
-            toggle.addEventListener('click', function (event) {
-                event.preventDefault();
-                event.stopImmediatePropagation();
-
-                const x = event.clientX;
-                const y = event.clientY;
-                const willBeDark = getCurrentScheme() !== 'dark';
-                const nextScheme = willBeDark ? 'dark' : 'light';
-                const endRadius = Math.hypot(
-                    Math.max(x, window.innerWidth - x),
-                    Math.max(y, window.innerHeight - y)
-                );
-
-                if (!document.startViewTransition) {
-                    applyScheme(nextScheme);
-                    return;
-                }
-
-                const transition = document.startViewTransition(function () {
-                    applyScheme(nextScheme);
-                });
-
-                transition.ready.then(function () {
-                    const clipPath = willBeDark
-                        ? [`circle(${endRadius}px at ${x}px ${y}px)`, `circle(0px at ${x}px ${y}px)`]
-                        : [`circle(0px at ${x}px ${y}px)`, `circle(${endRadius}px at ${x}px ${y}px)`];
-
-                    document.documentElement.animate(
-                        { clipPath },
-                        {
-                            duration: 500,
-                            easing: 'ease-in-out',
-                            fill: 'forwards',
-                            pseudoElement: willBeDark
-                                ? '::view-transition-old(root)'
-                                : '::view-transition-new(root)'
-                        }
-                    );
-                });
-            }, { capture: true });
-        }
-
-        function setMenuOpen(open) {
-            if (!menuToggle || !nav) return;
-            menuToggle.classList.toggle('is-open', open);
-            nav.classList.toggle('is-open', open);
-            document.body.classList.toggle('site-nav-open', open);
-            menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        }
-
-        if (menuToggle && nav) {
-            menuToggle.addEventListener('click', function (event) {
-                event.stopPropagation();
-                setMenuOpen(!nav.classList.contains('is-open'));
-            });
-
-            nav.querySelectorAll('a').forEach(function (link) {
-                link.addEventListener('click', function () {
-                    setMenuOpen(false);
-                });
-            });
-
-            document.addEventListener('keydown', function (event) {
-                if (event.key === 'Escape') setMenuOpen(false);
-            });
-
-            document.addEventListener('click', function (event) {
-                if (!document.body.classList.contains('site-nav-open')) return;
-                if (nav.contains(event.target) || menuToggle.contains(event.target)) return;
-                setMenuOpen(false);
-            });
-
-            const desktopQuery = window.matchMedia('(min-width: 921px)');
-            const closeMenuOnDesktop = function (event) {
-                if (event.matches) setMenuOpen(false);
-            };
-
-            if (desktopQuery.addEventListener) {
-                desktopQuery.addEventListener('change', closeMenuOnDesktop);
-            } else if (desktopQuery.addListener) {
-                desktopQuery.addListener(closeMenuOnDesktop);
-            }
-        }
-
-        const backToTop = document.getElementById('back-to-top');
-
-        if (backToTop) {
-            function updateBackToTop() {
-                backToTop.classList.toggle('is-visible', window.scrollY > 420);
-            }
-
-            backToTop.addEventListener('click', function () {
-                window.scrollTo({ top: 0, behavior: reduceMotionQuery.matches ? 'auto' : 'smooth' });
-            });
-
-            window.addEventListener('scroll', updateBackToTop, { passive: true });
-            updateBackToTop();
-        }
-
-        function initArticleTocHover() {
-            const toc = document.querySelector('[data-article-toc]');
-            const articleMain = document.querySelector('.article-detail__main');
-            if (!toc || !articleMain) return;
-
-            const toggle = toc.querySelector('[data-article-toc-toggle]');
-            let lockedOpen = false;
-
-            function setVisible(visible) {
-                document.body.classList.toggle('is-article-toc-visible', visible);
-                if (toggle) {
-                    toggle.setAttribute('aria-expanded', visible ? 'true' : 'false');
-                    toggle.setAttribute('aria-label', visible ? '隐藏文章目录' : '显示文章目录');
-                }
-            }
-
-            function getLeftRevealZone() {
-                return Math.min(380, Math.max(280, window.innerWidth * 0.22));
-            }
-
-            function isInsideReadingColumn(x, y) {
-                const rect = articleMain.getBoundingClientRect();
-                const top = Math.min(rect.top, 0) - 48;
-                const bottom = Math.max(rect.bottom, window.innerHeight) + 48;
-
-                return x >= rect.left - 72 && x <= rect.right + 32 && y >= top && y <= bottom;
-            }
-
-            document.addEventListener('pointermove', function (event) {
-                if (lockedOpen) return;
-                setVisible(event.clientX <= getLeftRevealZone() || isInsideReadingColumn(event.clientX, event.clientY));
-            }, { passive: true });
-
-            document.addEventListener('pointerleave', function () {
-                if (!lockedOpen) setVisible(false);
-            });
-
-            toc.addEventListener('focusin', function () {
-                setVisible(true);
-            });
-
-            toc.addEventListener('focusout', function (event) {
-                if (lockedOpen || toc.contains(event.relatedTarget)) return;
-                setVisible(false);
-            });
-
-            if (toggle) {
-                toggle.addEventListener('click', function () {
-                    const isVisible = document.body.classList.contains('is-article-toc-visible');
-                    if (lockedOpen && isVisible) {
-                        lockedOpen = false;
-                        setVisible(false);
-                        return;
-                    }
-
-                    lockedOpen = true;
-                    setVisible(true);
-                });
-            }
-
-            document.addEventListener('click', function (event) {
-                if (!lockedOpen) return;
-                if (toc.contains(event.target) || articleMain.contains(event.target)) return;
-                lockedOpen = false;
-                setVisible(false);
-            });
-
-            document.addEventListener('keydown', function (event) {
-                if (event.key !== 'Escape') return;
-                lockedOpen = false;
-                setVisible(false);
-            });
-        }
-
-        function initRevealOnScroll() {
-            if (reduceMotionQuery.matches || !('IntersectionObserver' in window)) return;
-
-            const revealSelectors = [
-                '.section-band',
-                '.featured-section',
-                '.blog-card',
-                '.post-tools',
-                '.article-detail__content > blockquote',
-                '.article-detail__content > .highlight',
-                '.article-detail__content > pre',
-                '.article-detail__content > .table-wrapper',
-                '.article-detail__content > figure',
-                '.article-detail__content > details',
-                '.article-detail__content > hr',
-                '.article-detail__footer',
-                '.music-album-card'
-            ];
-
-            const targets = revealSelectors.reduce(function (items, selector) {
-                return items.concat(Array.prototype.slice.call(document.querySelectorAll(selector)));
-            }, []);
-
-            const imageBlocks = Array.prototype.slice.call(document.querySelectorAll('.article-detail__content > p')).filter(function (block) {
-                const children = Array.prototype.slice.call(block.children).filter(function (child) {
-                    return child.tagName !== 'BR';
-                });
-                const onlyChild = children[0];
-
-                return children.length === 1 && (
-                    onlyChild.tagName === 'IMG' ||
-                    onlyChild.classList.contains('gallery') ||
-                    (onlyChild.tagName === 'A' && onlyChild.querySelector('img'))
-                );
-            });
-
-            imageBlocks.forEach(function (block) {
-                if (!targets.includes(block)) targets.push(block);
-            });
-
-            const filteredTargets = targets.filter(function (target, index) {
-                if (target.tagName === 'PRE' && target.closest('.highlight')) return false;
-                return targets.indexOf(target) === index;
-            });
-
-            if (!filteredTargets.length) return;
-
-            const observer = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (!entry.isIntersecting) return;
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                });
-            }, {
-                rootMargin: '0px 0px -6% 0px',
-                threshold: 0.1
-            });
-
-            filteredTargets.forEach(function (target, index) {
-                target.classList.add('reveal-on-scroll');
-                target.style.setProperty('--reveal-delay', Math.min(index % 4, 3) * 32 + 'ms');
-                observer.observe(target);
-            });
-        }
-
-        initThemeToggle();
-        initArticleTocHover();
-        initRevealOnScroll();
-
-        window.requestAnimationFrame(function () {
-            document.body.classList.add('is-loaded');
-        });
-    })();
-</script>
-
 </body>
 
 </html>

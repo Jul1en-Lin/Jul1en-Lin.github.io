@@ -1,43 +1,46 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
+<html lang="zh-CN" dir="ltr">
 
-<head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="抽奖系统项目 此博客旨在记录学习项目时遇到的各种技术问题，以便后续复盘学习，同时起到记录勉励作用。持续更新&amp;hellip; 遇到的问题 技术细节错误 Mybatis字段处理器TypeHandler：写库时自动对手机号做对称加密，读库时自动解密还原，统一把加解密收敛在持久层，便于在注册校验（如重复手机号校验）中复用，避免 …">
-<title>🎏 抽奖系统 | Jul1en</title>
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>🎏 抽奖系统 | Jul1en</title>
+<meta name="description" content="抽奖系统项目 此博客旨在记录学习项目时遇到的各种技术问题，以便后续复盘学习，同时起到记录勉励作用。持续更新&amp;hellip; 遇到的问题 技术细节错误 Mybatis字段处理器TypeHandler：写库时自动对手机号做对称加密，读库时自动解密还原，统一把加解密收敛在持久层，便于在注册校验（如重复手机号校验）中复用，避免 …">
+<meta name="author" content="Jul1en">
+<link rel="canonical" href="https://Jul1en-Lin.github.io/p/%E6%8A%BD%E5%A5%96%E7%B3%BB%E7%BB%9F/">
 
-<link rel='canonical' href='https://Jul1en-Lin.github.io/p/%E6%8A%BD%E5%A5%96%E7%B3%BB%E7%BB%9F/'>
-
-<link rel="stylesheet" href="/scss/style.min.ec82946fda8d90cf1fb1835f4491c98e9279c2eae00a5622fe790c8a9ce86062.css"><meta property='og:title' content="🎏 抽奖系统 | Jul1en">
-<meta property='og:description' content="抽奖系统项目 此博客旨在记录学习项目时遇到的各种技术问题，以便后续复盘学习，同时起到记录勉励作用。持续更新&amp;hellip; 遇到的问题 技术细节错误 Mybatis字段处理器TypeHandler：写库时自动对手机号做对称加密，读库时自动解密还原，统一把加解密收敛在持久层，便于在注册校验（如重复手机号校验）中复用，避免 …">
-<meta property='og:url' content='https://Jul1en-Lin.github.io/p/%E6%8A%BD%E5%A5%96%E7%B3%BB%E7%BB%9F/'>
-<meta property='og:site_name' content='Jul1en'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-03-24T17:16:51&#43;08:00'/><meta property='article:modified_time' content='2026-03-24T17:23:33&#43;08:00'/>
-<meta name="twitter:title" content="🎏 抽奖系统 | Jul1en">
-<meta name="twitter:description" content="抽奖系统项目 此博客旨在记录学习项目时遇到的各种技术问题，以便后续复盘学习，同时起到记录勉励作用。持续更新&amp;hellip; 遇到的问题 技术细节错误 Mybatis字段处理器TypeHandler：写库时自动对手机号做对称加密，读库时自动解密还原，统一把加解密收敛在持久层，便于在注册校验（如重复手机号校验）中复用，避免 …">
-    <link rel="shortcut icon" href="/favicon-signature.svg" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="icon" href="/favicon-signature.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-signature.png" type="image/png" sizes="512x512">
-<link rel="alternate icon" href="/favicon-signature.ico" type="image/x-icon">
-<meta name="author" content="Jul1en">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)"><script src="/js/custom.4bb4ca905d915217c671721b75f16ae60652e805c90c767a80a951f0dddeeb9c.js" integrity="sha256-S7TKkF2RUhfGcXIbdfFq5gZS6AXJDHZ6gKlR8N3e65w=" defer></script><script>
+<link rel="alternate icon" href="/favicon.ico" type="image/x-icon">
+<meta name="theme-color" content="#fdfdf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="🎏 抽奖系统 | Jul1en">
+<meta property="og:description" content="抽奖系统项目 此博客旨在记录学习项目时遇到的各种技术问题，以便后续复盘学习，同时起到记录勉励作用。持续更新&amp;hellip; 遇到的问题 技术细节错误 Mybatis字段处理器TypeHandler：写库时自动对手机号做对称加密，读库时自动解密还原，统一把加解密收敛在持久层，便于在注册校验（如重复手机号校验）中复用，避免 …">
+<meta property="og:url" content="https://Jul1en-Lin.github.io/p/%E6%8A%BD%E5%A5%96%E7%B3%BB%E7%BB%9F/">
+<meta property="og:site_name" content="Jul1en">
+<meta property="og:type" content="article">
+<meta property="article:section" content="Post">
+<meta property="article:published_time" content="2026-03-24T17:16:51&#43;08:00">
+<meta property="article:modified_time" content="2026-03-24T17:23:33&#43;08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="🎏 抽奖系统 | Jul1en">
+<meta name="twitter:description" content="抽奖系统项目 此博客旨在记录学习项目时遇到的各种技术问题，以便后续复盘学习，同时起到记录勉励作用。持续更新&amp;hellip; 遇到的问题 技术细节错误 Mybatis字段处理器TypeHandler：写库时自动对手机号做对称加密，读库时自动解密还原，统一把加解密收敛在持久层，便于在注册校验（如重复手机号校验）中复用，避免 …">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"><script>
     (function () {
-        const colorSchemeKey = 'StackColorScheme';
-        const savedScheme = localStorage.getItem(colorSchemeKey);
-        const defaultScheme = "light";
-        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
-        const scheme = savedScheme || defaultScheme;
-
-        if (scheme === 'dark' || (scheme === 'auto' && supportDarkMode)) {
-            document.documentElement.dataset.scheme = 'dark';
-        } else {
-            document.documentElement.dataset.scheme = 'light';
+        var stored = null;
+        try {
+            stored = window.localStorage.getItem('ColorScheme');
+        } catch (error) {
+            stored = null;
         }
+
+        var scheme = stored;
+        if (scheme !== 'light' && scheme !== 'dark') {
+            scheme = "light";
+        }
+        document.documentElement.dataset.scheme = scheme;
     })();
-</script>
+</script><link rel="stylesheet" href="/css/site.min.0758d8aad30f198f851a02b8c6494f637bd95774b2fd6b2f576cf99133b942f8.css" integrity="sha256-B1jYqtMPGY&#43;FGgK4xklPY3vZV3Sy/WsvV2z5kTO5Qvg="><script src="/js/site.51f8655227b5fb12b2585c2985e20ec3e93192ca19774662d732d2a0bcb492f0.js" integrity="sha256-UfhlUie1&#43;xKyWFwpheIOw&#43;kxksoZd0Zi1zLSoLy0kvA=" defer></script>
 
 </head>
 
@@ -93,7 +96,7 @@
   <path fill="currentColor" d="M17.2 7.2a.9.9 0 1 1-1.8 0 .9.9 0 0 1 1.8 0Z" />
 </svg>
 </span>
-                    </a><button id="dark-mode-toggle" class="theme-toggle" type="button" aria-label="暗色模式" title="暗色模式">
+                    </a><button id="dark-mode-toggle" class="theme-toggle" type="button" aria-label="切换配色" title="切换配色">
                     <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
     <circle cx="12" cy="12" r="4.2" />
     <path d="M12 2.8v2.2M12 19v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.8 12h2.2M19 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" />
@@ -212,11 +215,17 @@
             </header>
 
             <section class="article-content article-detail__content">
-                <h2 id="抽奖系统项目">抽奖系统项目
-</h2><p>此博客旨在记录学习项目时遇到的各种技术问题，以便后续复盘学习，同时起到记录勉励作用。持续更新&hellip;</p>
-<h2 id="遇到的问题">遇到的问题
-</h2><h2 id="技术细节错误">技术细节错误
-</h2><ol>
+                <h2 id="抽奖系统项目">
+    抽奖系统项目
+</h2>
+<p>此博客旨在记录学习项目时遇到的各种技术问题，以便后续复盘学习，同时起到记录勉励作用。持续更新&hellip;</p>
+<h2 id="遇到的问题">
+    遇到的问题
+</h2>
+<h2 id="技术细节错误">
+    技术细节错误
+</h2>
+<ol>
 <li>
 <p>Mybatis字段处理器<code>TypeHandler</code>：写库时自动对手机号做对称加密，读库时自动解密还原，统一把加解密收敛在持久层，便于在注册校验（如重复手机号校验）中复用，避免业务层手动处理明文。</p>
 <ul>
@@ -227,8 +236,10 @@
 </ul>
 </li>
 </ol>
-<h2 id="各类相似方法取舍">各类相似方法取舍
-</h2><ul>
+<h2 id="各类相似方法取舍">
+    各类相似方法取舍
+</h2>
+<ul>
 <li>StringUtils</li>
 </ul>
 <ol>
@@ -263,9 +274,13 @@
 </ul>
 </li>
 </ol>
-<h2 id="反序列化问题">反序列化问题
-</h2><h3 id="问题背景">问题背景
-</h3><p>在奖品创建接口中，由于需要上传奖品的属性以及奖品的图片，是一份表单格式的数据，所以用到 <u><strong>​<code>@RequestPart</code>​</strong></u>，在用到此注解中产生了一些问题。</p>
+<h2 id="反序列化问题">
+    反序列化问题
+</h2>
+<h3 id="问题背景">
+    问题背景
+</h3>
+<p>在奖品创建接口中，由于需要上传奖品的属性以及奖品的图片，是一份表单格式的数据，所以用到 <u><strong>​<code>@RequestPart</code>​</strong></u>，在用到此注解中产生了一些问题。</p>
 <p>接口为：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@PostMapping</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;/create&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">consumes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MediaType</span><span class="p">.</span><span class="na">MULTIPART_FORM_DATA_VALUE</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="nf">createPrize</span><span class="p">(</span><span class="nd">@RequestPart</span><span class="p">(</span><span class="s">&#34;params&#34;</span><span class="p">)</span><span class="w"> </span><span class="nd">@Valid</span><span class="w"> </span><span class="n">CreatePrizeRequest</span><span class="w"> </span><span class="n">createPrizeRequest</span><span class="p">,</span><span class="w">
@@ -277,8 +292,10 @@
 <li>​<code>params</code>：text，内容为 JSON</li>
 <li>​<code>file</code>：图片文件</li>
 </ul>
-<h3 id="报错">报错
-</h3><ol>
+<h3 id="报错">
+    报错
+</h3>
+<ol>
 <li>​<code>Required part 'params' is not present</code></li>
 </ol>
 <ul>
@@ -290,8 +307,10 @@
 <li>如果 <code>params</code>​ 是标准 JSON part（<code>application/json</code>），Spring 默认转换器通常可直接反序列化</li>
 <li>如果 <code>params</code>​ 作为 <code>text/plain</code> 发送，默认链路可能无法稳定命中 JSON 反序列化，需要自定义 converter</li>
 </ul>
-<h3 id="踩坑点">踩坑点
-</h3><ol>
+<h3 id="踩坑点">
+    踩坑点
+</h3>
+<ol>
 <li>项目版本及依赖差异：</li>
 </ol>
 <ul>
@@ -304,35 +323,47 @@
 <p>当时想复用现成的converter，将JSON字符串很好的解析成需要的对象属性，但由于版本差异老抽象类已经不支持使用了</p>
 <p><img src="/p/%E6%8A%BD%E5%A5%96%E7%B3%BB%E7%BB%9F/assets/image-20260313211103-9apl4e5_hu_ae6e62ea01e1f42.webp" width="1600" height="1130" srcset="/p/%E6%8A%BD%E5%A5%96%E7%B3%BB%E7%BB%9F/assets/image-20260313211103-9apl4e5_hu_cf1779c6f1e617c6.webp 800w, /p/%E6%8A%BD%E5%A5%96%E7%B3%BB%E7%BB%9F/assets/image-20260313211103-9apl4e5_hu_ae6e62ea01e1f42.webp 1600w, /p/%E6%8A%BD%E5%A5%96%E7%B3%BB%E7%BB%9F/assets/image-20260313211103-9apl4e5_hu_af1a8468f9babc1.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="141" data-flex-basis="339px">
 </p>
-<h3 id="改进">改进
-</h3><h4 id="自定义读取型-converter">自定义读取型 converter
-</h4><p>自定义<code>MultipartJackson2HttpMessageConverter</code>类</p>
+<h3 id="改进">
+    改进
+</h3>
+<h4 id="自定义读取型-converter">
+    自定义读取型 converter
+</h4>
+<p>自定义<code>MultipartJackson2HttpMessageConverter</code>类</p>
 <ul>
 <li>让它实现 <code>HttpMessageConverter&lt;Object&gt;</code></li>
 <li>并支持 <code>application/json</code>​、<code>text/plain</code>​、<code>application/octet-stream</code>当设成 Text 传 JSON，也能被识别</li>
 <li>仅支持读取（<code>canWrite=false</code>），避免影响现有的响应序列化</li>
 <li>使用 <code>tools.jackson.databind.ObjectMapper</code> 主流依赖进行反序列化</li>
 </ul>
-<h4 id="实现配置类在-mvc-转换器链中优先注册">实现配置类：在 MVC 转换器链中优先注册
-</h4><p>自定义<code>MessageConverterConfig</code>类</p>
+<h4 id="实现配置类在-mvc-转换器链中优先注册">
+    实现配置类：在 MVC 转换器链中优先注册
+</h4>
+<p>自定义<code>MessageConverterConfig</code>类</p>
 <ul>
 <li>通过 <code>extendMessageConverters</code> 注册</li>
 <li>放在索引 <code>0</code>​，保证优先匹配 <code>@RequestPart(&quot;params&quot;)</code></li>
 </ul>
-<h3 id="两个类的关系">两个类的关系
-</h3><ul>
+<h3 id="两个类的关系">
+    两个类的关系
+</h3>
+<ul>
 <li>​<code>MultipartJackson2HttpMessageConverter</code>​：负责 <em><strong><u>“怎么转换”</u></strong></em></li>
 <li>​<code>MessageConverterConfig</code>​：负责 <em><strong><u>“把谁注册进 Spring，并定义优先级”</u></strong></em></li>
 </ul>
-<h3 id="运行逻辑">运行逻辑
-</h3><ol>
+<h3 id="运行逻辑">
+    运行逻辑
+</h3>
+<ol>
 <li>请求进来，命中 <code>@RequestPart(&quot;params&quot;)</code></li>
 <li>Spring 在转换器列表里找谁能读这个 part</li>
 <li>​<code>MessageConverterConfig</code>​ 提前注册的 <code>MultipartJackson2HttpMessageConverter</code> 被选中</li>
 <li>converter 调 <code>ObjectMapper.readValue(...)</code>​ 转成 <code>CreatePrizeRequest</code>类</li>
 </ol>
-<h3 id="测试用例">测试用例
-</h3><ul>
+<h3 id="测试用例">
+    测试用例
+</h3>
+<ul>
 <li>Method：<code>POST</code></li>
 <li>URL：<code>/prize/create</code></li>
 <li>Body：<code>form-data</code></li>
@@ -343,8 +374,10 @@
 <li>​<code>file</code>​：Type=<code>File</code>，选择图片</li>
 <li>不手动改 <code>Content-Type</code>，让工具自动生成 multipart boundary</li>
 </ul>
-<h3 id="可复用代码">可复用代码
-</h3><p>当接口需要同时接收“文件 + JSON 文本”且前端以 <code>form-data text</code> 方式传 JSON 时，最稳妥做法是：</p>
+<h3 id="可复用代码">
+    可复用代码
+</h3>
+<p>当接口需要同时接收“文件 + JSON 文本”且前端以 <code>form-data text</code> 方式传 JSON 时，最稳妥做法是：</p>
 <ul>
 <li>保持 <code>@RequestPart</code> 接口语义</li>
 <li>增加只读型 multipart JSON converter</li>
@@ -438,9 +471,13 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><hr>
-<h2 id="redistemplate-默认序列化器导致-json-缓存解析失败">RedisTemplate 默认序列化器导致 JSON 缓存解析失败
-</h2><h3 id="问题背景-1">问题背景
-</h3><p>在抽奖系统项目中，活动服务提供了 <code>getDetail</code>​ 接口用于查询活动详情。为提升查询性能，在<strong>创建活动时将活动详情序列化为 JSON 并缓存到 Redis</strong>，后续查询时优先读取缓存</p>
+<h2 id="redistemplate-默认序列化器导致-json-缓存解析失败">
+    RedisTemplate 默认序列化器导致 JSON 缓存解析失败
+</h2>
+<h3 id="问题背景-1">
+    问题背景
+</h3>
+<p>在抽奖系统项目中，活动服务提供了 <code>getDetail</code>​ 接口用于查询活动详情。为提升查询性能，在<strong>创建活动时将活动详情序列化为 JSON 并缓存到 Redis</strong>，后续查询时优先读取缓存</p>
 <p>核心代码流程如下：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// 写入缓存：先用 JacksonUtil 手动序列化为 JSON 字符串，再存入 Redis</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="n">String</span><span class="w"> </span><span class="n">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JacksonUtil</span><span class="p">.</span><span class="na">serialize</span><span class="p">(</span><span class="n">detailDto</span><span class="p">);</span><span class="w">
@@ -449,8 +486,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1">// 读取缓存：从 Redis 取出 JSON 字符串，再用 JacksonUtil 手动反序列化</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="n">String</span><span class="w"> </span><span class="n">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">redisTemplate</span><span class="p">.</span><span class="na">opsForValue</span><span class="p">().</span><span class="na">get</span><span class="p">(</span><span class="n">key</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="n">ActivityDetailDto</span><span class="w"> </span><span class="n">dto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JacksonUtil</span><span class="p">.</span><span class="na">deSerialize</span><span class="p">(</span><span class="n">json</span><span class="p">,</span><span class="w"> </span><span class="n">ActivityDetailDto</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w">
-</span></span></span></code></pre></div><h3 id="问题现象">问题现象
-</h3><p>调用 <code>getDetail</code>​ 接口时，从 Redis 读取到了缓存数据，但<strong>反序列化阶段抛出异常</strong>：</p>
+</span></span></span></code></pre></div><h3 id="问题现象">
+    问题现象
+</h3>
+<p>调用 <code>getDetail</code>​ 接口时，从 Redis 读取到了缓存数据，但<strong>反序列化阶段抛出异常</strong>：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">Cannot</span> <span class="n">parse</span> <span class="n">JSON</span>
 </span></span><span class="line"><span class="cl"><span class="n">Caused</span> <span class="n">by</span><span class="p">:</span> <span class="n">tools</span><span class="o">.</span><span class="n">jackson</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">exc</span><span class="o">.</span><span class="n">StreamReadException</span><span class="p">:</span> 
 </span></span><span class="line"><span class="cl">  <span class="n">Illegal</span> <span class="n">character</span> <span class="p">((</span><span class="n">CTRL</span><span class="o">-</span><span class="n">CHAR</span><span class="p">,</span> <span class="n">code</span> <span class="mi">0</span><span class="p">)):</span> 
@@ -460,15 +499,21 @@
 </p>
 <p>JSON 本身内容是正确的，但前缀的 NUL 字符导致 Jackson 解析器无法识别。</p>
 <p>反序列化失败后，代码进入 catch 分支，执行了 <code>redisTemplate.delete(key)</code>​ 将缓存删除，造成<strong>缓存永远无法命中</strong>，每次查询都回源数据库，这非常影响性能</p>
-<h3 id="排查过程">排查过程
-</h3><h4 id="初步怀疑jacksonutil-序列化问题">初步怀疑：JacksonUtil 序列化问题？
-</h4><p>最初怀疑是 <code>JacksonUtil.serialize()</code> 方法在序列化过程中引入了控制字符。但审查代码后发现：</p>
+<h3 id="排查过程">
+    排查过程
+</h3>
+<h4 id="初步怀疑jacksonutil-序列化问题">
+    初步怀疑：JacksonUtil 序列化问题？
+</h4>
+<p>最初怀疑是 <code>JacksonUtil.serialize()</code> 方法在序列化过程中引入了控制字符。但审查代码后发现：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">serialize</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">object</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">JacksonUtil</span><span class="p">.</span><span class="na">tryParse</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">OBJECT_MAPPER</span><span class="p">.</span><span class="na">writeValueAsString</span><span class="p">(</span><span class="n">object</span><span class="p">));</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><p>​<code>ObjectMapper.writeValueAsString()</code>​ 是 Jackson 标准 API，<strong>输出的一定是合法的 JSON 字符串</strong>，不可能产生 NUL 前缀，故排除此怀疑</p>
-<h4 id="定位问题redistemplate-默认序列化器">定位问题：RedisTemplate 默认序列化器
-</h4><p>进一步检查发现，<code>ActivityServiceImpl</code> 中注入的是：</p>
+<h4 id="定位问题redistemplate-默认序列化器">
+    定位问题：RedisTemplate 默认序列化器
+</h4>
+<p>进一步检查发现，<code>ActivityServiceImpl</code> 中注入的是：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Autowired</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kd">private</span><span class="w"> </span><span class="n">RedisTemplate</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">redisTemplate</span><span class="p">;</span><span class="w">
 </span></span></span></code></pre></div><p>但项目中<strong>没有自定义 Redis 配置类</strong>。这意味着 Spring Boot 自动配置的 <code>RedisTemplate</code>​ 使用的是<strong>默认序列化器</strong></p>
@@ -480,8 +525,10 @@
 </span></span></span></code></pre></div><blockquote>
 <p>⚠️ 注意：虽然泛型声明为 <code>RedisTemplate&lt;String, String&gt;</code>​，但 <strong>泛型只是编译期约束</strong>，实际运行时序列化器仍然是默认的 <code>JdkSerializationRedisSerializer</code>，它会对任何对象（包括 String）执行 JDK 对象序列化。</p>
 </blockquote>
-<h4 id="还原完整问题链路">还原完整问题链路
-</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">                  写入阶段
+<h4 id="还原完整问题链路">
+    还原完整问题链路
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">                  写入阶段
 </span></span><span class="line"><span class="cl">JacksonUtil.serialize(dto)  →  纯 JSON 字符串 ✅
 </span></span><span class="line"><span class="cl">          ↓
 </span></span><span class="line"><span class="cl">RedisTemplate.set(key, json)
@@ -498,21 +545,31 @@
 </span></span><span class="line"><span class="cl">          ↓
 </span></span><span class="line"><span class="cl">JacksonUtil.deSerialize(json)  →  解析失败！遇到非法控制字符 ❌
 </span></span></code></pre></div><p>所以可以<strong>总结问题根因了</strong>：<code>JdkSerializationRedisSerializer</code>​ 对已经是 JSON 字符串的 value <strong>做了二次序列化</strong>，在 JSON 前面添加了 JDK 序列化协议的二进制头（体现为 NUL 控制字符），导致反序列化时 Jackson 无法解析</p>
-<h4 id="额外发现set-方法参数误用">额外发现：set() 方法参数误用
-</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">redisTemplate</span><span class="p">.</span><span class="na">opsForValue</span><span class="p">().</span><span class="na">set</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">CACHE_TIMEOUT</span><span class="p">);</span><span class="w">
+<h4 id="额外发现set-方法参数误用">
+    额外发现：set() 方法参数误用
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">redisTemplate</span><span class="p">.</span><span class="na">opsForValue</span><span class="p">().</span><span class="na">set</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">CACHE_TIMEOUT</span><span class="p">);</span><span class="w">
 </span></span></span></code></pre></div><p>这里第三个参数 <code>CACHE_TIMEOUT</code>​（值为 3600L）本意是设置超时时间，但 <strong>​<code>set(K, V, long)</code>​</strong> ​ <strong>的三参数重载中第三个参数是 offset（偏移量）</strong> ，并非过期时间。正确的超时设置需要使用四参数版本：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">redisTemplate</span><span class="p">.</span><span class="na">opsForValue</span><span class="p">().</span><span class="na">set</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">CACHE_TIMEOUT</span><span class="p">,</span><span class="w"> </span><span class="n">TimeUnit</span><span class="p">.</span><span class="na">SECONDS</span><span class="p">);</span><span class="w">
-</span></span></span></code></pre></div><h4 id="对比项目中的正确用法">对比项目中的正确用法
-</h4><p>有趣的是，同项目中 <code>UserServiceImpl</code>​ 的发送邮箱验证码接口<code>sendEmailCodeInternal</code>​里，缓存邮箱验证码使用的是 <code>StringRedisTemplate</code>：</p>
+</span></span></span></code></pre></div><h4 id="对比项目中的正确用法">
+    对比项目中的正确用法
+</h4>
+<p>有趣的是，同项目中 <code>UserServiceImpl</code>​ 的发送邮箱验证码接口<code>sendEmailCodeInternal</code>​里，缓存邮箱验证码使用的是 <code>StringRedisTemplate</code>：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Autowired</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kd">private</span><span class="w"> </span><span class="n">StringRedisTemplate</span><span class="w"> </span><span class="n">stringRedisTemplate</span><span class="p">;</span><span class="w">
 </span></span></span></code></pre></div><p>​<code>StringRedisTemplate</code>​ 是 <code>RedisTemplate&lt;String, String&gt;</code>​ 的子类，<strong>构造函数中已将序列化器设置为</strong> <strong>​<code>StringRedisSerializer</code>​</strong>，所以邮箱验证码的存取从未出现过类似问题。</p>
 <hr>
-<h3 id="解决方案">解决方案
-</h3><h4 id="方案思路">方案思路
-</h4><p>既然问题出在&quot;手动 Jackson 序列化 + 默认 JDK 序列化器&quot;的冲突，我选择<strong>让 RedisTemplate 自身接管 JSON 序列化</strong>，彻底移除手动转换步骤。</p>
-<h4 id="新增-redis-配置类">新增 Redis 配置类
-</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Configuration</span><span class="w">
+<h3 id="解决方案">
+    解决方案
+</h3>
+<h4 id="方案思路">
+    方案思路
+</h4>
+<p>既然问题出在&quot;手动 Jackson 序列化 + 默认 JDK 序列化器&quot;的冲突，我选择<strong>让 RedisTemplate 自身接管 JSON 序列化</strong>，彻底移除手动转换步骤。</p>
+<h4 id="新增-redis-配置类">
+    新增 Redis 配置类
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Configuration</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">RedisConfig</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Bean</span><span class="w">
@@ -538,8 +595,10 @@
 <p>更改后的Redis存入的数据如图，已经能正常序列化：</p>
 <p><img src="/p/%E6%8A%BD%E5%A5%96%E7%B3%BB%E7%BB%9F/assets/image-20260324171112-a22qtvn_hu_25c040561284a68b.webp" width="1600" height="165" srcset="/p/%E6%8A%BD%E5%A5%96%E7%B3%BB%E7%BB%9F/assets/image-20260324171112-a22qtvn_hu_4f4b75e245690c27.webp 800w, /p/%E6%8A%BD%E5%A5%96%E7%B3%BB%E7%BB%9F/assets/image-20260324171112-a22qtvn_hu_25c040561284a68b.webp 1600w, /p/%E6%8A%BD%E5%A5%96%E7%B3%BB%E7%BB%9F/assets/image-20260324171112-a22qtvn_hu_df19d65eed5a27ed.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="969" data-flex-basis="2327px">
 </p>
-<h4 id="简化业务代码">简化业务代码
-</h4><p><strong>写入缓存</strong> —— 直接存对象：</p>
+<h4 id="简化业务代码">
+    简化业务代码
+</h4>
+<p><strong>写入缓存</strong> —— 直接存对象：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-diff" data-lang="diff"><span class="line"><span class="cl"><span class="gd">- redisTemplate.opsForValue().set(key, JacksonUtil.serialize(detailDto), CACHE_TIMEOUT);
 </span></span></span><span class="line"><span class="cl"><span class="gi">+ redisTemplate.opsForValue().set(key, detailDto, CACHE_TIMEOUT, TimeUnit.SECONDS);
 </span></span></span></code></pre></div><p><strong>读取缓存</strong> —— 直接取对象：</p>
@@ -551,81 +610,89 @@
 </span></span></span><span class="line"><span class="cl"><span class="gi">+ }
 </span></span></span></code></pre></div><p>完全移除了 <code>JacksonUtil</code> 在缓存场景的使用，以及之前为兼容脏数据写的大段 fallback 解析逻辑。</p>
 <hr>
-<h3 id="核心收获">核心收获
-</h3><h4 id="redistemplate-vs-stringredistemplate">RedisTemplate vs StringRedisTemplate
-</h4><div class="table-wrapper"><table>
-	<thead>
-			<tr>
-					<th>特性</th>
-					<th>​<code>RedisTemplate</code></th>
-					<th>​<code>StringRedisTemplate</code></th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td>默认序列化器</td>
-					<td>​<code>JdkSerializationRedisSerializer</code></td>
-					<td>​<code>StringRedisSerializer</code></td>
-			</tr>
-			<tr>
-					<td>存入 Redis 的格式</td>
-					<td>JDK 二进制（不可读）</td>
-					<td>纯文本（可读）</td>
-			</tr>
-			<tr>
-					<td>取出后类型</td>
-					<td>Object（需强转）</td>
-					<td>String</td>
-			</tr>
-			<tr>
-					<td>适用场景</td>
-					<td>需自定义序列化器后使用</td>
-					<td>简单字符串 KV</td>
-			</tr>
-	</tbody>
+<h3 id="核心收获">
+    核心收获
+</h3>
+<h4 id="redistemplate-vs-stringredistemplate">
+    RedisTemplate vs StringRedisTemplate
+</h4>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>特性</th>
+          <th>​<code>RedisTemplate</code></th>
+          <th>​<code>StringRedisTemplate</code></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>默认序列化器</td>
+          <td>​<code>JdkSerializationRedisSerializer</code></td>
+          <td>​<code>StringRedisSerializer</code></td>
+      </tr>
+      <tr>
+          <td>存入 Redis 的格式</td>
+          <td>JDK 二进制（不可读）</td>
+          <td>纯文本（可读）</td>
+      </tr>
+      <tr>
+          <td>取出后类型</td>
+          <td>Object（需强转）</td>
+          <td>String</td>
+      </tr>
+      <tr>
+          <td>适用场景</td>
+          <td>需自定义序列化器后使用</td>
+          <td>简单字符串 KV</td>
+      </tr>
+  </tbody>
 </table></div>
 <blockquote>
 <p>📌 <strong>教训</strong>：使用 <code>RedisTemplate</code>​ 时，<strong>必须显式配置序列化器</strong>，否则默认的 JDK 序列化会与手动 JSON 序列化产生冲突。</p>
 </blockquote>
-<h4 id="常见的-redis-序列化器选择">常见的 Redis 序列化器选择
-</h4><div class="table-wrapper"><table>
-	<thead>
-			<tr>
-					<th>序列化器</th>
-					<th>存储格式</th>
-					<th>类型信息</th>
-					<th>适用场景</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td>​<code>JdkSerializationRedisSerializer</code></td>
-					<td>二进制</td>
-					<td>内嵌</td>
-					<td>❌ 不推荐，可读性差且有安全风险</td>
-			</tr>
-			<tr>
-					<td>​<code>StringRedisSerializer</code></td>
-					<td>纯字符串</td>
-					<td>无</td>
-					<td>简单字符串、需手动 JSON 转换</td>
-			</tr>
-			<tr>
-					<td>​<code>Jackson2JsonRedisSerializer</code></td>
-					<td>JSON</td>
-					<td>无</td>
-					<td>明确类型的场景</td>
-			</tr>
-			<tr>
-					<td>​<code>GenericJackson2JsonRedisSerializer</code></td>
-					<td>JSON + @class</td>
-					<td>有</td>
-					<td>通用 JSON 对象缓存 ✅</td>
-			</tr>
-	</tbody>
+<h4 id="常见的-redis-序列化器选择">
+    常见的 Redis 序列化器选择
+</h4>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>序列化器</th>
+          <th>存储格式</th>
+          <th>类型信息</th>
+          <th>适用场景</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>​<code>JdkSerializationRedisSerializer</code></td>
+          <td>二进制</td>
+          <td>内嵌</td>
+          <td>❌ 不推荐，可读性差且有安全风险</td>
+      </tr>
+      <tr>
+          <td>​<code>StringRedisSerializer</code></td>
+          <td>纯字符串</td>
+          <td>无</td>
+          <td>简单字符串、需手动 JSON 转换</td>
+      </tr>
+      <tr>
+          <td>​<code>Jackson2JsonRedisSerializer</code></td>
+          <td>JSON</td>
+          <td>无</td>
+          <td>明确类型的场景</td>
+      </tr>
+      <tr>
+          <td>​<code>GenericJackson2JsonRedisSerializer</code></td>
+          <td>JSON + @class</td>
+          <td>有</td>
+          <td>通用 JSON 对象缓存 ✅</td>
+      </tr>
+  </tbody>
 </table></div>
-<h4 id="set-方法重载辨析">​<code>set()</code> 方法重载辨析
-</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// ❌ 错误：第三个参数是 offset（偏移量），不是超时时间</span><span class="w">
+<h4 id="set-方法重载辨析">
+    ​<code>set()</code> 方法重载辨析
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// ❌ 错误：第三个参数是 offset（偏移量），不是超时时间</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="n">set</span><span class="p">(</span><span class="n">K</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">offset</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="c1">// ✅ 正确：显式指定时间单位的过期时间</span><span class="w">
@@ -634,8 +701,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1">// ✅ 正确：使用 Duration 的过期时间</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="n">set</span><span class="p">(</span><span class="n">K</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">Duration</span><span class="w"> </span><span class="n">timeout</span><span class="p">)</span><span class="w">
 </span></span></span></code></pre></div><hr>
-<h3 id="总结">总结
-</h3><p>这个问题的表面现象是&quot;JSON 解析失败&quot;，但深层原因是<strong>对 RedisTemplate 默认行为的认知不足</strong>。整个排查链条为：</p>
+<h3 id="总结">
+    总结
+</h3>
+<p>这个问题的表面现象是&quot;JSON 解析失败&quot;，但深层原因是<strong>对 RedisTemplate 默认行为的认知不足</strong>。整个排查链条为：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">JSON 解析报控制字符异常
 </span></span><span class="line"><span class="cl">   → Redis 中缓存值有 NUL 前缀 
 </span></span><span class="line"><span class="cl">   → JdkSerializationRedisSerializer 对 JSON 字符串二次序列化
@@ -665,389 +734,11 @@
     </div>
 </article>
 
-
-
-
-
-
-
-
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-    
-    <div class="pswp__bg"></div>
-
-    
-    <div class="pswp__scroll-wrap">
-
-        
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                
-                
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
-                defer
-                >
-            </script><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
-                defer
-                >
-            </script><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
-            ><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
-            >
-
-    </main>
-
-    <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
-                
-                >
-            </script><script type="text/javascript" src="/ts/main.836efe327773ba454adac61ee8b35272b6f512bd594ed9ea0f926fca8386433b.js" defer></script><script type="text/javascript" src="/ts/custom.4bb4ca905d915217c671721b75f16ae60652e805c90c767a80a951f0dddeeb9c.js" defer></script>
-
-
-<button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
+    </main><button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M6 14.5 12 8l6 6.5" />
+        <path d="M6 14.5 12 8l6 6.5"></path>
     </svg>
 </button>
-
-<script>
-    (function () {
-        'use strict';
-
-        const menuToggle = document.querySelector('.site-menu-toggle');
-        const nav = document.getElementById('primary-navigation');
-        const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-        function initThemeToggle() {
-            const toggle = document.getElementById('dark-mode-toggle');
-            if (!toggle || toggle.dataset.projectThemeToggleReady === 'true') return;
-
-            toggle.dataset.projectThemeToggleReady = 'true';
-
-            function getCurrentScheme() {
-                return document.documentElement.dataset.scheme === 'dark' ? 'dark' : 'light';
-            }
-
-            function getSystemScheme() {
-                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-            }
-
-            function saveScheme(scheme) {
-                try {
-                    window.localStorage.setItem('StackColorScheme', scheme === getSystemScheme() ? 'auto' : scheme);
-                } catch (error) {
-                    return;
-                }
-            }
-
-            function applyScheme(scheme) {
-                document.documentElement.dataset.scheme = scheme;
-                saveScheme(scheme);
-                window.dispatchEvent(new CustomEvent('onColorSchemeChange', { detail: scheme }));
-            }
-
-            toggle.addEventListener('click', function (event) {
-                event.preventDefault();
-                event.stopImmediatePropagation();
-
-                const x = event.clientX;
-                const y = event.clientY;
-                const willBeDark = getCurrentScheme() !== 'dark';
-                const nextScheme = willBeDark ? 'dark' : 'light';
-                const endRadius = Math.hypot(
-                    Math.max(x, window.innerWidth - x),
-                    Math.max(y, window.innerHeight - y)
-                );
-
-                if (!document.startViewTransition) {
-                    applyScheme(nextScheme);
-                    return;
-                }
-
-                const transition = document.startViewTransition(function () {
-                    applyScheme(nextScheme);
-                });
-
-                transition.ready.then(function () {
-                    const clipPath = willBeDark
-                        ? [`circle(${endRadius}px at ${x}px ${y}px)`, `circle(0px at ${x}px ${y}px)`]
-                        : [`circle(0px at ${x}px ${y}px)`, `circle(${endRadius}px at ${x}px ${y}px)`];
-
-                    document.documentElement.animate(
-                        { clipPath },
-                        {
-                            duration: 500,
-                            easing: 'ease-in-out',
-                            fill: 'forwards',
-                            pseudoElement: willBeDark
-                                ? '::view-transition-old(root)'
-                                : '::view-transition-new(root)'
-                        }
-                    );
-                });
-            }, { capture: true });
-        }
-
-        function setMenuOpen(open) {
-            if (!menuToggle || !nav) return;
-            menuToggle.classList.toggle('is-open', open);
-            nav.classList.toggle('is-open', open);
-            document.body.classList.toggle('site-nav-open', open);
-            menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        }
-
-        if (menuToggle && nav) {
-            menuToggle.addEventListener('click', function (event) {
-                event.stopPropagation();
-                setMenuOpen(!nav.classList.contains('is-open'));
-            });
-
-            nav.querySelectorAll('a').forEach(function (link) {
-                link.addEventListener('click', function () {
-                    setMenuOpen(false);
-                });
-            });
-
-            document.addEventListener('keydown', function (event) {
-                if (event.key === 'Escape') setMenuOpen(false);
-            });
-
-            document.addEventListener('click', function (event) {
-                if (!document.body.classList.contains('site-nav-open')) return;
-                if (nav.contains(event.target) || menuToggle.contains(event.target)) return;
-                setMenuOpen(false);
-            });
-
-            const desktopQuery = window.matchMedia('(min-width: 921px)');
-            const closeMenuOnDesktop = function (event) {
-                if (event.matches) setMenuOpen(false);
-            };
-
-            if (desktopQuery.addEventListener) {
-                desktopQuery.addEventListener('change', closeMenuOnDesktop);
-            } else if (desktopQuery.addListener) {
-                desktopQuery.addListener(closeMenuOnDesktop);
-            }
-        }
-
-        const backToTop = document.getElementById('back-to-top');
-
-        if (backToTop) {
-            function updateBackToTop() {
-                backToTop.classList.toggle('is-visible', window.scrollY > 420);
-            }
-
-            backToTop.addEventListener('click', function () {
-                window.scrollTo({ top: 0, behavior: reduceMotionQuery.matches ? 'auto' : 'smooth' });
-            });
-
-            window.addEventListener('scroll', updateBackToTop, { passive: true });
-            updateBackToTop();
-        }
-
-        function initArticleTocHover() {
-            const toc = document.querySelector('[data-article-toc]');
-            const articleMain = document.querySelector('.article-detail__main');
-            if (!toc || !articleMain) return;
-
-            const toggle = toc.querySelector('[data-article-toc-toggle]');
-            let lockedOpen = false;
-
-            function setVisible(visible) {
-                document.body.classList.toggle('is-article-toc-visible', visible);
-                if (toggle) {
-                    toggle.setAttribute('aria-expanded', visible ? 'true' : 'false');
-                    toggle.setAttribute('aria-label', visible ? '隐藏文章目录' : '显示文章目录');
-                }
-            }
-
-            function getLeftRevealZone() {
-                return Math.min(380, Math.max(280, window.innerWidth * 0.22));
-            }
-
-            function isInsideReadingColumn(x, y) {
-                const rect = articleMain.getBoundingClientRect();
-                const top = Math.min(rect.top, 0) - 48;
-                const bottom = Math.max(rect.bottom, window.innerHeight) + 48;
-
-                return x >= rect.left - 72 && x <= rect.right + 32 && y >= top && y <= bottom;
-            }
-
-            document.addEventListener('pointermove', function (event) {
-                if (lockedOpen) return;
-                setVisible(event.clientX <= getLeftRevealZone() || isInsideReadingColumn(event.clientX, event.clientY));
-            }, { passive: true });
-
-            document.addEventListener('pointerleave', function () {
-                if (!lockedOpen) setVisible(false);
-            });
-
-            toc.addEventListener('focusin', function () {
-                setVisible(true);
-            });
-
-            toc.addEventListener('focusout', function (event) {
-                if (lockedOpen || toc.contains(event.relatedTarget)) return;
-                setVisible(false);
-            });
-
-            if (toggle) {
-                toggle.addEventListener('click', function () {
-                    const isVisible = document.body.classList.contains('is-article-toc-visible');
-                    if (lockedOpen && isVisible) {
-                        lockedOpen = false;
-                        setVisible(false);
-                        return;
-                    }
-
-                    lockedOpen = true;
-                    setVisible(true);
-                });
-            }
-
-            document.addEventListener('click', function (event) {
-                if (!lockedOpen) return;
-                if (toc.contains(event.target) || articleMain.contains(event.target)) return;
-                lockedOpen = false;
-                setVisible(false);
-            });
-
-            document.addEventListener('keydown', function (event) {
-                if (event.key !== 'Escape') return;
-                lockedOpen = false;
-                setVisible(false);
-            });
-        }
-
-        function initRevealOnScroll() {
-            if (reduceMotionQuery.matches || !('IntersectionObserver' in window)) return;
-
-            const revealSelectors = [
-                '.section-band',
-                '.featured-section',
-                '.blog-card',
-                '.post-tools',
-                '.article-detail__content > blockquote',
-                '.article-detail__content > .highlight',
-                '.article-detail__content > pre',
-                '.article-detail__content > .table-wrapper',
-                '.article-detail__content > figure',
-                '.article-detail__content > details',
-                '.article-detail__content > hr',
-                '.article-detail__footer',
-                '.music-album-card'
-            ];
-
-            const targets = revealSelectors.reduce(function (items, selector) {
-                return items.concat(Array.prototype.slice.call(document.querySelectorAll(selector)));
-            }, []);
-
-            const imageBlocks = Array.prototype.slice.call(document.querySelectorAll('.article-detail__content > p')).filter(function (block) {
-                const children = Array.prototype.slice.call(block.children).filter(function (child) {
-                    return child.tagName !== 'BR';
-                });
-                const onlyChild = children[0];
-
-                return children.length === 1 && (
-                    onlyChild.tagName === 'IMG' ||
-                    onlyChild.classList.contains('gallery') ||
-                    (onlyChild.tagName === 'A' && onlyChild.querySelector('img'))
-                );
-            });
-
-            imageBlocks.forEach(function (block) {
-                if (!targets.includes(block)) targets.push(block);
-            });
-
-            const filteredTargets = targets.filter(function (target, index) {
-                if (target.tagName === 'PRE' && target.closest('.highlight')) return false;
-                return targets.indexOf(target) === index;
-            });
-
-            if (!filteredTargets.length) return;
-
-            const observer = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (!entry.isIntersecting) return;
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                });
-            }, {
-                rootMargin: '0px 0px -6% 0px',
-                threshold: 0.1
-            });
-
-            filteredTargets.forEach(function (target, index) {
-                target.classList.add('reveal-on-scroll');
-                target.style.setProperty('--reveal-delay', Math.min(index % 4, 3) * 32 + 'ms');
-                observer.observe(target);
-            });
-        }
-
-        initThemeToggle();
-        initArticleTocHover();
-        initRevealOnScroll();
-
-        window.requestAnimationFrame(function () {
-            document.body.classList.add('is-loaded');
-        });
-    })();
-</script>
-
 </body>
 
 </html>

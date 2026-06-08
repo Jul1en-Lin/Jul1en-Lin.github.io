@@ -1,92 +1,83 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>Tags on Jul1en</title>
-        <link>https://Jul1en-Lin.github.io/tags/</link>
-        <description>Recent content in Tags on Jul1en</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>en-us</language>
-        <copyright>Jul1en</copyright>
-        <lastBuildDate>Tue, 02 Jun 2026 00:00:51 +0800</lastBuildDate><atom:link href="https://Jul1en-Lin.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>API</title>
-        <link>https://Jul1en-Lin.github.io/tags/api/</link>
-        <pubDate>Mon, 01 Jun 2026 23:35:26 +0800</pubDate>
-        
-        <guid>https://Jul1en-Lin.github.io/tags/api/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>通信协议</title>
-        <link>https://Jul1en-Lin.github.io/tags/%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE/</link>
-        <pubDate>Mon, 01 Jun 2026 23:35:26 +0800</pubDate>
-        
-        <guid>https://Jul1en-Lin.github.io/tags/%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>微服务</title>
-        <link>https://Jul1en-Lin.github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</link>
-        <pubDate>Mon, 01 Jun 2026 23:35:26 +0800</pubDate>
-        
-        <guid>https://Jul1en-Lin.github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>AI</title>
-        <link>https://Jul1en-Lin.github.io/tags/ai/</link>
-        <pubDate>Sat, 30 May 2026 00:00:00 +0800</pubDate>
-        
-        <guid>https://Jul1en-Lin.github.io/tags/ai/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Codex</title>
-        <link>https://Jul1en-Lin.github.io/tags/codex/</link>
-        <pubDate>Sat, 30 May 2026 00:00:00 +0800</pubDate>
-        
-        <guid>https://Jul1en-Lin.github.io/tags/codex/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>工作流</title>
-        <link>https://Jul1en-Lin.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/</link>
-        <pubDate>Sat, 30 May 2026 00:00:00 +0800</pubDate>
-        
-        <guid>https://Jul1en-Lin.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Sentinel</title>
-        <link>https://Jul1en-Lin.github.io/tags/sentinel/</link>
-        <pubDate>Thu, 21 May 2026 00:00:00 +0800</pubDate>
-        
-        <guid>https://Jul1en-Lin.github.io/tags/sentinel/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Spring Cloud</title>
-        <link>https://Jul1en-Lin.github.io/tags/spring-cloud/</link>
-        <pubDate>Thu, 21 May 2026 00:00:00 +0800</pubDate>
-        
-        <guid>https://Jul1en-Lin.github.io/tags/spring-cloud/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>熔断降级</title>
-        <link>https://Jul1en-Lin.github.io/tags/%E7%86%94%E6%96%AD%E9%99%8D%E7%BA%A7/</link>
-        <pubDate>Thu, 21 May 2026 00:00:00 +0800</pubDate>
-        
-        <guid>https://Jul1en-Lin.github.io/tags/%E7%86%94%E6%96%AD%E9%99%8D%E7%BA%A7/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>限流</title>
-        <link>https://Jul1en-Lin.github.io/tags/%E9%99%90%E6%B5%81/</link>
-        <pubDate>Thu, 21 May 2026 00:00:00 +0800</pubDate>
-        
-        <guid>https://Jul1en-Lin.github.io/tags/%E9%99%90%E6%B5%81/</guid>
-        <description></description>
-        </item>
-        
-    </channel>
+  <channel>
+    <title>Tags - Jul1en</title>
+    <link>https://Jul1en-Lin.github.io/tags/</link>
+    <description>Tags - Jul1en</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <copyright>Jul1en</copyright>
+    <lastBuildDate>Tue, 02 Jun 2026 00:00:51 +0800</lastBuildDate>
+    <atom:link href="https://Jul1en-Lin.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>API</title>
+      <link>https://Jul1en-Lin.github.io/tags/api/</link>
+      <pubDate>Mon, 01 Jun 2026 23:35:26 +0800</pubDate>
+      <guid>https://Jul1en-Lin.github.io/tags/api/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>通信协议</title>
+      <link>https://Jul1en-Lin.github.io/tags/%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE/</link>
+      <pubDate>Mon, 01 Jun 2026 23:35:26 +0800</pubDate>
+      <guid>https://Jul1en-Lin.github.io/tags/%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>微服务</title>
+      <link>https://Jul1en-Lin.github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</link>
+      <pubDate>Mon, 01 Jun 2026 23:35:26 +0800</pubDate>
+      <guid>https://Jul1en-Lin.github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AI</title>
+      <link>https://Jul1en-Lin.github.io/tags/ai/</link>
+      <pubDate>Sat, 30 May 2026 00:00:00 +0800</pubDate>
+      <guid>https://Jul1en-Lin.github.io/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Codex</title>
+      <link>https://Jul1en-Lin.github.io/tags/codex/</link>
+      <pubDate>Sat, 30 May 2026 00:00:00 +0800</pubDate>
+      <guid>https://Jul1en-Lin.github.io/tags/codex/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>工作流</title>
+      <link>https://Jul1en-Lin.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/</link>
+      <pubDate>Sat, 30 May 2026 00:00:00 +0800</pubDate>
+      <guid>https://Jul1en-Lin.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sentinel</title>
+      <link>https://Jul1en-Lin.github.io/tags/sentinel/</link>
+      <pubDate>Thu, 21 May 2026 00:00:00 +0800</pubDate>
+      <guid>https://Jul1en-Lin.github.io/tags/sentinel/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Spring Cloud</title>
+      <link>https://Jul1en-Lin.github.io/tags/spring-cloud/</link>
+      <pubDate>Thu, 21 May 2026 00:00:00 +0800</pubDate>
+      <guid>https://Jul1en-Lin.github.io/tags/spring-cloud/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>熔断降级</title>
+      <link>https://Jul1en-Lin.github.io/tags/%E7%86%94%E6%96%AD%E9%99%8D%E7%BA%A7/</link>
+      <pubDate>Thu, 21 May 2026 00:00:00 +0800</pubDate>
+      <guid>https://Jul1en-Lin.github.io/tags/%E7%86%94%E6%96%AD%E9%99%8D%E7%BA%A7/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>限流</title>
+      <link>https://Jul1en-Lin.github.io/tags/%E9%99%90%E6%B5%81/</link>
+      <pubDate>Thu, 21 May 2026 00:00:00 +0800</pubDate>
+      <guid>https://Jul1en-Lin.github.io/tags/%E9%99%90%E6%B5%81/</guid>
+      <description></description>
+    </item>
+  </channel>
 </rss>

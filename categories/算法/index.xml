@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>算法 on Jul1en</title>
-        <link>https://Jul1en-Lin.github.io/categories/%E7%AE%97%E6%B3%95/</link>
-        <description>Recent content in 算法 on Jul1en</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>en-us</language>
-        <copyright>Jul1en</copyright>
-        <lastBuildDate>Wed, 24 Dec 2025 23:40:05 +0800</lastBuildDate><atom:link href="https://Jul1en-Lin.github.io/categories/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>🛹 位运算类题目</title>
-        <link>https://Jul1en-Lin.github.io/p/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%B1%BB%E9%A2%98%E7%9B%AE/</link>
-        <pubDate>Wed, 24 Dec 2025 23:35:35 +0800</pubDate>
-        
-        <guid>https://Jul1en-Lin.github.io/p/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%B1%BB%E9%A2%98%E7%9B%AE/</guid>
-        <description>&lt;p&gt;位运算总结图&lt;/p&gt;
+  <channel>
+    <title>算法 - Jul1en</title>
+    <link>https://Jul1en-Lin.github.io/categories/%E7%AE%97%E6%B3%95/</link>
+    <description>算法 - Jul1en</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <copyright>Jul1en</copyright>
+    <lastBuildDate>Wed, 24 Dec 2025 23:40:05 +0800</lastBuildDate>
+    <atom:link href="https://Jul1en-Lin.github.io/categories/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>🛹 位运算类题目</title>
+      <link>https://Jul1en-Lin.github.io/p/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%B1%BB%E9%A2%98%E7%9B%AE/</link>
+      <pubDate>Wed, 24 Dec 2025 23:35:35 +0800</pubDate>
+      <guid>https://Jul1en-Lin.github.io/p/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%B1%BB%E9%A2%98%E7%9B%AE/</guid>
+      <description>&lt;p&gt;位运算总结图&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%B1%BB%E9%A2%98%E7%9B%AE/assets/image-20251217010611-n3ags9n_hu_518eda23c54ae401.webp&#34; width=&#34;1600&#34; height=&#34;1301&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%B1%BB%E9%A2%98%E7%9B%AE/assets/image-20251217010611-n3ags9n_hu_4fa2b861e320df56.webp 800w, https://Jul1en-Lin.github.io/p/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%B1%BB%E9%A2%98%E7%9B%AE/assets/image-20251217010611-n3ags9n_hu_518eda23c54ae401.webp 1600w, https://Jul1en-Lin.github.io/p/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%B1%BB%E9%A2%98%E7%9B%AE/assets/image-20251217010611-n3ags9n_hu_65956fb13b548a1e.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;123&#34; data-flex-basis=&#34;295px&#34;&gt;
 &lt;/p&gt;
 &lt;hr&gt;
-&lt;h1 id=&#34;判定字符是否唯一&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/is-unique-lcci/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;判定字符是否唯一&lt;/a&gt;
-&lt;/h1&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%B1%BB%E9%A2%98%E7%9B%AE/assets/image-20251103220906-ro2d0mc_hu_a66146753172a0e0.webp&#34; width=&#34;1600&#34; height=&#34;1340&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%B1%BB%E9%A2%98%E7%9B%AE/assets/image-20251103220906-ro2d0mc_hu_6e12100258265bd0.webp 800w, https://Jul1en-Lin.github.io/p/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%B1%BB%E9%A2%98%E7%9B%AE/assets/image-20251103220906-ro2d0mc_hu_a66146753172a0e0.webp 1600w, https://Jul1en-Lin.github.io/p/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%B1%BB%E9%A2%98%E7%9B%AE/assets/image-20251103220906-ro2d0mc_hu_b225d30dbe85a9f2.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;119&#34; data-flex-basis=&#34;286px&#34;&gt;
+&lt;h1 id=&#34;判定字符是否唯一&#34;&gt;
+    &lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/is-unique-lcci/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;判定字符是否唯一&lt;/a&gt;
+
+&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%B1%BB%E9%A2%98%E7%9B%AE/assets/image-20251103220906-ro2d0mc_hu_a66146753172a0e0.webp&#34; width=&#34;1600&#34; height=&#34;1340&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%B1%BB%E9%A2%98%E7%9B%AE/assets/image-20251103220906-ro2d0mc_hu_6e12100258265bd0.webp 800w, https://Jul1en-Lin.github.io/p/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%B1%BB%E9%A2%98%E7%9B%AE/assets/image-20251103220906-ro2d0mc_hu_a66146753172a0e0.webp 1600w, https://Jul1en-Lin.github.io/p/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%B1%BB%E9%A2%98%E7%9B%AE/assets/image-20251103220906-ro2d0mc_hu_b225d30dbe85a9f2.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;119&#34; data-flex-basis=&#34;286px&#34;&gt;
 &lt;/p&gt;
 &lt;p&gt;如何从浅到深的挖入这道题？从常见的哈希表到数组模拟哈希表到用到位图思想，想到了用位图&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;鸽巢原理&lt;/strong&gt;对位图进行优化：如果字符串的长度大于26，则一定是有重复的（一共且只有26个英文字母，顶多刚好从a ~ z 全部都过一遍）&lt;/p&gt;
@@ -44,16 +47,17 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;保持更新中&amp;hellip;&lt;/p&gt;
 </description>
-        </item>
-        <item>
-        <title>🪭 分治-归并类题目</title>
-        <link>https://Jul1en-Lin.github.io/p/%E5%88%86%E6%B2%BB-%E5%BD%92%E5%B9%B6%E7%B1%BB%E9%A2%98%E7%9B%AE/</link>
-        <pubDate>Sat, 20 Dec 2025 01:12:18 +0800</pubDate>
-        
-        <guid>https://Jul1en-Lin.github.io/p/%E5%88%86%E6%B2%BB-%E5%BD%92%E5%B9%B6%E7%B1%BB%E9%A2%98%E7%9B%AE/</guid>
-        <description>&lt;h1 id=&#34;归并数组&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/sort-an-array/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;归并数组&lt;/a&gt;
-&lt;/h1&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%88%86%E6%B2%BB-%E5%BD%92%E5%B9%B6%E7%B1%BB%E9%A2%98%E7%9B%AE/assets/image-20251220010830-km2qds1_hu_9b43eb7bd5a47750.webp&#34; width=&#34;1600&#34; height=&#34;1105&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%88%86%E6%B2%BB-%E5%BD%92%E5%B9%B6%E7%B1%BB%E9%A2%98%E7%9B%AE/assets/image-20251220010830-km2qds1_hu_9ec423336b9b9728.webp 800w, https://Jul1en-Lin.github.io/p/%E5%88%86%E6%B2%BB-%E5%BD%92%E5%B9%B6%E7%B1%BB%E9%A2%98%E7%9B%AE/assets/image-20251220010830-km2qds1_hu_9b43eb7bd5a47750.webp 1600w, https://Jul1en-Lin.github.io/p/%E5%88%86%E6%B2%BB-%E5%BD%92%E5%B9%B6%E7%B1%BB%E9%A2%98%E7%9B%AE/assets/image-20251220010830-km2qds1_hu_3394ad70384d0f09.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;144&#34; data-flex-basis=&#34;347px&#34;&gt;
+    </item>
+    <item>
+      <title>🪭 分治-归并类题目</title>
+      <link>https://Jul1en-Lin.github.io/p/%E5%88%86%E6%B2%BB-%E5%BD%92%E5%B9%B6%E7%B1%BB%E9%A2%98%E7%9B%AE/</link>
+      <pubDate>Sat, 20 Dec 2025 01:12:18 +0800</pubDate>
+      <guid>https://Jul1en-Lin.github.io/p/%E5%88%86%E6%B2%BB-%E5%BD%92%E5%B9%B6%E7%B1%BB%E9%A2%98%E7%9B%AE/</guid>
+      <description>&lt;h1 id=&#34;归并数组&#34;&gt;
+    &lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/sort-an-array/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;归并数组&lt;/a&gt;
+
+&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%88%86%E6%B2%BB-%E5%BD%92%E5%B9%B6%E7%B1%BB%E9%A2%98%E7%9B%AE/assets/image-20251220010830-km2qds1_hu_9b43eb7bd5a47750.webp&#34; width=&#34;1600&#34; height=&#34;1105&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%88%86%E6%B2%BB-%E5%BD%92%E5%B9%B6%E7%B1%BB%E9%A2%98%E7%9B%AE/assets/image-20251220010830-km2qds1_hu_9ec423336b9b9728.webp 800w, https://Jul1en-Lin.github.io/p/%E5%88%86%E6%B2%BB-%E5%BD%92%E5%B9%B6%E7%B1%BB%E9%A2%98%E7%9B%AE/assets/image-20251220010830-km2qds1_hu_9b43eb7bd5a47750.webp 1600w, https://Jul1en-Lin.github.io/p/%E5%88%86%E6%B2%BB-%E5%BD%92%E5%B9%B6%E7%B1%BB%E9%A2%98%E7%9B%AE/assets/image-20251220010830-km2qds1_hu_3394ad70384d0f09.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;144&#34; data-flex-basis=&#34;347px&#34;&gt;
 &lt;/p&gt;
 &lt;p&gt;类似于分治快排，归并是从底下往上递归排序，快排是先解决当前部分再往下排，两个的顺序是反的~&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Solution&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -94,13 +98,17 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h1 id=&#34;数组中的逆序对&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/shu-zu-zhong-de-ni-xu-dui-lcof/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;数组中的逆序对&lt;/a&gt;
-&lt;/h1&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%88%86%E6%B2%BB-%E5%BD%92%E5%B9%B6%E7%B1%BB%E9%A2%98%E7%9B%AE/assets/image-20251220001036-e3jmtnp_hu_80e5754912163294.webp&#34; width=&#34;1600&#34; height=&#34;903&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%88%86%E6%B2%BB-%E5%BD%92%E5%B9%B6%E7%B1%BB%E9%A2%98%E7%9B%AE/assets/image-20251220001036-e3jmtnp_hu_bb38ed9553abd828.webp 800w, https://Jul1en-Lin.github.io/p/%E5%88%86%E6%B2%BB-%E5%BD%92%E5%B9%B6%E7%B1%BB%E9%A2%98%E7%9B%AE/assets/image-20251220001036-e3jmtnp_hu_80e5754912163294.webp 1600w, https://Jul1en-Lin.github.io/p/%E5%88%86%E6%B2%BB-%E5%BD%92%E5%B9%B6%E7%B1%BB%E9%A2%98%E7%9B%AE/assets/image-20251220001036-e3jmtnp_hu_5d17292e39f36726.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;177&#34; data-flex-basis=&#34;425px&#34;&gt;
+&lt;h1 id=&#34;数组中的逆序对&#34;&gt;
+    &lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/shu-zu-zhong-de-ni-xu-dui-lcof/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;数组中的逆序对&lt;/a&gt;
+
+&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E5%88%86%E6%B2%BB-%E5%BD%92%E5%B9%B6%E7%B1%BB%E9%A2%98%E7%9B%AE/assets/image-20251220001036-e3jmtnp_hu_80e5754912163294.webp&#34; width=&#34;1600&#34; height=&#34;903&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%E5%88%86%E6%B2%BB-%E5%BD%92%E5%B9%B6%E7%B1%BB%E9%A2%98%E7%9B%AE/assets/image-20251220001036-e3jmtnp_hu_bb38ed9553abd828.webp 800w, https://Jul1en-Lin.github.io/p/%E5%88%86%E6%B2%BB-%E5%BD%92%E5%B9%B6%E7%B1%BB%E9%A2%98%E7%9B%AE/assets/image-20251220001036-e3jmtnp_hu_80e5754912163294.webp 1600w, https://Jul1en-Lin.github.io/p/%E5%88%86%E6%B2%BB-%E5%BD%92%E5%B9%B6%E7%B1%BB%E9%A2%98%E7%9B%AE/assets/image-20251220001036-e3jmtnp_hu_5d17292e39f36726.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;177&#34; data-flex-basis=&#34;425px&#34;&gt;
 &lt;/p&gt;
 &lt;p&gt;本质上就是依靠“排序数组 + 元素的相对位置不变”的逻辑，从而优化计算逆序对的策略，使其时间复杂度由单个遍历元素的 &lt;u&gt;$o(N²)$&lt;/u&gt;​&lt;u&gt; -&amp;gt; &lt;/u&gt;​&lt;u&gt;$o(1)$&lt;/u&gt;&lt;/p&gt;
-&lt;h2 id=&#34;思路总结&#34;&gt;思路总结
-&lt;/h2&gt;&lt;ol&gt;
+&lt;h2 id=&#34;思路总结&#34;&gt;
+    思路总结
+&lt;/h2&gt;
+&lt;ol&gt;
 &lt;li&gt;最初以暴力枚举开始，必然会超时$o(N$​&lt;sup&gt;$2$&lt;/sup&gt;​$)$，思考如何优化统计逆序对的逻辑并非单一的枚举每一个元素&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;第一版&lt;/p&gt;
@@ -118,8 +126,8 @@
 &lt;p&gt;能&lt;strong&gt;利用数组的单调性&lt;/strong&gt;​ &lt;strong&gt;，&lt;/strong&gt; 批量处理元素之间的大小关系（比如 A &amp;gt; B，那 A 后面比 A 大的肯定也 &amp;gt; B），&lt;strong&gt;&lt;u&gt;此时逆序对的数量就能以&lt;/u&gt;&lt;strong&gt;​&lt;/strong&gt;&lt;u&gt;$o(1)$&lt;/strong&gt;&lt;/u&gt;​**&lt;u&gt;的时间复杂度计算&lt;/u&gt;**&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/sort-an-array/description/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;归并排序&lt;/a&gt;（分治）的思想能解决这种问题，不会打乱各自的相对位置，&lt;strong&gt;递归&lt;/strong&gt;会让各自左区间与右区间都是有序的&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.cn/problems/sort-an-array/description/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;归并排序&lt;/a&gt;
+（分治）的思想能解决这种问题，不会打乱各自的相对位置，&lt;strong&gt;递归&lt;/strong&gt;会让各自左区间与右区间都是有序的&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;优化左右两边&lt;code&gt;[left, mid] [mid + 1, right]&lt;/code&gt;​都为有序数组，维护一个辅助数组&lt;code&gt;int[] tmp&lt;/code&gt;​ + 双指针&lt;code&gt;int cur1, cur2&lt;/code&gt;。这里以递增数组为例，遇到小的元素就往辅助数组上放&lt;/p&gt;
@@ -168,14 +176,20 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tmp&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;nums&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cur1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;while&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cur2&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;right&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tmp&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;nums&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cur2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;细节问题&#34;&gt;细节问题
-&lt;/h2&gt;&lt;h3 id=&#34;排序是否破坏相对位置&#34;&gt;&lt;strong&gt;排序是否破坏相对位置&lt;/strong&gt;
-&lt;/h3&gt;&lt;ul&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;细节问题&#34;&gt;
+    细节问题
+&lt;/h2&gt;
+&lt;h3 id=&#34;排序是否破坏相对位置&#34;&gt;
+    &lt;strong&gt;排序是否破坏相对位置&lt;/strong&gt;
+&lt;/h3&gt;
+&lt;ul&gt;
 &lt;li&gt;​&lt;strong&gt;疑问&lt;/strong&gt;：在递归过程中对子数组进行排序，是否会破坏元素原始的前后位置，导致逆序对统计错误？&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;结论&lt;/strong&gt;：不会——明白了两边的相对位置，只对当前分区的元素位置优化，对结果并没有影响，而且逆序对是肯定存在的&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;剩余元素的处理边界问题&#34;&gt;&lt;strong&gt;剩余元素的处理（边界问题）&lt;/strong&gt;
-&lt;/h3&gt;&lt;ul&gt;
+&lt;h3 id=&#34;剩余元素的处理边界问题&#34;&gt;
+    &lt;strong&gt;剩余元素的处理（边界问题）&lt;/strong&gt;
+&lt;/h3&gt;
+&lt;ul&gt;
 &lt;li&gt;问题：主循环结束后，通常会有一个数组还剩下一部分元素。我初次尝试时，试图在处理剩余元素的 while 循环中继续进行大小比较 (nums[cur] &amp;gt; nums[cur+1])，导致数组越界&lt;/li&gt;
 &lt;li&gt;数组必然是有序的 -&amp;gt; 根据递归，假设一路递归到只剩一个元素，那它肯定就是有序的，然后一级一级往上返回 -&amp;gt; 那么剩下的数字其实也是底下一层返回来的部分有序的数组，剩下的那部分元素必然有序&lt;/li&gt;
 &lt;li&gt;解决方案：不需要做任何比较或交换，直接将剩余元素按顺序填入临时数组即可&lt;/li&gt;
@@ -250,57 +264,66 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
 &lt;p&gt;‍&lt;/p&gt;
 </description>
-        </item>
-        <item>
-        <title>🌶️ TopK问题</title>
-        <link>https://Jul1en-Lin.github.io/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/</link>
-        <pubDate>Wed, 17 Dec 2025 01:09:55 +0800</pubDate>
-        
-        <guid>https://Jul1en-Lin.github.io/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/</guid>
-        <description>&lt;h1 id=&#34;topk问题&#34;&gt;topK问题
-&lt;/h1&gt;&lt;p&gt;topK问题是经典的算法题，包括有（第k大、第k小、前k大、前k小），这类题的解决方法也比较固定&lt;/p&gt;
+    </item>
+    <item>
+      <title>🌶️ TopK问题</title>
+      <link>https://Jul1en-Lin.github.io/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Wed, 17 Dec 2025 01:09:55 +0800</pubDate>
+      <guid>https://Jul1en-Lin.github.io/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/</guid>
+      <description>&lt;h1 id=&#34;topk问题&#34;&gt;
+    topK问题
+&lt;/h1&gt;
+&lt;p&gt;topK问题是经典的算法题，包括有（第k大、第k小、前k大、前k小），这类题的解决方法也比较固定&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;堆排序&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;strong&gt;一句话总结：找前 K 大，用 Size 为 K 的小顶堆；找前 K 小，用 Size 为 K 的大顶堆。&lt;/strong&gt;&lt;/p&gt;
 &lt;table&gt;
-	&lt;thead&gt;
-			&lt;tr&gt;
-					&lt;th&gt;&lt;strong&gt;题目需求&lt;/strong&gt;&lt;/th&gt;
-					&lt;th&gt;&lt;strong&gt;使用的堆&lt;/strong&gt;&lt;/th&gt;
-					&lt;th&gt;&lt;strong&gt;核心逻辑&lt;/strong&gt;&lt;/th&gt;
-			&lt;/tr&gt;
-	&lt;/thead&gt;
-	&lt;tbody&gt;
-			&lt;tr&gt;
-					&lt;td&gt;&lt;strong&gt;求前 K 个最大的数&lt;/strong&gt;&lt;/td&gt;
-					&lt;td&gt;&lt;strong&gt;小根堆&lt;/strong&gt;&lt;/td&gt;
-					&lt;td&gt;我们需要&lt;strong&gt;淘汰&lt;/strong&gt;掉比较小的元素。小根堆的堆顶是堆中最小的，只要新来的元素比堆顶大，就把堆顶踢走，新元素进堆。最后剩下的 K 个就是最大的。&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td&gt;&lt;strong&gt;求前 K 个最小的数&lt;/strong&gt;&lt;/td&gt;
-					&lt;td&gt;&lt;strong&gt;大根堆&lt;/strong&gt;&lt;/td&gt;
-					&lt;td&gt;我们需要&lt;strong&gt;淘汰&lt;/strong&gt;掉比较大的元素。大根堆的堆顶是堆中最大的，只要新来的元素比堆顶小，就把堆顶踢走，新元素进堆。&lt;/td&gt;
-			&lt;/tr&gt;
-	&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;strong&gt;题目需求&lt;/strong&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;strong&gt;使用的堆&lt;/strong&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;strong&gt;核心逻辑&lt;/strong&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;求前 K 个最大的数&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;strong&gt;小根堆&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;我们需要&lt;strong&gt;淘汰&lt;/strong&gt;掉比较小的元素。小根堆的堆顶是堆中最小的，只要新来的元素比堆顶大，就把堆顶踢走，新元素进堆。最后剩下的 K 个就是最大的。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;求前 K 个最小的数&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;strong&gt;大根堆&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;我们需要&lt;strong&gt;淘汰&lt;/strong&gt;掉比较大的元素。大根堆的堆顶是堆中最大的，只要新来的元素比堆顶小，就把堆顶踢走，新元素进堆。&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;快速排序&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h1 id=&#34;堆排序-vs-快速排序&#34;&gt;堆排序 vs 快速排序
-&lt;/h1&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206232507-v0oy9si_hu_3fd7cdd46398401a.webp&#34; width=&#34;1600&#34; height=&#34;439&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206232507-v0oy9si_hu_797b1d557339f0c4.webp 800w, https://Jul1en-Lin.github.io/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206232507-v0oy9si_hu_3fd7cdd46398401a.webp 1600w, https://Jul1en-Lin.github.io/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206232507-v0oy9si_hu_41091306adc64e30.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;364&#34; data-flex-basis=&#34;874px&#34;&gt;
+&lt;h1 id=&#34;堆排序-vs-快速排序&#34;&gt;
+    堆排序 vs 快速排序
+&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206232507-v0oy9si_hu_3fd7cdd46398401a.webp&#34; width=&#34;1600&#34; height=&#34;439&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206232507-v0oy9si_hu_797b1d557339f0c4.webp 800w, https://Jul1en-Lin.github.io/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206232507-v0oy9si_hu_3fd7cdd46398401a.webp 1600w, https://Jul1en-Lin.github.io/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206232507-v0oy9si_hu_41091306adc64e30.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;364&#34; data-flex-basis=&#34;874px&#34;&gt;
 &lt;/p&gt;
-&lt;h1 id=&#34;面试&#34;&gt;面试
-&lt;/h1&gt;&lt;p&gt;如果在面试中遇到这种场景，&lt;strong&gt;立刻切换到堆排序思路&lt;/strong&gt;：&lt;/p&gt;
+&lt;h1 id=&#34;面试&#34;&gt;
+    面试
+&lt;/h1&gt;
+&lt;p&gt;如果在面试中遇到这种场景，&lt;strong&gt;立刻切换到堆排序思路&lt;/strong&gt;：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;“给你 10 亿个数字，内存只有 1GB，请找出最大的 100 个数。”&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;这时候你不能用 QuickSelect，因为你没办法把 10 亿个数字一次性加载到数组里进行 Partition。但你可以建一个只有 100 个格子的&lt;strong&gt;小顶堆&lt;/strong&gt;，让这 10 亿个数字一个个流过去进行“守门员PK”，内存占用极小&lt;/p&gt;
-&lt;h1 id=&#34;第k个最大&#34;&gt;第K个最大
-&lt;/h1&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206231549-35nxm98_hu_f91a5e67215c7c9d.webp&#34; width=&#34;1600&#34; height=&#34;1263&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206231549-35nxm98_hu_c1bf996daf81d2c9.webp 800w, https://Jul1en-Lin.github.io/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206231549-35nxm98_hu_f91a5e67215c7c9d.webp 1600w, https://Jul1en-Lin.github.io/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206231549-35nxm98_hu_84ad7bb73a14bffd.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;126&#34; data-flex-basis=&#34;304px&#34;&gt;
+&lt;h1 id=&#34;第k个最大&#34;&gt;
+    第K个最大
+&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206231549-35nxm98_hu_f91a5e67215c7c9d.webp&#34; width=&#34;1600&#34; height=&#34;1263&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206231549-35nxm98_hu_c1bf996daf81d2c9.webp 800w, https://Jul1en-Lin.github.io/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206231549-35nxm98_hu_f91a5e67215c7c9d.webp 1600w, https://Jul1en-Lin.github.io/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251206231549-35nxm98_hu_84ad7bb73a14bffd.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;126&#34; data-flex-basis=&#34;304px&#34;&gt;
 &lt;/p&gt;
-&lt;h2 id=&#34;堆排序&#34;&gt;堆排序
-&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;这是最反直觉的地方&lt;/strong&gt;： 题目要找  &lt;strong&gt;“第 K 个最大的元素”&lt;/strong&gt; （或者前 K 大），我们通常使用 &lt;strong&gt;小顶堆&lt;/strong&gt;，且这个堆的大小固定为 &lt;strong&gt;K&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;堆排序&#34;&gt;
+    堆排序
+&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;这是最反直觉的地方&lt;/strong&gt;： 题目要找  &lt;strong&gt;“第 K 个最大的元素”&lt;/strong&gt; （或者前 K 大），我们通常使用 &lt;strong&gt;小顶堆&lt;/strong&gt;，且这个堆的大小固定为 &lt;strong&gt;K&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;用Gemini举例的“守门员”机制就能理解**&lt;u&gt;排升序建大堆，排降序建小堆&lt;/u&gt;**了，找K大实际上就是排降序，取第K个大的元素&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;u&gt;==形象的比喻：“精英俱乐部”的守门员==&lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;想象你要选拔全校“最富有的 10 个人”（Top 10）。你建了一个只有 10 个座位的“富豪俱乐部”。&lt;/p&gt;
@@ -389,8 +412,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 由于queue容量是k，且是小顶堆，所以最顶上那个元素一定是第K大的元素&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;queue&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;peek&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;快排&#34;&gt;快排
-&lt;/h2&gt;&lt;p&gt;本质上是采用了 “分治” 的思想&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;快排&#34;&gt;
+    快排
+&lt;/h2&gt;
+&lt;p&gt;本质上是采用了 “分治” 的思想&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;核心逻辑：&lt;/strong&gt; 快排的核心是 &lt;code&gt;partition&lt;/code&gt;​（分区），每次操作后，基准元素（pivot）都会回到它在有序数组中&lt;strong&gt;最终应该在的位置&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;可以把它想象成整理为有序数组的过程（从小到大）：&lt;/p&gt;
 &lt;ol&gt;
@@ -454,8 +479,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;nums&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;nums&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;nums&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tmp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;细节问题&#34;&gt;细节问题
-&lt;/h3&gt;&lt;p&gt;为什么分类讨论的时候 k 要与 abc 代表不同分区的元素个数进行比较？&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;细节问题&#34;&gt;
+    细节问题
+&lt;/h3&gt;
+&lt;p&gt;为什么分类讨论的时候 k 要与 abc 代表不同分区的元素个数进行比较？&lt;/p&gt;
 &lt;p&gt;举个栗子就懂了~&lt;/p&gt;
 &lt;p&gt;假设我们要找全班&lt;strong&gt;第&lt;/strong&gt; &lt;strong&gt;​&lt;code&gt;k&lt;/code&gt;​&lt;/strong&gt;​ &lt;strong&gt;名&lt;/strong&gt;（第 k 大）&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;C 区（&amp;gt;key）：特等生区&lt;/strong&gt;这里有 &lt;code&gt;c&lt;/code&gt; 个人，他们是全班分数最高的。&lt;/p&gt;
@@ -493,12 +520,16 @@
 &lt;p&gt;此qsort方法将&lt;code&gt;partition&lt;/code&gt;​ 和 &lt;code&gt;quickSelect&lt;/code&gt;结合起来了，其实思想都是一样的，只是写法不一样，qsort一次性写完了&lt;/p&gt;
 &lt;p&gt;其中上述代码中的分类讨论部分的就是&lt;code&gt;quickSelect&lt;/code&gt;，像是是指挥官，故判断是否符合条件也是在这里判断&lt;/p&gt;
 &lt;p&gt;​&lt;code&gt;partition&lt;/code&gt;则是干累活的，负责根据基准元素，使数组分三区的&lt;/p&gt;
-&lt;h1 id=&#34;最小k个数&#34;&gt;最小K个数
-&lt;/h1&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251217003530-1xu1jke_hu_4f9a9860dc803ad4.webp&#34; width=&#34;1600&#34; height=&#34;1101&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251217003530-1xu1jke_hu_54a25e4581543abd.webp 800w, https://Jul1en-Lin.github.io/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251217003530-1xu1jke_hu_4f9a9860dc803ad4.webp 1600w, https://Jul1en-Lin.github.io/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251217003530-1xu1jke_hu_4c94b43115d93d81.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;145&#34; data-flex-basis=&#34;348px&#34;&gt;
+&lt;h1 id=&#34;最小k个数&#34;&gt;
+    最小K个数
+&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251217003530-1xu1jke_hu_4f9a9860dc803ad4.webp&#34; width=&#34;1600&#34; height=&#34;1101&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251217003530-1xu1jke_hu_54a25e4581543abd.webp 800w, https://Jul1en-Lin.github.io/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251217003530-1xu1jke_hu_4f9a9860dc803ad4.webp 1600w, https://Jul1en-Lin.github.io/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251217003530-1xu1jke_hu_4c94b43115d93d81.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;145&#34; data-flex-basis=&#34;348px&#34;&gt;
 &lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;这题有三种解法&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;排序&#34;&gt;排序
-&lt;/h2&gt;&lt;p&gt;时间复杂度：o(N*logN)&lt;/p&gt;
+&lt;h2 id=&#34;排序&#34;&gt;
+    排序
+&lt;/h2&gt;
+&lt;p&gt;时间复杂度：o(N*logN)&lt;/p&gt;
 &lt;p&gt;实现代码&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;	&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;smallestK&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 1. 边界处理&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -510,8 +541,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 3. 取前 K 个&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Arrays&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;copyOf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;堆大根堆&#34;&gt;堆（大根堆）
-&lt;/h2&gt;&lt;p&gt;时间复杂度：o(N*logK)&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;堆大根堆&#34;&gt;
+    堆（大根堆）
+&lt;/h2&gt;
+&lt;p&gt;时间复杂度：o(N*logK)&lt;/p&gt;
 &lt;p&gt;需要建立容量为k的大根堆，来淘汰比较大的元素，大根堆的堆顶就是最大的（PriorityQueue默认是小根堆，需要传入Comparator）&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 创建一个存放整数的大根堆&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;PriorityQueue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;maxHeap&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;new&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PriorityQueue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Comparator&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;reverseOrder&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -546,12 +579,16 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ret&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;	&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;快排-1&#34;&gt;快排
-&lt;/h2&gt;&lt;p&gt;时间复杂度：o(N)&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;快排-1&#34;&gt;
+    快排
+&lt;/h2&gt;
+&lt;p&gt;时间复杂度：o(N)&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251217005347-t0c1i4f_hu_66474017e07a677.webp&#34; width=&#34;1600&#34; height=&#34;1022&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251217005347-t0c1i4f_hu_36c787716aa4b93a.webp 800w, https://Jul1en-Lin.github.io/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251217005347-t0c1i4f_hu_66474017e07a677.webp 1600w, https://Jul1en-Lin.github.io/p/%EF%B8%8F-topk%E9%97%AE%E9%A2%98/assets/image-20251217005347-t0c1i4f_hu_8b3dec419ec5cba9.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;156&#34; data-flex-basis=&#34;375px&#34;&gt;
 &lt;/p&gt;
-&lt;h3 id=&#34;细节问题-1&#34;&gt;细节问题
-&lt;/h3&gt;&lt;p&gt;做题时经常能遇到取随机数下标的时候的元素定位错误，原因总结可能有&lt;/p&gt;
+&lt;h3 id=&#34;细节问题-1&#34;&gt;
+    细节问题
+&lt;/h3&gt;
+&lt;p&gt;做题时经常能遇到取随机数下标的时候的元素定位错误，原因总结可能有&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;分类讨论部分的分区问题&lt;/li&gt;
 &lt;li&gt;区间长度是否写反了&lt;/li&gt;
@@ -594,7 +631,6 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;‍&lt;/p&gt;
 </description>
-        </item>
-        
-    </channel>
+    </item>
+  </channel>
 </rss>

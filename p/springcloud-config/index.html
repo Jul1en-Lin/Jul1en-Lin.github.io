@@ -1,43 +1,46 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
+<html lang="zh-CN" dir="ltr">
 
-<head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="SpringCloud Config Spring Cloud Config 解决的是微服务项目中“配置分散、环境复杂、修改成本高”的问题。单体项目里，配置通常写在本地 application.yml 中，应用启动时直接读取即可。但微服务项目会拆出多个服务，每个服务又会区分开发、测试、生产等环境。如果每个服务都自己维护 …">
-<title>SpringCloud Config | Jul1en</title>
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>SpringCloud Config | Jul1en</title>
+<meta name="description" content="SpringCloud Config Spring Cloud Config 解决的是微服务项目中“配置分散、环境复杂、修改成本高”的问题。单体项目里，配置通常写在本地 application.yml 中，应用启动时直接读取即可。但微服务项目会拆出多个服务，每个服务又会区分开发、测试、生产等环境。如果每个服务都自己维护 …">
+<meta name="author" content="Jul1en">
+<link rel="canonical" href="https://Jul1en-Lin.github.io/p/springcloud-config/">
 
-<link rel='canonical' href='https://Jul1en-Lin.github.io/p/springcloud-config/'>
-
-<link rel="stylesheet" href="/scss/style.min.ec82946fda8d90cf1fb1835f4491c98e9279c2eae00a5622fe790c8a9ce86062.css"><meta property='og:title' content="SpringCloud Config | Jul1en">
-<meta property='og:description' content="SpringCloud Config Spring Cloud Config 解决的是微服务项目中“配置分散、环境复杂、修改成本高”的问题。单体项目里，配置通常写在本地 application.yml 中，应用启动时直接读取即可。但微服务项目会拆出多个服务，每个服务又会区分开发、测试、生产等环境。如果每个服务都自己维护 …">
-<meta property='og:url' content='https://Jul1en-Lin.github.io/p/springcloud-config/'>
-<meta property='og:site_name' content='Jul1en'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-05-14T16:38:45&#43;00:00'/><meta property='article:modified_time' content='2026-05-15T15:59:26&#43;08:00'/>
-<meta name="twitter:title" content="SpringCloud Config | Jul1en">
-<meta name="twitter:description" content="SpringCloud Config Spring Cloud Config 解决的是微服务项目中“配置分散、环境复杂、修改成本高”的问题。单体项目里，配置通常写在本地 application.yml 中，应用启动时直接读取即可。但微服务项目会拆出多个服务，每个服务又会区分开发、测试、生产等环境。如果每个服务都自己维护 …">
-    <link rel="shortcut icon" href="/favicon-signature.svg" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="icon" href="/favicon-signature.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-signature.png" type="image/png" sizes="512x512">
-<link rel="alternate icon" href="/favicon-signature.ico" type="image/x-icon">
-<meta name="author" content="Jul1en">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)"><script src="/js/custom.4bb4ca905d915217c671721b75f16ae60652e805c90c767a80a951f0dddeeb9c.js" integrity="sha256-S7TKkF2RUhfGcXIbdfFq5gZS6AXJDHZ6gKlR8N3e65w=" defer></script><script>
+<link rel="alternate icon" href="/favicon.ico" type="image/x-icon">
+<meta name="theme-color" content="#fdfdf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="SpringCloud Config | Jul1en">
+<meta property="og:description" content="SpringCloud Config Spring Cloud Config 解决的是微服务项目中“配置分散、环境复杂、修改成本高”的问题。单体项目里，配置通常写在本地 application.yml 中，应用启动时直接读取即可。但微服务项目会拆出多个服务，每个服务又会区分开发、测试、生产等环境。如果每个服务都自己维护 …">
+<meta property="og:url" content="https://Jul1en-Lin.github.io/p/springcloud-config/">
+<meta property="og:site_name" content="Jul1en">
+<meta property="og:type" content="article">
+<meta property="article:section" content="Post">
+<meta property="article:published_time" content="2026-05-14T16:38:45&#43;00:00">
+<meta property="article:modified_time" content="2026-05-15T15:59:26&#43;08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SpringCloud Config | Jul1en">
+<meta name="twitter:description" content="SpringCloud Config Spring Cloud Config 解决的是微服务项目中“配置分散、环境复杂、修改成本高”的问题。单体项目里，配置通常写在本地 application.yml 中，应用启动时直接读取即可。但微服务项目会拆出多个服务，每个服务又会区分开发、测试、生产等环境。如果每个服务都自己维护 …">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"><script>
     (function () {
-        const colorSchemeKey = 'StackColorScheme';
-        const savedScheme = localStorage.getItem(colorSchemeKey);
-        const defaultScheme = "light";
-        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
-        const scheme = savedScheme || defaultScheme;
-
-        if (scheme === 'dark' || (scheme === 'auto' && supportDarkMode)) {
-            document.documentElement.dataset.scheme = 'dark';
-        } else {
-            document.documentElement.dataset.scheme = 'light';
+        var stored = null;
+        try {
+            stored = window.localStorage.getItem('ColorScheme');
+        } catch (error) {
+            stored = null;
         }
+
+        var scheme = stored;
+        if (scheme !== 'light' && scheme !== 'dark') {
+            scheme = "light";
+        }
+        document.documentElement.dataset.scheme = scheme;
     })();
-</script>
+</script><link rel="stylesheet" href="/css/site.min.0758d8aad30f198f851a02b8c6494f637bd95774b2fd6b2f576cf99133b942f8.css" integrity="sha256-B1jYqtMPGY&#43;FGgK4xklPY3vZV3Sy/WsvV2z5kTO5Qvg="><script src="/js/site.51f8655227b5fb12b2585c2985e20ec3e93192ca19774662d732d2a0bcb492f0.js" integrity="sha256-UfhlUie1&#43;xKyWFwpheIOw&#43;kxksoZd0Zi1zLSoLy0kvA=" defer></script>
 
 </head>
 
@@ -93,7 +96,7 @@
   <path fill="currentColor" d="M17.2 7.2a.9.9 0 1 1-1.8 0 .9.9 0 0 1 1.8 0Z" />
 </svg>
 </span>
-                    </a><button id="dark-mode-toggle" class="theme-toggle" type="button" aria-label="暗色模式" title="暗色模式">
+                    </a><button id="dark-mode-toggle" class="theme-toggle" type="button" aria-label="切换配色" title="切换配色">
                     <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
     <circle cx="12" cy="12" r="4.2" />
     <path d="M12 2.8v2.2M12 19v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.8 12h2.2M19 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" />
@@ -176,21 +179,28 @@
             </header>
 
             <section class="article-content article-detail__content">
-                <p>Spring Cloud Config 解决的是微服务项目中“配置分散、环境复杂、修改成本高”的问题。单体项目里，配置通常写在本地 <code>application.yml</code> 中，应用启动时直接读取即可。但微服务项目会拆出多个服务，每个服务又会区分开发、测试、生产等环境。如果每个服务都自己维护一份配置，时间久了就会出现配置重复、版本混乱、修改困难的问题。</p>
+                
+<p>Spring Cloud Config 解决的是微服务项目中“配置分散、环境复杂、修改成本高”的问题。单体项目里，配置通常写在本地 <code>application.yml</code> 中，应用启动时直接读取即可。但微服务项目会拆出多个服务，每个服务又会区分开发、测试、生产等环境。如果每个服务都自己维护一份配置，时间久了就会出现配置重复、版本混乱、修改困难的问题。</p>
 <p>配置中心的思路就是把配置从服务代码里抽出来，交给一个统一的服务管理。Spring Cloud Config 中，承担统一管理角色的是 Config Server，真正使用配置的业务服务是 Config Client。Config Server 从 Git、本地文件系统、Vault、JDBC 等后端读取配置，再通过 HTTP 接口提供给各个客户端。Config Client 启动时访问 Config Server，拉取属于自己的配置并加载到 Spring Environment 中。</p>
 <p><img src="/p/springcloud-config/assets/image-20260515153553-efbbqze_hu_cad574e7d4c9c300.webp" width="1600" height="1183" srcset="/p/springcloud-config/assets/image-20260515153553-efbbqze_hu_dbf8fded61030c60.webp 800w, /p/springcloud-config/assets/image-20260515153553-efbbqze_hu_cad574e7d4c9c300.webp 1600w, /p/springcloud-config/assets/image-20260515153553-efbbqze_hu_719daf113c07d4bc.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="test" class="gallery-image" data-flex-grow="135" data-flex-basis="324px">
 </p>
-<h2 id="为什么需要-spring-cloud-config">为什么需要 Spring Cloud Config
-</h2><p>微服务拆分之后，配置数量会快速增加。比如一个电商系统可能有用户服务、订单服务、商品服务、网关服务，每个服务又可能有 <code>dev</code>、<code>test</code>、<code>prod</code> 三套环境。如果所有配置都放在各自服务内部，修改数据库地址、缓存地址、开关配置时，就需要分别进入多个服务修改，甚至重新打包发布。</p>
+<h2 id="为什么需要-spring-cloud-config">
+    为什么需要 Spring Cloud Config
+</h2>
+<p>微服务拆分之后，配置数量会快速增加。比如一个电商系统可能有用户服务、订单服务、商品服务、网关服务，每个服务又可能有 <code>dev</code>、<code>test</code>、<code>prod</code> 三套环境。如果所有配置都放在各自服务内部，修改数据库地址、缓存地址、开关配置时，就需要分别进入多个服务修改，甚至重新打包发布。</p>
 <p>Spring Cloud Config 把配置统一放到远程配置仓库中，服务本身只保留“我是谁、我要去哪里拉配置”这类最基础的信息。这样一来，配置的维护位置就从“每个微服务内部”变成了“统一配置仓库”，配置读取入口也从“服务本地文件”变成了“Config Server”。</p>
 <p>这种变化带来两个直接好处。第一，配置可以集中管理，避免同一个配置在多个服务中重复维护。第二，配置可以通过 Git 追踪历史，谁改了什么、什么时候改的，都有记录。对于团队协作和多环境管理来说，这比散落在各个服务里的配置更可靠。</p>
-<h2 id="config-server-与-config-client-的关系">Config Server 与 Config Client 的关系
-</h2><p>Config Server 是配置中心服务端，它不一定直接保存配置文件，而是连接一个配置后端。入门阶段最常见的是 Git 仓库。Git 仓库中可以存放类似 <code>user-service-dev.yml</code>、<code>order-service-prod.yml</code> 这样的配置文件。Config Server 启动后，会读取这些配置，并通过 HTTP 接口提供给客户端。</p>
+<h2 id="config-server-与-config-client-的关系">
+    Config Server 与 Config Client 的关系
+</h2>
+<p>Config Server 是配置中心服务端，它不一定直接保存配置文件，而是连接一个配置后端。入门阶段最常见的是 Git 仓库。Git 仓库中可以存放类似 <code>user-service-dev.yml</code>、<code>order-service-prod.yml</code> 这样的配置文件。Config Server 启动后，会读取这些配置，并通过 HTTP 接口提供给客户端。</p>
 <p>Config Client 是具体业务服务，例如 <code>user-service</code>、<code>order-service</code>、<code>gateway-service</code>。这些服务启动时会主动访问 Config Server。访问时，客户端会告诉服务端三个关键信息：应用名、环境和配置版本。Config Server 根据这三个信息找到对应配置，再返回给客户端。</p>
 <p>这里的三个信息非常重要。<code>application</code> 表示应用名，通常来自 <code>spring.application.name</code>。<code>profile</code> 表示环境，例如 <code>dev</code>、<code>test</code>、<code>prod</code>。<code>label</code> 通常表示 Git 分支或标签，例如 <code>main</code>、<code>master</code>、<code>v1.0</code>。所以 Config Server 本质上是在回答一个问题：某个应用在某个环境下，需要读取哪个版本的配置。</p>
 <p>如果 <code>user-service</code> 启动时指定了应用名为 <code>user-service</code>，环境为 <code>dev</code>，配置仓库分支为 <code>main</code>，那么它访问 Config Server 时，Config Server 就会尝试查找和 <code>user-service-dev</code> 相关的配置，并把结果组合成 Spring 可以识别的 PropertySource 返回给客户端。</p>
-<h2 id="config-server-简单部署">Config Server 简单部署
-</h2><p>搭建 Config Server 的第一步是创建一个普通 Spring Boot 服务，并添加 Config Server 依赖。这个依赖让当前服务具备从配置仓库读取配置并对外暴露配置接口的能力。</p>
+<h2 id="config-server-简单部署">
+    Config Server 简单部署
+</h2>
+<p>搭建 Config Server 的第一步是创建一个普通 Spring Boot 服务，并添加 Config Server 依赖。这个依赖让当前服务具备从配置仓库读取配置并对外暴露配置接口的能力。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>org.springframework.cloud<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>spring-cloud-config-server<span class="nt">&lt;/artifactId&gt;</span>
@@ -227,8 +237,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">server</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">native</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">search-locations</span><span class="p">:</span><span class="w"> </span><span class="l">file:///D:/config-repo</span><span class="w">
-</span></span></span></code></pre></div><h2 id="config-client-简单部署">Config Client 简单部署
-</h2><p>Config Client 是业务服务。它的目标不是管理配置，而是在启动时从 Config Server 拿到自己的配置。客户端需要添加 <code>spring-cloud-starter-config</code> 依赖。</p>
+</span></span></span></code></pre></div><h2 id="config-client-简单部署">
+    Config Client 简单部署
+</h2>
+<p>Config Client 是业务服务。它的目标不是管理配置，而是在启动时从 Config Server 拿到自己的配置。客户端需要添加 <code>spring-cloud-starter-config</code> 依赖。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>org.springframework.cloud<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>spring-cloud-starter-config<span class="nt">&lt;/artifactId&gt;</span>
@@ -258,25 +270,33 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><p>到这里，Spring Cloud Config 的第一条主线就完整了：配置放在 Git 中，Config Server 读取 Git，Config Client 启动时从 Config Server 拉取配置。</p>
-<h2 id="刷新机制">刷新机制
-</h2><p>Config Client 启动时会拉取配置，但服务启动完成后，它不会自动每秒去检查配置仓库有没有变化。也就是说，如果你修改了 Git 仓库中的配置，已经运行中的服务通常不会立即感知。</p>
+<h2 id="刷新机制">
+    刷新机制
+</h2>
+<p>Config Client 启动时会拉取配置，但服务启动完成后，它不会自动每秒去检查配置仓库有没有变化。也就是说，如果你修改了 Git 仓库中的配置，已经运行中的服务通常不会立即感知。</p>
 <p>这就产生了一个新问题：配置中心解决了“配置放在哪里、启动时怎么读取”的问题，但还没有完全解决“运行时配置变化后怎么生效”的问题。</p>
 <p>最基础的方式是手动刷新。比如通过 Actuator 的 <code>/actuator/refresh</code> 端点让某个服务重新加载配置。这个方式在单个服务、单个实例时还能接受，但在真实微服务场景中很快会变得麻烦。</p>
 <p>假设系统有 5 个服务，每个服务部署 3 个实例，那么一次配置变化可能需要处理 15 个实例。如果人工逐个调用刷新接口，不仅低效，还容易漏掉某个实例。为了让配置变更自动传播，就需要 Webhook 和 Spring Cloud Bus 配合。</p>
-<h2 id="webhook-的概念">Webhook 的概念
-</h2><p>Webhook 是一种事件回调机制。它和轮询正好相反。轮询是服务不断去问配置仓库有没有变化；Webhook 是配置仓库发生变化后，主动通知指定地址。</p>
+<h2 id="webhook-的概念">
+    Webhook 的概念
+</h2>
+<p>Webhook 是一种事件回调机制。它和轮询正好相反。轮询是服务不断去问配置仓库有没有变化；Webhook 是配置仓库发生变化后，主动通知指定地址。</p>
 <p>以 Git 仓库为例，当开发者修改配置并 push 到 GitHub、GitLab 或 Gitee 后，仓库平台可以向 Config Server 的某个接口发送 HTTP POST 请求。这个请求的意义不是传输完整配置，而是告诉 Config Server：配置仓库已经发生变化，你需要处理刷新。</p>
 <p>在 Spring Cloud Config 中，Config Server 引入 <code>spring-cloud-config-monitor</code> 后，可以开启 <code>/monitor</code> 端点。Webhook 通常就配置到这个 <code>/monitor</code> 端点上。于是配置变化后的链路变成：开发者修改配置，push 到仓库，仓库触发 Webhook，Webhook 请求 Config Server 的 <code>/monitor</code>，Config Server 获知配置变化。</p>
 <p><img src="/p/springcloud-config/assets/image-20260515153616-soy4td7_hu_1d7c076a6e9f0ff1.webp" width="1600" height="1161" srcset="/p/springcloud-config/assets/image-20260515153616-soy4td7_hu_4013d6f5b53dee68.webp 800w, /p/springcloud-config/assets/image-20260515153616-soy4td7_hu_1d7c076a6e9f0ff1.webp 1600w, /p/springcloud-config/assets/image-20260515153616-soy4td7_hu_2a98d41326d76cb8.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="137" data-flex-basis="330px">
 </p>
 <p>Webhook 只解决了“谁来告诉 Config Server 仓库变了”的问题。但 Config Server 知道配置变了以后，还要通知所有相关微服务实例刷新。这个广播能力就是 Spring Cloud Bus 要解决的问题。</p>
-<h2 id="spring-cloud-bus-自动刷新机制">Spring Cloud Bus 自动刷新机制
-</h2><p>Spring Cloud Bus 可以理解为分布式系统中的消息总线。它把多个微服务实例通过消息代理连接起来，例如 RabbitMQ 或 Kafka。Config Server 收到配置变化通知后，可以把刷新事件发送到 Bus 上，再由 Bus 广播给相关的 Config Client 实例。</p>
+<h2 id="spring-cloud-bus-自动刷新机制">
+    Spring Cloud Bus 自动刷新机制
+</h2>
+<p>Spring Cloud Bus 可以理解为分布式系统中的消息总线。它把多个微服务实例通过消息代理连接起来，例如 RabbitMQ 或 Kafka。Config Server 收到配置变化通知后，可以把刷新事件发送到 Bus 上，再由 Bus 广播给相关的 Config Client 实例。</p>
 <p>有了 Spring Cloud Bus，配置刷新链路就从“人工逐个刷新实例”变成了“触发一次事件，消息总线自动广播”。这个变化的关键价值是降低运维成本，并减少遗漏实例的风险。</p>
 <p>完整流程可以按因果顺序理解。首先，配置仓库发生变化。然后，Webhook 把变化通知给 Config Server 的 <code>/monitor</code>。Config Server 收到通知后，不直接逐个调用服务，而是发布一个 <code>RefreshRemoteApplicationEvent</code>。接着，Spring Cloud Bus 通过 RabbitMQ 或 Kafka 把这个事件广播出去。最后，Config Client 收到事件后刷新本地 Environment，并重新创建或刷新带有 <code>@RefreshScope</code> 的 Bean。</p>
 <p><code>@RefreshScope</code> 很关键。配置刷新不是让所有对象都自动变成新值。只有那些被纳入刷新范围的 Bean，才会在刷新事件到来后重新读取配置。因此，运行时可能变化的配置类，通常会配合 <code>@RefreshScope</code> 使用。</p>
-<h2 id="webhook--bus-简单配置">Webhook + Bus 简单配置
-</h2><p>Config Server 侧需要具备两个能力：接收仓库变更通知，以及把刷新事件发布到消息总线。因此需要添加 monitor 和 bus 相关依赖。以 RabbitMQ 为例：</p>
+<h2 id="webhook--bus-简单配置">
+    Webhook + Bus 简单配置
+</h2>
+<p>Config Server 侧需要具备两个能力：接收仓库变更通知，以及把刷新事件发布到消息总线。因此需要添加 monitor 和 bus 相关依赖。以 RabbitMQ 为例：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>org.springframework.cloud<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>spring-cloud-config-monitor<span class="nt">&lt;/artifactId&gt;</span>
@@ -323,14 +343,18 @@
 </span></span></span><span class="line"><span class="cl">  -H <span class="s2">&#34;Content-Type: application/x-www-form-urlencoded&#34;</span> <span class="se">\
 </span></span></span><span class="line"><span class="cl">  -d <span class="s2">&#34;path=user-service&#34;</span>
 </span></span></code></pre></div><p>这里的 <code>path=user-service</code> 表示和 <code>user-service</code> 相关的配置发生变化，Config Server 会尝试将刷新事件发送给匹配的应用。</p>
-<h2 id="加密环境">加密环境
-</h2><p>配置中心集中管理配置后，新的问题出现了：敏感配置也会集中起来。数据库密码、Redis 密码、第三方接口密钥如果直接以明文形式存入 Git 仓库，一旦仓库权限配置不当、人员误操作、日志暴露或历史提交泄露，就可能造成安全问题。</p>
+<h2 id="加密环境">
+    加密环境
+</h2>
+<p>配置中心集中管理配置后，新的问题出现了：敏感配置也会集中起来。数据库密码、Redis 密码、第三方接口密钥如果直接以明文形式存入 Git 仓库，一旦仓库权限配置不当、人员误操作、日志暴露或历史提交泄露，就可能造成安全问题。</p>
 <p>所以，配置中心不仅要解决“配置统一管理”，还要解决“敏感配置如何安全存储”。Spring Cloud Config 的加密机制就是为这个问题服务的。</p>
 <p>它的基本思路是：Git 仓库里不直接保存明文密码，而是保存以 <code>{cipher}</code> 开头的密文。Config Server 读取配置时识别到 <code>{cipher}</code> 前缀，就在返回给 Config Client 前完成解密。这样，仓库里是密文，业务服务拿到的是正常可用的明文配置。</p>
 <p><img src="/p/springcloud-config/assets/image-20260515153630-elxti8w_hu_55f68317ffd7f4e3.webp" width="1600" height="1179" srcset="/p/springcloud-config/assets/image-20260515153630-elxti8w_hu_d4cdcfe1e3b9668d.webp 800w, /p/springcloud-config/assets/image-20260515153630-elxti8w_hu_55f68317ffd7f4e3.webp 1600w, /p/springcloud-config/assets/image-20260515153630-elxti8w_hu_2d0ba937da7222c6.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="135" data-flex-basis="325px">
 </p>
-<h2 id="加密与解密端点">加密与解密端点
-</h2><p>Config Server 提供 <code>/encrypt</code> 和 <code>/decrypt</code> 两个端点。<code>/encrypt</code> 用来把明文变成密文，<code>/decrypt</code> 用来验证密文是否可以正确还原。</p>
+<h2 id="加密与解密端点">
+    加密与解密端点
+</h2>
+<p>Config Server 提供 <code>/encrypt</code> 和 <code>/decrypt</code> 两个端点。<code>/encrypt</code> 用来把明文变成密文，<code>/decrypt</code> 用来验证密文是否可以正确还原。</p>
 <p>例如，把一个明文密码加密：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl localhost:8888/encrypt -s -d mysecret
 </span></span></code></pre></div><p>返回的密文需要加上 <code>{cipher}</code> 前缀后写入配置文件。</p>
@@ -343,15 +367,19 @@
 </span></span></code></pre></div><p><code>/decrypt</code> 常用于本地验证密文是否正确。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl localhost:8888/decrypt -s -d 682bc583f4641835fa2db009355293665d2647dade3375c0ee201de2a49f7bda
 </span></span></code></pre></div><p>如果 Config Server 解密失败，它不会简单地把错误密文当成密码继续使用，而是可能生成带 <code>invalid</code> 前缀的属性。这种设计是为了避免密文被误当成真实密码传给客户端。</p>
-<h2 id="对称加密">对称加密
-</h2><p>对称加密的特点是加密和解密使用同一个密钥。它的优点是配置简单，非常适合学习和本地 demo。Config Server 只需要知道这个共享密钥，就能完成 <code>/encrypt</code> 和 <code>/decrypt</code>。</p>
+<h2 id="对称加密">
+    对称加密
+</h2>
+<p>对称加密的特点是加密和解密使用同一个密钥。它的优点是配置简单，非常适合学习和本地 demo。Config Server 只需要知道这个共享密钥，就能完成 <code>/encrypt</code> 和 <code>/decrypt</code>。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">encrypt</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l">mysecretkey</span><span class="w">
 </span></span></span></code></pre></div><p>也可以用环境变量保存密钥，避免把密钥写死在配置文件中。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">ENCRYPT_KEY</span><span class="o">=</span>mysecretkey
 </span></span></code></pre></div><p>对称加密的风险也来自这个“同一个密钥”。因为加密和解密都依赖它，一旦密钥泄露，别人就可以解密所有使用这个密钥生成的配置密文。所以对称加密虽然方便，但在生产环境中要非常重视密钥的存放和权限控制。</p>
-<h2 id="非对称加密">非对称加密
-</h2><p>非对称加密使用一对密钥：公钥和私钥。通常可以用公钥加密，用私钥解密。它比对称加密更适合正式环境，因为加密能力和解密能力可以分离，密钥管理也更规范。</p>
+<h2 id="非对称加密">
+    非对称加密
+</h2>
+<p>非对称加密使用一对密钥：公钥和私钥。通常可以用公钥加密，用私钥解密。它比对称加密更适合正式环境，因为加密能力和解密能力可以分离，密钥管理也更规范。</p>
 <p>在 Spring Cloud Config 中，非对称加密通常通过 keystore 配置。可以用 JDK 自带的 <code>keytool</code> 创建测试密钥库。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">keytool -genkeypair -alias mytestkey -keyalg RSA <span class="se">\
 </span></span></span><span class="line"><span class="cl">  -keystore server.jks
@@ -369,8 +397,10 @@
 </span></span></span></code></pre></div><p>这里的 <code>location</code> 指向密钥库位置，<code>password</code> 用于打开密钥库，<code>alias</code> 指定使用哪个密钥，<code>secret</code> 是密钥自身的密码。相比对称加密，非对称加密配置更复杂，但安全边界更清晰。</p>
 <p><img src="/p/springcloud-config/assets/image-20260515153648-fraj3t8_hu_82406bcc04277faa.webp" width="1600" height="1137" srcset="/p/springcloud-config/assets/image-20260515153648-fraj3t8_hu_7cade64a7539c293.webp 800w, /p/springcloud-config/assets/image-20260515153648-fraj3t8_hu_82406bcc04277faa.webp 1600w, /p/springcloud-config/assets/image-20260515153648-fraj3t8_hu_7e7e7e9e5eeaa6df.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="image" class="gallery-image" data-flex-grow="140" data-flex-basis="337px">
 </p>
-<h2 id="复习总结">复习总结
-</h2><p>Spring Cloud Config 的知识链路可以从“配置管理”一路推到“自动刷新”和“安全加密”。</p>
+<h2 id="复习总结">
+    复习总结
+</h2>
+<p>Spring Cloud Config 的知识链路可以从“配置管理”一路推到“自动刷新”和“安全加密”。</p>
 <p>最开始的问题是微服务配置太分散，所以引入 Config Server 和 Config Client。Config Server 统一读取配置，Config Client 启动时拉取配置。配置集中之后，又会遇到运行时变更不生效的问题，所以引入刷新机制。手动刷新在多实例场景下成本高，于是使用 Webhook 发现配置仓库变化，再通过 Spring Cloud Bus 把刷新事件广播给所有相关客户端。配置集中管理后，敏感信息也被集中存储，因此还需要加密机制。Config Server 通过 <code>{cipher}</code>、<code>/encrypt</code>、<code>/decrypt</code>、对称密钥或非对称密钥库来保护敏感配置。</p>
 <p>简化记忆如下：</p>
 <ul>
@@ -406,389 +436,11 @@
     </div>
 </article>
 
-
-
-
-
-
-
-
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-    
-    <div class="pswp__bg"></div>
-
-    
-    <div class="pswp__scroll-wrap">
-
-        
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                
-                
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
-                defer
-                >
-            </script><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
-                defer
-                >
-            </script><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
-            ><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
-            >
-
-    </main>
-
-    <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
-                
-                >
-            </script><script type="text/javascript" src="/ts/main.836efe327773ba454adac61ee8b35272b6f512bd594ed9ea0f926fca8386433b.js" defer></script><script type="text/javascript" src="/ts/custom.4bb4ca905d915217c671721b75f16ae60652e805c90c767a80a951f0dddeeb9c.js" defer></script>
-
-
-<button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
+    </main><button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M6 14.5 12 8l6 6.5" />
+        <path d="M6 14.5 12 8l6 6.5"></path>
     </svg>
 </button>
-
-<script>
-    (function () {
-        'use strict';
-
-        const menuToggle = document.querySelector('.site-menu-toggle');
-        const nav = document.getElementById('primary-navigation');
-        const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-        function initThemeToggle() {
-            const toggle = document.getElementById('dark-mode-toggle');
-            if (!toggle || toggle.dataset.projectThemeToggleReady === 'true') return;
-
-            toggle.dataset.projectThemeToggleReady = 'true';
-
-            function getCurrentScheme() {
-                return document.documentElement.dataset.scheme === 'dark' ? 'dark' : 'light';
-            }
-
-            function getSystemScheme() {
-                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-            }
-
-            function saveScheme(scheme) {
-                try {
-                    window.localStorage.setItem('StackColorScheme', scheme === getSystemScheme() ? 'auto' : scheme);
-                } catch (error) {
-                    return;
-                }
-            }
-
-            function applyScheme(scheme) {
-                document.documentElement.dataset.scheme = scheme;
-                saveScheme(scheme);
-                window.dispatchEvent(new CustomEvent('onColorSchemeChange', { detail: scheme }));
-            }
-
-            toggle.addEventListener('click', function (event) {
-                event.preventDefault();
-                event.stopImmediatePropagation();
-
-                const x = event.clientX;
-                const y = event.clientY;
-                const willBeDark = getCurrentScheme() !== 'dark';
-                const nextScheme = willBeDark ? 'dark' : 'light';
-                const endRadius = Math.hypot(
-                    Math.max(x, window.innerWidth - x),
-                    Math.max(y, window.innerHeight - y)
-                );
-
-                if (!document.startViewTransition) {
-                    applyScheme(nextScheme);
-                    return;
-                }
-
-                const transition = document.startViewTransition(function () {
-                    applyScheme(nextScheme);
-                });
-
-                transition.ready.then(function () {
-                    const clipPath = willBeDark
-                        ? [`circle(${endRadius}px at ${x}px ${y}px)`, `circle(0px at ${x}px ${y}px)`]
-                        : [`circle(0px at ${x}px ${y}px)`, `circle(${endRadius}px at ${x}px ${y}px)`];
-
-                    document.documentElement.animate(
-                        { clipPath },
-                        {
-                            duration: 500,
-                            easing: 'ease-in-out',
-                            fill: 'forwards',
-                            pseudoElement: willBeDark
-                                ? '::view-transition-old(root)'
-                                : '::view-transition-new(root)'
-                        }
-                    );
-                });
-            }, { capture: true });
-        }
-
-        function setMenuOpen(open) {
-            if (!menuToggle || !nav) return;
-            menuToggle.classList.toggle('is-open', open);
-            nav.classList.toggle('is-open', open);
-            document.body.classList.toggle('site-nav-open', open);
-            menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        }
-
-        if (menuToggle && nav) {
-            menuToggle.addEventListener('click', function (event) {
-                event.stopPropagation();
-                setMenuOpen(!nav.classList.contains('is-open'));
-            });
-
-            nav.querySelectorAll('a').forEach(function (link) {
-                link.addEventListener('click', function () {
-                    setMenuOpen(false);
-                });
-            });
-
-            document.addEventListener('keydown', function (event) {
-                if (event.key === 'Escape') setMenuOpen(false);
-            });
-
-            document.addEventListener('click', function (event) {
-                if (!document.body.classList.contains('site-nav-open')) return;
-                if (nav.contains(event.target) || menuToggle.contains(event.target)) return;
-                setMenuOpen(false);
-            });
-
-            const desktopQuery = window.matchMedia('(min-width: 921px)');
-            const closeMenuOnDesktop = function (event) {
-                if (event.matches) setMenuOpen(false);
-            };
-
-            if (desktopQuery.addEventListener) {
-                desktopQuery.addEventListener('change', closeMenuOnDesktop);
-            } else if (desktopQuery.addListener) {
-                desktopQuery.addListener(closeMenuOnDesktop);
-            }
-        }
-
-        const backToTop = document.getElementById('back-to-top');
-
-        if (backToTop) {
-            function updateBackToTop() {
-                backToTop.classList.toggle('is-visible', window.scrollY > 420);
-            }
-
-            backToTop.addEventListener('click', function () {
-                window.scrollTo({ top: 0, behavior: reduceMotionQuery.matches ? 'auto' : 'smooth' });
-            });
-
-            window.addEventListener('scroll', updateBackToTop, { passive: true });
-            updateBackToTop();
-        }
-
-        function initArticleTocHover() {
-            const toc = document.querySelector('[data-article-toc]');
-            const articleMain = document.querySelector('.article-detail__main');
-            if (!toc || !articleMain) return;
-
-            const toggle = toc.querySelector('[data-article-toc-toggle]');
-            let lockedOpen = false;
-
-            function setVisible(visible) {
-                document.body.classList.toggle('is-article-toc-visible', visible);
-                if (toggle) {
-                    toggle.setAttribute('aria-expanded', visible ? 'true' : 'false');
-                    toggle.setAttribute('aria-label', visible ? '隐藏文章目录' : '显示文章目录');
-                }
-            }
-
-            function getLeftRevealZone() {
-                return Math.min(380, Math.max(280, window.innerWidth * 0.22));
-            }
-
-            function isInsideReadingColumn(x, y) {
-                const rect = articleMain.getBoundingClientRect();
-                const top = Math.min(rect.top, 0) - 48;
-                const bottom = Math.max(rect.bottom, window.innerHeight) + 48;
-
-                return x >= rect.left - 72 && x <= rect.right + 32 && y >= top && y <= bottom;
-            }
-
-            document.addEventListener('pointermove', function (event) {
-                if (lockedOpen) return;
-                setVisible(event.clientX <= getLeftRevealZone() || isInsideReadingColumn(event.clientX, event.clientY));
-            }, { passive: true });
-
-            document.addEventListener('pointerleave', function () {
-                if (!lockedOpen) setVisible(false);
-            });
-
-            toc.addEventListener('focusin', function () {
-                setVisible(true);
-            });
-
-            toc.addEventListener('focusout', function (event) {
-                if (lockedOpen || toc.contains(event.relatedTarget)) return;
-                setVisible(false);
-            });
-
-            if (toggle) {
-                toggle.addEventListener('click', function () {
-                    const isVisible = document.body.classList.contains('is-article-toc-visible');
-                    if (lockedOpen && isVisible) {
-                        lockedOpen = false;
-                        setVisible(false);
-                        return;
-                    }
-
-                    lockedOpen = true;
-                    setVisible(true);
-                });
-            }
-
-            document.addEventListener('click', function (event) {
-                if (!lockedOpen) return;
-                if (toc.contains(event.target) || articleMain.contains(event.target)) return;
-                lockedOpen = false;
-                setVisible(false);
-            });
-
-            document.addEventListener('keydown', function (event) {
-                if (event.key !== 'Escape') return;
-                lockedOpen = false;
-                setVisible(false);
-            });
-        }
-
-        function initRevealOnScroll() {
-            if (reduceMotionQuery.matches || !('IntersectionObserver' in window)) return;
-
-            const revealSelectors = [
-                '.section-band',
-                '.featured-section',
-                '.blog-card',
-                '.post-tools',
-                '.article-detail__content > blockquote',
-                '.article-detail__content > .highlight',
-                '.article-detail__content > pre',
-                '.article-detail__content > .table-wrapper',
-                '.article-detail__content > figure',
-                '.article-detail__content > details',
-                '.article-detail__content > hr',
-                '.article-detail__footer',
-                '.music-album-card'
-            ];
-
-            const targets = revealSelectors.reduce(function (items, selector) {
-                return items.concat(Array.prototype.slice.call(document.querySelectorAll(selector)));
-            }, []);
-
-            const imageBlocks = Array.prototype.slice.call(document.querySelectorAll('.article-detail__content > p')).filter(function (block) {
-                const children = Array.prototype.slice.call(block.children).filter(function (child) {
-                    return child.tagName !== 'BR';
-                });
-                const onlyChild = children[0];
-
-                return children.length === 1 && (
-                    onlyChild.tagName === 'IMG' ||
-                    onlyChild.classList.contains('gallery') ||
-                    (onlyChild.tagName === 'A' && onlyChild.querySelector('img'))
-                );
-            });
-
-            imageBlocks.forEach(function (block) {
-                if (!targets.includes(block)) targets.push(block);
-            });
-
-            const filteredTargets = targets.filter(function (target, index) {
-                if (target.tagName === 'PRE' && target.closest('.highlight')) return false;
-                return targets.indexOf(target) === index;
-            });
-
-            if (!filteredTargets.length) return;
-
-            const observer = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (!entry.isIntersecting) return;
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                });
-            }, {
-                rootMargin: '0px 0px -6% 0px',
-                threshold: 0.1
-            });
-
-            filteredTargets.forEach(function (target, index) {
-                target.classList.add('reveal-on-scroll');
-                target.style.setProperty('--reveal-delay', Math.min(index % 4, 3) * 32 + 'ms');
-                observer.observe(target);
-            });
-        }
-
-        initThemeToggle();
-        initArticleTocHover();
-        initRevealOnScroll();
-
-        window.requestAnimationFrame(function () {
-            document.body.classList.add('is-loaded');
-        });
-    })();
-</script>
-
 </body>
 
 </html>

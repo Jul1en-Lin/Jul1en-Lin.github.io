@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>Spring on Jul1en</title>
-        <link>https://Jul1en-Lin.github.io/categories/spring/</link>
-        <description>Recent content in Spring on Jul1en</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>en-us</language>
-        <copyright>Jul1en</copyright>
-        <lastBuildDate>Sat, 13 Dec 2025 21:52:46 +0800</lastBuildDate><atom:link href="https://Jul1en-Lin.github.io/categories/spring/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>🧣 验证码功能</title>
-        <link>https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/</link>
-        <pubDate>Sat, 13 Dec 2025 01:02:22 +0800</pubDate>
-        
-        <guid>https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/</guid>
-        <description>&lt;h1 id=&#34;验证码功能&#34;&gt;验证码功能
-&lt;/h1&gt;&lt;h1 id=&#34;引入hutool工具包&#34;&gt;引入Hutool工具包
-&lt;/h1&gt;&lt;p&gt;Hutool工具是一个开源的Java工具依赖库，封装了许多功能，访问&lt;code&gt;https://hutool.cn&lt;/code&gt;，按图中引入依赖即可使用，具体功能可查看官方文档~&lt;/p&gt;
+  <channel>
+    <title>Spring - Jul1en</title>
+    <link>https://Jul1en-Lin.github.io/categories/spring/</link>
+    <description>Spring - Jul1en</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <copyright>Jul1en</copyright>
+    <lastBuildDate>Sat, 13 Dec 2025 21:52:46 +0800</lastBuildDate>
+    <atom:link href="https://Jul1en-Lin.github.io/categories/spring/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>🧣 验证码功能</title>
+      <link>https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/</link>
+      <pubDate>Sat, 13 Dec 2025 01:02:22 +0800</pubDate>
+      <guid>https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/</guid>
+      <description>&lt;h1 id=&#34;验证码功能&#34;&gt;
+    验证码功能
+&lt;/h1&gt;
+&lt;h1 id=&#34;引入hutool工具包&#34;&gt;
+    引入Hutool工具包
+&lt;/h1&gt;
+&lt;p&gt;Hutool工具是一个开源的Java工具依赖库，封装了许多功能，访问&lt;code&gt;https://hutool.cn&lt;/code&gt;，按图中引入依赖即可使用，具体功能可查看官方文档~&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dependency&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;groupId&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cn&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;hutool&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;groupId&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;artifactId&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;hutool&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;all&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;artifactId&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -23,13 +28,17 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dependency&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251206144812-e28xm5t_hu_56cd8c251ce871c9.webp&#34; width=&#34;1600&#34; height=&#34;425&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251206144812-e28xm5t_hu_8748bf1de66d6c97.webp 800w, https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251206144812-e28xm5t_hu_56cd8c251ce871c9.webp 1600w, https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251206144812-e28xm5t_hu_dfd7e2905c9965fc.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;376&#34; data-flex-basis=&#34;903px&#34;&gt;
 &lt;/p&gt;
-&lt;h1 id=&#34;实现功能&#34;&gt;实现功能
-&lt;/h1&gt;&lt;p&gt;以下是参考文档代码，以写出到浏览器（Servlet输出）为栗子&lt;/p&gt;
+&lt;h1 id=&#34;实现功能&#34;&gt;
+    实现功能
+&lt;/h1&gt;
+&lt;p&gt;以下是参考文档代码，以写出到浏览器（Servlet输出）为栗子&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;ICaptcha&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;captcha&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;...;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;captcha&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;write&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;response&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getOutputStream&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//Servlet的OutputStream记得自行关闭哦！&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;执行流程&#34;&gt;执行流程
-&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;==验证码的服务主要由后端实现，前端只负责发起请求，且验证码的答案一般存于内存/Redis中，这里以Hutool工具实现==&lt;/strong&gt;&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;执行流程&#34;&gt;
+    执行流程
+&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;==验证码的服务主要由后端实现，前端只负责发起请求，且验证码的答案一般存于内存/Redis中，这里以Hutool工具实现==&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;前端发起GET请求&lt;/li&gt;
 &lt;li&gt;后端：&lt;/li&gt;
@@ -43,9 +52,13 @@
 &lt;li&gt;前端拿到图片，将用户输入一起POST到后端&lt;/li&gt;
 &lt;li&gt;后端校验，返回对应的值&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h1 id=&#34;细节问题&#34;&gt;细节问题
-&lt;/h1&gt;&lt;h2 id=&#34;线程安全&#34;&gt;线程安全
-&lt;/h2&gt;&lt;p&gt;http是无状态的，后端接口之间&lt;code&gt;/captcha/getCaptcha&lt;/code&gt;​与&lt;code&gt;/captcha/check&lt;/code&gt;是独立的，内容无法共享数据，那需要校验的时候如何拿到验证码呢？&lt;/p&gt;
+&lt;h1 id=&#34;细节问题&#34;&gt;
+    细节问题
+&lt;/h1&gt;
+&lt;h2 id=&#34;线程安全&#34;&gt;
+    线程安全
+&lt;/h2&gt;
+&lt;p&gt;http是无状态的，后端接口之间&lt;code&gt;/captcha/getCaptcha&lt;/code&gt;​与&lt;code&gt;/captcha/check&lt;/code&gt;是独立的，内容无法共享数据，那需要校验的时候如何拿到验证码呢？&lt;/p&gt;
 &lt;p&gt;​&lt;code&gt;/getCaptcha&lt;/code&gt;​接口的成员变量与&lt;code&gt;/check&lt;/code&gt;是不共享的，以线程安全角度来说，以下两个方法都是不可取的&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;直接声明一个成员变量&lt;/li&gt;
@@ -59,15 +72,21 @@
 &lt;li&gt;解决方法&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;我们可以使用Session存储，Session保证了对话安全，每个用户都有单独的会话id，把验证码存储到Session中，生成与校验都能通过Session操作存入/拿出&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;考虑线程安全问题的场景&#34;&gt;考虑线程安全问题的场景
-&lt;/h2&gt;&lt;ol&gt;
+&lt;h2 id=&#34;考虑线程安全问题的场景&#34;&gt;
+    考虑线程安全问题的场景
+&lt;/h2&gt;
+&lt;ol&gt;
 &lt;li&gt;对象有没有数据共享&lt;/li&gt;
 &lt;li&gt;主动创建线程（池）的时候&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;时间戳&#34;&gt;时间戳
-&lt;/h2&gt;&lt;p&gt;项目开发中，时间的处理和表示通常使用时间戳，能解决跨时区的问题，实现了前后端 UI 解耦，计算也更加便捷&lt;/p&gt;
-&lt;h2 id=&#34;参数配置&#34;&gt;参数配置
-&lt;/h2&gt;&lt;p&gt;学到Spring就要充分用到管理对象的功能，但是有些时候参数的注入过于繁琐，如需要构造一个图片类型的验证码，需要传入&lt;code&gt;width&lt;/code&gt;​、&lt;code&gt;height&lt;/code&gt;、验证码长度、干扰因子等等，这些固定参数通常需要放到配置文件中管理，起到解耦作用&lt;/p&gt;
+&lt;h2 id=&#34;时间戳&#34;&gt;
+    时间戳
+&lt;/h2&gt;
+&lt;p&gt;项目开发中，时间的处理和表示通常使用时间戳，能解决跨时区的问题，实现了前后端 UI 解耦，计算也更加便捷&lt;/p&gt;
+&lt;h2 id=&#34;参数配置&#34;&gt;
+    参数配置
+&lt;/h2&gt;
+&lt;p&gt;学到Spring就要充分用到管理对象的功能，但是有些时候参数的注入过于繁琐，如需要构造一个图片类型的验证码，需要传入&lt;code&gt;width&lt;/code&gt;​、&lt;code&gt;height&lt;/code&gt;、验证码长度、干扰因子等等，这些固定参数通常需要放到配置文件中管理，起到解耦作用&lt;/p&gt;
 &lt;p&gt;那注入这么多参数，代码非常不美观，故又想到将配置参数转换为一个对象，从对象中去取，就更加优雅了~&lt;/p&gt;
 &lt;p&gt;举个栗子，这是构造图片验证码的代码&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003220-724pqj1_hu_bef0853dd21ccf55.webp&#34; width=&#34;1600&#34; height=&#34;216&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003220-724pqj1_hu_d8bffc6d6d4295b6.webp 800w, https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003220-724pqj1_hu_bef0853dd21ccf55.webp 1600w, https://Jul1en-Lin.github.io/p/%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8A%9F%E8%83%BD/assets/image-20251213003220-724pqj1_hu_37f9f4f2f1b4ad28.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;739&#34; data-flex-basis=&#34;1775px&#34;&gt;
@@ -104,10 +123,14 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 定义图形验证码的长和宽&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;LineCaptcha&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;captcha&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;CaptchaUtil&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;createLineCaptcha&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;properties&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getWidth&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(),&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;properties&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getHeight&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(),&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;properties&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getCodeCount&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(),&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;properties&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getLineCount&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;常量处理&#34;&gt;常量处理
-&lt;/h2&gt;&lt;p&gt;开发中，管理常量的成员一般存入&lt;code&gt;constant&lt;/code&gt;​包中，交给&lt;code&gt;Constant&lt;/code&gt;类管理&lt;/p&gt;
-&lt;h1 id=&#34;实现代码&#34;&gt;实现代码
-&lt;/h1&gt;&lt;p&gt;控制层&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;常量处理&#34;&gt;
+    常量处理
+&lt;/h2&gt;
+&lt;p&gt;开发中，管理常量的成员一般存入&lt;code&gt;constant&lt;/code&gt;​包中，交给&lt;code&gt;Constant&lt;/code&gt;类管理&lt;/p&gt;
+&lt;h1 id=&#34;实现代码&#34;&gt;
+    实现代码
+&lt;/h1&gt;
+&lt;p&gt;控制层&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nd&#34;&gt;@RestController&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nd&#34;&gt;@RequestMapping&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;/captcha&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;CaptchaController&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -180,16 +203,17 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;‍&lt;/p&gt;
 </description>
-        </item>
-        <item>
-        <title>🍀Spring IoC &amp; DI</title>
-        <link>https://Jul1en-Lin.github.io/p/spring-ioc-di/</link>
-        <pubDate>Mon, 08 Dec 2025 17:12:08 +0800</pubDate>
-        
-        <guid>https://Jul1en-Lin.github.io/p/spring-ioc-di/</guid>
-        <description>&lt;img src="https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202182824-baismlb.png" alt="Featured image of post 🍀Spring IoC &amp; DI" /&gt;&lt;p&gt;Spring 两个核心思想：IoC &amp;amp; DI 和 AOP&lt;/p&gt;
-&lt;h1 id=&#34;ioc--di&#34;&gt;IoC &amp;amp; DI
-&lt;/h1&gt;&lt;p&gt;IoC全名为Inversion of Control，即“控制反转”，何为控制反转呢？&lt;/p&gt;
+    </item>
+    <item>
+      <title>🍀Spring IoC &amp; DI</title>
+      <link>https://Jul1en-Lin.github.io/p/spring-ioc-di/</link>
+      <pubDate>Mon, 08 Dec 2025 17:12:08 +0800</pubDate>
+      <guid>https://Jul1en-Lin.github.io/p/spring-ioc-di/</guid>
+      <description>&lt;p&gt;Spring 两个核心思想：IoC &amp;amp; DI 和 AOP&lt;/p&gt;
+&lt;h1 id=&#34;ioc--di&#34;&gt;
+    IoC &amp;amp; DI
+&lt;/h1&gt;
+&lt;p&gt;IoC全名为Inversion of Control，即“控制反转”，何为控制反转呢？&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;控制：指的是对象的创建、初始化、销毁和生命周期的管理权&lt;/p&gt;
@@ -322,8 +346,10 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;五大注解详解&#34;&gt;五大注解详解
-&lt;/h2&gt;&lt;ul&gt;
+&lt;h2 id=&#34;五大注解详解&#34;&gt;
+    五大注解详解
+&lt;/h2&gt;
+&lt;ul&gt;
 &lt;li&gt;类注解：@Controller @Service @Repository @Configuration @Component&lt;/li&gt;
 &lt;li&gt;方法注解：@Bean&lt;/li&gt;
 &lt;/ul&gt;
@@ -344,8 +370,10 @@
 &lt;/p&gt;
 &lt;p&gt;其中@Controller @Service @Repository @Configuration 都实现了@Component，它们都是@Component的衍生注解&lt;/p&gt;
 &lt;p&gt;在实际应用中，这五个注解的边界并没有这么清晰，但控制层必须使用@Controller，不可以和其他注解替换&lt;/p&gt;
-&lt;h1 id=&#34;beanname&#34;&gt;BeanName
-&lt;/h1&gt;&lt;p&gt;在Spring容器中取出对象时会使用对应的BeanName，类注解与方法注解都有不同的BeanName命名方法&lt;/p&gt;
+&lt;h1 id=&#34;beanname&#34;&gt;
+    BeanName
+&lt;/h1&gt;
+&lt;p&gt;在Spring容器中取出对象时会使用对应的BeanName，类注解与方法注解都有不同的BeanName命名方法&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;五大类注解&lt;/p&gt;
@@ -403,21 +431,29 @@
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;hr&gt;
-&lt;h1 id=&#34;di详解&#34;&gt;DI详解
-&lt;/h1&gt;&lt;p&gt;与之IoC匹配的就是DI，DI全名为Dependency Injection，即依赖注入，既然有IoC管理，那就会有DI从Spring容器中取出来，DI就是承担这样的角色——DI 是 IoC 的一种具体&lt;strong&gt;实现方式&lt;/strong&gt;，也能理解为：&lt;strong&gt;&lt;u&gt;容器通过注入依赖来实现控制反转，依赖注入是一个过程&lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;di分三种方式注入&#34;&gt;DI分三种方式注入
-&lt;/h2&gt;&lt;ol&gt;
+&lt;h1 id=&#34;di详解&#34;&gt;
+    DI详解
+&lt;/h1&gt;
+&lt;p&gt;与之IoC匹配的就是DI，DI全名为Dependency Injection，即依赖注入，既然有IoC管理，那就会有DI从Spring容器中取出来，DI就是承担这样的角色——DI 是 IoC 的一种具体&lt;strong&gt;实现方式&lt;/strong&gt;，也能理解为：&lt;strong&gt;&lt;u&gt;容器通过注入依赖来实现控制反转，依赖注入是一个过程&lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;di分三种方式注入&#34;&gt;
+    DI分三种方式注入
+&lt;/h2&gt;
+&lt;ol&gt;
 &lt;li&gt;属性注入&lt;/li&gt;
 &lt;li&gt;构造方法注入&lt;/li&gt;
 &lt;li&gt;Setter注入&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&#34;属性注入&#34;&gt;属性注入
-&lt;/h3&gt;&lt;p&gt;属性注入是通过&lt;code&gt;@Autowired&lt;/code&gt;​实现的。如果有多个属性需要逐行注入。&lt;code&gt;@Autowired&lt;/code&gt;只对紧挨着那一行代码生效&lt;/p&gt;
+&lt;h3 id=&#34;属性注入&#34;&gt;
+    属性注入
+&lt;/h3&gt;
+&lt;p&gt;属性注入是通过&lt;code&gt;@Autowired&lt;/code&gt;​实现的。如果有多个属性需要逐行注入。&lt;code&gt;@Autowired&lt;/code&gt;只对紧挨着那一行代码生效&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202155300-ghe2dy5_hu_f17b477aeda8570b.webp&#34; width=&#34;1600&#34; height=&#34;1053&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202155300-ghe2dy5_hu_c6b7f62d0c508f93.webp 800w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202155300-ghe2dy5_hu_f17b477aeda8570b.webp 1600w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202155300-ghe2dy5_hu_d6de35ff5ae14193.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;151&#34; data-flex-basis=&#34;364px&#34;&gt;
 &lt;img src=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202155412-brlgi99_hu_989ad69627fa33dd.webp&#34; width=&#34;1600&#34; height=&#34;1278&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202155412-brlgi99_hu_1536fc292aa30da8.webp 800w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202155412-brlgi99_hu_989ad69627fa33dd.webp 1600w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202155412-brlgi99_hu_ad40c4a32df7a5bf.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;image&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;125&#34; data-flex-basis=&#34;300px&#34;&gt;
 &lt;/p&gt;
-&lt;h3 id=&#34;构造方法注入&#34;&gt;构造方法注入
-&lt;/h3&gt;&lt;ul&gt;
+&lt;h3 id=&#34;构造方法注入&#34;&gt;
+    构造方法注入
+&lt;/h3&gt;
+&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;如果只有一种构造方法，则执行这一种构造方法，无论是有参构造还是无参构造&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;	&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;UserService&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;service&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -548,8 +584,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;​&lt;code&gt;@Autowired&lt;/code&gt; 就是明确该使用哪个构造方法的&lt;/p&gt;
-&lt;h3 id=&#34;setter注入&#34;&gt;Setter注入
-&lt;/h3&gt;&lt;p&gt;​&lt;code&gt;Setter&lt;/code&gt;​ 注入和属性的&lt;code&gt;Setter &lt;/code&gt;​方法实现类似，只不过在设置 &lt;code&gt;set&lt;/code&gt;​ 方法的时候加上&lt;code&gt;@Autowired&lt;/code&gt; 注解，如下所示&lt;/p&gt;
+&lt;h3 id=&#34;setter注入&#34;&gt;
+    Setter注入
+&lt;/h3&gt;
+&lt;p&gt;​&lt;code&gt;Setter&lt;/code&gt;​ 注入和属性的&lt;code&gt;Setter &lt;/code&gt;​方法实现类似，只不过在设置 &lt;code&gt;set&lt;/code&gt;​ 方法的时候加上&lt;code&gt;@Autowired&lt;/code&gt; 注解，如下所示&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;	&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// Setter 方法注入&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;UserService&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;service&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;UserRepository&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;repository&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -569,8 +607,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;repository&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;do controller&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;三种注入的优缺点&#34;&gt;&lt;span id=&#34;20251202163358-mb6mufp&#34; style=&#34;display: none;&#34;&gt;&lt;/span&gt;三种注入的优缺点
-&lt;/h2&gt;&lt;ul&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;三种注入的优缺点&#34;&gt;
+    &lt;span id=&#34;20251202163358-mb6mufp&#34; style=&#34;display: none;&#34;&gt;&lt;/span&gt;三种注入的优缺点
+&lt;/h2&gt;
+&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;属性注入&lt;/p&gt;
 &lt;ul&gt;
@@ -615,8 +655,10 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;autowired存在的问题&#34;&gt;@Autowired存在的问题
-&lt;/h2&gt;&lt;p&gt;当同一个类型存在多个&lt;code&gt;Bean&lt;/code&gt;​时，使用&lt;code&gt;@Autowired&lt;/code&gt;会存在问题，示例代码如下：&lt;/p&gt;
+&lt;h2 id=&#34;autowired存在的问题&#34;&gt;
+    @Autowired存在的问题
+&lt;/h2&gt;
+&lt;p&gt;当同一个类型存在多个&lt;code&gt;Bean&lt;/code&gt;​时，使用&lt;code&gt;@Autowired&lt;/code&gt;会存在问题，示例代码如下：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nd&#34;&gt;@Service&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;UserService&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nd&#34;&gt;@Autowired&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -745,8 +787,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 注意，使用重命名则原来方法命名就会失效，@Resource(name = &amp;#34;s1&amp;#34;)会报错&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;常见面试题&#34;&gt;常见面试题
-&lt;/h2&gt;&lt;ol&gt;
+&lt;h2 id=&#34;常见面试题&#34;&gt;
+    常见面试题
+&lt;/h2&gt;
+&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;@Autowired 与 @Resource 的区别&lt;/p&gt;
 &lt;ul&gt;
@@ -762,7 +806,8 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;#20251202163358-mb6mufp&#34; &gt;三种注入的优缺点&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;#20251202163358-mb6mufp&#34;&gt;三种注入的优缺点&lt;/a&gt;
+&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;常见注解有哪些？分别是什么作用？&lt;/p&gt;
@@ -772,14 +817,19 @@
 &lt;p&gt;Bean 的获取：@Autowired，@Qualifier，@Resource&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;#20251202194306-k6nc3dz&#34; &gt;Spring、SpringMVC、SpringBoot之间的关系与区别&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;#20251202194306-k6nc3dz&#34;&gt;Spring、SpringMVC、SpringBoot之间的关系与区别&lt;/a&gt;
+&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;autowired的装配顺序&#34;&gt;@Autowired的装配顺序
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202182824-baismlb_hu_8d13fc4b7fd20c55.webp&#34; width=&#34;1600&#34; height=&#34;1361&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202182824-baismlb_hu_29e6981d7ac49edc.webp 800w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202182824-baismlb_hu_8d13fc4b7fd20c55.webp 1600w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202182824-baismlb_hu_e243bd9673342512.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;117&#34; data-flex-basis=&#34;282px&#34;&gt;
+&lt;h2 id=&#34;autowired的装配顺序&#34;&gt;
+    @Autowired的装配顺序
+&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202182824-baismlb_hu_8d13fc4b7fd20c55.webp&#34; width=&#34;1600&#34; height=&#34;1361&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202182824-baismlb_hu_29e6981d7ac49edc.webp 800w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202182824-baismlb_hu_8d13fc4b7fd20c55.webp 1600w, https://Jul1en-Lin.github.io/p/spring-ioc-di/assets/image-20251202182824-baismlb_hu_e243bd9673342512.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;117&#34; data-flex-basis=&#34;282px&#34;&gt;
 &lt;/p&gt;
-&lt;h2 id=&#34;springspringmvcspringboot之间的关系与区别&#34;&gt;&lt;span id=&#34;20251202194306-k6nc3dz&#34; style=&#34;display: none;&#34;&gt;&lt;/span&gt;Spring、SpringMVC、SpringBoot之间的关系与区别
-&lt;/h2&gt;&lt;p&gt;Spring在不同的角度回答也不同，分Spring和SpringFramework&lt;/p&gt;
+&lt;h2 id=&#34;springspringmvcspringboot之间的关系与区别&#34;&gt;
+    &lt;span id=&#34;20251202194306-k6nc3dz&#34; style=&#34;display: none;&#34;&gt;&lt;/span&gt;Spring、SpringMVC、SpringBoot之间的关系与区别
+&lt;/h2&gt;
+&lt;p&gt;Spring在不同的角度回答也不同，分Spring和SpringFramework&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Spring：是Spring家族生态&lt;/li&gt;
 &lt;li&gt;SpringFramework：是核心容器&lt;/li&gt;
@@ -848,7 +898,6 @@
 &lt;p&gt;&lt;strong&gt;一句话总结：Spring MVC 和 Spring Boot 都属于Spring，Spring MVC 是 Spring的一个MVC 框架，Spring Boot 则是基于 Spring 的一套快速开发整合包（脚手架）&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;‍&lt;/p&gt;
 </description>
-        </item>
-        
-    </channel>
+    </item>
+  </channel>
 </rss>

@@ -1,43 +1,46 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
+<html lang="zh-CN" dir="ltr">
 
-<head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Spring Cloud 核心概念 Spring Cloud 简单概念笔记：Eureka、Nacos、OpenFeign 与 Gateway 版本说明：本文以 Spring Boot 3 / Spring Cloud 新版本思路为主。很多旧教程会使用 bootstrap.yml、Ribbon 等写法，学习时可以看，但自 …">
-<title>Spring Cloud 核心概念 | Jul1en</title>
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Spring Cloud 核心概念 | Jul1en</title>
+<meta name="description" content="Spring Cloud 核心概念 Spring Cloud 简单概念笔记：Eureka、Nacos、OpenFeign 与 Gateway 版本说明：本文以 Spring Boot 3 / Spring Cloud 新版本思路为主。很多旧教程会使用 bootstrap.yml、Ribbon 等写法，学习时可以看，但自 …">
+<meta name="author" content="Jul1en">
+<link rel="canonical" href="https://Jul1en-Lin.github.io/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/">
 
-<link rel='canonical' href='https://Jul1en-Lin.github.io/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/'>
-
-<link rel="stylesheet" href="/scss/style.min.ec82946fda8d90cf1fb1835f4491c98e9279c2eae00a5622fe790c8a9ce86062.css"><meta property='og:title' content="Spring Cloud 核心概念 | Jul1en">
-<meta property='og:description' content="Spring Cloud 核心概念 Spring Cloud 简单概念笔记：Eureka、Nacos、OpenFeign 与 Gateway 版本说明：本文以 Spring Boot 3 / Spring Cloud 新版本思路为主。很多旧教程会使用 bootstrap.yml、Ribbon 等写法，学习时可以看，但自 …">
-<meta property='og:url' content='https://Jul1en-Lin.github.io/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/'>
-<meta property='og:site_name' content='Jul1en'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-05-10T13:00:35&#43;00:00'/><meta property='article:modified_time' content='2026-05-15T16:23:00&#43;08:00'/>
-<meta name="twitter:title" content="Spring Cloud 核心概念 | Jul1en">
-<meta name="twitter:description" content="Spring Cloud 核心概念 Spring Cloud 简单概念笔记：Eureka、Nacos、OpenFeign 与 Gateway 版本说明：本文以 Spring Boot 3 / Spring Cloud 新版本思路为主。很多旧教程会使用 bootstrap.yml、Ribbon 等写法，学习时可以看，但自 …">
-    <link rel="shortcut icon" href="/favicon-signature.svg" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="icon" href="/favicon-signature.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-signature.png" type="image/png" sizes="512x512">
-<link rel="alternate icon" href="/favicon-signature.ico" type="image/x-icon">
-<meta name="author" content="Jul1en">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)"><script src="/js/custom.4bb4ca905d915217c671721b75f16ae60652e805c90c767a80a951f0dddeeb9c.js" integrity="sha256-S7TKkF2RUhfGcXIbdfFq5gZS6AXJDHZ6gKlR8N3e65w=" defer></script><script>
+<link rel="alternate icon" href="/favicon.ico" type="image/x-icon">
+<meta name="theme-color" content="#fdfdf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Spring Cloud 核心概念 | Jul1en">
+<meta property="og:description" content="Spring Cloud 核心概念 Spring Cloud 简单概念笔记：Eureka、Nacos、OpenFeign 与 Gateway 版本说明：本文以 Spring Boot 3 / Spring Cloud 新版本思路为主。很多旧教程会使用 bootstrap.yml、Ribbon 等写法，学习时可以看，但自 …">
+<meta property="og:url" content="https://Jul1en-Lin.github.io/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/">
+<meta property="og:site_name" content="Jul1en">
+<meta property="og:type" content="article">
+<meta property="article:section" content="Post">
+<meta property="article:published_time" content="2026-05-10T13:00:35&#43;00:00">
+<meta property="article:modified_time" content="2026-05-15T16:23:00&#43;08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spring Cloud 核心概念 | Jul1en">
+<meta name="twitter:description" content="Spring Cloud 核心概念 Spring Cloud 简单概念笔记：Eureka、Nacos、OpenFeign 与 Gateway 版本说明：本文以 Spring Boot 3 / Spring Cloud 新版本思路为主。很多旧教程会使用 bootstrap.yml、Ribbon 等写法，学习时可以看，但自 …">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"><script>
     (function () {
-        const colorSchemeKey = 'StackColorScheme';
-        const savedScheme = localStorage.getItem(colorSchemeKey);
-        const defaultScheme = "light";
-        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
-        const scheme = savedScheme || defaultScheme;
-
-        if (scheme === 'dark' || (scheme === 'auto' && supportDarkMode)) {
-            document.documentElement.dataset.scheme = 'dark';
-        } else {
-            document.documentElement.dataset.scheme = 'light';
+        var stored = null;
+        try {
+            stored = window.localStorage.getItem('ColorScheme');
+        } catch (error) {
+            stored = null;
         }
+
+        var scheme = stored;
+        if (scheme !== 'light' && scheme !== 'dark') {
+            scheme = "light";
+        }
+        document.documentElement.dataset.scheme = scheme;
     })();
-</script>
+</script><link rel="stylesheet" href="/css/site.min.0758d8aad30f198f851a02b8c6494f637bd95774b2fd6b2f576cf99133b942f8.css" integrity="sha256-B1jYqtMPGY&#43;FGgK4xklPY3vZV3Sy/WsvV2z5kTO5Qvg="><script src="/js/site.51f8655227b5fb12b2585c2985e20ec3e93192ca19774662d732d2a0bcb492f0.js" integrity="sha256-UfhlUie1&#43;xKyWFwpheIOw&#43;kxksoZd0Zi1zLSoLy0kvA=" defer></script>
 
 </head>
 
@@ -93,7 +96,7 @@
   <path fill="currentColor" d="M17.2 7.2a.9.9 0 1 1-1.8 0 .9.9 0 0 1 1.8 0Z" />
 </svg>
 </span>
-                    </a><button id="dark-mode-toggle" class="theme-toggle" type="button" aria-label="暗色模式" title="暗色模式">
+                    </a><button id="dark-mode-toggle" class="theme-toggle" type="button" aria-label="切换配色" title="切换配色">
                     <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
     <circle cx="12" cy="12" r="4.2" />
     <path d="M12 2.8v2.2M12 19v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.8 12h2.2M19 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" />
@@ -243,10 +246,15 @@
             </header>
 
             <section class="article-content article-detail__content">
-                <h2 id="spring-cloud-简单概念笔记eurekanacosopenfeign-与-gateway">Spring Cloud 简单概念笔记：Eureka、Nacos、OpenFeign 与 Gateway
-</h2><p>版本说明：本文以 Spring Boot 3 / Spring Cloud 新版本思路为主。很多旧教程会使用 <code>bootstrap.yml</code>、Ribbon 等写法，学习时可以看，但自己写新项目时更建议优先使用 Spring Cloud LoadBalancer、<code>spring.config.import</code> 等新写法。</p>
-<h2 id="微服务里的几个核心问题">微服务里的几个核心问题
-</h2><p>单体项目里，前端请求通常直接打到一个后端服务：</p>
+                
+<h2 id="spring-cloud-简单概念笔记eurekanacosopenfeign-与-gateway">
+    Spring Cloud 简单概念笔记：Eureka、Nacos、OpenFeign 与 Gateway
+</h2>
+<p>版本说明：本文以 Spring Boot 3 / Spring Cloud 新版本思路为主。很多旧教程会使用 <code>bootstrap.yml</code>、Ribbon 等写法，学习时可以看，但自己写新项目时更建议优先使用 Spring Cloud LoadBalancer、<code>spring.config.import</code> 等新写法。</p>
+<h2 id="微服务里的几个核心问题">
+    微服务里的几个核心问题
+</h2>
+<p>单体项目里，前端请求通常直接打到一个后端服务：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">flowchart LR
 </span></span><span class="line"><span class="cl">    A[浏览器/客户端] --&gt; B[单体后端应用]
 </span></span><span class="line"><span class="cl">    B --&gt; C[(数据库)]
@@ -271,58 +279,64 @@
 </ul>
 <p>对应到 Spring Cloud 生态中，常见组件分工如下：</p>
 <div class="table-wrapper"><table>
-	<thead>
-			<tr>
-					<th>问题</th>
-					<th>典型组件</th>
-					<th>作用</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td>服务在哪里</td>
-					<td>Eureka / Nacos Discovery</td>
-					<td>服务注册与服务发现</td>
-			</tr>
-			<tr>
-					<td>多实例怎么选</td>
-					<td>Spring Cloud LoadBalancer / Nacos 权重</td>
-					<td>客户端负载均衡</td>
-			</tr>
-			<tr>
-					<td>服务之间怎么调用</td>
-					<td>OpenFeign</td>
-					<td>声明式 HTTP 远程调用</td>
-			</tr>
-			<tr>
-					<td>外部请求从哪里进</td>
-					<td>Spring Cloud Gateway</td>
-					<td>API 网关、统一入口</td>
-			</tr>
-			<tr>
-					<td>配置怎么统一管</td>
-					<td>Nacos Config / Spring Cloud Config</td>
-					<td>配置中心、动态配置</td>
-			</tr>
-	</tbody>
+  <thead>
+      <tr>
+          <th>问题</th>
+          <th>典型组件</th>
+          <th>作用</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>服务在哪里</td>
+          <td>Eureka / Nacos Discovery</td>
+          <td>服务注册与服务发现</td>
+      </tr>
+      <tr>
+          <td>多实例怎么选</td>
+          <td>Spring Cloud LoadBalancer / Nacos 权重</td>
+          <td>客户端负载均衡</td>
+      </tr>
+      <tr>
+          <td>服务之间怎么调用</td>
+          <td>OpenFeign</td>
+          <td>声明式 HTTP 远程调用</td>
+      </tr>
+      <tr>
+          <td>外部请求从哪里进</td>
+          <td>Spring Cloud Gateway</td>
+          <td>API 网关、统一入口</td>
+      </tr>
+      <tr>
+          <td>配置怎么统一管</td>
+          <td>Nacos Config / Spring Cloud Config</td>
+          <td>配置中心、动态配置</td>
+      </tr>
+  </tbody>
 </table></div>
 <p><img src="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510212744-wo0u8vw_hu_7ba2c258b951a316.webp" width="1600" height="1172" srcset="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510212744-wo0u8vw_hu_32d80114f3bdafd8.webp 800w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510212744-wo0u8vw_hu_7ba2c258b951a316.webp 1600w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510212744-wo0u8vw_hu_ad5587cc5bd1a08e.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="136" data-flex-basis="327px">
 </p>
 <blockquote>
 <p>服务启动后注册到注册中心；调用方从注册中心发现目标服务实例；负载均衡器从多个实例中选一个；OpenFeign 发起服务间调用；Gateway 负责外部入口和公共过滤逻辑；Nacos 还可以统一管理配置。</p>
 </blockquote>
-<h2 id="eureka注册中心服务注册与服务发现">Eureka：注册中心、服务注册与服务发现
-</h2><p><img src="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510212924-9tiveuh_hu_27f9f436db48156f.webp" width="1600" height="1203" srcset="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510212924-9tiveuh_hu_db84659730cc8c32.webp 800w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510212924-9tiveuh_hu_27f9f436db48156f.webp 1600w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510212924-9tiveuh_hu_b96021f982d4357e.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="132" data-flex-basis="319px">
+<h2 id="eureka注册中心服务注册与服务发现">
+    Eureka：注册中心、服务注册与服务发现
+</h2>
+<p><img src="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510212924-9tiveuh_hu_27f9f436db48156f.webp" width="1600" height="1203" srcset="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510212924-9tiveuh_hu_db84659730cc8c32.webp 800w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510212924-9tiveuh_hu_27f9f436db48156f.webp 1600w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510212924-9tiveuh_hu_b96021f982d4357e.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="132" data-flex-basis="319px">
 </p>
-<h3 id="eureka-是什么">Eureka 是什么
-</h3><p>Eureka 是 Netflix OSS 体系里的服务注册与发现组件。它主要分成两类角色：</p>
+<h3 id="eureka-是什么">
+    Eureka 是什么
+</h3>
+<p>Eureka 是 Netflix OSS 体系里的服务注册与发现组件。它主要分成两类角色：</p>
 <ul>
 <li><strong>Eureka Server</strong>：注册中心，负责保存服务实例信息。</li>
 <li><strong>Eureka Client</strong>：微服务应用，启动后把自己注册到 Eureka Server，也可以从 Eureka Server 获取其他服务列表。</li>
 </ul>
 <p>可以把 Eureka Server 理解成一个“服务通讯录”其他服务调用 <code>user-service</code> 时，不需要写死 IP 和端口，只需要通过服务名去查。</p>
-<h3 id="服务注册">服务注册
-</h3><p>服务注册指的是：服务启动后，把自己的服务名、IP、端口、健康状态等信息上报给注册中心。</p>
+<h3 id="服务注册">
+    服务注册
+</h3>
+<p>服务注册指的是：服务启动后，把自己的服务名、IP、端口、健康状态等信息上报给注册中心。</p>
 <p>以 <code>user-service</code> 为例，它启动时会把自己注册进去：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">server</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8081</span><span class="w">
@@ -336,8 +350,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">service-url</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">defaultZone</span><span class="p">:</span><span class="w"> </span><span class="l">http://localhost:8761/eureka/</span><span class="w">
 </span></span></span></code></pre></div><p><code>spring.application.name</code> 很关键，它就是服务名。服务之间一般不是通过 <code>localhost:8081</code> 调用，而是通过 <code>user-service</code> 这个逻辑名称调用。</p>
-<h3 id="服务发现">服务发现
-</h3><p>服务发现指的是：调用方根据服务名，从注册中心拿到目标服务的实例列表。</p>
+<h3 id="服务发现">
+    服务发现
+</h3>
+<p>服务发现指的是：调用方根据服务名，从注册中心拿到目标服务的实例列表。</p>
 <p>例如 <code>order-service</code> 想调用 <code>user-service</code>，它不需要知道 <code>user-service</code> 部署在哪，只需要知道服务名：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">order-service -&gt; 注册中心 -&gt; 查询 user-service -&gt; 得到实例列表 -&gt; 选择一个实例调用
 </span></span></code></pre></div><p>如果 <code>user-service</code> 有多个实例：</p>
@@ -346,9 +362,13 @@
 </span></span><span class="line"><span class="cl">├── 192.168.1.11:8081
 </span></span><span class="line"><span class="cl">└── 192.168.1.12:8081
 </span></span></code></pre></div><p>注册中心会保存这些实例，调用方再结合负载均衡策略选择一个。</p>
-<h3 id="eureka-简单部署流程">Eureka 简单部署流程
-</h3><h4 id="第一步创建-eureka-server">第一步：创建 Eureka Server
-</h4><p>依赖示例：</p>
+<h3 id="eureka-简单部署流程">
+    Eureka 简单部署流程
+</h3>
+<h4 id="第一步创建-eureka-server">
+    第一步：创建 Eureka Server
+</h4>
+<p>依赖示例：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>org.springframework.cloud<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>spring-cloud-starter-netflix-eureka-server<span class="nt">&lt;/artifactId&gt;</span>
@@ -383,8 +403,10 @@
 <p>启动后访问：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">http://localhost:8761
 </span></span></code></pre></div><p>可以看到 Eureka 控制台。</p>
-<h4 id="第二步创建服务提供者-user-service">第二步：创建服务提供者 user-service
-</h4><p>依赖示例：</p>
+<h4 id="第二步创建服务提供者-user-service">
+    第二步：创建服务提供者 user-service
+</h4>
+<p>依赖示例：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>org.springframework.cloud<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>spring-cloud-starter-netflix-eureka-client<span class="nt">&lt;/artifactId&gt;</span>
@@ -412,8 +434,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><p>启动后，Eureka 控制台中会出现 <code>USER-SERVICE</code>。</p>
-<h4 id="第三步创建服务消费者-order-service">第三步：创建服务消费者 order-service
-</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">server</span><span class="p">:</span><span class="w">
+<h4 id="第三步创建服务消费者-order-service">
+    第三步：创建服务消费者 order-service
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">server</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8082</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">spring</span><span class="p">:</span><span class="w">
@@ -426,11 +450,15 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">defaultZone</span><span class="p">:</span><span class="w"> </span><span class="l">http://localhost:8761/eureka/</span><span class="w">
 </span></span></span></code></pre></div><p>后面可以通过 OpenFeign 或 RestTemplate 调用 <code>user-service</code>。</p>
 <hr>
-<h2 id="负载均衡为什么不能只调用一个实例">负载均衡：为什么不能只调用一个实例
-</h2><p><img src="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213117-m7thvqb_hu_713825e41bfcafc5.webp" width="1600" height="1160" srcset="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213117-m7thvqb_hu_5ccf6d2c01fb81c1.webp 800w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213117-m7thvqb_hu_713825e41bfcafc5.webp 1600w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213117-m7thvqb_hu_aaf1cbcba5fb5f6e.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="137" data-flex-basis="331px">
+<h2 id="负载均衡为什么不能只调用一个实例">
+    负载均衡：为什么不能只调用一个实例
+</h2>
+<p><img src="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213117-m7thvqb_hu_713825e41bfcafc5.webp" width="1600" height="1160" srcset="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213117-m7thvqb_hu_5ccf6d2c01fb81c1.webp 800w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213117-m7thvqb_hu_713825e41bfcafc5.webp 1600w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213117-m7thvqb_hu_aaf1cbcba5fb5f6e.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="137" data-flex-basis="331px">
 </p>
-<h3 id="负载均衡解决什么问题">负载均衡解决什么问题
-</h3><p>当一个服务部署多个实例时，请求不能永远打到同一个实例，否则会导致：</p>
+<h3 id="负载均衡解决什么问题">
+    负载均衡解决什么问题
+</h3>
+<p>当一个服务部署多个实例时，请求不能永远打到同一个实例，否则会导致：</p>
 <ul>
 <li>某台机器压力过大；</li>
 <li>其他实例空闲浪费；</li>
@@ -438,8 +466,10 @@
 <li>系统整体吞吐量上不去。</li>
 </ul>
 <p>负载均衡就是在多个实例中选择一个实例来处理请求。</p>
-<h3 id="服务名调用与负载均衡">服务名调用与负载均衡
-</h3><p>以前很多教程会讲 Ribbon，现在新版本更推荐 Spring Cloud LoadBalancer。</p>
+<h3 id="服务名调用与负载均衡">
+    服务名调用与负载均衡
+</h3>
+<p>以前很多教程会讲 Ribbon，现在新版本更推荐 Spring Cloud LoadBalancer。</p>
 <p>服务调用时通常不是这样写：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">http://localhost:8081/users/1
 </span></span></code></pre></div><p>而是这样写：</p>
@@ -451,26 +481,34 @@
 <li>把 <code>http://user-service/users/1</code> 转成类似 <code>http://192.168.1.10:8081/users/1</code>；</li>
 <li>最后发起真正的 HTTP 请求。</li>
 </ol>
-<h3 id="常见负载均衡策略">常见负载均衡策略
-</h3><p>常见策略包括：</p>
+<h3 id="常见负载均衡策略">
+    常见负载均衡策略
+</h3>
+<p>常见策略包括：</p>
 <ul>
 <li><strong>轮询</strong>：第 1 次打实例 A，第 2 次打实例 B，第 3 次打实例 C，然后循环。</li>
 <li><strong>随机</strong>：随机选择一个实例。</li>
 <li><strong>权重</strong>：权重越高，被选中的概率越大。</li>
 <li><strong>同集群优先</strong>：消费者优先调用同一个集群或同一个机房内的服务实例。</li>
 </ul>
-<h2 id="nacos注册中心--配置中心">Nacos：注册中心 + 配置中心
-</h2><p><img src="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213220-0g15lcw_hu_3cef1cbb259cef.webp" width="1600" height="1192" srcset="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213220-0g15lcw_hu_d3a5826a9a7e2c66.webp 800w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213220-0g15lcw_hu_3cef1cbb259cef.webp 1600w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213220-0g15lcw_hu_65114f2d945a8817.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="134" data-flex-basis="322px">
+<h2 id="nacos注册中心--配置中心">
+    Nacos：注册中心 + 配置中心
+</h2>
+<p><img src="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213220-0g15lcw_hu_3cef1cbb259cef.webp" width="1600" height="1192" srcset="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213220-0g15lcw_hu_d3a5826a9a7e2c66.webp 800w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213220-0g15lcw_hu_3cef1cbb259cef.webp 1600w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213220-0g15lcw_hu_65114f2d945a8817.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="134" data-flex-basis="322px">
 </p>
-<h3 id="nacos">Nacos
-</h3><p>Nacos 是阿里开源的动态服务发现、配置管理和服务管理平台。在 Spring Cloud Alibaba 体系中，Nacos 通常承担两个角色：</p>
+<h3 id="nacos">
+    Nacos
+</h3>
+<p>Nacos 是阿里开源的动态服务发现、配置管理和服务管理平台。在 Spring Cloud Alibaba 体系中，Nacos 通常承担两个角色：</p>
 <ul>
 <li><strong>Nacos Discovery</strong>：服务注册与发现，类似 Eureka。</li>
 <li><strong>Nacos Config</strong>：配置中心，集中管理应用配置，支持动态刷新。</li>
 </ul>
 <p>所以 Nacos 比 Eureka 的能力更综合。Eureka 主要关注服务注册发现，而 Nacos 同时可以做注册中心和配置中心。</p>
-<h3 id="nacos-服务注册与发现">Nacos 服务注册与发现
-</h3><p>服务启动后，将自己注册到 Nacos：</p>
+<h3 id="nacos-服务注册与发现">
+    Nacos 服务注册与发现
+</h3>
+<p>服务启动后，将自己注册到 Nacos：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">server</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8081</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
@@ -487,8 +525,10 @@
 </span></span></code></pre></div><p>常见默认账号密码是：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">nacos / nacos
 </span></span></code></pre></div><p>具体以你本地安装版本为准。</p>
-<h3 id="服务下线">服务下线
-</h3><p>服务下线有两种理解：</p>
+<h3 id="服务下线">
+    服务下线
+</h3>
+<p>服务下线有两种理解：</p>
 <p>一种是<strong>应用真正停止</strong>。例如你关闭了某个 <code>user-service</code> 实例。注册中心会通过心跳或健康检查发现它不可用，然后把它从可用列表中剔除或标记异常。</p>
 <p>另一种是<strong>手动下线实例</strong>。在 Nacos 控制台中可以把某个实例临时下线。这样它虽然进程还在，但消费者不会再优先调用它。</p>
 <p>典型使用场景：</p>
@@ -501,8 +541,10 @@
 <blockquote>
 <p>下线不是删除服务，而是让该实例暂时不参与调用。</p>
 </blockquote>
-<h3 id="权重配置">权重配置
-</h3><p>Nacos 支持给实例设置权重。权重越高，被调用的概率越大。</p>
+<h3 id="权重配置">
+    权重配置
+</h3>
+<p>Nacos 支持给实例设置权重。权重越高，被调用的概率越大。</p>
 <p>例如：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">user-service 实例 A：权重 1
 </span></span><span class="line"><span class="cl">user-service 实例 B：权重 5
@@ -524,8 +566,10 @@
 </span></span><span class="line"><span class="cl">    C[consumer] --&gt; LB[Nacos + LoadBalancer]
 </span></span><span class="line"><span class="cl">    LB --&gt;|少量流量| A[user-service v1 / weight=1]
 </span></span><span class="line"><span class="cl">    LB --&gt;|更多流量| B[user-service v2 / weight=5]
-</span></span></code></pre></div><h3 id="同集群优先">同集群优先
-</h3><p>同集群优先的意思是：消费者优先调用与自己处在同一集群、同一机房或同一区域的服务实例。</p>
+</span></span></code></pre></div><h3 id="同集群优先">
+    同集群优先
+</h3>
+<p>同集群优先的意思是：消费者优先调用与自己处在同一集群、同一机房或同一区域的服务实例。</p>
 <p>例如：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">上海集群：user-service A、order-service A
 </span></span><span class="line"><span class="cl">北京集群：user-service B、order-service B
@@ -546,33 +590,35 @@
 </span></span></span></code></pre></div><blockquote>
 <p>权重解决“谁多接一点流量”，集群优先解决“尽量调用离我近的服务”。</p>
 </blockquote>
-<h3 id="环境隔离namespacegroupdataid">环境隔离：Namespace、Group、DataId
-</h3><p>Nacos 里常见的隔离概念有三个：</p>
+<h3 id="环境隔离namespacegroupdataid">
+    环境隔离：Namespace、Group、DataId
+</h3>
+<p>Nacos 里常见的隔离概念有三个：</p>
 <div class="table-wrapper"><table>
-	<thead>
-			<tr>
-					<th>概念</th>
-					<th>用途</th>
-					<th>类比</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td>Namespace</td>
-					<td>环境级隔离</td>
-					<td>dev、test、prod 三个空间</td>
-			</tr>
-			<tr>
-					<td>Group</td>
-					<td>分组隔离</td>
-					<td>同一环境下按业务线或项目分组</td>
-			</tr>
-			<tr>
-					<td>DataId</td>
-					<td>配置文件标识</td>
-					<td><code>user-service-dev.yml</code></td>
-			</tr>
-	</tbody>
+  <thead>
+      <tr>
+          <th>概念</th>
+          <th>用途</th>
+          <th>类比</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Namespace</td>
+          <td>环境级隔离</td>
+          <td>dev、test、prod 三个空间</td>
+      </tr>
+      <tr>
+          <td>Group</td>
+          <td>分组隔离</td>
+          <td>同一环境下按业务线或项目分组</td>
+      </tr>
+      <tr>
+          <td>DataId</td>
+          <td>配置文件标识</td>
+          <td><code>user-service-dev.yml</code></td>
+      </tr>
+  </tbody>
 </table></div>
 <p>最常用的是 Namespace。比如你可以创建三个命名空间：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">dev      开发环境
@@ -588,8 +634,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">config</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">dev-namespace-id</span><span class="w">
 </span></span></span></code></pre></div><p>注意：<code>namespace</code> 配的通常不是命名空间名称，而是命名空间 ID。</p>
-<h3 id="nacos-配置中心">Nacos 配置中心
-</h3><p>配置中心的价值是：把配置从代码包里抽出来，集中放到 Nacos 管理。</p>
+<h3 id="nacos-配置中心">
+    Nacos 配置中心
+</h3>
+<p>配置中心的价值是：把配置从代码包里抽出来，集中放到 Nacos 管理。</p>
 <p>以前配置可能写在每个服务自己的 <code>application.yml</code> 中：</p>
 <p>用了 Nacos Config 后，可以把这些配置放在 Nacos 控制台中。应用启动时从 Nacos 拉取配置，运行中还可以监听配置变化。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sequenceDiagram
@@ -628,13 +676,19 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><p>在 Nacos 控制台修改配置后，接口返回值可以随配置变化而变化。</p>
-<h3 id="nacos-简单部署流程">Nacos 简单部署流程
-</h3><h4 id="第一步启动-nacos-server">第一步：启动 Nacos Server
-</h4><p>学习环境可以直接本地启动 Nacos 单机版，常见端口是8848</p>
+<h3 id="nacos-简单部署流程">
+    Nacos 简单部署流程
+</h3>
+<h4 id="第一步启动-nacos-server">
+    第一步：启动 Nacos Server
+</h4>
+<p>学习环境可以直接本地启动 Nacos 单机版，常见端口是8848</p>
 <p>启动成功后访问：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">http://localhost:8848/nacos
-</span></span></code></pre></div><h4 id="第二步服务接入-nacos-discovery">第二步：服务接入 Nacos Discovery
-</h4><p>添加依赖：</p>
+</span></span></code></pre></div><h4 id="第二步服务接入-nacos-discovery">
+    第二步：服务接入 Nacos Discovery
+</h4>
+<p>添加依赖：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>com.alibaba.cloud<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>spring-cloud-starter-alibaba-nacos-discovery<span class="nt">&lt;/artifactId&gt;</span>
@@ -651,8 +705,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">discovery</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">server-addr</span><span class="p">:</span><span class="w"> </span><span class="m">127.0.0.1</span><span class="p">:</span><span class="m">8848</span><span class="w">
 </span></span></span></code></pre></div><p>启动后在控制台查看服务列表。</p>
-<h4 id="第三步服务接入-nacos-config">第三步：服务接入 Nacos Config
-</h4><p>添加依赖：</p>
+<h4 id="第三步服务接入-nacos-config">
+    第三步：服务接入 Nacos Config
+</h4>
+<p>添加依赖：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>com.alibaba.cloud<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>spring-cloud-starter-alibaba-nacos-config<span class="nt">&lt;/artifactId&gt;</span>
@@ -676,8 +732,10 @@
 </span></span></code></pre></div><p>配置内容示例：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">user</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="l">vip</span><span class="w">
-</span></span></span></code></pre></div><h4 id="第四步多环境隔离">第四步：多环境隔离
-</h4><p>创建命名空间：</p>
+</span></span></span></code></pre></div><h4 id="第四步多环境隔离">
+    第四步：多环境隔离
+</h4>
+<p>创建命名空间：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">dev
 </span></span><span class="line"><span class="cl">prod
 </span></span></code></pre></div><p>然后在服务配置中指定命名空间 ID：</p>
@@ -690,65 +748,71 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">dev-namespace-id</span><span class="w">
 </span></span></span></code></pre></div><p>这样开发环境服务只注册到开发环境空间，开发环境配置也只从开发空间读取。</p>
 <hr>
-<h2 id="eureka-与-nacos-的区别">Eureka 与 Nacos 的区别
-</h2><p><img src="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213514-6abjoi7_hu_e5cf8b43216fd7cd.webp" width="1600" height="1183" srcset="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213514-6abjoi7_hu_f6dee8ad4cc06e21.webp 800w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213514-6abjoi7_hu_e5cf8b43216fd7cd.webp 1600w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213514-6abjoi7_hu_7d9536fc0c7b5510.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="135" data-flex-basis="324px">
+<h2 id="eureka-与-nacos-的区别">
+    Eureka 与 Nacos 的区别
+</h2>
+<p><img src="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213514-6abjoi7_hu_e5cf8b43216fd7cd.webp" width="1600" height="1183" srcset="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213514-6abjoi7_hu_f6dee8ad4cc06e21.webp 800w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213514-6abjoi7_hu_e5cf8b43216fd7cd.webp 1600w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213514-6abjoi7_hu_7d9536fc0c7b5510.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="135" data-flex-basis="324px">
 </p>
 <div class="table-wrapper"><table>
-	<thead>
-			<tr>
-					<th>对比项</th>
-					<th>Eureka</th>
-					<th>Nacos</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td>定位</td>
-					<td>服务注册与发现</td>
-					<td>服务注册发现 + 配置中心 + 服务管理</td>
-			</tr>
-			<tr>
-					<td>生态</td>
-					<td>Netflix OSS / Spring Cloud Netflix</td>
-					<td>Spring Cloud Alibaba / Nacos 生态</td>
-			</tr>
-			<tr>
-					<td>配置中心</td>
-					<td>不提供，需要搭配其他组件</td>
-					<td>原生支持配置中心</td>
-			</tr>
-			<tr>
-					<td>控制台能力</td>
-					<td>相对简单，主要查看服务实例</td>
-					<td>更丰富，可管理服务、实例、权重、配置、命名空间等</td>
-			</tr>
-			<tr>
-					<td>权重配置</td>
-					<td>原生能力弱，通常依赖负载均衡策略扩展</td>
-					<td>原生支持实例权重</td>
-			</tr>
-			<tr>
-					<td>环境隔离</td>
-					<td>通常靠不同注册中心或配置区分</td>
-					<td>支持 Namespace、Group 等隔离方式</td>
-			</tr>
-			<tr>
-					<td>服务下线</td>
-					<td>更多依赖心跳和实例状态</td>
-					<td>控制台可更方便地下线实例、调整权重</td>
-			</tr>
-			<tr>
-					<td>适合场景</td>
-					<td>学习注册中心原理、传统 Spring Cloud 项目</td>
-					<td>国内项目常见，适合注册中心和配置中心统一管理</td>
-			</tr>
-	</tbody>
+  <thead>
+      <tr>
+          <th>对比项</th>
+          <th>Eureka</th>
+          <th>Nacos</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>定位</td>
+          <td>服务注册与发现</td>
+          <td>服务注册发现 + 配置中心 + 服务管理</td>
+      </tr>
+      <tr>
+          <td>生态</td>
+          <td>Netflix OSS / Spring Cloud Netflix</td>
+          <td>Spring Cloud Alibaba / Nacos 生态</td>
+      </tr>
+      <tr>
+          <td>配置中心</td>
+          <td>不提供，需要搭配其他组件</td>
+          <td>原生支持配置中心</td>
+      </tr>
+      <tr>
+          <td>控制台能力</td>
+          <td>相对简单，主要查看服务实例</td>
+          <td>更丰富，可管理服务、实例、权重、配置、命名空间等</td>
+      </tr>
+      <tr>
+          <td>权重配置</td>
+          <td>原生能力弱，通常依赖负载均衡策略扩展</td>
+          <td>原生支持实例权重</td>
+      </tr>
+      <tr>
+          <td>环境隔离</td>
+          <td>通常靠不同注册中心或配置区分</td>
+          <td>支持 Namespace、Group 等隔离方式</td>
+      </tr>
+      <tr>
+          <td>服务下线</td>
+          <td>更多依赖心跳和实例状态</td>
+          <td>控制台可更方便地下线实例、调整权重</td>
+      </tr>
+      <tr>
+          <td>适合场景</td>
+          <td>学习注册中心原理、传统 Spring Cloud 项目</td>
+          <td>国内项目常见，适合注册中心和配置中心统一管理</td>
+      </tr>
+  </tbody>
 </table></div>
-<h2 id="openfeign声明式服务调用">OpenFeign：声明式服务调用
-</h2><p><img src="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213558-ps0u4ej_hu_b762e559fee2a770.webp" width="1600" height="1166" srcset="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213558-ps0u4ej_hu_9a9543c698d51e0f.webp 800w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213558-ps0u4ej_hu_b762e559fee2a770.webp 1600w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213558-ps0u4ej_hu_7f4c200136773aea.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="137" data-flex-basis="329px">
+<h2 id="openfeign声明式服务调用">
+    OpenFeign：声明式服务调用
+</h2>
+<p><img src="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213558-ps0u4ej_hu_b762e559fee2a770.webp" width="1600" height="1166" srcset="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213558-ps0u4ej_hu_9a9543c698d51e0f.webp 800w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213558-ps0u4ej_hu_b762e559fee2a770.webp 1600w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213558-ps0u4ej_hu_7f4c200136773aea.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="137" data-flex-basis="329px">
 </p>
-<h3 id="openfeign-是什么">OpenFeign 是什么
-</h3><p>OpenFeign 是一个声明式 HTTP 客户端。所谓声明式，就是你不用手写完整的 HTTP 请求过程，只需要定义一个接口，Spring Cloud 会帮你生成代理对象去调用远程服务。</p>
+<h3 id="openfeign-是什么">
+    OpenFeign 是什么
+</h3>
+<p>OpenFeign 是一个声明式 HTTP 客户端。所谓声明式，就是你不用手写完整的 HTTP 请求过程，只需要定义一个接口，Spring Cloud 会帮你生成代理对象去调用远程服务。</p>
 <p>没有 Feign 时，你可能要写：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">restTemplate</span><span class="p">.</span><span class="na">getForObject</span><span class="p">(</span><span class="s">&#34;http://user-service/users/1&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w">
 </span></span></span></code></pre></div><p>用了 Feign 后，你可以写成接口，服务类只需要实现这个接口功能即可。</p>
@@ -772,8 +836,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">userClient</span><span class="p">.</span><span class="na">getUser</span><span class="p">(</span><span class="n">userId</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></div><h3 id="openfeign-调用流程">OpenFeign 调用流程
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sequenceDiagram
+</span></span></span></code></pre></div><h3 id="openfeign-调用流程">
+    OpenFeign 调用流程
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sequenceDiagram
 </span></span><span class="line"><span class="cl">    participant O as order-service
 </span></span><span class="line"><span class="cl">    participant F as OpenFeign 代理对象
 </span></span><span class="line"><span class="cl">    participant R as 注册中心 Eureka/Nacos
@@ -789,29 +855,39 @@
 </span></span><span class="line"><span class="cl">    U--&gt;&gt;F: 返回用户信息
 </span></span><span class="line"><span class="cl">    F--&gt;&gt;O: 返回方法结果
 </span></span></code></pre></div><p>OpenFeign 主要负责服务内部之间的远程调用 <strong>，</strong> Gateway 是网关，是外部请求进入系统的统一入口。这两个很容易搞混</p>
-<h3 id="openfeign-简单部署流程">OpenFeign 简单部署流程
-</h3><h4 id="第一步消费者服务添加依赖">第一步：消费者服务添加依赖
-</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
+<h3 id="openfeign-简单部署流程">
+    OpenFeign 简单部署流程
+</h3>
+<h4 id="第一步消费者服务添加依赖">
+    第一步：消费者服务添加依赖
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>org.springframework.cloud<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>spring-cloud-starter-openfeign<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
-</span></span></code></pre></div><h4 id="第二步启动类开启-feign">第二步：启动类开启 Feign
-</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@SpringBootApplication</span><span class="w">
+</span></span></code></pre></div><h4 id="第二步启动类开启-feign">
+    第二步：启动类开启 Feign
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@SpringBootApplication</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nd">@EnableFeignClients</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">OrderServiceApplication</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">SpringApplication</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="n">OrderServiceApplication</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></div><h4 id="第三步定义-feign-接口">第三步：定义 Feign 接口
-</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@FeignClient</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;user-service&#34;</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></div><h4 id="第三步定义-feign-接口">
+    第三步：定义 Feign 接口
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@FeignClient</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;user-service&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">UserClient</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&#34;/users/{id}&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="nf">getUser</span><span class="p">(</span><span class="nd">@PathVariable</span><span class="p">(</span><span class="s">&#34;id&#34;</span><span class="p">)</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></div><h4 id="第四步注入并调用">第四步：注入并调用
-</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@RestController</span><span class="w">
+</span></span></span></code></pre></div><h4 id="第四步注入并调用">
+    第四步：注入并调用
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@RestController</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&#34;/orders&#34;</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">OrderController</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
@@ -827,18 +903,24 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&#34;order id = &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;, &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">user</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></div><h3 id="64-openfeign-常见注意点">6.4 OpenFeign 常见注意点
-</h3><ul>
+</span></span></span></code></pre></div><h3 id="64-openfeign-常见注意点">
+    6.4 OpenFeign 常见注意点
+</h3>
+<ul>
 <li><code>@FeignClient(name = &quot;user-service&quot;)</code> 中的 <code>name</code> 一般写注册中心里的服务名。</li>
 <li><code>@PathVariable</code> 建议明确写变量名，例如 <code>@PathVariable(&quot;id&quot;)</code>。</li>
 <li>OpenFeign 默认适合服务间 HTTP 调用，不适合传输特别大的文件。</li>
 </ul>
 <hr>
-<h2 id="gateway网关服务">Gateway：网关服务
-</h2><p><img src="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213833-wuurt3g_hu_ca6be2dd7b8dc26f.webp" width="1600" height="1187" srcset="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213833-wuurt3g_hu_70a04f11e8e854d5.webp 800w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213833-wuurt3g_hu_ca6be2dd7b8dc26f.webp 1600w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213833-wuurt3g_hu_e98c41d60630d50c.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="134" data-flex-basis="323px">
+<h2 id="gateway网关服务">
+    Gateway：网关服务
+</h2>
+<p><img src="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213833-wuurt3g_hu_ca6be2dd7b8dc26f.webp" width="1600" height="1187" srcset="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213833-wuurt3g_hu_70a04f11e8e854d5.webp 800w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213833-wuurt3g_hu_ca6be2dd7b8dc26f.webp 1600w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510213833-wuurt3g_hu_e98c41d60630d50c.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="134" data-flex-basis="323px">
 </p>
-<h3 id="gateway">Gateway
-</h3><p>Spring Cloud Gateway 是微服务系统的 API 网关。它通常位于客户端和后端服务之间，作为统一入口。</p>
+<h3 id="gateway">
+    Gateway
+</h3>
+<p>Spring Cloud Gateway 是微服务系统的 API 网关。它通常位于客户端和后端服务之间，作为统一入口。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">flowchart LR
 </span></span><span class="line"><span class="cl">    A[前端/客户端] --&gt; G[Spring Cloud Gateway]
 </span></span><span class="line"><span class="cl">    G --&gt; U[user-service]
@@ -853,32 +935,34 @@
 <li>限流降级：保护后端服务；</li>
 <li>请求/响应改写：添加请求头、修改路径等。</li>
 </ul>
-<h3 id="gateway-的三个核心概念">Gateway 的三个核心概念
-</h3><div class="table-wrapper"><table>
-	<thead>
-			<tr>
-					<th>概念</th>
-					<th>作用</th>
-					<th>举例</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td>Route 路由</td>
-					<td>定义请求转发到哪里</td>
-					<td><code>/api/users/**</code>转发到<code>user-service</code></td>
-			</tr>
-			<tr>
-					<td>Predicate 断言</td>
-					<td>判断请求是否匹配这条路由</td>
-					<td>Path、Method、Header、Host</td>
-			</tr>
-			<tr>
-					<td>Filter 过滤器</td>
-					<td>在请求前后做增强处理</td>
-					<td>鉴权、加请求头、日志、限流</td>
-			</tr>
-	</tbody>
+<h3 id="gateway-的三个核心概念">
+    Gateway 的三个核心概念
+</h3>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>概念</th>
+          <th>作用</th>
+          <th>举例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Route 路由</td>
+          <td>定义请求转发到哪里</td>
+          <td><code>/api/users/**</code>转发到<code>user-service</code></td>
+      </tr>
+      <tr>
+          <td>Predicate 断言</td>
+          <td>判断请求是否匹配这条路由</td>
+          <td>Path、Method、Header、Host</td>
+      </tr>
+      <tr>
+          <td>Filter 过滤器</td>
+          <td>在请求前后做增强处理</td>
+          <td>鉴权、加请求头、日志、限流</td>
+      </tr>
+  </tbody>
 </table></div>
 <p>一个请求进入 Gateway 后，大致流程如下：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sequenceDiagram
@@ -896,15 +980,21 @@
 </span></span><span class="line"><span class="cl">    S--&gt;&gt;F: 返回响应
 </span></span><span class="line"><span class="cl">    F-&gt;&gt;G: 执行 post 过滤器
 </span></span><span class="line"><span class="cl">    G--&gt;&gt;C: 返回结果
-</span></span></code></pre></div><h3 id="gateway-简单部署流程">Gateway 简单部署流程
-</h3><h4 id="第一步添加依赖">第一步：添加依赖
-</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
+</span></span></code></pre></div><h3 id="gateway-简单部署流程">
+    Gateway 简单部署流程
+</h3>
+<h4 id="第一步添加依赖">
+    第一步：添加依赖
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>org.springframework.cloud<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>spring-cloud-starter-gateway<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
 </span></span></code></pre></div><p>如果要通过注册中心用服务名转发，还需要接入 Eureka 或 Nacos Discovery。</p>
-<h4 id="第二步配置路由">第二步：配置路由
-</h4><p>以 Nacos 为例：</p>
+<h4 id="第二步配置路由">
+    第二步：配置路由
+</h4>
+<p>以 Nacos 为例：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">server</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">10010</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
@@ -941,11 +1031,15 @@
 </span></span><span class="line"><span class="cl">Gateway 匹配：Path=/api/users/**
 </span></span><span class="line"><span class="cl">StripPrefix=1 后：/users/1
 </span></span><span class="line"><span class="cl">转发目标：lb://user-service/users/1
-</span></span></code></pre></div><h2 id="gatewayfilterglobalfilter-与自定义-filter">GatewayFilter、GlobalFilter 与自定义 Filter
-</h2><p><img src="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510214028-d03ujw3_hu_de6006e8a9433080.webp" width="1600" height="1171" srcset="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510214028-d03ujw3_hu_aac1310dd8ec1aec.webp 800w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510214028-d03ujw3_hu_de6006e8a9433080.webp 1600w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510214028-d03ujw3_hu_ae788d767e76dd3f.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="136" data-flex-basis="327px">
+</span></span></code></pre></div><h2 id="gatewayfilterglobalfilter-与自定义-filter">
+    GatewayFilter、GlobalFilter 与自定义 Filter
+</h2>
+<p><img src="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510214028-d03ujw3_hu_de6006e8a9433080.webp" width="1600" height="1171" srcset="/p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510214028-d03ujw3_hu_aac1310dd8ec1aec.webp 800w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510214028-d03ujw3_hu_de6006e8a9433080.webp 1600w, /p/spring-cloud-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/assets/image-20260510214028-d03ujw3_hu_ae788d767e76dd3f.webp 2400w" sizes="(max-width: 860px) calc(100vw - 40px), 1060px" loading="lazy" decoding="async" alt="" class="gallery-image" data-flex-grow="136" data-flex-basis="327px">
 </p>
-<h3 id="gatewayfilter">GatewayFilter
-</h3><p><code>GatewayFilter</code> 是<strong>路由级过滤器</strong>，只对某一条或某几条路由生效。</p>
+<h3 id="gatewayfilter">
+    GatewayFilter
+</h3>
+<p><code>GatewayFilter</code> 是<strong>路由级过滤器</strong>，只对某一条或某几条路由生效。</p>
 <p>例如：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">spring</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">cloud</span><span class="p">:</span><span class="w">
@@ -962,45 +1056,47 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">X-Source: gateway
 </span></span></code></pre></div><p>常见内置 GatewayFilter：</p>
 <div class="table-wrapper"><table>
-	<thead>
-			<tr>
-					<th>Filter</th>
-					<th>作用</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td>AddRequestHeader</td>
-					<td>添加请求头</td>
-			</tr>
-			<tr>
-					<td>AddResponseHeader</td>
-					<td>添加响应头</td>
-			</tr>
-			<tr>
-					<td>StripPrefix</td>
-					<td>去掉路径前缀</td>
-			</tr>
-			<tr>
-					<td>PrefixPath</td>
-					<td>添加路径前缀</td>
-			</tr>
-			<tr>
-					<td>RewritePath</td>
-					<td>重写路径</td>
-			</tr>
-			<tr>
-					<td>RequestRateLimiter</td>
-					<td>请求限流</td>
-			</tr>
-			<tr>
-					<td>Retry</td>
-					<td>请求失败重试</td>
-			</tr>
-	</tbody>
+  <thead>
+      <tr>
+          <th>Filter</th>
+          <th>作用</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>AddRequestHeader</td>
+          <td>添加请求头</td>
+      </tr>
+      <tr>
+          <td>AddResponseHeader</td>
+          <td>添加响应头</td>
+      </tr>
+      <tr>
+          <td>StripPrefix</td>
+          <td>去掉路径前缀</td>
+      </tr>
+      <tr>
+          <td>PrefixPath</td>
+          <td>添加路径前缀</td>
+      </tr>
+      <tr>
+          <td>RewritePath</td>
+          <td>重写路径</td>
+      </tr>
+      <tr>
+          <td>RequestRateLimiter</td>
+          <td>请求限流</td>
+      </tr>
+      <tr>
+          <td>Retry</td>
+          <td>请求失败重试</td>
+      </tr>
+  </tbody>
 </table></div>
-<h3 id="globalfilter">GlobalFilter
-</h3><p><code>GlobalFilter</code> 是<strong>全局过滤器</strong>，会对所有匹配到路由的请求生效。</p>
+<h3 id="globalfilter">
+    GlobalFilter
+</h3>
+<p><code>GlobalFilter</code> 是<strong>全局过滤器</strong>，会对所有匹配到路由的请求生效。</p>
 <p>它适合处理公共逻辑：</p>
 <ul>
 <li>登录校验；</li>
@@ -1032,8 +1128,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><p><code>getOrder()</code> 用来控制过滤器顺序。数值越小，优先级越高。</p>
-<h3 id="pre-与-post-过滤逻辑">pre 与 post 过滤逻辑
-</h3><p>Gateway 的过滤器通常可以分成两个阶段：</p>
+<h3 id="pre-与-post-过滤逻辑">
+    pre 与 post 过滤逻辑
+</h3>
+<p>Gateway 的过滤器通常可以分成两个阶段：</p>
 <ul>
 <li><strong>pre 阶段</strong>：请求转发到后端服务之前执行。</li>
 <li><strong>post 阶段</strong>：后端服务返回响应之后执行。</li>
@@ -1045,8 +1143,10 @@
 </span></span><span class="line"><span class="cl">    D --&gt; E[返回客户端]
 </span></span></code></pre></div><p>pre 适合做：鉴权、参数校验、添加请求头、路径改写、限流。</p>
 <p>post 适合做：响应日志、统计耗时、添加响应头、统一包装响应。</p>
-<h3 id="自定义-gatewayfilterfactory">自定义 GatewayFilterFactory
-</h3><p>如果你想写一个只在某些路由上生效的自定义过滤器，可以写自定义 <code>GatewayFilterFactory</code>。</p>
+<h3 id="自定义-gatewayfilterfactory">
+    自定义 GatewayFilterFactory
+</h3>
+<p>如果你想写一个只在某些路由上生效的自定义过滤器，可以写自定义 <code>GatewayFilterFactory</code>。</p>
 <p>示例：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Component</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CheckHeaderGatewayFilterFactory</span><span class="w">
@@ -1098,8 +1198,10 @@
 </span></span></span></code></pre></div><p>命名规则要注意：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">CheckHeaderGatewayFilterFactory -&gt; 配置中写 CheckHeader
 </span></span></code></pre></div><p>也就是说，类名一般以 <code>GatewayFilterFactory</code> 结尾，配置时去掉这个后缀。</p>
-<h3 id="85-自定义-globalfilter">8.5 自定义 GlobalFilter
-</h3><p>如果逻辑对所有路由都生效，比如统一日志，可以写 <code>GlobalFilter</code>。</p>
+<h3 id="85-自定义-globalfilter">
+    8.5 自定义 GlobalFilter
+</h3>
+<p>如果逻辑对所有路由都生效，比如统一日志，可以写 <code>GlobalFilter</code>。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Component</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">LogGlobalFilter</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">GlobalFilter</span><span class="p">,</span><span class="w"> </span><span class="n">Ordered</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
@@ -1124,8 +1226,10 @@
 <p>GatewayFilter 更像“某条路由的局部增强”，GlobalFilter 更像“整个网关的全局拦截器”。</p>
 </blockquote>
 <hr>
-<h2 id="请求链路串联">请求链路串联
-</h2><p>学了这么多概念，在这里做一个简单的知识串联吧~</p>
+<h2 id="请求链路串联">
+    请求链路串联
+</h2>
+<p>学了这么多概念，在这里做一个简单的知识串联吧~</p>
 <p>假设用户访问订单详情：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">GET /api/orders/1001
 </span></span></code></pre></div><p>完整流程如下：</p>
@@ -1185,389 +1289,11 @@
     </div>
 </article>
 
-
-
-
-
-
-
-
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-    
-    <div class="pswp__bg"></div>
-
-    
-    <div class="pswp__scroll-wrap">
-
-        
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                
-                
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
-                defer
-                >
-            </script><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
-                defer
-                >
-            </script><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
-            ><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
-            >
-
-    </main>
-
-    <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
-                
-                >
-            </script><script type="text/javascript" src="/ts/main.836efe327773ba454adac61ee8b35272b6f512bd594ed9ea0f926fca8386433b.js" defer></script><script type="text/javascript" src="/ts/custom.4bb4ca905d915217c671721b75f16ae60652e805c90c767a80a951f0dddeeb9c.js" defer></script>
-
-
-<button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
+    </main><button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M6 14.5 12 8l6 6.5" />
+        <path d="M6 14.5 12 8l6 6.5"></path>
     </svg>
 </button>
-
-<script>
-    (function () {
-        'use strict';
-
-        const menuToggle = document.querySelector('.site-menu-toggle');
-        const nav = document.getElementById('primary-navigation');
-        const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-        function initThemeToggle() {
-            const toggle = document.getElementById('dark-mode-toggle');
-            if (!toggle || toggle.dataset.projectThemeToggleReady === 'true') return;
-
-            toggle.dataset.projectThemeToggleReady = 'true';
-
-            function getCurrentScheme() {
-                return document.documentElement.dataset.scheme === 'dark' ? 'dark' : 'light';
-            }
-
-            function getSystemScheme() {
-                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-            }
-
-            function saveScheme(scheme) {
-                try {
-                    window.localStorage.setItem('StackColorScheme', scheme === getSystemScheme() ? 'auto' : scheme);
-                } catch (error) {
-                    return;
-                }
-            }
-
-            function applyScheme(scheme) {
-                document.documentElement.dataset.scheme = scheme;
-                saveScheme(scheme);
-                window.dispatchEvent(new CustomEvent('onColorSchemeChange', { detail: scheme }));
-            }
-
-            toggle.addEventListener('click', function (event) {
-                event.preventDefault();
-                event.stopImmediatePropagation();
-
-                const x = event.clientX;
-                const y = event.clientY;
-                const willBeDark = getCurrentScheme() !== 'dark';
-                const nextScheme = willBeDark ? 'dark' : 'light';
-                const endRadius = Math.hypot(
-                    Math.max(x, window.innerWidth - x),
-                    Math.max(y, window.innerHeight - y)
-                );
-
-                if (!document.startViewTransition) {
-                    applyScheme(nextScheme);
-                    return;
-                }
-
-                const transition = document.startViewTransition(function () {
-                    applyScheme(nextScheme);
-                });
-
-                transition.ready.then(function () {
-                    const clipPath = willBeDark
-                        ? [`circle(${endRadius}px at ${x}px ${y}px)`, `circle(0px at ${x}px ${y}px)`]
-                        : [`circle(0px at ${x}px ${y}px)`, `circle(${endRadius}px at ${x}px ${y}px)`];
-
-                    document.documentElement.animate(
-                        { clipPath },
-                        {
-                            duration: 500,
-                            easing: 'ease-in-out',
-                            fill: 'forwards',
-                            pseudoElement: willBeDark
-                                ? '::view-transition-old(root)'
-                                : '::view-transition-new(root)'
-                        }
-                    );
-                });
-            }, { capture: true });
-        }
-
-        function setMenuOpen(open) {
-            if (!menuToggle || !nav) return;
-            menuToggle.classList.toggle('is-open', open);
-            nav.classList.toggle('is-open', open);
-            document.body.classList.toggle('site-nav-open', open);
-            menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        }
-
-        if (menuToggle && nav) {
-            menuToggle.addEventListener('click', function (event) {
-                event.stopPropagation();
-                setMenuOpen(!nav.classList.contains('is-open'));
-            });
-
-            nav.querySelectorAll('a').forEach(function (link) {
-                link.addEventListener('click', function () {
-                    setMenuOpen(false);
-                });
-            });
-
-            document.addEventListener('keydown', function (event) {
-                if (event.key === 'Escape') setMenuOpen(false);
-            });
-
-            document.addEventListener('click', function (event) {
-                if (!document.body.classList.contains('site-nav-open')) return;
-                if (nav.contains(event.target) || menuToggle.contains(event.target)) return;
-                setMenuOpen(false);
-            });
-
-            const desktopQuery = window.matchMedia('(min-width: 921px)');
-            const closeMenuOnDesktop = function (event) {
-                if (event.matches) setMenuOpen(false);
-            };
-
-            if (desktopQuery.addEventListener) {
-                desktopQuery.addEventListener('change', closeMenuOnDesktop);
-            } else if (desktopQuery.addListener) {
-                desktopQuery.addListener(closeMenuOnDesktop);
-            }
-        }
-
-        const backToTop = document.getElementById('back-to-top');
-
-        if (backToTop) {
-            function updateBackToTop() {
-                backToTop.classList.toggle('is-visible', window.scrollY > 420);
-            }
-
-            backToTop.addEventListener('click', function () {
-                window.scrollTo({ top: 0, behavior: reduceMotionQuery.matches ? 'auto' : 'smooth' });
-            });
-
-            window.addEventListener('scroll', updateBackToTop, { passive: true });
-            updateBackToTop();
-        }
-
-        function initArticleTocHover() {
-            const toc = document.querySelector('[data-article-toc]');
-            const articleMain = document.querySelector('.article-detail__main');
-            if (!toc || !articleMain) return;
-
-            const toggle = toc.querySelector('[data-article-toc-toggle]');
-            let lockedOpen = false;
-
-            function setVisible(visible) {
-                document.body.classList.toggle('is-article-toc-visible', visible);
-                if (toggle) {
-                    toggle.setAttribute('aria-expanded', visible ? 'true' : 'false');
-                    toggle.setAttribute('aria-label', visible ? '隐藏文章目录' : '显示文章目录');
-                }
-            }
-
-            function getLeftRevealZone() {
-                return Math.min(380, Math.max(280, window.innerWidth * 0.22));
-            }
-
-            function isInsideReadingColumn(x, y) {
-                const rect = articleMain.getBoundingClientRect();
-                const top = Math.min(rect.top, 0) - 48;
-                const bottom = Math.max(rect.bottom, window.innerHeight) + 48;
-
-                return x >= rect.left - 72 && x <= rect.right + 32 && y >= top && y <= bottom;
-            }
-
-            document.addEventListener('pointermove', function (event) {
-                if (lockedOpen) return;
-                setVisible(event.clientX <= getLeftRevealZone() || isInsideReadingColumn(event.clientX, event.clientY));
-            }, { passive: true });
-
-            document.addEventListener('pointerleave', function () {
-                if (!lockedOpen) setVisible(false);
-            });
-
-            toc.addEventListener('focusin', function () {
-                setVisible(true);
-            });
-
-            toc.addEventListener('focusout', function (event) {
-                if (lockedOpen || toc.contains(event.relatedTarget)) return;
-                setVisible(false);
-            });
-
-            if (toggle) {
-                toggle.addEventListener('click', function () {
-                    const isVisible = document.body.classList.contains('is-article-toc-visible');
-                    if (lockedOpen && isVisible) {
-                        lockedOpen = false;
-                        setVisible(false);
-                        return;
-                    }
-
-                    lockedOpen = true;
-                    setVisible(true);
-                });
-            }
-
-            document.addEventListener('click', function (event) {
-                if (!lockedOpen) return;
-                if (toc.contains(event.target) || articleMain.contains(event.target)) return;
-                lockedOpen = false;
-                setVisible(false);
-            });
-
-            document.addEventListener('keydown', function (event) {
-                if (event.key !== 'Escape') return;
-                lockedOpen = false;
-                setVisible(false);
-            });
-        }
-
-        function initRevealOnScroll() {
-            if (reduceMotionQuery.matches || !('IntersectionObserver' in window)) return;
-
-            const revealSelectors = [
-                '.section-band',
-                '.featured-section',
-                '.blog-card',
-                '.post-tools',
-                '.article-detail__content > blockquote',
-                '.article-detail__content > .highlight',
-                '.article-detail__content > pre',
-                '.article-detail__content > .table-wrapper',
-                '.article-detail__content > figure',
-                '.article-detail__content > details',
-                '.article-detail__content > hr',
-                '.article-detail__footer',
-                '.music-album-card'
-            ];
-
-            const targets = revealSelectors.reduce(function (items, selector) {
-                return items.concat(Array.prototype.slice.call(document.querySelectorAll(selector)));
-            }, []);
-
-            const imageBlocks = Array.prototype.slice.call(document.querySelectorAll('.article-detail__content > p')).filter(function (block) {
-                const children = Array.prototype.slice.call(block.children).filter(function (child) {
-                    return child.tagName !== 'BR';
-                });
-                const onlyChild = children[0];
-
-                return children.length === 1 && (
-                    onlyChild.tagName === 'IMG' ||
-                    onlyChild.classList.contains('gallery') ||
-                    (onlyChild.tagName === 'A' && onlyChild.querySelector('img'))
-                );
-            });
-
-            imageBlocks.forEach(function (block) {
-                if (!targets.includes(block)) targets.push(block);
-            });
-
-            const filteredTargets = targets.filter(function (target, index) {
-                if (target.tagName === 'PRE' && target.closest('.highlight')) return false;
-                return targets.indexOf(target) === index;
-            });
-
-            if (!filteredTargets.length) return;
-
-            const observer = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (!entry.isIntersecting) return;
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                });
-            }, {
-                rootMargin: '0px 0px -6% 0px',
-                threshold: 0.1
-            });
-
-            filteredTargets.forEach(function (target, index) {
-                target.classList.add('reveal-on-scroll');
-                target.style.setProperty('--reveal-delay', Math.min(index % 4, 3) * 32 + 'ms');
-                observer.observe(target);
-            });
-        }
-
-        initThemeToggle();
-        initArticleTocHover();
-        initRevealOnScroll();
-
-        window.requestAnimationFrame(function () {
-            document.body.classList.add('is-loaded');
-        });
-    })();
-</script>
-
 </body>
 
 </html>
