@@ -40,7 +40,7 @@
         }
         document.documentElement.dataset.scheme = scheme;
     })();
-</script><link rel="stylesheet" href="/css/site.min.0758d8aad30f198f851a02b8c6494f637bd95774b2fd6b2f576cf99133b942f8.css" integrity="sha256-B1jYqtMPGY&#43;FGgK4xklPY3vZV3Sy/WsvV2z5kTO5Qvg="><script src="/js/site.51f8655227b5fb12b2585c2985e20ec3e93192ca19774662d732d2a0bcb492f0.js" integrity="sha256-UfhlUie1&#43;xKyWFwpheIOw&#43;kxksoZd0Zi1zLSoLy0kvA=" defer></script>
+</script><link rel="stylesheet" href="/css/site.min.a44fa3f3583750438bad817bdbdf1a99599974263294417d78de363469564347.css" integrity="sha256-pE&#43;j81g3UEOLrYF7298amVmZdCYylEF9eN42NGlWQ0c="><script src="/js/site.51f8655227b5fb12b2585c2985e20ec3e93192ca19774662d732d2a0bcb492f0.js" integrity="sha256-UfhlUie1&#43;xKyWFwpheIOw&#43;kxksoZd0Zi1zLSoLy0kvA=" defer></script>
 
     <link rel="preload" href="/search/index.json" as="fetch" crossorigin="anonymous">
 
@@ -78,6 +78,10 @@
                 <ul class="site-nav__list"><li class="site-nav__item">
                             <a class="site-nav__link" href="/post/">
                                 Blog
+                            </a>
+                        </li><li class="site-nav__item">
+                            <a class="site-nav__link is-active" href="/search/" aria-current="page">
+                                Search
                             </a>
                         </li><li class="site-nav__item">
                             <a class="site-nav__link" href="/music/">
@@ -122,18 +126,14 @@
 <div class="plum-background" data-plum-background aria-hidden="true">
     <canvas class="plum-background__canvas"></canvas>
 </div><main id="main-content" class="main main-content full-width" tabindex="-1">
-<section class="search-page" aria-labelledby="search-page-title">
-    <header class="search-page__header">
-        <p class="search-page__eyebrow">Search</p>
-        <h1 id="search-page-title">搜索</h1>
-        <p>输入标题或正文里的关键词。</p>
+<section class="phase4-page search-page" aria-labelledby="search-page-title">
+    <header class="search-hero" aria-labelledby="search-page-title">
+        <h1 id="search-page-title">Search</h1>
     </header>
 
     <form action="/search/" class="search-form" data-search-form data-json="/search/index.json">
-        <p>
-            <label for="search-input">关键词</label>
-            <input id="search-input" type="search" name="keyword" placeholder="搜索文章" autocomplete="off">
-        </p>
+        <label for="search-input" class="sr-only">关键词</label>
+        <input id="search-input" type="search" name="keyword" placeholder="输入关键词…" autocomplete="off">
         <button type="submit" title="搜索" aria-label="搜索">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
   <circle cx="10.8" cy="10.8" r="6.2" />
@@ -144,18 +144,16 @@
     </form>
 
     <div class="search-result" aria-live="polite">
-        <h2 class="search-result--title section-title" data-search-title></h2>
-        <div class="search-result--list article-list--compact" data-search-results></div>
+        <p class="search-result__status" data-search-title></p>
+        <div class="search-result__list" data-search-results></div>
     </div>
 </section>
 
 <template id="search-result-template">
     <article class="search-result-card">
         <a href="">
-            <div class="article-details">
-                <h2 class="article-title" data-result-title></h2>
-                <p class="article-preview" data-result-preview></p>
-            </div>
+            <p class="search-result-card__title" data-result-title></p>
+            <p class="search-result-card__preview" data-result-preview></p>
         </a>
     </article>
 </template>

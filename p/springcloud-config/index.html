@@ -40,7 +40,7 @@
         }
         document.documentElement.dataset.scheme = scheme;
     })();
-</script><link rel="stylesheet" href="/css/site.min.0758d8aad30f198f851a02b8c6494f637bd95774b2fd6b2f576cf99133b942f8.css" integrity="sha256-B1jYqtMPGY&#43;FGgK4xklPY3vZV3Sy/WsvV2z5kTO5Qvg="><script src="/js/site.51f8655227b5fb12b2585c2985e20ec3e93192ca19774662d732d2a0bcb492f0.js" integrity="sha256-UfhlUie1&#43;xKyWFwpheIOw&#43;kxksoZd0Zi1zLSoLy0kvA=" defer></script>
+</script><link rel="stylesheet" href="/css/site.min.a44fa3f3583750438bad817bdbdf1a99599974263294417d78de363469564347.css" integrity="sha256-pE&#43;j81g3UEOLrYF7298amVmZdCYylEF9eN42NGlWQ0c="><script src="/js/site.51f8655227b5fb12b2585c2985e20ec3e93192ca19774662d732d2a0bcb492f0.js" integrity="sha256-UfhlUie1&#43;xKyWFwpheIOw&#43;kxksoZd0Zi1zLSoLy0kvA=" defer></script>
 
 </head>
 
@@ -76,6 +76,10 @@
                 <ul class="site-nav__list"><li class="site-nav__item">
                             <a class="site-nav__link is-active" href="/post/" aria-current="page">
                                 Blog
+                            </a>
+                        </li><li class="site-nav__item">
+                            <a class="site-nav__link" href="/search/">
+                                Search
                             </a>
                         </li><li class="site-nav__item">
                             <a class="site-nav__link" href="/music/">
@@ -363,7 +367,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l">appuser</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;{cipher}682bc583f4641835fa2db009355293665d2647dade3375c0ee201de2a49f7bda&#39;</span><span class="w">
 </span></span></span></code></pre></div><p>如果使用 <code>.properties</code> 文件，加密值不要再额外加引号，否则可能影响解密。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-properties" data-lang="properties"><span class="line"><span class="cl"><span class="na">spring.datasource.password</span><span class="o">=</span><span class="s">{cipher}682bc583f4641835fa2db009355293665d2647dade3375c0ee201de2a49f7bda</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-properties" data-lang="properties"><span class="line"><span class="cl"><span class="err">spring.datasource.password={cipher}682bc583f4641835fa2db009355293665d2647dade3375c0ee201de2a49f7bda</span>
 </span></span></code></pre></div><p><code>/decrypt</code> 常用于本地验证密文是否正确。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl localhost:8888/decrypt -s -d 682bc583f4641835fa2db009355293665d2647dade3375c0ee201de2a49f7bda
 </span></span></code></pre></div><p>如果 Config Server 解密失败，它不会简单地把错误密文当成密码继续使用，而是可能生成带 <code>invalid</code> 前缀的属性。这种设计是为了避免密文被误当成真实密码传给客户端。</p>
