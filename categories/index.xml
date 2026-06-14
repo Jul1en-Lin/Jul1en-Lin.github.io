@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>zh-CN</language>
     <copyright>Jul1en</copyright>
-    <lastBuildDate>Fri, 05 Jun 2026 20:35:17 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 14 Jun 2026 23:29:03 +0800</lastBuildDate>
     <atom:link href="https://Jul1en-Lin.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>微服务</title>
+      <link>https://Jul1en-Lin.github.io/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</link>
+      <pubDate>Sun, 14 Jun 2026 23:25:19 +0800</pubDate>
+      <guid>https://Jul1en-Lin.github.io/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Redis</title>
       <link>https://Jul1en-Lin.github.io/categories/redis/</link>
@@ -28,13 +35,6 @@
       <link>https://Jul1en-Lin.github.io/categories/ai/</link>
       <pubDate>Sat, 30 May 2026 00:00:00 +0800</pubDate>
       <guid>https://Jul1en-Lin.github.io/categories/ai/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>微服务</title>
-      <link>https://Jul1en-Lin.github.io/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</link>
-      <pubDate>Thu, 21 May 2026 00:00:00 +0800</pubDate>
-      <guid>https://Jul1en-Lin.github.io/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</guid>
       <description></description>
     </item>
     <item>

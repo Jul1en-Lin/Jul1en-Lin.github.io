@@ -367,7 +367,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l">appuser</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;{cipher}682bc583f4641835fa2db009355293665d2647dade3375c0ee201de2a49f7bda&#39;</span><span class="w">
 </span></span></span></code></pre></div><p>如果使用 <code>.properties</code> 文件，加密值不要再额外加引号，否则可能影响解密。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-properties" data-lang="properties"><span class="line"><span class="cl"><span class="err">spring.datasource.password={cipher}682bc583f4641835fa2db009355293665d2647dade3375c0ee201de2a49f7bda</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-properties" data-lang="properties"><span class="line"><span class="cl"><span class="na">spring.datasource.password</span><span class="o">=</span><span class="s">{cipher}682bc583f4641835fa2db009355293665d2647dade3375c0ee201de2a49f7bda</span>
 </span></span></code></pre></div><p><code>/decrypt</code> 常用于本地验证密文是否正确。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl localhost:8888/decrypt -s -d 682bc583f4641835fa2db009355293665d2647dade3375c0ee201de2a49f7bda
 </span></span></code></pre></div><p>如果 Config Server 解密失败，它不会简单地把错误密文当成密码继续使用，而是可能生成带 <code>invalid</code> 前缀的属性。这种设计是为了避免密文被误当成真实密码传给客户端。</p>
