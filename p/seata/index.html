@@ -23,7 +23,7 @@
 <meta property="article:tag" content="微服务">
 <meta property="article:tag" content="分布式事务">
 <meta property="article:published_time" content="2026-06-14T23:25:19&#43;08:00">
-<meta property="article:modified_time" content="2026-06-14T23:29:03&#43;08:00">
+<meta property="article:modified_time" content="2026-06-15T09:07:51&#43;08:00">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Seata | Jul1en">
 <meta name="twitter:description" content="Seata Seata 是 Spring Cloud Alibaba 体系里常用的分布式事务解决方案。它解决的核心问题是：微服务拆分之后，一个业务请求可能跨多个服务、多个数据库，Seata 负责把这些分散的本地事务组织成一个全局事务，让整条业务链路尽量保持一致。">
@@ -44,7 +44,7 @@
         }
         document.documentElement.dataset.scheme = scheme;
     })();
-</script><link rel="stylesheet" href="/css/site.min.a44fa3f3583750438bad817bdbdf1a99599974263294417d78de363469564347.css" integrity="sha256-pE&#43;j81g3UEOLrYF7298amVmZdCYylEF9eN42NGlWQ0c="><script src="/js/site.51f8655227b5fb12b2585c2985e20ec3e93192ca19774662d732d2a0bcb492f0.js" integrity="sha256-UfhlUie1&#43;xKyWFwpheIOw&#43;kxksoZd0Zi1zLSoLy0kvA=" defer></script>
+</script><link rel="stylesheet" href="/css/site.min.70345ce15143b8bf98eafba17117e5ad44959e58788ca73ebc55166daa604be0.css" integrity="sha256-cDRc4VFDuL&#43;Y6vuhcRflrUSVnlh4jKc&#43;vFUWbapgS&#43;A="><script src="/js/site.a1ec31a985077ce4275eee5d2c78b580922c5cf3a286c469c3885138583000d4.js" integrity="sha256-oewxqYUHfOQnXu5dLHi1gJIsXPOihsRpw4hROFgwANQ=" defer></script>
 
 </head>
 
@@ -327,29 +327,31 @@
 <li>Seata Server 是 <code>TC</code>，负责协调所有分支。</li>
 </ul>
 <p>整体流程可以这样看：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sequenceDiagram
-</span></span><span class="line"><span class="cl">    participant Client as 用户请求
-</span></span><span class="line"><span class="cl">    participant Order as 订单服务(TM)
-</span></span><span class="line"><span class="cl">    participant TC as Seata Server(TC)
-</span></span><span class="line"><span class="cl">    participant Stock as 库存服务(RM)
-</span></span><span class="line"><span class="cl">    participant Account as 账户服务(RM)
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    Client-&gt;&gt;Order: 下单
-</span></span><span class="line"><span class="cl">    Order-&gt;&gt;TC: 开启全局事务
-</span></span><span class="line"><span class="cl">    Order-&gt;&gt;Stock: 扣减库存
-</span></span><span class="line"><span class="cl">    Stock-&gt;&gt;TC: 注册分支事务
-</span></span><span class="line"><span class="cl">    Order-&gt;&gt;Account: 扣减余额
-</span></span><span class="line"><span class="cl">    Account-&gt;&gt;TC: 注册分支事务
-</span></span><span class="line"><span class="cl">    alt 全部分支成功
-</span></span><span class="line"><span class="cl">        Order-&gt;&gt;TC: 提交全局事务
-</span></span><span class="line"><span class="cl">        TC-&gt;&gt;Stock: 分支提交
-</span></span><span class="line"><span class="cl">        TC-&gt;&gt;Account: 分支提交
-</span></span><span class="line"><span class="cl">    else 任一分支失败
-</span></span><span class="line"><span class="cl">        Order-&gt;&gt;TC: 回滚全局事务
-</span></span><span class="line"><span class="cl">        TC-&gt;&gt;Stock: 分支回滚
-</span></span><span class="line"><span class="cl">        TC-&gt;&gt;Account: 分支回滚
-</span></span><span class="line"><span class="cl">    end
-</span></span></code></pre></div><h2 id="cap-和-base">
+<figure class="mermaid-diagram">
+    <div class="mermaid" role="img" aria-label="Mermaid diagram">sequenceDiagram
+    participant Client as 用户请求
+    participant Order as 订单服务(TM)
+    participant TC as Seata Server(TC)
+    participant Stock as 库存服务(RM)
+    participant Account as 账户服务(RM)
+
+    Client-&gt;&gt;Order: 下单
+    Order-&gt;&gt;TC: 开启全局事务
+    Order-&gt;&gt;Stock: 扣减库存
+    Stock-&gt;&gt;TC: 注册分支事务
+    Order-&gt;&gt;Account: 扣减余额
+    Account-&gt;&gt;TC: 注册分支事务
+    alt 全部分支成功
+        Order-&gt;&gt;TC: 提交全局事务
+        TC-&gt;&gt;Stock: 分支提交
+        TC-&gt;&gt;Account: 分支提交
+    else 任一分支失败
+        Order-&gt;&gt;TC: 回滚全局事务
+        TC-&gt;&gt;Stock: 分支回滚
+        TC-&gt;&gt;Account: 分支回滚
+    end</div>
+</figure>
+<h2 id="cap-和-base">
     CAP 和 BASE
 </h2>
 <p>学习 Seata 前，经常会遇到 <code>CAP</code> 和 <code>BASE</code>。这两个概念不用过度抽象，它们主要是在解释：分布式系统为什么很难只追求“绝对强一致”。</p>
@@ -445,8 +447,10 @@
 <p><mark class="hltr-green-light">优点</mark></p>
 <ul>
 <li>事务强一致性：XA 模式能满足 ACID 原则，确保分布式事务的强一致性</li>
-<li>实现简单且无代码侵入：常用数据库都支持 XA 协议，使用 Seata 的 XA 模式无需修改业务代码，只需简单配置即可
-<mark class="hltr-pink">缺点</mark></li>
+<li>实现简单且无代码侵入：常用数据库都支持 XA 协议，使用 Seata 的 XA 模式无需修改业务代码，只需简单配置即可</li>
+</ul>
+<p><mark class="hltr-pink">缺点</mark></p>
+<ul>
 <li>依赖关系型数据库、驱动、连接池对 XA 的支持</li>
 <li>性能较差：因为是基于两阶段提交，故也保留了两阶段的缺点：一阶段需要锁定资源，等待二阶段结束才释放——资源锁持有时间长</li>
 </ul>
@@ -863,6 +867,79 @@
         <path d="M6 14.5 12 8l6 6.5"></path>
     </svg>
 </button>
-</body>
+<script type="module">
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.15.0/dist/mermaid.esm.min.mjs";
+
+    const diagrams = Array.from(document.querySelectorAll(".mermaid"));
+    const sources = new Map(diagrams.map((diagram) => [diagram, diagram.textContent || ""]));
+    let renderQueue = Promise.resolve();
+
+    function getMermaidConfig(scheme) {
+        const dark = scheme === "dark";
+
+        return {
+            startOnLoad: false,
+            securityLevel: "strict",
+            theme: "base",
+            fontFamily: '"Inter", "Noto Sans SC", sans-serif',
+            themeVariables: {
+                background: dark ? "#111111" : "#fdfdf7",
+                primaryColor: dark ? "#251b22" : "#f8f1f4",
+                primaryTextColor: dark ? "#f1ecef" : "#272226",
+                primaryBorderColor: "#c46786",
+                secondaryColor: dark ? "#1c1a20" : "#f4f1f5",
+                tertiaryColor: dark ? "#171717" : "#ffffff",
+                lineColor: dark ? "#b9adb4" : "#514950",
+                textColor: dark ? "#f1ecef" : "#272226",
+                actorBkg: dark ? "#251b22" : "#f8f1f4",
+                actorBorder: "#c46786",
+                actorTextColor: dark ? "#f1ecef" : "#272226",
+                actorLineColor: dark ? "#6f646b" : "#b7aeb3",
+                signalColor: dark ? "#d8ced3" : "#40393e",
+                signalTextColor: dark ? "#f1ecef" : "#272226",
+                labelBoxBkgColor: dark ? "#1c1a20" : "#fdfdf7",
+                labelBoxBorderColor: "#c46786",
+                labelTextColor: dark ? "#f1ecef" : "#272226",
+                loopTextColor: dark ? "#f1ecef" : "#272226",
+                activationBorderColor: "#c46786",
+                activationBkgColor: dark ? "#34272f" : "#f1dce4",
+                sequenceNumberColor: dark ? "#111111" : "#ffffff"
+            }
+        };
+    }
+
+    async function renderDiagrams(scheme) {
+        diagrams.forEach((diagram) => {
+            diagram.removeAttribute("data-processed");
+            diagram.textContent = sources.get(diagram) || "";
+        });
+
+        mermaid.initialize(getMermaidConfig(scheme));
+        await mermaid.run({ nodes: diagrams });
+
+        diagrams.forEach((diagram) => {
+            const svg = diagram.querySelector("svg");
+            if (svg?.viewBox.baseVal.width) {
+                svg.style.setProperty(
+                    "--mermaid-intrinsic-width",
+                    `${Math.ceil(svg.viewBox.baseVal.width)}px`
+                );
+            }
+            diagram.closest(".mermaid-diagram")?.classList.add("is-rendered");
+        });
+    }
+
+    function scheduleRender(scheme) {
+        renderQueue = renderQueue
+            .catch(() => undefined)
+            .then(() => renderDiagrams(scheme))
+            .catch((error) => console.error("Mermaid rendering failed", error));
+    }
+
+    scheduleRender(document.documentElement.dataset.scheme || "light");
+    window.addEventListener("onColorSchemeChange", (event) => {
+        scheduleRender(event.detail === "dark" ? "dark" : "light");
+    });
+</script></body>
 
 </html>

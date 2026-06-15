@@ -19,7 +19,7 @@
 <meta property="og:type" content="article">
 <meta property="article:section" content="Post">
 <meta property="article:published_time" content="2026-06-04T22:42:48&#43;08:00">
-<meta property="article:modified_time" content="2026-06-05T20:35:17&#43;08:00">
+<meta property="article:modified_time" content="2026-06-15T09:07:51&#43;08:00">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis 缓存 | Jul1en">
 <meta name="twitter:description" content="整理 Redis 缓存的更新策略、内存淘汰、缓存预热，以及缓存穿透、雪崩和击穿等常见问题。">
@@ -40,7 +40,7 @@
         }
         document.documentElement.dataset.scheme = scheme;
     })();
-</script><link rel="stylesheet" href="/css/site.min.a44fa3f3583750438bad817bdbdf1a99599974263294417d78de363469564347.css" integrity="sha256-pE&#43;j81g3UEOLrYF7298amVmZdCYylEF9eN42NGlWQ0c="><script src="/js/site.51f8655227b5fb12b2585c2985e20ec3e93192ca19774662d732d2a0bcb492f0.js" integrity="sha256-UfhlUie1&#43;xKyWFwpheIOw&#43;kxksoZd0Zi1zLSoLy0kvA=" defer></script>
+</script><link rel="stylesheet" href="/css/site.min.70345ce15143b8bf98eafba17117e5ad44959e58788ca73ebc55166daa604be0.css" integrity="sha256-cDRc4VFDuL&#43;Y6vuhcRflrUSVnlh4jKc&#43;vFUWbapgS&#43;A="><script src="/js/site.a1ec31a985077ce4275eee5d2c78b580922c5cf3a286c469c3885138583000d4.js" integrity="sha256-oewxqYUHfOQnXu5dLHi1gJIsXPOihsRpw4hROFgwANQ=" defer></script>
 
 </head>
 
@@ -196,7 +196,7 @@
 <li>删除 Redis 中对应的 key。</li>
 <li>下次查询时再按实时生成流程写回 Redis。</li>
 </ol>
-<p>**第二步选择“删除缓存”，不直接修改缓存里的值。**原因是缓存里的数据可能不是数据库单表字段，可能经过了关联查询、计算、排序、过滤，直接修改缓存值容易遗漏逻辑。</p>
+<p><strong>第二步选择“删除缓存”，不直接修改缓存里的值</strong>。原因是缓存里的数据可能不是数据库单表字段，可能经过了关联查询、计算、排序、过滤，直接修改缓存值容易遗漏逻辑。</p>
 <p>如果倒过来，先删缓存再改 MySQL，在单一线程下一般没有问题；在并发情况下，可能出现这种顺序：</p>
 <ol>
 <li>线程 A 删除缓存。</li>
@@ -285,7 +285,7 @@
 <li>对特别核心的数据做缓存预热。</li>
 <li>对数据库访问进行限流，避免请求把 MySQL 打满。</li>
 </ul>
-<p>缓存雪崩是“大面积缓存同时失效”的问题。沿着这个问题继续看，还会出现一个更具体的场景：**不是很多 key 同时失效，而是某个热点 key 失效。**大量请求都冲向同一份数据，这就是缓存击穿。</p>
+<p>缓存雪崩是“大面积缓存同时失效”的问题。沿着这个问题继续看，还会出现一个更具体的场景：<mark class="hltr-green-light">不是很多 key 同时失效，而是针对热点 key 失效</mark>，大量请求都冲向同一份数据，这就是缓存击穿。</p>
 <h3 id="缓存击穿cache-breakdown">
     缓存击穿（Cache Breakdown）
 </h3>

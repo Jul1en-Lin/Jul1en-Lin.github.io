@@ -7,7 +7,7 @@
     <generator>Hugo</generator>
     <language>zh-CN</language>
     <copyright>Jul1en</copyright>
-    <lastBuildDate>Fri, 05 Jun 2026 20:35:17 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 15 Jun 2026 09:07:51 +0800</lastBuildDate>
     <atom:link href="https://Jul1en-Lin.github.io/categories/redis/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Redis 缓存</title>
@@ -24,7 +24,7 @@
 &lt;li&gt;删除 Redis 中对应的 key。&lt;/li&gt;
 &lt;li&gt;下次查询时再按实时生成流程写回 Redis。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;**第二步选择“删除缓存”，不直接修改缓存里的值。**原因是缓存里的数据可能不是数据库单表字段，可能经过了关联查询、计算、排序、过滤，直接修改缓存值容易遗漏逻辑。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第二步选择“删除缓存”，不直接修改缓存里的值&lt;/strong&gt;。原因是缓存里的数据可能不是数据库单表字段，可能经过了关联查询、计算、排序、过滤，直接修改缓存值容易遗漏逻辑。&lt;/p&gt;
 &lt;p&gt;如果倒过来，先删缓存再改 MySQL，在单一线程下一般没有问题；在并发情况下，可能出现这种顺序：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;线程 A 删除缓存。&lt;/li&gt;
@@ -113,7 +113,7 @@
 &lt;li&gt;对特别核心的数据做缓存预热。&lt;/li&gt;
 &lt;li&gt;对数据库访问进行限流，避免请求把 MySQL 打满。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;缓存雪崩是“大面积缓存同时失效”的问题。沿着这个问题继续看，还会出现一个更具体的场景：**不是很多 key 同时失效，而是某个热点 key 失效。**大量请求都冲向同一份数据，这就是缓存击穿。&lt;/p&gt;
+&lt;p&gt;缓存雪崩是“大面积缓存同时失效”的问题。沿着这个问题继续看，还会出现一个更具体的场景：&lt;mark class=&#34;hltr-green-light&#34;&gt;不是很多 key 同时失效，而是针对热点 key 失效&lt;/mark&gt;，大量请求都冲向同一份数据，这就是缓存击穿。&lt;/p&gt;
 &lt;h3 id=&#34;缓存击穿cache-breakdown&#34;&gt;
     缓存击穿（Cache Breakdown）
 &lt;/h3&gt;

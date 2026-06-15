@@ -7,7 +7,7 @@
     <generator>Hugo</generator>
     <language>zh-CN</language>
     <copyright>Jul1en</copyright>
-    <lastBuildDate>Sun, 14 Jun 2026 23:29:03 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 15 Jun 2026 09:07:51 +0800</lastBuildDate>
     <atom:link href="https://Jul1en-Lin.github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Seata</title>
@@ -114,29 +114,31 @@
 &lt;li&gt;Seata Server 是 &lt;code&gt;TC&lt;/code&gt;，负责协调所有分支。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;整体流程可以这样看：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sequenceDiagram
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    participant Client as 用户请求
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    participant Order as 订单服务(TM)
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    participant TC as Seata Server(TC)
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    participant Stock as 库存服务(RM)
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    participant Account as 账户服务(RM)
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    Client-&amp;gt;&amp;gt;Order: 下单
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    Order-&amp;gt;&amp;gt;TC: 开启全局事务
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    Order-&amp;gt;&amp;gt;Stock: 扣减库存
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    Stock-&amp;gt;&amp;gt;TC: 注册分支事务
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    Order-&amp;gt;&amp;gt;Account: 扣减余额
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    Account-&amp;gt;&amp;gt;TC: 注册分支事务
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    alt 全部分支成功
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Order-&amp;gt;&amp;gt;TC: 提交全局事务
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        TC-&amp;gt;&amp;gt;Stock: 分支提交
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        TC-&amp;gt;&amp;gt;Account: 分支提交
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    else 任一分支失败
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        Order-&amp;gt;&amp;gt;TC: 回滚全局事务
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        TC-&amp;gt;&amp;gt;Stock: 分支回滚
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        TC-&amp;gt;&amp;gt;Account: 分支回滚
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    end
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;cap-和-base&#34;&gt;
+&lt;figure class=&#34;mermaid-diagram&#34;&gt;
+    &lt;div class=&#34;mermaid&#34; role=&#34;img&#34; aria-label=&#34;Mermaid diagram&#34;&gt;sequenceDiagram
+    participant Client as 用户请求
+    participant Order as 订单服务(TM)
+    participant TC as Seata Server(TC)
+    participant Stock as 库存服务(RM)
+    participant Account as 账户服务(RM)
+
+    Client-&amp;gt;&amp;gt;Order: 下单
+    Order-&amp;gt;&amp;gt;TC: 开启全局事务
+    Order-&amp;gt;&amp;gt;Stock: 扣减库存
+    Stock-&amp;gt;&amp;gt;TC: 注册分支事务
+    Order-&amp;gt;&amp;gt;Account: 扣减余额
+    Account-&amp;gt;&amp;gt;TC: 注册分支事务
+    alt 全部分支成功
+        Order-&amp;gt;&amp;gt;TC: 提交全局事务
+        TC-&amp;gt;&amp;gt;Stock: 分支提交
+        TC-&amp;gt;&amp;gt;Account: 分支提交
+    else 任一分支失败
+        Order-&amp;gt;&amp;gt;TC: 回滚全局事务
+        TC-&amp;gt;&amp;gt;Stock: 分支回滚
+        TC-&amp;gt;&amp;gt;Account: 分支回滚
+    end&lt;/div&gt;
+&lt;/figure&gt;
+&lt;h2 id=&#34;cap-和-base&#34;&gt;
     CAP 和 BASE
 &lt;/h2&gt;
 &lt;p&gt;学习 Seata 前，经常会遇到 &lt;code&gt;CAP&lt;/code&gt; 和 &lt;code&gt;BASE&lt;/code&gt;。这两个概念不用过度抽象，它们主要是在解释：分布式系统为什么很难只追求“绝对强一致”。&lt;/p&gt;
@@ -232,8 +234,10 @@
 &lt;p&gt;&lt;mark class=&#34;hltr-green-light&#34;&gt;优点&lt;/mark&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;事务强一致性：XA 模式能满足 ACID 原则，确保分布式事务的强一致性&lt;/li&gt;
-&lt;li&gt;实现简单且无代码侵入：常用数据库都支持 XA 协议，使用 Seata 的 XA 模式无需修改业务代码，只需简单配置即可
-&lt;mark class=&#34;hltr-pink&#34;&gt;缺点&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;实现简单且无代码侵入：常用数据库都支持 XA 协议，使用 Seata 的 XA 模式无需修改业务代码，只需简单配置即可&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;mark class=&#34;hltr-pink&#34;&gt;缺点&lt;/mark&gt;&lt;/p&gt;
+&lt;ul&gt;
 &lt;li&gt;依赖关系型数据库、驱动、连接池对 XA 的支持&lt;/li&gt;
 &lt;li&gt;性能较差：因为是基于两阶段提交，故也保留了两阶段的缺点：一阶段需要锁定资源，等待二阶段结束才释放——资源锁持有时间长&lt;/li&gt;
 &lt;/ul&gt;

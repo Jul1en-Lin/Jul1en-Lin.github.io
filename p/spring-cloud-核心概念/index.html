@@ -40,7 +40,7 @@
         }
         document.documentElement.dataset.scheme = scheme;
     })();
-</script><link rel="stylesheet" href="/css/site.min.a44fa3f3583750438bad817bdbdf1a99599974263294417d78de363469564347.css" integrity="sha256-pE&#43;j81g3UEOLrYF7298amVmZdCYylEF9eN42NGlWQ0c="><script src="/js/site.51f8655227b5fb12b2585c2985e20ec3e93192ca19774662d732d2a0bcb492f0.js" integrity="sha256-UfhlUie1&#43;xKyWFwpheIOw&#43;kxksoZd0Zi1zLSoLy0kvA=" defer></script>
+</script><link rel="stylesheet" href="/css/site.min.70345ce15143b8bf98eafba17117e5ad44959e58788ca73ebc55166daa604be0.css" integrity="sha256-cDRc4VFDuL&#43;Y6vuhcRflrUSVnlh4jKc&#43;vFUWbapgS&#43;A="><script src="/js/site.a1ec31a985077ce4275eee5d2c78b580922c5cf3a286c469c3885138583000d4.js" integrity="sha256-oewxqYUHfOQnXu5dLHi1gJIsXPOihsRpw4hROFgwANQ=" defer></script>
 
 </head>
 
@@ -259,21 +259,25 @@
     微服务里的几个核心问题
 </h2>
 <p>单体项目里，前端请求通常直接打到一个后端服务：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">flowchart LR
-</span></span><span class="line"><span class="cl">    A[浏览器/客户端] --&gt; B[单体后端应用]
-</span></span><span class="line"><span class="cl">    B --&gt; C[(数据库)]
-</span></span></code></pre></div><p>微服务项目拆分后，系统可能变成这样：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">flowchart LR
-</span></span><span class="line"><span class="cl">    A[浏览器/客户端] --&gt; G[Gateway 网关]
-</span></span><span class="line"><span class="cl">    G --&gt; U[用户服务 user-service]
-</span></span><span class="line"><span class="cl">    G --&gt; O[订单服务 order-service]
-</span></span><span class="line"><span class="cl">    G --&gt; P[商品服务 product-service]
-</span></span><span class="line"><span class="cl">    O --&gt; U
-</span></span><span class="line"><span class="cl">    O --&gt; P
-</span></span><span class="line"><span class="cl">    U --&gt; DB1[(用户库)]
-</span></span><span class="line"><span class="cl">    O --&gt; DB2[(订单库)]
-</span></span><span class="line"><span class="cl">    P --&gt; DB3[(商品库)]
-</span></span></code></pre></div><p>拆分之后会出现几个新问题：</p>
+<figure class="mermaid-diagram">
+    <div class="mermaid" role="img" aria-label="Mermaid diagram">flowchart LR
+    A[浏览器/客户端] --&gt; B[单体后端应用]
+    B --&gt; C[(数据库)]</div>
+</figure>
+<p>微服务项目拆分后，系统可能变成这样：</p>
+<figure class="mermaid-diagram">
+    <div class="mermaid" role="img" aria-label="Mermaid diagram">flowchart LR
+    A[浏览器/客户端] --&gt; G[Gateway 网关]
+    G --&gt; U[用户服务 user-service]
+    G --&gt; O[订单服务 order-service]
+    G --&gt; P[商品服务 product-service]
+    O --&gt; U
+    O --&gt; P
+    U --&gt; DB1[(用户库)]
+    O --&gt; DB2[(订单库)]
+    P --&gt; DB3[(商品库)]</div>
+</figure>
+<p>拆分之后会出现几个新问题：</p>
 <ul>
 <li>服务越来越多，调用方怎么知道某个服务现在在哪台机器、哪个端口？</li>
 <li>同一个服务可能部署多个实例，请求应该打到哪一个实例？</li>
@@ -566,11 +570,13 @@
 <li>机器性能不同：高配置机器设置更高权重；</li>
 <li>临时降流量：把某个实例权重调低。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">flowchart LR
-</span></span><span class="line"><span class="cl">    C[consumer] --&gt; LB[Nacos + LoadBalancer]
-</span></span><span class="line"><span class="cl">    LB --&gt;|少量流量| A[user-service v1 / weight=1]
-</span></span><span class="line"><span class="cl">    LB --&gt;|更多流量| B[user-service v2 / weight=5]
-</span></span></code></pre></div><h3 id="同集群优先">
+<figure class="mermaid-diagram">
+    <div class="mermaid" role="img" aria-label="Mermaid diagram">flowchart LR
+    C[consumer] --&gt; LB[Nacos + LoadBalancer]
+    LB --&gt;|少量流量| A[user-service v1 / weight=1]
+    LB --&gt;|更多流量| B[user-service v2 / weight=5]</div>
+</figure>
+<h3 id="同集群优先">
     同集群优先
 </h3>
 <p>同集群优先的意思是：消费者优先调用与自己处在同一集群、同一机房或同一区域的服务实例。</p>
@@ -644,16 +650,18 @@
 <p>配置中心的价值是：把配置从代码包里抽出来，集中放到 Nacos 管理。</p>
 <p>以前配置可能写在每个服务自己的 <code>application.yml</code> 中：</p>
 <p>用了 Nacos Config 后，可以把这些配置放在 Nacos 控制台中。应用启动时从 Nacos 拉取配置，运行中还可以监听配置变化。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sequenceDiagram
-</span></span><span class="line"><span class="cl">    participant App as user-service
-</span></span><span class="line"><span class="cl">    participant Nacos as Nacos Config
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    App-&gt;&gt;Nacos: 启动时拉取 user-service-dev.yml
-</span></span><span class="line"><span class="cl">    Nacos--&gt;&gt;App: 返回配置内容
-</span></span><span class="line"><span class="cl">    App-&gt;&gt;App: 使用配置启动
-</span></span><span class="line"><span class="cl">    Nacos--&gt;&gt;App: 配置变化通知
-</span></span><span class="line"><span class="cl">    App-&gt;&gt;App: 动态刷新部分配置
-</span></span></code></pre></div><p>现代写法示例：</p>
+<figure class="mermaid-diagram">
+    <div class="mermaid" role="img" aria-label="Mermaid diagram">sequenceDiagram
+    participant App as user-service
+    participant Nacos as Nacos Config
+
+    App-&gt;&gt;Nacos: 启动时拉取 user-service-dev.yml
+    Nacos--&gt;&gt;App: 返回配置内容
+    App-&gt;&gt;App: 使用配置启动
+    Nacos--&gt;&gt;App: 配置变化通知
+    App-&gt;&gt;App: 动态刷新部分配置</div>
+</figure>
+<p>现代写法示例：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">spring</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">application</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">user-service</span><span class="w">
@@ -843,22 +851,24 @@
 </span></span></span></code></pre></div><h3 id="openfeign-调用流程">
     OpenFeign 调用流程
 </h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sequenceDiagram
-</span></span><span class="line"><span class="cl">    participant O as order-service
-</span></span><span class="line"><span class="cl">    participant F as OpenFeign 代理对象
-</span></span><span class="line"><span class="cl">    participant R as 注册中心 Eureka/Nacos
-</span></span><span class="line"><span class="cl">    participant LB as LoadBalancer
-</span></span><span class="line"><span class="cl">    participant U as user-service
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    O-&gt;&gt;F: userClient.getUser(1)
-</span></span><span class="line"><span class="cl">    F-&gt;&gt;R: 根据 user-service 查询实例
-</span></span><span class="line"><span class="cl">    R--&gt;&gt;F: 返回实例列表
-</span></span><span class="line"><span class="cl">    F-&gt;&gt;LB: 选择一个实例
-</span></span><span class="line"><span class="cl">    LB--&gt;&gt;F: 返回目标地址
-</span></span><span class="line"><span class="cl">    F-&gt;&gt;U: 发起 HTTP 请求 /users/1
-</span></span><span class="line"><span class="cl">    U--&gt;&gt;F: 返回用户信息
-</span></span><span class="line"><span class="cl">    F--&gt;&gt;O: 返回方法结果
-</span></span></code></pre></div><p>OpenFeign 主要负责服务内部之间的远程调用 <strong>，</strong> Gateway 是网关，是外部请求进入系统的统一入口。这两个很容易搞混</p>
+<figure class="mermaid-diagram">
+    <div class="mermaid" role="img" aria-label="Mermaid diagram">sequenceDiagram
+    participant O as order-service
+    participant F as OpenFeign 代理对象
+    participant R as 注册中心 Eureka/Nacos
+    participant LB as LoadBalancer
+    participant U as user-service
+
+    O-&gt;&gt;F: userClient.getUser(1)
+    F-&gt;&gt;R: 根据 user-service 查询实例
+    R--&gt;&gt;F: 返回实例列表
+    F-&gt;&gt;LB: 选择一个实例
+    LB--&gt;&gt;F: 返回目标地址
+    F-&gt;&gt;U: 发起 HTTP 请求 /users/1
+    U--&gt;&gt;F: 返回用户信息
+    F--&gt;&gt;O: 返回方法结果</div>
+</figure>
+<p>OpenFeign 主要负责服务内部之间的远程调用 <strong>，</strong> Gateway 是网关，是外部请求进入系统的统一入口。这两个很容易搞混</p>
 <h3 id="openfeign-简单部署流程">
     OpenFeign 简单部署流程
 </h3>
@@ -925,12 +935,14 @@
     Gateway
 </h3>
 <p>Spring Cloud Gateway 是微服务系统的 API 网关。它通常位于客户端和后端服务之间，作为统一入口。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">flowchart LR
-</span></span><span class="line"><span class="cl">    A[前端/客户端] --&gt; G[Spring Cloud Gateway]
-</span></span><span class="line"><span class="cl">    G --&gt; U[user-service]
-</span></span><span class="line"><span class="cl">    G --&gt; O[order-service]
-</span></span><span class="line"><span class="cl">    G --&gt; P[product-service]
-</span></span></code></pre></div><p>Gateway 常见职责：</p>
+<figure class="mermaid-diagram">
+    <div class="mermaid" role="img" aria-label="Mermaid diagram">flowchart LR
+    A[前端/客户端] --&gt; G[Spring Cloud Gateway]
+    G --&gt; U[user-service]
+    G --&gt; O[order-service]
+    G --&gt; P[product-service]</div>
+</figure>
+<p>Gateway 常见职责：</p>
 <ul>
 <li>路由转发：根据路径把请求转发到不同服务；</li>
 <li>统一认证：判断用户是否登录、Token 是否有效；</li>
@@ -969,22 +981,24 @@
   </tbody>
 </table></div>
 <p>一个请求进入 Gateway 后，大致流程如下：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sequenceDiagram
-</span></span><span class="line"><span class="cl">    participant C as Client
-</span></span><span class="line"><span class="cl">    participant G as Gateway
-</span></span><span class="line"><span class="cl">    participant P as Predicate
-</span></span><span class="line"><span class="cl">    participant F as Filter Chain
-</span></span><span class="line"><span class="cl">    participant S as Service
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    C-&gt;&gt;G: 发送请求 /api/users/1
-</span></span><span class="line"><span class="cl">    G-&gt;&gt;P: 判断匹配哪条 Route
-</span></span><span class="line"><span class="cl">    P--&gt;&gt;G: 匹配 user-service 路由
-</span></span><span class="line"><span class="cl">    G-&gt;&gt;F: 执行 pre 过滤器
-</span></span><span class="line"><span class="cl">    F-&gt;&gt;S: 转发到 user-service
-</span></span><span class="line"><span class="cl">    S--&gt;&gt;F: 返回响应
-</span></span><span class="line"><span class="cl">    F-&gt;&gt;G: 执行 post 过滤器
-</span></span><span class="line"><span class="cl">    G--&gt;&gt;C: 返回结果
-</span></span></code></pre></div><h3 id="gateway-简单部署流程">
+<figure class="mermaid-diagram">
+    <div class="mermaid" role="img" aria-label="Mermaid diagram">sequenceDiagram
+    participant C as Client
+    participant G as Gateway
+    participant P as Predicate
+    participant F as Filter Chain
+    participant S as Service
+
+    C-&gt;&gt;G: 发送请求 /api/users/1
+    G-&gt;&gt;P: 判断匹配哪条 Route
+    P--&gt;&gt;G: 匹配 user-service 路由
+    G-&gt;&gt;F: 执行 pre 过滤器
+    F-&gt;&gt;S: 转发到 user-service
+    S--&gt;&gt;F: 返回响应
+    F-&gt;&gt;G: 执行 post 过滤器
+    G--&gt;&gt;C: 返回结果</div>
+</figure>
+<h3 id="gateway-简单部署流程">
     Gateway 简单部署流程
 </h3>
 <h4 id="第一步添加依赖">
@@ -1140,12 +1154,14 @@
 <li><strong>pre 阶段</strong>：请求转发到后端服务之前执行。</li>
 <li><strong>post 阶段</strong>：后端服务返回响应之后执行。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">flowchart LR
-</span></span><span class="line"><span class="cl">    A[请求进入 Gateway] --&gt; B[pre 过滤器：鉴权/日志/加请求头]
-</span></span><span class="line"><span class="cl">    B --&gt; C[转发到后端服务]
-</span></span><span class="line"><span class="cl">    C --&gt; D[post 过滤器：统计耗时/改响应头]
-</span></span><span class="line"><span class="cl">    D --&gt; E[返回客户端]
-</span></span></code></pre></div><p>pre 适合做：鉴权、参数校验、添加请求头、路径改写、限流。</p>
+<figure class="mermaid-diagram">
+    <div class="mermaid" role="img" aria-label="Mermaid diagram">flowchart LR
+    A[请求进入 Gateway] --&gt; B[pre 过滤器：鉴权/日志/加请求头]
+    B --&gt; C[转发到后端服务]
+    C --&gt; D[post 过滤器：统计耗时/改响应头]
+    D --&gt; E[返回客户端]</div>
+</figure>
+<p>pre 适合做：鉴权、参数校验、添加请求头、路径改写、限流。</p>
 <p>post 适合做：响应日志、统计耗时、添加响应头、统一包装响应。</p>
 <h3 id="自定义-gatewayfilterfactory">
     自定义 GatewayFilterFactory
@@ -1237,30 +1253,32 @@
 <p>假设用户访问订单详情：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">GET /api/orders/1001
 </span></span></code></pre></div><p>完整流程如下：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sequenceDiagram
-</span></span><span class="line"><span class="cl">    participant C as Client
-</span></span><span class="line"><span class="cl">    participant G as Gateway
-</span></span><span class="line"><span class="cl">    participant N as Nacos/Eureka
-</span></span><span class="line"><span class="cl">    participant O as order-service
-</span></span><span class="line"><span class="cl">    participant F as OpenFeign
-</span></span><span class="line"><span class="cl">    participant U as user-service
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    C-&gt;&gt;G: GET /api/orders/1001
-</span></span><span class="line"><span class="cl">    G-&gt;&gt;G: GlobalFilter 鉴权、日志
-</span></span><span class="line"><span class="cl">    G-&gt;&gt;G: Predicate 匹配 /api/orders/**
-</span></span><span class="line"><span class="cl">    G-&gt;&gt;N: 根据 order-service 查询实例
-</span></span><span class="line"><span class="cl">    N--&gt;&gt;G: 返回 order-service 实例列表
-</span></span><span class="line"><span class="cl">    G-&gt;&gt;O: 负载均衡转发请求
-</span></span><span class="line"><span class="cl">    O-&gt;&gt;F: 调用 UserClient.getUser(userId)
-</span></span><span class="line"><span class="cl">    F-&gt;&gt;N: 根据 user-service 查询实例
-</span></span><span class="line"><span class="cl">    N--&gt;&gt;F: 返回 user-service 实例列表
-</span></span><span class="line"><span class="cl">    F-&gt;&gt;U: 负载均衡调用 user-service
-</span></span><span class="line"><span class="cl">    U--&gt;&gt;F: 返回用户信息
-</span></span><span class="line"><span class="cl">    F--&gt;&gt;O: 返回结果
-</span></span><span class="line"><span class="cl">    O--&gt;&gt;G: 返回订单详情
-</span></span><span class="line"><span class="cl">    G-&gt;&gt;G: post 过滤器记录耗时
-</span></span><span class="line"><span class="cl">    G--&gt;&gt;C: 返回响应
-</span></span></code></pre></div><ul>
+<figure class="mermaid-diagram">
+    <div class="mermaid" role="img" aria-label="Mermaid diagram">sequenceDiagram
+    participant C as Client
+    participant G as Gateway
+    participant N as Nacos/Eureka
+    participant O as order-service
+    participant F as OpenFeign
+    participant U as user-service
+
+    C-&gt;&gt;G: GET /api/orders/1001
+    G-&gt;&gt;G: GlobalFilter 鉴权、日志
+    G-&gt;&gt;G: Predicate 匹配 /api/orders/**
+    G-&gt;&gt;N: 根据 order-service 查询实例
+    N--&gt;&gt;G: 返回 order-service 实例列表
+    G-&gt;&gt;O: 负载均衡转发请求
+    O-&gt;&gt;F: 调用 UserClient.getUser(userId)
+    F-&gt;&gt;N: 根据 user-service 查询实例
+    N--&gt;&gt;F: 返回 user-service 实例列表
+    F-&gt;&gt;U: 负载均衡调用 user-service
+    U--&gt;&gt;F: 返回用户信息
+    F--&gt;&gt;O: 返回结果
+    O--&gt;&gt;G: 返回订单详情
+    G-&gt;&gt;G: post 过滤器记录耗时
+    G--&gt;&gt;C: 返回响应</div>
+</figure>
+<ul>
 <li>Gateway：负责外部入口、路由、过滤器；</li>
 <li>Nacos/Eureka：负责服务注册与发现；</li>
 <li>LoadBalancer：负责从多个实例中选一个；</li>
@@ -1298,6 +1316,79 @@
         <path d="M6 14.5 12 8l6 6.5"></path>
     </svg>
 </button>
-</body>
+<script type="module">
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.15.0/dist/mermaid.esm.min.mjs";
+
+    const diagrams = Array.from(document.querySelectorAll(".mermaid"));
+    const sources = new Map(diagrams.map((diagram) => [diagram, diagram.textContent || ""]));
+    let renderQueue = Promise.resolve();
+
+    function getMermaidConfig(scheme) {
+        const dark = scheme === "dark";
+
+        return {
+            startOnLoad: false,
+            securityLevel: "strict",
+            theme: "base",
+            fontFamily: '"Inter", "Noto Sans SC", sans-serif',
+            themeVariables: {
+                background: dark ? "#111111" : "#fdfdf7",
+                primaryColor: dark ? "#251b22" : "#f8f1f4",
+                primaryTextColor: dark ? "#f1ecef" : "#272226",
+                primaryBorderColor: "#c46786",
+                secondaryColor: dark ? "#1c1a20" : "#f4f1f5",
+                tertiaryColor: dark ? "#171717" : "#ffffff",
+                lineColor: dark ? "#b9adb4" : "#514950",
+                textColor: dark ? "#f1ecef" : "#272226",
+                actorBkg: dark ? "#251b22" : "#f8f1f4",
+                actorBorder: "#c46786",
+                actorTextColor: dark ? "#f1ecef" : "#272226",
+                actorLineColor: dark ? "#6f646b" : "#b7aeb3",
+                signalColor: dark ? "#d8ced3" : "#40393e",
+                signalTextColor: dark ? "#f1ecef" : "#272226",
+                labelBoxBkgColor: dark ? "#1c1a20" : "#fdfdf7",
+                labelBoxBorderColor: "#c46786",
+                labelTextColor: dark ? "#f1ecef" : "#272226",
+                loopTextColor: dark ? "#f1ecef" : "#272226",
+                activationBorderColor: "#c46786",
+                activationBkgColor: dark ? "#34272f" : "#f1dce4",
+                sequenceNumberColor: dark ? "#111111" : "#ffffff"
+            }
+        };
+    }
+
+    async function renderDiagrams(scheme) {
+        diagrams.forEach((diagram) => {
+            diagram.removeAttribute("data-processed");
+            diagram.textContent = sources.get(diagram) || "";
+        });
+
+        mermaid.initialize(getMermaidConfig(scheme));
+        await mermaid.run({ nodes: diagrams });
+
+        diagrams.forEach((diagram) => {
+            const svg = diagram.querySelector("svg");
+            if (svg?.viewBox.baseVal.width) {
+                svg.style.setProperty(
+                    "--mermaid-intrinsic-width",
+                    `${Math.ceil(svg.viewBox.baseVal.width)}px`
+                );
+            }
+            diagram.closest(".mermaid-diagram")?.classList.add("is-rendered");
+        });
+    }
+
+    function scheduleRender(scheme) {
+        renderQueue = renderQueue
+            .catch(() => undefined)
+            .then(() => renderDiagrams(scheme))
+            .catch((error) => console.error("Mermaid rendering failed", error));
+    }
+
+    scheduleRender(document.documentElement.dataset.scheme || "light");
+    window.addEventListener("onColorSchemeChange", (event) => {
+        scheduleRender(event.detail === "dark" ? "dark" : "light");
+    });
+</script></body>
 
 </html>
