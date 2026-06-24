@@ -7,7 +7,7 @@
     <generator>Hugo</generator>
     <language>zh-CN</language>
     <copyright>Jul1en</copyright>
-    <lastBuildDate>Wed, 24 Jun 2026 21:51:09 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 24 Jun 2026 22:16:53 +0800</lastBuildDate>
     <atom:link href="https://Jul1en-Lin.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Codex 工作流更新-v3</title>
@@ -44,6 +44,9 @@
 &lt;p&gt;&lt;strong&gt;Goals：&lt;/strong&gt; 目标要能有具体的量化标准：如要写清楚页面、接口、测试、异常情况分别达到什么结果。&lt;/p&gt;
 &lt;p&gt;这些点合在一起，就能把任务进化成一个工作循环：&lt;/p&gt;
 &lt;p&gt;&lt;mark class=&#34;hltr-green-light&#34;&gt;目标 -&amp;gt; 线程 -&amp;gt; 项目记忆 -&amp;gt; 调用工具 -&amp;gt; 产出 -&amp;gt; review -&amp;gt; 下一轮任务&lt;/mark&gt;&lt;/p&gt;
+&lt;p&gt;这张图可以作为本次更新的总览。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://Jul1en-Lin.github.io/p/codex-%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%9B%B4%E6%96%B0-v3/assets/codex-workflow-v3-long-running-task_hu_47f8588aac4526db.webp&#34; width=&#34;1600&#34; height=&#34;1067&#34; srcset=&#34;https://Jul1en-Lin.github.io/p/codex-%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%9B%B4%E6%96%B0-v3/assets/codex-workflow-v3-long-running-task_hu_9a5f521f0e7d25d9.webp 800w, https://Jul1en-Lin.github.io/p/codex-%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%9B%B4%E6%96%B0-v3/assets/codex-workflow-v3-long-running-task_hu_47f8588aac4526db.webp 1600w, https://Jul1en-Lin.github.io/p/codex-%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%9B%B4%E6%96%B0-v3/assets/codex-workflow-v3-long-running-task_hu_f31b36230c8b4100.webp 2400w&#34; sizes=&#34;(max-width: 860px) calc(100vw - 40px), 1060px&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; alt=&#34;Codex 长期任务工作流总览&#34; class=&#34;gallery-image&#34; data-flex-grow=&#34;150&#34; data-flex-basis=&#34;360px&#34;&gt;
+&lt;/p&gt;
 &lt;h2 id=&#34;三层模型&#34;&gt;
     三层模型
 &lt;/h2&gt;
