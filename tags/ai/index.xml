@@ -7,7 +7,7 @@
     <generator>Hugo</generator>
     <language>zh-CN</language>
     <copyright>Jul1en</copyright>
-    <lastBuildDate>Sun, 05 Jul 2026 00:45:29 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 05 Jul 2026 00:49:48 +0800</lastBuildDate>
     <atom:link href="https://Jul1en-Lin.github.io/tags/ai/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Claude Fable 5 提示指南</title>
@@ -19,7 +19,6 @@
 &lt;/h1&gt;
 &lt;p&gt;Anthropic 最近重新发布了 Fable 5 和 Mythos 5，随之配套更新了官方的提示指南。这篇笔记是对&lt;a class=&#34;link&#34; href=&#34;https://platform.claude.com/docs/zh-CN/build-with-claude/prompt-engineering/prompting-claude-fable-5&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;为 Claude Fable 5 编写提示&lt;/a&gt;
  这篇文档的阅读整理，主要关注从 Opus 4.8 迁移过来要注意哪些行为变化，以及在 agentic 场景下如何配置 prompt 和 scaffold&lt;/p&gt;
-&lt;hr&gt;
 &lt;h2 id=&#34;背景与能力定位&#34;&gt;
     背景与能力定位
 &lt;/h2&gt;
@@ -35,7 +34,6 @@
 &lt;/ul&gt;
 &lt;p&gt;不过有个限制需要注意：Fable 5 不适用于攻击性网络安全或生物/生命科学工作，它对此类敏感任务有严格的防护墙，这类请求会返回 &lt;code&gt;stop_reason: &amp;quot;refusal&amp;quot;&lt;/code&gt;，配置回退到 Opus 4.8。
 挺搞笑的，在 X 上见到有人查 Claude Code 后台日志，发现了一个系统标签：&lt;code&gt;TOO_DUMB_TO_NEED_FABLE&lt;/code&gt;，被工程师嘲讽：说实话，我压根没想到你们真的会去翻日志😹&lt;/p&gt;
-&lt;hr&gt;
 &lt;h2 id=&#34;行为变化与迁移要点&#34;&gt;
     行为变化与迁移要点
 &lt;/h2&gt;
@@ -43,7 +41,6 @@
 &lt;p&gt;&lt;strong&gt;回合时长变长了。&lt;/strong&gt; 在较高 effort 设置下，单个请求可能运行数分钟，自主运行可能持续数小时。文档说这是团队适应 Fable 5 时遇到的最大转变之一。迁移前需要调整客户端超时、流式传输和进度指示器，并考虑把测试框架改成异步方式检查运行状态（比如定时任务），而不是阻塞等待。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;effort 控制是主要杠杆。&lt;/strong&gt; Fable 5 引入了 &lt;code&gt;high&lt;/code&gt; / &lt;code&gt;xhigh&lt;/code&gt; / &lt;code&gt;medium&lt;/code&gt; / &lt;code&gt;low&lt;/code&gt; 几个 effort 级别。文档建议大多数任务用 &lt;code&gt;high&lt;/code&gt; 作为默认值，能力最密集的工作负载用 &lt;code&gt;xhigh&lt;/code&gt;，日常工作用 &lt;code&gt;medium&lt;/code&gt; 或 &lt;code&gt;low&lt;/code&gt;。有个有意思的描述：Fable 5 上较低的 effort 设置通常超过先前模型 &lt;code&gt;xhigh&lt;/code&gt; 的性能——也就是说，没必要无脑拉满。&lt;/p&gt;
 &lt;p&gt;再往下看，会发现在较高 effort 下它会做一些「超出任务所需」的事情：对没有问的选项进行比较、冗长地解释根本原因、写很重的 PR 描述，或给下一行代码写注释。文档说只需要一条简短的简洁性指令就能管住这些行为，不需要逐一列举。&lt;/p&gt;
-&lt;hr&gt;
 &lt;h2 id=&#34;长时间运行场景的几个要点&#34;&gt;
     长时间运行场景的几个要点
 &lt;/h2&gt;
@@ -52,18 +49,15 @@
 &lt;p&gt;&lt;strong&gt;明确边界。&lt;/strong&gt; Fable 5 偶尔会做未经请求的操作——比如在没被要求时起草 email、创建防御性的 git 分支备份。需要在 prompt 里明确定义它应该做什么和不应该做什么。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;并行子 agent 调度。&lt;/strong&gt; 文档建议频繁使用子 agent，提供清晰的委派指导，并优先采用编排器与子 agent 之间的异步通信（而不是阻塞等待每个返回）。长期存活的子 agent 能在各子任务之间保留上下文，可以通过缓存读取节省时间，同时避免因最慢的子 agent 而出现瓶颈。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;记忆系统。&lt;/strong&gt; 文档说「当 Fable 5 能够记录先前运行的经验教训并加以参考时，其表现尤为出色」。建议提供一个记录笔记的位置，简单到一个 Markdown 文件就够了。还可以让它回顾过去的会话来引导记忆系统。&lt;/p&gt;
-&lt;hr&gt;
 &lt;h2 id=&#34;两个比较少见但需要知道的情况&#34;&gt;
     两个比较少见但需要知道的情况
 &lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;罕见的提前停止。&lt;/strong&gt; 在长会话的深入阶段，Fable 5 偶尔会用纯文本的意图声明（「我现在将运行 X」）结束回合而不发出工具调用，或者在已有足够信息继续时暂停请求许可。这时候回复「继续」或「直接端到端完成」就可以了。对于自主 pipeline，文档建议加一条系统提醒处理这种情况。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;罕见的上下文预算担忧。&lt;/strong&gt; 在非常长的会话里，Fable 5 偶尔会建议开启新会话、提议总结并交接，或削减自己的工作。这种情况最常在测试框架向模型显示剩余 token 倒计时时触发。文档建议尽可能避免显示明确的上下文预算计数。&lt;/p&gt;
-&lt;hr&gt;
 &lt;h2 id=&#34;可读性与沟通&#34;&gt;
     可读性与沟通
 &lt;/h2&gt;
 &lt;p&gt;在扩展对话或 agent 式对话中，Fable 5 可能会生成难以理解的文本：密集的箭头链式简写、深入的实现细节、引用用户从未看到的思考内容，或过于技术化的措辞。添加沟通风格补充说明可以缓解这个问题～&lt;/p&gt;
-&lt;hr&gt;
 &lt;h2 id=&#34;迁移时的几个注意点&#34;&gt;
     迁移时的几个注意点
 &lt;/h2&gt;
@@ -72,7 +66,6 @@
 &lt;p&gt;&lt;strong&gt;重构现有的 prompt 和 skill。&lt;/strong&gt; 为之前模型开发的 skill 对 Fable 5 而言往往过于规定性，可能会降低输出质量。如果默认性能更好，应该审查并考虑移除旧指令。Fable 5 也擅长根据从当前任务学到的内容即时更新 skill。&lt;/p&gt;
 &lt;p&gt;&lt;mark class=&#34;hltr-green-light&#34;&gt;个人觉得现在的模型能力越来越强，那些要求边界明显的 skill 会消灭模型探索的能力，这要求我们编写 skill 要适当规范化和更加的通用化，不应因为过多的边界而限制了模型的发挥。&lt;/mark&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;不要指示 Claude 在响应中复现其推理。&lt;/strong&gt; 告诉模型将内部推理回显、转录或解释的 prompt 指令，可能会在 Fable 5 上触发 &lt;code&gt;reasoning_extraction&lt;/code&gt; 拒绝类别，导致更频繁回退到 Opus 4.8。迁移时需要审核现有 skill 和系统提示中的「展示思考过程」类指令。如果应用程序需要推理可见性，应该改为读取 adaptive thinking 中的结构化 &lt;code&gt;thinking&lt;/code&gt; 块。&lt;/p&gt;
-&lt;hr&gt;
 &lt;h2 id=&#34;总结&#34;&gt;
     总结
 &lt;/h2&gt;
