@@ -7,7 +7,7 @@
     <generator>Hugo</generator>
     <language>zh-CN</language>
     <copyright>Jul1en</copyright>
-    <lastBuildDate>Sat, 04 Jul 2026 15:29:28 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 05 Jul 2026 00:45:29 +0800</lastBuildDate>
     <atom:link href="https://Jul1en-Lin.github.io/tags/ai/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Claude Fable 5 提示指南</title>
@@ -48,7 +48,7 @@
     长时间运行场景的几个要点
 &lt;/h2&gt;
 &lt;p&gt;这部分对 agentic workflow 的设计影响较大&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;核实进度声明。&lt;/strong&gt; 文档特别提到，在长时间自主运行中，要指示 Fable 5 根据实际工具结果审核进度。Anthropic 自己测试的结论是：这样做能&lt;mark class=&#34;hltr-green-light&#34;&gt;几乎完全消除虚假状态报告&lt;/mark&gt;，哪怕是专门设计用于诱发这类问题的任务也能规避。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;核实进度声明。&lt;/strong&gt; 文档特别提到，在长时间自主运行中，要指示 Fable 5 根据实际工具结果审核进度。Anthropic 自己测试的结论是：这样做能几乎完全消除虚假状态报告，哪怕是专门设计用于诱发这类问题的任务也能规避。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;明确边界。&lt;/strong&gt; Fable 5 偶尔会做未经请求的操作——比如在没被要求时起草 email、创建防御性的 git 分支备份。需要在 prompt 里明确定义它应该做什么和不应该做什么。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;并行子 agent 调度。&lt;/strong&gt; 文档建议频繁使用子 agent，提供清晰的委派指导，并优先采用编排器与子 agent 之间的异步通信（而不是阻塞等待每个返回）。长期存活的子 agent 能在各子任务之间保留上下文，可以通过缓存读取节省时间，同时避免因最慢的子 agent 而出现瓶颈。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;记忆系统。&lt;/strong&gt; 文档说「当 Fable 5 能够记录先前运行的经验教训并加以参考时，其表现尤为出色」。建议提供一个记录笔记的位置，简单到一个 Markdown 文件就够了。还可以让它回顾过去的会话来引导记忆系统。&lt;/p&gt;
@@ -70,13 +70,13 @@
 &lt;p&gt;文档最后整理了几条建议，值得关注的：&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;从难度范围的顶端开始测试。&lt;/strong&gt; 选一个比分配给先前模型更难的任务，让 Fable 5 界定范围、提出澄清问题并执行。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;重构现有的 prompt 和 skill。&lt;/strong&gt; 为之前模型开发的 skill 对 Fable 5 而言往往过于规定性，可能会降低输出质量。如果默认性能更好，应该审查并考虑移除旧指令。Fable 5 也擅长根据从当前任务学到的内容即时更新 skill。&lt;/p&gt;
-&lt;p&gt;个人觉得现在的模型能力越来越强，那些要求边界越明显的 skill 会消灭模型探索的能力，这要求我们编写 skill 要适当规范化和更加的通用化，不应因为过多边界而限制了模型的发挥。&lt;/p&gt;
+&lt;p&gt;&lt;mark class=&#34;hltr-green-light&#34;&gt;个人觉得现在的模型能力越来越强，那些要求边界明显的 skill 会消灭模型探索的能力，这要求我们编写 skill 要适当规范化和更加的通用化，不应因为过多的边界而限制了模型的发挥。&lt;/mark&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;不要指示 Claude 在响应中复现其推理。&lt;/strong&gt; 告诉模型将内部推理回显、转录或解释的 prompt 指令，可能会在 Fable 5 上触发 &lt;code&gt;reasoning_extraction&lt;/code&gt; 拒绝类别，导致更频繁回退到 Opus 4.8。迁移时需要审核现有 skill 和系统提示中的「展示思考过程」类指令。如果应用程序需要推理可见性，应该改为读取 adaptive thinking 中的结构化 &lt;code&gt;thinking&lt;/code&gt; 块。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;总结&#34;&gt;
     总结
 &lt;/h2&gt;
-&lt;p&gt;从这份文档来看，Fable 5 的核心转变是从「单次对话中的强大模型」变成了「能跑几天的自主 agent」。相应地，使用方式也需要从「逐条指令」转向「给目标、给边界、异步检查」。之前为 Opus 4.8 写的很多 prompt 技巧可能不再必要，甚至适得其反——这倒是给了一个机会重新审视并精简现有的框架。&lt;/p&gt;
+&lt;p&gt;从这份文档来看，Fable 5 的核心转变是从「单次对话中的强大模型」变成了「能跑几天的自主 agent」。相应地，使用方式也需要从「逐条指令」转向「给目标、给边界、异步检查」。&lt;mark class=&#34;hltr-pink&#34;&gt;之前为 Opus 4.8 写的很多 prompt 技巧可能不再必要，甚至适得其反——这倒是给了一个机会重新审视并精简现有的框架。&lt;/mark&gt;&lt;/p&gt;
 </description>
     </item>
     <item>
