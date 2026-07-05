@@ -40,9 +40,7 @@
         }
         document.documentElement.dataset.scheme = scheme;
     })();
-</script><link rel="stylesheet" href="/css/site.min.b29ffcbd29e6ea0081c17c458cadfb529f4079ffa57f7cec8cc7f66a0e7dde85.css" integrity="sha256-sp/8vSnm6gCBwXxFjK37Up9Aef&#43;lf3zsjMf2ag593oU="><script src="/js/site.4ad355f3aa17e08b61fe2541497ee7e93e508df35877dca177a50331dbd6a977.js" integrity="sha256-StNV86oX4Ith/iVBSX7n6T5QjfNYd9yhd6UDMdvWqXc=" defer></script>
-
-    <link rel="preload" href="/search/index.json" as="fetch" crossorigin="anonymous">
+</script><link rel="stylesheet" href="/css/site.min.e41c2bf6bd1e819a086c950be1857ccfba35f4c15c1a335296aad5d8f439bbdb.css" integrity="sha256-5Bwr9r0egZoIbJUL4YV8z7o19MFcGjNSlqrV2PQ5u9s="><script src="/js/site.4ad355f3aa17e08b61fe2541497ee7e93e508df35877dca177a50331dbd6a977.js" integrity="sha256-StNV86oX4Ith/iVBSX7n6T5QjfNYd9yhd6UDMdvWqXc=" defer></script>
 
 </head>
 
@@ -126,22 +124,21 @@
 <div class="plum-background" data-plum-background aria-hidden="true">
     <canvas class="plum-background__canvas"></canvas>
 </div><main id="main-content" class="main main-content full-width" tabindex="-1">
-<section class="phase4-page search-page" aria-label="搜索">
-    <form action="/search/" class="search-form" data-search-form data-json="/search/index.json">
+<section class="phase4-page search-page" aria-label="搜索" data-search-root>
+    <form action="/search/" class="search-form" data-search-form role="search" data-json="/search/index.json">
         <label for="search-input" class="sr-only">关键词</label>
-        <input id="search-input" type="search" name="keyword" placeholder="输入关键词…" autocomplete="off">
-        <button type="submit" title="搜索" aria-label="搜索">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <circle cx="10.8" cy="10.8" r="6.2" />
-  <path d="m16 16 4 4" />
-</svg>
-
-        </button>
+        <input id="search-input" type="search" name="keyword" placeholder="输入关键词…" autocomplete="off"
+            aria-controls="search-results" aria-describedby="search-status">
     </form>
+    <aside class="search-illustration" data-search-empty-art aria-hidden="true">
+        <div class="search-illustration__frame">
+            <img class="search-illustration__image" src="/search/search-illustration.png" width="1000" height="1000" alt="" loading="eager" decoding="async">
+        </div>
+    </aside>
 
-    <div class="search-result" aria-live="polite">
-        <p class="search-result__status" data-search-title></p>
-        <div class="search-result__list" data-search-results></div>
+    <div class="search-result is-search-empty" data-search-result data-search-state="empty" aria-live="polite" aria-atomic="true">
+        <p id="search-status" class="search-result__status" data-search-title></p>
+        <div id="search-results" class="search-result__list" data-search-results hidden></div>
     </div>
 </section>
 
@@ -155,7 +152,7 @@
 </template>
 
 <template id="search-mark-template"><mark></mark></template>
-<script src="/js/search.75aa22c4b0988c18ae3c9e182065165315a78b6c4d4b6d09f1112856e2f2c3a3.js" integrity="sha256-daoixLCYjBiuPJ4YIGUWUxWni2xNS20J8REoVuLyw6M=" defer></script>
+<script src="/js/search.ecb79f53c44357669ed62611cc40280d049b63cd8ec395cf4f0343dff0e0224d.js" integrity="sha256-7LefU8RDV2ae1iYRzEAoDQSbY82Ow5XPTwND3/DgIk0=" defer></script>
 
     </main><button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
