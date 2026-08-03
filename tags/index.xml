@@ -7,8 +7,43 @@
     <generator>Hugo</generator>
     <language>zh-CN</language>
     <copyright>Jul1en</copyright>
-    <lastBuildDate>Sun, 02 Aug 2026 20:57:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 03 Aug 2026 22:09:16 +0800</lastBuildDate>
     <atom:link href="https://Jul1en-Lin.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bean 拷贝</title>
+      <link>https://Jul1en-Lin.github.io/tags/bean-%E6%8B%B7%E8%B4%9D/</link>
+      <pubDate>Mon, 03 Aug 2026 22:00:14 +0800</pubDate>
+      <guid>https://Jul1en-Lin.github.io/tags/bean-%E6%8B%B7%E8%B4%9D/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Jackson</title>
+      <link>https://Jul1en-Lin.github.io/tags/jackson/</link>
+      <pubDate>Mon, 03 Aug 2026 22:00:14 +0800</pubDate>
+      <guid>https://Jul1en-Lin.github.io/tags/jackson/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Java</title>
+      <link>https://Jul1en-Lin.github.io/tags/java/</link>
+      <pubDate>Mon, 03 Aug 2026 22:00:14 +0800</pubDate>
+      <guid>https://Jul1en-Lin.github.io/tags/java/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Java 脚手架</title>
+      <link>https://Jul1en-Lin.github.io/tags/java-%E8%84%9A%E6%89%8B%E6%9E%B6/</link>
+      <pubDate>Mon, 03 Aug 2026 22:00:14 +0800</pubDate>
+      <guid>https://Jul1en-Lin.github.io/tags/java-%E8%84%9A%E6%89%8B%E6%9E%B6/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>字符串</title>
+      <link>https://Jul1en-Lin.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
+      <pubDate>Mon, 03 Aug 2026 22:00:14 +0800</pubDate>
+      <guid>https://Jul1en-Lin.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
+      <description></description>
+    </item>
     <item>
       <title>AI</title>
       <link>https://Jul1en-Lin.github.io/tags/ai/</link>

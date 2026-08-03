@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>【Java 脚手架】封装通用工具类-1 | Jul1en</title>
+<meta name="description" content="记录 Java 脚手架中 Json、Bean 拷贝和字符串工具的封装思路，说明泛型擦除、Supplier、深浅拷贝，以及 Pattern 和 AntPathMatcher 的使用边界。">
+<meta name="author" content="Jul1en">
+<link rel="canonical" href="https://Jul1en-Lin.github.io/p/java-%E8%84%9A%E6%89%8B%E6%9E%B6-%E5%B0%81%E8%A3%85%E9%80%9A%E7%94%A8%E5%B7%A5%E5%85%B7%E7%B1%BB-1/">
+
+<link rel="icon" href="/favicon-signature.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-signature.png" type="image/png" sizes="512x512">
+<link rel="alternate icon" href="/favicon.ico" type="image/x-icon">
+<meta name="theme-color" content="#fdfdf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="【Java 脚手架】封装通用工具类-1 | Jul1en">
+<meta property="og:description" content="记录 Java 脚手架中 Json、Bean 拷贝和字符串工具的封装思路，说明泛型擦除、Supplier、深浅拷贝，以及 Pattern 和 AntPathMatcher 的使用边界。">
+<meta property="og:url" content="https://Jul1en-Lin.github.io/p/java-%E8%84%9A%E6%89%8B%E6%9E%B6-%E5%B0%81%E8%A3%85%E9%80%9A%E7%94%A8%E5%B7%A5%E5%85%B7%E7%B1%BB-1/">
+<meta property="og:site_name" content="Jul1en">
+<meta property="og:type" content="article">
+<meta property="article:section" content="Post">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Java 脚手架">
+<meta property="article:tag" content="Jackson">
+<meta property="article:tag" content="Bean 拷贝">
+<meta property="article:tag" content="字符串">
+<meta property="article:published_time" content="2026-08-03T22:00:14&#43;08:00">
+<meta property="article:modified_time" content="2026-08-03T22:09:16&#43;08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【Java 脚手架】封装通用工具类-1 | Jul1en">
+<meta name="twitter:description" content="记录 Java 脚手架中 Json、Bean 拷贝和字符串工具的封装思路，说明泛型擦除、Supplier、深浅拷贝，以及 Pattern 和 AntPathMatcher 的使用边界。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"><script>
+    (function () {
+        var stored = null;
+        try {
+            stored = window.localStorage.getItem('ColorScheme');
+        } catch (error) {
+            stored = null;
+        }
+
+        var scheme = stored;
+        if (scheme !== 'light' && scheme !== 'dark') {
+            scheme = "light";
+        }
+        document.documentElement.dataset.scheme = scheme;
+    })();
+</script><link rel="stylesheet" href="/css/site.min.1cd5a9527bd7cf21e324daf6a15537a9f77810c9cd5117087759c3329a183957.css" integrity="sha256-HNWpUnvXzyHjJNr2oVU3qfd4EMnNURcId1nDMpoYOVc="><script src="/js/site.ea213d992606f824e334a0562eda5492b68ff4a720381cfc98d561045eccaa38.js" integrity="sha256-6iE9mSYG&#43;CTjNKBWLtpUkraP9KcgOBz8mNVhBF7Mqjg=" defer></script>
+
+</head>
+
+<body class="melody-shell template-article-detail article-page">
+    <a class="skip-link" href="#main-content">Skip to content</a><header class="site-header" role="banner">
+    <div class="site-header__inner">
+        <a class="site-brand" href="/" aria-label="Jul1en home">
+            <span class="site-brand__signature" aria-hidden="true">
+    <svg class="site-signature" viewBox="0 0 1672 941" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <defs>
+            <mask id="sig-mask" maskUnits="userSpaceOnUse">
+                
+                <path class="site-signature__guide" pathLength="1"
+                      fill="none" stroke="white" stroke-width="20"
+                      stroke-linecap="round" stroke-linejoin="round"
+                      d="M 584 422 C 575 412, 564 415, 559 394 C 554 373, 556 386, 571 361 C 586 337, 580 347, 602 324 C 624 301, 614 311, 634 296 C 654 281, 639 292, 658 281 C 677 270, 668 275, 688 264 C 708 254, 697 258, 716 251 C 735 244, 723 249, 742 244 C 761 239, 752 239, 771 238 C 790 237, 781 235, 795 240 C 809 245, 803 241, 810 251 C 817 262, 815 255, 816 270 C 817 285, 817 277, 812 294 C 807 311, 810 301, 803 318 C 796 336, 800 327, 792 344 C 784 361, 789 350, 781 366 C 773 382, 777 374, 768 390 C 759 406, 763 398, 755 413 C 747 428, 753 419, 745 433 C 737 447, 750 425, 732 454 C 714 483, 721 472, 693 515 C 665 558, 678 540, 652 576 C 626 612, 641 590, 619 617 C 597 644, 609 631, 589 652 C 569 673, 583 659, 563 678 C 543 697, 558 685, 532 706 C 506 727, 515 722, 489 738 C 463 754, 480 745, 459 752 C 438 759, 450 755, 429 759 C 408 763, 419 763, 398 763 C 377 763, 387 768, 368 759 C 349 750, 355 755, 344 737 C 334 719, 333 731, 338 707 C 343 683, 341 694, 359 668 C 377 642, 366 656, 389 633 C 412 610, 399 623, 426 603 C 453 583, 436 595, 467 577 C 498 559, 483 566, 515 551 C 547 536, 523 547, 559 535 C 595 523, 582 527, 617 516 C 652 506, 631 512, 658 505 C 685 498, 666 502, 695 496 C 724 490, 710 493, 740 488 C 770 483, 753 487, 781 481 C 809 475, 796 478, 821 472 C 846 466, 831 472, 853 463 C 875 454, 858 465, 883 446 C 908 427, 896 436, 924 409 C 952 382, 939 397, 963 370 C 987 343, 973 358, 992 332 C 1011 306, 1001 322, 1018 295 C 1035 268, 1027 284, 1041 254 C 1055 224, 1051 234, 1057 210 C 1063 186, 1063 198, 1057 186 C 1051 174, 1051 176, 1039 176 C 1027 176, 1034 176, 1022 186 C 1010 196, 1017 190, 1005 204 C 993 218, 1001 209, 989 226 C 977 243, 983 232, 972 252 C 961 272, 967 262, 957 282 C 947 302, 953 288, 944 308 C 935 328, 942 311, 931 338 C 921 365, 925 356, 914 384 C 904 412, 915 387, 901 418 C 887 450, 893 436, 875 474 C 857 512, 868 495, 849 527 C 830 559, 839 545, 821 566 C 803 587, 812 579, 797 587 C 782 595, 785 594, 777 589 C 769 584, 768 586, 773 572 C 778 558, 776 563, 790 550 C 804 537, 795 543, 812 535 C 830 527, 822 531, 840 527 C 858 523, 847 522, 864 524 C 882 526, 870 527, 890 533 C 910 539, 899 536, 920 540 C 941 544, 929 542, 950 544 C 971 546, 959 545, 981 546 C 1003 547, 992 547, 1013 546 C 1034 545, 1021 545, 1042 542 C 1063 539, 1052 541, 1072 537 C 1092 533, 1078 536, 1100 531 C 1122 526, 1113 529, 1135 524 C 1157 519, 1141 522, 1163 516 C 1185 510, 1171 513, 1197 507 C 1223 501, 1212 503, 1238 500 C 1264 497, 1250 498, 1271 498 C 1292 498, 1281 498, 1297 500 C 1313 502, 1302 499, 1317 505 C 1332 511, 1332 512, 1340 516" />
+            </mask>
+        </defs>
+        
+        <g mask="url(#sig-mask)" fill="currentColor">
+            <g transform="translate(0,941) scale(0.1,-0.1)">
+                <path d="M10357 7720 c-89 -23 -208 -101 -303 -202 -182 -191 -341 -442 -549 -863 -188 -382 -306 -651 -562 -1285 -63 -157 -119 -290 -124 -297 -18 -21 -173 -121 -259 -167 -173 -91 -263 -114 -751 -190 -156 -25 -332 -53 -391 -64 -60 -11 -108 -16 -108 -11 0 4 37 70 83 146 234 389 414 710 541 968 291 589 368 917 268 1137 -77 168 -269 247 -530 218 -547 -60 -1348 -483 -1792 -947 -371 -386 -469 -744 -264 -963 56 -60 138 -103 201 -104 38 -1 49 4 74 32 54 60 29 124 -65 166 -140 62 -161 188 -66 391 72 153 222 331 436 515 467 402 1215 738 1599 717 106 -5 163 -26 204 -73 177 -201 -98 -876 -861 -2110 -99 -160 -99 -160 -211 -183 -409 -83 -952 -237 -1327 -376 -1006 -374 -1827 -945 -2156 -1501 -224 -379 -187 -706 100 -878 124 -74 276 -108 486 -108 217 0 414 43 650 142 742 311 1437 1016 2349 2383 72 108 135 197 139 197 4 0 120 20 257 45 138 25 354 61 480 81 399 61 525 93 690 173 44 22 81 38 82 37 5 -4 -124 -283 -183 -396 -59 -115 -59 -115 -146 -127 -187 -26 -378 -124 -520 -265 -137 -137 -202 -278 -179 -383 25 -111 131 -164 262 -131 184 48 391 230 572 505 62 93 62 93 152 87 50 -3 119 -12 155 -20 627 -140 805 -162 1240 -153 458 9 741 60 1610 287 275 72 417 103 580 129 476 76 884 33 1079 -113 48 -36 94 -35 132 3 55 55 32 130 -56 187 -171 109 -513 176 -815 160 -270 -15 -497 -57 -990 -182 -437 -112 -589 -148 -795 -189 -602 -121 -1060 -124 -1600 -10 -94 20 -233 49 -310 65 -77 17 -152 30 -167 30 -15 0 -29 4 -32 9 -3 5 28 79 70 166 71 150 213 474 228 523 4 12 58 65 121 117 786 654 1594 1865 1595 2391 0 112 -57 226 -132 263 -51 24 -138 34 -191 21z m102 -209 c87 -87 -37 -464 -291 -884 -139 -230 -315 -480 -498 -707 -161 -199 -520 -582 -520 -554 0 18 141 365 247 609 337 772 561 1171 793 1407 129 131 222 176 269 129z m-3579 -3177 c0 -12 -337 -494 -478 -684 -520 -699 -969 -1159 -1406 -1437 -365 -232 -717 -345 -1025 -330 -304 15 -466 130 -479 337 -19 321 422 836 1054 1233 562 353 1201 611 2019 818 258 65 315 76 315 63z m1393 -354 c-63 -107 -244 -280 -340 -325 -68 -33 -97 -33 -88 -2 37 122 189 262 362 333 79 32 88 31 66 -6z"/>
+            </g>
+        </g>
+    </svg>
+    <span class="sr-only">Jul1en</span>
+</span>
+
+        </a>
+
+        <div class="site-header__right">
+            <nav id="primary-navigation" class="site-nav" aria-label="Primary navigation">
+                <ul class="site-nav__list"><li class="site-nav__item">
+                            <a class="site-nav__link is-active" href="/post/" aria-current="page">
+                                Blog
+                            </a>
+                        </li><li class="site-nav__item">
+                            <a class="site-nav__link" href="/search/">
+                                Search
+                            </a>
+                        </li><li class="site-nav__item">
+                            <a class="site-nav__link" href="/music/">
+                                Music
+                            </a>
+                        </li></ul>
+            </nav>
+
+            <div class="site-actions" role="group" aria-label="Social links and theme"><a class="site-action-link" href="https://github.com/Jul1en-Lin" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+                        <span class="site-action-link__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+  <path fill="currentColor" d="M12 2.2c-5.5 0-9.9 4.5-9.9 9.9 0 4.4 2.8 8.1 6.8 9.4.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.2-3.4-1.2-.5-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 0 1.6 1.1 1.6 1.1.9 1.5 2.4 1.1 2.9.8.1-.7.4-1.1.7-1.4-2.2-.3-4.5-1.1-4.5-4.9 0-1.1.4-2 1.1-2.7-.1-.3-.5-1.3.1-2.7 0 0 .9-.3 2.8 1.1.8-.2 1.7-.3 2.5-.3s1.7.1 2.5.3c1.9-1.3 2.8-1.1 2.8-1.1.6 1.4.2 2.4.1 2.7.7.8 1.1 1.7 1.1 2.7 0 3.8-2.3 4.6-4.5 4.9.4.3.7.9.7 1.9V21c0 .3.2.6.7.5 4-1.3 6.8-5 6.8-9.4 0-5.4-4.4-9.9-9.9-9.9Z" />
+</svg>
+</span>
+                    </a><a class="site-action-link" href="https://www.instagram.com/lien_linat" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+                        <span class="site-action-link__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+  <path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M7.5 3.5h9A4 4 0 0 1 20.5 7.5v9a4 4 0 0 1-4 4h-9a4 4 0 0 1-4-4v-9a4 4 0 0 1 4-4Z" />
+  <path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M8.8 12a3.2 3.2 0 1 0 6.4 0 3.2 3.2 0 0 0-6.4 0Z" />
+  <path fill="currentColor" d="M17.2 7.2a.9.9 0 1 1-1.8 0 .9.9 0 0 1 1.8 0Z" />
+</svg>
+</span>
+                    </a><button id="dark-mode-toggle" class="theme-toggle" type="button" aria-label="切换配色" title="切换配色">
+                    <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="4.2" />
+    <path d="M12 2.8v2.2M12 19v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.8 12h2.2M19 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" />
+</svg>
+</span>
+                    <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M19.7 14.6c-1.3 2.9-4.6 4.8-8.1 4.2-4.3-.7-7.2-4.8-6.5-9.1.5-3.2 2.8-5.7 5.7-6.5-.9 2.1-.5 4.7 1.2 6.6 1.9 2.2 4.9 3 7.7 2.2-.1.9-.1 1.7 0 2.6z" />
+</svg>
+</span>
+                </button></div>
+
+            <button class="site-menu-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false">
+                <span class="site-menu-toggle__bar" aria-hidden="true"></span>
+                <span class="site-menu-toggle__bar" aria-hidden="true"></span>
+                <span class="site-menu-toggle__bar" aria-hidden="true"></span>
+                <span class="sr-only">Menu</span>
+            </button>
+        </div>
+    </div>
+</header>
+<main id="main-content" class="main main-content full-width" tabindex="-1"><article class="article-detail">
+    <aside class="article-detail__toc-rail" aria-label="文章目录" data-article-toc>
+    <button class="article-detail__toc-toggle" type="button" aria-label="显示文章目录" aria-controls="TableOfContents" aria-expanded="false" data-article-toc-toggle>
+        <span class="article-detail__toc-toggle-line" aria-hidden="true"></span>
+        <span class="article-detail__toc-toggle-line" aria-hidden="true"></span>
+        <span class="article-detail__toc-toggle-line" aria-hidden="true"></span>
+    </button>
+
+    <div class="article-detail__toc-panel" data-article-toc-panel aria-hidden="true">
+        <div class="article-detail__toc-nav" data-article-toc-nav>
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#java-脚手架封装通用工具类-1">【Java 脚手架】封装通用工具类-1</a>
+      <ol>
+        <li><a href="#util-类">Util 类</a></li>
+        <li><a href="#json">Json</a>
+          <ol>
+            <li><a href="#泛型擦除">泛型擦除</a></li>
+            <li><a href="#javatype">JavaType</a></li>
+            <li><a href="#嵌套泛型">嵌套泛型</a></li>
+          </ol>
+        </li>
+        <li><a href="#bean-拷贝">Bean 拷贝</a>
+          <ol>
+            <li><a href="#深拷贝与浅拷贝">深拷贝与浅拷贝</a></li>
+            <li><a href="#深拷贝工具封装">深拷贝工具封装</a></li>
+          </ol>
+        </li>
+        <li><a href="#字符串">字符串</a>
+          <ol>
+            <li><a href="#pattern">Pattern</a></li>
+            <li><a href="#antpathmatcher">AntPathMatcher</a></li>
+            <li><a href="#规则怎么选">规则怎么选</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </div>
+</aside>
+
+    <div class="article-detail__layout">
+        <div class="article-detail__main">
+            <header class="article-detail__header">
+                <div class="article-detail__meta"><time datetime="2026-08-03T22:00:14&#43;08:00">2026-08-03</time><span aria-hidden="true">•</span>
+                        <a href="/categories/java/">Java</a></div>
+
+                <h1 class="article-detail__title">
+                    <span>【Java 脚手架】封装通用工具类-1</span>
+                    <span class="article-detail__title-note" aria-hidden="true">♪</span>
+                </h1>
+            </header>
+
+            <section class="article-content article-detail__content">
+                
+<p>这次先整理 Java 脚手架里比较常用的三类工具：Json、Bean 拷贝和字符串。它们看起来都是一些小方法，但真正写进脚手架之后，还是会遇到泛型擦除、对象创建、引用类型共享和路径规则选择这些具体问题。</p>
+<h2 id="util-类">
+    Util 类
+</h2>
+<p>Util 是工具类，只提供 <code>static</code> 方法，不需要创建对象。如果不手动写构造方法，Java 会自动生成一个无参构造方法，外部就可以创建没有实际用途的对象。所以一般会给每个 util 类加一个<mark class="hltr-green-light">私有构造方法</mark>，禁止从外部创建实例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">private</span><span class="w"> </span><span class="nf">JsonUtil</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="json">
+    Json
+</h2>
+<p>底层用的是 Jackson 的 <code>ObjectMapper</code>，这里封装了一个通用的 <code>JsonUtil</code>。序列化比较直接，<code>writeValueAsString</code> 可以把对象变成 JSON 字符串。但反序列化时会碰到 Java 泛型擦除的问题，这里按实际使用场景往下看。</p>
+<h3 id="泛型擦除">
+    泛型擦除
+</h3>
+<p>最基本的反序列化方法 <code>string2Obj(String, Class&lt;T&gt;)</code> 只能处理单层对象。比如传入 <code>User.class</code>，Jackson 知道目标类型是 <code>User</code>，没有歧义。</p>
+<p>但如果想反序列化成 <code>List&lt;User&gt;</code> 或者 <code>Map&lt;String, User&gt;</code>，就没有办法直接写出 <code>List&lt;User&gt;.class</code>。因为 JVM 在运行时已经擦除了泛型参数，传给 Jackson 的只有 <code>List.class</code>。Jackson 只知道目标是一个 <code>List</code>，并不知道里面的元素是什么类型，最后只能按默认策略映射成 <code>LinkedHashMap</code>，得到的实际对象就是 <code>List&lt;LinkedHashMap&gt;</code>，而不是 <code>List&lt;User&gt;</code>。</p>
+<p>Java 的泛型主要用于编译期的类型检查，到了运行期，<code>List&lt;User&gt;</code> 和 <code>List&lt;String&gt;</code> 对 JVM 来说都只是 <code>List</code>，其中的泛型参数已经不在普通变量的类型信息里了。日常业务代码通常不会直接感受到这个限制，因为编译器已经提前检查过类型；但在反序列化时，Jackson 必须在运行时知道完整的目标类型，泛型擦除就会变成一个实际问题。</p>
+<h3 id="javatype">
+    JavaType
+</h3>
+<p>对于 <code>List&lt;T&gt;</code> 和 <code>Map&lt;String, T&gt;</code> 这种结构固定、泛型只有一层的场景，可以通过 Jackson 的 <code>TypeFactory</code> 手动生成一个带泛型信息的 <code>JavaType</code>。</p>
+<p><code>string2List</code> 通过 <code>constructParametricType</code> 告诉 Jackson：“我要的是一个 <code>List</code>，里面的元素类型是 <code>clazz</code>”：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">string2List</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="n">Class</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">clazz</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">StringUtils</span><span class="p">.</span><span class="na">hasLength</span><span class="p">(</span><span class="n">str</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">clazz</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">JavaType</span><span class="w"> </span><span class="n">javaType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OBJECT_MAPPER</span><span class="p">.</span><span class="na">getTypeFactory</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">constructParametricType</span><span class="p">(</span><span class="n">List</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">clazz</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">OBJECT_MAPPER</span><span class="p">.</span><span class="na">readValue</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="n">javaType</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">JsonProcessingException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">log</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&#34;JSON字符串转换为对象列表时发生异常&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>这个方法在运行时把被擦除的元素类型补了回来，构造出一个等价于 <code>List&lt;User&gt;</code> 的完整类型描述。</p>
+<p>反序列化 <code>Map</code> 的思路一样，只需要换成 <code>constructMapType</code>，同时指定 key 和 value 的类型：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">string2Map</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="n">Class</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">clazz</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">StringUtils</span><span class="p">.</span><span class="na">hasLength</span><span class="p">(</span><span class="n">str</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">clazz</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">JavaType</span><span class="w"> </span><span class="n">javaType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OBJECT_MAPPER</span><span class="p">.</span><span class="na">getTypeFactory</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">constructMapType</span><span class="p">(</span><span class="n">LinkedHashMap</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">clazz</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">OBJECT_MAPPER</span><span class="p">.</span><span class="na">readValue</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="n">javaType</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">JsonProcessingException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">log</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&#34;JSON字符串转换为对象 Map 时发生异常&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>这里使用 <code>LinkedHashMap</code>，是为了保留解析结果的迭代顺序。它不代表 JSON 对象本身有业务上的顺序；如果后续只关心 key-value 关系，<code>HashMap</code> 也可以使用。</p>
+<h3 id="嵌套泛型">
+    嵌套泛型
+</h3>
+<p>如果泛型是嵌套的，比如 <code>Map&lt;String, List&lt;User&gt;&gt;</code>，继续用 <code>constructParametricType</code> 一层一层手动拼接就会变得繁琐，方法签名也很难表达任意嵌套深度的泛型。</p>
+<p>Jackson 提供了 <code>TypeReference&lt;T&gt;</code> 来处理这个问题。它利用了泛型擦除的一个例外：普通变量的泛型信息会被擦除，但类定义上的泛型信息会保留在字节码中。当写下 <code>new TypeReference&lt;Map&lt;String, List&lt;User&gt;&gt;&gt;() {}</code> 时，实际创建的是一个继承 <code>TypeReference</code> 的匿名内部类，完整的 <code>Map&lt;String, List&lt;User&gt;&gt;</code> 会记录在这个匿名类的类型元数据中。Jackson 再通过反射读取这段信息，就能拿到完整的嵌套泛型。</p>
+<p>所以可以再封装一个接收 <code>TypeReference</code> 的同名 <code>string2Obj</code> 方法：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">string2Obj</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="n">TypeReference</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">typeRef</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">StringUtils</span><span class="p">.</span><span class="na">hasLength</span><span class="p">(</span><span class="n">str</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">typeRef</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">OBJECT_MAPPER</span><span class="p">.</span><span class="na">readValue</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="n">typeRef</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">JsonProcessingException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">log</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&#34;JSON字符串转换为对象时发生异常&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>调用时，直接在调用处传入完整的泛型信息。比如这里的 JSON 中有 <code>developers</code> 和 <code>designers</code> 两组用户列表：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">String</span><span class="w"> </span><span class="n">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;{\&#34;developers\&#34;:[{\&#34;name\&#34;:\&#34;Julien\&#34;,\&#34;age\&#34;:18}],&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;\&#34;designers\&#34;:[{\&#34;name\&#34;:\&#34;Luna\&#34;,\&#34;age\&#34;:20}]}&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonUtil</span><span class="p">.</span><span class="na">string2Obj</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">json</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TypeReference</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;&gt;&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">{});</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">assertEquals</span><span class="p">(</span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">User</span><span class="p">(</span><span class="s">&#34;Julien&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">18</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">)),</span><span class="w"> </span><span class="n">users</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&#34;developers&#34;</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">assertEquals</span><span class="p">(</span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">User</span><span class="p">(</span><span class="s">&#34;Luna&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">20</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">)),</span><span class="w"> </span><span class="n">users</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&#34;designers&#34;</span><span class="p">));</span><span class="w">
+</span></span></span></code></pre></div><p>到这里，<code>JavaType</code> 和 <code>TypeReference</code> 的分工就比较清楚了：前者适合固定的一层泛型结构，后者适合把任意嵌套的完整类型树带到运行时。它们解决的都是同一个问题：泛型擦除让运行时丢了类型信息，那就需要主动把类型信息补回来。</p>
+<h2 id="bean-拷贝">
+    Bean 拷贝
+</h2>
+<p>从数据库查询出来的对象，和接口最终要返回的对象，通常不是同一个类。比如查询结果是 <code>User</code>，接口返回的是 <code>UserVO</code>，这两个类可能有大部分同名字段。如果每个字段都手动调用 <code>set</code>，代码会比较重复，所以可以封装一个批量拷贝方法。</p>
+<p>但是对不同对象进行拷贝时，还会遇到一个问题：方法只知道目标类型是泛型 <code>T</code>，Java 却不能直接通过泛型创建对象。方法需要调用方把“如何创建目标对象”传进来，这里就用到了 <code>Supplier&lt;T&gt;</code>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="o">&lt;</span><span class="n">S</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">copyListProperties</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">S</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sources</span><span class="p">,</span><span class="w"> </span><span class="n">Supplier</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">targetSupplier</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">sources</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">sources</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">targets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">sources</span><span class="p">.</span><span class="na">size</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">S</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">sources</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">T</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">targetSupplier</span><span class="p">.</span><span class="na">get</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">BeanUtils</span><span class="p">.</span><span class="na">copyProperties</span><span class="p">(</span><span class="n">source</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">targets</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">target</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">targets</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p><code>Supplier&lt;T&gt;</code> 是 Java 提供的函数式接口，不接收参数，只通过 <code>get()</code> 返回一个 <code>T</code> 类型对象。调用时可以把目标类的构造方法传进去：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">UserVO</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">copyListProperties</span><span class="p">(</span><span class="n">users</span><span class="p">,</span><span class="w"> </span><span class="n">UserVO</span><span class="p">::</span><span class="k">new</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>这里的 <code>UserVO::new</code> 是构造方法引用，等价于：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UserVO</span><span class="p">()</span><span class="w">
+</span></span></span></code></pre></div><p>也可以直接写成 Lambda：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">UserVO</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">copyListProperties</span><span class="p">(</span><span class="n">users</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UserVO</span><span class="p">());</span><span class="w">
+</span></span></span></code></pre></div><p>编译器会根据参数推断出 <code>S</code> 和 <code>T</code>。传入 <code>List&lt;User&gt;</code> 和 <code>UserVO::new</code> 后，就完成了从 <code>User</code> 到 <code>UserVO</code> 的批量拷贝。</p>
+<p>这里需要注意，<code>Supplier</code> 每次调用 <code>get()</code> 都应该返回一个新对象，否则多个源对象可能会被拷贝到同一个目标对象中。当前脚手架对 <code>null</code> 或空列表返回 <code>null</code>，调用方需要按这个约定处理。另一个注意点是，<code>BeanUtils.copyProperties</code> 主要适合拷贝同名、类型兼容的属性，嵌套对象通常不会自动进行深层拷贝。</p>
+<h3 id="深拷贝与浅拷贝">
+    深拷贝与浅拷贝
+</h3>
+<p>在 Java 中，对象拷贝常被分为深拷贝和浅拷贝，它们的区别主要在于<mark class="hltr-green-light">如何处理引用类型字段</mark>。</p>
+<p><strong>浅拷贝</strong>只复制对象本身和基本类型字段。对于引用类型字段，它复制的是引用地址，不会复制引用指向的对象，所以原对象和拷贝对象会共享同一个引用实例。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Address</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">city</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// getter/setter</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">User</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">age</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Address</span><span class="w"> </span><span class="n">address</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// getter/setter</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">User</span><span class="w"> </span><span class="n">original</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">User</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">original</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="s">&#34;Julien&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">original</span><span class="p">.</span><span class="na">setAge</span><span class="p">(</span><span class="n">18</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">original</span><span class="p">.</span><span class="na">setAddress</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Address</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">original</span><span class="p">.</span><span class="na">getAddress</span><span class="p">().</span><span class="na">setCity</span><span class="p">(</span><span class="s">&#34;Guangzhou&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">User</span><span class="w"> </span><span class="n">shallowCopy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">User</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">BeanUtils</span><span class="p">.</span><span class="na">copyProperties</span><span class="p">(</span><span class="n">original</span><span class="p">,</span><span class="w"> </span><span class="n">shallowCopy</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">shallowCopy</span><span class="p">.</span><span class="na">getAddress</span><span class="p">().</span><span class="na">setCity</span><span class="p">(</span><span class="s">&#34;Shenzhen&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">original</span><span class="p">.</span><span class="na">getAddress</span><span class="p">().</span><span class="na">getCity</span><span class="p">());</span><span class="w"> </span><span class="c1">// Shenzhen</span><span class="w">
+</span></span></span></code></pre></div><p>常见的浅拷贝方式包括 Spring 的 <code>BeanUtils.copyProperties()</code>、Apache Commons 的 <code>BeanUtils.copyProperties()</code>，以及实现 <code>Cloneable</code> 后使用 <code>Object.clone()</code>。</p>
+<p><strong>深拷贝</strong>会递归复制对象的各层引用字段，创建出互相独立的对象。修改拷贝对象里的 <code>Address</code> 时，原对象里的 <code>Address</code> 不会跟着变化：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">User</span><span class="w"> </span><span class="n">original</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">User</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">original</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="s">&#34;Julien&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">original</span><span class="p">.</span><span class="na">setAge</span><span class="p">(</span><span class="n">18</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">original</span><span class="p">.</span><span class="na">setAddress</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Address</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">original</span><span class="p">.</span><span class="na">getAddress</span><span class="p">().</span><span class="na">setCity</span><span class="p">(</span><span class="s">&#34;Guangzhou&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">User</span><span class="w"> </span><span class="n">deepCopy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">User</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">deepCopy</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="n">original</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">deepCopy</span><span class="p">.</span><span class="na">setAge</span><span class="p">(</span><span class="n">original</span><span class="p">.</span><span class="na">getAge</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">Address</span><span class="w"> </span><span class="n">newAddress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Address</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">newAddress</span><span class="p">.</span><span class="na">setCity</span><span class="p">(</span><span class="n">original</span><span class="p">.</span><span class="na">getAddress</span><span class="p">().</span><span class="na">getCity</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">deepCopy</span><span class="p">.</span><span class="na">setAddress</span><span class="p">(</span><span class="n">newAddress</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">deepCopy</span><span class="p">.</span><span class="na">getAddress</span><span class="p">().</span><span class="na">setCity</span><span class="p">(</span><span class="s">&#34;Shenzhen&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">original</span><span class="p">.</span><span class="na">getAddress</span><span class="p">().</span><span class="na">getCity</span><span class="p">());</span><span class="w"> </span><span class="c1">// Guangzhou</span><span class="w">
+</span></span></span></code></pre></div><p>常见的深拷贝实现方式有手动拷贝、Java 序列化、JSON 序列化和第三方库。手动拷贝适合层级简单的对象；JSON 序列化的写法比较通用，但会产生额外的性能开销。</p>
+<h3 id="深拷贝工具封装">
+    深拷贝工具封装
+</h3>
+<p>在脚手架中，可以基于已有的 <code>JsonUtil</code> 封装一组基于 JSON 的深拷贝方法。对象经过 JSON 序列化和反序列化后，会重新生成引用字段；对于能被正确映射的字段，可以得到彼此隔离的副本：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * 深拷贝单个对象
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">deepCopy</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">source</span><span class="p">,</span><span class="w"> </span><span class="n">Class</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">clazz</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">source</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonUtil</span><span class="p">.</span><span class="na">Obj2string</span><span class="p">(</span><span class="n">source</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">string2Obj</span><span class="p">(</span><span class="n">json</span><span class="p">,</span><span class="w"> </span><span class="n">clazz</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * 深拷贝列表
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">deepCopyList</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sources</span><span class="p">,</span><span class="w"> </span><span class="n">Class</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">clazz</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">sources</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">sources</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonUtil</span><span class="p">.</span><span class="na">Obj2string</span><span class="p">(</span><span class="n">sources</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">string2List</span><span class="p">(</span><span class="n">json</span><span class="p">,</span><span class="w"> </span><span class="n">clazz</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>这种方式实现简单，适合一般业务场景，但不适合高频调用。对象中如果包含 <code>transient</code>、<code>Thread</code>、<code>OutputStream</code> 等不适合进入 JSON 的字段，这些字段的值也可能在转换后丢失。</p>
+<p>所以在脚手架项目里可以按场景选择：实体类转 VO 通常只需要拷贝同名的简单字段，浅拷贝就够了；从缓存取出对象后需要修改、对象会被多个消费者分别修改，或者测试需要反复使用同一个初始对象时，再考虑深拷贝。</p>
+<p>性能方面，浅拷贝开销很小，深拷贝的成本取决于对象复杂度和实现方式。对于高频转换场景，可以考虑 MapStruct 这类编译期生成代码的工具，或者手动实现拷贝逻辑。日常开发中，<mark class="hltr-pink">默认用浅拷贝就够了，只有明确需要隔离引用类型字段时才考虑深拷贝</mark>。</p>
+<h2 id="字符串">
+    字符串
+</h2>
+<p>这次在脚手架里补了一个 <code>StringUtil</code>，需求是判断 URL 是否符合某条规则，以及判断它是否符合规则列表中的任意一条。刚开始可以想到 JDK 自带的 <code>Pattern</code>，但如果规则主要长这样：<code>/api/users/*</code>、<code>/api/**</code>，它更像路径匹配，不太适合直接写成正则，所以这里改用 Spring 的 <code>AntPathMatcher</code>。</p>
+<h3 id="pattern">
+    Pattern
+</h3>
+<p><code>Pattern</code> 属于 JDK，规则是完整的正则表达式，适合数字、参数格式和复杂文本等场景：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Pattern</span><span class="p">.</span><span class="na">matches</span><span class="p">(</span><span class="s">&#34;^/api/users/\\d+$&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;/api/users/123&#34;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>这里的 <code>\\d+</code> 表示一个或多个数字，<code>^</code> 和 <code>$</code> 让规则从字符串开头匹配到结尾。<code>Pattern.matches()</code> 使用的是整段匹配；如果需要在一段文本中寻找局部内容，则要使用 <code>Matcher.find()</code>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Pattern</span><span class="w"> </span><span class="n">pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Pattern</span><span class="p">.</span><span class="na">compile</span><span class="p">(</span><span class="s">&#34;/api/users/\\d+&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">Matcher</span><span class="w"> </span><span class="n">matcher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pattern</span><span class="p">.</span><span class="na">matcher</span><span class="p">(</span><span class="s">&#34;request: /api/users/123&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">matcher</span><span class="p">.</span><span class="na">find</span><span class="p">();</span><span class="w">    </span><span class="c1">// true，找到局部内容</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">matcher</span><span class="p">.</span><span class="na">matches</span><span class="p">();</span><span class="w"> </span><span class="c1">// false，整段字符串没有完全符合规则</span><span class="w">
+</span></span></span></code></pre></div><p>使用 <code>Pattern</code> 时要注意，Java 字符串本身还会处理一次转义，所以正则里的 <code>\d</code> 在 Java 字符串中通常要写成 <code>&quot;\\d&quot;</code>。</p>
+<h3 id="antpathmatcher">
+    AntPathMatcher
+</h3>
+<p><code>AntPathMatcher</code> 属于 Spring，参数顺序是“规则在前，实际路径在后”：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">AntPathMatcher</span><span class="w"> </span><span class="n">matcher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AntPathMatcher</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">matcher</span><span class="p">.</span><span class="na">match</span><span class="p">(</span><span class="s">&#34;/api/users/*&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;/api/users/123&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">matcher</span><span class="p">.</span><span class="na">match</span><span class="p">(</span><span class="s">&#34;/api/**&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;/api/users/123/detail&#34;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>它的规则主要看路径层级：</p>
+<ul>
+<li><code>?</code>：匹配一个字符。</li>
+<li><code>*</code>：匹配当前路径层级中的任意字符，不跨 <code>/</code>。</li>
+<li><code>**</code>：匹配零层或多层路径，可以跨 <code>/</code>。</li>
+</ul>
+<p>所以 <code>/api/users/*</code> 可以匹配 <code>/api/users/123</code>，但不能匹配 <code>/api/users/123/detail</code>；<code>/api/**</code> 则可以匹配后面多级路径。相比正则，Ant 规则更适合网关白名单、接口路径排除规则和 URL 路径权限判断，规则本身也更容易读。</p>
+<h3 id="规则怎么选">
+    规则怎么选
+</h3>
+<p><code>AntPathMatcher</code> 匹配的是路径规则，不负责判断字符串是不是合法 URL。如果还需要校验协议、域名和端口，应该先用 <code>URI</code> 解析，再取出 <code>getPath()</code> 进行匹配。直接拿完整 URL 匹配也能工作，但查询参数会成为待匹配字符串的一部分，规则设计时要把这个情况考虑进去。</p>
+<p><code>Pattern</code> 和 <code>AntPathMatcher</code> 的规则不能混用。<code>/api/**</code> 是 Ant 规则，不是合法的正则；<code>^/api/\\d+$</code> 是正则，也不能按 Ant 规则理解。项目里选定一种规则后，配置文件、测试用例和工具方法都需要保持一致。</p>
+<p>如果规则列表比较长，可以考虑提前编译或缓存规则；当前脚手架的规则数量不大，使用 <code>List</code> 的 <code>foreach</code> 逐条判断已经够用，也能保持和单条 URL 匹配方法一致。</p>
+
+            </section>
+
+            <footer class="article-detail__footer">
+                <div class="article-closing" aria-label="Article closing">
+    <ul class="article-closing__links">
+        <li>
+            <span class="article-closing__chevron" aria-hidden="true">›</span>
+            <span>written by <span class="article-closing__author">@Jul1en</span></span>
+        </li>
+        <li>
+            <span class="article-closing__chevron" aria-hidden="true">›</span>
+            <a href="/post/">cd ..</a>
+        </li>
+    </ul>
+
+</div>
+
+            </footer>
+        </div>
+    </div>
+</article>
+
+    </main><button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M6 14.5 12 8l6 6.5"></path>
+    </svg>
+</button>
+<div id="route-transition-mask" class="route-transition-mask" aria-hidden="true">
+    <span class="route-transition-mask__texture" aria-hidden="true"></span>
+    <span class="route-transition__loading" aria-hidden="true">LOADING...</span>
+</div>
+</body>
+
+</html>
