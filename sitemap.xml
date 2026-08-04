@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://Jul1en-Lin.github.io/tags/agent/</loc>
+    <lastmod>2026-08-05T00:04:17+08:00</lastmod>
+  </url><url>
+    <loc>https://Jul1en-Lin.github.io/categories/ai/</loc>
+    <lastmod>2026-08-05T00:04:17+08:00</lastmod>
+  </url><url>
+    <loc>https://Jul1en-Lin.github.io/tags/ai/</loc>
+    <lastmod>2026-08-05T00:04:17+08:00</lastmod>
+  </url><url>
+    <loc>https://Jul1en-Lin.github.io/tags/harness/</loc>
+    <lastmod>2026-08-05T00:04:17+08:00</lastmod>
+  </url><url>
+    <loc>https://Jul1en-Lin.github.io/tags/llm/</loc>
+    <lastmod>2026-08-05T00:04:17+08:00</lastmod>
+  </url><url>
+    <loc>https://Jul1en-Lin.github.io/p/llm-harness/</loc>
+    <lastmod>2026-08-05T00:04:17+08:00</lastmod>
+  </url><url>
+    <loc>https://Jul1en-Lin.github.io/tags/</loc>
+    <lastmod>2026-08-05T00:04:17+08:00</lastmod>
+  </url><url>
     <loc>https://Jul1en-Lin.github.io/p/java-%E8%84%9A%E6%89%8B%E6%9E%B6-%E5%B0%81%E8%A3%85%E9%80%9A%E7%94%A8%E5%B7%A5%E5%85%B7%E7%B1%BB-1/</loc>
     <lastmod>2026-08-03T22:09:16+08:00</lastmod>
   </url><url>
@@ -20,17 +41,8 @@
     <loc>https://Jul1en-Lin.github.io/tags/java-%E8%84%9A%E6%89%8B%E6%9E%B6/</loc>
     <lastmod>2026-08-03T22:09:16+08:00</lastmod>
   </url><url>
-    <loc>https://Jul1en-Lin.github.io/tags/</loc>
-    <lastmod>2026-08-03T22:09:16+08:00</lastmod>
-  </url><url>
     <loc>https://Jul1en-Lin.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/</loc>
     <lastmod>2026-08-03T22:09:16+08:00</lastmod>
-  </url><url>
-    <loc>https://Jul1en-Lin.github.io/categories/ai/</loc>
-    <lastmod>2026-08-02T20:57:00+08:00</lastmod>
-  </url><url>
-    <loc>https://Jul1en-Lin.github.io/tags/ai/</loc>
-    <lastmod>2026-08-02T20:57:00+08:00</lastmod>
   </url><url>
     <loc>https://Jul1en-Lin.github.io/tags/claude/</loc>
     <lastmod>2026-08-02T20:57:00+08:00</lastmod>
@@ -42,7 +54,7 @@
     <lastmod>2026-08-02T20:57:00+08:00</lastmod>
   </url><url>
     <loc>https://Jul1en-Lin.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/</loc>
-    <lastmod>2026-08-02T20:57:00+08:00</lastmod>
+    <lastmod>2026-08-05T00:04:17+08:00</lastmod>
   </url><url>
     <loc>https://Jul1en-Lin.github.io/tags/anthropic/</loc>
     <lastmod>2026-07-05T00:49:48+08:00</lastmod>
@@ -54,7 +66,13 @@
     <lastmod>2026-07-05T00:49:48+08:00</lastmod>
   </url><url>
     <loc>https://Jul1en-Lin.github.io/tags/codex/</loc>
-    <lastmod>2026-06-24T22:16:53+08:00</lastmod>
+    <lastmod>2026-08-05T00:04:17+08:00</lastmod>
+  </url><url>
+    <loc>https://Jul1en-Lin.github.io/p/codex-%E9%99%8D%E6%99%BA%E5%8E%9F%E5%9B%A0%E4%B8%8E-system-prompt-%E4%BF%AE%E5%A4%8D%E6%8C%87%E5%8D%97/</loc>
+    <lastmod>2026-08-05T00:04:17+08:00</lastmod>
+  </url><url>
+    <loc>https://Jul1en-Lin.github.io/tags/system-prompt/</loc>
+    <lastmod>2026-08-05T00:04:17+08:00</lastmod>
   </url><url>
     <loc>https://Jul1en-Lin.github.io/p/codex-%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%9B%B4%E6%96%B0-v3/</loc>
     <lastmod>2026-06-24T22:16:53+08:00</lastmod>

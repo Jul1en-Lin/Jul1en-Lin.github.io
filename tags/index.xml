@@ -7,8 +7,36 @@
     <generator>Hugo</generator>
     <language>zh-CN</language>
     <copyright>Jul1en</copyright>
-    <lastBuildDate>Mon, 03 Aug 2026 22:09:16 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 05 Aug 2026 00:04:17 +0800</lastBuildDate>
     <atom:link href="https://Jul1en-Lin.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agent</title>
+      <link>https://Jul1en-Lin.github.io/tags/agent/</link>
+      <pubDate>Tue, 04 Aug 2026 23:58:53 +0800</pubDate>
+      <guid>https://Jul1en-Lin.github.io/tags/agent/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AI</title>
+      <link>https://Jul1en-Lin.github.io/tags/ai/</link>
+      <pubDate>Tue, 04 Aug 2026 23:58:53 +0800</pubDate>
+      <guid>https://Jul1en-Lin.github.io/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Harness</title>
+      <link>https://Jul1en-Lin.github.io/tags/harness/</link>
+      <pubDate>Tue, 04 Aug 2026 23:58:53 +0800</pubDate>
+      <guid>https://Jul1en-Lin.github.io/tags/harness/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>LLM</title>
+      <link>https://Jul1en-Lin.github.io/tags/llm/</link>
+      <pubDate>Tue, 04 Aug 2026 23:58:53 +0800</pubDate>
+      <guid>https://Jul1en-Lin.github.io/tags/llm/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Bean 拷贝</title>
       <link>https://Jul1en-Lin.github.io/tags/bean-%E6%8B%B7%E8%B4%9D/</link>
@@ -42,13 +70,6 @@
       <link>https://Jul1en-Lin.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
       <pubDate>Mon, 03 Aug 2026 22:00:14 +0800</pubDate>
       <guid>https://Jul1en-Lin.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>AI</title>
-      <link>https://Jul1en-Lin.github.io/tags/ai/</link>
-      <pubDate>Sun, 02 Aug 2026 20:48:48 +0800</pubDate>
-      <guid>https://Jul1en-Lin.github.io/tags/ai/</guid>
       <description></description>
     </item>
     <item>
@@ -89,8 +110,15 @@
     <item>
       <title>Codex</title>
       <link>https://Jul1en-Lin.github.io/tags/codex/</link>
-      <pubDate>Wed, 24 Jun 2026 21:49:31 +0800</pubDate>
+      <pubDate>Fri, 03 Jul 2026 00:00:00 +0800</pubDate>
       <guid>https://Jul1en-Lin.github.io/tags/codex/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>System Prompt</title>
+      <link>https://Jul1en-Lin.github.io/tags/system-prompt/</link>
+      <pubDate>Fri, 03 Jul 2026 00:00:00 +0800</pubDate>
+      <guid>https://Jul1en-Lin.github.io/tags/system-prompt/</guid>
       <description></description>
     </item>
     <item>
