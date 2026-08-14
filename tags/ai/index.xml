@@ -7,70 +7,56 @@
     <generator>Hugo</generator>
     <language>zh-CN</language>
     <copyright>Jul1en</copyright>
-    <lastBuildDate>Thu, 06 Aug 2026 20:26:19 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 07 Aug 2026 01:22:34 +0800</lastBuildDate>
     <atom:link href="https://Jul1en-Lin.github.io/tags/ai/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>从 Superpowers 迁移到 Matt Pocock 工作流：一次缓慢的换挡</title>
-      <link>https://Jul1en-Lin.github.io/p/%E4%BB%8E-superpowers-%E8%BF%81%E7%A7%BB%E5%88%B0-matt-pocock-%E5%B7%A5%E4%BD%9C%E6%B5%81/</link>
+      <title>从 superpower 到 Matt Pocock</title>
+      <link>https://Jul1en-Lin.github.io/p/%E4%BB%8E-superpower-%E5%88%B0-matt-pocock/</link>
       <pubDate>Thu, 06 Aug 2026 20:25:41 +0800</pubDate>
-      <guid>https://Jul1en-Lin.github.io/p/%E4%BB%8E-superpowers-%E8%BF%81%E7%A7%BB%E5%88%B0-matt-pocock-%E5%B7%A5%E4%BD%9C%E6%B5%81/</guid>
-      <description>&lt;h1 id=&#34;从-superpowers-迁移到-matt-pocock-工作流一次缓慢的换挡&#34;&gt;
-    从 Superpowers 迁移到 Matt Pocock 工作流：一次缓慢的换挡
+      <guid>https://Jul1en-Lin.github.io/p/%E4%BB%8E-superpower-%E5%88%B0-matt-pocock/</guid>
+      <description>&lt;h1 id=&#34;从-superpower-到-matt-pocock&#34;&gt;
+    从 superpower 到 Matt Pocock
 &lt;/h1&gt;
-&lt;p&gt;四个月前我把 Superpowers v6.1.1 装进了 Codex。它是一个完整软件开发流程的 skill 套装：brainstorming 问清需求，writing-plans 拆解计划，systematic-debugging 处理异常，verification-before-completion 收尾。每一段对话的开头还要先过一遍「是否有适用的 skill」，哪怕只是问一个概念。&lt;/p&gt;
-&lt;p&gt;这套约束在某些时候很有价值。但用久了之后，我开始感觉每次打开对话都像要先穿上一整套盔甲。&lt;/p&gt;
-&lt;h2 id=&#34;让人不舒服的地方&#34;&gt;
-    让人不舒服的地方
+&lt;p&gt;这次调整的起点很简单：Superpowers 的方法很好，但 &lt;code&gt;using-superpowers&lt;/code&gt; 把它放在了所有对话的第一步，特别是在 claude code 中，开始任何对话都要加载这个 skill，即使我是问他一个非常简单的问题&amp;hellip;&lt;/p&gt;
+&lt;h2 id=&#34;superpower&#34;&gt;
+    Superpower
 &lt;/h2&gt;
-&lt;p&gt;Superpowers 的核心是 &lt;code&gt;using-superpowers&lt;/code&gt;，一个全局入口 skill。它的设计意图很直接：只要有 1% 可能存在适用的 skill，就必须先调用它；任何回复或操作之前都要检查。&lt;/p&gt;
-&lt;p&gt;这是设计，不是 bug。但它有一个默认前提：每件事都值得先进入这条流程。&lt;/p&gt;
-&lt;p&gt;现实是，我每天的对话里有很多这样的时刻：&lt;/p&gt;
+&lt;p&gt;Superpowers  非常严谨，真的是从构思到上线，都给你安排好了一套完整的开发流程：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;需求或想法
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  -&amp;gt; brainstorming
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  -&amp;gt; writing-plans
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  -&amp;gt; 实现、测试、审查
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  -&amp;gt; verification-before-completion
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  -&amp;gt; finishing-a-development-branch
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;其中 &lt;code&gt;brainstorming&lt;/code&gt; 会先问清目标、约束和方案，再把设计写入文档，得到确认后才进入 &lt;code&gt;writing-plans&lt;/code&gt;。后面还有 TDD、系统化排障、代码审查、worktree、并行 Agent 等专门步骤。&lt;/p&gt;
+&lt;p&gt;这种顺序适合需求还模糊、改动较大、需要留下设计依据的任务。它的价值是把常见遗漏提前变成检查点：先理解现状，再决定方案；先验证问题，再改代码；在宣称完成前给出证据。&lt;/p&gt;
+&lt;p&gt;但日常使用里，就显得非常繁琐了 :(&lt;/p&gt;
+&lt;h2 id=&#34;matt-pocock-介绍&#34;&gt;
+    Matt Pocock 介绍
+&lt;/h2&gt;
+&lt;p&gt;Matt Pocock 的 skills 走另一条路：不设对话开始时的总入口，直接把 skill 分成两类。&lt;/p&gt;
+&lt;p&gt;一类是主动调用的 slash command 命令，例如 &lt;code&gt;grill-me&lt;/code&gt;、&lt;code&gt;to-spec&lt;/code&gt;、&lt;code&gt;to-tickets&lt;/code&gt;、&lt;code&gt;implement&lt;/code&gt;、&lt;code&gt;handoff&lt;/code&gt;、&lt;code&gt;writing-great-skills&lt;/code&gt;。它们通常对应一段明确的协作动作：把一个想法问透、把想法写成规格、拆成任务、开始实现、交接上下文。&lt;/p&gt;
+&lt;p&gt;其他的技能例如 &lt;code&gt;diagnosing-bugs&lt;/code&gt;、&lt;code&gt;tdd&lt;/code&gt;、&lt;code&gt;prototype&lt;/code&gt;、&lt;code&gt;research&lt;/code&gt;、&lt;code&gt;code-review&lt;/code&gt;、&lt;code&gt;resolving-merge-conflicts&lt;/code&gt;，只在合适的时候在 Matt 工作流中被调用，平时开发只需要注重主动调用的 slash command 即可&lt;/p&gt;
+&lt;p&gt;在 Claude Code 里，可以用下面的形式手动调用：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/mattpocock-skills:grill-me &amp;lt;你的想法&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/mattpocock-skills:writing-great-skills &amp;lt;要编写或修改的 skill&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Matt 写的比较严格，大部分 skill 都有 disable-model-invocation 标志，想用得主动调 slash command，只要你不主动调用就不会加载进上下文。&lt;/p&gt;
+&lt;h2 id=&#34;skill-列表&#34;&gt;
+    skill 列表
+&lt;/h2&gt;
+&lt;p&gt;官方的入口不少，大致可以按任务形态理解：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;问一个 API 的参数叫什么&lt;/li&gt;
-&lt;li&gt;让 Codex 帮忙看一段报错&lt;/li&gt;
-&lt;li&gt;解释我想做什么，希望被追问几个问题&lt;/li&gt;
-&lt;li&gt;随手改一行配置&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;grill-me&lt;/code&gt;：&lt;/strong&gt; 不依赖项目目录的追问会话，用来把一个想法或方案问清楚。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;grill-with-docs&lt;/code&gt;：&lt;/strong&gt; 有代码仓库时使用的追问会话，同时维护 &lt;code&gt;CONTEXT.md&lt;/code&gt;、ADR 和领域术语。比 &lt;code&gt;grill-me&lt;/code&gt; 多了一条可接续的项目记忆。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;to-spec&lt;/code&gt;：&lt;/strong&gt; 根据已讨论的内容和仓库现状写规格，确认测试边界，再发布到 issue tracker，标成 &lt;code&gt;ready-for-agent&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;to-tickets&lt;/code&gt;：&lt;/strong&gt; 把规格拆成可以独立推进的 tickets，明确依赖关系，适合跨多次会话的实现。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;implement&lt;/code&gt;：&lt;/strong&gt; 依据规格或 tickets 实现；尽量走 &lt;code&gt;tdd&lt;/code&gt;，过程中跑类型检查和局部测试，结束前跑 &lt;code&gt;code-review&lt;/code&gt; 并提交。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;handoff&lt;/code&gt;：&lt;/strong&gt; 把当前会话整理成可供下一位 Agent 接手的文档，避免复述已有的规格、提交和 diff，并过滤敏感信息。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;wayfinder&lt;/code&gt;：&lt;/strong&gt; 面对超过单次会话容量的大方向，先在 issue tracker 里画出“决策地图”。每个 ticket 先回答一个决策问题，路线清楚后再进入实现。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;triage&lt;/code&gt;：&lt;/strong&gt; 把 issue 或外部 PR 依次分类、核验、补信息，最后形成可交给 Agent 的任务简报。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;这些对话不需要先问「我应该走 brainstorming 还是 systematic-debugging」。但 &lt;code&gt;using-superpowers&lt;/code&gt; 不管这些，它只管先检查。&lt;/p&gt;
-&lt;p&gt;更准确地说，问题出在「强制入口」，而不是「强制」本身。它把「可能需要工作流」和「每次都先进入工作流」混在了一起。对于开发、排障、长期任务，这种检查能减少跳步；但对于聊天、解释、一次性的判断，它让每轮对话多了一层固定仪式。&lt;/p&gt;
-&lt;h2 id=&#34;对比-matt-pocock-的设计&#34;&gt;
-    对比 Matt Pocock 的设计
-&lt;/h2&gt;
-&lt;p&gt;大约在那段时间，我开始看 Matt Pocock 的 skills。&lt;/p&gt;
-&lt;p&gt;两者的基本思路完全不同：&lt;/p&gt;
-&lt;p&gt;Superpowers 像一条完整的软件开发流水线，强调步骤顺序、失败基线、验证证据和交接时机。每个 skill 都有明确的触发条件，但一旦进入，全局入口会几乎接管整个工作方式。&lt;/p&gt;
-&lt;p&gt;Matt 的设计则是另一条路：不设对话开始时的总入口，直接把 skill 分成两类。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;用户主动调用的技能&lt;/strong&gt;：grill-me、to-spec、to-tickets、implement、handoff。这些对应一段明确的协作动作，由你决定什么时候开始。比如「使用 grill-me，把这个想法问透，不要开始实现」。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;模型可按任务内容调用的技能&lt;/strong&gt;：diagnosing-bugs、tdd、prototype、research、code-review。这些更像在适当时机可拿起的工具，不需要你先穿流程的外套。&lt;/p&gt;
-&lt;p&gt;两者最明显的差别在于「谁能调用」。Matt 在每个 skill 的 front matter 里写了 &lt;code&gt;disable-model-invocation: true&lt;/code&gt;，这意味着模型看不到该 skill 的描述，也不能自行选中它；只有用户输入对应的 slash command 后，skill 正文才会进入当前任务的上下文。平常不调用，就不占上下文。&lt;/p&gt;
-&lt;p&gt;Superpowers 把决定权交给模型，换来更高的流程覆盖率；Matt 把决定权放回用户，换来更少的常驻信息。&lt;/p&gt;
-&lt;h2 id=&#34;日常使用时我分别借用了什么&#34;&gt;
-    日常使用时，我分别借用了什么
-&lt;/h2&gt;
-&lt;p&gt;这不代表我要整套替换。两者各有适合的场景。&lt;/p&gt;
-&lt;p&gt;Superpowers 的价值在复杂工程任务里依然清晰：需求还说不清楚时，需要 brainstorming 把问题问透；改动跨多个模块时，需要 writing-plans 留下可检查的计划；测试失败或行为反常时，需要 systematic-debugging 避免凭感觉修；要写高风险、会反复使用的 skill，需要 writing-skills 的验证方式。&lt;/p&gt;
-&lt;p&gt;Matt 的 skills 则更适合日常对话中的显式协作：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;方案不清楚的时候，用 &lt;strong&gt;grill-me&lt;/strong&gt; 把一个想法追问清楚。&lt;/li&gt;
-&lt;li&gt;复杂 bug 或性能问题，用 &lt;strong&gt;diagnosing-bugs&lt;/strong&gt; 先做能复现的反馈回路。&lt;/li&gt;
-&lt;li&gt;有清晰接口、值得做回归保障的改动，用 &lt;strong&gt;tdd&lt;/strong&gt; 先确认测试边界。&lt;/li&gt;
-&lt;li&gt;交互或视觉方向需要先看实物，用 &lt;strong&gt;prototype&lt;/strong&gt; 做可运行的方案。&lt;/li&gt;
-&lt;li&gt;重要改动合并前，用 &lt;strong&gt;code-review&lt;/strong&gt; 走一遍。&lt;/li&gt;
-&lt;li&gt;长任务换线程或暂停，用 &lt;strong&gt;handoff&lt;/strong&gt; 整理交接文档。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;有些 skill 我暂时不装：setup-matt-pocock-skills 会为每个仓库配 issue tracker、标签和 ADR 布局，只有真正想按 tickets 管理长期工程时才用；wayfinder 适合比单次会话还大的方向，但它假定以 issue tracker 作为主记录，这和我的「任务线程 + checkpoint + memory + review」体系有重叠。&lt;/p&gt;
-&lt;h2 id=&#34;实际迁移过程&#34;&gt;
-    实际迁移过程
-&lt;/h2&gt;
-&lt;p&gt;操作比想象中简单。&lt;/p&gt;
-&lt;p&gt;Matt 的 skills 通过一行命令安装：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;npx skills@latest add mattpocock/skills
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;setup-matt-pocock-skills&lt;/code&gt; 不是终端命令，它是一个 agent skill，安装完成后在对话里直接说「使用 setup-matt-pocock-skills，为这个仓库初始化」才会调用。&lt;/p&gt;
-&lt;p&gt;Superpowers 的处理方式是「禁用但不删除」。我把它们移到了 Codex 的禁用目录，文件完整保留，只是 Codex 扫描不到，不会出现在 skill 列表。需要时可以移回去。&lt;/p&gt;
-&lt;p&gt;迁移之后，最明显的变化在于对话的感觉：普通聊天不再需要先穿流程的外套，需要纪律的时候又能随时叫出对应的 skill 来。&lt;/p&gt;
-&lt;p&gt;没有全局入口后，模型会不会漏掉该用的流程？这需要观察一段时间。如果经常漏，就把触发语句写进 &lt;code&gt;AGENTS.md&lt;/code&gt; 或直接在 prompt 里点名；偶尔才需要的话，就保持手动调用。规则应该帮助判断，不应替代判断。&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;这篇也是用 Codex 写的。如果你也在用 Superpowers，建议先从移除全局入口开始试试：保留方法，移除默认入口。两种工作流并不对立，只是不适合用同一套默认姿势同时跑。&lt;/p&gt;
+&lt;p&gt;两者没有高下之分，区别在于默认姿势。Superpowers 希望把流程变成纪律；Matt 希望让流程在需要时出现。&lt;/p&gt;
+&lt;p&gt;下期出一个 Matt Pocock 的工作流的使用教程～&lt;/p&gt;
 </description>
     </item>
     <item>

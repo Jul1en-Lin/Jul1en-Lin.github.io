@@ -2,19 +2,19 @@
 <html lang="zh-CN" dir="ltr">
 
 <head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1"><title>从 Superpowers 迁移到 Matt Pocock 工作流：一次缓慢的换挡 | Jul1en</title>
-<meta name="description" content="比较 Superpowers 与 Matt Pocock skills 的调用方式，记录从全局入口迁移到按需调用的工作流调整，以及两套方法各自适合的场景。">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>从 superpower 到 Matt Pocock | Jul1en</title>
+<meta name="description" content="记录从 Superpowers 调整到 Matt Pocock skills 的原因，对比两套工作流的使用方式，并整理 Matt Pocock 的主要 skill。">
 <meta name="author" content="Jul1en">
-<link rel="canonical" href="https://Jul1en-Lin.github.io/p/%E4%BB%8E-superpowers-%E8%BF%81%E7%A7%BB%E5%88%B0-matt-pocock-%E5%B7%A5%E4%BD%9C%E6%B5%81/">
+<link rel="canonical" href="https://Jul1en-Lin.github.io/p/%E4%BB%8E-superpower-%E5%88%B0-matt-pocock/">
 
 <link rel="icon" href="/favicon-signature.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-signature.png" type="image/png" sizes="512x512">
 <link rel="alternate icon" href="/favicon.ico" type="image/x-icon">
 <meta name="theme-color" content="#fdfdf7" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)">
-<meta property="og:title" content="从 Superpowers 迁移到 Matt Pocock 工作流：一次缓慢的换挡 | Jul1en">
-<meta property="og:description" content="比较 Superpowers 与 Matt Pocock skills 的调用方式，记录从全局入口迁移到按需调用的工作流调整，以及两套方法各自适合的场景。">
-<meta property="og:url" content="https://Jul1en-Lin.github.io/p/%E4%BB%8E-superpowers-%E8%BF%81%E7%A7%BB%E5%88%B0-matt-pocock-%E5%B7%A5%E4%BD%9C%E6%B5%81/">
+<meta property="og:title" content="从 superpower 到 Matt Pocock | Jul1en">
+<meta property="og:description" content="记录从 Superpowers 调整到 Matt Pocock skills 的原因，对比两套工作流的使用方式，并整理 Matt Pocock 的主要 skill。">
+<meta property="og:url" content="https://Jul1en-Lin.github.io/p/%E4%BB%8E-superpower-%E5%88%B0-matt-pocock/">
 <meta property="og:site_name" content="Jul1en">
 <meta property="og:type" content="article">
 <meta property="article:section" content="Post">
@@ -24,10 +24,10 @@
 <meta property="article:tag" content="Matt Pocock">
 <meta property="article:tag" content="工作流">
 <meta property="article:published_time" content="2026-08-06T20:25:41&#43;08:00">
-<meta property="article:modified_time" content="2026-08-06T20:26:19&#43;08:00">
+<meta property="article:modified_time" content="2026-08-07T01:22:34&#43;08:00">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从 Superpowers 迁移到 Matt Pocock 工作流：一次缓慢的换挡 | Jul1en">
-<meta name="twitter:description" content="比较 Superpowers 与 Matt Pocock skills 的调用方式，记录从全局入口迁移到按需调用的工作流调整，以及两套方法各自适合的场景。">
+<meta name="twitter:title" content="从 superpower 到 Matt Pocock | Jul1en">
+<meta name="twitter:description" content="记录从 Superpowers 调整到 Matt Pocock skills 的原因，对比两套工作流的使用方式，并整理 Matt Pocock 的主要 skill。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"><script>
@@ -138,12 +138,11 @@
         <div class="article-detail__toc-nav" data-article-toc-nav>
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#从-superpowers-迁移到-matt-pocock-工作流一次缓慢的换挡">从 Superpowers 迁移到 Matt Pocock 工作流：一次缓慢的换挡</a>
+    <li><a href="#从-superpower-到-matt-pocock">从 superpower 到 Matt Pocock</a>
       <ol>
-        <li><a href="#让人不舒服的地方">让人不舒服的地方</a></li>
-        <li><a href="#对比-matt-pocock-的设计">对比 Matt Pocock 的设计</a></li>
-        <li><a href="#日常使用时我分别借用了什么">日常使用时，我分别借用了什么</a></li>
-        <li><a href="#实际迁移过程">实际迁移过程</a></li>
+        <li><a href="#superpower">Superpower</a></li>
+        <li><a href="#matt-pocock-介绍">Matt Pocock 介绍</a></li>
+        <li><a href="#skill-列表">skill 列表</a></li>
       </ol>
     </li>
   </ol>
@@ -159,67 +158,53 @@
                         <a href="/categories/ai/">AI</a></div>
 
                 <h1 class="article-detail__title">
-                    <span>从 Superpowers 迁移到 Matt Pocock 工作流：一次缓慢的换挡</span>
+                    <span>从 superpower 到 Matt Pocock</span>
                     <span class="article-detail__title-note" aria-hidden="true">♪</span>
                 </h1>
             </header>
 
             <section class="article-content article-detail__content">
                 
-<p>四个月前我把 Superpowers v6.1.1 装进了 Codex。它是一个完整软件开发流程的 skill 套装：brainstorming 问清需求，writing-plans 拆解计划，systematic-debugging 处理异常，verification-before-completion 收尾。每一段对话的开头还要先过一遍「是否有适用的 skill」，哪怕只是问一个概念。</p>
-<p>这套约束在某些时候很有价值。但用久了之后，我开始感觉每次打开对话都像要先穿上一整套盔甲。</p>
-<h2 id="让人不舒服的地方">
-    让人不舒服的地方
+<p>这次调整的起点很简单：Superpowers 的方法很好，但 <code>using-superpowers</code> 把它放在了所有对话的第一步，特别是在 claude code 中，开始任何对话都要加载这个 skill，即使我是问他一个非常简单的问题&hellip;</p>
+<h2 id="superpower">
+    Superpower
 </h2>
-<p>Superpowers 的核心是 <code>using-superpowers</code>，一个全局入口 skill。它的设计意图很直接：只要有 1% 可能存在适用的 skill，就必须先调用它；任何回复或操作之前都要检查。</p>
-<p>这是设计，不是 bug。但它有一个默认前提：每件事都值得先进入这条流程。</p>
-<p>现实是，我每天的对话里有很多这样的时刻：</p>
+<p>Superpowers  非常严谨，真的是从构思到上线，都给你安排好了一套完整的开发流程：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">需求或想法
+</span></span><span class="line"><span class="cl">  -&gt; brainstorming
+</span></span><span class="line"><span class="cl">  -&gt; writing-plans
+</span></span><span class="line"><span class="cl">  -&gt; 实现、测试、审查
+</span></span><span class="line"><span class="cl">  -&gt; verification-before-completion
+</span></span><span class="line"><span class="cl">  -&gt; finishing-a-development-branch
+</span></span></code></pre></div><p>其中 <code>brainstorming</code> 会先问清目标、约束和方案，再把设计写入文档，得到确认后才进入 <code>writing-plans</code>。后面还有 TDD、系统化排障、代码审查、worktree、并行 Agent 等专门步骤。</p>
+<p>这种顺序适合需求还模糊、改动较大、需要留下设计依据的任务。它的价值是把常见遗漏提前变成检查点：先理解现状，再决定方案；先验证问题，再改代码；在宣称完成前给出证据。</p>
+<p>但日常使用里，就显得非常繁琐了 :(</p>
+<h2 id="matt-pocock-介绍">
+    Matt Pocock 介绍
+</h2>
+<p>Matt Pocock 的 skills 走另一条路：不设对话开始时的总入口，直接把 skill 分成两类。</p>
+<p>一类是主动调用的 slash command 命令，例如 <code>grill-me</code>、<code>to-spec</code>、<code>to-tickets</code>、<code>implement</code>、<code>handoff</code>、<code>writing-great-skills</code>。它们通常对应一段明确的协作动作：把一个想法问透、把想法写成规格、拆成任务、开始实现、交接上下文。</p>
+<p>其他的技能例如 <code>diagnosing-bugs</code>、<code>tdd</code>、<code>prototype</code>、<code>research</code>、<code>code-review</code>、<code>resolving-merge-conflicts</code>，只在合适的时候在 Matt 工作流中被调用，平时开发只需要注重主动调用的 slash command 即可</p>
+<p>在 Claude Code 里，可以用下面的形式手动调用：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">/mattpocock-skills:grill-me &lt;你的想法&gt;
+</span></span><span class="line"><span class="cl">/mattpocock-skills:writing-great-skills &lt;要编写或修改的 skill&gt;
+</span></span></code></pre></div><p>Matt 写的比较严格，大部分 skill 都有 disable-model-invocation 标志，想用得主动调 slash command，只要你不主动调用就不会加载进上下文。</p>
+<h2 id="skill-列表">
+    skill 列表
+</h2>
+<p>官方的入口不少，大致可以按任务形态理解：</p>
 <ul>
-<li>问一个 API 的参数叫什么</li>
-<li>让 Codex 帮忙看一段报错</li>
-<li>解释我想做什么，希望被追问几个问题</li>
-<li>随手改一行配置</li>
+<li><strong><code>grill-me</code>：</strong> 不依赖项目目录的追问会话，用来把一个想法或方案问清楚。</li>
+<li><strong><code>grill-with-docs</code>：</strong> 有代码仓库时使用的追问会话，同时维护 <code>CONTEXT.md</code>、ADR 和领域术语。比 <code>grill-me</code> 多了一条可接续的项目记忆。</li>
+<li><strong><code>to-spec</code>：</strong> 根据已讨论的内容和仓库现状写规格，确认测试边界，再发布到 issue tracker，标成 <code>ready-for-agent</code>。</li>
+<li><strong><code>to-tickets</code>：</strong> 把规格拆成可以独立推进的 tickets，明确依赖关系，适合跨多次会话的实现。</li>
+<li><strong><code>implement</code>：</strong> 依据规格或 tickets 实现；尽量走 <code>tdd</code>，过程中跑类型检查和局部测试，结束前跑 <code>code-review</code> 并提交。</li>
+<li><strong><code>handoff</code>：</strong> 把当前会话整理成可供下一位 Agent 接手的文档，避免复述已有的规格、提交和 diff，并过滤敏感信息。</li>
+<li><strong><code>wayfinder</code>：</strong> 面对超过单次会话容量的大方向，先在 issue tracker 里画出“决策地图”。每个 ticket 先回答一个决策问题，路线清楚后再进入实现。</li>
+<li><strong><code>triage</code>：</strong> 把 issue 或外部 PR 依次分类、核验、补信息，最后形成可交给 Agent 的任务简报。</li>
 </ul>
-<p>这些对话不需要先问「我应该走 brainstorming 还是 systematic-debugging」。但 <code>using-superpowers</code> 不管这些，它只管先检查。</p>
-<p>更准确地说，问题出在「强制入口」，而不是「强制」本身。它把「可能需要工作流」和「每次都先进入工作流」混在了一起。对于开发、排障、长期任务，这种检查能减少跳步；但对于聊天、解释、一次性的判断，它让每轮对话多了一层固定仪式。</p>
-<h2 id="对比-matt-pocock-的设计">
-    对比 Matt Pocock 的设计
-</h2>
-<p>大约在那段时间，我开始看 Matt Pocock 的 skills。</p>
-<p>两者的基本思路完全不同：</p>
-<p>Superpowers 像一条完整的软件开发流水线，强调步骤顺序、失败基线、验证证据和交接时机。每个 skill 都有明确的触发条件，但一旦进入，全局入口会几乎接管整个工作方式。</p>
-<p>Matt 的设计则是另一条路：不设对话开始时的总入口，直接把 skill 分成两类。</p>
-<p><strong>用户主动调用的技能</strong>：grill-me、to-spec、to-tickets、implement、handoff。这些对应一段明确的协作动作，由你决定什么时候开始。比如「使用 grill-me，把这个想法问透，不要开始实现」。</p>
-<p><strong>模型可按任务内容调用的技能</strong>：diagnosing-bugs、tdd、prototype、research、code-review。这些更像在适当时机可拿起的工具，不需要你先穿流程的外套。</p>
-<p>两者最明显的差别在于「谁能调用」。Matt 在每个 skill 的 front matter 里写了 <code>disable-model-invocation: true</code>，这意味着模型看不到该 skill 的描述，也不能自行选中它；只有用户输入对应的 slash command 后，skill 正文才会进入当前任务的上下文。平常不调用，就不占上下文。</p>
-<p>Superpowers 把决定权交给模型，换来更高的流程覆盖率；Matt 把决定权放回用户，换来更少的常驻信息。</p>
-<h2 id="日常使用时我分别借用了什么">
-    日常使用时，我分别借用了什么
-</h2>
-<p>这不代表我要整套替换。两者各有适合的场景。</p>
-<p>Superpowers 的价值在复杂工程任务里依然清晰：需求还说不清楚时，需要 brainstorming 把问题问透；改动跨多个模块时，需要 writing-plans 留下可检查的计划；测试失败或行为反常时，需要 systematic-debugging 避免凭感觉修；要写高风险、会反复使用的 skill，需要 writing-skills 的验证方式。</p>
-<p>Matt 的 skills 则更适合日常对话中的显式协作：</p>
-<ul>
-<li>方案不清楚的时候，用 <strong>grill-me</strong> 把一个想法追问清楚。</li>
-<li>复杂 bug 或性能问题，用 <strong>diagnosing-bugs</strong> 先做能复现的反馈回路。</li>
-<li>有清晰接口、值得做回归保障的改动，用 <strong>tdd</strong> 先确认测试边界。</li>
-<li>交互或视觉方向需要先看实物，用 <strong>prototype</strong> 做可运行的方案。</li>
-<li>重要改动合并前，用 <strong>code-review</strong> 走一遍。</li>
-<li>长任务换线程或暂停，用 <strong>handoff</strong> 整理交接文档。</li>
-</ul>
-<p>有些 skill 我暂时不装：setup-matt-pocock-skills 会为每个仓库配 issue tracker、标签和 ADR 布局，只有真正想按 tickets 管理长期工程时才用；wayfinder 适合比单次会话还大的方向，但它假定以 issue tracker 作为主记录，这和我的「任务线程 + checkpoint + memory + review」体系有重叠。</p>
-<h2 id="实际迁移过程">
-    实际迁移过程
-</h2>
-<p>操作比想象中简单。</p>
-<p>Matt 的 skills 通过一行命令安装：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npx skills@latest add mattpocock/skills
-</span></span></code></pre></div><p><code>setup-matt-pocock-skills</code> 不是终端命令，它是一个 agent skill，安装完成后在对话里直接说「使用 setup-matt-pocock-skills，为这个仓库初始化」才会调用。</p>
-<p>Superpowers 的处理方式是「禁用但不删除」。我把它们移到了 Codex 的禁用目录，文件完整保留，只是 Codex 扫描不到，不会出现在 skill 列表。需要时可以移回去。</p>
-<p>迁移之后，最明显的变化在于对话的感觉：普通聊天不再需要先穿流程的外套，需要纪律的时候又能随时叫出对应的 skill 来。</p>
-<p>没有全局入口后，模型会不会漏掉该用的流程？这需要观察一段时间。如果经常漏，就把触发语句写进 <code>AGENTS.md</code> 或直接在 prompt 里点名；偶尔才需要的话，就保持手动调用。规则应该帮助判断，不应替代判断。</p>
-<hr>
-<p>这篇也是用 Codex 写的。如果你也在用 Superpowers，建议先从移除全局入口开始试试：保留方法，移除默认入口。两种工作流并不对立，只是不适合用同一套默认姿势同时跑。</p>
+<p>两者没有高下之分，区别在于默认姿势。Superpowers 希望把流程变成纪律；Matt 希望让流程在需要时出现。</p>
+<p>下期出一个 Matt Pocock 的工作流的使用教程～</p>
 
             </section>
 
