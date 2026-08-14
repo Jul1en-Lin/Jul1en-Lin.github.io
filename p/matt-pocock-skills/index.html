@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Matt Pocock Skills | Jul1en</title>
+<meta name="description" content="Matt Pocock 的 Skills 是一套给 coding agent 使用的工程工作流，本篇整理了整套 skills 的分类、主干流程以及每个 skill 的用途。">
+<meta name="author" content="Jul1en">
+<link rel="canonical" href="https://Jul1en-Lin.github.io/p/matt-pocock-skills/">
+
+<link rel="icon" href="/favicon-signature.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-signature.png" type="image/png" sizes="512x512">
+<link rel="alternate icon" href="/favicon.ico" type="image/x-icon">
+<meta name="theme-color" content="#fdfdf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#090909" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Matt Pocock Skills | Jul1en">
+<meta property="og:description" content="Matt Pocock 的 Skills 是一套给 coding agent 使用的工程工作流，本篇整理了整套 skills 的分类、主干流程以及每个 skill 的用途。">
+<meta property="og:url" content="https://Jul1en-Lin.github.io/p/matt-pocock-skills/">
+<meta property="og:site_name" content="Jul1en">
+<meta property="og:type" content="article">
+<meta property="article:section" content="Post">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="Codex">
+<meta property="article:tag" content="Matt Pocock">
+<meta property="article:tag" content="Skills">
+<meta property="article:tag" content="工作流">
+<meta property="article:published_time" content="2026-08-14T10:00:00&#43;08:00">
+<meta property="article:modified_time" content="2026-08-14T21:30:08&#43;08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Matt Pocock Skills | Jul1en">
+<meta name="twitter:description" content="Matt Pocock 的 Skills 是一套给 coding agent 使用的工程工作流，本篇整理了整套 skills 的分类、主干流程以及每个 skill 的用途。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"><script>
+    (function () {
+        var stored = null;
+        try {
+            stored = window.localStorage.getItem('ColorScheme');
+        } catch (error) {
+            stored = null;
+        }
+
+        var scheme = stored;
+        if (scheme !== 'light' && scheme !== 'dark') {
+            scheme = "light";
+        }
+        document.documentElement.dataset.scheme = scheme;
+    })();
+</script><link rel="stylesheet" href="/css/site.min.1cd5a9527bd7cf21e324daf6a15537a9f77810c9cd5117087759c3329a183957.css" integrity="sha256-HNWpUnvXzyHjJNr2oVU3qfd4EMnNURcId1nDMpoYOVc="><script src="/js/site.ea213d992606f824e334a0562eda5492b68ff4a720381cfc98d561045eccaa38.js" integrity="sha256-6iE9mSYG&#43;CTjNKBWLtpUkraP9KcgOBz8mNVhBF7Mqjg=" defer></script>
+
+</head>
+
+<body class="melody-shell template-article-detail article-page">
+    <a class="skip-link" href="#main-content">Skip to content</a><header class="site-header" role="banner">
+    <div class="site-header__inner">
+        <a class="site-brand" href="/" aria-label="Jul1en home">
+            <span class="site-brand__signature" aria-hidden="true">
+    <svg class="site-signature" viewBox="0 0 1672 941" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <defs>
+            <mask id="sig-mask" maskUnits="userSpaceOnUse">
+                
+                <path class="site-signature__guide" pathLength="1"
+                      fill="none" stroke="white" stroke-width="20"
+                      stroke-linecap="round" stroke-linejoin="round"
+                      d="M 584 422 C 575 412, 564 415, 559 394 C 554 373, 556 386, 571 361 C 586 337, 580 347, 602 324 C 624 301, 614 311, 634 296 C 654 281, 639 292, 658 281 C 677 270, 668 275, 688 264 C 708 254, 697 258, 716 251 C 735 244, 723 249, 742 244 C 761 239, 752 239, 771 238 C 790 237, 781 235, 795 240 C 809 245, 803 241, 810 251 C 817 262, 815 255, 816 270 C 817 285, 817 277, 812 294 C 807 311, 810 301, 803 318 C 796 336, 800 327, 792 344 C 784 361, 789 350, 781 366 C 773 382, 777 374, 768 390 C 759 406, 763 398, 755 413 C 747 428, 753 419, 745 433 C 737 447, 750 425, 732 454 C 714 483, 721 472, 693 515 C 665 558, 678 540, 652 576 C 626 612, 641 590, 619 617 C 597 644, 609 631, 589 652 C 569 673, 583 659, 563 678 C 543 697, 558 685, 532 706 C 506 727, 515 722, 489 738 C 463 754, 480 745, 459 752 C 438 759, 450 755, 429 759 C 408 763, 419 763, 398 763 C 377 763, 387 768, 368 759 C 349 750, 355 755, 344 737 C 334 719, 333 731, 338 707 C 343 683, 341 694, 359 668 C 377 642, 366 656, 389 633 C 412 610, 399 623, 426 603 C 453 583, 436 595, 467 577 C 498 559, 483 566, 515 551 C 547 536, 523 547, 559 535 C 595 523, 582 527, 617 516 C 652 506, 631 512, 658 505 C 685 498, 666 502, 695 496 C 724 490, 710 493, 740 488 C 770 483, 753 487, 781 481 C 809 475, 796 478, 821 472 C 846 466, 831 472, 853 463 C 875 454, 858 465, 883 446 C 908 427, 896 436, 924 409 C 952 382, 939 397, 963 370 C 987 343, 973 358, 992 332 C 1011 306, 1001 322, 1018 295 C 1035 268, 1027 284, 1041 254 C 1055 224, 1051 234, 1057 210 C 1063 186, 1063 198, 1057 186 C 1051 174, 1051 176, 1039 176 C 1027 176, 1034 176, 1022 186 C 1010 196, 1017 190, 1005 204 C 993 218, 1001 209, 989 226 C 977 243, 983 232, 972 252 C 961 272, 967 262, 957 282 C 947 302, 953 288, 944 308 C 935 328, 942 311, 931 338 C 921 365, 925 356, 914 384 C 904 412, 915 387, 901 418 C 887 450, 893 436, 875 474 C 857 512, 868 495, 849 527 C 830 559, 839 545, 821 566 C 803 587, 812 579, 797 587 C 782 595, 785 594, 777 589 C 769 584, 768 586, 773 572 C 778 558, 776 563, 790 550 C 804 537, 795 543, 812 535 C 830 527, 822 531, 840 527 C 858 523, 847 522, 864 524 C 882 526, 870 527, 890 533 C 910 539, 899 536, 920 540 C 941 544, 929 542, 950 544 C 971 546, 959 545, 981 546 C 1003 547, 992 547, 1013 546 C 1034 545, 1021 545, 1042 542 C 1063 539, 1052 541, 1072 537 C 1092 533, 1078 536, 1100 531 C 1122 526, 1113 529, 1135 524 C 1157 519, 1141 522, 1163 516 C 1185 510, 1171 513, 1197 507 C 1223 501, 1212 503, 1238 500 C 1264 497, 1250 498, 1271 498 C 1292 498, 1281 498, 1297 500 C 1313 502, 1302 499, 1317 505 C 1332 511, 1332 512, 1340 516" />
+            </mask>
+        </defs>
+        
+        <g mask="url(#sig-mask)" fill="currentColor">
+            <g transform="translate(0,941) scale(0.1,-0.1)">
+                <path d="M10357 7720 c-89 -23 -208 -101 -303 -202 -182 -191 -341 -442 -549 -863 -188 -382 -306 -651 -562 -1285 -63 -157 -119 -290 -124 -297 -18 -21 -173 -121 -259 -167 -173 -91 -263 -114 -751 -190 -156 -25 -332 -53 -391 -64 -60 -11 -108 -16 -108 -11 0 4 37 70 83 146 234 389 414 710 541 968 291 589 368 917 268 1137 -77 168 -269 247 -530 218 -547 -60 -1348 -483 -1792 -947 -371 -386 -469 -744 -264 -963 56 -60 138 -103 201 -104 38 -1 49 4 74 32 54 60 29 124 -65 166 -140 62 -161 188 -66 391 72 153 222 331 436 515 467 402 1215 738 1599 717 106 -5 163 -26 204 -73 177 -201 -98 -876 -861 -2110 -99 -160 -99 -160 -211 -183 -409 -83 -952 -237 -1327 -376 -1006 -374 -1827 -945 -2156 -1501 -224 -379 -187 -706 100 -878 124 -74 276 -108 486 -108 217 0 414 43 650 142 742 311 1437 1016 2349 2383 72 108 135 197 139 197 4 0 120 20 257 45 138 25 354 61 480 81 399 61 525 93 690 173 44 22 81 38 82 37 5 -4 -124 -283 -183 -396 -59 -115 -59 -115 -146 -127 -187 -26 -378 -124 -520 -265 -137 -137 -202 -278 -179 -383 25 -111 131 -164 262 -131 184 48 391 230 572 505 62 93 62 93 152 87 50 -3 119 -12 155 -20 627 -140 805 -162 1240 -153 458 9 741 60 1610 287 275 72 417 103 580 129 476 76 884 33 1079 -113 48 -36 94 -35 132 3 55 55 32 130 -56 187 -171 109 -513 176 -815 160 -270 -15 -497 -57 -990 -182 -437 -112 -589 -148 -795 -189 -602 -121 -1060 -124 -1600 -10 -94 20 -233 49 -310 65 -77 17 -152 30 -167 30 -15 0 -29 4 -32 9 -3 5 28 79 70 166 71 150 213 474 228 523 4 12 58 65 121 117 786 654 1594 1865 1595 2391 0 112 -57 226 -132 263 -51 24 -138 34 -191 21z m102 -209 c87 -87 -37 -464 -291 -884 -139 -230 -315 -480 -498 -707 -161 -199 -520 -582 -520 -554 0 18 141 365 247 609 337 772 561 1171 793 1407 129 131 222 176 269 129z m-3579 -3177 c0 -12 -337 -494 -478 -684 -520 -699 -969 -1159 -1406 -1437 -365 -232 -717 -345 -1025 -330 -304 15 -466 130 -479 337 -19 321 422 836 1054 1233 562 353 1201 611 2019 818 258 65 315 76 315 63z m1393 -354 c-63 -107 -244 -280 -340 -325 -68 -33 -97 -33 -88 -2 37 122 189 262 362 333 79 32 88 31 66 -6z"/>
+            </g>
+        </g>
+    </svg>
+    <span class="sr-only">Jul1en</span>
+</span>
+
+        </a>
+
+        <div class="site-header__right">
+            <nav id="primary-navigation" class="site-nav" aria-label="Primary navigation">
+                <ul class="site-nav__list"><li class="site-nav__item">
+                            <a class="site-nav__link is-active" href="/post/" aria-current="page">
+                                Blog
+                            </a>
+                        </li><li class="site-nav__item">
+                            <a class="site-nav__link" href="/search/">
+                                Search
+                            </a>
+                        </li><li class="site-nav__item">
+                            <a class="site-nav__link" href="/music/">
+                                Music
+                            </a>
+                        </li></ul>
+            </nav>
+
+            <div class="site-actions" role="group" aria-label="Social links and theme"><a class="site-action-link" href="https://github.com/Jul1en-Lin" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+                        <span class="site-action-link__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+  <path fill="currentColor" d="M12 2.2c-5.5 0-9.9 4.5-9.9 9.9 0 4.4 2.8 8.1 6.8 9.4.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.2-3.4-1.2-.5-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 0 1.6 1.1 1.6 1.1.9 1.5 2.4 1.1 2.9.8.1-.7.4-1.1.7-1.4-2.2-.3-4.5-1.1-4.5-4.9 0-1.1.4-2 1.1-2.7-.1-.3-.5-1.3.1-2.7 0 0 .9-.3 2.8 1.1.8-.2 1.7-.3 2.5-.3s1.7.1 2.5.3c1.9-1.3 2.8-1.1 2.8-1.1.6 1.4.2 2.4.1 2.7.7.8 1.1 1.7 1.1 2.7 0 3.8-2.3 4.6-4.5 4.9.4.3.7.9.7 1.9V21c0 .3.2.6.7.5 4-1.3 6.8-5 6.8-9.4 0-5.4-4.4-9.9-9.9-9.9Z" />
+</svg>
+</span>
+                    </a><a class="site-action-link" href="https://www.instagram.com/lien_linat" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+                        <span class="site-action-link__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+  <path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M7.5 3.5h9A4 4 0 0 1 20.5 7.5v9a4 4 0 0 1-4 4h-9a4 4 0 0 1-4-4v-9a4 4 0 0 1 4-4Z" />
+  <path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M8.8 12a3.2 3.2 0 1 0 6.4 0 3.2 3.2 0 0 0-6.4 0Z" />
+  <path fill="currentColor" d="M17.2 7.2a.9.9 0 1 1-1.8 0 .9.9 0 0 1 1.8 0Z" />
+</svg>
+</span>
+                    </a><button id="dark-mode-toggle" class="theme-toggle" type="button" aria-label="切换配色" title="切换配色">
+                    <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="4.2" />
+    <path d="M12 2.8v2.2M12 19v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.8 12h2.2M19 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" />
+</svg>
+</span>
+                    <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M19.7 14.6c-1.3 2.9-4.6 4.8-8.1 4.2-4.3-.7-7.2-4.8-6.5-9.1.5-3.2 2.8-5.7 5.7-6.5-.9 2.1-.5 4.7 1.2 6.6 1.9 2.2 4.9 3 7.7 2.2-.1.9-.1 1.7 0 2.6z" />
+</svg>
+</span>
+                </button></div>
+
+            <button class="site-menu-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false">
+                <span class="site-menu-toggle__bar" aria-hidden="true"></span>
+                <span class="site-menu-toggle__bar" aria-hidden="true"></span>
+                <span class="site-menu-toggle__bar" aria-hidden="true"></span>
+                <span class="sr-only">Menu</span>
+            </button>
+        </div>
+    </div>
+</header>
+<main id="main-content" class="main main-content full-width" tabindex="-1"><article class="article-detail">
+    <aside class="article-detail__toc-rail" aria-label="文章目录" data-article-toc>
+    <button class="article-detail__toc-toggle" type="button" aria-label="显示文章目录" aria-controls="TableOfContents" aria-expanded="false" data-article-toc-toggle>
+        <span class="article-detail__toc-toggle-line" aria-hidden="true"></span>
+        <span class="article-detail__toc-toggle-line" aria-hidden="true"></span>
+        <span class="article-detail__toc-toggle-line" aria-hidden="true"></span>
+    </button>
+
+    <div class="article-detail__toc-panel" data-article-toc-panel aria-hidden="true">
+        <div class="article-detail__toc-nav" data-article-toc-nav>
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#matt-pocock-skills">Matt Pocock Skills</a>
+      <ol>
+        <li><a href="#说明书">说明书</a></li>
+        <li><a href="#01-getting-started">01 Getting Started</a></li>
+        <li><a href="#02-the-main-flow">02 The Main Flow</a></li>
+        <li><a href="#03-shaping">03 Shaping</a></li>
+        <li><a href="#04-upkeep">04 Upkeep</a></li>
+        <li><a href="#05-productivity-skills">05 Productivity Skills</a></li>
+        <li><a href="#06-reference-skills">06 Reference Skills</a></li>
+        <li><a href="#相关阅读">相关阅读</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </div>
+</aside>
+
+    <div class="article-detail__layout">
+        <div class="article-detail__main">
+            <header class="article-detail__header">
+                <div class="article-detail__meta"><time datetime="2026-08-14T10:00:00&#43;08:00">2026-08-14</time><span aria-hidden="true">•</span>
+                        <a href="/categories/ai/">AI</a></div>
+
+                <h1 class="article-detail__title">
+                    <span>Matt Pocock Skills</span>
+                    <span class="article-detail__title-note" aria-hidden="true">♪</span>
+                </h1>
+            </header>
+
+            <section class="article-content article-detail__content">
+                
+<p>一切教程与观点都来自本人的实战体验与 Matt 的官方 skill 介绍和直播讲解，欢迎交流讨论！</p>
+<blockquote>
+<p>来源：<a class="link" href="https://www.aihero.dev/skills" target="_blank" rel="noopener noreferrer">AI Skills for Real Engineers</a>
+</p>
+</blockquote>
+<p>Matt Pocock 的 Skills 是一套给 coding agent 使用的工程工作流。每个 skill 都是边界清楚，大部分都要手动调用 slash command 才能触发，根据实际场景来动态调整。而且 Matt 的思想是将问题先经过不断的挖掘，然后变成 <code>spec</code> 文档，确定好前进方向后，将问题拆分成多个 issue，然后 issue 中有可能包含多个非常简单的子 issue。以 <code>ticket</code> 来划分任务的颗粒度，把一个大问题拆分为多个 ticket。ticket 中就安排了怎么做，再通过 <code>/implement</code> 来完成 ticket。</p>
+<p><mark class="hltr-green-light">Matt 建议每个 ticket 的解决窗口大小都不要超过 150 k 左右，100 k 以内都是模型的聪明区，所以在实现每个 ticket 时都建议让模型“implement tickets one by one”，即不要一次性解决完全部 ticket，最好一个窗口解决一个 ticket；或者能在聪明区的范围内，按照任务的复杂度可以一次性解决多个 ticket。但都不宜过多😼</mark></p>
+<h2 id="说明书">
+    说明书
+</h2>
+<p><code>ask-matt</code> 可以理解成是这套 skills 的说明书。你可以描述自己现在遇到的情境，例如一个不知道怎么开始的想法、一批别人提交的 bug，或一段已经持续很久的 session，它会告诉你该使用哪个 skill，或者按什么顺序使用一组 skills，同时标出流程中需要人做决定的地方。</p>
+<p>它维护在当前项目中已经整理好的 skills ，不主动扫描你本机安装了什么，所以也不会替你安排自己的 skills 或其他作者的 skills。</p>
+<h2 id="01-getting-started">
+    01 Getting Started
+</h2>
+<p>先做一次对此次 Matt 工作流做必要的一系列设置</p>
+<ul>
+<li><strong><code>/setup-matt-pocock-skills</code>：</strong> 为一个 repo 做一次设置，让其它 skills 知道这个项目如何组织、使用什么工具，以及工作约定是什么。</li>
+</ul>
+<h2 id="02-the-main-flow">
+    02 The Main Flow
+</h2>
+<p>这是从 <code>idea</code> 到 <code>ship</code> 的主干流程，按顺序展开。</p>
+<ol>
+<li><code>/grill-with-docs</code>： 通过提问把计划说清楚，并把已经做出的决定记录下来。它和 <code>/grill-me</code> 的区别是它更适合项目本身已经存在的仓库，<code>/grill-me</code> 是在项目雏形塑造，还没有建仓库时适合的头脑风暴（初次之外，<code>/wayfinder</code> 也适合做前期的决策工作，它里面已经内置了 <code>/grill-me</code> 等 skill，更加适合大型项目的开发方向决策）</li>
+<li><strong><code>/to-spec</code>：</strong> 把已经达成共识的讨论整理成一份书面 spec。</li>
+<li><code>/to-tickets</code>：把 spec 拆成 agent 可以分别处理的小 tickets。可以让他在本地或者 GitHub issue 上整理 ticket，交给新窗口进行实现</li>
+<li><code>/implement</code>：依据已经确认的 ticket 来实现，这是主要写代码的环节，实现每个 ticket 时都建议让模型“implement tickets one by one”，且最好每个解决 ticket 的上下文窗口保持在 150k 左右。</li>
+<li><code>/code-review</code>：tickets 完成后，对照项目自己的标准和原始探讨出来的 spec，检查看有没有出现开发方向错误的情况。审查最好新开会话来实现，因为模型会对自己写的代码有种自信，让它自测可能会假设漏掉一些条件，切到新窗口后会更好。</li>
+</ol>
+<p>这条主干里有两个分支：当某个设计问题需要运行代码才能回答时，可以先绕到 <code>/prototype</code>；当任务会跨越多个 session 时，就需要把 spec 拆成 tickets，具体的就是执行 <code>/to spec</code> 后再执行 <code>/to-tickets</code>。</p>
+<h2 id="03-shaping">
+    03 Shaping
+</h2>
+<p>探索一个尚未确定的问题，产出可以送回主流程的决定或答案。</p>
+<ul>
+<li><code>/wayfinder</code>：把一个规模很大的项目工作整理成决策地图，带你回答一些关键问题，确定大致的开发前进路线</li>
+<li><code>/prototype</code>：用一段之后会删除的代码回答设计问题，让可运行的结果帮助你做决定。</li>
+<li><strong><code>/research</code>：</strong> 从 primary sources 中读取资料，给出带引用的答案。</li>
+</ul>
+<h2 id="04-upkeep">
+    04 Upkeep
+</h2>
+<p>保持 codebase 和 issue list 处于可工作的状态，同时为主流程产生新的工作。</p>
+<ul>
+<li><strong><code>/improve-codebase-architecture</code>：</strong> 找出值得重构的模块，并用一份可视化报告说明原因和方向。</li>
+<li><code>/diagnosing-bugs</code>：从一个可复现的失败案例开始，定位比较棘手的 bug。</li>
+<li><strong><code>/resolving-merge-conflicts</code>：</strong> 处理 merge 或 rebase 冲突，直到冲突完成。</li>
+<li><strong><code>/triage</code>：</strong> 把原始 issue 整理成别人可以接手的工作项。</li>
+<li><strong><code>/wizard</code>：</strong> 生成一个脚本，引导人完成只有人能完成的设置步骤。</li>
+</ul>
+<h2 id="05-productivity-skills">
+    05 Productivity Skills
+</h2>
+<p>面向人的工作流，主要处理协作、交接和学习，不以写代码为中心。</p>
+<ul>
+<li><strong><code>/grill-me</code>：</strong> 在真正投入一个想法之前，通过追问把双方的理解对齐。</li>
+<li><strong><code>/handoff</code>：</strong> 把一次很长的 session 整理成文档，让另一个 agent 可以继续工作。</li>
+<li><strong><code>/to-questionnaire</code>：</strong> 把尚未回答的问题整理成一份文档，由其他人补充答案。</li>
+<li><strong><code>/teach</code>：</strong> 把一个主题拆成多次 session 学习，每次都建立在前一次的结果上。</li>
+<li><strong><code>/wait-what</code>：</strong> 让 agent 用 plain English 把刚才的内容重新说一遍。</li>
+<li><strong><code>/writing-for-agents</code>：</strong> 说明如何编写 skills，以及其它会被 agent 读取的文档。</li>
+</ul>
+<h2 id="06-reference-skills">
+    06 Reference Skills
+</h2>
+<p>其它 skills 可以调用或引用的可复用知识层。</p>
+<ul>
+<li><strong><code>/codebase-design</code>：</strong> 提供设计 deep modules 时使用的词汇和思考方式。</li>
+<li><strong><code>/domain-modeling</code>：</strong> 把项目正在使用的词语磨准，并把它们记录下来。</li>
+<li><strong><code>/grilling</code>：</strong> 其它 skills 用来压力测试计划的一套访谈方法。</li>
+<li><strong><code>/tdd</code>：</strong> <code>red-green-refactor</code> 循环所遵循的规则。</li>
+</ul>
+<p>若想看实战，Matt 本人也发布了几个从零构建的实战项目，里面详细介绍了他是如何使用它的 skill，还解答了直播间的各种问题，很值得一看！</p>
+<p><a class="link" href="https://x.com/mattpocockuk/status/2075218406266036236" target="_blank" rel="noopener noreferrer">Mattpocock Skills 原作者的手把手教程</a>
+
+<a class="link" href="https://www.youtube.com/watch?v=K-mA3MZ_EzU" target="_blank" rel="noopener noreferrer">从零搭建一个全新项目——2 小时从想法到完整架构设计</a>
+</p>
+<h2 id="相关阅读">
+    相关阅读
+</h2>
+<ul>
+<li><a class="link" href="/p/%E4%BB%8E-superpower-%E5%88%B0-matt-pocock/">从 superpower 到 Matt Pocock</a>
+</li>
+</ul>
+
+            </section>
+
+            <footer class="article-detail__footer">
+                <div class="article-closing" aria-label="Article closing">
+    <ul class="article-closing__links">
+        <li>
+            <span class="article-closing__chevron" aria-hidden="true">›</span>
+            <span>written by <span class="article-closing__author">@Jul1en</span></span>
+        </li>
+        <li>
+            <span class="article-closing__chevron" aria-hidden="true">›</span>
+            <a href="/post/">cd ..</a>
+        </li>
+    </ul>
+
+</div>
+
+            </footer>
+        </div>
+    </div>
+</article>
+
+    </main><button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M6 14.5 12 8l6 6.5"></path>
+    </svg>
+</button>
+<div id="route-transition-mask" class="route-transition-mask" aria-hidden="true">
+    <span class="route-transition-mask__texture" aria-hidden="true"></span>
+    <span class="route-transition__loading" aria-hidden="true">LOADING...</span>
+</div>
+</body>
+
+</html>

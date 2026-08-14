@@ -7,8 +7,103 @@
     <generator>Hugo</generator>
     <language>zh-CN</language>
     <copyright>Jul1en</copyright>
-    <lastBuildDate>Fri, 07 Aug 2026 01:22:34 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 14 Aug 2026 21:30:08 +0800</lastBuildDate>
     <atom:link href="https://Jul1en-Lin.github.io/categories/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Matt Pocock Skills</title>
+      <link>https://Jul1en-Lin.github.io/p/matt-pocock-skills/</link>
+      <pubDate>Fri, 14 Aug 2026 10:00:00 +0800</pubDate>
+      <guid>https://Jul1en-Lin.github.io/p/matt-pocock-skills/</guid>
+      <description>&lt;h1 id=&#34;matt-pocock-skills&#34;&gt;
+    Matt Pocock Skills
+&lt;/h1&gt;
+&lt;p&gt;一切教程与观点都来自本人的实战体验与 Matt 的官方 skill 介绍和直播讲解，欢迎交流讨论！&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;来源：&lt;a class=&#34;link&#34; href=&#34;https://www.aihero.dev/skills&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;AI Skills for Real Engineers&lt;/a&gt;
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Matt Pocock 的 Skills 是一套给 coding agent 使用的工程工作流。每个 skill 都是边界清楚，大部分都要手动调用 slash command 才能触发，根据实际场景来动态调整。而且 Matt 的思想是将问题先经过不断的挖掘，然后变成 &lt;code&gt;spec&lt;/code&gt; 文档，确定好前进方向后，将问题拆分成多个 issue，然后 issue 中有可能包含多个非常简单的子 issue。以 &lt;code&gt;ticket&lt;/code&gt; 来划分任务的颗粒度，把一个大问题拆分为多个 ticket。ticket 中就安排了怎么做，再通过 &lt;code&gt;/implement&lt;/code&gt; 来完成 ticket。&lt;/p&gt;
+&lt;p&gt;&lt;mark class=&#34;hltr-green-light&#34;&gt;Matt 建议每个 ticket 的解决窗口大小都不要超过 150 k 左右，100 k 以内都是模型的聪明区，所以在实现每个 ticket 时都建议让模型“implement tickets one by one”，即不要一次性解决完全部 ticket，最好一个窗口解决一个 ticket；或者能在聪明区的范围内，按照任务的复杂度可以一次性解决多个 ticket。但都不宜过多😼&lt;/mark&gt;&lt;/p&gt;
+&lt;h2 id=&#34;说明书&#34;&gt;
+    说明书
+&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;ask-matt&lt;/code&gt; 可以理解成是这套 skills 的说明书。你可以描述自己现在遇到的情境，例如一个不知道怎么开始的想法、一批别人提交的 bug，或一段已经持续很久的 session，它会告诉你该使用哪个 skill，或者按什么顺序使用一组 skills，同时标出流程中需要人做决定的地方。&lt;/p&gt;
+&lt;p&gt;它维护在当前项目中已经整理好的 skills ，不主动扫描你本机安装了什么，所以也不会替你安排自己的 skills 或其他作者的 skills。&lt;/p&gt;
+&lt;h2 id=&#34;01-getting-started&#34;&gt;
+    01 Getting Started
+&lt;/h2&gt;
+&lt;p&gt;先做一次对此次 Matt 工作流做必要的一系列设置&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;/setup-matt-pocock-skills&lt;/code&gt;：&lt;/strong&gt; 为一个 repo 做一次设置，让其它 skills 知道这个项目如何组织、使用什么工具，以及工作约定是什么。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;02-the-main-flow&#34;&gt;
+    02 The Main Flow
+&lt;/h2&gt;
+&lt;p&gt;这是从 &lt;code&gt;idea&lt;/code&gt; 到 &lt;code&gt;ship&lt;/code&gt; 的主干流程，按顺序展开。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;/grill-with-docs&lt;/code&gt;： 通过提问把计划说清楚，并把已经做出的决定记录下来。它和 &lt;code&gt;/grill-me&lt;/code&gt; 的区别是它更适合项目本身已经存在的仓库，&lt;code&gt;/grill-me&lt;/code&gt; 是在项目雏形塑造，还没有建仓库时适合的头脑风暴（初次之外，&lt;code&gt;/wayfinder&lt;/code&gt; 也适合做前期的决策工作，它里面已经内置了 &lt;code&gt;/grill-me&lt;/code&gt; 等 skill，更加适合大型项目的开发方向决策）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;/to-spec&lt;/code&gt;：&lt;/strong&gt; 把已经达成共识的讨论整理成一份书面 spec。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/to-tickets&lt;/code&gt;：把 spec 拆成 agent 可以分别处理的小 tickets。可以让他在本地或者 GitHub issue 上整理 ticket，交给新窗口进行实现&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/implement&lt;/code&gt;：依据已经确认的 ticket 来实现，这是主要写代码的环节，实现每个 ticket 时都建议让模型“implement tickets one by one”，且最好每个解决 ticket 的上下文窗口保持在 150k 左右。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/code-review&lt;/code&gt;：tickets 完成后，对照项目自己的标准和原始探讨出来的 spec，检查看有没有出现开发方向错误的情况。审查最好新开会话来实现，因为模型会对自己写的代码有种自信，让它自测可能会假设漏掉一些条件，切到新窗口后会更好。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这条主干里有两个分支：当某个设计问题需要运行代码才能回答时，可以先绕到 &lt;code&gt;/prototype&lt;/code&gt;；当任务会跨越多个 session 时，就需要把 spec 拆成 tickets，具体的就是执行 &lt;code&gt;/to spec&lt;/code&gt; 后再执行 &lt;code&gt;/to-tickets&lt;/code&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;03-shaping&#34;&gt;
+    03 Shaping
+&lt;/h2&gt;
+&lt;p&gt;探索一个尚未确定的问题，产出可以送回主流程的决定或答案。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;/wayfinder&lt;/code&gt;：把一个规模很大的项目工作整理成决策地图，带你回答一些关键问题，确定大致的开发前进路线&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/prototype&lt;/code&gt;：用一段之后会删除的代码回答设计问题，让可运行的结果帮助你做决定。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;/research&lt;/code&gt;：&lt;/strong&gt; 从 primary sources 中读取资料，给出带引用的答案。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;04-upkeep&#34;&gt;
+    04 Upkeep
+&lt;/h2&gt;
+&lt;p&gt;保持 codebase 和 issue list 处于可工作的状态，同时为主流程产生新的工作。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;/improve-codebase-architecture&lt;/code&gt;：&lt;/strong&gt; 找出值得重构的模块，并用一份可视化报告说明原因和方向。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/diagnosing-bugs&lt;/code&gt;：从一个可复现的失败案例开始，定位比较棘手的 bug。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;/resolving-merge-conflicts&lt;/code&gt;：&lt;/strong&gt; 处理 merge 或 rebase 冲突，直到冲突完成。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;/triage&lt;/code&gt;：&lt;/strong&gt; 把原始 issue 整理成别人可以接手的工作项。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;/wizard&lt;/code&gt;：&lt;/strong&gt; 生成一个脚本，引导人完成只有人能完成的设置步骤。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;05-productivity-skills&#34;&gt;
+    05 Productivity Skills
+&lt;/h2&gt;
+&lt;p&gt;面向人的工作流，主要处理协作、交接和学习，不以写代码为中心。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;/grill-me&lt;/code&gt;：&lt;/strong&gt; 在真正投入一个想法之前，通过追问把双方的理解对齐。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;/handoff&lt;/code&gt;：&lt;/strong&gt; 把一次很长的 session 整理成文档，让另一个 agent 可以继续工作。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;/to-questionnaire&lt;/code&gt;：&lt;/strong&gt; 把尚未回答的问题整理成一份文档，由其他人补充答案。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;/teach&lt;/code&gt;：&lt;/strong&gt; 把一个主题拆成多次 session 学习，每次都建立在前一次的结果上。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;/wait-what&lt;/code&gt;：&lt;/strong&gt; 让 agent 用 plain English 把刚才的内容重新说一遍。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;/writing-for-agents&lt;/code&gt;：&lt;/strong&gt; 说明如何编写 skills，以及其它会被 agent 读取的文档。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;06-reference-skills&#34;&gt;
+    06 Reference Skills
+&lt;/h2&gt;
+&lt;p&gt;其它 skills 可以调用或引用的可复用知识层。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;/codebase-design&lt;/code&gt;：&lt;/strong&gt; 提供设计 deep modules 时使用的词汇和思考方式。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;/domain-modeling&lt;/code&gt;：&lt;/strong&gt; 把项目正在使用的词语磨准，并把它们记录下来。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;/grilling&lt;/code&gt;：&lt;/strong&gt; 其它 skills 用来压力测试计划的一套访谈方法。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;/tdd&lt;/code&gt;：&lt;/strong&gt; &lt;code&gt;red-green-refactor&lt;/code&gt; 循环所遵循的规则。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;若想看实战，Matt 本人也发布了几个从零构建的实战项目，里面详细介绍了他是如何使用它的 skill，还解答了直播间的各种问题，很值得一看！&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://x.com/mattpocockuk/status/2075218406266036236&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Mattpocock Skills 原作者的手把手教程&lt;/a&gt;
+
+&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=K-mA3MZ_EzU&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;从零搭建一个全新项目——2 小时从想法到完整架构设计&lt;/a&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;相关阅读&#34;&gt;
+    相关阅读
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://Jul1en-Lin.github.io/p/%E4%BB%8E-superpower-%E5%88%B0-matt-pocock/&#34;&gt;从 superpower 到 Matt Pocock&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     <item>
       <title>从 superpower 到 Matt Pocock</title>
       <link>https://Jul1en-Lin.github.io/p/%E4%BB%8E-superpower-%E5%88%B0-matt-pocock/</link>
