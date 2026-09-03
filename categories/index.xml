@@ -7,20 +7,20 @@
     <generator>Hugo</generator>
     <language>zh-CN</language>
     <copyright>Jul1en</copyright>
-    <lastBuildDate>Fri, 14 Aug 2026 21:30:08 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 03 Sep 2026 14:59:40 +0800</lastBuildDate>
     <atom:link href="https://Jul1en-Lin.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java</title>
+      <link>https://Jul1en-Lin.github.io/categories/java/</link>
+      <pubDate>Thu, 03 Sep 2026 14:56:16 +0800</pubDate>
+      <guid>https://Jul1en-Lin.github.io/categories/java/</guid>
+      <description></description>
+    </item>
     <item>
       <title>AI</title>
       <link>https://Jul1en-Lin.github.io/categories/ai/</link>
       <pubDate>Fri, 14 Aug 2026 10:00:00 +0800</pubDate>
       <guid>https://Jul1en-Lin.github.io/categories/ai/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Java</title>
-      <link>https://Jul1en-Lin.github.io/categories/java/</link>
-      <pubDate>Mon, 03 Aug 2026 22:00:14 +0800</pubDate>
-      <guid>https://Jul1en-Lin.github.io/categories/java/</guid>
       <description></description>
     </item>
     <item>

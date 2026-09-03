@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>缓存 - Jul1en</title>
+    <link>https://Jul1en-Lin.github.io/tags/%E7%BC%93%E5%AD%98/</link>
+    <description>缓存 - Jul1en</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <copyright>Jul1en</copyright>
+    <lastBuildDate>Thu, 03 Sep 2026 14:59:40 +0800</lastBuildDate>
+    <atom:link href="https://Jul1en-Lin.github.io/tags/%E7%BC%93%E5%AD%98/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Caffeine 介绍</title>
+      <link>https://Jul1en-Lin.github.io/p/caffeine-%E4%BB%8B%E7%BB%8D/</link>
+      <pubDate>Thu, 03 Sep 2026 14:56:16 +0800</pubDate>
+      <guid>https://Jul1en-Lin.github.io/p/caffeine-%E4%BB%8B%E7%BB%8D/</guid>
+      <description>&lt;h1 id=&#34;caffeine-介绍&#34;&gt;
+    Caffeine 介绍
+&lt;/h1&gt;
+&lt;p&gt;以下介绍基于官方 wiki 解释&lt;/p&gt;
+&lt;p&gt;Caffeine 是一个基于 Java 8 开发的提供了&lt;a class=&#34;link&#34; href=&#34;https://github.com/ben-manes/caffeine/wiki/Efficiency-zh-CN&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;近乎最佳&lt;/a&gt;
+命中率的&lt;a class=&#34;link&#34; href=&#34;https://github.com/ben-manes/caffeine/wiki/Benchmarks-zh-CN&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;高性能&lt;/a&gt;
+的缓存库。&lt;/p&gt;
+&lt;p&gt;Caffeine 提供了灵活的构造器去创建一个拥有下列特性的缓存：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/ben-manes/caffeine/wiki/Population-zh-CN&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;自动加载&lt;/a&gt;
+元素到缓存当中，异步加载的方式也可供选择&lt;/li&gt;
+&lt;li&gt;当达到最大容量的时候可以使用基于&lt;a class=&#34;link&#34; href=&#34;https://github.com/ben-manes/caffeine/wiki/Efficiency-zh-CN&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;就近度和频率&lt;/a&gt;
+的算法进行&lt;a class=&#34;link&#34; href=&#34;https://github.com/ben-manes/caffeine/wiki/Eviction-zh-CN#%E5%9F%BA%E4%BA%8E%E5%AE%B9%E9%87%8F&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;基于容量的驱逐&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;将根据缓存中的元素上一次访问或者被修改的时间进行&lt;a class=&#34;link&#34; href=&#34;https://github.com/ben-manes/caffeine/wiki/Eviction-zh-CN#%E5%9F%BA%E4%BA%8E%E6%97%B6%E9%97%B4&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;基于过期时间的驱逐&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;当向缓存中一个已经过时的元素进行访问的时候将会进行&lt;a class=&#34;link&#34; href=&#34;https://github.com/ben-manes/caffeine/wiki/Refresh-zh-CN&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;异步刷新&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;key 将自动被&lt;a class=&#34;link&#34; href=&#34;https://github.com/ben-manes/caffeine/wiki/Eviction-zh-CN#%E5%9F%BA%E4%BA%8E%E5%BC%95%E7%94%A8&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;弱引用&lt;/a&gt;
+所封装&lt;/li&gt;
+&lt;li&gt;value 将自动被&lt;a class=&#34;link&#34; href=&#34;https://github.com/ben-manes/caffeine/wiki/Eviction-zh-CN#%E5%9F%BA%E4%BA%8E%E5%BC%95%E7%94%A8&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;弱引用或者软引用&lt;/a&gt;
+所封装&lt;/li&gt;
+&lt;li&gt;驱逐(或移除)缓存中的元素时将会进行&lt;a class=&#34;link&#34; href=&#34;https://github.com/ben-manes/caffeine/wiki/Removal-zh-CN&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;通知&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/ben-manes/caffeine/wiki/Writer-zh-CN&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;写入传播&lt;/a&gt;
+到一个外部数据源当中&lt;/li&gt;
+&lt;li&gt;持续计算缓存的访问&lt;a class=&#34;link&#34; href=&#34;https://github.com/ben-manes/caffeine/wiki/Statistics-zh-CN&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;统计指标&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;为了提高集成度，扩展模块提供了 &lt;a class=&#34;link&#34; href=&#34;https://github.com/ben-manes/caffeine/wiki/JCache-zh-CN&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;JSR-107 JCache&lt;/a&gt;
+和&lt;a class=&#34;link&#34; href=&#34;https://github.com/ben-manes/caffeine/wiki/Guava-zh-CN&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Guava&lt;/a&gt;
+ 适配器。JSR-107 规范了基于 Java 6 的 API，在牺牲了功能和性能的代价下使代码更加规范。Guava 的 Cache 是 Caffeine 的原型库并且 Caffeine 提供了适配器以供简单的迁移策略。&lt;/p&gt;
+&lt;h2 id=&#34;与-concurrentmap-的区别&#34;&gt;
+    与 ConcurrentMap 的区别
+&lt;/h2&gt;
+&lt;p&gt;缓存和 ConcurrentMap 有点相似，但还是有所区别。最根本的区别是 &lt;a class=&#34;link&#34; href=&#34;https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ConcurrentMap.html&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;ConcurrentMap&lt;/a&gt;
+ 将会持有所有加入到缓存当中的元素，直到它们被从缓存当中手动移除。但是，Caffeine 的缓存 &lt;code&gt;Cache&lt;/code&gt; 通常会被配置成自动驱逐缓存中元素，以限制其内存占用。在某些场景下，&lt;code&gt;LoadingCache&lt;/code&gt; 和 &lt;code&gt;AsyncLoadingCache&lt;/code&gt; 因为其自动加载缓存的能力将会变得非常实用。&lt;/p&gt;
+&lt;p&gt;展开记几个具体方面：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;内存限制：&lt;/strong&gt; ConcurrentMap 没有容量概念，放进去多少就持有多少，清理全靠手动 &lt;code&gt;remove&lt;/code&gt;，忘了删就一直占着堆。&lt;code&gt;Cache&lt;/code&gt; 从设计上就把清理纳入自身职责，&lt;code&gt;maximumSize&lt;/code&gt;、&lt;code&gt;expireAfterWrite&lt;/code&gt; 这些配置让内存占用有上限。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;自动淘汰机制：&lt;/strong&gt; 缓存满了要淘汰掉谁？Caffeine 按访问频率和新近度（W-TinyLFU 算法）挑选牺牲品，热门数据留存，一阵扫描式查询也不会把热数据冲掉。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;过期判定：&lt;/strong&gt; 过期的键值对不会在到期那一瞬间消失，读取时才判定，清理由后台任务异步执行。语义上读不到过期值，行为是对的，只是 &lt;code&gt;estimatedSize()&lt;/code&gt; 可能短暂偏大。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;自动加载：&lt;/strong&gt; &lt;code&gt;LoadingCache&lt;/code&gt; 在 miss 时自动执行 loader，查缓存、只需填一行 &lt;code&gt;get(key)&lt;/code&gt; 。&lt;/p&gt;
+&lt;h2 id=&#34;异步刷新策略&#34;&gt;
+    异步刷新策略
+&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;LoadingCache&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Key&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Graph&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;graphs&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Caffeine&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;newBuilder&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;maximumSize&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;10_000&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;expireAfterWrite&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Duration&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;ofMinutes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;refreshAfterWrite&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Duration&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;ofMinutes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;build&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;key&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;createExpensiveGraph&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;key&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;刷新和驱逐并不相同。可以通过 &lt;code&gt;LoadingCache.refresh(K)&lt;/code&gt; 方法，异步为 key 对应的缓存元素刷新一个新的值。与驱逐不同的是，在刷新的时候如果查询缓存元素，其旧值将仍被返回，直到该元素的刷新完毕后结束后才会返回刷新后的新值。&lt;/p&gt;
+&lt;p&gt;与 &lt;code&gt;expireAfterWrite&lt;/code&gt; 相反，&lt;code&gt;refreshAfterWrite&lt;/code&gt; 将会使在写操作之后的一段时间后允许 key 对应的缓存元素进行刷新，但是只有在这个 key 被真正查询到的时候才会正式进行刷新操作。所以打个比方，你可以在同一个缓存中同时用到 &lt;code&gt;refreshAfterWrite&lt;/code&gt; 和 &lt;code&gt;expireAfterWrite&lt;/code&gt; ，这样缓存元素的在被允许刷新的时候不会直接刷新使得过期时间被盲目重置。当一个元素在其被允许刷新但是没有被主动查询的时候，这个元素也会被视为过期。&lt;/p&gt;
+&lt;p&gt;一个 &lt;code&gt;CacheLoader&lt;/code&gt; 可以通过覆盖重写 &lt;code&gt;CacheLoader.reload(K, V)&lt;/code&gt; 方法使得在刷新中可以将旧值也参与到更新的过程中去，这也使得刷新操作显得更加智能。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;LoadingCache.refresh(K)&lt;/code&gt; 可用于显式刷新条目，并在请求飞行时重复请求。返回的未来值可用于实现后备缓存，在后备缓存中，条目会被重新加载以从源获取最新值，但如果失败，则会查找并返回缓存值。&lt;/p&gt;
+&lt;p&gt;更新操作将会异步执行在一个 &lt;a class=&#34;link&#34; href=&#34;http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Executor.html&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Executor&lt;/a&gt;
+上。默认的线程池实现是&lt;a class=&#34;link&#34; href=&#34;https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ForkJoinPool.html&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;ForkJoinPool.commonPool()&lt;/a&gt;
+ 当然也可以通过覆盖 &lt;code&gt;Caffeine.executor(Executor)&lt;/code&gt; 方法自定义线程池的实现。&lt;/p&gt;
+&lt;p&gt;在刷新的过程中，如果抛出任何异常，都会使旧值被保留，并且异常将会被打印日志 (通过 &lt;a class=&#34;link&#34; href=&#34;http://docs.oracle.com/javase/8/docs/api/java/util/logging/package-summary.html&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;System.Logger&lt;/a&gt;
+ )并被吞食。&lt;/p&gt;
+</description>
+    </item>
+  </channel>
+</rss>
